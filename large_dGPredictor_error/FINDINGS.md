@@ -190,11 +190,29 @@ rxn01005 degraded 1.5 → 39.5 because its best reference was itself bad.
 
 ## Unmodelled experimental variables
 
-TECRDB reports `ionic_strength` in 25% of records and `p_mg` in 34%; 70% of our
-130 have neither. Where pMg is reported the median implies free [Mg²⁺] ≈ 4 mM
-(90th pct 50 mM), and those reactions carry MAE 44.5 vs 36.4 for the rest. With
-logK ≈ 4–5 for ATP/ADP/PPi that is 10+ kJ/mol unmodelled. Ionic strength is
-fine — our 0.25 M assumption matches the TECRDB median where known.
+TECRDB reports `ionic_strength` in 25% of records and `p_mg` in 34%. Ionic
+strength is fine — our 0.25 M assumption matches the TECRDB median where known.
+
+**Mg²⁺ speciation — measured, small, NOT applied** (`mg_speciation.py`, added
+2026-07-23). The composite is computed at pMg = ∞ (no Mg); many nucleotide/
+phosphate measurements are in an Mg buffer at pMg 2–4. Mg enters the Alberty
+transform like the proton — each binding species shifts by −RT ln(1 + K_Mg[Mg²⁺])
+with tabulated log K (NTP ≈ 4.0, NDP/PPi ≈ 3.0–3.3, PRPP ≈ 4.2, mono-P/Pi ≈
+1.6–1.9). On the 14 Mg-buffered reactions the **net** per-reaction correction is
++0.3 kJ/mol mean (range −4.2 … +3.2), and it moves MAE 35.5 → 36.4 — i.e. it
+does not help.
+
+This **corrects an earlier claim** here that Mg was "10+ kJ/mol unmodelled": that
+was a per-*species* figure. These are phosphoryl-transfer reactions with strong
+Mg binders on both sides (e.g. UTP + glucose-1-P → PPi + UDP-glucose: log K
+4.0+1.6 vs 3.3+3.0), so Mg largely cancels and the net term is ≤4 kJ/mol —
+verified not to be a missing-binder artifact. The "pMg-reported reactions have
+higher error" correlation is **confounding, not causal**: TECRDB buffers Mg
+precisely for the polyphosphate reactions, which are where the continuum
+anion-solvation error is worst. The error rides on the phosphates, not the Mg.
+So Mg is ruled out as the culprit, and the correction is kept as a diagnostic
+only — never added to the reported composite (caveats: single-microspecies
+approximation, ~2–3 kJ/mol per-K uncertainty, median-pMg vs per-measurement).
 
 ## Retracted numbers
 
