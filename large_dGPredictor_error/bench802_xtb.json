@@ -1,0 +1,508 @@
+{
+ "cpd01691": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd01691/conf_000.xyz",
+   "dGsolv_kJ": -24.75381086969804,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd01691/conf_001.xyz",
+   "dGsolv_kJ": -26.347640552676364,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 5.740931727694447,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 2,
+   "xyz": "geometries_bench802/cpd01691/conf_002.xyz",
+   "dGsolv_kJ": -27.893333130616146,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 16.305604953460957,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 3,
+   "xyz": "geometries_bench802/cpd01691/conf_003.xyz",
+   "dGsolv_kJ": -28.126255502056104,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 16.480701931993405,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 4,
+   "xyz": "geometries_bench802/cpd01691/conf_004.xyz",
+   "dGsolv_kJ": -28.59132830344809,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.948315606952036,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 5,
+   "xyz": "geometries_bench802/cpd01691/conf_005.xyz",
+   "dGsolv_kJ": -29.429154541430346,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 20.261003114920012,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 6,
+   "xyz": "geometries_bench802/cpd01691/conf_006.xyz",
+   "dGsolv_kJ": -29.711030905305254,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 21.094501723491536,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 7,
+   "xyz": "geometries_bench802/cpd01691/conf_007.xyz",
+   "dGsolv_kJ": -30.992172048491124,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 21.717875061060766,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 8,
+   "xyz": "geometries_bench802/cpd01691/conf_008.xyz",
+   "dGsolv_kJ": -30.771638847995792,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 22.003976473494923,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 9,
+   "xyz": "geometries_bench802/cpd01691/conf_009.xyz",
+   "dGsolv_kJ": -29.933038074431945,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 22.238550657049302,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 10,
+   "xyz": "geometries_bench802/cpd01691/conf_010.xyz",
+   "dGsolv_kJ": -29.99590401448288,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 22.574770190057937,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 11,
+   "xyz": "geometries_bench802/cpd01691/conf_011.xyz",
+   "dGsolv_kJ": -31.07661642394505,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.007409506507468,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 12,
+   "xyz": "geometries_bench802/cpd01691/conf_012.xyz",
+   "dGsolv_kJ": -30.055068375472853,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.187292621205298,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 13,
+   "xyz": "geometries_bench802/cpd01691/conf_013.xyz",
+   "dGsolv_kJ": -30.01802760605495,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.354265778726194,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 14,
+   "xyz": "geometries_bench802/cpd01691/conf_014.xyz",
+   "dGsolv_kJ": -29.80548228863092,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.689941331856843,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 15,
+   "xyz": "geometries_bench802/cpd01691/conf_015.xyz",
+   "dGsolv_kJ": -29.562086796538825,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.69713858512338,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 16,
+   "xyz": "geometries_bench802/cpd01691/conf_016.xyz",
+   "dGsolv_kJ": -29.447130166488556,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.862044180074175,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 17,
+   "xyz": "geometries_bench802/cpd01691/conf_017.xyz",
+   "dGsolv_kJ": -29.895107588793405,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.030381759897477,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 18,
+   "xyz": "geometries_bench802/cpd01691/conf_018.xyz",
+   "dGsolv_kJ": -28.847010115206142,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.468286064248872,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 19,
+   "xyz": "geometries_bench802/cpd01691/conf_019.xyz",
+   "dGsolv_kJ": -30.040989054920406,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.58208163271733,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 20,
+   "xyz": "geometries_bench802/cpd01691/conf_020.xyz",
+   "dGsolv_kJ": -29.959545318353534,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.726214657813614,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 21,
+   "xyz": "geometries_bench802/cpd01691/conf_021.xyz",
+   "dGsolv_kJ": -29.913060033339264,
+   "G_RRHO_kJ": 2102.343248311234,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.96770336510225,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd04130": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd04130/conf_000.xyz",
+   "dGsolv_kJ": -2583.23777048692,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd04130/conf_001.xyz",
+   "dGsolv_kJ": -2583.856982956233,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 2.1642417883910294,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 2,
+   "xyz": "geometries_bench802/cpd04130/conf_002.xyz",
+   "dGsolv_kJ": -2643.364390169225,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 4.023999571113546,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 3,
+   "xyz": "geometries_bench802/cpd04130/conf_003.xyz",
+   "dGsolv_kJ": -2644.635323632308,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 4.573535410009638,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 4,
+   "xyz": "geometries_bench802/cpd04130/conf_004.xyz",
+   "dGsolv_kJ": -2615.966562552403,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.23912072450539,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 5,
+   "xyz": "geometries_bench802/cpd04130/conf_005.xyz",
+   "dGsolv_kJ": -2625.3639194514876,
+   "G_RRHO_kJ": 1654.5679171929064,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.534220808511805,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd02234": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd02234/conf_000.xyz",
+   "dGsolv_kJ": -2512.688550757616,
+   "G_RRHO_kJ": 1553.2214693016172,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd02234/conf_001.xyz",
+   "dGsolv_kJ": -2720.5940566499444,
+   "G_RRHO_kJ": 1553.2214693016172,
+   "g_tot_kJ": null,
+   "rel_kJ": 6.391396916083937,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd03125": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd03125/conf_000.xyz",
+   "dGsolv_kJ": -2690.2638202222224,
+   "G_RRHO_kJ": 1618.759641279945,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd03125/conf_001.xyz",
+   "dGsolv_kJ": -2649.614324886433,
+   "G_RRHO_kJ": 1618.759641279945,
+   "g_tot_kJ": null,
+   "rel_kJ": 5.136615597588817,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 2,
+   "xyz": "geometries_bench802/cpd03125/conf_002.xyz",
+   "dGsolv_kJ": -2637.807654015487,
+   "G_RRHO_kJ": 1618.759641279945,
+   "g_tot_kJ": null,
+   "rel_kJ": 5.724430173685178,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 3,
+   "xyz": "geometries_bench802/cpd03125/conf_003.xyz",
+   "dGsolv_kJ": -2675.5516182423794,
+   "G_RRHO_kJ": 1618.759641279945,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.078585678469238,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd03763": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd03763/conf_000.xyz",
+   "dGsolv_kJ": -2823.1938788255193,
+   "G_RRHO_kJ": 1582.1549748483048,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd01133": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd01133/conf_000.xyz",
+   "dGsolv_kJ": -195.141594409324,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd01133/conf_001.xyz",
+   "dGsolv_kJ": -192.5830905924687,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 5.458462258201851,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 2,
+   "xyz": "geometries_bench802/cpd01133/conf_002.xyz",
+   "dGsolv_kJ": -205.7008436232811,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 20.15828900070449,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 3,
+   "xyz": "geometries_bench802/cpd01133/conf_003.xyz",
+   "dGsolv_kJ": -233.58137791319098,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 21.271449799982488,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 4,
+   "xyz": "geometries_bench802/cpd01133/conf_004.xyz",
+   "dGsolv_kJ": -220.73536561772056,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 23.715666386898572,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 5,
+   "xyz": "geometries_bench802/cpd01133/conf_005.xyz",
+   "dGsolv_kJ": -210.3935877728636,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.0130663272554,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 6,
+   "xyz": "geometries_bench802/cpd01133/conf_006.xyz",
+   "dGsolv_kJ": -214.0418396641699,
+   "G_RRHO_kJ": 1594.6074991545497,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.151679286582226,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd00078": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd00078/conf_000.xyz",
+   "dGsolv_kJ": -3826.2048257614715,
+   "G_RRHO_kJ": 1472.2538171805913,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 1,
+   "imag_cm": -4.36
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd00078/conf_001.xyz",
+   "dGsolv_kJ": -3887.741263001675,
+   "G_RRHO_kJ": 1472.2538171805913,
+   "g_tot_kJ": null,
+   "rel_kJ": 12.280777935157463,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 2,
+   "xyz": "geometries_bench802/cpd00078/conf_002.xyz",
+   "dGsolv_kJ": -3753.3809476514903,
+   "G_RRHO_kJ": 1472.2538171805913,
+   "g_tot_kJ": null,
+   "rel_kJ": 18.619561828597565,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 3,
+   "xyz": "geometries_bench802/cpd00078/conf_003.xyz",
+   "dGsolv_kJ": -3983.6217752471334,
+   "G_RRHO_kJ": 1472.2538171805913,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.432648358989745,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 4,
+   "xyz": "geometries_bench802/cpd00078/conf_004.xyz",
+   "dGsolv_kJ": -3827.557835270696,
+   "G_RRHO_kJ": 1472.2538171805913,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.218812031157043,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ],
+ "cpd00519": [
+  {
+   "conf": 0,
+   "xyz": "geometries_bench802/cpd00519/conf_000.xyz",
+   "dGsolv_kJ": -3849.1476771855614,
+   "G_RRHO_kJ": 1467.9920573506236,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  },
+  {
+   "conf": 1,
+   "xyz": "geometries_bench802/cpd00519/conf_001.xyz",
+   "dGsolv_kJ": -3996.6016631370917,
+   "G_RRHO_kJ": 1467.9920573506236,
+   "g_tot_kJ": null,
+   "rel_kJ": 22.107178725904507,
+   "n_imag": -1,
+   "imag_cm": 0.0
+  }
+ ]
+}

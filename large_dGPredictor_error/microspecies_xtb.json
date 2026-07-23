@@ -1,0 +1,458 @@
+{
+ "h2o": [
+  {
+   "conf": 0,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/h2o/conf_000.xyz",
+   "dGsolv_kJ": -38.05878045846678,
+   "G_RRHO_kJ": 5.374555469544253,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0
+  }
+ ],
+ "cpd00428_hydrate": [
+  {
+   "conf": 0,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00428_hydrate/conf_000.xyz",
+   "dGsolv_kJ": -39.85115899110768,
+   "G_RRHO_kJ": 151.15344926605346,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0
+  },
+  {
+   "conf": 1,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00428_hydrate/conf_001.xyz",
+   "dGsolv_kJ": -39.91658207590805,
+   "G_RRHO_kJ": 151.15344926605346,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.06207806960710576,
+   "n_imag": -1
+  }
+ ],
+ "cpd00042_thiol": [
+  {
+   "conf": 0,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_000.xyz",
+   "dGsolv_kJ": -292.8828836880485,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0
+  },
+  {
+   "conf": 1,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_001.xyz",
+   "dGsolv_kJ": -298.47063120377913,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 1.0551425844748763,
+   "n_imag": -1
+  },
+  {
+   "conf": 2,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_002.xyz",
+   "dGsolv_kJ": -298.4316140711206,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 1.1387357782014977,
+   "n_imag": -1
+  },
+  {
+   "conf": 3,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_003.xyz",
+   "dGsolv_kJ": -300.94087178511796,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 1.5012106410532438,
+   "n_imag": -1
+  },
+  {
+   "conf": 4,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_004.xyz",
+   "dGsolv_kJ": -300.69905256946976,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 1.5323104587785505,
+   "n_imag": -1
+  },
+  {
+   "conf": 5,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_005.xyz",
+   "dGsolv_kJ": -320.56401847678,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 2.419259928967792,
+   "n_imag": -1
+  },
+  {
+   "conf": 6,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_006.xyz",
+   "dGsolv_kJ": -320.5334564873858,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 2.4644306604225235,
+   "n_imag": -1
+  },
+  {
+   "conf": 7,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_007.xyz",
+   "dGsolv_kJ": -299.47456490123415,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 5.99800362860792,
+   "n_imag": -1
+  },
+  {
+   "conf": 8,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_008.xyz",
+   "dGsolv_kJ": -298.8475953852782,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 6.004804315929204,
+   "n_imag": -1
+  },
+  {
+   "conf": 9,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_009.xyz",
+   "dGsolv_kJ": -298.8866645448363,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 6.092353525886861,
+   "n_imag": -1
+  },
+  {
+   "conf": 10,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_010.xyz",
+   "dGsolv_kJ": -303.7578696731086,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 7.585597353459678,
+   "n_imag": -1
+  },
+  {
+   "conf": 11,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_011.xyz",
+   "dGsolv_kJ": -303.6792344912383,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 7.680433461765887,
+   "n_imag": -1
+  },
+  {
+   "conf": 12,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_012.xyz",
+   "dGsolv_kJ": -304.2524910498473,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 7.685299673069803,
+   "n_imag": -1
+  },
+  {
+   "conf": 13,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_013.xyz",
+   "dGsolv_kJ": -313.0169080993775,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 8.981598279848345,
+   "n_imag": -1
+  },
+  {
+   "conf": 14,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_014.xyz",
+   "dGsolv_kJ": -312.64071789421155,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 9.03046218615275,
+   "n_imag": -1
+  },
+  {
+   "conf": 15,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_015.xyz",
+   "dGsolv_kJ": -302.02110832806426,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.064974644636253,
+   "n_imag": -1
+  },
+  {
+   "conf": 16,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_016.xyz",
+   "dGsolv_kJ": -301.5173204813641,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.067813358493211,
+   "n_imag": -1
+  },
+  {
+   "conf": 17,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_017.xyz",
+   "dGsolv_kJ": -301.52323564278026,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.115347727527421,
+   "n_imag": -1
+  },
+  {
+   "conf": 18,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_018.xyz",
+   "dGsolv_kJ": -295.28395831955356,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.461567037763935,
+   "n_imag": -1
+  },
+  {
+   "conf": 19,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_019.xyz",
+   "dGsolv_kJ": -307.0470568973473,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.7510755663285,
+   "n_imag": -1
+  },
+  {
+   "conf": 20,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_020.xyz",
+   "dGsolv_kJ": -307.5386249230531,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 10.81598964289032,
+   "n_imag": -1
+  },
+  {
+   "conf": 21,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_021.xyz",
+   "dGsolv_kJ": -306.885603427453,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 11.41359376191249,
+   "n_imag": -1
+  },
+  {
+   "conf": 22,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_022.xyz",
+   "dGsolv_kJ": -306.31818847425234,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 11.449935171782492,
+   "n_imag": -1
+  },
+  {
+   "conf": 23,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_023.xyz",
+   "dGsolv_kJ": -306.0648246794032,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 11.494609573539572,
+   "n_imag": -1
+  },
+  {
+   "conf": 24,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_024.xyz",
+   "dGsolv_kJ": -294.4703691320347,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 12.394128452563866,
+   "n_imag": -1
+  },
+  {
+   "conf": 25,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_025.xyz",
+   "dGsolv_kJ": -296.856216978841,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 15.478687679609905,
+   "n_imag": -1
+  },
+  {
+   "conf": 26,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_026.xyz",
+   "dGsolv_kJ": -304.7058500375644,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 15.752066222721425,
+   "n_imag": -1
+  },
+  {
+   "conf": 27,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_027.xyz",
+   "dGsolv_kJ": -298.7573624210908,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 16.3702699095004,
+   "n_imag": -1
+  },
+  {
+   "conf": 28,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_028.xyz",
+   "dGsolv_kJ": -298.8005584223896,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 16.403078315766358,
+   "n_imag": -1
+  },
+  {
+   "conf": 29,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_029.xyz",
+   "dGsolv_kJ": -298.93319289329037,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 16.498200304223328,
+   "n_imag": -1
+  },
+  {
+   "conf": 30,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_030.xyz",
+   "dGsolv_kJ": -289.82448979135023,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 17.10980209340613,
+   "n_imag": -1
+  },
+  {
+   "conf": 31,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_031.xyz",
+   "dGsolv_kJ": -289.879026997996,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 17.14819852911357,
+   "n_imag": -1
+  },
+  {
+   "conf": 32,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_032.xyz",
+   "dGsolv_kJ": -300.2058614808427,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 17.55762390501387,
+   "n_imag": -1
+  },
+  {
+   "conf": 33,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_033.xyz",
+   "dGsolv_kJ": -305.98141105145396,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.00447106866518,
+   "n_imag": -1
+  },
+  {
+   "conf": 34,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_034.xyz",
+   "dGsolv_kJ": -305.78057604532205,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.015382747552508,
+   "n_imag": -1
+  },
+  {
+   "conf": 35,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_035.xyz",
+   "dGsolv_kJ": -297.7720764005063,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.762554153484047,
+   "n_imag": -1
+  },
+  {
+   "conf": 36,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_036.xyz",
+   "dGsolv_kJ": -298.2029150889258,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.78429321435184,
+   "n_imag": -1
+  },
+  {
+   "conf": 37,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_037.xyz",
+   "dGsolv_kJ": -298.3522475510907,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 19.798863834201114,
+   "n_imag": -1
+  },
+  {
+   "conf": 38,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_038.xyz",
+   "dGsolv_kJ": -306.63692765645834,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 21.68134554207089,
+   "n_imag": -1
+  },
+  {
+   "conf": 39,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_039.xyz",
+   "dGsolv_kJ": -280.2684989989155,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 22.40947169175634,
+   "n_imag": -1
+  },
+  {
+   "conf": 40,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_040.xyz",
+   "dGsolv_kJ": -311.79495530110296,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 24.779166170411177,
+   "n_imag": -1
+  },
+  {
+   "conf": 41,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_041.xyz",
+   "dGsolv_kJ": -309.718173187915,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 25.662030588889007,
+   "n_imag": -1
+  },
+  {
+   "conf": 42,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_042.xyz",
+   "dGsolv_kJ": -299.71929508449534,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 26.6965095302586,
+   "n_imag": -1
+  },
+  {
+   "conf": 43,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_043.xyz",
+   "dGsolv_kJ": -292.296163871825,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 27.428827731237895,
+   "n_imag": -1
+  },
+  {
+   "conf": 44,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_044.xyz",
+   "dGsolv_kJ": -292.54375868786656,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 27.4916142262516,
+   "n_imag": -1
+  },
+  {
+   "conf": 45,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_045.xyz",
+   "dGsolv_kJ": -292.2620348628702,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 27.495772760394225,
+   "n_imag": -1
+  },
+  {
+   "conf": 46,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_microspecies/cpd00042_thiol/conf_046.xyz",
+   "dGsolv_kJ": -288.3317233005918,
+   "G_RRHO_kJ": 576.1999444052118,
+   "g_tot_kJ": null,
+   "rel_kJ": 27.743101500412447,
+   "n_imag": -1
+  }
+ ]
+}

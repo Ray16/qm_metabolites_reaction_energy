@@ -1,0 +1,32 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Model weights (too large for GitHub; download separately) ---
+models/
+*.model
+*.jpt
+*.pt
+*.ckpt
+*.npz
+
+# --- Third-party clone (install aimnet2 from source) ---
+aimnet2_workflow/aimnet2/
+
+# --- Regenerable QM geometry dumps (xyz), scratch, and logs ---
+**/geometries/
+**/geometries_*/
+scratch/
+scratch_*/
+*.log
+*.out
+hessian
+
+# --- Local-only archive of superseded material ---
+backup/
+
+# --- OS / editor ---
+.DS_Store
+*.swp

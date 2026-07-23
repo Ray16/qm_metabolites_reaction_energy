@@ -1,0 +1,117 @@
+{
+ "cpd00003": {
+  "name": "NAD",
+  "charge": -1,
+  "n_hydrogens": 26
+ },
+ "cpd00004": {
+  "name": "NADH",
+  "charge": -2,
+  "n_hydrogens": 27
+ },
+ "cpd00005": {
+  "name": "NADPH",
+  "charge": -4,
+  "n_hydrogens": 26
+ },
+ "cpd00006": {
+  "name": "NADP",
+  "charge": -3,
+  "n_hydrogens": 25
+ },
+ "cpd00012": {
+  "name": "PPi",
+  "charge": -3,
+  "n_hydrogens": 1
+ },
+ "cpd00014": {
+  "name": "UDP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00026": {
+  "name": "UDP-glucose",
+  "charge": -2,
+  "n_hydrogens": 22
+ },
+ "cpd00042": {
+  "name": "GSH",
+  "charge": -2,
+  "n_hydrogens": 15
+ },
+ "cpd00062": {
+  "name": "UTP",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd00076": {
+  "name": "Sucrose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00079": {
+  "name": "D-glucose-6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00082": {
+  "name": "D-Fructose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00089": {
+  "name": "Glucose-1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00111": {
+  "name": "Oxidized glutathione",
+  "charge": -2,
+  "n_hydrogens": 30
+ },
+ "cpd00144": {
+  "name": "UDPglucuronate",
+  "charge": -3,
+  "n_hydrogens": 19
+ },
+ "cpd00357": {
+  "name": "TTP",
+  "charge": -3,
+  "n_hydrogens": 14
+ },
+ "cpd00373": {
+  "name": "Sinapate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00428": {
+  "name": "2-Oxopropanal",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00523": {
+  "name": "Trehalose 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00626": {
+  "name": "dTDPglucose",
+  "charge": -2,
+  "n_hydrogens": 24
+ },
+ "cpd00865": {
+  "name": "1-O-Sinapoyl-beta-D-glucose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00880": {
+  "name": "1-Phospho-alpha-D-glucuronate",
+  "charge": -3,
+  "n_hydrogens": 8
+ },
+ "cpd02182": {
+  "name": "(R)-S-Lactoylglutathione",
+  "charge": -1,
+  "n_hydrogens": 20
+ }
+}

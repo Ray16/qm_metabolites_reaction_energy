@@ -1,0 +1,262 @@
+{
+ "acetic_A": {
+  "G": -50750.53541032061,
+  "E": -50847.33573058959,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_acetic_A_0_nh1lv7jm/xtbopt.xyz"
+ },
+ "EtSH_AH": {
+  "G": -40977.58077005861,
+  "E": -41130.176855607,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_EtSH_AH_1_30cnuuln/xtbopt.xyz"
+ },
+ "MeSH_A": {
+  "G": -32202.57792319101,
+  "E": -32272.559685433956,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeSH_A_3_cfhnlh0n/xtbopt.xyz"
+ },
+ "propanoic_A": {
+  "G": -59112.061465475395,
+  "E": -59272.1206512125,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_propanoic_A_5_82e_3vhd/xtbopt.xyz"
+ },
+ "lactic_A": {
+  "G": -69677.36305284116,
+  "E": -69850.44712398754,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_lactic_A_5_84v96jdx/xtbopt.xyz"
+ },
+ "EtSH_A": {
+  "G": -40438.79979456566,
+  "E": -40580.412462309294,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_EtSH_A_2_s98dlr4r/xtbopt.xyz"
+ },
+ "propanoic_AH": {
+  "G": -59473.39932403789,
+  "E": -59668.18368391365,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_propanoic_AH_0_qsajxshu/xtbopt.xyz"
+ },
+ "acetic_AH": {
+  "G": -51234.22295035436,
+  "E": -51358.056684196396,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_acetic_AH_5_756n7csr/xtbopt.xyz"
+ },
+ "MeSH_AH": {
+  "G": -32734.574031272354,
+  "E": -32825.28509525697,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeSH_AH_5_afxmnatc/xtbopt.xyz"
+ },
+ "phenol_A": {
+  "G": -64997.59315304784,
+  "E": -65200.762409295385,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_phenol_A_2_jq6msthz/xtbopt.xyz"
+ },
+ "lactic_AH": {
+  "G": -70143.0080175971,
+  "E": -70345.38462544007,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_lactic_AH_1_2lml9q2y/xtbopt.xyz"
+ },
+ "phenol_AH": {
+  "G": -65535.21289952957,
+  "E": -65764.96269548655,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_phenol_AH_0_8zu7v5du/xtbopt.xyz"
+ },
+ "MeNH3_A": {
+  "G": -33150.4650358794,
+  "E": -33286.41824077104,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeNH3_A_5_1px_fb1t/xtbopt.xyz"
+ },
+ "H2PO4_A": {
+  "G": -66114.81759531655,
+  "E": -66146.25439082184,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_H2PO4_A_4_0pbjjsd1/xtbopt.xyz"
+ },
+ "H2PO4_AH": {
+  "G": -66627.58792917467,
+  "E": -66684.08267158215,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_H2PO4_AH_4_ekcpoahc/xtbopt.xyz"
+ },
+ "MeOPO3H_A": {
+  "G": -74334.48526658007,
+  "E": -74433.9310093648,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeOPO3H_A_2_waaif2xx/xtbopt.xyz"
+ },
+ "MeNH3_AH": {
+  "G": -33650.544405070934,
+  "E": -33827.54605131281,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeNH3_AH_3_rbvlbef1/xtbopt.xyz"
+ },
+ "MeOPO3H_AH": {
+  "G": -74836.41851519188,
+  "E": -74962.09231432747,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_MeOPO3H_AH_5_8tujprym/xtbopt.xyz"
+ },
+ "imidazolium_A": {
+  "G": -50781.38417129862,
+  "E": -50931.604291118296,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_imidazolium_A_3_uvl34g8r/xtbopt.xyz"
+ },
+ "malonate2_A": {
+  "G": -77296.70626998367,
+  "E": -77389.91106566416,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_malonate2_A_1_qxqld1f_/xtbopt.xyz"
+ },
+ "malonate2_AH": {
+  "G": -77781.22837741437,
+  "E": -77901.75559469748,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_malonate2_AH_1_kc293_ex/xtbopt.xyz"
+ },
+ "imidazolium_AH": {
+  "G": -51264.68135355307,
+  "E": -51450.50129736116,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_imidazolium_AH_1__jycg9r1/xtbopt.xyz"
+ },
+ "succinate2_A": {
+  "G": -85521.51293427413,
+  "E": -85685.41743434394,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_succinate2_A_4_7nio1qfm/xtbopt.xyz"
+ },
+ "pyridinium_A": {
+  "G": -55576.144578957574,
+  "E": -55768.422116606314,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_pyridinium_A_2_r4p88349/xtbopt.xyz"
+ },
+ "succinate2_AH": {
+  "G": -86015.36434646984,
+  "E": -86209.65964127431,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_succinate2_AH_2_wmaswhoa/xtbopt.xyz"
+ },
+ "pyridinium_AH": {
+  "G": -56055.21964181888,
+  "E": -56279.24430341692,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_pyridinium_AH_2_mr4_ke07/xtbopt.xyz"
+ },
+ "phosphate3_A": {
+  "G": -65572.74099024023,
+  "E": -65581.18524399975,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_phosphate3_A_0_kmi3v88j/xtbopt.xyz"
+ },
+ "PPi4_AH": {
+  "G": -106158.439385602,
+  "E": -106209.05865231909,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_PPi4_AH_4_8q9abjfw/xtbopt.xyz"
+ },
+ "phosphate3_AH": {
+  "G": -66113.27453621975,
+  "E": -66146.46572236024,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_phosphate3_AH_2_nxb1n1aw/xtbopt.xyz"
+ },
+ "PPi3_A": {
+  "G": -106156.2329895108,
+  "E": -106209.27759870175,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_PPi3_A_2_vw69r2fb/xtbopt.xyz"
+ },
+ "PPi3_AH": {
+  "G": -106649.66197149052,
+  "E": -106732.69181432147,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_PPi3_AH_4_myhluhv_/xtbopt.xyz"
+ },
+ "PPi4_A": {
+  "G": -105645.57945353625,
+  "E": -105668.16608431592,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_PPi4_A_3_kelzzsol/xtbopt.xyz"
+ },
+ "citrate3_AH": {
+  "G": -131497.36486777017,
+  "E": -131759.77040407975,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_citrate3_AH_5_xcqbtlf7/xtbopt.xyz"
+ },
+ "citrate3_A": {
+  "G": -131007.431064384,
+  "E": -131242.4368521982,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_citrate3_A_4_3h23e89s/xtbopt.xyz"
+ },
+ "glutarate2_A": {
+  "G": -93758.00560256434,
+  "E": -93988.41395354619,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_glutarate2_A_3_cj13_8lz/xtbopt.xyz"
+ },
+ "thioglycolate2_AH": {
+  "G": -59294.70035111685,
+  "E": -59384.175075418505,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_thioglycolate2_AH_4_3ocs6x3z/xtbopt.xyz"
+ },
+ "thioglycolate2_A": {
+  "G": -58761.10081809394,
+  "E": -58828.92543809645,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_thioglycolate2_A_2_bryb4vna/xtbopt.xyz"
+ },
+ "glutarate2_AH": {
+  "G": -94244.3253852448,
+  "E": -94509.80569371428,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_glutarate2_AH_5_7_b4z_n1/xtbopt.xyz"
+ },
+ "mercaptoprop2_AH": {
+  "G": -67523.60628686893,
+  "E": -67685.70617834308,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_mercaptoprop2_AH_3_fh94lvml/xtbopt.xyz"
+ },
+ "mercaptoprop2_A": {
+  "G": -66993.73175715203,
+  "E": -67133.64043071288,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_mercaptoprop2_A_0_4w7myzsk/xtbopt.xyz"
+ },
+ "G6P2_AH": {
+  "G": -166844.27728191618,
+  "E": -167302.24875150275,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_G6P2_AH_2_s_aauwdx/xtbopt.xyz"
+ },
+ "G6P2_A": {
+  "G": -166361.00827910998,
+  "E": -166798.2008025059,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_G6P2_A_1_seesrgof/xtbopt.xyz"
+ },
+ "tricarballylate3_AH": {
+  "G": -120805.67181406214,
+  "E": -121061.44320638053,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_tricarballylate3_AH_1_ryz4mfnc/xtbopt.xyz"
+ },
+ "tricarballylate3_A": {
+  "G": -120313.49549553635,
+  "E": -120535.89238005618,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_tricarballylate3_A_5_4g7z5k11/xtbopt.xyz"
+ },
+ "AMP2_A": {
+  "G": -207245.52781117437,
+  "E": -207803.27910046093,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_AMP2_A_2_4tiqegrx/xtbopt.xyz"
+ },
+ "AMP2_AH": {
+  "G": -207726.26152535918,
+  "E": -208314.9839711738,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_AMP2_AH_1__s4mvo3u/xtbopt.xyz"
+ },
+ "ADP3_A": {
+  "G": -247281.30902784513,
+  "E": -247863.60985718766,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_ADP3_A_5_d2hzy6kn/xtbopt.xyz"
+ },
+ "ADP3_AH": {
+  "G": -247761.0903382841,
+  "E": -248375.0040317973,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_ADP3_AH_0_xpititdb/xtbopt.xyz"
+ },
+ "ATP4_A": {
+  "G": -287351.42974802223,
+  "E": -287962.28995222435,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_ATP4_A_2_5z397c6e/xtbopt.xyz"
+ },
+ "ATP4_AH": {
+  "G": -287815.8667798382,
+  "E": -288454.06249186303,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_ATP4_AH_3_a8w6aaje/xtbopt.xyz"
+ },
+ "GTP4_AH": {
+  "G": -298574.4952912497,
+  "E": -299220.6681858967,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_GTP4_AH_5_fccuuobj/xtbopt.xyz"
+ },
+ "GTP4_A": {
+  "G": -298098.2986386217,
+  "E": -298721.31308448885,
+  "xyz": "/tmp/qm_thermo_scratch/microsolv/ms_GTP4_A_5_9cn8stwg/xtbopt.xyz"
+ }
+}

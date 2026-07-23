@@ -1,0 +1,3845 @@
+[
+ {
+  "id": "cpd00001",
+  "name": "cpd00001",
+  "smiles": "O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00002",
+  "name": "cpd00002",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00003",
+  "name": "cpd00003",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00004",
+  "name": "cpd00004",
+  "smiles": "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00005",
+  "name": "cpd00005",
+  "smiles": "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00006",
+  "name": "cpd00006",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)c1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00008",
+  "name": "cpd00008",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00009",
+  "name": "cpd00009",
+  "smiles": "O=P([O-])([O-])O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00010",
+  "name": "cpd00010",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCS",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00012",
+  "name": "cpd00012",
+  "smiles": "O=P([O-])([O-])OP(=O)([O-])O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00013",
+  "name": "cpd00013",
+  "smiles": "[NH4+]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00014",
+  "name": "cpd00014",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00018",
+  "name": "cpd00018",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00019",
+  "name": "cpd00019",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00020",
+  "name": "cpd00020",
+  "smiles": "CC(=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00022",
+  "name": "cpd00022",
+  "smiles": "CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00023",
+  "name": "cpd00023",
+  "smiles": "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00024",
+  "name": "cpd00024",
+  "smiles": "O=C([O-])CCC(=O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00026",
+  "name": "cpd00026",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00027",
+  "name": "cpd00027",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00029",
+  "name": "cpd00029",
+  "smiles": "CC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00031",
+  "name": "cpd00031",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00032",
+  "name": "cpd00032",
+  "smiles": "O=C([O-])CC(=O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00033",
+  "name": "cpd00033",
+  "smiles": "[NH3+]CC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00035",
+  "name": "cpd00035",
+  "smiles": "C[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00036",
+  "name": "cpd00036",
+  "smiles": "O=C([O-])CCC(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00038",
+  "name": "cpd00038",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00039",
+  "name": "cpd00039",
+  "smiles": "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00040",
+  "name": "cpd00040",
+  "smiles": "O=CC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00041",
+  "name": "cpd00041",
+  "smiles": "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00042",
+  "name": "cpd00042",
+  "smiles": "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00046",
+  "name": "cpd00046",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00047",
+  "name": "cpd00047",
+  "smiles": "O=C[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00048",
+  "name": "cpd00048",
+  "smiles": "O=S(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00051",
+  "name": "cpd00051",
+  "smiles": "NC(=[NH2+])NCCC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00052",
+  "name": "cpd00052",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00053",
+  "name": "cpd00053",
+  "smiles": "NC(=O)CC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00054",
+  "name": "cpd00054",
+  "smiles": "[NH3+][C@@H](CO)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00055",
+  "name": "cpd00055",
+  "smiles": "C=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00060",
+  "name": "cpd00060",
+  "smiles": "CSCC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00061",
+  "name": "cpd00061",
+  "smiles": "C=C(OP(=O)([O-])[O-])C(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00062",
+  "name": "cpd00062",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00064",
+  "name": "cpd00064",
+  "smiles": "[NH3+]CCC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00065",
+  "name": "cpd00065",
+  "smiles": "[NH3+][C@@H](Cc1c[nH]c2ccccc12)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00066",
+  "name": "cpd00066",
+  "smiles": "[NH3+][C@@H](Cc1ccccc1)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00068",
+  "name": "cpd00068",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00069",
+  "name": "cpd00069",
+  "smiles": "[NH3+][C@@H](Cc1ccc(O)cc1)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00071",
+  "name": "cpd00071",
+  "smiles": "CC=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00072",
+  "name": "cpd00072",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00073",
+  "name": "cpd00073",
+  "smiles": "NC(N)=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00076",
+  "name": "cpd00076",
+  "smiles": "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00078",
+  "name": "cpd00078",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00079",
+  "name": "cpd00079",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00080",
+  "name": "cpd00080",
+  "smiles": "O=P([O-])([O-])OC[C@H](O)CO",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00082",
+  "name": "cpd00082",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00083",
+  "name": "cpd00083",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00085",
+  "name": "cpd00085",
+  "smiles": "[NH3+]CCC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00086",
+  "name": "cpd00086",
+  "smiles": "CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00087",
+  "name": "cpd00087",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00089",
+  "name": "cpd00089",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00090",
+  "name": "cpd00090",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00092",
+  "name": "cpd00092",
+  "smiles": "O=C1CC=NC(=O)N1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00094",
+  "name": "cpd00094",
+  "smiles": "CCC(=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00095",
+  "name": "cpd00095",
+  "smiles": "O=C(CO)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00096",
+  "name": "cpd00096",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00098",
+  "name": "cpd00098",
+  "smiles": "C[N+](C)(C)CCO",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00100",
+  "name": "cpd00100",
+  "smiles": "OCC(O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00101",
+  "name": "cpd00101",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00102",
+  "name": "cpd00102",
+  "smiles": "O=C[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00103",
+  "name": "cpd00103",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])O)[C@H](O)[C@@H]1O",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00105",
+  "name": "cpd00105",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00106",
+  "name": "cpd00106",
+  "smiles": "O=C([O-])/C=C/C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00107",
+  "name": "cpd00107",
+  "smiles": "CC(C)C[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00108",
+  "name": "cpd00108",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00111",
+  "name": "cpd00111",
+  "smiles": "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00113",
+  "name": "cpd00113",
+  "smiles": "C=C(C)CCOP(=O)([O-])OP(=O)([O-])O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00114",
+  "name": "cpd00114",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00115",
+  "name": "cpd00115",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)O1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00117",
+  "name": "cpd00117",
+  "smiles": "C[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00119",
+  "name": "cpd00119",
+  "smiles": "[NH3+][C@@H](Cc1c[nH]cn1)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00121",
+  "name": "cpd00121",
+  "smiles": "O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00122",
+  "name": "cpd00122",
+  "smiles": "CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00126",
+  "name": "cpd00126",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00128",
+  "name": "cpd00128",
+  "smiles": "Nc1ncnc2nc[nH]c12",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00129",
+  "name": "cpd00129",
+  "smiles": "O=C([O-])[C@@H]1CCC[NH2+]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00130",
+  "name": "cpd00130",
+  "smiles": "O=C([O-])C[C@H](O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00133",
+  "name": "cpd00133",
+  "smiles": "NC(=O)c1cccnc1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00134",
+  "name": "cpd00134",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00135",
+  "name": "cpd00135",
+  "smiles": "[NH3+][C@@H](CCS)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00137",
+  "name": "cpd00137",
+  "smiles": "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00138",
+  "name": "cpd00138",
+  "smiles": "OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00139",
+  "name": "cpd00139",
+  "smiles": "O=C([O-])CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00141",
+  "name": "cpd00141",
+  "smiles": "CCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00142",
+  "name": "cpd00142",
+  "smiles": "CC(=O)CC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00143",
+  "name": "cpd00143",
+  "smiles": "O=C([O-])C(=O)Cc1ccccc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00144",
+  "name": "cpd00144",
+  "smiles": "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00145",
+  "name": "cpd00145",
+  "smiles": "O=C([O-])C(=O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00146",
+  "name": "cpd00146",
+  "smiles": "NC(=O)OP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00147",
+  "name": "cpd00147",
+  "smiles": "CSC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00154",
+  "name": "cpd00154",
+  "smiles": "OC1OC[C@@H](O)[C@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00157",
+  "name": "cpd00157",
+  "smiles": "O=C(CO)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00158",
+  "name": "cpd00158",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00159",
+  "name": "cpd00159",
+  "smiles": "C[C@H](O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00161",
+  "name": "cpd00161",
+  "smiles": "C[C@@H](O)[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00162",
+  "name": "cpd00162",
+  "smiles": "[NH3+]CCO",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00164",
+  "name": "cpd00164",
+  "smiles": "O=C([O-])[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00169",
+  "name": "cpd00169",
+  "smiles": "O=C([O-])[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00170",
+  "name": "cpd00170",
+  "smiles": "O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00171",
+  "name": "cpd00171",
+  "smiles": "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00176",
+  "name": "cpd00176",
+  "smiles": "O=C([O-])C(=O)C[C@H](O)[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00177",
+  "name": "cpd00177",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)(O)OP(=O)([O-])[O-])O1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00178",
+  "name": "cpd00178",
+  "smiles": "CC(C)=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00179",
+  "name": "cpd00179",
+  "smiles": "OC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O)[C@H](O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00182",
+  "name": "cpd00182",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00185",
+  "name": "cpd00185",
+  "smiles": "OC1OC[C@@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00186",
+  "name": "cpd00186",
+  "smiles": "[NH3+][C@H](CCC(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00188",
+  "name": "cpd00188",
+  "smiles": "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00191",
+  "name": "cpd00191",
+  "smiles": "O=CCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00193",
+  "name": "cpd00193",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00196",
+  "name": "cpd00196",
+  "smiles": "CC(=O)OP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00198",
+  "name": "cpd00198",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00199",
+  "name": "cpd00199",
+  "smiles": "O=CCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00200",
+  "name": "cpd00200",
+  "smiles": "CC(C)CC(=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00201",
+  "name": "cpd00201",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00202",
+  "name": "cpd00202",
+  "smiles": "CC(C)=CCOP(=O)([O-])OP(=O)([O-])O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00203",
+  "name": "cpd00203",
+  "smiles": "O=C(OP(=O)([O-])[O-])[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00206",
+  "name": "cpd00206",
+  "smiles": "Nc1ccn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00207",
+  "name": "cpd00207",
+  "smiles": "Nc1nc2[nH]cnc2c(=O)[nH]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00208",
+  "name": "cpd00208",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00212",
+  "name": "cpd00212",
+  "smiles": "OCC1(O)OC[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00214",
+  "name": "cpd00214",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00215",
+  "name": "cpd00215",
+  "smiles": "Cc1ncc(CO)c(C=O)c1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00216",
+  "name": "cpd00216",
+  "smiles": "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00217",
+  "name": "cpd00217",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2OC(O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00218",
+  "name": "cpd00218",
+  "smiles": "O=C([O-])c1cccnc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00221",
+  "name": "cpd00221",
+  "smiles": "C[C@@H](O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00222",
+  "name": "cpd00222",
+  "smiles": "O=C([O-])[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00223",
+  "name": "cpd00223",
+  "smiles": "O=C([O-])[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00224",
+  "name": "cpd00224",
+  "smiles": "OC1OC[C@H](O)[C@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00225",
+  "name": "cpd00225",
+  "smiles": "O=Cc1ccccc1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00226",
+  "name": "cpd00226",
+  "smiles": "O=c1[nH]cnc2[nH]cnc12",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00227",
+  "name": "cpd00227",
+  "smiles": "[NH3+][C@@H](CCO)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00229",
+  "name": "cpd00229",
+  "smiles": "O=CCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00232",
+  "name": "cpd00232",
+  "smiles": "CC(=O)N[C@H]1[C@H]([C@H](O)[C@H](O)CO)OC(O)(C(=O)[O-])C[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00234",
+  "name": "cpd00234",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)C(=O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00235",
+  "name": "cpd00235",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00236",
+  "name": "cpd00236",
+  "smiles": "O=C[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00237",
+  "name": "cpd00237",
+  "smiles": "C[C@]12CCC(=O)C=C1CC[C@@H]1[C@@H]2CC[C@]2(C)C(=O)CC[C@@H]12",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00238",
+  "name": "cpd00238",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00242",
+  "name": "cpd00242",
+  "smiles": "O=C([O-])O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00246",
+  "name": "cpd00246",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00248",
+  "name": "cpd00248",
+  "smiles": "O=C([O-])[C@]1(O)C[C@@H](O)[C@@H](O)[C@H](O)C1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00249",
+  "name": "cpd00249",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00250",
+  "name": "cpd00250",
+  "smiles": "CN(CC(=O)[O-])C(N)=[NH2+]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00256",
+  "name": "cpd00256",
+  "smiles": "C[N+](C)(C)CCOP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2ccc(N)nc2=O)[C@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00258",
+  "name": "cpd00258",
+  "smiles": "O=C(CO)[C@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00259",
+  "name": "cpd00259",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00260",
+  "name": "cpd00260",
+  "smiles": "O=C([O-])CC(C(=O)[O-])C(O)C(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00261",
+  "name": "cpd00261",
+  "smiles": "O=C(CO)[C@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00262",
+  "name": "cpd00262",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C(=O)[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00263",
+  "name": "cpd00263",
+  "smiles": "Cc1ncc(CO)c(CO)c1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00266",
+  "name": "cpd00266",
+  "smiles": "C[N+](C)(C)C[C@H](O)CC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00269",
+  "name": "cpd00269",
+  "smiles": "O=C([O-])CCCC(=O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00274",
+  "name": "cpd00274",
+  "smiles": "NC(=O)NCCC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00278",
+  "name": "cpd00278",
+  "smiles": "O=C([O-])C(=O)Cc1c[nH]c2ccccc12",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00279",
+  "name": "cpd00279",
+  "smiles": "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00281",
+  "name": "cpd00281",
+  "smiles": "[NH3+]CCCC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00282",
+  "name": "cpd00282",
+  "smiles": "O=C1C[C@@H](C(=O)[O-])NC(=O)N1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00285",
+  "name": "cpd00285",
+  "smiles": "[NH3+]CCOP(=O)([O-])[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00287",
+  "name": "cpd00287",
+  "smiles": "CC(C=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00288",
+  "name": "cpd00288",
+  "smiles": "[NH3+][C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00290",
+  "name": "cpd00290",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00293",
+  "name": "cpd00293",
+  "smiles": "CC(=O)N[C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00294",
+  "name": "cpd00294",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])[O-])O1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00295",
+  "name": "cpd00295",
+  "smiles": "Nc1nc2c(ncn2[C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00296",
+  "name": "cpd00296",
+  "smiles": "Nc1nc2c(ncn2[C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00297",
+  "name": "cpd00297",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00298",
+  "name": "cpd00298",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)[nH]c1=O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00304",
+  "name": "cpd00304",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C=O)C(C)(C)CCC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00306",
+  "name": "cpd00306",
+  "smiles": "OC[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00311",
+  "name": "cpd00311",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00314",
+  "name": "cpd00314",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00323",
+  "name": "cpd00323",
+  "smiles": "O=C([O-])[C@@H]1CCCC[NH2+]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00329",
+  "name": "cpd00329",
+  "smiles": "O=C1CCCCC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00330",
+  "name": "cpd00330",
+  "smiles": "Nc1nc2c(c(=O)[nH]1)N=C(CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)CN2",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00331",
+  "name": "cpd00331",
+  "smiles": "O=C([O-])/C=C(/CC(=O)[O-])C(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00333",
+  "name": "cpd00333",
+  "smiles": "O=C([O-])/C=C/c1ccccc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00334",
+  "name": "cpd00334",
+  "smiles": "C[C@H](O)C=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00337",
+  "name": "cpd00337",
+  "smiles": "O=C1CCNC(=O)N1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00342",
+  "name": "cpd00342",
+  "smiles": "CC(=O)N[C@@H](CCC[NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00343",
+  "name": "cpd00343",
+  "smiles": "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00346",
+  "name": "cpd00346",
+  "smiles": "[NH3+][C@@H](CC=O)C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00351",
+  "name": "cpd00351",
+  "smiles": "[NH3+][C@@H](CCCC[NH2+][C@@H](CCC(=O)[O-])C(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00355",
+  "name": "cpd00355",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00357",
+  "name": "cpd00357",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00359",
+  "name": "cpd00359",
+  "smiles": "c1ccc2[nH]ccc2c1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00362",
+  "name": "cpd00362",
+  "smiles": "C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CCC2=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00363",
+  "name": "cpd00363",
+  "smiles": "CCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00365",
+  "name": "cpd00365",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00366",
+  "name": "cpd00366",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00367",
+  "name": "cpd00367",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00368",
+  "name": "cpd00368",
+  "smiles": "O=C[C@@H](O)[C@@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00373",
+  "name": "cpd00373",
+  "smiles": "COc1cc(/C=C/C(=O)[O-])cc(OC)c1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00382",
+  "name": "cpd00382",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2O[C@H](O[C@]3(CO)O[C@H](CO)[C@@H](O)[C@@H]3O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00383",
+  "name": "cpd00383",
+  "smiles": "O=C([O-])C1=C[C@@H](O)[C@@H](O)[C@H](O)C1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00386",
+  "name": "cpd00386",
+  "smiles": "O=C([O-])C[C@@H](O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00387",
+  "name": "cpd00387",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00388",
+  "name": "cpd00388",
+  "smiles": "NC(=O)NC(NC(N)=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00390",
+  "name": "cpd00390",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00396",
+  "name": "cpd00396",
+  "smiles": "C[C@@H]1OC(O)[C@H](O)[C@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00397",
+  "name": "cpd00397",
+  "smiles": "O=C(CO)[C@@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00404",
+  "name": "cpd00404",
+  "smiles": "[NH3+]CCC[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00408",
+  "name": "cpd00408",
+  "smiles": "CC(C)(CO)[C@@H](O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00419",
+  "name": "cpd00419",
+  "smiles": "Cc1ncc(CO)c(C[NH3+])c1O",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00420",
+  "name": "cpd00420",
+  "smiles": "C[C@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@@]43C)[C@@H]1CC[C@@H]2O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00428",
+  "name": "cpd00428",
+  "smiles": "CC(=O)C=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00432",
+  "name": "cpd00432",
+  "smiles": "O=C([O-])[C@@H](O)[C@@H](O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00435",
+  "name": "cpd00435",
+  "smiles": "OCc1ccccc1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00444",
+  "name": "cpd00444",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OCC[NH3+])[C@@H](O)[C@H]2O)c(=O)n1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00446",
+  "name": "cpd00446",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@@H]2COP(=O)([O-])O[C@H]2[C@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00448",
+  "name": "cpd00448",
+  "smiles": "O=C[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00451",
+  "name": "cpd00451",
+  "smiles": "NC(=[NH2+])NCC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00453",
+  "name": "cpd00453",
+  "smiles": "CC(O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00457",
+  "name": "cpd00457",
+  "smiles": "C[N+](C)(C)CCOP(=O)([O-])[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00458",
+  "name": "cpd00458",
+  "smiles": "COc1cc(/C=C/CO)ccc1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00465",
+  "name": "cpd00465",
+  "smiles": "NC(=O)N[C@@H](O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00475",
+  "name": "cpd00475",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00477",
+  "name": "cpd00477",
+  "smiles": "CC(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00480",
+  "name": "cpd00480",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00482",
+  "name": "cpd00482",
+  "smiles": "O=C([O-])[C@@H](CO)OP(=O)([O-])[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00485",
+  "name": "cpd00485",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00491",
+  "name": "cpd00491",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00492",
+  "name": "cpd00492",
+  "smiles": "CC(=O)N[C@@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00504",
+  "name": "cpd00504",
+  "smiles": "[NH3+][C@@H](CCC[C@H]([NH3+])C(=O)[O-])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00509",
+  "name": "cpd00509",
+  "smiles": "O=P([O-])([O-])O[C@@H]1C[C@H](O)[C@@H](CO)O1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00510",
+  "name": "cpd00510",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)C[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00516",
+  "name": "cpd00516",
+  "smiles": "[NH3+][C@H](CCC[C@H]([NH3+])C(=O)[O-])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00519",
+  "name": "cpd00519",
+  "smiles": "C[C@@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00521",
+  "name": "cpd00521",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)C(=O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00523",
+  "name": "cpd00523",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00533",
+  "name": "cpd00533",
+  "smiles": "Nc1ccn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00549",
+  "name": "cpd00549",
+  "smiles": "[NH3+]CCCC[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00562",
+  "name": "cpd00562",
+  "smiles": "CCCCCCCCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00581",
+  "name": "cpd00581",
+  "smiles": "O=C([O-])/C=C/c1c[nH]cn1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00588",
+  "name": "cpd00588",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00589",
+  "name": "cpd00589",
+  "smiles": "O=C(CO)[C@@H](O)[C@@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00622",
+  "name": "cpd00622",
+  "smiles": "C[C@H](O)C(=O)C1=Nc2c(nc(N)[nH]c2=O)NC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00626",
+  "name": "cpd00626",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00636",
+  "name": "cpd00636",
+  "smiles": "OC1CCCCC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00642",
+  "name": "cpd00642",
+  "smiles": "C[C@H](O)[C@H](O)[C@@H](O)C(=O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00644",
+  "name": "cpd00644",
+  "smiles": "CC(C)(CO)[C@@H](O)C(=O)NCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00650",
+  "name": "cpd00650",
+  "smiles": "C/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00655",
+  "name": "cpd00655",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O)[C@@H](O)C(=O)NCCC(=O)NCCS",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00658",
+  "name": "cpd00658",
+  "smiles": "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00672",
+  "name": "cpd00672",
+  "smiles": "O=C([O-])[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00684",
+  "name": "cpd00684",
+  "smiles": "C/C(C(=O)[O-])=C(\\C)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00695",
+  "name": "cpd00695",
+  "smiles": "NC(=O)CCC(=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00699",
+  "name": "cpd00699",
+  "smiles": "O=C1C[C@@](O)(C(=O)[O-])C[C@@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00702",
+  "name": "cpd00702",
+  "smiles": "C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CC[C@@H]2O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00705",
+  "name": "cpd00705",
+  "smiles": "[NH3+][C@@H](CCCC(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00712",
+  "name": "cpd00712",
+  "smiles": "CC(C)(CO)C(=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00718",
+  "name": "cpd00718",
+  "smiles": "O=C([O-])C(=O)C(O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00722",
+  "name": "cpd00722",
+  "smiles": "CC(=O)OC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00728",
+  "name": "cpd00728",
+  "smiles": "O=C([O-])CCCO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00738",
+  "name": "cpd00738",
+  "smiles": "[NH3+][C@@H](COP(=O)([O-])[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00745",
+  "name": "cpd00745",
+  "smiles": "O=C([O-])CCO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00751",
+  "name": "cpd00751",
+  "smiles": "C[C@@H]1OC(O)[C@@H](O)[C@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00793",
+  "name": "cpd00793",
+  "smiles": "Cc1ncc(C[n+]2csc(CCOP(=O)([O-])[O-])c2C)c(N)n1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00794",
+  "name": "cpd00794",
+  "smiles": "OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00795",
+  "name": "cpd00795",
+  "smiles": "O=C([O-])CC[C@@H](O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00797",
+  "name": "cpd00797",
+  "smiles": "C[C@@H](O)CC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00802",
+  "name": "cpd00802",
+  "smiles": "O=P([O-])([O-])OCC1(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00806",
+  "name": "cpd00806",
+  "smiles": "C[C@H](O)[C@@H](O)[C@@H](O)C(=O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00807",
+  "name": "cpd00807",
+  "smiles": "[NH3+][C@H](COP(=O)([O-])[O-])Cc1c[nH]cn1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00808",
+  "name": "cpd00808",
+  "smiles": "O=C(CO)[C@@H](O)[C@@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00812",
+  "name": "cpd00812",
+  "smiles": "C[C@@](O)(CCOP(=O)([O-])[O-])CC(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00817",
+  "name": "cpd00817",
+  "smiles": "O=C[C@@H](O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00830",
+  "name": "cpd00830",
+  "smiles": "O=C([O-])C(=O)CC(O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00831",
+  "name": "cpd00831",
+  "smiles": "C[C@H](O)[C@H](O)[C@@H](O)C(=O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00840",
+  "name": "cpd00840",
+  "smiles": "[NH3+]CCC[C@H]([NH3+])CC(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00841",
+  "name": "cpd00841",
+  "smiles": "C[C@@](O)(CCOP(=O)([O-])OP(=O)([O-])O)CC(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00842",
+  "name": "cpd00842",
+  "smiles": "C[C@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00843",
+  "name": "cpd00843",
+  "smiles": "O=CC(O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00851",
+  "name": "cpd00851",
+  "smiles": "O=C([O-])[C@@H]1C[C@@H](O)C[NH2+]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00863",
+  "name": "cpd00863",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00865",
+  "name": "cpd00865",
+  "smiles": "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00868",
+  "name": "cpd00868",
+  "smiles": "O=C([O-])C(=O)Cc1ccc(O)cc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00873",
+  "name": "cpd00873",
+  "smiles": "O=C([O-])c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00876",
+  "name": "cpd00876",
+  "smiles": "CC(CO)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00880",
+  "name": "cpd00880",
+  "smiles": "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00891",
+  "name": "cpd00891",
+  "smiles": "C[C@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00895",
+  "name": "cpd00895",
+  "smiles": "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N[C@H]1[C@@H](C)Nc1ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]2O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]2O)cc1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00910",
+  "name": "cpd00910",
+  "smiles": "OC[C@H]1O[C@H](O[C@@H]2[C@@H](O)[C@H](O)[C@@H](O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00911",
+  "name": "cpd00911",
+  "smiles": "O=C1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H](O)[C@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00915",
+  "name": "cpd00915",
+  "smiles": "O=C([O-])C(=O)Cc1cc(I)c(O)c(I)c1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00922",
+  "name": "cpd00922",
+  "smiles": "O=C([O-])C1=NCCCC1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00930",
+  "name": "cpd00930",
+  "smiles": "O=C(COP(=O)([O-])[O-])Cc1c[nH]cn1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00945",
+  "name": "cpd00945",
+  "smiles": "O=C([O-])C(=O)C[C@@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00996",
+  "name": "cpd00996",
+  "smiles": "O=C([O-])/C=C\\C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01011",
+  "name": "cpd01011",
+  "smiles": "CCCC=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01066",
+  "name": "cpd01066",
+  "smiles": "OC[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01088",
+  "name": "cpd01088",
+  "smiles": "CCCCCCCC=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01101",
+  "name": "cpd01101",
+  "smiles": "NC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01106",
+  "name": "cpd01106",
+  "smiles": "CC(C)C[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01122",
+  "name": "cpd01122",
+  "smiles": "CCCCC/C=C\\C/C=C\\CCCCCCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01133",
+  "name": "cpd01133",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2O[C@H](OC[C@H]3O[C@H](O[C@]4(CO)O[C@H](CO)[C@@H](O)[C@@H]4O)[C@H](O)[C@@H](O)[C@@H]3O)[C@H](O)[C@@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01138",
+  "name": "cpd01138",
+  "smiles": "O=C([O-])[C@H](O)[C@@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01171",
+  "name": "cpd01171",
+  "smiles": "OC[C@@H](O)[C@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01186",
+  "name": "cpd01186",
+  "smiles": "C[C@H](O)[C@@H](O)[C@@H](O)C(=O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01194",
+  "name": "cpd01194",
+  "smiles": "C/C(=C\\C(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01269",
+  "name": "cpd01269",
+  "smiles": "CC(C)O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01307",
+  "name": "cpd01307",
+  "smiles": "OC[C@@H](O)C(O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01345",
+  "name": "cpd01345",
+  "smiles": "NC(=[NH2+])NCCS(=O)(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01367",
+  "name": "cpd01367",
+  "smiles": "CC(=O)OCC[N+](C)(C)C",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01394",
+  "name": "cpd01394",
+  "smiles": "O=C([O-])C(O)Cc1c[nH]c2ccccc12",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01397",
+  "name": "cpd01397",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](CO)OC(O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01430",
+  "name": "cpd01430",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C\\C(C)=C\\C=O)C(C)(C)CCC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01502",
+  "name": "cpd01502",
+  "smiles": "C/C(=C/C(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01512",
+  "name": "cpd01512",
+  "smiles": "O=C1CC[C@H](C(=O)[O-])N1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01536",
+  "name": "cpd01536",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@@H](CO)[C@@H](O)[C@@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01545",
+  "name": "cpd01545",
+  "smiles": "C=C(C(=O)[O-])C(C)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01550",
+  "name": "cpd01550",
+  "smiles": "CN(CC(=O)[O-])C(N)=[NH+]P(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01630",
+  "name": "cpd01630",
+  "smiles": "O=C([O-])/C=C\\C=C/C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01675",
+  "name": "cpd01675",
+  "smiles": "CC(C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01682",
+  "name": "cpd01682",
+  "smiles": "CC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01691",
+  "name": "cpd01691",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)OC/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1(C)C",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01700",
+  "name": "cpd01700",
+  "smiles": "C[C@@](O)(CC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01701",
+  "name": "cpd01701",
+  "smiles": "C[C@](O)(CC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01705",
+  "name": "cpd01705",
+  "smiles": "C[C@H](C(=O)[O-])C(C)(O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01715",
+  "name": "cpd01715",
+  "smiles": "C[N+](C)(C)CC(=O)CC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01716",
+  "name": "cpd01716",
+  "smiles": "O=C([O-])C1=CC(=O)[C@@H](O)[C@H](O)C1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01720",
+  "name": "cpd01720",
+  "smiles": "NC(=O)NCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01733",
+  "name": "cpd01733",
+  "smiles": "COc1cc(/C=C/C=O)ccc1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01756",
+  "name": "cpd01756",
+  "smiles": "CSCC[C@H](NC(C)=O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01784",
+  "name": "cpd01784",
+  "smiles": "O=C([O-])C(=O)Cc1ccccc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01793",
+  "name": "cpd01793",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)C(=O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01795",
+  "name": "cpd01795",
+  "smiles": "O=C([O-])C[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01807",
+  "name": "cpd01807",
+  "smiles": "O=C([O-])C(=O)CP(=O)([O-])O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01876",
+  "name": "cpd01876",
+  "smiles": "C=C(CCC(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01895",
+  "name": "cpd01895",
+  "smiles": "C[C@H](O)[C@H](O)C1=Nc2c(nc(N)[nH]c2=O)NC1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01896",
+  "name": "cpd01896",
+  "smiles": "CC1(C)S[C@@H]2[C@H]([NH3+])C(=O)N2[C@H]1C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01915",
+  "name": "cpd01915",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01947",
+  "name": "cpd01947",
+  "smiles": "C[C@@H](O)[C@@H](C)O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01961",
+  "name": "cpd01961",
+  "smiles": "O=C([O-])[C@H](O)C(=O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01964",
+  "name": "cpd01964",
+  "smiles": "O=Cc1cccc(O)c1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01977",
+  "name": "cpd01977",
+  "smiles": "[NH3+][C@@H](CC(=O)OP(=O)([O-])[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02015",
+  "name": "cpd02015",
+  "smiles": "NC(NCCS(=O)(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02016",
+  "name": "cpd02016",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c1",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02024",
+  "name": "cpd02024",
+  "smiles": "O=CCP(=O)([O-])O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02051",
+  "name": "cpd02051",
+  "smiles": "CC([NH2+]C(C)C(=O)[O-])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02069",
+  "name": "cpd02069",
+  "smiles": "O=C([O-])C(=O)COP(=O)([O-])[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02121",
+  "name": "cpd02121",
+  "smiles": "CC(=O)C[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02129",
+  "name": "cpd02129",
+  "smiles": "OCc1cccc(O)c1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02143",
+  "name": "cpd02143",
+  "smiles": "O=C1O[C@@H]([C@H](O)CO)[C@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02148",
+  "name": "cpd02148",
+  "smiles": "O=C(COP(=O)([O-])[O-])[C@@H](O)CO",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02175",
+  "name": "cpd02175",
+  "smiles": "O=C([O-])[C@H]1C[C@@H](O)C[NH2+]1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02182",
+  "name": "cpd02182",
+  "smiles": "C[C@@H](O)C(=O)SC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02186",
+  "name": "cpd02186",
+  "smiles": "O=C([O-])C(=O)C(O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02210",
+  "name": "cpd02210",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)c1c[nH]c2ccccc12",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02233",
+  "name": "cpd02233",
+  "smiles": "[NH3+]CCP(=O)([O-])O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02234",
+  "name": "cpd02234",
+  "smiles": "C[C@@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02235",
+  "name": "cpd02235",
+  "smiles": "O=C([O-])C1=NCCC1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02264",
+  "name": "cpd02264",
+  "smiles": "C[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(N)nc3=O)[C@H](O)[C@@H]2O)[C@H](O)C[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02265",
+  "name": "cpd02265",
+  "smiles": "C[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(N)nc3=O)[C@H](O)[C@@H]2O)[C@@H](O)C[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02273",
+  "name": "cpd02273",
+  "smiles": "C[C@H](C(=O)[O-])[C@H]([NH3+])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02294",
+  "name": "cpd02294",
+  "smiles": "C[C@H]([NH3+])CC(=O)CC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02311",
+  "name": "cpd02311",
+  "smiles": "O=C([O-])CCC1N=CNC1=O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02324",
+  "name": "cpd02324",
+  "smiles": "O=C([O-])C[C@@H]1NC(=O)NC1=O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02375",
+  "name": "cpd02375",
+  "smiles": "O=C([O-])C[C@H](Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O)C(=O)[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02431",
+  "name": "cpd02431",
+  "smiles": "O=C([O-])[C@@H]1CCC=N1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02441",
+  "name": "cpd02441",
+  "smiles": "O=C([O-])CC(=O)[C@H](O)[C@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02448",
+  "name": "cpd02448",
+  "smiles": "C[C@H]([NH3+])C[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02469",
+  "name": "cpd02469",
+  "smiles": "O=C([O-])CC(=O)C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02510",
+  "name": "cpd02510",
+  "smiles": "CCCCCC/C=C/C=C\\CCCCCCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02536",
+  "name": "cpd02536",
+  "smiles": "O=C([O-])CC1C=CC(=O)O1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02543",
+  "name": "cpd02543",
+  "smiles": "C[N+](C)(C)C/C=C/C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02574",
+  "name": "cpd02574",
+  "smiles": "CSC[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02612",
+  "name": "cpd02612",
+  "smiles": "CC(=O)N[C@@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02616",
+  "name": "cpd02616",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)[C@@H]([NH3+])[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02654",
+  "name": "cpd02654",
+  "smiles": "Cc1ncsc1CCOP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02662",
+  "name": "cpd02662",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C[C@H](O)C(=O)[O-]",
+  "charge": -5,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02673",
+  "name": "cpd02673",
+  "smiles": "O=C([O-])C(O)Cc1cc(I)c(O)c(I)c1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02679",
+  "name": "cpd02679",
+  "smiles": "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N2CN(c3ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]4O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]4O)cc3)[C@H](C)[C@@H]12",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02698",
+  "name": "cpd02698",
+  "smiles": "[NH3+][C@@H](CCC[C@H](NC(=O)CCC(=O)[O-])C(=O)[O-])C(=O)[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02711",
+  "name": "cpd02711",
+  "smiles": "O=C([O-])C(=O)C[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02724",
+  "name": "cpd02724",
+  "smiles": "O=C([O-])CCC(=O)N[C@@H](CCCC(=O)C(=O)[O-])C(=O)[O-]",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02836",
+  "name": "cpd02836",
+  "smiles": "CCCCCC(=O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02851",
+  "name": "cpd02851",
+  "smiles": "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1N",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02884",
+  "name": "cpd02884",
+  "smiles": "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1NC=O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02889",
+  "name": "cpd02889",
+  "smiles": "CCCCC[C@H](O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02894",
+  "name": "cpd02894",
+  "smiles": "Cc1ncc(COP(=O)([O-])OP(=O)([O-])O)c(N)n1",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02921",
+  "name": "cpd02921",
+  "smiles": "Nc1c(C(=O)N[C@@H](CC(=O)[O-])C(=O)[O-])ncn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03122",
+  "name": "cpd03122",
+  "smiles": "CCC[C@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03123",
+  "name": "cpd03123",
+  "smiles": "CCCC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03125",
+  "name": "cpd03125",
+  "smiles": "CCC/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03198",
+  "name": "cpd03198",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2OC(O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03279",
+  "name": "cpd03279",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@H]1C[C@H](O)[C@@H](CO)O1",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03292",
+  "name": "cpd03292",
+  "smiles": "CC1(C)S[C@@H]2[C@H](NC(=O)Cc3ccccc3)C(=O)N2[C@H]1C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03518",
+  "name": "cpd03518",
+  "smiles": "Nc1nc(=O)c(NC=O)c(N[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)[nH]1",
+  "charge": -3,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03535",
+  "name": "cpd03535",
+  "smiles": "NC(NCCC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03561",
+  "name": "cpd03561",
+  "smiles": "CC[C@H](O)C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03583",
+  "name": "cpd03583",
+  "smiles": "O=C([C@H](O)CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03662",
+  "name": "cpd03662",
+  "smiles": "CCCCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03671",
+  "name": "cpd03671",
+  "smiles": "[NH3+][C@H]1[C@@H](OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03763",
+  "name": "cpd03763",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C1=CCCC=C1",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03880",
+  "name": "cpd03880",
+  "smiles": "OC[C@H]1OC(O)[C@@H](O)[C@H](O)[C@@H]1O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03884",
+  "name": "cpd03884",
+  "smiles": "O=C(CO)[C@H](O)[C@H](O)[C@H](O)CO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd04130",
+  "name": "cpd04130",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C1=CCCCC1O",
+  "charge": -4,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd05400",
+  "name": "cpd05400",
+  "smiles": "CC/C=C\\CCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd08210",
+  "name": "cpd08210",
+  "smiles": "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1[NH3+])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd08505",
+  "name": "cpd08505",
+  "smiles": "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)NCCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd09876",
+  "name": "cpd09876",
+  "smiles": "NC(=[NH2+])NCCOP(=O)([O-])OC[C@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd09877",
+  "name": "cpd09877",
+  "smiles": "NC(NCCOP(=O)([O-])OC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd10719",
+  "name": "cpd10719",
+  "smiles": "C[N+](C)(C)C[C@@H](O)CC(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd11314",
+  "name": "cpd11314",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd15026",
+  "name": "cpd15026",
+  "smiles": "CC/C=C\\CC=O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd16300",
+  "name": "cpd16300",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)NCCO",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd17073",
+  "name": "cpd17073",
+  "smiles": "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1[NH3+])C(=O)[O-]",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19006",
+  "name": "cpd19006",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19008",
+  "name": "cpd19008",
+  "smiles": "CC(=O)[C@@H](C)O",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19069",
+  "name": "cpd19069",
+  "smiles": "O=C([O-])Cc1ccccc1",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd22771",
+  "name": "cpd22771",
+  "smiles": "C[C@H]([NH3+])C[C@H]([NH3+])CC(=O)[O-]",
+  "charge": 1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd22923",
+  "name": "cpd22923",
+  "smiles": "O=C([O-])C(=O)C[C@@H](O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd24394",
+  "name": "cpd24394",
+  "smiles": "CC(=O)C[C@@H]([NH3+])C(=O)[O-]",
+  "charge": 0,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd24430",
+  "name": "cpd24430",
+  "smiles": "O=C([O-])[C@H](O)C(=O)CO",
+  "charge": -1,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd26846",
+  "name": "cpd26846",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)C[C@@H]1O",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd27436",
+  "name": "cpd27436",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "charge": -2,
+  "formula": "",
+  "inchikey": "",
+  "opentecr_species": ""
+ }
+]

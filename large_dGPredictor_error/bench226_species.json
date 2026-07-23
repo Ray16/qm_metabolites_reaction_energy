@@ -1,0 +1,832 @@
+{
+ "cpd00001": {
+  "name": "cpd00001",
+  "charge": 0,
+  "n_hydrogens": 2
+ },
+ "cpd00002": {
+  "name": "cpd00002",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00003": {
+  "name": "cpd00003",
+  "charge": -1,
+  "n_hydrogens": 26
+ },
+ "cpd00004": {
+  "name": "cpd00004",
+  "charge": -2,
+  "n_hydrogens": 27
+ },
+ "cpd00005": {
+  "name": "cpd00005",
+  "charge": -4,
+  "n_hydrogens": 26
+ },
+ "cpd00006": {
+  "name": "cpd00006",
+  "charge": -3,
+  "n_hydrogens": 25
+ },
+ "cpd00008": {
+  "name": "cpd00008",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00009": {
+  "name": "cpd00009",
+  "charge": -2,
+  "n_hydrogens": 1
+ },
+ "cpd00010": {
+  "name": "cpd00010",
+  "charge": -4,
+  "n_hydrogens": 32
+ },
+ "cpd00012": {
+  "name": "cpd00012",
+  "charge": -3,
+  "n_hydrogens": 1
+ },
+ "cpd00013": {
+  "name": "cpd00013",
+  "charge": 1,
+  "n_hydrogens": 4
+ },
+ "cpd00014": {
+  "name": "cpd00014",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00018": {
+  "name": "cpd00018",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00020": {
+  "name": "cpd00020",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00022": {
+  "name": "cpd00022",
+  "charge": -4,
+  "n_hydrogens": 34
+ },
+ "cpd00023": {
+  "name": "cpd00023",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd00026": {
+  "name": "cpd00026",
+  "charge": -2,
+  "n_hydrogens": 22
+ },
+ "cpd00029": {
+  "name": "cpd00029",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00031": {
+  "name": "cpd00031",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00032": {
+  "name": "cpd00032",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00033": {
+  "name": "cpd00033",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00035": {
+  "name": "cpd00035",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00038": {
+  "name": "cpd00038",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00040": {
+  "name": "cpd00040",
+  "charge": -1,
+  "n_hydrogens": 1
+ },
+ "cpd00041": {
+  "name": "cpd00041",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd00042": {
+  "name": "cpd00042",
+  "charge": -2,
+  "n_hydrogens": 15
+ },
+ "cpd00052": {
+  "name": "cpd00052",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00053": {
+  "name": "cpd00053",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00054": {
+  "name": "cpd00054",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00061": {
+  "name": "cpd00061",
+  "charge": -3,
+  "n_hydrogens": 2
+ },
+ "cpd00062": {
+  "name": "cpd00062",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd00068": {
+  "name": "cpd00068",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd00071": {
+  "name": "cpd00071",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00072": {
+  "name": "cpd00072",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00076": {
+  "name": "cpd00076",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00079": {
+  "name": "cpd00079",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00082": {
+  "name": "cpd00082",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00083": {
+  "name": "cpd00083",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00086": {
+  "name": "cpd00086",
+  "charge": -4,
+  "n_hydrogens": 36
+ },
+ "cpd00087": {
+  "name": "cpd00087",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00089": {
+  "name": "cpd00089",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00095": {
+  "name": "cpd00095",
+  "charge": -2,
+  "n_hydrogens": 5
+ },
+ "cpd00098": {
+  "name": "cpd00098",
+  "charge": 1,
+  "n_hydrogens": 14
+ },
+ "cpd00101": {
+  "name": "cpd00101",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00102": {
+  "name": "cpd00102",
+  "charge": -2,
+  "n_hydrogens": 5
+ },
+ "cpd00103": {
+  "name": "cpd00103",
+  "charge": -4,
+  "n_hydrogens": 9
+ },
+ "cpd00105": {
+  "name": "cpd00105",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00107": {
+  "name": "cpd00107",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00111": {
+  "name": "cpd00111",
+  "charge": -2,
+  "n_hydrogens": 30
+ },
+ "cpd00114": {
+  "name": "cpd00114",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00126": {
+  "name": "cpd00126",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00128": {
+  "name": "cpd00128",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00129": {
+  "name": "cpd00129",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00130": {
+  "name": "cpd00130",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00133": {
+  "name": "cpd00133",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00137": {
+  "name": "cpd00137",
+  "charge": -3,
+  "n_hydrogens": 5
+ },
+ "cpd00139": {
+  "name": "cpd00139",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00141": {
+  "name": "cpd00141",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00143": {
+  "name": "cpd00143",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00144": {
+  "name": "cpd00144",
+  "charge": -3,
+  "n_hydrogens": 19
+ },
+ "cpd00146": {
+  "name": "cpd00146",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00147": {
+  "name": "cpd00147",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00159": {
+  "name": "cpd00159",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00162": {
+  "name": "cpd00162",
+  "charge": 1,
+  "n_hydrogens": 8
+ },
+ "cpd00169": {
+  "name": "cpd00169",
+  "charge": -3,
+  "n_hydrogens": 4
+ },
+ "cpd00178": {
+  "name": "cpd00178",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00182": {
+  "name": "cpd00182",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00191": {
+  "name": "cpd00191",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00196": {
+  "name": "cpd00196",
+  "charge": -2,
+  "n_hydrogens": 3
+ },
+ "cpd00198": {
+  "name": "cpd00198",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00199": {
+  "name": "cpd00199",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00200": {
+  "name": "cpd00200",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00201": {
+  "name": "cpd00201",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00207": {
+  "name": "cpd00207",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00214": {
+  "name": "cpd00214",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd00223": {
+  "name": "cpd00223",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00225": {
+  "name": "cpd00225",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00226": {
+  "name": "cpd00226",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00227": {
+  "name": "cpd00227",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00236": {
+  "name": "cpd00236",
+  "charge": -2,
+  "n_hydrogens": 7
+ },
+ "cpd00238": {
+  "name": "cpd00238",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00246": {
+  "name": "cpd00246",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00256": {
+  "name": "cpd00256",
+  "charge": -1,
+  "n_hydrogens": 25
+ },
+ "cpd00279": {
+  "name": "cpd00279",
+  "charge": -4,
+  "n_hydrogens": 36
+ },
+ "cpd00285": {
+  "name": "cpd00285",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00287": {
+  "name": "cpd00287",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00290": {
+  "name": "cpd00290",
+  "charge": -4,
+  "n_hydrogens": 10
+ },
+ "cpd00295": {
+  "name": "cpd00295",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00296": {
+  "name": "cpd00296",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00297": {
+  "name": "cpd00297",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd00298": {
+  "name": "cpd00298",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00304": {
+  "name": "cpd00304",
+  "charge": 0,
+  "n_hydrogens": 28
+ },
+ "cpd00311": {
+  "name": "cpd00311",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00323": {
+  "name": "cpd00323",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00334": {
+  "name": "cpd00334",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00346": {
+  "name": "cpd00346",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00355": {
+  "name": "cpd00355",
+  "charge": -1,
+  "n_hydrogens": 14
+ },
+ "cpd00357": {
+  "name": "cpd00357",
+  "charge": -3,
+  "n_hydrogens": 14
+ },
+ "cpd00365": {
+  "name": "cpd00365",
+  "charge": 0,
+  "n_hydrogens": 30
+ },
+ "cpd00373": {
+  "name": "cpd00373",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00387": {
+  "name": "cpd00387",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00390": {
+  "name": "cpd00390",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00428": {
+  "name": "cpd00428",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00435": {
+  "name": "cpd00435",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd00444": {
+  "name": "cpd00444",
+  "charge": -1,
+  "n_hydrogens": 19
+ },
+ "cpd00448": {
+  "name": "cpd00448",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00453": {
+  "name": "cpd00453",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd00457": {
+  "name": "cpd00457",
+  "charge": -1,
+  "n_hydrogens": 13
+ },
+ "cpd00458": {
+  "name": "cpd00458",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00475": {
+  "name": "cpd00475",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00485": {
+  "name": "cpd00485",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00491": {
+  "name": "cpd00491",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00523": {
+  "name": "cpd00523",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00562": {
+  "name": "cpd00562",
+  "charge": 0,
+  "n_hydrogens": 18
+ },
+ "cpd00622": {
+  "name": "cpd00622",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00626": {
+  "name": "cpd00626",
+  "charge": -2,
+  "n_hydrogens": 24
+ },
+ "cpd00695": {
+  "name": "cpd00695",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd00728": {
+  "name": "cpd00728",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00738": {
+  "name": "cpd00738",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00745": {
+  "name": "cpd00745",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00802": {
+  "name": "cpd00802",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00830": {
+  "name": "cpd00830",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00842": {
+  "name": "cpd00842",
+  "charge": -4,
+  "n_hydrogens": 38
+ },
+ "cpd00865": {
+  "name": "cpd00865",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00876": {
+  "name": "cpd00876",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00880": {
+  "name": "cpd00880",
+  "charge": -3,
+  "n_hydrogens": 8
+ },
+ "cpd00895": {
+  "name": "cpd00895",
+  "charge": -3,
+  "n_hydrogens": 42
+ },
+ "cpd00922": {
+  "name": "cpd00922",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd01011": {
+  "name": "cpd01011",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01088": {
+  "name": "cpd01088",
+  "charge": 0,
+  "n_hydrogens": 16
+ },
+ "cpd01101": {
+  "name": "cpd01101",
+  "charge": -1,
+  "n_hydrogens": 2
+ },
+ "cpd01269": {
+  "name": "cpd01269",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01367": {
+  "name": "cpd01367",
+  "charge": 1,
+  "n_hydrogens": 16
+ },
+ "cpd01715": {
+  "name": "cpd01715",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd01733": {
+  "name": "cpd01733",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd01784": {
+  "name": "cpd01784",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01793": {
+  "name": "cpd01793",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01795": {
+  "name": "cpd01795",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd01895": {
+  "name": "cpd01895",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd01977": {
+  "name": "cpd01977",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd02016": {
+  "name": "cpd02016",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd02121": {
+  "name": "cpd02121",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd02182": {
+  "name": "cpd02182",
+  "charge": -1,
+  "n_hydrogens": 20
+ },
+ "cpd02235": {
+  "name": "cpd02235",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd02375": {
+  "name": "cpd02375",
+  "charge": -4,
+  "n_hydrogens": 14
+ },
+ "cpd02431": {
+  "name": "cpd02431",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd02441": {
+  "name": "cpd02441",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd02448": {
+  "name": "cpd02448",
+  "charge": 1,
+  "n_hydrogens": 13
+ },
+ "cpd02469": {
+  "name": "cpd02469",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd02574": {
+  "name": "cpd02574",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd02679": {
+  "name": "cpd02679",
+  "charge": -3,
+  "n_hydrogens": 42
+ },
+ "cpd02851": {
+  "name": "cpd02851",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd02884": {
+  "name": "cpd02884",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd03122": {
+  "name": "cpd03122",
+  "charge": -4,
+  "n_hydrogens": 42
+ },
+ "cpd03123": {
+  "name": "cpd03123",
+  "charge": -4,
+  "n_hydrogens": 40
+ },
+ "cpd03518": {
+  "name": "cpd03518",
+  "charge": -3,
+  "n_hydrogens": 15
+ },
+ "cpd03662": {
+  "name": "cpd03662",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd05400": {
+  "name": "cpd05400",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd09876": {
+  "name": "cpd09876",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd09877": {
+  "name": "cpd09877",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd10719": {
+  "name": "cpd10719",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd11314": {
+  "name": "cpd11314",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd15026": {
+  "name": "cpd15026",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd16300": {
+  "name": "cpd16300",
+  "charge": 0,
+  "n_hydrogens": 37
+ },
+ "cpd24394": {
+  "name": "cpd24394",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd27436": {
+  "name": "cpd27436",
+  "charge": -2,
+  "n_hydrogens": 13
+ }
+}
