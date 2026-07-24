@@ -16,8 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
 CSV = os.path.join(HERE, "perreaction_dG.csv")
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
-OUT = os.path.join(os.path.dirname(THERMO), "figures",
-                   "qm_vs_dgpredictor_top10.png")
+OUT = os.path.join(HERE, "qm_vs_dgpredictor_top10.png")
 
 SERIES = [("exp", "TECRDB (experiment)", "#4C4C4C"),
           ("dGP", "dGPredictor", "#D1495B"),
