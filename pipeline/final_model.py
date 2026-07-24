@@ -84,8 +84,11 @@ def n_h(smiles):
 
 def main():
     ap = argparse.ArgumentParser()
+    # Default = the REPORTED configuration (MACE-POLAR-1 deep ensemble, MAE 38.3).
+    # The fast ensemble (G_aq_ensemble_fast.json, 37.7) undersamples and only
+    # matches by cancellation; it must be requested explicitly, never the default.
     ap.add_argument("--breakdown", default=os.path.join(
-        THERMO, "uma_workflow", "G_aq_ensemble_fast.json"))
+        THERMO, "uma_workflow", "G_aq_macepolar_deep.json"))
     ap.add_argument("--anion-corr", action="store_true",
                     help="add the anion-correction and microspecies layers. "
                          "DIAGNOSTIC ONLY -- worsens MAE, improves signs.")
