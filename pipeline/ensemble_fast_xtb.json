@@ -2,7 +2,7 @@
  "cpd00428": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00428/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00428/conf_000.xyz",
    "dGsolv_kJ": -9.445830755935113,
    "G_RRHO_kJ": 90.02981314053847,
    "g_tot_kJ": null,
@@ -13,7 +13,7 @@
  "cpd00079": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_000.xyz",
    "dGsolv_kJ": -893.4404747232046,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -22,7 +22,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_001.xyz",
    "dGsolv_kJ": -942.259527952022,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -31,7 +31,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_002.xyz",
    "dGsolv_kJ": -949.7798703524313,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -40,7 +40,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_003.xyz",
    "dGsolv_kJ": -955.7658443985549,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -49,7 +49,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_004.xyz",
    "dGsolv_kJ": -943.4201391411644,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -58,7 +58,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_005.xyz",
    "dGsolv_kJ": -953.185275139677,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -67,7 +67,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00079/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00079/conf_006.xyz",
    "dGsolv_kJ": -937.8992118514556,
    "G_RRHO_kJ": 394.4710572825861,
    "g_tot_kJ": null,
@@ -78,7 +78,7 @@
  "cpd00003": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_000.xyz",
    "dGsolv_kJ": -472.0136135949461,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -87,7 +87,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_001.xyz",
    "dGsolv_kJ": -491.69715156707935,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -96,7 +96,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_002.xyz",
    "dGsolv_kJ": -528.4795582725453,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -105,7 +105,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_003.xyz",
    "dGsolv_kJ": -482.43123944363396,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -114,7 +114,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_004.xyz",
    "dGsolv_kJ": -538.1950136007245,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -123,7 +123,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_005.xyz",
    "dGsolv_kJ": -527.9757822354317,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -132,7 +132,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_006.xyz",
    "dGsolv_kJ": -507.39628483694776,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -141,7 +141,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_007.xyz",
    "dGsolv_kJ": -522.5993848781003,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -150,7 +150,7 @@
   },
   {
    "conf": 8,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_008.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_008.xyz",
    "dGsolv_kJ": -489.8345765287925,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -159,7 +159,7 @@
   },
   {
    "conf": 9,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00003/conf_009.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00003/conf_009.xyz",
    "dGsolv_kJ": -491.9163367495092,
    "G_RRHO_kJ": 1130.695499279014,
    "g_tot_kJ": null,
@@ -170,7 +170,7 @@
  "cpd00111": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00111/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00111/conf_000.xyz",
    "dGsolv_kJ": -736.1259491736321,
    "G_RRHO_kJ": 1182.1141285778024,
    "g_tot_kJ": null,
@@ -179,7 +179,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00111/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00111/conf_001.xyz",
    "dGsolv_kJ": -733.4276991345739,
    "G_RRHO_kJ": 1182.1141285778024,
    "g_tot_kJ": null,
@@ -188,7 +188,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00111/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00111/conf_002.xyz",
    "dGsolv_kJ": -718.3116902140927,
    "G_RRHO_kJ": 1182.1141285778024,
    "g_tot_kJ": null,
@@ -197,7 +197,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00111/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00111/conf_003.xyz",
    "dGsolv_kJ": -741.6552567719823,
    "G_RRHO_kJ": 1182.1141285778024,
    "g_tot_kJ": null,
@@ -208,7 +208,7 @@
  "cpd00006": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00006/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00006/conf_000.xyz",
    "dGsolv_kJ": -1722.8273527307183,
    "G_RRHO_kJ": 1132.6321492058964,
    "g_tot_kJ": null,
@@ -217,7 +217,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00006/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00006/conf_001.xyz",
    "dGsolv_kJ": -1825.9844785222097,
    "G_RRHO_kJ": 1132.6321492058964,
    "g_tot_kJ": null,
@@ -226,7 +226,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00006/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00006/conf_002.xyz",
    "dGsolv_kJ": -1656.457429489933,
    "G_RRHO_kJ": 1132.6321492058964,
    "g_tot_kJ": null,
@@ -237,7 +237,7 @@
  "cpd00004": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_000.xyz",
    "dGsolv_kJ": -796.5280797958272,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -246,7 +246,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_001.xyz",
    "dGsolv_kJ": -815.8764978388591,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -255,7 +255,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_002.xyz",
    "dGsolv_kJ": -839.7089741777017,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -264,7 +264,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_003.xyz",
    "dGsolv_kJ": -789.9068934907399,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -273,7 +273,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_004.xyz",
    "dGsolv_kJ": -828.3356382493058,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -282,7 +282,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_005.xyz",
    "dGsolv_kJ": -845.5481506946018,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -291,7 +291,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_006.xyz",
    "dGsolv_kJ": -804.1052641295338,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -300,7 +300,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_007.xyz",
    "dGsolv_kJ": -819.5735138937233,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -309,7 +309,7 @@
   },
   {
    "conf": 8,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_008.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_008.xyz",
    "dGsolv_kJ": -828.3925119300756,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -318,7 +318,7 @@
   },
   {
    "conf": 9,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00004/conf_009.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00004/conf_009.xyz",
    "dGsolv_kJ": -843.9689733869311,
    "G_RRHO_kJ": 1164.9226336298816,
    "g_tot_kJ": null,
@@ -329,7 +329,7 @@
  "cpd00626": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_000.xyz",
    "dGsolv_kJ": -790.805317704399,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -338,7 +338,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_001.xyz",
    "dGsolv_kJ": -794.9061182622802,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -347,7 +347,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_002.xyz",
    "dGsolv_kJ": -810.5207591126264,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -356,7 +356,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_003.xyz",
    "dGsolv_kJ": -780.9696566320599,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -365,7 +365,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_004.xyz",
    "dGsolv_kJ": -835.2473223685798,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -374,7 +374,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_005.xyz",
    "dGsolv_kJ": -816.1913941849537,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -383,7 +383,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_006.xyz",
    "dGsolv_kJ": -776.6803131585425,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -392,7 +392,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00626/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00626/conf_007.xyz",
    "dGsolv_kJ": -780.4822118406081,
    "G_RRHO_kJ": 963.5832069581248,
    "g_tot_kJ": null,
@@ -403,7 +403,7 @@
  "cpd00865": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_000.xyz",
    "dGsolv_kJ": -90.61842550878642,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -412,7 +412,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_001.xyz",
    "dGsolv_kJ": -97.71078426264452,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -421,7 +421,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_002.xyz",
    "dGsolv_kJ": -108.5627202275934,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -430,7 +430,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_003.xyz",
    "dGsolv_kJ": -100.60209123626176,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -439,7 +439,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_004.xyz",
    "dGsolv_kJ": -102.81993033397077,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -448,7 +448,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_005.xyz",
    "dGsolv_kJ": -111.80887398204715,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -457,7 +457,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_006.xyz",
    "dGsolv_kJ": -88.95823835989265,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -466,7 +466,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00865/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00865/conf_007.xyz",
    "dGsolv_kJ": -113.41424737253902,
    "G_RRHO_kJ": 831.8263984813586,
    "g_tot_kJ": null,
@@ -477,7 +477,7 @@
  "cpd00026": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00026/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00026/conf_000.xyz",
    "dGsolv_kJ": -868.7196949887395,
    "G_RRHO_kJ": 902.4432213081429,
    "g_tot_kJ": null,
@@ -486,7 +486,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00026/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00026/conf_001.xyz",
    "dGsolv_kJ": -832.1472886803073,
    "G_RRHO_kJ": 902.4432213081429,
    "g_tot_kJ": null,
@@ -497,7 +497,7 @@
  "cpd00523": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00523/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00523/conf_000.xyz",
    "dGsolv_kJ": -909.2216723740763,
    "G_RRHO_kJ": 791.1730391084592,
    "g_tot_kJ": null,
@@ -506,7 +506,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00523/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00523/conf_001.xyz",
    "dGsolv_kJ": -973.6249886898656,
    "G_RRHO_kJ": 791.1730391084592,
    "g_tot_kJ": null,
@@ -515,7 +515,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00523/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00523/conf_002.xyz",
    "dGsolv_kJ": -861.2752348918275,
    "G_RRHO_kJ": 791.1730391084592,
    "g_tot_kJ": null,
@@ -524,7 +524,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00523/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00523/conf_003.xyz",
    "dGsolv_kJ": -904.9252746660744,
    "G_RRHO_kJ": 791.1730391084592,
    "g_tot_kJ": null,
@@ -533,7 +533,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00523/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00523/conf_004.xyz",
    "dGsolv_kJ": -863.5626083284296,
    "G_RRHO_kJ": 791.1730391084592,
    "g_tot_kJ": null,
@@ -544,7 +544,7 @@
  "cpd00144": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00144/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00144/conf_000.xyz",
    "dGsolv_kJ": -1438.3501559663193,
    "G_RRHO_kJ": 828.8838048638768,
    "g_tot_kJ": null,
@@ -553,7 +553,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00144/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00144/conf_001.xyz",
    "dGsolv_kJ": -1503.4150970569403,
    "G_RRHO_kJ": 828.8838048638768,
    "g_tot_kJ": null,
@@ -562,7 +562,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00144/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00144/conf_002.xyz",
    "dGsolv_kJ": -1439.8341132651553,
    "G_RRHO_kJ": 828.8838048638768,
    "g_tot_kJ": null,
@@ -571,7 +571,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00144/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00144/conf_003.xyz",
    "dGsolv_kJ": -1415.6720670803238,
    "G_RRHO_kJ": 828.8838048638768,
    "g_tot_kJ": null,
@@ -580,7 +580,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00144/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00144/conf_004.xyz",
    "dGsolv_kJ": -1479.4955889101896,
    "G_RRHO_kJ": 828.8838048638768,
    "g_tot_kJ": null,
@@ -591,7 +591,7 @@
  "cpd00076": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00076/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00076/conf_000.xyz",
    "dGsolv_kJ": -107.86567023463508,
    "G_RRHO_kJ": 786.4526962475182,
    "g_tot_kJ": null,
@@ -600,7 +600,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00076/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00076/conf_001.xyz",
    "dGsolv_kJ": -125.52483887209483,
    "G_RRHO_kJ": 786.4526962475182,
    "g_tot_kJ": null,
@@ -609,7 +609,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00076/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00076/conf_002.xyz",
    "dGsolv_kJ": -133.65710934044293,
    "G_RRHO_kJ": 786.4526962475182,
    "g_tot_kJ": null,
@@ -618,7 +618,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00076/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00076/conf_003.xyz",
    "dGsolv_kJ": -130.6793125354032,
    "G_RRHO_kJ": 786.4526962475182,
    "g_tot_kJ": null,
@@ -627,7 +627,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00076/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00076/conf_004.xyz",
    "dGsolv_kJ": -115.57394493038827,
    "G_RRHO_kJ": 786.4526962475182,
    "g_tot_kJ": null,
@@ -638,7 +638,7 @@
  "cpd00005": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00005/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00005/conf_000.xyz",
    "dGsolv_kJ": -2623.3837285483987,
    "G_RRHO_kJ": 1150.0592806380726,
    "g_tot_kJ": null,
@@ -647,7 +647,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00005/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00005/conf_001.xyz",
    "dGsolv_kJ": -2540.7665970217267,
    "G_RRHO_kJ": 1150.0592806380726,
    "g_tot_kJ": null,
@@ -656,7 +656,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00005/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00005/conf_002.xyz",
    "dGsolv_kJ": -2509.4685550109702,
    "G_RRHO_kJ": 1150.0592806380726,
    "g_tot_kJ": null,
@@ -665,7 +665,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00005/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00005/conf_003.xyz",
    "dGsolv_kJ": -2611.2873692024305,
    "G_RRHO_kJ": 1150.0592806380726,
    "g_tot_kJ": null,
@@ -674,7 +674,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00005/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00005/conf_004.xyz",
    "dGsolv_kJ": -2527.7468283541516,
    "G_RRHO_kJ": 1150.0592806380726,
    "g_tot_kJ": null,
@@ -685,7 +685,7 @@
  "cpd02182": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_000.xyz",
    "dGsolv_kJ": -307.0327293226245,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -694,7 +694,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_001.xyz",
    "dGsolv_kJ": -340.8494091594794,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -703,7 +703,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_002.xyz",
    "dGsolv_kJ": -338.92142820186785,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -712,7 +712,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_003.xyz",
    "dGsolv_kJ": -325.19973384937146,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -721,7 +721,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_004.xyz",
    "dGsolv_kJ": -309.7216233517401,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -730,7 +730,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_005.xyz",
    "dGsolv_kJ": -307.0861143629445,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -739,7 +739,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_006.xyz",
    "dGsolv_kJ": -306.7712230394901,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -748,7 +748,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_007.xyz",
    "dGsolv_kJ": -315.89694870225213,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -757,7 +757,7 @@
   },
   {
    "conf": 8,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_008.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_008.xyz",
    "dGsolv_kJ": -297.2402632854263,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -766,7 +766,7 @@
   },
   {
    "conf": 9,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd02182/conf_009.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd02182/conf_009.xyz",
    "dGsolv_kJ": -320.74784534658954,
    "G_RRHO_kJ": 745.6893025207856,
    "g_tot_kJ": null,
@@ -777,7 +777,7 @@
  "cpd00042": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00042/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00042/conf_000.xyz",
    "dGsolv_kJ": -684.3159317944211,
    "G_RRHO_kJ": 546.9849887497535,
    "g_tot_kJ": null,
@@ -786,7 +786,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00042/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00042/conf_001.xyz",
    "dGsolv_kJ": -690.5979211868504,
    "G_RRHO_kJ": 546.9849887497535,
    "g_tot_kJ": null,
@@ -795,7 +795,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00042/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00042/conf_002.xyz",
    "dGsolv_kJ": -677.2876870696412,
    "G_RRHO_kJ": 546.9849887497535,
    "g_tot_kJ": null,
@@ -804,7 +804,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00042/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00042/conf_003.xyz",
    "dGsolv_kJ": -658.8859735425829,
    "G_RRHO_kJ": 546.9849887497535,
    "g_tot_kJ": null,
@@ -815,7 +815,7 @@
  "cpd00014": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_000.xyz",
    "dGsolv_kJ": -822.3122583816153,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -824,7 +824,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_001.xyz",
    "dGsolv_kJ": -776.1306672245532,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -833,7 +833,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_002.xyz",
    "dGsolv_kJ": -784.2239829998201,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -842,7 +842,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_003.xyz",
    "dGsolv_kJ": -834.3310155800958,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -851,7 +851,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_004.xyz",
    "dGsolv_kJ": -793.7977216499421,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -860,7 +860,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_005.xyz",
    "dGsolv_kJ": -814.7718099364573,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -869,7 +869,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_006.xyz",
    "dGsolv_kJ": -822.0351765134935,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -878,7 +878,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_007.xyz",
    "dGsolv_kJ": -809.4106204313473,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -887,7 +887,7 @@
   },
   {
    "conf": 8,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_008.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_008.xyz",
    "dGsolv_kJ": -820.8024225856813,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -896,7 +896,7 @@
   },
   {
    "conf": 9,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_009.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_009.xyz",
    "dGsolv_kJ": -822.5931882187414,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -905,7 +905,7 @@
   },
   {
    "conf": 10,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00014/conf_010.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00014/conf_010.xyz",
    "dGsolv_kJ": -792.8871152255612,
    "G_RRHO_kJ": 500.542813739408,
    "g_tot_kJ": null,
@@ -916,7 +916,7 @@
  "cpd00373": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00373/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00373/conf_000.xyz",
    "dGsolv_kJ": -296.5109481965973,
    "G_RRHO_kJ": 401.55938167005536,
    "g_tot_kJ": null,
@@ -927,7 +927,7 @@
  "cpd00089": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00089/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00089/conf_000.xyz",
    "dGsolv_kJ": -930.2072929419596,
    "G_RRHO_kJ": 385.9264637269176,
    "g_tot_kJ": null,
@@ -936,7 +936,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00089/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00089/conf_001.xyz",
    "dGsolv_kJ": -929.0665778915037,
    "G_RRHO_kJ": 385.9264637269176,
    "g_tot_kJ": null,
@@ -945,7 +945,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00089/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00089/conf_002.xyz",
    "dGsolv_kJ": -933.2637143375674,
    "G_RRHO_kJ": 385.9264637269176,
    "g_tot_kJ": null,
@@ -954,7 +954,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00089/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00089/conf_003.xyz",
    "dGsolv_kJ": -946.4280943385089,
    "G_RRHO_kJ": 385.9264637269176,
    "g_tot_kJ": null,
@@ -963,7 +963,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00089/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00089/conf_004.xyz",
    "dGsolv_kJ": -933.6602426159839,
    "G_RRHO_kJ": 385.9264637269176,
    "g_tot_kJ": null,
@@ -974,7 +974,7 @@
  "cpd00357": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00357/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00357/conf_000.xyz",
    "dGsolv_kJ": -1659.1837413968997,
    "G_RRHO_kJ": 590.1565357306572,
    "g_tot_kJ": null,
@@ -985,7 +985,7 @@
  "cpd00012": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00012/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00012/conf_000.xyz",
    "dGsolv_kJ": -1858.9128711495987,
    "G_RRHO_kJ": 6.659818137790398,
    "g_tot_kJ": null,
@@ -996,7 +996,7 @@
  "cpd00082": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_000.xyz",
    "dGsolv_kJ": -75.82264318436944,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1005,7 +1005,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_001.xyz",
    "dGsolv_kJ": -77.62091690626143,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1014,7 +1014,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_002.xyz",
    "dGsolv_kJ": -76.87099817489245,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1023,7 +1023,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_003.xyz",
    "dGsolv_kJ": -80.35800030089813,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1032,7 +1032,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_004.xyz",
    "dGsolv_kJ": -86.77697432048834,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1041,7 +1041,7 @@
   },
   {
    "conf": 5,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_005.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_005.xyz",
    "dGsolv_kJ": -86.09415105416132,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1050,7 +1050,7 @@
   },
   {
    "conf": 6,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_006.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_006.xyz",
    "dGsolv_kJ": -82.42502295937464,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1059,7 +1059,7 @@
   },
   {
    "conf": 7,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_007.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_007.xyz",
    "dGsolv_kJ": -81.99478477263321,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1068,7 +1068,7 @@
   },
   {
    "conf": 8,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_008.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_008.xyz",
    "dGsolv_kJ": -91.18803239449701,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1077,7 +1077,7 @@
   },
   {
    "conf": 9,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_009.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_009.xyz",
    "dGsolv_kJ": -85.54840018020161,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1086,7 +1086,7 @@
   },
   {
    "conf": 10,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00082/conf_010.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00082/conf_010.xyz",
    "dGsolv_kJ": -96.51426058099644,
    "G_RRHO_kJ": 387.7620715574562,
    "g_tot_kJ": null,
@@ -1097,7 +1097,7 @@
  "cpd00880": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00880/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00880/conf_000.xyz",
    "dGsolv_kJ": -1600.514428774289,
    "G_RRHO_kJ": 313.1690372385233,
    "g_tot_kJ": null,
@@ -1106,7 +1106,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00880/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00880/conf_001.xyz",
    "dGsolv_kJ": -1606.2560030588943,
    "G_RRHO_kJ": 313.1690372385233,
    "g_tot_kJ": null,
@@ -1115,7 +1115,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00880/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00880/conf_002.xyz",
    "dGsolv_kJ": -1639.257415242062,
    "G_RRHO_kJ": 313.1690372385233,
    "g_tot_kJ": null,
@@ -1124,7 +1124,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00880/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00880/conf_003.xyz",
    "dGsolv_kJ": -1615.3243355857658,
    "G_RRHO_kJ": 313.1690372385233,
    "g_tot_kJ": null,
@@ -1133,7 +1133,7 @@
   },
   {
    "conf": 4,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00880/conf_004.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00880/conf_004.xyz",
    "dGsolv_kJ": -1620.7300228962563,
    "G_RRHO_kJ": 313.1690372385233,
    "g_tot_kJ": null,
@@ -1144,7 +1144,7 @@
  "cpd00062": [
   {
    "conf": 0,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00062/conf_000.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00062/conf_000.xyz",
    "dGsolv_kJ": -1595.7525796127545,
    "G_RRHO_kJ": 526.9011188536924,
    "g_tot_kJ": null,
@@ -1153,7 +1153,7 @@
   },
   {
    "conf": 1,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00062/conf_001.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00062/conf_001.xyz",
    "dGsolv_kJ": -1580.0141696323667,
    "G_RRHO_kJ": 526.9011188536924,
    "g_tot_kJ": null,
@@ -1162,7 +1162,7 @@
   },
   {
    "conf": 2,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00062/conf_002.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00062/conf_002.xyz",
    "dGsolv_kJ": -1548.11805743958,
    "G_RRHO_kJ": 526.9011188536924,
    "g_tot_kJ": null,
@@ -1171,7 +1171,7 @@
   },
   {
    "conf": 3,
-   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/large_dGPredictor_error/geometries_ensemble_fast/cpd00062/conf_003.xyz",
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_fast/cpd00062/conf_003.xyz",
    "dGsolv_kJ": -1536.5006040933133,
    "G_RRHO_kJ": 526.9011188536924,
    "g_tot_kJ": null,

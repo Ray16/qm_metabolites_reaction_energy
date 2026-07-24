@@ -2,7 +2,7 @@
 """UMA composite Delta_rG'^o for the collaborator's dGPredictor-vs-TECRDB top-10 disagreements.
 
 Same physics as run_uma_composite.py -- only the metabolite set and reaction list
-are swapped for the collaborator's (built by large_dGPredictor_error/build_inputs.py):
+are swapped for the collaborator's (built by pipeline/build_inputs.py):
 
     xtb --ohess (ALPB water) -> optimized geom + E_alpb + G_RRHO(thermal)
     xtb SP gas               -> dGsolv = E_alpb - E_gas
@@ -36,7 +36,7 @@ import sys
 from ase import Atoms
 
 THERMO = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc"
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 sys.path.insert(0, THERMO)
 sys.path.insert(0, "/homes/rzhu/uma_tools")
 from qm_thermo import config                                  # noqa: E402

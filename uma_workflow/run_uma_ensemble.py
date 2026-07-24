@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Stage B of the conformer-ensemble upgrade (uma env, GPU): UMA + Boltzmann.
 
-Reads the CREST/xtb ensemble from Stage A (large_dGPredictor_error/build_bench_
+Reads the CREST/xtb ensemble from Stage A (pipeline/build_bench_
 ensembles.py) and adds ONLY the UMA electronic energy per conformer, then forms
 the conformational free energy:
 
@@ -32,7 +32,7 @@ import sys
 from ase import Atoms
 
 THERMO = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc"
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 sys.path.insert(0, THERMO)
 sys.path.insert(0, "/homes/rzhu/uma_tools")
 from qm_thermo import config                                  # noqa: E402

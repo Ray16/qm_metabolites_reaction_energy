@@ -22,7 +22,7 @@ Per compound:
     -> xtb gas SP per conformer -> dGsolv
 
 Writes (SAME schema as the CREST stage, so run_uma_ensemble.py reads it via
-ENS_JSON=large_dGPredictor_error/ensemble_fast_xtb.json):
+ENS_JSON=pipeline/ensemble_fast_xtb.json):
   geometries_ensemble_fast/{cpd}/conf_XXX.xyz
   ensemble_fast_xtb.json  {cpd:[{conf,xyz,dGsolv_kJ,G_RRHO_kJ,g_tot_kJ,
                                         rel_kJ,n_imag}]}

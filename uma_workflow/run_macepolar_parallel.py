@@ -23,7 +23,7 @@ scorer so the two differ in one term only.
 
 Usage:
     /homes/rzhu/miniforge3/envs/macepolar/bin/python run_macepolar_parallel.py \
-        --ens ../large_dGPredictor_error/ensemble_deep_xtb.json \
+        --ens ../pipeline/ensemble_deep_xtb.json \
         --tag macepolar_deep [--model ../models/MACE-POLAR-1-L.model] [--per-gpu 2]
 """
 from __future__ import annotations
@@ -38,7 +38,7 @@ import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 sys.path.insert(0, THERMO)
 
 PY = sys.executable

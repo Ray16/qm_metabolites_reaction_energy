@@ -16,7 +16,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 sys.path.insert(0, THERMO)
 sys.path.insert(0, HERE)
 

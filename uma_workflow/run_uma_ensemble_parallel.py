@@ -11,7 +11,7 @@ Each worker writes its own shard file, so a crashed worker costs only its shard.
 
 Usage:
     /homes/rzhu/miniforge3/envs/uma/bin/python run_uma_ensemble_parallel.py \
-        --ens ../large_dGPredictor_error/ensemble_deep_xtb.json \
+        --ens ../pipeline/ensemble_deep_xtb.json \
         --tag ensemble_deep [--per-gpu 2]
 
 Writes: uma_workflow/G_aq_<tag>.json
@@ -28,7 +28,7 @@ import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 sys.path.insert(0, THERMO)
 
 PY = sys.executable

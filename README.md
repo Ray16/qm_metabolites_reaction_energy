@@ -11,7 +11,7 @@ experiment to within its noise (MAE **3.6 kJ/mol**, experimental sd 6.2), while
 the QM composite is at **38.3 kJ/mol**. QM cannot referee 16–100 kJ/mol
 disagreements when its own error is ~38. The full, self-critical account —
 including everything that was tried and rejected — is in
-[`large_dGPredictor_error/FINDINGS.md`](large_dGPredictor_error/FINDINGS.md),
+[`pipeline/FINDINGS.md`](pipeline/FINDINGS.md),
 **which is the status of record; read it first.**
 
 What QM *can* do is narrower and defensible: on the glutathione disulfide/thiol
@@ -58,14 +58,14 @@ at MAE 5.5; dGPredictor covers 100% at 13.2.
 
 | path | role |
 |---|---|
-| **`large_dGPredictor_error/`** | **the current pipeline and all findings.** Benchmark builders, the composite scorer (`final_model.py`), the pKa-solvation diagnostics, and `FINDINGS.md`. Despite the name, this is the main work. |
+| **`pipeline/`** | **the current pipeline and all findings** — the main work. Benchmark builders, the composite scorer (`final_model.py`), the pKa-solvation diagnostics, and `FINDINGS.md`. |
 | `qm_thermo/` | shared library: conditions/config, the Alberty + Debye–Hückel transform (`reactions.py`), thermochemistry, and the (now-superseded) ORCA DFT backend |
 | `uma_workflow/` | multi-GPU UMA/MACE scoring of conformer ensembles; the `G_aq_*.json` energy files the scorer reads |
 | `aimnet2_workflow/` | an abandoned AIMNet2 solvation route, kept for reference |
 | `data/`, `*.json`, `*.csv` | TECRDB extract, ModelSEED reactions/metabolites, benchmark inputs |
 | `backup/` | superseded scripts, figures, and the June presentation (git-ignored) |
 
-Key entry points inside `large_dGPredictor_error/`: `final_model.py` (scores the
+Key entry points inside `pipeline/`: `final_model.py` (scores the
 reactions), `analyze_pka.py` (the anion-solvation calibration), and the
 diagnostics `score_cpcmx.py` (ALPB vs CPCM-X) and `mg_speciation.py` (Mg²⁺, found
 small and **not** applied). See that directory's own `README.md` for the stage

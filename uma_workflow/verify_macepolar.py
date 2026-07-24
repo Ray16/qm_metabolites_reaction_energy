@@ -26,7 +26,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
-BENCH = os.path.join(THERMO, "large_dGPredictor_error")
+BENCH = os.path.join(THERMO, "pipeline")
 ANCHORS = os.path.join(BENCH, "geometries_anchors")
 REF = os.path.join(os.path.dirname(THERMO), "backup", "thermo_superseded",
                    "data", "redox_anchor_correction.json")
