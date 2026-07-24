@@ -1,4 +1,4 @@
-# QM composite for metabolic reaction free energies
+# QM/ML hybrid approach for metabolic ΔrG′° Prediction
 
 Can a quantum-mechanical / machine-learning composite method compute accurate
 standard transformed reaction Gibbs energies (Δ<sub>r</sub>G′°) for metabolic
