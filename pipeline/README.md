@@ -70,6 +70,13 @@ selected GSH-thiol reference changed the midpoint result by only about 0.3
 kJ/mol.  The observed improvement is therefore structural GSH selection, not
 an unaccounted-for GSSG pH correction.
 
+The first phosphate gate, aqueous PPi, is also now included.  Its measured
+25-C pKa ladder leaves the stored HPPi3- state about 92% populated at pH
+8–8.2 and changes the two PPi reactions by only −0.19 and −0.21 kJ/mol.
+It therefore does not explain their much larger residuals.  Nucleotide and
+sugar-phosphate families remain out of the production diagnostic until
+compound-specific, metal-aware constants are assembled.
+
 ### Reaction-class calibration (experimental, opt-in)
 
 `reaction_class_correction.py` is an intentionally separate calibration layer.
