@@ -1,12 +1,19 @@
 {
   "cpd00042": {
-    "pka_values": [8.78],
-    "reference_deprotonations": 0,
+    "pka_values": [2.22, 3.52, 8.78, 9.65],
+    "reference_deprotonations": 2,
     "reference_label": "GSH thiol QM microspecies",
     "reference_energy_record": "cpd00042_thiol",
     "reference_charge": -1,
     "reference_n_hydrogens": 16,
-    "source": "Macroscopic aqueous GSH protonation constant, 1H-NMR titration",
+    "source": "Macroscopic aqueous GSH protonation constants, 1H-NMR titration",
     "citation": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9919958/"
+  },
+  "cpd00111": {
+    "pka_values": [1.79, 2.41, 3.23, 3.91, 8.95, 9.71],
+    "reference_deprotonations": 4,
+    "reference_label": "ModelSEED GSSG microspecies (four carboxylates, two ammonium groups)",
+    "source": "Macroscopic aqueous GSSG protonation constants from pH titration / ab initio MD interpretation",
+    "citation": "https://doi.org/10.1039/C9CP00761J"
   }
 }

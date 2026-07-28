@@ -61,6 +61,15 @@ family are explicitly left as fixed microspecies; the output records coverage
 and pKa provenance. It is therefore not yet a claim of complete pH treatment
 for the whole ten-reaction set.
 
+The current GSH/GSSG redox pilot uses experimentally grounded *macroscopic*
+protonation ladders.  It is exact for the macrostate partition functions but
+does not claim to resolve GSSG's coupled same-proton-count microstates; that
+would require the published microconstants plus QM structures for the relevant
+microstates.  On the four redox benchmark entries, adding GSSG to the already
+selected GSH-thiol reference changed the midpoint result by only about 0.3
+kJ/mol.  The observed improvement is therefore structural GSH selection, not
+an unaccounted-for GSSG pH correction.
+
 ### Reaction-class calibration (experimental, opt-in)
 
 `reaction_class_correction.py` is an intentionally separate calibration layer.
