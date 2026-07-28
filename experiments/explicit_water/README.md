@@ -49,3 +49,8 @@ python experiments/explicit_water/grand_canonical_clusters.py score --pairs .../
 The xTB-only score checks the sampling/standard-state assembly.  Use
 `score_macepolar_grand.py` for the decision gate, because it uses the same
 MACE-POLAR + xTB/ALPB composite as the reaction pipeline.
+
+`score_cosmors_pka.py` is the lower-cost alternative to bulk MD: it evaluates
+ORCA native openCOSMO-RS on every retained conformer and reweights that same
+conformer set. It must be judged on the phosphate/thiolate pKa gate before any
+reaction-level use.
