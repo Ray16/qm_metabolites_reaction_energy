@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 """Score the reported QM/ML composite.
 
-The production model uses a deep conformer ensemble, measured-pH Alberty
-transformation, and no fitted anion-solvation correction.  The rejected
+The production model uses a deep conformer ensemble, a pH-7 fixed-microspecies
+baseline, and no fitted anion-solvation correction. A pH-midpoint column is a
+fixed-microspecies sensitivity diagnostic, not a complete speciation model. The rejected
 empirical calibration is archived outside this repository's active workflow.
 
 Run: python final_model.py [--breakdown PATH]
@@ -61,14 +62,14 @@ def main():
     condX = {r: config.Conditions(pH=(float(meta[r]["pH_min"]) +
                                       float(meta[r]["pH_max"])) / 2.0)
              for r in reactions}
-    models = [("pH7 base", cond7), ("+pH match", condX)]
+    models = [("pH7 fixed species", cond7), ("fixed-species pH midpoint [diag]", condX)]
     res = {label: {r: reaction_dG(Reaction(r, st), G, S,
                                    conditions=conditions[r]).dG_transformed_kJ
                    for r, st in reactions.items()}
            for label, conditions in models}
 
     labels = [label for label, _ in models]
-    width = 14
+    width = max(14, max(len(label) for label in labels) + 2)
     print(f"{'rxn':10}{'exp':>8}" + "".join(f"{label:>{width}}" for label in labels))
     for r in sorted(reactions, key=lambda r: -abs(res[labels[0]][r] - exp[r])):
         print(f"{r:10}{exp[r]:8.1f}" + "".join(f"{res[label][r]:{width}.1f}"
@@ -79,7 +80,8 @@ def main():
     print(f"{'signs ok':10}{'':8}" + "".join(
         f"{sum(res[label][r] * exp[r] > 0 for r in reactions):{width}d}"
         for label in labels))
-    print("\nreported model = '+pH match'; no empirical anion-solvation correction is applied.")
+    print("\nreported baseline = 'pH7 fixed species'. The pH-midpoint column holds "
+          "microspecies fixed and is diagnostic only.")
 
     out_dir = os.path.join(THERMO, "results", "benchmark")
     os.makedirs(out_dir, exist_ok=True)

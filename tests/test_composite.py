@@ -2,6 +2,7 @@ import math
 import unittest
 
 from qm_thermo.composite import ConformerTerms, boltzmann_ensemble, extract_ensemble_energy
+from qm_thermo.speciation import monoprotic_base_fraction, monoprotic_family_correction_kJ
 
 
 class CompositeTests(unittest.TestCase):
@@ -20,6 +21,11 @@ class CompositeTests(unittest.TestCase):
             {"E_UMA_kJ": 7.0, "dGsolv_kJ": 2.0, "G_RRHO_kJ": 3.0},
         ]}
         self.assertLess(extract_ensemble_energy(record, temperature_K=298.15).gibbs_kJ, 6.0)
+
+    def test_monoprotic_family_has_equal_populations_at_pka(self):
+        self.assertAlmostEqual(monoprotic_base_fraction(7.0, 7.0), 0.5)
+        rt = 8.314462618e-3 * 298.15
+        self.assertAlmostEqual(monoprotic_family_correction_kJ(7.0, 7.0), -rt * math.log(2))
 
 
 if __name__ == "__main__":

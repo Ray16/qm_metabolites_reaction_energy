@@ -20,7 +20,7 @@ OUT = os.path.join(THERMO, "results", "benchmark", "qm_vs_dgpredictor_top10.png"
 
 SERIES = [("exp", "TECRDB (experiment)", "#4C4C4C"),
           ("dGP", "dGPredictor", "#D1495B"),
-          ("+pH match", "QM (MACE-POLAR-1)", "#2E86AB")]
+          ("fixed-species pH midpoint [diag]", "QM (fixed-species pH midpoint)", "#2E86AB")]
 
 
 def main():

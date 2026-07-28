@@ -26,12 +26,19 @@ on. That corroboration — not a competitive MAE — is the usable result.
          + dGsolv(ALPB)                 # xtb GFN2, implicit water
          + G_RRHO(thermal)              # xtb --ohess, quasi-RRHO, one Hessian per compound
     → Boltzmann-average conformers
-    → Alberty Legendre transform to the measured pH + extended Debye–Hückel (ionic strength)
+    → Alberty transform to pH 7 for the reported baseline; fixed-species pH-midpoint
+      values are retained only as a sensitivity diagnostic
 
 Geometries are optimised in ALPB water; `E_gas` is a single point on that
 structure, so the electronic energy and the solvation term share one geometry.
 Corrections are calibrated only on **external experimental pKa values**, never on
 the reactions being scored.
+
+The structures are fixed ModelSEED-style microspecies. A Legendre term alone
+does not create an equilibrium protonation-state ensemble; at pH values other
+than 7, the midpoint result is sensitivity analysis only. Run
+`pipeline/speciation_sensitivity.py` to quantify the leverage of the
+already-computed GSH thiol and methylglyoxal hydrate states.
 
 A note on history: an earlier design (see below) used **ORCA r2SCAN-3c DFT +
 SMD**. Substituting real DFT for the MLIP at fixed geometry made the result
@@ -48,7 +55,8 @@ reproduces Jinich et al., *Sci. Rep.* 2014.
 | eQuilibrator | 3.6 | within the 6.2 experimental sd |
 | predict zero | 10.5 | the trivial baseline |
 | GroupContribution | 35.4 | |
-| **QM composite (this repo)** | **38.3** | pH-matched deep ensemble |
+| QM composite, pH-7 fixed-microspecies baseline | 40.1 | |
+| **QM composite, fixed-species pH-midpoint sensitivity** | **38.3** | **diagnostic only; not full speciation** |
 | dGPredictor (retrained) | 61.2 | the method under evaluation |
 
 Database-wide (1550 TECRDB↔ModelSEED matched reactions): eQuilibrator covers 84%

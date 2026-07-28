@@ -28,5 +28,7 @@ __all__ = [
 """Reusable building blocks for the thermodynamic composite workflow."""
 
 from .composite import ConformerTerms, EnsembleEnergy, boltzmann_ensemble, extract_ensemble_energy
+from .speciation import monoprotic_base_fraction, monoprotic_family_correction_kJ
 
-__all__ = ["ConformerTerms", "EnsembleEnergy", "boltzmann_ensemble", "extract_ensemble_energy"]
+__all__ = ["ConformerTerms", "EnsembleEnergy", "boltzmann_ensemble", "extract_ensemble_energy",
+           "monoprotic_base_fraction", "monoprotic_family_correction_kJ"]

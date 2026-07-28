@@ -29,7 +29,7 @@ scores and figures are written under `../results/benchmark/`.
     G_aq = E_UMA(gas, per conformer)      # uma-s-1p2, OMol25 head
          + dGsolv(ALPB)                   # xtb GFN2
          + G_RRHO(thermal)                # xtb --ohess, one Hessian per compound
-    → Boltzmann average → Alberty transform at the measured pH and ionic strength
+    → Boltzmann average → Alberty transform at pH 7 for the reported baseline
 
 ## Archived calibration result
 
@@ -39,11 +39,13 @@ Measured on the 10-reaction benchmark (MAE vs TECRDB, kJ/mol):
 |---|---|---|---|
 | dGPredictor | 61.2 | 8/10 | reference |
 | QM, deep ensemble, pH 7 | 40.1 | 5/10 | — |
-| **QM, deep ensemble, pH matched** | **38.3** | **5/10** | **what the pipeline reports** |
+| QM, deep ensemble, fixed-species pH midpoint | 38.3 | 5/10 | sensitivity diagnostic only |
 | + anion-solvation correction (charge ladder) | 44.3 | 9/10 | REJECTED — diagnostic only |
 | + microspecies on top of it | 69.0 | 9/10 | REJECTED — diagnostic only |
 
-The reported model is the **uncorrected** pH-matched deep ensemble.
+The reported model is the **uncorrected pH-7 fixed-microspecies** deep ensemble.
+`speciation_sensitivity.py` evaluates the current pH-midpoint approximation and
+the two already-computed alternative structures; it is not a general pKa model.
 The calibration scripts and their inputs/outputs have been archived; the active
 `final_model.py` intentionally has no empirical-correction option.
 
