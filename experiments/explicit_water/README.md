@@ -1,0 +1,29 @@
+# Explicit-water solvation gate
+
+This experiment evaluates cluster-continuum microsolvation on an external pKa
+set before applying it to metabolic reactions. It replaces the old xTB-only
+cluster score with a consistent composite:
+
+    G_cluster = E_MACE-POLAR(cluster) + [G_xTB,ALPB(cluster) - E_xTB,gas(cluster)]
+
+The bracketed term retains xTB's ALPB and RRHO contribution while MACE-POLAR
+supplies the electronic energy for the actual solute-water cluster. The xTB gas
+single point is recomputed because the archived record stores an ALPB energy.
+The pKa
+benchmark re-fits the proton reference using cationic controls separately for
+each water count, then reports anion error.
+
+The archived clusters contain only the lowest valid seeded structure, so this is
+a **model-substitution gate**, not yet an explicit-water ensemble free energy.
+Proceed to regenerated solvent-cluster ensembles only if this test materially
+improves anion pKa error with adequate coverage.
+
+Example:
+
+```bash
+python score_macepolar_pka.py \
+  --pairs /path/to/pka_pairs.json \
+  --clusters /path/to/microsolv_n0.json /path/to/microsolv_n1.json /path/to/microsolv_n2.json \
+  --geometry-root /path/to/geometries_microsolv \
+  --model models/MACE-POLAR-1-L.model
+```
