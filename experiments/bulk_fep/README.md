@@ -24,6 +24,17 @@ Before a production run, check each endpoint on the target GPU:
 python experiments/bulk_fep/alchemical_preflight.py --system-dir results/bulk_fep/systems/H2PO4-
 ```
 
+The first production component is a neutral phosphate/Na+ hydration leg:
+
+```bash
+python experiments/bulk_fep/run_neutral_decoupling.py \
+  --system-dir results/bulk_fep/systems/H2PO4- \
+  --out results/bulk_fep/h2po4_replica_01.nc --iterations 100 --steps 250
+python experiments/bulk_fep/analyze_neutral_decoupling.py \
+  --reporter results/bulk_fep/h2po4_replica_01.nc \
+  --out results/bulk_fep/h2po4_replica_01.json
+```
+
 Preparation is not a result. A charged-solute hydration protocol must include:
 
 - soft-core alchemical windows and MBAR overlap diagnostics;
