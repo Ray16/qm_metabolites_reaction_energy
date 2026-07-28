@@ -57,6 +57,7 @@ def main() -> None:
     parser.add_argument("--cache", help="resumable per-minimum MACE/xTB cache")
     args = parser.parse_args()
 
+    from ase import Atoms
     from ase.io import read
     from mace.calculators import mace_polar
 
@@ -98,13 +99,31 @@ def main() -> None:
         hybrid[species] = {"counts": counts}
         print(f"scored {species}", flush=True)
 
-    # Water reference uses the same xTB standard-state convention as the
-    # ensemble generator.  MACE is only a replacement for cluster electronic E.
-    water = xtb_ohess(["O", "H", "H"], __import__("numpy").array(
-        [[0., 0., 0.], [0.96, 0., 0.], [-0.24, 0.93, 0.]]), 0, args.xtb, 2)
+    # A grand-canonical ensemble changes atom count.  Its water chemical
+    # potential must therefore use the *same composite zero* as the clusters;
+    # using xTB water with MACE cluster energies leaves an uncancelled MACE
+    # atomic reference per water and is catastrophically wrong.
+    water_positions = __import__("numpy").array([[0., 0., 0.], [0.96, 0., 0.],
+                                                   [-0.24, 0.93, 0.]])
+    water = xtb_ohess(["O", "H", "H"], water_positions, 0, args.xtb, 2)
     if water is None:
         raise RuntimeError("xTB water reference failed")
-    mu_water = water[0] + GAS_1ATM_TO_1M_KJ + RT * __import__("math").log(55.5)
+    water_atoms = Atoms(symbols=["O", "H", "H"], positions=water_positions)
+    water_atoms.info["charge"] = 0
+    water_atoms.info["spin"] = 1
+    water_atoms.calc = calculator
+    water_mace = float(water_atoms.get_potential_energy()) * EV_TO_KJ
+    # Keep an xTB gas calculation here rather than infer it from --ohess:
+    # the composite definition uses the gas electronic single point explicitly.
+    water_xyz = Path(tempfile.mkdtemp(prefix="water_reference_")) / "water.xyz"
+    try:
+        from experiments.explicit_water.grand_canonical_clusters import write_xyz
+        write_xyz(["O", "H", "H"], water_positions, str(water_xyz))
+        water_gas = xtb_gas_energy(str(water_xyz), 0, args.xtb)
+    finally:
+        shutil.rmtree(str(water_xyz.parent), ignore_errors=True)
+    water_composite = water_mace + water[0] - water_gas
+    mu_water = water_composite + GAS_1ATM_TO_1M_KJ + RT * __import__("math").log(55.5)
     energy, population = {}, {}
     for species, record in hybrid.items():
         selected = record
@@ -117,6 +136,7 @@ def main() -> None:
             continue
     output = {"method": "MACE-POLAR(cluster) + G_xTB,ALPB(cluster) - E_xTB,gas(cluster)",
               "ensemble": "grand canonical, charge/site-dependent water ladder",
+              "water_composite_G_kJ": water_composite, "mu_water_kJ": mu_water,
               "n_species": len(energy), "statistics": pka_statistics(pairs, energy),
               "occupancy": population, "cache": cache_path}
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
