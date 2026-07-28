@@ -6,6 +6,7 @@ from qm_thermo.speciation import (
     ProtonationFamily, monoprotic_base_fraction, monoprotic_family_correction_kJ,
 )
 from qm_thermo.reaction_correction import CalibrationRow, leave_signature_out
+from qm_thermo.modelseed_pka import parse_sites, sites_near_window
 
 
 class CompositeTests(unittest.TestCase):
@@ -47,6 +48,11 @@ class CompositeTests(unittest.TestCase):
         # fwd/rev are excluded together, so their own residual cannot leak in.
         self.assertEqual(scored[0]["training_signatures_in_class"], 1)
         self.assertFalse(scored[0]["calibrated"])
+
+    def test_modelseed_pka_parser_preserves_atom_provenance(self):
+        sites = parse_sites("1:10:8.7;1:4:3.2", "pka")
+        self.assertEqual((sites[0].fragment, sites[0].atom, sites[0].value), (1, 10, 8.7))
+        self.assertEqual([site.value for site in sites_near_window(sites, 7.0, 8.0)], [8.7])
 
 
 if __name__ == "__main__":
