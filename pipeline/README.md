@@ -49,6 +49,30 @@ the two already-computed alternative structures; it is not a general pKa model.
 The calibration scripts and their inputs/outputs have been archived; the active
 `final_model.py` intentionally has no empirical-correction option.
 
+### pH-specific microspecies ensembles
+
+`final_model.py --pH-mode families` is a separate, provenance-tracked result.
+For each compound listed in `microspecies_families.json`, it selects the
+explicitly computed reference microspecies and applies
+`-RT ln(Z/w_reference)` from curated sequential pKas. This is a true Legendre
+transform over the protonation-state partition function, rather than changing
+the pH while holding a charged structure fixed. Compounds without a curated pKa
+family are explicitly left as fixed microspecies; the output records coverage
+and pKa provenance. It is therefore not yet a claim of complete pH treatment
+for the whole ten-reaction set.
+
+### Reaction-class calibration (experimental, opt-in)
+
+`reaction_class_correction.py` is an intentionally separate calibration layer.
+It learns only a shrunk residual by reaction class (currently
+phosphate-transfer, thiolate-redox, and glycosyl-transfer labels), never a
+per-metabolite offset. Evaluation is leave-*reaction-signature*-out, so forward
+and reverse versions of the same reaction cannot leak into each other's fit.
+The ten-reaction set is too small for calibration and correctly yields zero
+calibrated out-of-fold rows with the default four-independent-signature gate.
+Use `final_model.py --write-calibration-input ...` followed by the correction
+CLI only after assembling an independent, substantially larger labelled set.
+
 The anion correction is rejected, not merely unvalidated: scored against a
 calibration built with the same gas and solvation models, it makes the MAE
 **worse** (38.3 → 44.3). It is retained behind a flag for one reason — it

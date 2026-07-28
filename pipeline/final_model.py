@@ -6,7 +6,7 @@ baseline, and no fitted anion-solvation correction. A pH-midpoint column is a
 fixed-microspecies sensitivity diagnostic, not a complete speciation model. The rejected
 empirical calibration is archived outside this repository's active workflow.
 
-Run: python final_model.py [--breakdown PATH]
+Run: python final_model.py [--breakdown PATH] [--pH-mode fixed|families]
 """
 import argparse
 import csv
@@ -22,14 +22,45 @@ sys.path.insert(0, THERMO)
 from qm_thermo import config
 from qm_thermo.composite import extract_ensemble_energy
 from qm_thermo.reactions import Reaction, SpeciesInfo, reaction_dG
+from qm_thermo.speciation import families_from_dict
+from qm_thermo.reaction_correction import canonical_signature
 
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
+FAMILIES_JSON = os.path.join(HERE, "microspecies_families.json")
+MICROSPECIES_G_JSON = os.path.join(THERMO, "mlip", "G_aq_microspecies.json")
+
+
+def score_with_families(reactions, G, S, conditions, families):
+    """Apply ν[-RT ln(Z/w_ref)] after transforming the calculated reference state."""
+    values, provenance = {}, {}
+    for reaction_id, stoich in reactions.items():
+        condition = conditions[reaction_id]
+        value = reaction_dG(Reaction(reaction_id, stoich), G, S,
+                            conditions=condition).dG_transformed_kJ
+        applied = []
+        for compound, coeff in stoich.items():
+            family = families.get(compound)
+            if family is None:
+                continue
+            correction = family.correction_from_reference_kJ(condition.pH, condition.temperature_K)
+            value += coeff * correction
+            applied.append({"compound": compound, "coefficient": coeff,
+                            "correction_kJ": correction, "fractions": family.fractions(condition.pH),
+                            "source": family.source, "citation": family.citation})
+        values[reaction_id], provenance[reaction_id] = value, applied
+    return values, provenance
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--breakdown", default=os.path.join(
         THERMO, "mlip", "G_aq_macepolar_deep.json"))
+    ap.add_argument("--pH-mode", choices=("fixed", "families"), default="fixed",
+                    help="fixed is the reported baseline; families applies curated pKa ensembles")
+    ap.add_argument("--families", default=FAMILIES_JSON,
+                    help="curated microspecies-family metadata")
+    ap.add_argument("--write-calibration-input",
+                    help="write labelled reaction rows for the separate class-calibration CLI")
     args = ap.parse_args()
 
     bd = json.load(open(args.breakdown))
@@ -67,6 +98,32 @@ def main():
                                    conditions=conditions[r]).dG_transformed_kJ
                    for r, st in reactions.items()}
            for label, conditions in models}
+    family_provenance = {}
+    if args.pH_mode == "families":
+        label = "pH-midpoint microspecies families [curated]"
+        raw_families = json.load(open(args.families))
+        families = families_from_dict(raw_families)
+        # A family is anchored to an explicitly calculated reference structure
+        # when available.  We therefore transform the thiol QM microspecies,
+        # for example, rather than pretending the stored thiolate remains a
+        # valid structure at every pH.  Missing records are fatal: silently
+        # falling back would make the provenance claim false.
+        G_family, S_family = dict(G), dict(S)
+        micro_energies = json.load(open(MICROSPECIES_G_JSON))
+        for compound, record in raw_families.items():
+            energy_record = record.get("reference_energy_record")
+            if energy_record is None:
+                continue
+            if energy_record not in micro_energies:
+                raise KeyError(f"{compound}: missing microspecies energy {energy_record}")
+            if "reference_charge" not in record or "reference_n_hydrogens" not in record:
+                raise ValueError(f"{compound}: reference structure requires charge and hydrogen count")
+            G_family[compound] = float(micro_energies[energy_record]["G_aq_kJ"])
+            S_family[compound] = SpeciesInfo(compound, int(record["reference_n_hydrogens"]),
+                                              int(record["reference_charge"]))
+        res[label], family_provenance = score_with_families(
+            reactions, G_family, S_family, condX, families)
+        models.append((label, condX))
 
     labels = [label for label, _ in models]
     width = max(14, max(len(label) for label in labels) + 2)
@@ -82,10 +139,16 @@ def main():
         for label in labels))
     print("\nreported baseline = 'pH7 fixed species'. The pH-midpoint column holds "
           "microspecies fixed and is diagnostic only.")
+    if args.pH_mode == "families":
+        covered = sorted({x["compound"] for rows in family_provenance.values() for x in rows})
+        print("curated family mode is separate from the baseline; pKa coverage: " +
+              (", ".join(covered) if covered else "none"))
 
     out_dir = os.path.join(THERMO, "results", "benchmark")
     os.makedirs(out_dir, exist_ok=True)
-    json.dump(res, open(os.path.join(out_dir, "final_model_out.json"), "w"), indent=2)
+    json.dump({"models_kJ": res, "pH_mode": args.pH_mode,
+               "family_provenance": family_provenance},
+              open(os.path.join(out_dir, "final_model_out.json"), "w"), indent=2)
     with open(os.path.join(out_dir, "perreaction_dG.csv"), "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["rank", "rxn", "name", "exp", "dGP", *labels])
@@ -93,6 +156,22 @@ def main():
             w.writerow([meta[r]["rank"], r, meta[r]["name"], f"{exp[r]:.1f}",
                         f"{float(meta[r]['dGpredictor_modelseed_dG_kJ']):.1f}",
                         *[f"{res[label][r]:.1f}" for label in labels]])
+    if args.write_calibration_input:
+        classes = json.load(open(os.path.join(HERE, "reaction_classes.json")))
+        # Select the last emitted prediction: pH-family mode, when requested,
+        # otherwise the fixed-species diagnostic.  This writes data only; the
+        # correction remains a separate explicit operation.
+        selected = labels[-1]
+        with open(args.write_calibration_input, "w", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=("reaction_id", "signature", "reaction_class",
+                                                     "predicted_kJ", "experimental_kJ"))
+            writer.writeheader()
+            for reaction_id, stoich in reactions.items():
+                writer.writerow({"reaction_id": reaction_id,
+                                 "signature": canonical_signature(stoich),
+                                 "reaction_class": classes.get(reaction_id, "other"),
+                                 "predicted_kJ": res[selected][reaction_id],
+                                 "experimental_kJ": exp[reaction_id]})
 
 
 if __name__ == "__main__":
