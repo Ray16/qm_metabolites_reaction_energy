@@ -45,3 +45,7 @@ Example:
 python experiments/explicit_water/grand_canonical_clusters.py build --pairs .../pka_pairs.json --source .../pka_xtb.json --out results/explicit_water/grand_clusters.json --waters-per-anionic-site 2 --max-water 8 --seeds 12 --resume
 python experiments/explicit_water/grand_canonical_clusters.py score --pairs .../pka_pairs.json --ensemble results/explicit_water/grand_clusters.json --out results/explicit_water/grand_clusters_pka.json
 ```
+
+The xTB-only score checks the sampling/standard-state assembly.  Use
+`score_macepolar_grand.py` for the decision gate, because it uses the same
+MACE-POLAR + xTB/ALPB composite as the reaction pipeline.
