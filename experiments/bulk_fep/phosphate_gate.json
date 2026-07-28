@@ -1,0 +1,14 @@
+[
+  {
+    "key": "inorganic_phosphate",
+    "acid": {"name": "H2PO4-", "smiles": "[O-]P(=O)(O)O", "charge": -1},
+    "base": {"name": "HPO4--", "smiles": "[O-]P(=O)([O-])O", "charge": -2},
+    "pka_exp": 7.20
+  },
+  {
+    "key": "methyl_phosphate",
+    "acid": {"name": "methyl-HPO4-", "smiles": "COP(=O)(O)[O-]", "charge": -1},
+    "base": {"name": "methyl-PO4--", "smiles": "COP(=O)([O-])[O-]", "charge": -2},
+    "pka_exp": 6.30
+  }
+]
