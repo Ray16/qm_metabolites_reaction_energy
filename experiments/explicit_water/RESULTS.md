@@ -24,3 +24,18 @@ The next explicit-water approach must generate and Boltzmann-average solvent
 clusters (or use explicit-solvent alchemical free energies), retain the full
 cluster ensemble, and validate phosphate-rich held-out pairs before reaction
 scoring.
+
+## Charge-adaptive seeded-ensemble pilot
+
+The follow-up implementation is `grand_canonical_clusters.py`.  A small xTB
+pilot (acetic acid/acetate, H2PO4-/HPO4^2-, and the imidazolium calibration
+control) confirms that the state-specific ladder is functioning: H2PO4- has
+its largest sampled population at one water (56%), while HPO4^2- has its
+largest population at two waters (64%).  The imidazolium pair is held at n=0
+for the proton-reference fit because the placement model targets anionic donor
+contacts.
+
+That pilot still gives a 35.1 kJ/mol two-anion MAE (phosphate 39.7 kJ/mol), so
+it is evidence for the hydration mechanism, not evidence that this seeded xTB
+ensemble is accurate enough.  It must be expanded to the full pKa set and
+compared with the fixed-n MACE-POLAR gate before any reaction-level use.

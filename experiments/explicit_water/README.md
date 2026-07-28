@@ -27,3 +27,21 @@ python score_macepolar_pka.py \
   --geometry-root /path/to/geometries_microsolv \
   --model models/MACE-POLAR-1-L.model
 ```
+# Charge-adaptive cluster ensembles
+
+`grand_canonical_clusters.py` supersedes the fixed-water-count design for the
+next validation step.  It keeps several valid, distinct xTB/ALPB cluster minima
+at each water count, then assembles a grand-canonical free energy.  Thus a
+phosphate at -3 can have a richer first shell than its -2 conjugate acid; water
+does not have to cancel pairwise.
+
+This is a seeded-minima approximation, not a converged liquid-water free-energy
+calculation.  It must pass the pKa gate before it is considered for reaction
+energies.
+
+Example:
+
+```bash
+python experiments/explicit_water/grand_canonical_clusters.py build --pairs .../pka_pairs.json --source .../pka_xtb.json --out results/explicit_water/grand_clusters.json --waters-per-anionic-site 2 --max-water 8 --seeds 12 --resume
+python experiments/explicit_water/grand_canonical_clusters.py score --pairs .../pka_pairs.json --ensemble results/explicit_water/grand_clusters.json --out results/explicit_water/grand_clusters_pka.json
+```
