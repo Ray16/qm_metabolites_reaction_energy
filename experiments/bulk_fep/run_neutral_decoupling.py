@@ -31,6 +31,8 @@ def main() -> None:
     parser.add_argument("--n-sterics", type=int, default=8)
     parser.add_argument("--initialization-steps", type=int, default=200,
                         help="sequential annealing steps used to seed every lambda window")
+    parser.add_argument("--seed", type=int, default=20260728,
+                        help="independent initialization seed for a new replica")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     if args.n_electrostatics < 2 or args.n_sterics < 2:
@@ -69,7 +71,7 @@ def main() -> None:
         base = states.ThermodynamicState(alchemical_system, temperature=298.15 * unit.kelvin,
                                          pressure=1.0 * unit.atmosphere)
         thermodynamic_states = []
-        for lambda_e, lambda_s in schedule:
+        for state_index, (lambda_e, lambda_s) in enumerate(schedule):
             state = states.CompoundThermodynamicState(
                 base, composable_states=[alchemy.AlchemicalState.from_system(alchemical_system)]
             )
@@ -93,7 +95,7 @@ def main() -> None:
             LocalEnergyMinimizer.minimize(context, tolerance=10 * unit.kilojoule_per_mole / unit.nanometer,
                                            maxIterations=250)
             context.applyConstraints(1e-6)
-            context.setVelocitiesToTemperature(298.15 * unit.kelvin)
+            context.setVelocitiesToTemperature(298.15 * unit.kelvin, args.seed + state_index)
             initializer.step(args.initialization_steps)
             state = context.getState(getPositions=True)
             sampler_states.append(states.SamplerState(state.getPositions(), box_vectors=state.getPeriodicBoxVectors()))
@@ -108,6 +110,7 @@ def main() -> None:
                    "co_alchemical_counterion": atoms[-1] if len(atoms) > len(metadata["solute_atom_indices"]) else None,
                    "schedule": [{"lambda_electrostatics": e, "lambda_sterics": s} for e, s in schedule],
                    "steps_per_iteration": args.steps,
+                   "initialization_seed": args.seed,
                    "warning": "paired-solute hydration leg; not pKa without reference/gas/finite-size terms"},
                   open(str(out) + ".json", "w"), indent=2)
     simulation.energy_context_cache = cache.ContextCache(capacity=None, time_to_live=None, platform=platform)
