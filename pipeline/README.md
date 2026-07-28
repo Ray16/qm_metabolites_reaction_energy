@@ -10,22 +10,19 @@ calibrated on external experimental pKa values, never on the reactions scored.
 | # | script | env | where | what |
 |---|--------|-----|-------|------|
 | 1 | `build_inputs.py` | palm | CPU | ModelSEED reactions/metabolites → `bench_{reactions,species,metabolites}.json` |
-| 2 | `microspecies.py` | palm | CPU | audits SMILES for wrong protonation state / un-modelled hydration; generates corrected structures |
-| 3 | `build_microspecies.py` | palm | CPU | ensembles for the corrected species |
-| 4 | `build_ensembles_fast.py` | palm | CPU | ETKDG embed → xtb-GFN2 opt (ALPB) → one Hessian; energy **and** RMSD dedup |
-| 5 | `run_uma_ensemble_parallel.py` | uma | **multi-GPU** | UMA gas energy per conformer, sharded over all GPUs; Boltzmann average |
-| 6 | `build_pka_set.py` + `analyze_pka.py` | palm/uma | CPU+GPU | anion-solvation calibration from experimental pKa (**one-time, reusable**) |
-| 7 | `final_model.py` | palm | CPU | scores the reactions, writes `perreaction_dG.csv` |
-| 8 | `plot_comparison.py` | palm | CPU | figure |
+| 2 | `build_ensembles_fast.py` | palm | CPU | ETKDG embed → xtb-GFN2 opt (ALPB) → one Hessian; energy **and** RMSD dedup |
+| 3 | `run_uma_ensemble_parallel.py` or `run_macepolar_parallel.py` | GPU env | **multi-GPU** | model-specific gas energy per conformer; shared composite assembly |
+| 4 | `final_model.py` | palm | CPU | scores the reactions, writes `results/benchmark/perreaction_dG.csv` |
+| 5 | `plot_comparison.py` | palm | CPU | figure under `results/benchmark/` |
 
-`sensitivity.py` (transform-parameter sensitivity) and `score_cpcmx.py`
-(ALPB vs CPCM-X per solute class) are diagnostics, not part of the production
-path.
+The empirical pKa-based anion-solvation calibration was rejected and archived
+outside the active repository at
+`../backup/thermodynamic_calc/anion_solvent_calibration/`. It is not part of
+the production path.
 
-pKa calibrations are **named by model** — `pka_cal_uma.json` (UMA+ALPB),
-`pka_cal_mp.json` (MACE-POLAR+ALPB), `pka_cal_mp_cpcmx.json` (MACE-POLAR+CPCM-X)
-— and `analyze_pka.py` takes `PKA_G_JSON`/`PKA_OUT` together. A calibration is
-only valid for the composite it was built from.
+The active, reproducible inputs are `build_inputs.py`,
+`build_ensembles_fast.py`, and `ensemble_deep_xtb.json`. Generated reaction
+scores and figures are written under `../results/benchmark/`.
 
 ## Composite
 
@@ -34,7 +31,7 @@ only valid for the composite it was built from.
          + G_RRHO(thermal)                # xtb --ohess, one Hessian per compound
     → Boltzmann average → Alberty transform at the measured pH and ionic strength
 
-## Corrections, and what each is worth
+## Archived calibration result
 
 Measured on the 10-reaction benchmark (MAE vs TECRDB, kJ/mol):
 
@@ -46,8 +43,9 @@ Measured on the 10-reaction benchmark (MAE vs TECRDB, kJ/mol):
 | + anion-solvation correction (charge ladder) | 44.3 | 9/10 | REJECTED — diagnostic only |
 | + microspecies on top of it | 69.0 | 9/10 | REJECTED — diagnostic only |
 
-The reported model is the **uncorrected** pH-matched deep ensemble;
-`final_model.py` stops there unless `--anion-corr --cal PATH` is passed.
+The reported model is the **uncorrected** pH-matched deep ensemble.
+The calibration scripts and their inputs/outputs have been archived; the active
+`final_model.py` intentionally has no empirical-correction option.
 
 The anion correction is rejected, not merely unvalidated: scored against a
 calibration built with the same gas and solvation models, it makes the MAE

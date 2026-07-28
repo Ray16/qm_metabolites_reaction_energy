@@ -2,7 +2,7 @@
 """Grouped bar chart (experiment / dGPredictor / QM) for the 10
 dGPredictor-TECRDB disagreement reactions.
 
-Run:  /homes/rzhu/miniforge3/envs/palm/bin/python plot_comparison.py
+Run:  python plot_comparison.py
 """
 import csv
 import os
@@ -14,9 +14,9 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
-CSV = os.path.join(HERE, "perreaction_dG.csv")
+CSV = os.path.join(THERMO, "results", "benchmark", "perreaction_dG.csv")
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
-OUT = os.path.join(HERE, "qm_vs_dgpredictor_top10.png")
+OUT = os.path.join(THERMO, "results", "benchmark", "qm_vs_dgpredictor_top10.png")
 
 SERIES = [("exp", "TECRDB (experiment)", "#4C4C4C"),
           ("dGP", "dGPredictor", "#D1495B"),
@@ -24,6 +24,7 @@ SERIES = [("exp", "TECRDB (experiment)", "#4C4C4C"),
 
 
 def main():
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(CSV) as fh:
         rows = list(csv.DictReader(fh))
     rows.sort(key=lambda r: int(r["rank"]))
@@ -70,7 +71,7 @@ def main():
     ax.set_title("dGPredictor vs QM composite on 10 TECRDB disagreement reactions",
                  fontsize=13, pad=12)
     ax.set_xticks(x)
-    ax.set_xticklabels([f"{r['rxn']}\n{r['cls']}" for r in rows], fontsize=9)
+    ax.set_xticklabels([r["rxn"] for r in rows], fontsize=9)
     ax.legend(frameon=False, ncol=3, loc="upper left")
     ax.text(0.995, -0.16, "error bars = TECRDB sd; \"n=1\" = single measurement, "
             "uncertainty not reported", transform=ax.transAxes, ha="right",

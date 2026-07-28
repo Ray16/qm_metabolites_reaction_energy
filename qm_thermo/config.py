@@ -49,21 +49,14 @@ EQUILIBRATOR_CPD_TBL = os.path.join(
 # External executables
 # ---------------------------------------------------------------------------
 # ORCA: full path is required (ORCA uses argv[0] to locate its MPI helpers).
-ORCA_ROOT = os.environ.get(
-    "ORCA_ROOT",
-    "/nfs/lambda_stor_01/homes/rzhu/orca_6_1_1_linux_x86-64_shared_openmpi418_nodmrg",
-)
-ORCA_BIN = os.path.join(ORCA_ROOT, "orca")
+ORCA_ROOT = os.environ.get("ORCA_ROOT", "")
+ORCA_BIN = os.environ.get("ORCA_BIN", os.path.join(ORCA_ROOT, "orca") if ORCA_ROOT else "orca")
 
 # OpenMPI 4.1.8 (must match the ORCA build) installed locally from source.
-OPENMPI_ROOT = os.environ.get(
-    "OPENMPI_ROOT", "/nfs/lambda_stor_01/homes/rzhu/openmpi-4.1.8-install"
-)
+OPENMPI_ROOT = os.environ.get("OPENMPI_ROOT", "")
 
 # xtb for the cheap conformer-screening tier. Resolved from the `xtb` conda env.
-XTB_BIN = os.environ.get(
-    "XTB_BIN", "/nfs/lambda_stor_01/homes/rzhu/miniforge3/envs/xtb/bin/xtb"
-)
+XTB_BIN = os.environ.get("XTB_BIN", "xtb")
 
 # Scratch must be LOCAL disk: the NFS home is ~full and QM scratch is large/IO-heavy.
 SCRATCH_ROOT = os.environ.get("QM_SCRATCH", "/tmp/qm_thermo_scratch")

@@ -60,24 +60,24 @@ at MAE 5.5; dGPredictor covers 100% at 13.2.
 |---|---|
 | **`pipeline/`** | **the current pipeline and all findings** — the main work. Benchmark builders, the composite scorer (`final_model.py`), the pKa-solvation diagnostics, and `FINDINGS.md`. |
 | `qm_thermo/` | shared library: conditions/config, the Alberty + Debye–Hückel transform (`reactions.py`), thermochemistry, and the (now-superseded) ORCA DFT backend |
-| `uma_workflow/` | multi-GPU UMA/MACE scoring of conformer ensembles; the `G_aq_*.json` energy files the scorer reads |
+| `mlip/` | multi-GPU UMA/MACE scoring of conformer ensembles; the `G_aq_*.json` energy files the scorer reads |
 | `aimnet2_workflow/` | an abandoned AIMNet2 solvation route, kept for reference |
 | `data/`, `*.json`, `*.csv` | TECRDB extract, ModelSEED reactions/metabolites, benchmark inputs |
 | `backup/` | superseded scripts, figures, and the June presentation (git-ignored) |
 
-Key entry points inside `pipeline/`: `final_model.py` (scores the
-reactions), `analyze_pka.py` (the anion-solvation calibration), and the
-diagnostics `score_cpcmx.py` (ALPB vs CPCM-X) and `mg_speciation.py` (Mg²⁺, found
-small and **not** applied). See that directory's own `README.md` for the stage
-table.
+Key entry point inside `pipeline/`: `final_model.py` (scores the reactions).
+The rejected empirical anion-solvation calibration and its pKa inputs are
+archived at `../backup/thermodynamic_calc/anion_solvent_calibration/`; they are
+not part of the production workflow. See that directory's own `README.md` for
+the stage table.
 
 ## Reproducing it
 
 The code assumes a conda env (referred to as `palm`) providing RDKit, ASE,
-NumPy, and an xtb binary; UMA/MACE run on GPU. **Several scripts hardcode
-absolute paths** (`/nfs/lambda_stor_01/...`, the interpreter under
-`.../envs/palm/bin/python`) from the machine this was developed on — adjust them
-for your environment.
+NumPy, and an xtb binary; UMA/MACE run on GPU. External executables and model
+helpers are configured with environment variables (`XTB_BIN`, `ORCA_BIN`, and
+`UMA_TOOLS_DIR`), rather than machine-specific paths. Generated results go to
+the git-ignored `results/` directory.
 
 Not included in the repo (git-ignored, too large or third-party):
 

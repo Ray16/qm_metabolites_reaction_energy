@@ -32,7 +32,7 @@ Selected Stability Constants. They carry ~0.3-0.5 log-unit (2-3 kJ/mol)
 uncertainty each -- the correction is only as good as these, which is the point:
 it tests whether the *bookkeeping term* explains the Mg-subset excess error.
 
-Run:  /nfs/lambda_stor_01/homes/rzhu/miniforge3/envs/palm/bin/python mg_speciation.py
+Run:  python mg_speciation.py
 """
 import csv
 import json

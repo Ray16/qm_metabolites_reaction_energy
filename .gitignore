@@ -26,6 +26,7 @@ hessian
 
 # --- Local-only archive of superseded material ---
 backup/
+results/
 
 # --- OS / editor ---
 .DS_Store
