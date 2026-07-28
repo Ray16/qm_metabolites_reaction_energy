@@ -247,9 +247,20 @@ def pka_statistics(pairs: list[dict], grand_energies: dict[str, float]) -> dict:
         row["error_kJ"] = (row["pka_calc"] - row["pka_exp"]) * RTLN10 - shift
     anion = [row["error_kJ"] for row in rows if row["kind"] == "anionic"]
     phosphate = [row["error_kJ"] for row in rows if row["group"] == "phosphate"]
+    def summary(selected: list[dict]) -> dict:
+        errors = [row["error_kJ"] for row in selected]
+        return {"n": len(errors), "mae_kJ": float(np.mean(np.abs(errors))),
+                "bias_kJ": float(np.mean(errors))}
+
+    anion_rows = [row for row in rows if row["kind"] == "anionic"]
+    by_group = {group: summary([row for row in anion_rows if row["group"] == group])
+                for group in sorted({row["group"] for row in anion_rows})}
+    by_charge = {str(charge): summary([row for row in anion_rows if row["charge"] == charge])
+                 for charge in sorted({row["charge"] for row in anion_rows})}
     return {"n_pairs": len(rows), "n_anions": len(anion), "proton_shift_kJ": shift,
             "anion_mae_kJ": float(np.mean(np.abs(anion))), "anion_bias_kJ": float(np.mean(anion)),
-            "phosphate_mae_kJ": float(np.mean(np.abs(phosphate))) if phosphate else None, "rows": rows}
+            "phosphate_mae_kJ": float(np.mean(np.abs(phosphate))) if phosphate else None,
+            "by_group": by_group, "by_resulting_anion_charge": by_charge, "rows": rows}
 
 
 def make_ensemble(args: argparse.Namespace) -> None:

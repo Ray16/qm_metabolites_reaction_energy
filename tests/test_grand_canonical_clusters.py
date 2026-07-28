@@ -2,7 +2,7 @@ import math
 import unittest
 
 from experiments.explicit_water.grand_canonical_clusters import (
-    R_KJ, TEMPERATURE, grand_free_energy, water_ladder_limit, write_xyz,
+    R_KJ, TEMPERATURE, grand_free_energy, pka_statistics, water_ladder_limit, write_xyz,
 )
 
 
@@ -32,6 +32,20 @@ class GrandCanonicalClusterTests(unittest.TestCase):
                       __import__("numpy").array([[0., 0., 0.], [1.5, 0., 0.],
                                                    [-0.75, 1.3, 0.], [-0.75, -1.3, 0.]]), xyz)
             self.assertEqual(water_ladder_limit(xyz, -3, 2, None), 6)
+
+    def test_pka_statistics_preserves_group_and_charge_strata(self):
+        rtln10 = R_KJ * TEMPERATURE * math.log(10.0)
+        pairs = [
+            {"key": "control", "acid": "BH", "base": "B", "q_acid": 1, "q_base": 0,
+             "kind": "cationic", "group": "ammonium", "pKa_exp": 7.0},
+            {"key": "phos", "acid": "AH", "base": "A", "q_acid": -1, "q_base": -2,
+             "kind": "anionic", "group": "phosphate", "pKa_exp": 6.0},
+        ]
+        energies = {"BH": 0.0, "B": 7.0 * rtln10 - (-1122.8), "AH": 0.0,
+                    "A": 6.0 * rtln10 - (-1122.8)}
+        stats = pka_statistics(pairs, energies)
+        self.assertEqual(stats["by_group"]["phosphate"]["n"], 1)
+        self.assertEqual(stats["by_resulting_anion_charge"]["2"]["n"], 1)
 
 
 if __name__ == "__main__":
