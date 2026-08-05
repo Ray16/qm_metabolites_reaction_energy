@@ -5,6 +5,7 @@ dGPredictor-TECRDB disagreement reactions.
 Run:  python plot_comparison.py
 """
 import csv
+import json
 import os
 
 import matplotlib
@@ -18,9 +19,16 @@ CSV = os.path.join(THERMO, "results", "benchmark", "perreaction_dG.csv")
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
 OUT = os.path.join(THERMO, "results", "benchmark", "qm_vs_dgpredictor_top10.png")
 
+# The reported baseline is "pH7 fixed species".  The pH-midpoint column is a
+# sensitivity diagnostic and must not be presented as the model -- an earlier
+# version of this figure plotted it and captioned it as "QM", which overstated
+# the error (38.3 rather than the baseline 31.7).  Series absent from the CSV
+# are skipped, so this works whichever --pH-mode produced it.
 SERIES = [("exp", "TECRDB (experiment)", "#4C4C4C"),
           ("dGP", "dGPredictor", "#D1495B"),
-          ("fixed-species pH midpoint [diag]", "QM (fixed-species pH midpoint)", "#2E86AB")]
+          ("pH7 fixed species", "QM composite (MACE-POLAR-1)", "#2E86AB"),
+          ("QM + external references [param-free]",
+           "QM + external references", "#00916E")]
 
 
 def main():
@@ -30,8 +38,9 @@ def main():
     rows.sort(key=lambda r: int(r["rank"]))
 
     x = np.arange(len(rows))
-    width = 0.26
-    series = {k: [float(r[k]) for r in rows] for k, _, _ in SERIES}
+    present = [s for s in SERIES if s[0] in rows[0]]
+    width = 0.8 / len(present)
+    series = {k: [float(r[k]) for r in rows] for k, _, _ in present}
 
     # Experimental uncertainty. A blank/0.0 sd means "not reported" (these are
     # single-measurement entries), NOT a zero-uncertainty measurement -- so those
@@ -45,14 +54,16 @@ def main():
         sd.append(s if (s > 0 and n > 1) else 0.0)
         n_meas.append(n)
 
-    fig, ax = plt.subplots(figsize=(12, 6))
-    for i, (key, label, color) in enumerate(SERIES):
+    fig, ax = plt.subplots(figsize=(13, 6))
+    offset = (len(present) - 1) / 2.0
+    for i, (key, label, color) in enumerate(present):
         if key == "exp":
             leg = label
         else:
             mae = np.mean([abs(p - e) for p, e in zip(series[key], series["exp"])])
-            leg = f"{label}  (MAE {mae:.1f} kJ/mol)"
-        ax.bar(x + (i - 1) * width, series[key], width, label=leg, color=color,
+            signs = sum(p * e > 0 for p, e in zip(series[key], series["exp"]))
+            leg = f"{label}  (MAE {mae:.1f}, signs {signs}/{len(rows)})"
+        ax.bar(x + (i - offset) * width, series[key], width, label=leg, color=color,
                edgecolor="white", linewidth=0.5,
                yerr=sd if key == "exp" else None,
                error_kw=dict(ecolor="black", capsize=3, lw=1.2))
@@ -70,9 +81,19 @@ def main():
     ax.set_ylabel(r"$\Delta_r G'^{\circ}$ (kJ/mol)")
     ax.set_title("dGPredictor vs QM composite on 10 TECRDB disagreement reactions",
                  fontsize=13, pad=12)
+    # Second label line is the reaction class: the corrections are per class, so
+    # reading the figure without it hides why neighbouring bars behave alike.
+    classes = {}
+    class_path = os.path.join(HERE, "reaction_classes.json")
+    if os.path.exists(class_path):
+        pretty = {"thiolate_redox": "redox", "glycosyl_transfer": "glycosyl",
+                  "phosphate_transfer": "nucleotidyl", "other": "glyoxalase"}
+        raw = json.load(open(class_path))
+        classes = {k: pretty.get(v, v) for k, v in raw.items()}
     ax.set_xticks(x)
-    ax.set_xticklabels([r["rxn"] for r in rows], fontsize=9)
-    ax.legend(frameon=False, ncol=3, loc="upper left")
+    ax.set_xticklabels([f"{r['rxn']}\n{classes.get(r['rxn'], '')}".rstrip()
+                        for r in rows], fontsize=9)
+    ax.legend(frameon=False, ncol=2, loc="upper left", fontsize=9)
     ax.text(0.995, -0.16, "error bars = TECRDB sd; \"n=1\" = single measurement, "
             "uncertainty not reported", transform=ax.transAxes, ha="right",
             fontsize=8, color="gray")
