@@ -30,6 +30,20 @@ SPIN_MULTIPLICITY_OVERRIDES = {
     "cpd00007": 3,   # O2, triplet ground state
 }
 
+#: d-block elements whose metabolite-relevant oxidation states are usually
+#: open-shell.  An even electron count is *not* evidence of a singlet here:
+#: high-spin Fe(II) is a quintet with 24 electrons, and the free Fe and W atoms
+#: are 5-D quintets.  The odd-electron screen below catches Fe(III), Cu(II),
+#: Co(II), Mn(II) and Cr(III), but it waves Fe(II), Mo(II) and W through to be
+#: computed as closed-shell singlets -- an error measured at 200-470 kJ/mol,
+#: several times larger than any other in this project.  So these require an
+#: explicit multiplicity rather than defaulting to one.
+OPEN_SHELL_D_BLOCK = frozenset({
+    "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu",
+    "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd",
+    "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt",
+})
+
 
 @dataclass(frozen=True)
 class Metabolite:
@@ -89,7 +103,38 @@ def _validate(mol: Chem.Mol, meta: dict) -> None:
         raise StructureError(
             f"{meta['id']}: odd electron count ({n_elec}); open-shell not supported"
         )
+    _validate_spin_state(mol, meta)
     _validate_stereochemistry(meta)
+
+
+def _validate_spin_state(mol: Chem.Mol, meta: dict) -> None:
+    """Refuse open-shell d-block metals rather than assuming a singlet.
+
+    The even-electron check above is necessary but not sufficient. High-spin
+    Fe(II) has 24 electrons and is a quintet; the free Fe and W atoms are 5-D
+    quintets with 26 and 74. Those all pass an even-parity test and were being
+    scored as closed-shell singlets, which is wrong by 200-470 kJ/mol measured
+    with g-xTB -- an order of magnitude beyond anything else in the error
+    budget, and silent.
+
+    Refusing is the honest outcome, not a temporary gap. A bare aqueous
+    transition-metal ion's thermodynamics is dominated by explicit inner-shell
+    hydration and ligand-field splitting, neither of which a continuum
+    composite represents, so a number here would be wrong even with the right
+    multiplicity. Supply an explicit ``SPIN_MULTIPLICITY_OVERRIDES`` entry to
+    override, which records the choice instead of hiding it.
+    """
+    if meta["id"] in SPIN_MULTIPLICITY_OVERRIDES:
+        return
+    metals = sorted({a.GetSymbol() for a in mol.GetAtoms()
+                     if a.GetSymbol() in OPEN_SHELL_D_BLOCK})
+    if metals:
+        raise StructureError(
+            f"{meta['id']}: contains open-shell-capable d-block metal(s) "
+            f"{', '.join(metals)}; the closed-shell singlet default is not valid "
+            f"(measured 200-470 kJ/mol error on bare ions). Add an explicit "
+            f"SPIN_MULTIPLICITY_OVERRIDES entry to compute it deliberately."
+        )
 
 
 def _validate_stereochemistry(meta: dict) -> None:

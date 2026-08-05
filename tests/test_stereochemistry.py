@@ -177,3 +177,38 @@ class ReactionMappingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SpinStateGuardTests(unittest.TestCase):
+    """Even electron count is not evidence of a singlet for d-block metals."""
+
+    def _meta(self, cid, smiles, charge):
+        return {"id": cid, "smiles": smiles, "charge": charge}
+
+    def test_even_electron_iron_is_refused_not_assumed_singlet(self):
+        from qm_thermo import structures
+        # Fe(II): 24 electrons, even, but high-spin d6 is a quintet.
+        mol = structures._build_mol("[Fe+2]")
+        with self.assertRaises(structures.StructureError) as caught:
+            structures._validate(mol, self._meta("cpd10515", "[Fe+2]", 2))
+        self.assertIn("d-block", str(caught.exception))
+
+    def test_tungsten_atom_is_refused(self):
+        from qm_thermo import structures
+        mol = structures._build_mol("[W]")
+        with self.assertRaises(structures.StructureError):
+            structures._validate(mol, self._meta("cpd00560", "[W]", 0))
+
+    def test_an_explicit_multiplicity_override_permits_the_metal(self):
+        from qm_thermo import structures
+        structures.SPIN_MULTIPLICITY_OVERRIDES["cpdTESTFE"] = 5
+        try:
+            mol = structures._build_mol("[Fe+2]")
+            structures._validate(mol, self._meta("cpdTESTFE", "[Fe+2]", 2))
+        finally:
+            del structures.SPIN_MULTIPLICITY_OVERRIDES["cpdTESTFE"]
+
+    def test_main_group_and_organics_are_unaffected(self):
+        from qm_thermo import structures
+        for cid, smi, q in (("cpdMG", "[Mg+2]", 2), ("cpdORG", "CC(O)C(=O)[O-]", -1)):
+            structures._validate(structures._build_mol(smi), self._meta(cid, smi, q))
