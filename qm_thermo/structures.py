@@ -10,12 +10,19 @@ and expose a clean dataclass for the rest of the pipeline.
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 
 from rdkit import Chem
 from rdkit.Chem import AllChem, Descriptors, rdMolDescriptors
 
 from . import config
+from . import stereochemistry
+
+#: Escape hatch for reproducing pre-2026-08 numbers, which were computed on
+#: stereochemically ambiguous inputs.  It is opt-in because the resulting
+#: "conformer ensemble" silently mixes diastereomers.
+ALLOW_AMBIGUOUS_STEREO = os.environ.get("ALLOW_AMBIGUOUS_STEREO", "") == "1"
 
 # Ground-state spin multiplicities for the few open-shell metabolites. Everything
 # else is a closed-shell singlet; molecular O2 is the notable triplet exception.
@@ -82,6 +89,36 @@ def _validate(mol: Chem.Mol, meta: dict) -> None:
         raise StructureError(
             f"{meta['id']}: odd electron count ({n_elec}); open-shell not supported"
         )
+    _validate_stereochemistry(meta)
+
+
+def _validate_stereochemistry(meta: dict) -> None:
+    """Refuse a structure whose undefined stereochemistry mixes diastereomers.
+
+    ETKDG resolves an undefined centre independently for each embedding, so a
+    single compound's "conformer ensemble" ends up containing two different
+    substances weighted by embedding luck (measured for D-glucose 6-phosphate:
+    14 conformers split 5/9 across both anomers).  Boltzmann-averaging that is
+    not a conformer average, and the weights come from exactly the relative
+    energies this project has shown to be unreliable.
+
+    Enantiomeric ambiguity is allowed through: mirror images share a free
+    energy in an achiral solvent, so leaving one unresolved changes nothing.
+    """
+    assessment = stereochemistry.assess(meta["smiles"])
+    if not assessment.thermodynamically_ambiguous:
+        return
+    centres = "; ".join(element.detail for element in assessment.undefined)
+    message = (
+        f"{meta['id']}: undefined stereochemistry that changes the free energy "
+        f"({assessment.distinct_states} distinct structures) at {centres}. "
+        f"Run pipeline/resolve_stereochemistry.py to enumerate explicit states, "
+        f"or set ALLOW_AMBIGUOUS_STEREO=1 to reproduce the older biased numbers."
+    )
+    if ALLOW_AMBIGUOUS_STEREO:
+        print(f"[structures] WARNING {message}")
+        return
+    raise StructureError(message)
 
 
 def load_metabolites(

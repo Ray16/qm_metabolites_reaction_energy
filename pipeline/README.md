@@ -10,10 +10,47 @@ calibrated on external experimental pKa values, never on the reactions scored.
 | # | script | env | where | what |
 |---|--------|-----|-------|------|
 | 1 | `build_inputs.py` | palm | CPU | ModelSEED reactions/metabolites → `bench_{reactions,species,metabolites}.json` |
+| 1a | `audit_stereochemistry.py` | palm | CPU | structure integrity: degenerate reactions, diastereomeric ambiguity, collisions |
+| 1b | `resolve_stereochemistry.py` | palm | CPU | enumerate explicit isomer states for the ambiguous compounds |
 | 2 | `build_ensembles_fast.py` | palm | CPU | ETKDG embed → xtb-GFN2 opt (ALPB) → one Hessian; energy **and** RMSD dedup |
 | 3 | `run_uma_ensemble_parallel.py` or `run_macepolar_parallel.py` | GPU env | **multi-GPU** | model-specific gas energy per conformer; shared composite assembly |
 | 4 | `final_model.py` | palm | CPU | scores the reactions, writes `results/benchmark/perreaction_dG.csv` |
 | 5 | `plot_comparison.py` | palm | CPU | figure under `results/benchmark/` |
+
+## Stereochemical integrity (stages 1a/1b)
+
+Two input defects were found on 2026-08-04 and both silently corrupted scored
+reactions.
+
+**Degenerate reactions.** ModelSEED stores the *keto* SMILES for
+`cpd02469` "enol-Oxaloacetate" and `cpd01784` "enol-Phenylpyruvate", identical
+to their keto partners (`cpd00032`, `cpd00143`; same InChIKey). Both
+`rxn00266` and `rxn01004` therefore have one structure on each side, so their
+Δ<sub>r</sub>G′° is exactly zero for *any* method. They were being scored and
+counted as 5.7 kJ/mol errors. They are predictions of nothing and must be
+excluded until the enol structures are curated.
+
+**Diastereomeric ambiguity.** 7 compounds carry an undefined anomeric carbon.
+ETKDG resolves it independently per embedding, so the "conformer ensemble"
+mixes two substances: D-glucose 6-phosphate embeds 14 conformers split 5/9
+across both anomers, with the ratio set by embedding luck and by the relative
+energies this project has shown to be unreliable. `qm_thermo/structures.py`
+now refuses such inputs (`ALLOW_AMBIGUOUS_STEREO=1` reproduces the old
+numbers), and `resolve_stereochemistry.py` enumerates the explicit states —
+labelled from ModelSEED's own α/β entries, not guessed here.
+
+Counting raw "undefined stereocentres" would have reported 48 of 165 compounds.
+Most of those are **phantom**: 73 phosphate/sulfate centres whose four oxygens
+are resonance-equivalent (ATP alone reports three), plus delocalised systems
+such as a guanidinium C=N that enumerate to a single InChIKey. After excluding
+them the real count is 7, all the same chemistry. Enantiomeric ambiguity is
+reported separately and deliberately allowed: mirror images share a free energy
+in an achiral solvent.
+
+`speciation.IsomerFamily` combines resolved states, using `G_mix = G_ref +
+RT ln f_ref`. Populations must come from measurement and are `null` until
+curated; an unresolved family reports the state spread as an uncertainty rather
+than inventing a weight.
 
 The empirical pKa-based anion-solvation calibration was rejected and archived
 outside the active repository at

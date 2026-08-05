@@ -1,0 +1,237 @@
+{
+  "scope": "explicit isomer states for compounds whose undefined stereochemistry changes a free energy; populations must be curated before use",
+  "n_compounds": 7,
+  "compounds": {
+    "cpd00072": {
+      "name": "D-fructose-6-phosphate",
+      "parent_smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 8 C nbrs=CCOO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "beta-D-Fructose 6-phosphate",
+        "alpha-D-fructofuranose 6-phosphate"
+      ],
+      "states": [
+        {
+          "label": "beta-D-Fructose 6-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "BGWGXPAPYGQALX-ARQDHWQXSA-L",
+          "modelseed_match": "cpd19035",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "alpha-D-fructofuranose 6-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@](O)(CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "BGWGXPAPYGQALX-ZXXMMSQZSA-L",
+          "modelseed_match": "cpd35366",
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00079": {
+      "name": "D-glucose-6-phosphate",
+      "parent_smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 8 C nbrs=COO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "alpha-D-Glucose 6-phosphate",
+        "beta-D-Glucose 6-phosphate"
+      ],
+      "states": [
+        {
+          "label": "alpha-D-Glucose 6-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+          "inchikey": "NBSCHQHZLSJFNQ-DVKNGEFBSA-L",
+          "modelseed_match": "cpd19006",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "beta-D-Glucose 6-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+          "inchikey": "NBSCHQHZLSJFNQ-VFUOTHLCSA-L",
+          "modelseed_match": "cpd00863",
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00082": {
+      "name": "D-Fructose",
+      "parent_smiles": "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 4 C nbrs=CCOO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "beta-D-Fructose",
+        "alpha-D-fructofuranose"
+      ],
+      "states": [
+        {
+          "label": "beta-D-Fructose",
+          "smiles": "OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "RFSUNEUAIZKAJO-ARQDHWQXSA-N",
+          "modelseed_match": "cpd30321",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "alpha-D-fructofuranose",
+          "smiles": "OC[C@H]1O[C@@](O)(CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "RFSUNEUAIZKAJO-ZXXMMSQZSA-N",
+          "modelseed_match": "cpd22786",
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00101": {
+      "name": "ribose-5-phosphate",
+      "parent_smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 8 C nbrs=COO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "alpha-D-Ribose 5-phosphate",
+        "5-O-phosphono-beta-D-ribofuranose"
+      ],
+      "states": [
+        {
+          "label": "alpha-D-Ribose 5-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O",
+          "inchikey": "KTVPXOYAKDPRHY-AIHAYLRMSA-L",
+          "modelseed_match": "cpd19028",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "5-O-phosphono-beta-D-ribofuranose",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H]1O",
+          "inchikey": "KTVPXOYAKDPRHY-TXICZTDVSA-L",
+          "modelseed_match": "cpd33616",
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00105": {
+      "name": "D-Ribose",
+      "parent_smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 4 C nbrs=COO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "unnamed_HMFHBZSHGGEWLO",
+        "beta-D-Ribofuranose"
+      ],
+      "states": [
+        {
+          "label": "unnamed_HMFHBZSHGGEWLO",
+          "smiles": "OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O",
+          "inchikey": "HMFHBZSHGGEWLO-AIHAYLRMSA-N",
+          "modelseed_match": null,
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "beta-D-Ribofuranose",
+          "smiles": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H]1O",
+          "inchikey": "HMFHBZSHGGEWLO-TXICZTDVSA-N",
+          "modelseed_match": "cpd16443",
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00290": {
+      "name": "D-fructose-1,6-bisphosphate",
+      "parent_smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 8 C nbrs=CCOO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "beta-D-Fructose 1,6-bisphosphate",
+        "unnamed_RNBGYGVWRKECFJ"
+      ],
+      "states": [
+        {
+          "label": "beta-D-Fructose 1,6-bisphosphate",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@](O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+          "inchikey": "RNBGYGVWRKECFJ-ARQDHWQXSA-J",
+          "modelseed_match": "cpd19036",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "unnamed_RNBGYGVWRKECFJ",
+          "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@](O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+          "inchikey": "RNBGYGVWRKECFJ-ZXXMMSQZSA-J",
+          "modelseed_match": null,
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    },
+    "cpd00802": {
+      "name": "D-fructose-1-phosphate",
+      "parent_smiles": "O=P([O-])([O-])OCC1(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+      "ambiguity": "diastereomeric",
+      "undefined_centres": [
+        "atom 6 C nbrs=CCOO (anomeric)"
+      ],
+      "anomeric": true,
+      "state_labels": [
+        "alpha-D-fructofuranose 1-phosphate",
+        "unnamed_RHKKZBWRNHGJEZ"
+      ],
+      "states": [
+        {
+          "label": "alpha-D-fructofuranose 1-phosphate",
+          "smiles": "O=P([O-])([O-])OC[C@]1(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "RHKKZBWRNHGJEZ-ZXXMMSQZSA-L",
+          "modelseed_match": "cpd34758",
+          "other_modelseed_matches": []
+        },
+        {
+          "label": "unnamed_RHKKZBWRNHGJEZ",
+          "smiles": "O=P([O-])([O-])OC[C@@]1(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+          "inchikey": "RHKKZBWRNHGJEZ-ARQDHWQXSA-L",
+          "modelseed_match": null,
+          "other_modelseed_matches": []
+        }
+      ],
+      "populations": null,
+      "source": "",
+      "citation": "",
+      "status": "populations_required"
+    }
+  }
+}
