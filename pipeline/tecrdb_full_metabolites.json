@@ -1,0 +1,4079 @@
+[
+ {
+  "id": "cpd00001",
+  "name": "H2O",
+  "smiles": "O",
+  "formula": "H2O",
+  "charge": 0,
+  "inchikey": "XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00002",
+  "name": "ATP",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O",
+  "formula": "C10H13N5O13P3",
+  "charge": -3,
+  "inchikey": "ZKHQWZAMYRWXGA-KQYNXXCUSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00003",
+  "name": "NAD",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c1",
+  "formula": "C21H26N7O14P2",
+  "charge": -1,
+  "inchikey": "BAWFJGJZGIEFAR-NNYOXOHSSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00004",
+  "name": "NADH",
+  "smiles": "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1",
+  "formula": "C21H27N7O14P2",
+  "charge": -2,
+  "inchikey": "BOPGDPNILDQYTO-NNYOXOHSSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00005",
+  "name": "NADPH",
+  "smiles": "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1",
+  "formula": "C21H26N7O17P3",
+  "charge": -4,
+  "inchikey": "ACFIXJIJDZMPPO-NNYOXOHSSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00006",
+  "name": "NADP",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)c1",
+  "formula": "C21H25N7O17P3",
+  "charge": -3,
+  "inchikey": "XJLXINKUBYWONI-NNYOXOHSSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00008",
+  "name": "ADP",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H13N5O10P2",
+  "charge": -2,
+  "inchikey": "XTWYTFMLZFPYCI-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00009",
+  "name": "Phosphate",
+  "smiles": "O=P([O-])([O-])O",
+  "formula": "HO4P",
+  "charge": -2,
+  "inchikey": "NBIIXXVUZAFLBC-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00010",
+  "name": "CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCS",
+  "formula": "C21H32N7O16P3S",
+  "charge": -4,
+  "inchikey": "RGJOEKWQDUBAIZ-IBOSZNHHSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00012",
+  "name": "PPi",
+  "smiles": "O=P([O-])([O-])OP(=O)([O-])O",
+  "formula": "HO7P2",
+  "charge": -3,
+  "inchikey": "XPPKVPWEQAFLFU-UHFFFAOYSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00013",
+  "name": "NH3",
+  "smiles": "[NH4+]",
+  "formula": "H4N",
+  "charge": 1,
+  "inchikey": "QGZKDVFQNNGYKY-UHFFFAOYSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00014",
+  "name": "UDP",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C9H12N2O12P2",
+  "charge": -2,
+  "inchikey": "XCCTYIAWTASOJW-XVFCMESISA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00015",
+  "name": "FAD",
+  "smiles": "Cc1cc2nc3c(=O)[nH]c(=O)nc-3n(C[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)c2cc1C",
+  "formula": "C27H31N9O15P2",
+  "charge": -2,
+  "inchikey": "VWWQXMAJTJZDQX-UYBVJOGSSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00018",
+  "name": "AMP",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H12N5O7P",
+  "charge": -2,
+  "inchikey": "UDMBCSSLTHHNCD-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00019",
+  "name": "S-Adenosyl-homocysteine",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O",
+  "formula": "C14H20N6O5S",
+  "charge": 0,
+  "inchikey": "ZJUKTBDSGOFHSH-WFMPWKQPSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00020",
+  "name": "Pyruvate",
+  "smiles": "CC(=O)C(=O)[O-]",
+  "formula": "C3H3O3",
+  "charge": -1,
+  "inchikey": "LCTONWCANYUPML-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00022",
+  "name": "Acetyl-CoA",
+  "smiles": "CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C23H34N7O17P3S",
+  "charge": -4,
+  "inchikey": "ZSLZBFCDCINBPY-ZSJPKINUSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00023",
+  "name": "L-Glutamate",
+  "smiles": "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]",
+  "formula": "C5H8NO4",
+  "charge": -1,
+  "inchikey": "WHUUTDBJXJRKMK-VKHMYHEASA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00024",
+  "name": "2-Oxoglutarate",
+  "smiles": "O=C([O-])CCC(=O)C(=O)[O-]",
+  "formula": "C5H4O5",
+  "charge": -2,
+  "inchikey": "KPGXRSRHYNQIFN-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00026",
+  "name": "UDP-glucose",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C15H22N2O17P2",
+  "charge": -2,
+  "inchikey": "HSCJRCZFDFQWRP-JZMIEXBBSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00027",
+  "name": "D-Glucose",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "WQZGKKKJIJFFOK-GASJEMHNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00029",
+  "name": "Acetate",
+  "smiles": "CC(=O)[O-]",
+  "formula": "C2H3O2",
+  "charge": -1,
+  "inchikey": "QTBSBXVTEAMEQO-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00031",
+  "name": "GDP",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C10H13N5O11P2",
+  "charge": -2,
+  "inchikey": "QGWNDRXFNXRZMB-UUOKFMHZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00032",
+  "name": "Oxaloacetate",
+  "smiles": "O=C([O-])CC(=O)C(=O)[O-]",
+  "formula": "C4H2O5",
+  "charge": -2,
+  "inchikey": "KHPXUQMNIQBQEV-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00033",
+  "name": "Glycine",
+  "smiles": "[NH3+]CC(=O)[O-]",
+  "formula": "C2H5NO2",
+  "charge": 0,
+  "inchikey": "DHMQDGOQFOQNFH-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00035",
+  "name": "L-Alanine",
+  "smiles": "C[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C3H7NO2",
+  "charge": 0,
+  "inchikey": "QNAYBMKLOCPYGJ-REOHCLBHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00036",
+  "name": "Succinate",
+  "smiles": "O=C([O-])CCC(=O)[O-]",
+  "formula": "C4H4O4",
+  "charge": -2,
+  "inchikey": "KDYFGRWQOYBRFD-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00037",
+  "name": "UDP-N-acetylglucosamine",
+  "smiles": "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C17H25N3O17P2",
+  "charge": -2,
+  "inchikey": "LFTYTUAZOPRMMI-CFRASDGPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00038",
+  "name": "GTP",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C10H13N5O14P3",
+  "charge": -3,
+  "inchikey": "XKMLYUALXHKNFT-UUOKFMHZSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00039",
+  "name": "L-Lysine",
+  "smiles": "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H15N2O2",
+  "charge": 1,
+  "inchikey": "KDXKERNSBIXSRK-YFKPBYRVSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00040",
+  "name": "Glyoxalate",
+  "smiles": "O=CC(=O)[O-]",
+  "formula": "C2HO3",
+  "charge": -1,
+  "inchikey": "HHLFWLYXYJOTON-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00041",
+  "name": "L-Aspartate",
+  "smiles": "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]",
+  "formula": "C4H6NO4",
+  "charge": -1,
+  "inchikey": "CKLJMWTZIZZHCS-REOHCLBHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00042",
+  "name": "GSH",
+  "smiles": "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]",
+  "formula": "C10H15N3O6S",
+  "charge": -2,
+  "inchikey": "RWSXRVCMGQZWBV-WDSKDSINSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00043",
+  "name": "UDP-galactose",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC3O[C@H](CO)[C@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C15H22N2O17P2",
+  "charge": -2,
+  "inchikey": "HSCJRCZFDFQWRP-LNYDKVEPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00046",
+  "name": "CMP",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C9H12N3O8P",
+  "charge": -2,
+  "inchikey": "IERHLVCPSMICTF-XVFCMESISA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00047",
+  "name": "Formate",
+  "smiles": "O=C[O-]",
+  "formula": "CHO2",
+  "charge": -1,
+  "inchikey": "BDAGIHXWWSANSR-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00048",
+  "name": "Sulfate",
+  "smiles": "O=S(=O)([O-])[O-]",
+  "formula": "O4S",
+  "charge": -2,
+  "inchikey": "QAOWNCQODCNURD-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00051",
+  "name": "L-Arginine",
+  "smiles": "NC(=[NH2+])NCCC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H15N4O2",
+  "charge": 1,
+  "inchikey": "ODKSFYDXXFIFQN-BYPYZUCNSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00052",
+  "name": "CTP",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C9H13N3O14P3",
+  "charge": -3,
+  "inchikey": "PCDQPRRSZKQHHS-XVFCMESISA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00053",
+  "name": "L-Glutamine",
+  "smiles": "NC(=O)CC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H10N2O3",
+  "charge": 0,
+  "inchikey": "ZDXPYRJPNDTMRX-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00054",
+  "name": "L-Serine",
+  "smiles": "[NH3+][C@@H](CO)C(=O)[O-]",
+  "formula": "C3H7NO3",
+  "charge": 0,
+  "inchikey": "MTCFGRXMJLQNBG-REOHCLBHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00055",
+  "name": "Formaldehyde",
+  "smiles": "C=O",
+  "formula": "CH2O",
+  "charge": 0,
+  "inchikey": "WSFSSNUMVMOOMR-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00060",
+  "name": "L-Methionine",
+  "smiles": "CSCC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H11NO2S",
+  "charge": 0,
+  "inchikey": "FFEARJCKVFRZRR-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00061",
+  "name": "Phosphoenolpyruvate",
+  "smiles": "C=C(OP(=O)([O-])[O-])C(=O)[O-]",
+  "formula": "C3H2O6P",
+  "charge": -3,
+  "inchikey": "DTBNBXWJWCWCIK-UHFFFAOYSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00062",
+  "name": "UTP",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C9H12N2O15P3",
+  "charge": -3,
+  "inchikey": "PGAVKCOVUIYSFO-XVFCMESISA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00064",
+  "name": "Ornithine",
+  "smiles": "[NH3+]CCC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H13N2O2",
+  "charge": 1,
+  "inchikey": "AHLPHDHHMVZTML-BYPYZUCNSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00065",
+  "name": "L-Tryptophan",
+  "smiles": "[NH3+][C@@H](Cc1c[nH]c2ccccc12)C(=O)[O-]",
+  "formula": "C11H12N2O2",
+  "charge": 0,
+  "inchikey": "QIVBCDIJIAJPQS-VIFPVBQESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00066",
+  "name": "L-Phenylalanine",
+  "smiles": "[NH3+][C@@H](Cc1ccccc1)C(=O)[O-]",
+  "formula": "C9H11NO2",
+  "charge": 0,
+  "inchikey": "COLNVLDHVKWLRT-QMMMGPOBSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00068",
+  "name": "ITP",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H12N4O14P3",
+  "charge": -3,
+  "inchikey": "HAEJPQIATWHALX-KQYNXXCUSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00069",
+  "name": "L-Tyrosine",
+  "smiles": "[NH3+][C@@H](Cc1ccc(O)cc1)C(=O)[O-]",
+  "formula": "C9H11NO3",
+  "charge": 0,
+  "inchikey": "OUYCCCASQSFEME-QMMMGPOBSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00071",
+  "name": "Acetaldehyde",
+  "smiles": "CC=O",
+  "formula": "C2H4O",
+  "charge": 0,
+  "inchikey": "IKHGUXGNUITLKF-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00072",
+  "name": "D-fructose-6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "BGWGXPAPYGQALX-VRPWFDPXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00073",
+  "name": "Urea",
+  "smiles": "NC(N)=O",
+  "formula": "CH4N2O",
+  "charge": 0,
+  "inchikey": "XSQUKJJJFZCRTK-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00076",
+  "name": "Sucrose",
+  "smiles": "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "CZMRCDWAGMRECN-UGDNZRGBSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00078",
+  "name": "Succinyl-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]",
+  "formula": "C25H35N7O19P3S",
+  "charge": -5,
+  "inchikey": "VNOYUJKHFWYWIR-ITIYDSSPSA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00079",
+  "name": "D-glucose-6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "NBSCHQHZLSJFNQ-GASJEMHNSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00080",
+  "name": "Glycerol-3-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H](O)CO",
+  "formula": "C3H7O6P",
+  "charge": -2,
+  "inchikey": "AWUCVROLDVIAJX-GSVOUGTGSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00082",
+  "name": "D-Fructose",
+  "smiles": "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "RFSUNEUAIZKAJO-VRPWFDPXSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00083",
+  "name": "GDP-mannose",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C16H23N5O16P2",
+  "charge": -2,
+  "inchikey": "MVMSCBBUIHUTGJ-GDJBGNAASA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00085",
+  "name": "beta-Alanine",
+  "smiles": "[NH3+]CCC(=O)[O-]",
+  "formula": "C3H7NO2",
+  "charge": 0,
+  "inchikey": "UCMIRNVEIXFBKS-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00086",
+  "name": "Propionyl-CoA",
+  "smiles": "CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C24H36N7O17P3S",
+  "charge": -4,
+  "inchikey": "QAQREVBBADEHPA-IEXPHMLFSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00087",
+  "name": "Tetrahydrofolate",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2",
+  "formula": "C19H21N7O6",
+  "charge": -2,
+  "inchikey": "MSTNYGQPCMXVAQ-RYUDHWBXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00089",
+  "name": "Glucose-1-phosphate",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "HXXFSFRBOHSIMQ-VFUOTHLCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00090",
+  "name": "IDP",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O",
+  "formula": "C10H12N4O11P2",
+  "charge": -2,
+  "inchikey": "JPXZQMKKFWMMGK-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00092",
+  "name": "Uracil",
+  "smiles": "O=C1CC=NC(=O)N1",
+  "formula": "C4H4N2O2",
+  "charge": 0,
+  "inchikey": "SGLPRIIINMCHCW-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00094",
+  "name": "2-Oxobutyrate",
+  "smiles": "CCC(=O)C(=O)[O-]",
+  "formula": "C4H5O3",
+  "charge": -1,
+  "inchikey": "TYEYBOSBBBHJIV-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00095",
+  "name": "Glycerone-phosphate",
+  "smiles": "O=C(CO)COP(=O)([O-])[O-]",
+  "formula": "C3H5O6P",
+  "charge": -2,
+  "inchikey": "GNGACRATGGDKBX-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00096",
+  "name": "CDP",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C9H13N3O11P2",
+  "charge": -2,
+  "inchikey": "ZWIADYZPOWUWEW-XVFCMESISA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00098",
+  "name": "Choline",
+  "smiles": "C[N+](C)(C)CCO",
+  "formula": "C5H14NO",
+  "charge": 1,
+  "inchikey": "OEYIOHPDSNJKLS-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00100",
+  "name": "Glycerol",
+  "smiles": "OCC(O)CO",
+  "formula": "C3H8O3",
+  "charge": 0,
+  "inchikey": "PEDCQBHIVMGVHV-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00101",
+  "name": "ribose-5-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "KTVPXOYAKDPRHY-SOOFDHNKSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00102",
+  "name": "Glyceraldehyde3-phosphate",
+  "smiles": "O=C[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C3H5O6P",
+  "charge": -2,
+  "inchikey": "LXJXRIRHZLFYRP-VKHMYHEASA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00103",
+  "name": "PRPP",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])O)[C@H](O)[C@@H]1O",
+  "formula": "C5H9O14P3",
+  "charge": -4,
+  "inchikey": "PQGCEDQWHSBAJP-TXICZTDVSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00105",
+  "name": "D-Ribose",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "HMFHBZSHGGEWLO-SOOFDHNKSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00106",
+  "name": "Fumarate",
+  "smiles": "O=C([O-])/C=C/C(=O)[O-]",
+  "formula": "C4H2O4",
+  "charge": -2,
+  "inchikey": "VZCYOOQTPOCHFL-OWOJBTEDSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00107",
+  "name": "L-Leucine",
+  "smiles": "CC(C)C[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H13NO2",
+  "charge": 0,
+  "inchikey": "ROHFNLRQFUQHCH-YFKPBYRVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00108",
+  "name": "Galactose",
+  "smiles": "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "WQZGKKKJIJFFOK-SVZMEOIVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00111",
+  "name": "Oxidized glutathione",
+  "smiles": "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]",
+  "formula": "C20H30N6O12S2",
+  "charge": -2,
+  "inchikey": "YPZRWBKMTBYPTK-BJDJZHNGSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00113",
+  "name": "Isopentenyldiphosphate",
+  "smiles": "C=C(C)CCOP(=O)([O-])OP(=O)([O-])O",
+  "formula": "C5H10O7P2",
+  "charge": -2,
+  "inchikey": "NUHSROFQTUXZQQ-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00114",
+  "name": "IMP",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H11N4O8P",
+  "charge": -2,
+  "inchikey": "GRSZFWQUAKGDAV-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00115",
+  "name": "dATP",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)O1",
+  "formula": "C10H13N5O12P3",
+  "charge": -3,
+  "inchikey": "SUYVUBYJARFZHO-RRKCRQDMSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00117",
+  "name": "D-Alanine",
+  "smiles": "C[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C3H7NO2",
+  "charge": 0,
+  "inchikey": "QNAYBMKLOCPYGJ-UWTATZPHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00119",
+  "name": "L-Histidine",
+  "smiles": "[NH3+][C@@H](Cc1c[nH]cn1)C(=O)[O-]",
+  "formula": "C6H9N3O2",
+  "charge": 0,
+  "inchikey": "HNDVDQJCIGZPNO-YFKPBYRVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00121",
+  "name": "L-Inositol",
+  "smiles": "O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "CDAISMWEOUEBRE-GPIVLXJGSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00122",
+  "name": "N-Acetyl-D-glucosamine",
+  "smiles": "CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C8H15NO6",
+  "charge": 0,
+  "inchikey": "OVRNDRQMDRJTHS-RTRLPJTCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00125",
+  "name": "5-10-Methylenetetrahydrofolate",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21",
+  "formula": "C20H21N7O6",
+  "charge": -2,
+  "inchikey": "QYNUQALWYRSVHF-OLZOCXBDSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00126",
+  "name": "GMP",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C10H12N5O8P",
+  "charge": -2,
+  "inchikey": "RQFCJASXJCIDSX-UUOKFMHZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00128",
+  "name": "Adenine",
+  "smiles": "Nc1ncnc2nc[nH]c12",
+  "formula": "C5H5N5",
+  "charge": 0,
+  "inchikey": "GFFGJBXGBJISGV-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00129",
+  "name": "L-Proline",
+  "smiles": "O=C([O-])[C@@H]1CCC[NH2+]1",
+  "formula": "C5H9NO2",
+  "charge": 0,
+  "inchikey": "ONIBWKKTOPOVIA-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00130",
+  "name": "L-Malate",
+  "smiles": "O=C([O-])C[C@H](O)C(=O)[O-]",
+  "formula": "C4H4O5",
+  "charge": -2,
+  "inchikey": "BJEPYKJPYRNKOW-REOHCLBHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00133",
+  "name": "Nicotinamide",
+  "smiles": "NC(=O)c1cccnc1",
+  "formula": "C6H6N2O",
+  "charge": 0,
+  "inchikey": "DFPAKSUCGFBDDF-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00134",
+  "name": "Palmitoyl-CoA",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C37H62N7O17P3S",
+  "charge": -4,
+  "inchikey": "MNBKLUUYKPBKDU-BBECNAHFSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00135",
+  "name": "Homocysteine",
+  "smiles": "[NH3+][C@@H](CCS)C(=O)[O-]",
+  "formula": "C4H9NO2S",
+  "charge": 0,
+  "inchikey": "FFFHZYDWPBMWHY-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00137",
+  "name": "Citrate",
+  "smiles": "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]",
+  "formula": "C6H5O7",
+  "charge": -3,
+  "inchikey": "KRKNYBCHXYNGOX-UHFFFAOYSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00138",
+  "name": "D-Mannose",
+  "smiles": "OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "WQZGKKKJIJFFOK-QTVWNMPRSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00139",
+  "name": "Glycolate",
+  "smiles": "O=C([O-])CO",
+  "formula": "C2H3O3",
+  "charge": -1,
+  "inchikey": "AEMRFAOFKBGASW-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00141",
+  "name": "Propionate",
+  "smiles": "CCC(=O)[O-]",
+  "formula": "C3H5O2",
+  "charge": -1,
+  "inchikey": "XBDQKXXYIPTUBI-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00142",
+  "name": "Acetoacetate",
+  "smiles": "CC(=O)CC(=O)[O-]",
+  "formula": "C4H5O3",
+  "charge": -1,
+  "inchikey": "WDJHALXBUFZDSR-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00143",
+  "name": "Phenylpyruvate",
+  "smiles": "O=C([O-])C(=O)Cc1ccccc1",
+  "formula": "C9H7O3",
+  "charge": -1,
+  "inchikey": "BTNMPGBKDVTSJY-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00144",
+  "name": "UDPglucuronate",
+  "smiles": "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C15H19N2O18P2",
+  "charge": -3,
+  "inchikey": "HDYANYHVCAPMJV-LXQIFKJMSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00145",
+  "name": "Hydroxypyruvate",
+  "smiles": "O=C([O-])C(=O)CO",
+  "formula": "C3H3O4",
+  "charge": -1,
+  "inchikey": "HHDDCCUIIUWNGJ-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00146",
+  "name": "Carbamoylphosphate",
+  "smiles": "NC(=O)OP(=O)([O-])[O-]",
+  "formula": "CH2NO5P",
+  "charge": -2,
+  "inchikey": "FFQKYPRQEYGKAF-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00147",
+  "name": "5-Methylthioadenosine",
+  "smiles": "CSC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O",
+  "formula": "C11H15N5O3S",
+  "charge": 0,
+  "inchikey": "WUUGFSXJNOTRMR-IOSLPCCCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00154",
+  "name": "Xylose",
+  "smiles": "OC1OC[C@@H](O)[C@H](O)[C@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "SRBFZHDQGSBBOR-IOVATXLUSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00157",
+  "name": "Glycerone",
+  "smiles": "O=C(CO)CO",
+  "formula": "C3H6O3",
+  "charge": 0,
+  "inchikey": "RXKJFZQQPQGTFL-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00158",
+  "name": "CELB",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "GUBGYTABKSRVRQ-CUHNMECISA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00159",
+  "name": "L-Lactate",
+  "smiles": "C[C@H](O)C(=O)[O-]",
+  "formula": "C3H5O3",
+  "charge": -1,
+  "inchikey": "JVTAAEKCZFNVCJ-REOHCLBHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00161",
+  "name": "L-Threonine",
+  "smiles": "C[C@@H](O)[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C4H9NO3",
+  "charge": 0,
+  "inchikey": "AYFVYJQAPQTCCC-GBXIJSLDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00162",
+  "name": "Aminoethanol",
+  "smiles": "[NH3+]CCO",
+  "formula": "C2H8NO",
+  "charge": 1,
+  "inchikey": "HZAXFHJVJLSVMW-UHFFFAOYSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00163",
+  "name": "UDP-xylose",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3OC[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C14H20N2O16P2",
+  "charge": -2,
+  "inchikey": "DQQDLYVHOTZLOR-OCIMBMBZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00164",
+  "name": "Glucuronate",
+  "smiles": "O=C([O-])[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "AEMOLEFTQBMNLQ-AQKNRBDQSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00169",
+  "name": "3-Phosphoglycerate",
+  "smiles": "O=C([O-])[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C3H4O7P",
+  "charge": -3,
+  "inchikey": "OSJPPGNTCRNQQC-UWTATZPHSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00170",
+  "name": "Gluconolactone",
+  "smiles": "O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+  "formula": "C6H10O6",
+  "charge": 0,
+  "inchikey": "PHOQVHQSTUBQQK-SQOUGZDYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00171",
+  "name": "D-Ribulose5-phosphate",
+  "smiles": "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "FNZLKVNUWIIPSJ-UHNVWZDZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00175",
+  "name": "UDP-N-acetyl-D-galactosamine",
+  "smiles": "CC(=O)N[C@H]1C(OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)O[C@H](CO)[C@H](O)[C@@H]1O",
+  "formula": "C17H25N3O17P2",
+  "charge": -2,
+  "inchikey": "LFTYTUAZOPRMMI-LDDHHVEYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00176",
+  "name": "2-keto-3-deoxygluconate",
+  "smiles": "O=C([O-])C(=O)C[C@H](O)[C@H](O)CO",
+  "formula": "C6H9O6",
+  "charge": -1,
+  "inchikey": "WPAMZTWLKIDIOP-WVZVXSGGSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00177",
+  "name": "dADP",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)(O)OP(=O)([O-])[O-])O1",
+  "formula": "C10H13N5O9P2",
+  "charge": -2,
+  "inchikey": "DAEAPNUQQAICNR-RRKCRQDMSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00178",
+  "name": "Acetone",
+  "smiles": "CC(C)=O",
+  "formula": "C3H6O",
+  "charge": 0,
+  "inchikey": "CSCPPACGZOOCGX-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00179",
+  "name": "Maltose",
+  "smiles": "OC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "GUBGYTABKSRVRQ-PICCSMPSSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00182",
+  "name": "Adenosine",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "formula": "C10H13N5O4",
+  "charge": 0,
+  "inchikey": "OIRDTQYFTABQOQ-KQYNXXCUSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00185",
+  "name": "D-Arabinose",
+  "smiles": "OC1OC[C@@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "SRBFZHDQGSBBOR-ZRMNMSDTSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00186",
+  "name": "D-Glutamate",
+  "smiles": "[NH3+][C@H](CCC(=O)[O-])C(=O)[O-]",
+  "formula": "C5H8NO4",
+  "charge": -1,
+  "inchikey": "WHUUTDBJXJRKMK-GSVOUGTGSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00188",
+  "name": "Arachidonate",
+  "smiles": "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)[O-]",
+  "formula": "C20H31O2",
+  "charge": -1,
+  "inchikey": "YZXBAPSDXZZRGB-DOFZRALJSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00191",
+  "name": "3-Oxopropanoate",
+  "smiles": "O=CCC(=O)[O-]",
+  "formula": "C3H3O3",
+  "charge": -1,
+  "inchikey": "OAKURXIZZOAYBC-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00193",
+  "name": "APS",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H12N5O10PS",
+  "charge": -2,
+  "inchikey": "IRLPACMLTUPBCL-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00196",
+  "name": "Acetylphosphate",
+  "smiles": "CC(=O)OP(=O)([O-])[O-]",
+  "formula": "C2H3O5P",
+  "charge": -2,
+  "inchikey": "LIPOUNRJVLNBCD-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00198",
+  "name": "D-Xylulose5-phosphate",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "FNZLKVNUWIIPSJ-RFZPGFLSSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00199",
+  "name": "4-Oxobutanoate",
+  "smiles": "O=CCCC(=O)[O-]",
+  "formula": "C4H5O3",
+  "charge": -1,
+  "inchikey": "UIUJIQZEACWQSV-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00200",
+  "name": "4MOP",
+  "smiles": "CC(C)CC(=O)C(=O)[O-]",
+  "formula": "C6H9O3",
+  "charge": -1,
+  "inchikey": "BKAJNAXTPSGJCU-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00201",
+  "name": "10-Formyltetrahydrofolate",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2",
+  "formula": "C20H21N7O7",
+  "charge": -2,
+  "inchikey": "AUFGTPPARQZWDO-YPMHNXCESA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00202",
+  "name": "DMAPP",
+  "smiles": "CC(C)=CCOP(=O)([O-])OP(=O)([O-])O",
+  "formula": "C5H10O7P2",
+  "charge": -2,
+  "inchikey": "CBIDRCWHNCKSTO-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00203",
+  "name": "1,3-Bisphospho-D-glycerate",
+  "smiles": "O=C(OP(=O)([O-])[O-])[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C3H4O10P2",
+  "charge": -4,
+  "inchikey": "LJQLQCAXBUHEAZ-UWTATZPHSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00206",
+  "name": "dCMP",
+  "smiles": "Nc1ccn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)n1",
+  "formula": "C9H12N3O7P",
+  "charge": -2,
+  "inchikey": "NCMVOABPESMRCP-SHYZEUOFSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00207",
+  "name": "Guanine",
+  "smiles": "Nc1nc2[nH]cnc2c(=O)[nH]1",
+  "formula": "C5H5N5O",
+  "charge": 0,
+  "inchikey": "UYTPUPDQBNUYGX-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00208",
+  "name": "LACT",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "GUBGYTABKSRVRQ-QKKXKWKRSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00212",
+  "name": "L-Sorbose",
+  "smiles": "OCC1(O)OC[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "LKDRXBCSQODPBY-AMVSKUEXSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00213",
+  "name": "Lipoamide",
+  "smiles": "NC(=O)CCCC[C@@H]1CCSS1",
+  "formula": "C8H15NOS2",
+  "charge": 0,
+  "inchikey": "FCCDDURTIIUXBY-SSDOTTSWSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00214",
+  "name": "Palmitate",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)[O-]",
+  "formula": "C16H31O2",
+  "charge": -1,
+  "inchikey": "IPCSVZSSVZVIGE-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00215",
+  "name": "Pyridoxal",
+  "smiles": "Cc1ncc(CO)c(C=O)c1O",
+  "formula": "C8H9NO3",
+  "charge": 0,
+  "inchikey": "RADKZDMFGJYCBB-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00216",
+  "name": "Chorismate",
+  "smiles": "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]",
+  "formula": "C10H8O6",
+  "charge": -2,
+  "inchikey": "WTFXTQVDAKGDEY-HTQZYQBOSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00217",
+  "name": "Brachiose",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2OC(O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "DLRVVLDZNNYCBX-RTPHMHGBSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00218",
+  "name": "Niacin",
+  "smiles": "O=C([O-])c1cccnc1",
+  "formula": "C6H4NO2",
+  "charge": -1,
+  "inchikey": "PVNIIMVLHYAWGP-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00221",
+  "name": "D-Lactate",
+  "smiles": "C[C@@H](O)C(=O)[O-]",
+  "formula": "C3H5O3",
+  "charge": -1,
+  "inchikey": "JVTAAEKCZFNVCJ-UWTATZPHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00222",
+  "name": "GLCN",
+  "smiles": "O=C([O-])[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H11O7",
+  "charge": -1,
+  "inchikey": "RGHNJXZEOKUKBD-SQOUGZDYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00223",
+  "name": "Glycerate",
+  "smiles": "O=C([O-])[C@H](O)CO",
+  "formula": "C3H5O4",
+  "charge": -1,
+  "inchikey": "RBNPOMFGQQGHHO-UWTATZPHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00224",
+  "name": "L-Arabinose",
+  "smiles": "OC1OC[C@H](O)[C@H](O)[C@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "SRBFZHDQGSBBOR-HWQSCIPKSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00225",
+  "name": "Benzaldehyde",
+  "smiles": "O=Cc1ccccc1",
+  "formula": "C7H6O",
+  "charge": 0,
+  "inchikey": "HUMNYLRZRPPJDN-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00226",
+  "name": "HYXN",
+  "smiles": "O=c1[nH]cnc2[nH]cnc12",
+  "formula": "C5H4N4O",
+  "charge": 0,
+  "inchikey": "FDGQSTZJBFJUBT-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00227",
+  "name": "L-Homoserine",
+  "smiles": "[NH3+][C@@H](CCO)C(=O)[O-]",
+  "formula": "C4H9NO3",
+  "charge": 0,
+  "inchikey": "UKAUYVFTDYCKQA-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00229",
+  "name": "Glycolaldehyde",
+  "smiles": "O=CCO",
+  "formula": "C2H4O2",
+  "charge": 0,
+  "inchikey": "WGCNASOHLSPBMP-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00232",
+  "name": "Neu5Ac",
+  "smiles": "CC(=O)N[C@H]1[C@H]([C@H](O)[C@H](O)CO)OC(O)(C(=O)[O-])C[C@@H]1O",
+  "formula": "C11H18NO9",
+  "charge": -1,
+  "inchikey": "SQVRNKJHWKZAKO-LUWBGTNYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00234",
+  "name": "5-Dehydro-D-fructose",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)C(=O)CO",
+  "formula": "C6H10O6",
+  "charge": 0,
+  "inchikey": "AWQIYVPBMVSGCL-PHDIDXHHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00235",
+  "name": "D-mannose-6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "NBSCHQHZLSJFNQ-QTVWNMPRSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00236",
+  "name": "D-Erythrose4-phosphate",
+  "smiles": "O=C[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C4H7O7P",
+  "charge": -2,
+  "inchikey": "NGHMDNPXVRFFGS-IUYQGCFVSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00237",
+  "name": "Androstenedione",
+  "smiles": "C[C@]12CCC(=O)C=C1CC[C@@H]1[C@@H]2CC[C@]2(C)C(=O)CC[C@@H]12",
+  "formula": "C19H26O2",
+  "charge": 0,
+  "inchikey": "AEMFNILZOJDQLW-QAGGRKNESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00238",
+  "name": "Sedoheptulose7-phosphate",
+  "smiles": "O=C(CO)[C@@H](O)[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C7H13O10P",
+  "charge": -2,
+  "inchikey": "JDTUMPKOJBQPKX-GBNDHIKLSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00242",
+  "name": "H2CO3",
+  "smiles": "O=C([O-])O",
+  "formula": "CHO3",
+  "charge": -1,
+  "inchikey": "BVKZGUZCCUSVTD-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00246",
+  "name": "Inosine",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "formula": "C10H12N4O5",
+  "charge": 0,
+  "inchikey": "UGQMRVRMYYASKQ-KQYNXXCUSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00247",
+  "name": "Orotate",
+  "smiles": "O=C1CC(C(=O)[O-])=NC(=O)N1",
+  "formula": "C5H3N2O4",
+  "charge": -1,
+  "inchikey": "WAKGPBXZGKVQRR-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00248",
+  "name": "Quinate",
+  "smiles": "O=C([O-])[C@]1(O)C[C@@H](O)[C@@H](O)[C@H](O)C1",
+  "formula": "C7H11O6",
+  "charge": -1,
+  "inchikey": "AAWZDTNXLSGCEK-WYWMIBKRSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00249",
+  "name": "Uridine",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C9H12N2O6",
+  "charge": 0,
+  "inchikey": "DRTQHJPVMGBUCF-XVFCMESISA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00250",
+  "name": "Creatine",
+  "smiles": "CN(CC(=O)[O-])C(N)=[NH2+]",
+  "formula": "C4H9N3O2",
+  "charge": 0,
+  "inchikey": "CVSVTCORWBXHQV-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00256",
+  "name": "CDPcholine",
+  "smiles": "C[N+](C)(C)CCOP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2ccc(N)nc2=O)[C@H](O)[C@@H]1O",
+  "formula": "C14H25N4O11P2",
+  "charge": -1,
+  "inchikey": "RZZPDXZPRHQOCG-OJAKKHQRSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00258",
+  "name": "D-Ribulose",
+  "smiles": "OCC1(O)OC[C@@H](O)[C@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "LQXVFWRQNMEDEE-ZZKAVYKESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00259",
+  "name": "D-Lyxulose",
+  "smiles": "OCC1(O)OC[C@@H](O)[C@@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "LQXVFWRQNMEDEE-OVEKKEMJSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00260",
+  "name": "Isocitrate",
+  "smiles": "O=C([O-])CC(C(=O)[O-])C(O)C(=O)[O-]",
+  "formula": "C6H5O7",
+  "charge": -3,
+  "inchikey": "ODBLHEXUDAPZAU-UHFFFAOYSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00261",
+  "name": "L-Lyxulose",
+  "smiles": "OCC1(O)OC[C@H](O)[C@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "LQXVFWRQNMEDEE-PYHARJCCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00262",
+  "name": "Oxalyl-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C(=O)[O-]",
+  "formula": "C23H31N7O19P3S",
+  "charge": -5,
+  "inchikey": "QVXMZFTWJVBUHP-IBOSZNHHSA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00263",
+  "name": "Pyridoxol",
+  "smiles": "Cc1ncc(CO)c(CO)c1O",
+  "formula": "C8H11NO3",
+  "charge": 0,
+  "inchikey": "LXNHXLLTXMVWPM-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00266",
+  "name": "Carnitine",
+  "smiles": "C[N+](C)(C)C[C@H](O)CC(=O)[O-]",
+  "formula": "C7H15NO3",
+  "charge": 0,
+  "inchikey": "PHIQHXFUZVPYII-ZCFIWIBFSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00269",
+  "name": "2-Oxoadipate",
+  "smiles": "O=C([O-])CCCC(=O)C(=O)[O-]",
+  "formula": "C6H6O5",
+  "charge": -2,
+  "inchikey": "FGSBNBBHOZHUBO-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00274",
+  "name": "Citrulline",
+  "smiles": "NC(=O)NCCC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H13N3O3",
+  "charge": 0,
+  "inchikey": "RHGKLRLOHDJJDR-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00278",
+  "name": "Indolepyruvate",
+  "smiles": "O=C([O-])C(=O)Cc1c[nH]c2ccccc12",
+  "formula": "C11H8NO3",
+  "charge": -1,
+  "inchikey": "RSTKLPZEZYGQPY-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00279",
+  "name": "Acetoacetyl-CoA",
+  "smiles": "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H36N7O18P3S",
+  "charge": -4,
+  "inchikey": "OJFDKHTZOUZBOS-CITAKDKDSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00280",
+  "name": "D-Galacturonate",
+  "smiles": "O=C([O-])[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "AEMOLEFTQBMNLQ-YMDCURPLSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00281",
+  "name": "GABA",
+  "smiles": "[NH3+]CCCC(=O)[O-]",
+  "formula": "C4H9NO2",
+  "charge": 0,
+  "inchikey": "BTCSSZJGUNDROE-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00282",
+  "name": "S-Dihydroorotate",
+  "smiles": "O=C1C[C@@H](C(=O)[O-])NC(=O)N1",
+  "formula": "C5H5N2O4",
+  "charge": -1,
+  "inchikey": "UFIVEPVSAGBUSI-REOHCLBHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00285",
+  "name": "Phosphoethanolamine",
+  "smiles": "[NH3+]CCOP(=O)([O-])[O-]",
+  "formula": "C2H7NO4P",
+  "charge": -1,
+  "inchikey": "SUHOOTKUPISOBE-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00287",
+  "name": "3-Oxo-2-methylpropanoate",
+  "smiles": "CC(C=O)C(=O)[O-]",
+  "formula": "C4H5O3",
+  "charge": -1,
+  "inchikey": "VOKUMXABRRXHAR-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00288",
+  "name": "D-Glucosamine phosphate",
+  "smiles": "[NH3+][C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "formula": "C6H13NO8P",
+  "charge": -1,
+  "inchikey": "XHMJOUIAFHJHBW-IVMDWMLBSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00290",
+  "name": "D-fructose-1,6-bisphosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "formula": "C6H10O12P2",
+  "charge": -4,
+  "inchikey": "RNBGYGVWRKECFJ-VRPWFDPXSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00293",
+  "name": "N-Acetyl-D-glucosamine 6-phosphate",
+  "smiles": "CC(=O)N[C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "formula": "C8H14NO9P",
+  "charge": -2,
+  "inchikey": "BRGMHAYQAZFZDJ-RTRLPJTCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00294",
+  "name": "dAMP",
+  "smiles": "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])[O-])O1",
+  "formula": "C10H12N5O6P",
+  "charge": -2,
+  "inchikey": "KHWCHTKSEGGWEX-RRKCRQDMSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00295",
+  "name": "dGDP",
+  "smiles": "Nc1nc2c(ncn2[C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]1",
+  "formula": "C10H13N5O10P2",
+  "charge": -2,
+  "inchikey": "CIKGWCTVFSRMJU-KVQBGUIXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00296",
+  "name": "dGMP",
+  "smiles": "Nc1nc2c(ncn2[C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)[nH]1",
+  "formula": "C10H12N5O7P",
+  "charge": -2,
+  "inchikey": "LTFMZDNNPPEQNG-KVQBGUIXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00297",
+  "name": "dTDP",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O",
+  "formula": "C10H14N2O11P2",
+  "charge": -2,
+  "inchikey": "UJLXYODCHAELLY-XLPZGREQSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00298",
+  "name": "dTMP",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])[O-])O2)c(=O)[nH]c1=O",
+  "formula": "C10H13N2O8P",
+  "charge": -2,
+  "inchikey": "GYOZYWVXFNDGLU-XLPZGREQSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00304",
+  "name": "Retinal",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C=O)C(C)(C)CCC1",
+  "formula": "C20H28O",
+  "charge": 0,
+  "inchikey": "NCYCYZXNIZJOKI-OVSJKPMPSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00306",
+  "name": "Xylitol",
+  "smiles": "OC[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C5H12O5",
+  "charge": 0,
+  "inchikey": "HEBKCHPVOIAQTA-SCDXWVJYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00311",
+  "name": "Guanosine",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C10H13N5O5",
+  "charge": 0,
+  "inchikey": "NYHBQMYGNKIUIF-UUOKFMHZSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00314",
+  "name": "D-Mannitol",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H14O6",
+  "charge": 0,
+  "inchikey": "FBPFZTCFMRRESA-KVTDHHQDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00315",
+  "name": "GDP-glucose",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C16H23N5O16P2",
+  "charge": -2,
+  "inchikey": "MVMSCBBUIHUTGJ-LRJDVEEWSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00323",
+  "name": "L-Pipecolate",
+  "smiles": "O=C([O-])[C@@H]1CCCC[NH2+]1",
+  "formula": "C6H11NO2",
+  "charge": 0,
+  "inchikey": "HXEACLLIILLPRG-YFKPBYRVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00329",
+  "name": "Cyclohexanone",
+  "smiles": "O=C1CCCCC1",
+  "formula": "C6H10O",
+  "charge": 0,
+  "inchikey": "JHIVVAPYMSGYDF-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00330",
+  "name": "Dihydrofolate",
+  "smiles": "Nc1nc2c(c(=O)[nH]1)N=C(CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)CN2",
+  "formula": "C19H19N7O6",
+  "charge": -2,
+  "inchikey": "OZRNSSUDZOLUSN-LBPRGKRZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00331",
+  "name": "cis-Aconitate",
+  "smiles": "O=C([O-])/C=C(/CC(=O)[O-])C(=O)[O-]",
+  "formula": "C6H3O6",
+  "charge": -3,
+  "inchikey": "GTZCVFVGUGFEME-IWQZZHSRSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00333",
+  "name": "(E)-Cinnamate",
+  "smiles": "O=C([O-])/C=C/c1ccccc1",
+  "formula": "C9H7O2",
+  "charge": -1,
+  "inchikey": "WBYWAXJHAXSJNI-VOTSOKGWSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00334",
+  "name": "L-Lactaldehyde",
+  "smiles": "C[C@H](O)C=O",
+  "formula": "C3H6O2",
+  "charge": 0,
+  "inchikey": "BSABBBMNWQWLLU-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00337",
+  "name": "Hydrouracil",
+  "smiles": "O=C1CCNC(=O)N1",
+  "formula": "C4H6N2O2",
+  "charge": 0,
+  "inchikey": "OIVLITBTBDPEFK-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00342",
+  "name": "N-Acetylornithine",
+  "smiles": "CC(=O)N[C@@H](CCC[NH3+])C(=O)[O-]",
+  "formula": "C7H14N2O3",
+  "charge": 0,
+  "inchikey": "JRLGPAXAGHMNOL-LURJTMIESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00343",
+  "name": "N-Carbamoyl-L-aspartate",
+  "smiles": "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]",
+  "formula": "C5H6N2O5",
+  "charge": -2,
+  "inchikey": "HLKXYZVTANABHZ-REOHCLBHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00345",
+  "name": "5-Methyltetrahydrofolate",
+  "smiles": "CN1c2c([nH]c(N)nc2=O)NC[C@@H]1CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1",
+  "formula": "C20H23N7O6",
+  "charge": -2,
+  "inchikey": "ZNOVTXRBGFNYRX-STQMWFEESA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00346",
+  "name": "L-Aspartate4-semialdehyde",
+  "smiles": "[NH3+][C@@H](CC=O)C(=O)[O-]",
+  "formula": "C4H7NO3",
+  "charge": 0,
+  "inchikey": "HOSWPDPVFBCLSY-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00347",
+  "name": "5-10-Methenyltetrahydrofolate",
+  "smiles": "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21",
+  "formula": "C20H20N7O6",
+  "charge": -1,
+  "inchikey": "MEANFMOQMXYMCT-OLZOCXBDSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00351",
+  "name": "Saccharopine",
+  "smiles": "[NH3+][C@@H](CCCC[NH2+][C@@H](CCC(=O)[O-])C(=O)[O-])C(=O)[O-]",
+  "formula": "C11H19N2O6",
+  "charge": -1,
+  "inchikey": "ZDGJAHTZVHVLOT-YUMQZZPRSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00355",
+  "name": "Nicotinamide ribonucleotide",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1",
+  "formula": "C11H14N2O8P",
+  "charge": -1,
+  "inchikey": "DAYLJWODMCOQEW-TURQNECASA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00357",
+  "name": "TTP",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O",
+  "formula": "C10H14N2O14P3",
+  "charge": -3,
+  "inchikey": "NHVNXKFIZYSCEB-XLPZGREQSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00359",
+  "name": "indol",
+  "smiles": "c1ccc2[nH]ccc2c1",
+  "formula": "C8H7N",
+  "charge": 0,
+  "inchikey": "SIKJAQJRHWYJAI-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00362",
+  "name": "Estrone",
+  "smiles": "C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CCC2=O",
+  "formula": "C18H22O2",
+  "charge": 0,
+  "inchikey": "DNXHEGUUPJUMQT-CBZIJGRNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00363",
+  "name": "Ethanol",
+  "smiles": "CCO",
+  "formula": "C2H6O",
+  "charge": 0,
+  "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00365",
+  "name": "Retinol",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1",
+  "formula": "C20H30O",
+  "charge": 0,
+  "inchikey": "FPIPGXGPPPQFEQ-OVSJKPMPSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00366",
+  "name": "Ribitol",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@@H](O)CO",
+  "formula": "C5H12O5",
+  "charge": 0,
+  "inchikey": "HEBKCHPVOIAQTA-ZXFHETKHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00367",
+  "name": "Cytidine",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C9H13N3O5",
+  "charge": 0,
+  "inchikey": "UHDGCWIWMRVCDJ-XVFCMESISA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00368",
+  "name": "D-Lyxose",
+  "smiles": "OC1OC[C@@H](O)[C@H](O)[C@@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "SRBFZHDQGSBBOR-AGQMPKSLSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00373",
+  "name": "Sinapate",
+  "smiles": "COc1cc(/C=C/C(=O)[O-])cc(OC)c1O",
+  "formula": "C11H11O5",
+  "charge": -1,
+  "inchikey": "PCMORTLOPMLEFB-ONEGZZNKSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00382",
+  "name": "Melitose",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2O[C@H](O[C@]3(CO)O[C@H](CO)[C@@H](O)[C@@H]3O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C18H32O16",
+  "charge": 0,
+  "inchikey": "MUPFEKGTMRGPLJ-ZQSKZDJDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00383",
+  "name": "Shikimate",
+  "smiles": "O=C([O-])C1=C[C@@H](O)[C@@H](O)[C@H](O)C1",
+  "formula": "C7H9O5",
+  "charge": -1,
+  "inchikey": "JXOHGGNKMLTUBP-HSUXUTPPSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00386",
+  "name": "D-Malate",
+  "smiles": "O=C([O-])C[C@@H](O)C(=O)[O-]",
+  "formula": "C4H4O5",
+  "charge": -2,
+  "inchikey": "BJEPYKJPYRNKOW-UWTATZPHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00387",
+  "name": "ADPglucose",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O",
+  "formula": "C16H23N5O15P2",
+  "charge": -2,
+  "inchikey": "WFPZSXYXPSUOPY-ROYWQJLOSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00388",
+  "name": "Allantoate",
+  "smiles": "NC(=O)NC(NC(N)=O)C(=O)[O-]",
+  "formula": "C4H7N4O4",
+  "charge": -1,
+  "inchikey": "NUCLJNSWZCHRKL-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00390",
+  "name": "CDP-glucose",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C15H23N3O16P2",
+  "charge": -2,
+  "inchikey": "CGPHZDRCVSLMCF-JZMIEXBBSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00396",
+  "name": "L-Rhamnose",
+  "smiles": "C[C@@H]1OC(O)[C@H](O)[C@H](O)[C@H]1O",
+  "formula": "C6H12O5",
+  "charge": 0,
+  "inchikey": "SHZGCJCMOBCMKK-JFNONXLTSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00397",
+  "name": "L-Ribulose",
+  "smiles": "OCC1(O)OC[C@H](O)[C@@H]1O",
+  "formula": "C5H10O5",
+  "charge": 0,
+  "inchikey": "LQXVFWRQNMEDEE-QRHDOFTISA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00404",
+  "name": "D-Ornithine",
+  "smiles": "[NH3+]CCC[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H13N2O2",
+  "charge": 1,
+  "inchikey": "AHLPHDHHMVZTML-SCSAIBSYSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00408",
+  "name": "Pantoate",
+  "smiles": "CC(C)(CO)[C@@H](O)C(=O)[O-]",
+  "formula": "C6H11O4",
+  "charge": -1,
+  "inchikey": "OTOIIPJYVQJATP-BYPYZUCNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00419",
+  "name": "PM",
+  "smiles": "Cc1ncc(CO)c(C[NH3+])c1O",
+  "formula": "C8H13N2O2",
+  "charge": 1,
+  "inchikey": "NHZMQXZHNVQTQA-UHFFFAOYSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00420",
+  "name": "Testosterone",
+  "smiles": "C[C@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@@]43C)[C@@H]1CC[C@@H]2O",
+  "formula": "C19H28O2",
+  "charge": 0,
+  "inchikey": "MUMGGOZAMZWBJJ-DYKIIFRCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00428",
+  "name": "2-Oxopropanal",
+  "smiles": "CC(=O)C=O",
+  "formula": "C3H4O2",
+  "charge": 0,
+  "inchikey": "AIJULSRZWUXGPQ-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00432",
+  "name": "meso-Tartrate",
+  "smiles": "O=C([O-])[C@@H](O)[C@@H](O)C(=O)[O-]",
+  "formula": "C4H4O6",
+  "charge": -2,
+  "inchikey": "FEWJPZIEWOKRBE-XIXRPRMCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00435",
+  "name": "Phenylcarbinol",
+  "smiles": "OCc1ccccc1",
+  "formula": "C7H8O",
+  "charge": 0,
+  "inchikey": "WVDDGKGOMKODPV-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00437",
+  "name": "D-Tagaturonate",
+  "smiles": "O=C([O-])[C@@H](O)[C@H](O)[C@H](O)C(=O)CO",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "IZSRJDGCGRAUAR-WDCZJNDASA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00444",
+  "name": "CDPethanolamine",
+  "smiles": "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OCC[NH3+])[C@@H](O)[C@H]2O)c(=O)n1",
+  "formula": "C11H19N4O11P2",
+  "charge": -1,
+  "inchikey": "WVIMUEUQJFPNDK-PEBGCTIMSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00446",
+  "name": "cAMP",
+  "smiles": "Nc1ncnc2c1ncn2[C@@H]1O[C@@H]2COP(=O)([O-])O[C@H]2[C@H]1O",
+  "formula": "C10H11N5O6P",
+  "charge": -1,
+  "inchikey": "IVOMOUWHDPKRLL-KQYNXXCUSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00448",
+  "name": "D-Glyceraldehyde",
+  "smiles": "O=C[C@H](O)CO",
+  "formula": "C3H6O3",
+  "charge": 0,
+  "inchikey": "MNQZXJOMYWMBOU-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00449",
+  "name": "Dihydrolipoamide",
+  "smiles": "NC(=O)CCCC[C@@H](S)CCS",
+  "formula": "C8H17NOS2",
+  "charge": 0,
+  "inchikey": "VLYUGYAKYZETRF-SSDOTTSWSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00451",
+  "name": "Glycocyamine",
+  "smiles": "NC(=[NH2+])NCC(=O)[O-]",
+  "formula": "C3H7N3O2",
+  "charge": 0,
+  "inchikey": "BPMFZUMJYQTVII-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00453",
+  "name": "1,2-Propanediol",
+  "smiles": "CC(O)CO",
+  "formula": "C3H8O2",
+  "charge": 0,
+  "inchikey": "DNIAPMSPPWPWGF-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00457",
+  "name": "Phosphocholine",
+  "smiles": "C[N+](C)(C)CCOP(=O)([O-])[O-]",
+  "formula": "C5H13NO4P",
+  "charge": -1,
+  "inchikey": "YHHSONZFOIEMCP-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00458",
+  "name": "Coniferol",
+  "smiles": "COc1cc(/C=C/CO)ccc1O",
+  "formula": "C10H12O3",
+  "charge": 0,
+  "inchikey": "JMFRWRFFLBVWSI-NSCUHMNNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00465",
+  "name": "Ureidoglycolate",
+  "smiles": "NC(=O)N[C@@H](O)C(=O)[O-]",
+  "formula": "C3H5N2O4",
+  "charge": -1,
+  "inchikey": "NWZYYCVIOKVTII-SFOWXEAESA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00472",
+  "name": "UDPgalacturonate",
+  "smiles": "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C15H19N2O18P2",
+  "charge": -3,
+  "inchikey": "HDYANYHVCAPMJV-GXNRKQDOSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00475",
+  "name": "Ribose 1-phosphate",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "YXJDFQJKERBOBM-TXICZTDVSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00477",
+  "name": "N-Acetyl-L-glutamate",
+  "smiles": "CC(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]",
+  "formula": "C7H9NO5",
+  "charge": -2,
+  "inchikey": "RFMMMVDNIPUKGG-YFKPBYRVSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00480",
+  "name": "2-Dehydro-D-gluconate",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "VBUYCZFBVCCYFD-JJYYJPOSSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00482",
+  "name": "2-Phospho-D-glycerate",
+  "smiles": "O=C([O-])[C@@H](CO)OP(=O)([O-])[O-]",
+  "formula": "C3H4O7P",
+  "charge": -3,
+  "inchikey": "GXIURPTVHJPJLF-UWTATZPHSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00485",
+  "name": "D-Mannose1-phosphate",
+  "smiles": "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "HXXFSFRBOHSIMQ-RWOPYEJCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00491",
+  "name": "D-glucitol 6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C6H13O9P",
+  "charge": -2,
+  "inchikey": "GACTWZZMVMUKNG-SLPGGIOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00492",
+  "name": "N-Acetyl-D-mannosamine",
+  "smiles": "CC(=O)N[C@@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C8H15NO6",
+  "charge": 0,
+  "inchikey": "OVRNDRQMDRJTHS-ZTVVOAFPSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00504",
+  "name": "LL-2,6-Diaminopimelate",
+  "smiles": "[NH3+][C@@H](CCC[C@H]([NH3+])C(=O)[O-])C(=O)[O-]",
+  "formula": "C7H14N2O4",
+  "charge": 0,
+  "inchikey": "GMKMEZVLHJARHF-WHFBIAKZSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00509",
+  "name": "deoxyribose-1-phosphate",
+  "smiles": "O=P([O-])([O-])O[C@@H]1C[C@H](O)[C@@H](CO)O1",
+  "formula": "C5H9O7P",
+  "charge": -2,
+  "inchikey": "KBDKAJNTYKVSEK-VPENINKCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00510",
+  "name": "deoxyribose-5-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1OC(O)C[C@@H]1O",
+  "formula": "C5H9O7P",
+  "charge": -2,
+  "inchikey": "KKZFLSZAWCYPOC-PYHARJCCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00516",
+  "name": "meso-2,6-Diaminopimelate",
+  "smiles": "[NH3+][C@H](CCC[C@H]([NH3+])C(=O)[O-])C(=O)[O-]",
+  "formula": "C7H14N2O4",
+  "charge": 0,
+  "inchikey": "GMKMEZVLHJARHF-SYDPRGILSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00519",
+  "name": "D-methylmalonyl-CoA",
+  "smiles": "C[C@@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H35N7O19P3S",
+  "charge": -5,
+  "inchikey": "MZFOKIKEPGUZEN-IBNUZSNCSA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00520",
+  "name": "2-Dehydro-3-deoxy-D-pentonate",
+  "smiles": "O=C([O-])C(=O)C[C@H](O)CO",
+  "formula": "C5H7O5",
+  "charge": -1,
+  "inchikey": "UQIGQRSJIKIPKZ-VKHMYHEASA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00521",
+  "name": "dTDP-4-oxo-6-deoxy-D-glucose",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)C(=O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "formula": "C16H22N2O15P2",
+  "charge": -2,
+  "inchikey": "PSXWNITXWWECNY-UCBTUHGZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00523",
+  "name": "Trehalose 6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H21O14P",
+  "charge": -2,
+  "inchikey": "LABSPYBHMPDTEL-LIZSDCNHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00533",
+  "name": "dCDP",
+  "smiles": "Nc1ccn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)n1",
+  "formula": "C9H13N3O10P2",
+  "charge": -2,
+  "inchikey": "FTDHDKPUHBLBTL-SHYZEUOFSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00549",
+  "name": "D-Lysine",
+  "smiles": "[NH3+]CCCC[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H15N2O2",
+  "charge": 1,
+  "inchikey": "KDXKERNSBIXSRK-RXMQYKEDSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00562",
+  "name": "1-Octanol",
+  "smiles": "CCCCCCCCO",
+  "formula": "C8H18O",
+  "charge": 0,
+  "inchikey": "KBPLFHHGFOOTCA-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00581",
+  "name": "Urocanate",
+  "smiles": "O=C([O-])/C=C/c1c[nH]cn1",
+  "formula": "C6H5N2O2",
+  "charge": -1,
+  "inchikey": "LOIYMIARKYCTBW-OWOJBTEDSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00588",
+  "name": "Sorbitol",
+  "smiles": "OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C6H14O6",
+  "charge": 0,
+  "inchikey": "FBPFZTCFMRRESA-JGWLITMVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00589",
+  "name": "D-Tagatose",
+  "smiles": "OCC1(O)OC[C@@H](O)[C@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "LKDRXBCSQODPBY-OEXCPVAWSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00622",
+  "name": "Sepiapterin",
+  "smiles": "C[C@H](O)C(=O)C1=Nc2c(nc(N)[nH]c2=O)NC1",
+  "formula": "C9H11N5O3",
+  "charge": 0,
+  "inchikey": "VPVOXUSPXFPWBN-VKHMYHEASA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00626",
+  "name": "dTDPglucose",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "formula": "C16H24N2O16P2",
+  "charge": -2,
+  "inchikey": "YSYKRGRSMLTJNL-URARBOGNSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00636",
+  "name": "Hexalin",
+  "smiles": "OC1CCCCC1",
+  "formula": "C6H12O",
+  "charge": 0,
+  "inchikey": "HPXRVTGHNJAIIH-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00642",
+  "name": "L-Rhamnulose",
+  "smiles": "C[C@H](O)[C@H](O)[C@@H](O)C(=O)CO",
+  "formula": "C6H12O5",
+  "charge": 0,
+  "inchikey": "QZNPNKJXABGCRC-FUTKDDECSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00644",
+  "name": "PAN",
+  "smiles": "CC(C)(CO)[C@@H](O)C(=O)NCCC(=O)[O-]",
+  "formula": "C9H16NO5",
+  "charge": -1,
+  "inchikey": "GHOKWGTUZJEAQD-ZETCQYMHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00650",
+  "name": "Crotonyl-CoA",
+  "smiles": "C/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H36N7O17P3S",
+  "charge": -4,
+  "inchikey": "KFWWCMJSYSSPSK-PAXLJYGASA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00655",
+  "name": "Dephospho-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O)[C@@H](O)C(=O)NCCC(=O)NCCS",
+  "formula": "C21H33N7O13P2S",
+  "charge": -2,
+  "inchikey": "KDTSHFARGAKYJN-IBOSZNHHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00658",
+  "name": "Isochorismate",
+  "smiles": "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1O)C(=O)[O-]",
+  "formula": "C10H8O6",
+  "charge": -2,
+  "inchikey": "NTGWPRCCOQCMGE-YUMQZZPRSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00672",
+  "name": "D-Fructuronate",
+  "smiles": "O=C([O-])[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "PTCIWUZVDIQTOW-XDJBDKDSSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00682",
+  "name": "CoA-glutathione",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-]",
+  "formula": "C31H46N10O22P3S2",
+  "charge": -5,
+  "inchikey": "JYKWMJBUIXNJOG-QEWSFFBISA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00684",
+  "name": "Dimethylmaleic acid",
+  "smiles": "C/C(C(=O)[O-])=C(\\C)C(=O)[O-]",
+  "formula": "C6H6O4",
+  "charge": -2,
+  "inchikey": "CGBYBGVMDAPUIH-ARJAWSKDSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00691",
+  "name": "UDP-L-arabinose",
+  "smiles": "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3OC[C@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C14H20N2O16P2",
+  "charge": -2,
+  "inchikey": "DQQDLYVHOTZLOR-IAZOVDBXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00695",
+  "name": "2-Oxoglutaramate",
+  "smiles": "NC(=O)CCC(=O)C(=O)[O-]",
+  "formula": "C5H6NO4",
+  "charge": -1,
+  "inchikey": "COJBGNAUUSNXHX-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00699",
+  "name": "5-Dehydroquinate",
+  "smiles": "O=C1C[C@@](O)(C(=O)[O-])C[C@@H](O)[C@@H]1O",
+  "formula": "C7H9O6",
+  "charge": -1,
+  "inchikey": "WVMWZWGZRAXUBK-SYTVJDICSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00702",
+  "name": "Estradiol",
+  "smiles": "C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CC[C@@H]2O",
+  "formula": "C18H24O2",
+  "charge": 0,
+  "inchikey": "VOXZDWNPVJITMN-ZBRFXRBCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00705",
+  "name": "L-2-Aminoadipate",
+  "smiles": "[NH3+][C@@H](CCCC(=O)[O-])C(=O)[O-]",
+  "formula": "C6H10NO4",
+  "charge": -1,
+  "inchikey": "OYIFNHCXNCRBQI-BYPYZUCNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00712",
+  "name": "2-Dehydropantoate",
+  "smiles": "CC(C)(CO)C(=O)C(=O)[O-]",
+  "formula": "C6H9O4",
+  "charge": -1,
+  "inchikey": "PKVVTUWHANFMQC-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00718",
+  "name": "Dihydroxyfumarate",
+  "smiles": "O=C([O-])C(=O)C(O)C(=O)[O-]",
+  "formula": "C4H2O6",
+  "charge": -2,
+  "inchikey": "RMHHUKGVZFVHED-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00722",
+  "name": "O-Acetyl-L-serine",
+  "smiles": "CC(=O)OC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H9NO4",
+  "charge": 0,
+  "inchikey": "VZXPDPZARILFQX-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00728",
+  "name": "4-Hydroxybutanoate",
+  "smiles": "O=C([O-])CCCO",
+  "formula": "C4H7O3",
+  "charge": -1,
+  "inchikey": "SJZRECIVHVDYJC-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00738",
+  "name": "phosphoserine",
+  "smiles": "[NH3+][C@@H](COP(=O)([O-])[O-])C(=O)[O-]",
+  "formula": "C3H6NO6P",
+  "charge": -2,
+  "inchikey": "BZQFBWGGLXLEPQ-REOHCLBHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00745",
+  "name": "Hydracrylic acid",
+  "smiles": "O=C([O-])CCO",
+  "formula": "C3H5O3",
+  "charge": -1,
+  "inchikey": "ALRHLSYJTWAHJZ-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00751",
+  "name": "L-Fucose",
+  "smiles": "C[C@@H]1OC(O)[C@@H](O)[C@H](O)[C@@H]1O",
+  "formula": "C6H12O5",
+  "charge": 0,
+  "inchikey": "SHZGCJCMOBCMKK-DHVFOXMCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00793",
+  "name": "Thiamine phosphate",
+  "smiles": "Cc1ncc(C[n+]2csc(CCOP(=O)([O-])[O-])c2C)c(N)n1",
+  "formula": "C12H16N4O4PS",
+  "charge": -1,
+  "inchikey": "HZSAJDVWZRBGIF-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00794",
+  "name": "TRHL",
+  "smiles": "OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "HDTRYLNUVZCQOY-LIZSDCNHSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00795",
+  "name": "(R)-2-Hydroxyglutarate",
+  "smiles": "O=C([O-])CC[C@@H](O)C(=O)[O-]",
+  "formula": "C5H6O5",
+  "charge": -2,
+  "inchikey": "HWXBTNAVRSUOJR-GSVOUGTGSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00797",
+  "name": "(R)-3-Hydroxybutanoate",
+  "smiles": "C[C@@H](O)CC(=O)[O-]",
+  "formula": "C4H7O3",
+  "charge": -1,
+  "inchikey": "WHBMMWSBFZVSSR-GSVOUGTGSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00802",
+  "name": "D-fructose-1-phosphate",
+  "smiles": "O=P([O-])([O-])OCC1(O)O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "RHKKZBWRNHGJEZ-VRPWFDPXSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00806",
+  "name": "L-Fuculose1-phosphate",
+  "smiles": "C[C@H](O)[C@@H](O)[C@@H](O)C(=O)COP(=O)([O-])[O-]",
+  "formula": "C6H11O8P",
+  "charge": -2,
+  "inchikey": "KNYGWWDTPGSEPD-LFRDXLMFSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00807",
+  "name": "L-histidinol-phosphate",
+  "smiles": "[NH3+][C@H](COP(=O)([O-])[O-])Cc1c[nH]cn1",
+  "formula": "C6H11N3O4P",
+  "charge": -1,
+  "inchikey": "CWNDERHTHMWBSI-YFKPBYRVSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00808",
+  "name": "L-ribulose-5-phosphate",
+  "smiles": "O=C(CO)[C@@H](O)[C@@H](O)COP(=O)([O-])[O-]",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "FNZLKVNUWIIPSJ-CRCLSJGQSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00810",
+  "name": "Orotidylic acid",
+  "smiles": "O=C([O-])c1cc(=O)[nH]c(=O)n1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C10H10N2O11P",
+  "charge": -3,
+  "inchikey": "KYOBSHFOBAOFBF-XVFCMESISA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00812",
+  "name": "5-phosphomevalonate",
+  "smiles": "C[C@@](O)(CCOP(=O)([O-])[O-])CC(=O)[O-]",
+  "formula": "C6H10O7P",
+  "charge": -3,
+  "inchikey": "OKZYCXHTTZZYSK-ZCFIWIBFSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00817",
+  "name": "D-Arabinose5-phosphate",
+  "smiles": "O=C[C@@H](O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C5H9O8P",
+  "charge": -2,
+  "inchikey": "PPQRONHOSHZGFQ-WDCZJNDASA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00830",
+  "name": "4-Hydroxy-2-oxoglutarate",
+  "smiles": "O=C([O-])C(=O)CC(O)C(=O)[O-]",
+  "formula": "C5H4O6",
+  "charge": -2,
+  "inchikey": "WXSKVKPSMAHCSG-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00831",
+  "name": "L-Rhamnulose 1-phosphate",
+  "smiles": "C[C@H](O)[C@H](O)[C@@H](O)C(=O)COP(=O)([O-])[O-]",
+  "formula": "C6H11O8P",
+  "charge": -2,
+  "inchikey": "KNYGWWDTPGSEPD-FUTKDDECSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00840",
+  "name": "L-beta-Lysine",
+  "smiles": "[NH3+]CCC[C@H]([NH3+])CC(=O)[O-]",
+  "formula": "C6H15N2O2",
+  "charge": 1,
+  "inchikey": "QKEWQOJCHPFEAF-YFKPBYRVSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00841",
+  "name": "5-diphosphomevalonate",
+  "smiles": "C[C@@](O)(CCOP(=O)([O-])OP(=O)([O-])O)CC(=O)[O-]",
+  "formula": "C6H11O10P2",
+  "charge": -3,
+  "inchikey": "SIGQQUBJQXSAMW-ZCFIWIBFSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00842",
+  "name": "(S)-3-Hydroxybutyryl-CoA",
+  "smiles": "C[C@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H38N7O18P3S",
+  "charge": -4,
+  "inchikey": "QHHKKMYHDBRONY-VKBDFPRVSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00843",
+  "name": "Tartronate semialdehyde",
+  "smiles": "O=CC(O)C(=O)[O-]",
+  "formula": "C3H3O4",
+  "charge": -1,
+  "inchikey": "QWBAFPFNGRFSFB-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00851",
+  "name": "trans-4-Hydroxy-L-proline",
+  "smiles": "O=C([O-])[C@@H]1C[C@@H](O)C[NH2+]1",
+  "formula": "C5H9NO3",
+  "charge": 0,
+  "inchikey": "PMMYEEVYMWASQN-DMTCNVIQSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00863",
+  "name": "beta-D-Glucose 6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "NBSCHQHZLSJFNQ-VFUOTHLCSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00865",
+  "name": "1-O-Sinapoyl-beta-D-glucose",
+  "smiles": "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O",
+  "formula": "C17H22O10",
+  "charge": 0,
+  "inchikey": "XRKBRPFTFKKHEF-DGDBGZAXSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00868",
+  "name": "p-hydroxyphenylpyruvate",
+  "smiles": "O=C([O-])C(=O)Cc1ccc(O)cc1",
+  "formula": "C9H7O4",
+  "charge": -1,
+  "inchikey": "KKADPXVIOXHVKN-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00873",
+  "name": "Nicotinate ribonucleotide",
+  "smiles": "O=C([O-])c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1",
+  "formula": "C11H12NO9P",
+  "charge": -2,
+  "inchikey": "JOUIQRNQJGXQDC-ZYUZMQFOSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00874",
+  "name": "(3S,5S)-3,5-Diaminocaproate",
+  "smiles": "C[C@@H]([NH3+])C[C@@H]([NH3+])CC(=O)[O-]",
+  "formula": "C6H15N2O2",
+  "charge": 1,
+  "inchikey": "NGDLSXMSQYUVSJ-RFZPGFLSSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00876",
+  "name": "3-Hydroxyisobutyrate",
+  "smiles": "CC(CO)C(=O)[O-]",
+  "formula": "C4H7O3",
+  "charge": -1,
+  "inchikey": "DBXBTMSZEOQQDU-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00880",
+  "name": "1-Phospho-alpha-D-glucuronate",
+  "smiles": "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H8O10P",
+  "charge": -3,
+  "inchikey": "AIQDYKMWENWVQJ-QIUUJYRFSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00891",
+  "name": "L-methylmalonyl-CoA",
+  "smiles": "C[C@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H35N7O19P3S",
+  "charge": -5,
+  "inchikey": "MZFOKIKEPGUZEN-AGCMQPJKSA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00895",
+  "name": "H4MPT",
+  "smiles": "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N[C@H]1[C@@H](C)Nc1ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]2O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]2O)cc1",
+  "formula": "C30H42N6O16P",
+  "charge": -3,
+  "inchikey": "SCBIBGUJSMHIAI-LHIIQLEZSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00910",
+  "name": "Galactinol",
+  "smiles": "OC[C@H]1O[C@H](O[C@@H]2[C@@H](O)[C@H](O)[C@@H](O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "VCWMRQDBPZKXKG-DXNLKLAMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00911",
+  "name": "6-phospho-D-glucono-1-5-lactone",
+  "smiles": "O=C1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H](O)[C@H]1O",
+  "formula": "C6H9O9P",
+  "charge": -2,
+  "inchikey": "IJOJIVNDFQSGAB-SQOUGZDYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00915",
+  "name": "3,5-Diiodo-4-hydroxyphenylpyruvate",
+  "smiles": "O=C([O-])C(=O)Cc1cc(I)c(O)c(I)c1",
+  "formula": "C9H5I2O4",
+  "charge": -1,
+  "inchikey": "TZPLBTUUWSVGCY-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00922",
+  "name": "delta1-Piperideine-2-carboxylate",
+  "smiles": "O=C([O-])C1=NCCCC1",
+  "formula": "C6H8NO2",
+  "charge": -1,
+  "inchikey": "GEJXSVNGWOSZPC-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00930",
+  "name": "imidazole acetol-phosphate",
+  "smiles": "O=C(COP(=O)([O-])[O-])Cc1c[nH]cn1",
+  "formula": "C6H7N2O5P",
+  "charge": -2,
+  "inchikey": "YCFFMSOLUMRAMD-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00945",
+  "name": "2-Dehydro-3-deoxy-D-galactonate 6-phosphate",
+  "smiles": "O=C([O-])C(=O)C[C@@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C6H8O9P",
+  "charge": -3,
+  "inchikey": "OVPRPPOVAXRCED-NQXXGFSBSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00982",
+  "name": "FADH2",
+  "smiles": "Cc1cc2c(cc1C)N(C[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n3cnc4c(N)ncnc43)[C@H](O)[C@@H]1O)C1=NC(=O)NC(=O)C1N2",
+  "formula": "C27H33N9O15P2",
+  "charge": -2,
+  "inchikey": "SDBHOOIZTSVSKT-UDQMLWBPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd00996",
+  "name": "Maleate",
+  "smiles": "O=C([O-])/C=C\\C(=O)[O-]",
+  "formula": "C4H2O4",
+  "charge": -2,
+  "inchikey": "VZCYOOQTPOCHFL-UPHRSURJSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01011",
+  "name": "Butanal",
+  "smiles": "CCCC=O",
+  "formula": "C4H8O",
+  "charge": 0,
+  "inchikey": "ZTQSAGDEMFDKMZ-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01066",
+  "name": "L-Iditol",
+  "smiles": "OC[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C6H14O6",
+  "charge": 0,
+  "inchikey": "FBPFZTCFMRRESA-UNTFVMJOSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01088",
+  "name": "1-Octanal",
+  "smiles": "CCCCCCCC=O",
+  "formula": "C8H16O",
+  "charge": 0,
+  "inchikey": "NUJGJRNETVAIRJ-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01101",
+  "name": "Carbamate",
+  "smiles": "NC(=O)[O-]",
+  "formula": "CH2NO2",
+  "charge": -1,
+  "inchikey": "KXDHJXZQYSOELW-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01106",
+  "name": "D-Leucine",
+  "smiles": "CC(C)C[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H13NO2",
+  "charge": 0,
+  "inchikey": "ROHFNLRQFUQHCH-RXMQYKEDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01122",
+  "name": "Linoleate",
+  "smiles": "CCCCC/C=C\\C/C=C\\CCCCCCCC(=O)[O-]",
+  "formula": "C18H31O2",
+  "charge": -1,
+  "inchikey": "OYHQOLUKZRVURQ-HZJYTTRNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01133",
+  "name": "Stachyose",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2O[C@H](OC[C@H]3O[C@H](O[C@]4(CO)O[C@H](CO)[C@@H](O)[C@@H]4O)[C@H](O)[C@@H](O)[C@@H]3O)[C@H](O)[C@@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C24H42O21",
+  "charge": 0,
+  "inchikey": "UQZIYBXSHAGNOE-XNSRJBNMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01138",
+  "name": "Threonate",
+  "smiles": "O=C([O-])[C@H](O)[C@@H](O)CO",
+  "formula": "C4H7O5",
+  "charge": -1,
+  "inchikey": "JPIJQSOTBSSVTP-STHAYSLISA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01171",
+  "name": "Dulcose",
+  "smiles": "OC[C@@H](O)[C@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C6H14O6",
+  "charge": 0,
+  "inchikey": "FBPFZTCFMRRESA-GUCUJZIJSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01186",
+  "name": "L-Fuculose",
+  "smiles": "C[C@H](O)[C@@H](O)[C@@H](O)C(=O)CO",
+  "formula": "C6H12O5",
+  "charge": 0,
+  "inchikey": "QZNPNKJXABGCRC-LFRDXLMFSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01194",
+  "name": "Mesaconate",
+  "smiles": "C/C(=C\\C(=O)[O-])C(=O)[O-]",
+  "formula": "C5H4O4",
+  "charge": -2,
+  "inchikey": "HNEGQIOMVPPMNR-NSCUHMNNSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01239",
+  "name": "D-Erythrose",
+  "smiles": "O=C[C@H](O)[C@H](O)CO",
+  "formula": "C4H8O4",
+  "charge": 0,
+  "inchikey": "YTBSYETUWUMLBZ-IUYQGCFVSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01269",
+  "name": "2-Propanol",
+  "smiles": "CC(C)O",
+  "formula": "C3H8O",
+  "charge": 0,
+  "inchikey": "KFZMGEQAYNKOFK-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01307",
+  "name": "D-Lyxitol",
+  "smiles": "OC[C@@H](O)C(O)[C@H](O)CO",
+  "formula": "C5H12O5",
+  "charge": 0,
+  "inchikey": "HEBKCHPVOIAQTA-QWWZWVQMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01345",
+  "name": "Taurocyamine",
+  "smiles": "NC(=[NH2+])NCCS(=O)(=O)[O-]",
+  "formula": "C3H9N3O3S",
+  "charge": 0,
+  "inchikey": "JKLRIMRKZBSSED-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01367",
+  "name": "Acetylcholine",
+  "smiles": "CC(=O)OCC[N+](C)(C)C",
+  "formula": "C7H16NO2",
+  "charge": 1,
+  "inchikey": "OIPILFWXSMYKGL-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01383",
+  "name": "D-Erythrulose",
+  "smiles": "O=C(CO)[C@H](O)CO",
+  "formula": "C4H8O4",
+  "charge": 0,
+  "inchikey": "UQPHVQVXLPRNCX-GSVOUGTGSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01394",
+  "name": "Indolelactate",
+  "smiles": "O=C([O-])C(O)Cc1c[nH]c2ccccc12",
+  "formula": "C11H10NO3",
+  "charge": -1,
+  "inchikey": "XGILAAMKEQUXLS-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01397",
+  "name": "Laminariaceae",
+  "smiles": "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](CO)OC(O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "QIGJYVCQYDKYDW-LCOYTZNXSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01430",
+  "name": "11-cis-Retinal",
+  "smiles": "CC1=C(/C=C/C(C)=C/C=C\\C(C)=C\\C=O)C(C)(C)CCC1",
+  "formula": "C20H28O",
+  "charge": 0,
+  "inchikey": "NCYCYZXNIZJOKI-IOUUIBBYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01432",
+  "name": "2-Methylserine",
+  "smiles": "CC([NH3+])(CO)C(=O)[O-]",
+  "formula": "C4H9NO3",
+  "charge": 0,
+  "inchikey": "CDUUKBXTEOFITR-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01502",
+  "name": "Citraconate",
+  "smiles": "C/C(=C/C(=O)[O-])C(=O)[O-]",
+  "formula": "C5H4O4",
+  "charge": -2,
+  "inchikey": "HNEGQIOMVPPMNR-IHWYPQMZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01512",
+  "name": "5-Oxo-D-proline",
+  "smiles": "O=C1CC[C@H](C(=O)[O-])N1",
+  "formula": "C5H6NO3",
+  "charge": -1,
+  "inchikey": "ODHCTXKNWHHXJC-GSVOUGTGSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01536",
+  "name": "GDP-L-galactose",
+  "smiles": "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@@H](CO)[C@@H](O)[C@@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
+  "formula": "C16H23N5O16P2",
+  "charge": -2,
+  "inchikey": "MVMSCBBUIHUTGJ-JGQUBWHWSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01545",
+  "name": "Methylitaconate",
+  "smiles": "C=C(C(=O)[O-])C(C)C(=O)[O-]",
+  "formula": "C6H6O4",
+  "charge": -2,
+  "inchikey": "IZFHMLDRUVYBGK-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01550",
+  "name": "Phosphocreatine",
+  "smiles": "CN(CC(=O)[O-])C(N)=[NH+]P(=O)([O-])[O-]",
+  "formula": "C4H8N3O5P",
+  "charge": -2,
+  "inchikey": "DRBBFCLWYRJSJZ-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01630",
+  "name": "cis,cis-Muconate",
+  "smiles": "O=C([O-])/C=C\\C=C/C(=O)[O-]",
+  "formula": "C6H4O4",
+  "charge": -2,
+  "inchikey": "TXXHDPDFNKHHGW-CCAGOZQPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01675",
+  "name": "Methylmalonyl-CoA",
+  "smiles": "CC(C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H35N7O19P3S",
+  "charge": -5,
+  "inchikey": "MZFOKIKEPGUZEN-FBMOWMAESA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01682",
+  "name": "O-Acetylcarnitine",
+  "smiles": "CC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C",
+  "formula": "C9H17NO4",
+  "charge": 0,
+  "inchikey": "RDHQFKQIGNGIED-MRVPVSSYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01691",
+  "name": "Retinol palmitate",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)OC/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1(C)C",
+  "formula": "C36H60O2",
+  "charge": 0,
+  "inchikey": "VYGQUTWHTHXGQB-FFHKNEKCSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01700",
+  "name": "D-Citramalate",
+  "smiles": "C[C@@](O)(CC(=O)[O-])C(=O)[O-]",
+  "formula": "C5H6O5",
+  "charge": -2,
+  "inchikey": "XFTRTWQBIOMVPK-RXMQYKEDSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01701",
+  "name": "S-Citramalate",
+  "smiles": "C[C@](O)(CC(=O)[O-])C(=O)[O-]",
+  "formula": "C5H6O5",
+  "charge": -2,
+  "inchikey": "XFTRTWQBIOMVPK-YFKPBYRVSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01705",
+  "name": "2,3-Dimethylmalate",
+  "smiles": "C[C@H](C(=O)[O-])C(C)(O)C(=O)[O-]",
+  "formula": "C6H8O5",
+  "charge": -2,
+  "inchikey": "WTIIULQJLZEHGZ-HODUVHNASA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01715",
+  "name": "3-Dehydrocarnitine",
+  "smiles": "C[N+](C)(C)CC(=O)CC(=O)[O-]",
+  "formula": "C7H13NO3",
+  "charge": 0,
+  "inchikey": "YNOWULSFLVIUDH-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01716",
+  "name": "3-Dehydroshikimate",
+  "smiles": "O=C([O-])C1=CC(=O)[C@@H](O)[C@H](O)C1",
+  "formula": "C7H7O5",
+  "charge": -1,
+  "inchikey": "SLWWJZMPHJJOPH-PHDIDXHHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01720",
+  "name": "3-Ureidopropanoate",
+  "smiles": "NC(=O)NCCC(=O)[O-]",
+  "formula": "C4H7N2O3",
+  "charge": -1,
+  "inchikey": "JSJWCHRYRHKBBW-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01733",
+  "name": "Ferulaldehyde",
+  "smiles": "COc1cc(/C=C/C=O)ccc1O",
+  "formula": "C10H10O3",
+  "charge": 0,
+  "inchikey": "DKZBBWMURDFHNE-NSCUHMNNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01756",
+  "name": "N-Acetylmethionine",
+  "smiles": "CSCC[C@H](NC(C)=O)C(=O)[O-]",
+  "formula": "C7H12NO3S",
+  "charge": -1,
+  "inchikey": "XUYPXLNMDZIRQH-LURJTMIESA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01784",
+  "name": "enol-Phenylpyruvate",
+  "smiles": "O=C([O-])C(=O)Cc1ccccc1",
+  "formula": "C9H7O3",
+  "charge": -1,
+  "inchikey": "BTNMPGBKDVTSJY-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01793",
+  "name": "2,5-diketo-D-gluconate",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)C(=O)CO",
+  "formula": "C6H7O7",
+  "charge": -1,
+  "inchikey": "RXMWXENJQAINCC-DMTCNVIQSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01795",
+  "name": "2-Deoxy-D-gluconate",
+  "smiles": "O=C([O-])C[C@@H](O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H11O6",
+  "charge": -1,
+  "inchikey": "PALQXFMLVVWXFD-KODRXGBYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01807",
+  "name": "3-Phosphonopyruvate",
+  "smiles": "O=C([O-])C(=O)CP(=O)([O-])O",
+  "formula": "C3H3O6P",
+  "charge": -2,
+  "inchikey": "CHDDAVCOAOFSLD-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01876",
+  "name": "2-Methyleneglutarate",
+  "smiles": "C=C(CCC(=O)[O-])C(=O)[O-]",
+  "formula": "C6H6O4",
+  "charge": -2,
+  "inchikey": "CWNNYYIZGGDCHS-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01895",
+  "name": "7,8-Dihydrobiopterin",
+  "smiles": "C[C@H](O)[C@H](O)C1=Nc2c(nc(N)[nH]c2=O)NC1",
+  "formula": "C9H13N5O3",
+  "charge": 0,
+  "inchikey": "FEMXZDUTFRTWPE-DZSWIPIPSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01896",
+  "name": "6-Aminopenicillanate",
+  "smiles": "CC1(C)S[C@@H]2[C@H]([NH3+])C(=O)N2[C@H]1C(=O)[O-]",
+  "formula": "C8H12N2O3S",
+  "charge": 0,
+  "inchikey": "NGHVIOIJCVXTGV-ALEPSDHESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01915",
+  "name": "L-Palmitoylcarnitine",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C",
+  "formula": "C23H45NO4",
+  "charge": 0,
+  "inchikey": "XOMRRQXKHMYMOC-OAQYLSRUSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01947",
+  "name": "BDOH",
+  "smiles": "C[C@@H](O)[C@@H](C)O",
+  "formula": "C4H10O2",
+  "charge": 0,
+  "inchikey": "OWBTYPJTUOEWEK-QWWZWVQMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01961",
+  "name": "3-Dehydro-L-threonate",
+  "smiles": "O=C([O-])[C@H](O)C(=O)CO",
+  "formula": "C4H5O5",
+  "charge": -1,
+  "inchikey": "SCSGVVIUUUPOOJ-GSVOUGTGSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01964",
+  "name": "3-Hydroxybenzaldehyde",
+  "smiles": "O=Cc1cccc(O)c1",
+  "formula": "C7H6O2",
+  "charge": 0,
+  "inchikey": "IAVREABSGIHHMO-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd01977",
+  "name": "4-Phospho-L-aspartate",
+  "smiles": "[NH3+][C@@H](CC(=O)OP(=O)([O-])[O-])C(=O)[O-]",
+  "formula": "C4H6NO7P",
+  "charge": -2,
+  "inchikey": "IXZNKTPIYKDIGG-REOHCLBHSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02015",
+  "name": "N-Phosphotaurocyamine",
+  "smiles": "NC(NCCS(=O)(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "formula": "C3H8N3O6PS",
+  "charge": -2,
+  "inchikey": "JOYGYOHHMWVUFM-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02016",
+  "name": "N-Ribosylnicotinamide",
+  "smiles": "NC(=O)c1ccc[n+]([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c1",
+  "formula": "C11H15N2O5",
+  "charge": 1,
+  "inchikey": "JLEBZPBDRKPWTD-TURQNECASA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02024",
+  "name": "Phosphonoacetaldehyde",
+  "smiles": "O=CCP(=O)([O-])O",
+  "formula": "C2H4O4P",
+  "charge": -1,
+  "inchikey": "YEMKIGUKNDOZEG-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02033",
+  "name": "Tetrahydroxypteridine",
+  "smiles": "O=c1[n-]c2nc(O)nc(O)c2[nH]c1=O",
+  "formula": "C6H3N4O4",
+  "charge": -1,
+  "inchikey": "CHUHAGUMZFDKAJ-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02051",
+  "name": "Alanopine",
+  "smiles": "CC([NH2+]C(C)C(=O)[O-])C(=O)[O-]",
+  "formula": "C6H10NO4",
+  "charge": -1,
+  "inchikey": "FIOHTMQGSFVHEZ-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02069",
+  "name": "3-Phosphonooxypyruvate",
+  "smiles": "O=C([O-])C(=O)COP(=O)([O-])[O-]",
+  "formula": "C3H2O7P",
+  "charge": -3,
+  "inchikey": "LFLUCDOSQPJJBE-UHFFFAOYSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02112",
+  "name": "Xanthine-8-carboxylate",
+  "smiles": "O=C([O-])c1nc2[nH]c(O)nc(O)c-2n1",
+  "formula": "C6H3N4O4",
+  "charge": -1,
+  "inchikey": "VRZJGNXBSRQZGM-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02121",
+  "name": "2-Amino-4-oxopentanoate",
+  "smiles": "CC(=O)C[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H9NO3",
+  "charge": 0,
+  "inchikey": "QUCHWTCTBHQQDU-SCSAIBSYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02129",
+  "name": "3-Hydroxybenzyl alcohol",
+  "smiles": "OCc1cccc(O)c1",
+  "formula": "C7H8O2",
+  "charge": 0,
+  "inchikey": "OKVJCVWFVRATSG-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02143",
+  "name": "D-Galactono-1,4-lactone",
+  "smiles": "O=C1O[C@@H]([C@H](O)CO)[C@H](O)[C@H]1O",
+  "formula": "C6H10O6",
+  "charge": 0,
+  "inchikey": "SXZYCXMUPBBULW-AIHAYLRMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02148",
+  "name": "Erythrulose 1-phosphate",
+  "smiles": "O=C(COP(=O)([O-])[O-])[C@@H](O)CO",
+  "formula": "C4H7O7P",
+  "charge": -2,
+  "inchikey": "TZCZUVPSFJZERP-VKHMYHEASA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02152",
+  "name": "L-Argininosuccinate",
+  "smiles": "[NH2+]=C(NCCC[C@H]([NH3+])C(=O)[O-])NC(CC(=O)[O-])C(=O)[O-]",
+  "formula": "C10H17N4O6",
+  "charge": -1,
+  "inchikey": "KDZOASGQNOPSCU-ZBHICJROSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02175",
+  "name": "cis-4-Hydroxy-D-proline",
+  "smiles": "O=C([O-])[C@H]1C[C@@H](O)C[NH2+]1",
+  "formula": "C5H9NO3",
+  "charge": 0,
+  "inchikey": "PMMYEEVYMWASQN-QWWZWVQMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02182",
+  "name": "(R)-S-Lactoylglutathione",
+  "smiles": "C[C@@H](O)C(=O)SC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-]",
+  "formula": "C13H20N3O8S",
+  "charge": -1,
+  "inchikey": "VDYDCVUWILIYQF-CSMHCCOUSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02186",
+  "name": "Oxaloglycolate",
+  "smiles": "O=C([O-])C(=O)C(O)C(=O)[O-]",
+  "formula": "C4H2O6",
+  "charge": -2,
+  "inchikey": "RMHHUKGVZFVHED-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02210",
+  "name": "Indoleglycerol phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)c1c[nH]c2ccccc12",
+  "formula": "C11H12NO6P",
+  "charge": -2,
+  "inchikey": "NQEQTYPJSIEPHW-MNOVXSKESA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02233",
+  "name": "Ciliatine",
+  "smiles": "[NH3+]CCP(=O)([O-])O",
+  "formula": "C2H8NO3P",
+  "charge": 0,
+  "inchikey": "QQVDJLLNRSOCEL-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02234",
+  "name": "(R)-3-Hydroxybutanoyl-CoA",
+  "smiles": "C[C@@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C25H38N7O18P3S",
+  "charge": -4,
+  "inchikey": "QHHKKMYHDBRONY-WZZMXTMRSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02235",
+  "name": "1-Pyrroline-2-carboxylate",
+  "smiles": "O=C([O-])C1=NCCC1",
+  "formula": "C5H6NO2",
+  "charge": -1,
+  "inchikey": "RHTAIKJZSXNELN-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02264",
+  "name": "CDPparatose",
+  "smiles": "C[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(N)nc3=O)[C@H](O)[C@@H]2O)[C@H](O)C[C@@H]1O",
+  "formula": "C15H23N3O14P2",
+  "charge": -2,
+  "inchikey": "JHEDABDMLBOYRG-VZRUIPTFSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02265",
+  "name": "CDPtyvelose",
+  "smiles": "C[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(N)nc3=O)[C@H](O)[C@@H]2O)[C@@H](O)C[C@@H]1O",
+  "formula": "C15H23N3O14P2",
+  "charge": -2,
+  "inchikey": "JHEDABDMLBOYRG-LLWSESFUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02273",
+  "name": "L-threo-3-Methylaspartate",
+  "smiles": "C[C@H](C(=O)[O-])[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H8NO4",
+  "charge": -1,
+  "inchikey": "LXRUAYBIUSUULX-HRFVKAFMSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02294",
+  "name": "(S)-5-Amino-3-oxohexanoate",
+  "smiles": "C[C@H]([NH3+])CC(=O)CC(=O)[O-]",
+  "formula": "C6H11NO3",
+  "charge": 0,
+  "inchikey": "FAASBXNEOGMQHS-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02311",
+  "name": "4-Imidazolone-5-propanoate",
+  "smiles": "O=C([O-])CCC1N=CNC1=O",
+  "formula": "C6H7N2O3",
+  "charge": -1,
+  "inchikey": "HEXMLHKQVUFYME-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02324",
+  "name": "L-5-Carboxymethylhydantoin",
+  "smiles": "O=C([O-])C[C@@H]1NC(=O)NC1=O",
+  "formula": "C5H5N2O4",
+  "charge": -1,
+  "inchikey": "DQQLZADYSWBCOX-REOHCLBHSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02375",
+  "name": "Adenylosuccinate",
+  "smiles": "O=C([O-])C[C@H](Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O)C(=O)[O-]",
+  "formula": "C14H14N5O11P",
+  "charge": -4,
+  "inchikey": "OFBHPPMPBOJXRT-VWJPMABRSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02431",
+  "name": "1-Pyrroline-5-carboxylate",
+  "smiles": "O=C([O-])[C@@H]1CCC=N1",
+  "formula": "C5H6NO2",
+  "charge": -1,
+  "inchikey": "DWAKNKKXGALPNW-BYPYZUCNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02441",
+  "name": "3-Dehydro-2-deoxy-D-gluconate",
+  "smiles": "O=C([O-])CC(=O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H9O6",
+  "charge": -1,
+  "inchikey": "CNLFCQPCBQQMHK-XINAWCOVSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02448",
+  "name": "2,4-Diaminopentanoate",
+  "smiles": "C[C@H]([NH3+])C[C@@H]([NH3+])C(=O)[O-]",
+  "formula": "C5H13N2O2",
+  "charge": 1,
+  "inchikey": "PCEJMSIIDXUDSN-IUYQGCFVSA-O",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02469",
+  "name": "enol-Oxaloacetate",
+  "smiles": "O=C([O-])CC(=O)C(=O)[O-]",
+  "formula": "C4H2O5",
+  "charge": -2,
+  "inchikey": "KHPXUQMNIQBQEV-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02510",
+  "name": "(9Z,11E)-Octadecadienoic acid",
+  "smiles": "CCCCCC/C=C/C=C\\CCCCCCCC(=O)[O-]",
+  "formula": "C18H31O2",
+  "charge": -1,
+  "inchikey": "JBYXPOFIGCOSSB-GOJKSUSPSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02536",
+  "name": "Muconolactone",
+  "smiles": "O=C([O-])CC1C=CC(=O)O1",
+  "formula": "C6H5O4",
+  "charge": -1,
+  "inchikey": "HPEKPJGPWNSAAV-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02543",
+  "name": "4-(Trimethylammonio)but-2-enoate",
+  "smiles": "C[N+](C)(C)C/C=C/C(=O)[O-]",
+  "formula": "C7H13NO2",
+  "charge": 0,
+  "inchikey": "GUYHPGUANSLONG-SNAWJCMRSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02553",
+  "name": "Octopine",
+  "smiles": "C[C@@H]([NH2+][C@@H](CCCNC(N)=[NH2+])C(=O)[O-])C(=O)[O-]",
+  "formula": "C9H18N4O4",
+  "charge": 0,
+  "inchikey": "IMXSCCDUAFEIOE-RITPCOANSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02574",
+  "name": "methylthioribose-1-phosphate",
+  "smiles": "CSC[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H]1O",
+  "formula": "C6H11O7PS",
+  "charge": -2,
+  "inchikey": "JTFITTQBRJDSTL-KVTDHHQDSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02611",
+  "name": "N-Acetyl-D-glucosamine1-phosphate",
+  "smiles": "CC(=O)N[C@@H]1C(OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C8H14NO9P",
+  "charge": -2,
+  "inchikey": "FZLJPEPAYPUMMR-ZTVVOAFPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02612",
+  "name": "N-Acetylmannosamine 6-phosphate",
+  "smiles": "CC(=O)N[C@@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O",
+  "formula": "C8H14NO9P",
+  "charge": -2,
+  "inchikey": "BRGMHAYQAZFZDJ-ZTVVOAFPSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02616",
+  "name": "dTDP-4-amino-4,6-dideoxy-D-glucose",
+  "smiles": "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)[C@@H]([NH3+])[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O",
+  "formula": "C16H26N3O14P2",
+  "charge": -1,
+  "inchikey": "UIVJXHWSIFBBCY-LPGAPTBISA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02654",
+  "name": "4-Methyl-5--2-phosphoethyl-thiazole",
+  "smiles": "Cc1ncsc1CCOP(=O)([O-])[O-]",
+  "formula": "C6H8NO4PS",
+  "charge": -2,
+  "inchikey": "OCYMERZCMYJQQO-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02662",
+  "name": "Malyl-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C[C@H](O)C(=O)[O-]",
+  "formula": "C25H35N7O20P3S",
+  "charge": -5,
+  "inchikey": "HJQWLHMLMCDAEL-ZTGLTYRUSA-I",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02673",
+  "name": "3-(3,5-Diiodo-4-hydroxyphenyl)lactate",
+  "smiles": "O=C([O-])C(O)Cc1cc(I)c(O)c(I)c1",
+  "formula": "C9H7I2O4",
+  "charge": -1,
+  "inchikey": "ZPJHINFPRQWKIH-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02679",
+  "name": "5,10-Methylenetetrahydromethanopterin",
+  "smiles": "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N2CN(c3ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]4O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]4O)cc3)[C@H](C)[C@@H]12",
+  "formula": "C31H42N6O16P",
+  "charge": -3,
+  "inchikey": "GBMIGEWJAPFSQI-CAFBYHECSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02698",
+  "name": "N-Succinyl-L-2,6-diaminopimelate",
+  "smiles": "[NH3+][C@@H](CCC[C@H](NC(=O)CCC(=O)[O-])C(=O)[O-])C(=O)[O-]",
+  "formula": "C11H16N2O7",
+  "charge": -2,
+  "inchikey": "GLXUWZBUPATPBR-BQBZGAKWSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02711",
+  "name": "2-Keto-3-deoxy-6-phosphogluconate",
+  "smiles": "O=C([O-])C(=O)C[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C6H8O9P",
+  "charge": -3,
+  "inchikey": "OVPRPPOVAXRCED-WVZVXSGGSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02724",
+  "name": "N-Succinyl-L-2-amino-6-oxopimelate",
+  "smiles": "O=C([O-])CCC(=O)N[C@@H](CCCC(=O)C(=O)[O-])C(=O)[O-]",
+  "formula": "C11H12NO8",
+  "charge": -3,
+  "inchikey": "SDVXSCSNVVZWDD-LURJTMIESA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02836",
+  "name": "(13E)-11alpha-Hydroxy-9,15-dioxoprost-13-enoate",
+  "smiles": "CCCCCC(=O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)[O-]",
+  "formula": "C20H31O5",
+  "charge": -1,
+  "inchikey": "VXPBDCBTMSKCKZ-XQHNHVHJSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02851",
+  "name": "AICAR",
+  "smiles": "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1N",
+  "formula": "C9H13N4O8P",
+  "charge": -2,
+  "inchikey": "NOTGFIUVDGNKRI-UUOKFMHZSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02884",
+  "name": "FAICAR",
+  "smiles": "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1NC=O",
+  "formula": "C10H13N4O9P",
+  "charge": -2,
+  "inchikey": "ABCOOORLYAOBOZ-KQYNXXCUSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02889",
+  "name": "Alprostadil",
+  "smiles": "CCCCC[C@H](O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)[O-]",
+  "formula": "C20H33O5",
+  "charge": -1,
+  "inchikey": "GMVPRGQOIOIIMI-DWKJAMRDSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02894",
+  "name": "4-Amino-2-methyl-5-diphosphomethylpyrimidine",
+  "smiles": "Cc1ncc(COP(=O)([O-])OP(=O)([O-])O)c(N)n1",
+  "formula": "C6H9N3O7P2",
+  "charge": -2,
+  "inchikey": "AGQJQCFEPUVXNK-UHFFFAOYSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd02921",
+  "name": "SAICAR",
+  "smiles": "Nc1c(C(=O)N[C@@H](CC(=O)[O-])C(=O)[O-])ncn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O",
+  "formula": "C13H15N4O12P",
+  "charge": -4,
+  "inchikey": "NAQGHJTUZRHGAC-ZZZDFHIKSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03122",
+  "name": "(S)-Hydroxyhexanoyl-CoA",
+  "smiles": "CCC[C@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C27H42N7O18P3S",
+  "charge": -4,
+  "inchikey": "VAAHKRMGOFIORX-IKTBLOROSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03123",
+  "name": "3-Oxohexanoyl-CoA",
+  "smiles": "CCCC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C27H40N7O18P3S",
+  "charge": -4,
+  "inchikey": "NFOYYXQAVVYWKV-HDRQGHTBSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03125",
+  "name": "(2E)-Hexenoyl-CoA",
+  "smiles": "CCC/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+  "formula": "C27H40N7O17P3S",
+  "charge": -4,
+  "inchikey": "OINXHIBNZUUIMR-IXUYQXAASA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03198",
+  "name": "Melibiose",
+  "smiles": "OC[C@H]1O[C@H](OC[C@H]2OC(O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C12H22O11",
+  "charge": 0,
+  "inchikey": "DLRVVLDZNNYCBX-ABXHMFFYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03221",
+  "name": "Zymosterol",
+  "smiles": "CC(C)=CCC[C@@H](C)[C@H]1CC[C@H]2C3=C(CC[C@]12C)[C@@]1(C)CC[C@H](O)C[C@@H]1CC3",
+  "formula": "C27H44O",
+  "charge": 0,
+  "inchikey": "CGSJXLIKVBJVRY-XTGBIJOFSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03222",
+  "name": "5alpha-Cholesta-7,24-dien-3beta-ol",
+  "smiles": "CC(C)=CCC[C@@H](C)[C@H]1CC[C@H]2C3=CC[C@H]4C[C@@H](O)CC[C@]4(C)[C@H]3CC[C@]12C",
+  "formula": "C27H44O",
+  "charge": 0,
+  "inchikey": "PKEPPDGGTSZLBL-SKCNUYALSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03279",
+  "name": "Deoxyinosine",
+  "smiles": "O=c1[nH]cnc2c1ncn2[C@H]1C[C@H](O)[C@@H](CO)O1",
+  "formula": "C10H12N4O4",
+  "charge": 0,
+  "inchikey": "VGONTNSXDCQUGY-RRKCRQDMSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03292",
+  "name": "Penicillin G",
+  "smiles": "CC1(C)S[C@@H]2[C@H](NC(=O)Cc3ccccc3)C(=O)N2[C@H]1C(=O)[O-]",
+  "formula": "C16H17N2O4S",
+  "charge": -1,
+  "inchikey": "JGSARLDLIJGVTE-MBNYWOFBSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03518",
+  "name": "Formamidopyrimidine nucleoside triphosphate",
+  "smiles": "Nc1nc(=O)c(NC=O)c(N[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)[nH]1",
+  "formula": "C10H15N5O15P3",
+  "charge": -3,
+  "inchikey": "NDXMRXXKCCKQQV-UUOKFMHZSA-K",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03535",
+  "name": "Phosphoarginine",
+  "smiles": "NC(NCCC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "formula": "C6H14N4O5P",
+  "charge": -1,
+  "inchikey": "CCTIOCVIZPCTGO-BYPYZUCNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03561",
+  "name": "2-Hydroxybutyrate",
+  "smiles": "CC[C@H](O)C(=O)[O-]",
+  "formula": "C4H7O3",
+  "charge": -1,
+  "inchikey": "AFENDNXGAFYKQO-VKHMYHEASA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03583",
+  "name": "D-arabino-6-Phospho-hex-3-ulose",
+  "smiles": "O=C([C@H](O)CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "UZYFNQCWJLIAKE-ZMIZWQJLSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03662",
+  "name": "n-Butanol",
+  "smiles": "CCCCO",
+  "formula": "C4H10O",
+  "charge": 0,
+  "inchikey": "LRHPLDYGYMQRHN-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03671",
+  "name": "D-Glucosamine1-phosphate",
+  "smiles": "[NH3+][C@H]1[C@@H](OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O",
+  "formula": "C6H13NO8P",
+  "charge": -1,
+  "inchikey": "YMJBYRVFGYXULK-QZABAPFNSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03763",
+  "name": "Cyclohexa-1,5-dienecarbonyl-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C1=CCCC=C1",
+  "formula": "C28H38N7O17P3S",
+  "charge": -4,
+  "inchikey": "IHXBZDHPKCDGKN-TYHXJLICSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03880",
+  "name": "D-Altrose",
+  "smiles": "OC[C@H]1OC(O)[C@@H](O)[C@H](O)[C@@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "WQZGKKKJIJFFOK-RSVSWTKNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd03884",
+  "name": "D-Psicose",
+  "smiles": "OCC1(O)OC[C@@H](O)[C@@H](O)[C@H]1O",
+  "formula": "C6H12O6",
+  "charge": 0,
+  "inchikey": "LKDRXBCSQODPBY-JDJSBBGDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd04130",
+  "name": "6-Hydroxycyclohex-1-enecarbonyl-CoA",
+  "smiles": "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C1=CCCCC1O",
+  "formula": "C28H40N7O18P3S",
+  "charge": -4,
+  "inchikey": "WBCJUEJWJADAGR-CRVKRRNDSA-J",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd05400",
+  "name": "3-Hexenol",
+  "smiles": "CC/C=C\\CCO",
+  "formula": "C6H12O",
+  "charge": 0,
+  "inchikey": "UFLHIIWVXFIJGU-ARJAWSKDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd08210",
+  "name": "ADC",
+  "smiles": "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1[NH3+])C(=O)[O-]",
+  "formula": "C10H10NO5",
+  "charge": -1,
+  "inchikey": "OIUJHGOLFKDBSU-HTQZYQBOSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd08505",
+  "name": "Anandamide",
+  "smiles": "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)NCCO",
+  "formula": "C22H37NO2",
+  "charge": 0,
+  "inchikey": "LGEQQWMQCRIYKG-DOFZRALJSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd09876",
+  "name": "Lombricine",
+  "smiles": "NC(=[NH2+])NCCOP(=O)([O-])OC[C@H]([NH3+])C(=O)[O-]",
+  "formula": "C6H15N4O6P",
+  "charge": 0,
+  "inchikey": "GSDBGCKBBJVPNC-BYPYZUCNSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd09877",
+  "name": "N-Phospholombricine",
+  "smiles": "NC(NCCOP(=O)([O-])OC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]",
+  "formula": "C6H14N4O9P2",
+  "charge": -2,
+  "inchikey": "QOYUHKALUMVCHB-BYPYZUCNSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd10719",
+  "name": "D-Carnitine",
+  "smiles": "C[N+](C)(C)C[C@@H](O)CC(=O)[O-]",
+  "formula": "C7H15NO3",
+  "charge": 0,
+  "inchikey": "PHIQHXFUZVPYII-LURJTMIESA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd11314",
+  "name": "L-Sorbosonate",
+  "smiles": "O=C([O-])C(=O)[C@@H](O)[C@H](O)[C@@H](O)CO",
+  "formula": "C6H9O7",
+  "charge": -1,
+  "inchikey": "VBUYCZFBVCCYFD-NUNKFHFFSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd15026",
+  "name": "3-Hexenal",
+  "smiles": "CC/C=C\\CC=O",
+  "formula": "C6H10O",
+  "charge": 0,
+  "inchikey": "GXANMBISFKBPEX-ARJAWSKDSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd16300",
+  "name": "Palmidrol",
+  "smiles": "CCCCCCCCCCCCCCCC(=O)NCCO",
+  "formula": "C18H37NO2",
+  "charge": 0,
+  "inchikey": "HXYVTAGFYLMHSO-UHFFFAOYSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd17073",
+  "name": "2-amino-2-deoxyisochorismic acid",
+  "smiles": "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1[NH3+])C(=O)[O-]",
+  "formula": "C10H10NO5",
+  "charge": -1,
+  "inchikey": "OKLGKGPAZUNROU-YUMQZZPRSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19006",
+  "name": "alpha-D-Glucose 6-phosphate",
+  "smiles": "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+  "formula": "C6H11O9P",
+  "charge": -2,
+  "inchikey": "NBSCHQHZLSJFNQ-DVKNGEFBSA-L",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19008",
+  "name": "(R)-Acetoin",
+  "smiles": "CC(=O)[C@@H](C)O",
+  "formula": "C4H8O2",
+  "charge": 0,
+  "inchikey": "ROWKJAVDOGWPAT-GSVOUGTGSA-N",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd19069",
+  "name": "Phenylacetic acid",
+  "smiles": "O=C([O-])Cc1ccccc1",
+  "formula": "C8H7O2",
+  "charge": -1,
+  "inchikey": "WLJVXDMOQOGPHL-UHFFFAOYSA-M",
+  "opentecr_species": ""
+ },
+ {
+  "id": "cpd27436",
+  "name": "D-mannitol, 1-(dihydrogenphosphate)",
+  "smiles": "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+  "formula": "C6H13O9P",
+  "charge": -2,
+  "inchikey": "GACTWZZMVMUKNG-KVTDHHQDSA-L",
+  "opentecr_species": ""
+ }
+]

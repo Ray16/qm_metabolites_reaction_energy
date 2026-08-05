@@ -1,0 +1,2267 @@
+{
+ "cpd00001": {
+  "name": "H2O",
+  "charge": 0,
+  "n_hydrogens": 2
+ },
+ "cpd00002": {
+  "name": "ATP",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00003": {
+  "name": "NAD",
+  "charge": -1,
+  "n_hydrogens": 26
+ },
+ "cpd00004": {
+  "name": "NADH",
+  "charge": -2,
+  "n_hydrogens": 27
+ },
+ "cpd00005": {
+  "name": "NADPH",
+  "charge": -4,
+  "n_hydrogens": 26
+ },
+ "cpd00006": {
+  "name": "NADP",
+  "charge": -3,
+  "n_hydrogens": 25
+ },
+ "cpd00008": {
+  "name": "ADP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00009": {
+  "name": "Phosphate",
+  "charge": -2,
+  "n_hydrogens": 1
+ },
+ "cpd00010": {
+  "name": "CoA",
+  "charge": -4,
+  "n_hydrogens": 32
+ },
+ "cpd00012": {
+  "name": "PPi",
+  "charge": -3,
+  "n_hydrogens": 1
+ },
+ "cpd00013": {
+  "name": "NH3",
+  "charge": 1,
+  "n_hydrogens": 4
+ },
+ "cpd00014": {
+  "name": "UDP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00015": {
+  "name": "FAD",
+  "charge": -2,
+  "n_hydrogens": 31
+ },
+ "cpd00018": {
+  "name": "AMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00019": {
+  "name": "S-Adenosyl-homocysteine",
+  "charge": 0,
+  "n_hydrogens": 20
+ },
+ "cpd00020": {
+  "name": "Pyruvate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00022": {
+  "name": "Acetyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 34
+ },
+ "cpd00023": {
+  "name": "L-Glutamate",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd00024": {
+  "name": "2-Oxoglutarate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00026": {
+  "name": "UDP-glucose",
+  "charge": -2,
+  "n_hydrogens": 22
+ },
+ "cpd00027": {
+  "name": "D-Glucose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00029": {
+  "name": "Acetate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00031": {
+  "name": "GDP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00032": {
+  "name": "Oxaloacetate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00033": {
+  "name": "Glycine",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00035": {
+  "name": "L-Alanine",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00036": {
+  "name": "Succinate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00037": {
+  "name": "UDP-N-acetylglucosamine",
+  "charge": -2,
+  "n_hydrogens": 25
+ },
+ "cpd00038": {
+  "name": "GTP",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00039": {
+  "name": "L-Lysine",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd00040": {
+  "name": "Glyoxalate",
+  "charge": -1,
+  "n_hydrogens": 1
+ },
+ "cpd00041": {
+  "name": "L-Aspartate",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd00042": {
+  "name": "GSH",
+  "charge": -2,
+  "n_hydrogens": 15
+ },
+ "cpd00043": {
+  "name": "UDP-galactose",
+  "charge": -2,
+  "n_hydrogens": 22
+ },
+ "cpd00046": {
+  "name": "CMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00047": {
+  "name": "Formate",
+  "charge": -1,
+  "n_hydrogens": 1
+ },
+ "cpd00048": {
+  "name": "Sulfate",
+  "charge": -2,
+  "n_hydrogens": 0
+ },
+ "cpd00051": {
+  "name": "L-Arginine",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd00052": {
+  "name": "CTP",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00053": {
+  "name": "L-Glutamine",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00054": {
+  "name": "L-Serine",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00055": {
+  "name": "Formaldehyde",
+  "charge": 0,
+  "n_hydrogens": 2
+ },
+ "cpd00060": {
+  "name": "L-Methionine",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00061": {
+  "name": "Phosphoenolpyruvate",
+  "charge": -3,
+  "n_hydrogens": 2
+ },
+ "cpd00062": {
+  "name": "UTP",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd00064": {
+  "name": "Ornithine",
+  "charge": 1,
+  "n_hydrogens": 13
+ },
+ "cpd00065": {
+  "name": "L-Tryptophan",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00066": {
+  "name": "L-Phenylalanine",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00068": {
+  "name": "ITP",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd00069": {
+  "name": "L-Tyrosine",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00071": {
+  "name": "Acetaldehyde",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00072": {
+  "name": "D-fructose-6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00073": {
+  "name": "Urea",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00076": {
+  "name": "Sucrose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00078": {
+  "name": "Succinyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 35
+ },
+ "cpd00079": {
+  "name": "D-glucose-6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00080": {
+  "name": "Glycerol-3-phosphate",
+  "charge": -2,
+  "n_hydrogens": 7
+ },
+ "cpd00082": {
+  "name": "D-Fructose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00083": {
+  "name": "GDP-mannose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00085": {
+  "name": "beta-Alanine",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00086": {
+  "name": "Propionyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 36
+ },
+ "cpd00087": {
+  "name": "Tetrahydrofolate",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00089": {
+  "name": "Glucose-1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00090": {
+  "name": "IDP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00092": {
+  "name": "Uracil",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00094": {
+  "name": "2-Oxobutyrate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00095": {
+  "name": "Glycerone-phosphate",
+  "charge": -2,
+  "n_hydrogens": 5
+ },
+ "cpd00096": {
+  "name": "CDP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00098": {
+  "name": "Choline",
+  "charge": 1,
+  "n_hydrogens": 14
+ },
+ "cpd00100": {
+  "name": "Glycerol",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd00101": {
+  "name": "ribose-5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00102": {
+  "name": "Glyceraldehyde3-phosphate",
+  "charge": -2,
+  "n_hydrogens": 5
+ },
+ "cpd00103": {
+  "name": "PRPP",
+  "charge": -4,
+  "n_hydrogens": 9
+ },
+ "cpd00105": {
+  "name": "D-Ribose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00106": {
+  "name": "Fumarate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00107": {
+  "name": "L-Leucine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00108": {
+  "name": "Galactose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00111": {
+  "name": "Oxidized glutathione",
+  "charge": -2,
+  "n_hydrogens": 30
+ },
+ "cpd00113": {
+  "name": "Isopentenyldiphosphate",
+  "charge": -2,
+  "n_hydrogens": 10
+ },
+ "cpd00114": {
+  "name": "IMP",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00115": {
+  "name": "dATP",
+  "charge": -3,
+  "n_hydrogens": 13
+ },
+ "cpd00117": {
+  "name": "D-Alanine",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00119": {
+  "name": "L-Histidine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00121": {
+  "name": "L-Inositol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00122": {
+  "name": "N-Acetyl-D-glucosamine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00125": {
+  "name": "5-10-Methylenetetrahydrofolate",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00126": {
+  "name": "GMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00128": {
+  "name": "Adenine",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00129": {
+  "name": "L-Proline",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00130": {
+  "name": "L-Malate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00133": {
+  "name": "Nicotinamide",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00134": {
+  "name": "Palmitoyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 62
+ },
+ "cpd00135": {
+  "name": "Homocysteine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00137": {
+  "name": "Citrate",
+  "charge": -3,
+  "n_hydrogens": 5
+ },
+ "cpd00138": {
+  "name": "D-Mannose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00139": {
+  "name": "Glycolate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00141": {
+  "name": "Propionate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00142": {
+  "name": "Acetoacetate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00143": {
+  "name": "Phenylpyruvate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00144": {
+  "name": "UDPglucuronate",
+  "charge": -3,
+  "n_hydrogens": 19
+ },
+ "cpd00145": {
+  "name": "Hydroxypyruvate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00146": {
+  "name": "Carbamoylphosphate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00147": {
+  "name": "5-Methylthioadenosine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00154": {
+  "name": "Xylose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00157": {
+  "name": "Glycerone",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00158": {
+  "name": "CELB",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00159": {
+  "name": "L-Lactate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00161": {
+  "name": "L-Threonine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00162": {
+  "name": "Aminoethanol",
+  "charge": 1,
+  "n_hydrogens": 8
+ },
+ "cpd00163": {
+  "name": "UDP-xylose",
+  "charge": -2,
+  "n_hydrogens": 20
+ },
+ "cpd00164": {
+  "name": "Glucuronate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00169": {
+  "name": "3-Phosphoglycerate",
+  "charge": -3,
+  "n_hydrogens": 4
+ },
+ "cpd00170": {
+  "name": "Gluconolactone",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00171": {
+  "name": "D-Ribulose5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00175": {
+  "name": "UDP-N-acetyl-D-galactosamine",
+  "charge": -2,
+  "n_hydrogens": 25
+ },
+ "cpd00176": {
+  "name": "2-keto-3-deoxygluconate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00177": {
+  "name": "dADP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00178": {
+  "name": "Acetone",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00179": {
+  "name": "Maltose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00182": {
+  "name": "Adenosine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00185": {
+  "name": "D-Arabinose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00186": {
+  "name": "D-Glutamate",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd00188": {
+  "name": "Arachidonate",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd00191": {
+  "name": "3-Oxopropanoate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00193": {
+  "name": "APS",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00196": {
+  "name": "Acetylphosphate",
+  "charge": -2,
+  "n_hydrogens": 3
+ },
+ "cpd00198": {
+  "name": "D-Xylulose5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00199": {
+  "name": "4-Oxobutanoate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00200": {
+  "name": "4MOP",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00201": {
+  "name": "10-Formyltetrahydrofolate",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00202": {
+  "name": "DMAPP",
+  "charge": -2,
+  "n_hydrogens": 10
+ },
+ "cpd00203": {
+  "name": "1,3-Bisphospho-D-glycerate",
+  "charge": -4,
+  "n_hydrogens": 4
+ },
+ "cpd00206": {
+  "name": "dCMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00207": {
+  "name": "Guanine",
+  "charge": 0,
+  "n_hydrogens": 5
+ },
+ "cpd00208": {
+  "name": "LACT",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00212": {
+  "name": "L-Sorbose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00213": {
+  "name": "Lipoamide",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00214": {
+  "name": "Palmitate",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd00215": {
+  "name": "Pyridoxal",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00216": {
+  "name": "Chorismate",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd00217": {
+  "name": "Brachiose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00218": {
+  "name": "Niacin",
+  "charge": -1,
+  "n_hydrogens": 4
+ },
+ "cpd00221": {
+  "name": "D-Lactate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00222": {
+  "name": "GLCN",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00223": {
+  "name": "Glycerate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00224": {
+  "name": "L-Arabinose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00225": {
+  "name": "Benzaldehyde",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00226": {
+  "name": "HYXN",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00227": {
+  "name": "L-Homoserine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00229": {
+  "name": "Glycolaldehyde",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00232": {
+  "name": "Neu5Ac",
+  "charge": -1,
+  "n_hydrogens": 18
+ },
+ "cpd00234": {
+  "name": "5-Dehydro-D-fructose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00235": {
+  "name": "D-mannose-6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00236": {
+  "name": "D-Erythrose4-phosphate",
+  "charge": -2,
+  "n_hydrogens": 7
+ },
+ "cpd00237": {
+  "name": "Androstenedione",
+  "charge": 0,
+  "n_hydrogens": 26
+ },
+ "cpd00238": {
+  "name": "Sedoheptulose7-phosphate",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00242": {
+  "name": "H2CO3",
+  "charge": -1,
+  "n_hydrogens": 1
+ },
+ "cpd00246": {
+  "name": "Inosine",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00247": {
+  "name": "Orotate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00248": {
+  "name": "Quinate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00249": {
+  "name": "Uridine",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00250": {
+  "name": "Creatine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00256": {
+  "name": "CDPcholine",
+  "charge": -1,
+  "n_hydrogens": 25
+ },
+ "cpd00258": {
+  "name": "D-Ribulose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00259": {
+  "name": "D-Lyxulose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00260": {
+  "name": "Isocitrate",
+  "charge": -3,
+  "n_hydrogens": 5
+ },
+ "cpd00261": {
+  "name": "L-Lyxulose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00262": {
+  "name": "Oxalyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 31
+ },
+ "cpd00263": {
+  "name": "Pyridoxol",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00266": {
+  "name": "Carnitine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00269": {
+  "name": "2-Oxoadipate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00274": {
+  "name": "Citrulline",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00278": {
+  "name": "Indolepyruvate",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd00279": {
+  "name": "Acetoacetyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 36
+ },
+ "cpd00280": {
+  "name": "D-Galacturonate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00281": {
+  "name": "GABA",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00282": {
+  "name": "S-Dihydroorotate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00285": {
+  "name": "Phosphoethanolamine",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00287": {
+  "name": "3-Oxo-2-methylpropanoate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00288": {
+  "name": "D-Glucosamine phosphate",
+  "charge": -1,
+  "n_hydrogens": 13
+ },
+ "cpd00290": {
+  "name": "D-fructose-1,6-bisphosphate",
+  "charge": -4,
+  "n_hydrogens": 10
+ },
+ "cpd00293": {
+  "name": "N-Acetyl-D-glucosamine 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd00294": {
+  "name": "dAMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00295": {
+  "name": "dGDP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00296": {
+  "name": "dGMP",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00297": {
+  "name": "dTDP",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd00298": {
+  "name": "dTMP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00304": {
+  "name": "Retinal",
+  "charge": 0,
+  "n_hydrogens": 28
+ },
+ "cpd00306": {
+  "name": "Xylitol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00311": {
+  "name": "Guanosine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00314": {
+  "name": "D-Mannitol",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd00315": {
+  "name": "GDP-glucose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00323": {
+  "name": "L-Pipecolate",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00329": {
+  "name": "Cyclohexanone",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00330": {
+  "name": "Dihydrofolate",
+  "charge": -2,
+  "n_hydrogens": 19
+ },
+ "cpd00331": {
+  "name": "cis-Aconitate",
+  "charge": -3,
+  "n_hydrogens": 3
+ },
+ "cpd00333": {
+  "name": "(E)-Cinnamate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00334": {
+  "name": "L-Lactaldehyde",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00337": {
+  "name": "Hydrouracil",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00342": {
+  "name": "N-Acetylornithine",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd00343": {
+  "name": "N-Carbamoyl-L-aspartate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00345": {
+  "name": "5-Methyltetrahydrofolate",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00346": {
+  "name": "L-Aspartate4-semialdehyde",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00347": {
+  "name": "5-10-Methenyltetrahydrofolate",
+  "charge": -1,
+  "n_hydrogens": 20
+ },
+ "cpd00351": {
+  "name": "Saccharopine",
+  "charge": -1,
+  "n_hydrogens": 19
+ },
+ "cpd00355": {
+  "name": "Nicotinamide ribonucleotide",
+  "charge": -1,
+  "n_hydrogens": 14
+ },
+ "cpd00357": {
+  "name": "TTP",
+  "charge": -3,
+  "n_hydrogens": 14
+ },
+ "cpd00359": {
+  "name": "indol",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00362": {
+  "name": "Estrone",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00363": {
+  "name": "Ethanol",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00365": {
+  "name": "Retinol",
+  "charge": 0,
+  "n_hydrogens": 30
+ },
+ "cpd00366": {
+  "name": "Ribitol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00367": {
+  "name": "Cytidine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd00368": {
+  "name": "D-Lyxose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00373": {
+  "name": "Sinapate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00382": {
+  "name": "Melitose",
+  "charge": 0,
+  "n_hydrogens": 32
+ },
+ "cpd00383": {
+  "name": "Shikimate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00386": {
+  "name": "D-Malate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00387": {
+  "name": "ADPglucose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00388": {
+  "name": "Allantoate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00390": {
+  "name": "CDP-glucose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd00396": {
+  "name": "L-Rhamnose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00397": {
+  "name": "L-Ribulose",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd00404": {
+  "name": "D-Ornithine",
+  "charge": 1,
+  "n_hydrogens": 13
+ },
+ "cpd00408": {
+  "name": "Pantoate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00419": {
+  "name": "PM",
+  "charge": 1,
+  "n_hydrogens": 13
+ },
+ "cpd00420": {
+  "name": "Testosterone",
+  "charge": 0,
+  "n_hydrogens": 28
+ },
+ "cpd00428": {
+  "name": "2-Oxopropanal",
+  "charge": 0,
+  "n_hydrogens": 4
+ },
+ "cpd00432": {
+  "name": "meso-Tartrate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00435": {
+  "name": "Phenylcarbinol",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd00437": {
+  "name": "D-Tagaturonate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00444": {
+  "name": "CDPethanolamine",
+  "charge": -1,
+  "n_hydrogens": 19
+ },
+ "cpd00446": {
+  "name": "cAMP",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00448": {
+  "name": "D-Glyceraldehyde",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd00449": {
+  "name": "Dihydrolipoamide",
+  "charge": 0,
+  "n_hydrogens": 17
+ },
+ "cpd00451": {
+  "name": "Glycocyamine",
+  "charge": 0,
+  "n_hydrogens": 7
+ },
+ "cpd00453": {
+  "name": "1,2-Propanediol",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd00457": {
+  "name": "Phosphocholine",
+  "charge": -1,
+  "n_hydrogens": 13
+ },
+ "cpd00458": {
+  "name": "Coniferol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00465": {
+  "name": "Ureidoglycolate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00472": {
+  "name": "UDPgalacturonate",
+  "charge": -3,
+  "n_hydrogens": 19
+ },
+ "cpd00475": {
+  "name": "Ribose 1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00477": {
+  "name": "N-Acetyl-L-glutamate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00480": {
+  "name": "2-Dehydro-D-gluconate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00482": {
+  "name": "2-Phospho-D-glycerate",
+  "charge": -3,
+  "n_hydrogens": 4
+ },
+ "cpd00485": {
+  "name": "D-Mannose1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00491": {
+  "name": "D-glucitol 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00492": {
+  "name": "N-Acetyl-D-mannosamine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd00504": {
+  "name": "LL-2,6-Diaminopimelate",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd00509": {
+  "name": "deoxyribose-1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00510": {
+  "name": "deoxyribose-5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00516": {
+  "name": "meso-2,6-Diaminopimelate",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd00519": {
+  "name": "D-methylmalonyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 35
+ },
+ "cpd00520": {
+  "name": "2-Dehydro-3-deoxy-D-pentonate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00521": {
+  "name": "dTDP-4-oxo-6-deoxy-D-glucose",
+  "charge": -2,
+  "n_hydrogens": 22
+ },
+ "cpd00523": {
+  "name": "Trehalose 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 21
+ },
+ "cpd00533": {
+  "name": "dCDP",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd00549": {
+  "name": "D-Lysine",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd00562": {
+  "name": "1-Octanol",
+  "charge": 0,
+  "n_hydrogens": 18
+ },
+ "cpd00581": {
+  "name": "Urocanate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00588": {
+  "name": "Sorbitol",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd00589": {
+  "name": "D-Tagatose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00622": {
+  "name": "Sepiapterin",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd00626": {
+  "name": "dTDPglucose",
+  "charge": -2,
+  "n_hydrogens": 24
+ },
+ "cpd00636": {
+  "name": "Hexalin",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00642": {
+  "name": "L-Rhamnulose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00644": {
+  "name": "PAN",
+  "charge": -1,
+  "n_hydrogens": 16
+ },
+ "cpd00650": {
+  "name": "Crotonyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 36
+ },
+ "cpd00655": {
+  "name": "Dephospho-CoA",
+  "charge": -2,
+  "n_hydrogens": 33
+ },
+ "cpd00658": {
+  "name": "Isochorismate",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd00672": {
+  "name": "D-Fructuronate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00682": {
+  "name": "CoA-glutathione",
+  "charge": -5,
+  "n_hydrogens": 46
+ },
+ "cpd00684": {
+  "name": "Dimethylmaleic acid",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00691": {
+  "name": "UDP-L-arabinose",
+  "charge": -2,
+  "n_hydrogens": 20
+ },
+ "cpd00695": {
+  "name": "2-Oxoglutaramate",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd00699": {
+  "name": "5-Dehydroquinate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00702": {
+  "name": "Estradiol",
+  "charge": 0,
+  "n_hydrogens": 24
+ },
+ "cpd00705": {
+  "name": "L-2-Aminoadipate",
+  "charge": -1,
+  "n_hydrogens": 10
+ },
+ "cpd00712": {
+  "name": "2-Dehydropantoate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd00718": {
+  "name": "Dihydroxyfumarate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd00722": {
+  "name": "O-Acetyl-L-serine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00728": {
+  "name": "4-Hydroxybutanoate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00738": {
+  "name": "phosphoserine",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00745": {
+  "name": "Hydracrylic acid",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00751": {
+  "name": "L-Fucose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd00793": {
+  "name": "Thiamine phosphate",
+  "charge": -1,
+  "n_hydrogens": 16
+ },
+ "cpd00794": {
+  "name": "TRHL",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00795": {
+  "name": "(R)-2-Hydroxyglutarate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd00797": {
+  "name": "(R)-3-Hydroxybutanoate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00802": {
+  "name": "D-fructose-1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00806": {
+  "name": "L-Fuculose1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00807": {
+  "name": "L-histidinol-phosphate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd00808": {
+  "name": "L-ribulose-5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00810": {
+  "name": "Orotidylic acid",
+  "charge": -3,
+  "n_hydrogens": 10
+ },
+ "cpd00812": {
+  "name": "5-phosphomevalonate",
+  "charge": -3,
+  "n_hydrogens": 10
+ },
+ "cpd00817": {
+  "name": "D-Arabinose5-phosphate",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00830": {
+  "name": "4-Hydroxy-2-oxoglutarate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd00831": {
+  "name": "L-Rhamnulose 1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00840": {
+  "name": "L-beta-Lysine",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd00841": {
+  "name": "5-diphosphomevalonate",
+  "charge": -3,
+  "n_hydrogens": 11
+ },
+ "cpd00842": {
+  "name": "(S)-3-Hydroxybutyryl-CoA",
+  "charge": -4,
+  "n_hydrogens": 38
+ },
+ "cpd00843": {
+  "name": "Tartronate semialdehyde",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd00851": {
+  "name": "trans-4-Hydroxy-L-proline",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd00863": {
+  "name": "beta-D-Glucose 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd00865": {
+  "name": "1-O-Sinapoyl-beta-D-glucose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00868": {
+  "name": "p-hydroxyphenylpyruvate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00873": {
+  "name": "Nicotinate ribonucleotide",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd00874": {
+  "name": "(3S,5S)-3,5-Diaminocaproate",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd00876": {
+  "name": "3-Hydroxyisobutyrate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd00880": {
+  "name": "1-Phospho-alpha-D-glucuronate",
+  "charge": -3,
+  "n_hydrogens": 8
+ },
+ "cpd00891": {
+  "name": "L-methylmalonyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 35
+ },
+ "cpd00895": {
+  "name": "H4MPT",
+  "charge": -3,
+  "n_hydrogens": 42
+ },
+ "cpd00910": {
+  "name": "Galactinol",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd00911": {
+  "name": "6-phospho-D-glucono-1-5-lactone",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd00915": {
+  "name": "3,5-Diiodo-4-hydroxyphenylpyruvate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd00922": {
+  "name": "delta1-Piperideine-2-carboxylate",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd00930": {
+  "name": "imidazole acetol-phosphate",
+  "charge": -2,
+  "n_hydrogens": 7
+ },
+ "cpd00945": {
+  "name": "2-Dehydro-3-deoxy-D-galactonate 6-phosphate",
+  "charge": -3,
+  "n_hydrogens": 8
+ },
+ "cpd00982": {
+  "name": "FADH2",
+  "charge": -2,
+  "n_hydrogens": 33
+ },
+ "cpd00996": {
+  "name": "Maleate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd01011": {
+  "name": "Butanal",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01066": {
+  "name": "L-Iditol",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd01088": {
+  "name": "1-Octanal",
+  "charge": 0,
+  "n_hydrogens": 16
+ },
+ "cpd01101": {
+  "name": "Carbamate",
+  "charge": -1,
+  "n_hydrogens": 2
+ },
+ "cpd01106": {
+  "name": "D-Leucine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd01122": {
+  "name": "Linoleate",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd01133": {
+  "name": "Stachyose",
+  "charge": 0,
+  "n_hydrogens": 42
+ },
+ "cpd01138": {
+  "name": "Threonate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01171": {
+  "name": "Dulcose",
+  "charge": 0,
+  "n_hydrogens": 14
+ },
+ "cpd01186": {
+  "name": "L-Fuculose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd01194": {
+  "name": "Mesaconate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd01239": {
+  "name": "D-Erythrose",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01269": {
+  "name": "2-Propanol",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01307": {
+  "name": "D-Lyxitol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd01345": {
+  "name": "Taurocyamine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd01367": {
+  "name": "Acetylcholine",
+  "charge": 1,
+  "n_hydrogens": 16
+ },
+ "cpd01383": {
+  "name": "D-Erythrulose",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd01394": {
+  "name": "Indolelactate",
+  "charge": -1,
+  "n_hydrogens": 10
+ },
+ "cpd01397": {
+  "name": "Laminariaceae",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd01430": {
+  "name": "11-cis-Retinal",
+  "charge": 0,
+  "n_hydrogens": 28
+ },
+ "cpd01432": {
+  "name": "2-Methylserine",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd01502": {
+  "name": "Citraconate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd01512": {
+  "name": "5-Oxo-D-proline",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd01536": {
+  "name": "GDP-L-galactose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd01545": {
+  "name": "Methylitaconate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd01550": {
+  "name": "Phosphocreatine",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd01630": {
+  "name": "cis,cis-Muconate",
+  "charge": -2,
+  "n_hydrogens": 4
+ },
+ "cpd01675": {
+  "name": "Methylmalonyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 35
+ },
+ "cpd01682": {
+  "name": "O-Acetylcarnitine",
+  "charge": 0,
+  "n_hydrogens": 17
+ },
+ "cpd01691": {
+  "name": "Retinol palmitate",
+  "charge": 0,
+  "n_hydrogens": 60
+ },
+ "cpd01700": {
+  "name": "D-Citramalate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd01701": {
+  "name": "S-Citramalate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd01705": {
+  "name": "2,3-Dimethylmalate",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd01715": {
+  "name": "3-Dehydrocarnitine",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd01716": {
+  "name": "3-Dehydroshikimate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01720": {
+  "name": "3-Ureidopropanoate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01733": {
+  "name": "Ferulaldehyde",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd01756": {
+  "name": "N-Acetylmethionine",
+  "charge": -1,
+  "n_hydrogens": 12
+ },
+ "cpd01784": {
+  "name": "enol-Phenylpyruvate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01793": {
+  "name": "2,5-diketo-D-gluconate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd01795": {
+  "name": "2-Deoxy-D-gluconate",
+  "charge": -1,
+  "n_hydrogens": 11
+ },
+ "cpd01807": {
+  "name": "3-Phosphonopyruvate",
+  "charge": -2,
+  "n_hydrogens": 3
+ },
+ "cpd01876": {
+  "name": "2-Methyleneglutarate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd01895": {
+  "name": "7,8-Dihydrobiopterin",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd01896": {
+  "name": "6-Aminopenicillanate",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd01915": {
+  "name": "L-Palmitoylcarnitine",
+  "charge": 0,
+  "n_hydrogens": 45
+ },
+ "cpd01947": {
+  "name": "BDOH",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd01961": {
+  "name": "3-Dehydro-L-threonate",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd01964": {
+  "name": "3-Hydroxybenzaldehyde",
+  "charge": 0,
+  "n_hydrogens": 6
+ },
+ "cpd01977": {
+  "name": "4-Phospho-L-aspartate",
+  "charge": -2,
+  "n_hydrogens": 6
+ },
+ "cpd02015": {
+  "name": "N-Phosphotaurocyamine",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd02016": {
+  "name": "N-Ribosylnicotinamide",
+  "charge": 1,
+  "n_hydrogens": 15
+ },
+ "cpd02024": {
+  "name": "Phosphonoacetaldehyde",
+  "charge": -1,
+  "n_hydrogens": 4
+ },
+ "cpd02033": {
+  "name": "Tetrahydroxypteridine",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd02051": {
+  "name": "Alanopine",
+  "charge": -1,
+  "n_hydrogens": 10
+ },
+ "cpd02069": {
+  "name": "3-Phosphonooxypyruvate",
+  "charge": -3,
+  "n_hydrogens": 2
+ },
+ "cpd02112": {
+  "name": "Xanthine-8-carboxylate",
+  "charge": -1,
+  "n_hydrogens": 3
+ },
+ "cpd02121": {
+  "name": "2-Amino-4-oxopentanoate",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd02129": {
+  "name": "3-Hydroxybenzyl alcohol",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd02143": {
+  "name": "D-Galactono-1,4-lactone",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd02148": {
+  "name": "Erythrulose 1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 7
+ },
+ "cpd02152": {
+  "name": "L-Argininosuccinate",
+  "charge": -1,
+  "n_hydrogens": 17
+ },
+ "cpd02175": {
+  "name": "cis-4-Hydroxy-D-proline",
+  "charge": 0,
+  "n_hydrogens": 9
+ },
+ "cpd02182": {
+  "name": "(R)-S-Lactoylglutathione",
+  "charge": -1,
+  "n_hydrogens": 20
+ },
+ "cpd02186": {
+  "name": "Oxaloglycolate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd02210": {
+  "name": "Indoleglycerol phosphate",
+  "charge": -2,
+  "n_hydrogens": 12
+ },
+ "cpd02233": {
+  "name": "Ciliatine",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd02234": {
+  "name": "(R)-3-Hydroxybutanoyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 38
+ },
+ "cpd02235": {
+  "name": "1-Pyrroline-2-carboxylate",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd02264": {
+  "name": "CDPparatose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd02265": {
+  "name": "CDPtyvelose",
+  "charge": -2,
+  "n_hydrogens": 23
+ },
+ "cpd02273": {
+  "name": "L-threo-3-Methylaspartate",
+  "charge": -1,
+  "n_hydrogens": 8
+ },
+ "cpd02294": {
+  "name": "(S)-5-Amino-3-oxohexanoate",
+  "charge": 0,
+  "n_hydrogens": 11
+ },
+ "cpd02311": {
+  "name": "4-Imidazolone-5-propanoate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd02324": {
+  "name": "L-5-Carboxymethylhydantoin",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd02375": {
+  "name": "Adenylosuccinate",
+  "charge": -4,
+  "n_hydrogens": 14
+ },
+ "cpd02431": {
+  "name": "1-Pyrroline-5-carboxylate",
+  "charge": -1,
+  "n_hydrogens": 6
+ },
+ "cpd02441": {
+  "name": "3-Dehydro-2-deoxy-D-gluconate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd02448": {
+  "name": "2,4-Diaminopentanoate",
+  "charge": 1,
+  "n_hydrogens": 13
+ },
+ "cpd02469": {
+  "name": "enol-Oxaloacetate",
+  "charge": -2,
+  "n_hydrogens": 2
+ },
+ "cpd02510": {
+  "name": "(9Z,11E)-Octadecadienoic acid",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd02536": {
+  "name": "Muconolactone",
+  "charge": -1,
+  "n_hydrogens": 5
+ },
+ "cpd02543": {
+  "name": "4-(Trimethylammonio)but-2-enoate",
+  "charge": 0,
+  "n_hydrogens": 13
+ },
+ "cpd02553": {
+  "name": "Octopine",
+  "charge": 0,
+  "n_hydrogens": 18
+ },
+ "cpd02574": {
+  "name": "methylthioribose-1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd02611": {
+  "name": "N-Acetyl-D-glucosamine1-phosphate",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd02612": {
+  "name": "N-Acetylmannosamine 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd02616": {
+  "name": "dTDP-4-amino-4,6-dideoxy-D-glucose",
+  "charge": -1,
+  "n_hydrogens": 26
+ },
+ "cpd02654": {
+  "name": "4-Methyl-5--2-phosphoethyl-thiazole",
+  "charge": -2,
+  "n_hydrogens": 8
+ },
+ "cpd02662": {
+  "name": "Malyl-CoA",
+  "charge": -5,
+  "n_hydrogens": 35
+ },
+ "cpd02673": {
+  "name": "3-(3,5-Diiodo-4-hydroxyphenyl)lactate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd02679": {
+  "name": "5,10-Methylenetetrahydromethanopterin",
+  "charge": -3,
+  "n_hydrogens": 42
+ },
+ "cpd02698": {
+  "name": "N-Succinyl-L-2,6-diaminopimelate",
+  "charge": -2,
+  "n_hydrogens": 16
+ },
+ "cpd02711": {
+  "name": "2-Keto-3-deoxy-6-phosphogluconate",
+  "charge": -3,
+  "n_hydrogens": 8
+ },
+ "cpd02724": {
+  "name": "N-Succinyl-L-2-amino-6-oxopimelate",
+  "charge": -3,
+  "n_hydrogens": 12
+ },
+ "cpd02836": {
+  "name": "(13E)-11alpha-Hydroxy-9,15-dioxoprost-13-enoate",
+  "charge": -1,
+  "n_hydrogens": 31
+ },
+ "cpd02851": {
+  "name": "AICAR",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd02884": {
+  "name": "FAICAR",
+  "charge": -2,
+  "n_hydrogens": 13
+ },
+ "cpd02889": {
+  "name": "Alprostadil",
+  "charge": -1,
+  "n_hydrogens": 33
+ },
+ "cpd02894": {
+  "name": "4-Amino-2-methyl-5-diphosphomethylpyrimidine",
+  "charge": -2,
+  "n_hydrogens": 9
+ },
+ "cpd02921": {
+  "name": "SAICAR",
+  "charge": -4,
+  "n_hydrogens": 15
+ },
+ "cpd03122": {
+  "name": "(S)-Hydroxyhexanoyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 42
+ },
+ "cpd03123": {
+  "name": "3-Oxohexanoyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 40
+ },
+ "cpd03125": {
+  "name": "(2E)-Hexenoyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 40
+ },
+ "cpd03198": {
+  "name": "Melibiose",
+  "charge": 0,
+  "n_hydrogens": 22
+ },
+ "cpd03221": {
+  "name": "Zymosterol",
+  "charge": 0,
+  "n_hydrogens": 44
+ },
+ "cpd03222": {
+  "name": "5alpha-Cholesta-7,24-dien-3beta-ol",
+  "charge": 0,
+  "n_hydrogens": 44
+ },
+ "cpd03279": {
+  "name": "Deoxyinosine",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd03292": {
+  "name": "Penicillin G",
+  "charge": -1,
+  "n_hydrogens": 17
+ },
+ "cpd03518": {
+  "name": "Formamidopyrimidine nucleoside triphosphate",
+  "charge": -3,
+  "n_hydrogens": 15
+ },
+ "cpd03535": {
+  "name": "Phosphoarginine",
+  "charge": -1,
+  "n_hydrogens": 14
+ },
+ "cpd03561": {
+  "name": "2-Hydroxybutyrate",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd03583": {
+  "name": "D-arabino-6-Phospho-hex-3-ulose",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd03662": {
+  "name": "n-Butanol",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd03671": {
+  "name": "D-Glucosamine1-phosphate",
+  "charge": -1,
+  "n_hydrogens": 13
+ },
+ "cpd03763": {
+  "name": "Cyclohexa-1,5-dienecarbonyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 38
+ },
+ "cpd03880": {
+  "name": "D-Altrose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd03884": {
+  "name": "D-Psicose",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd04130": {
+  "name": "6-Hydroxycyclohex-1-enecarbonyl-CoA",
+  "charge": -4,
+  "n_hydrogens": 40
+ },
+ "cpd05400": {
+  "name": "3-Hexenol",
+  "charge": 0,
+  "n_hydrogens": 12
+ },
+ "cpd08210": {
+  "name": "ADC",
+  "charge": -1,
+  "n_hydrogens": 10
+ },
+ "cpd08505": {
+  "name": "Anandamide",
+  "charge": 0,
+  "n_hydrogens": 37
+ },
+ "cpd09876": {
+  "name": "Lombricine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd09877": {
+  "name": "N-Phospholombricine",
+  "charge": -2,
+  "n_hydrogens": 14
+ },
+ "cpd10719": {
+  "name": "D-Carnitine",
+  "charge": 0,
+  "n_hydrogens": 15
+ },
+ "cpd11314": {
+  "name": "L-Sorbosonate",
+  "charge": -1,
+  "n_hydrogens": 9
+ },
+ "cpd15026": {
+  "name": "3-Hexenal",
+  "charge": 0,
+  "n_hydrogens": 10
+ },
+ "cpd16300": {
+  "name": "Palmidrol",
+  "charge": 0,
+  "n_hydrogens": 37
+ },
+ "cpd17073": {
+  "name": "2-amino-2-deoxyisochorismic acid",
+  "charge": -1,
+  "n_hydrogens": 10
+ },
+ "cpd19006": {
+  "name": "alpha-D-Glucose 6-phosphate",
+  "charge": -2,
+  "n_hydrogens": 11
+ },
+ "cpd19008": {
+  "name": "(R)-Acetoin",
+  "charge": 0,
+  "n_hydrogens": 8
+ },
+ "cpd19069": {
+  "name": "Phenylacetic acid",
+  "charge": -1,
+  "n_hydrogens": 7
+ },
+ "cpd27436": {
+  "name": "D-mannitol, 1-(dihydrogenphosphate)",
+  "charge": -2,
+  "n_hydrogens": 13
+ }
+}

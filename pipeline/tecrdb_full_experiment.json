@@ -1,0 +1,2571 @@
+{
+ "rxn01211": {
+  "dG_kJ": -1.511582650151275,
+  "n": 9,
+  "sd_kJ": 5.618273549321928,
+  "EC": "3.5.4.9",
+  "enzyme": "methenyltetrahydrofolate cyclohydrolase"
+ },
+ "rxn00973": {
+  "dG_kJ": 7.605571390601545,
+  "n": 75,
+  "sd_kJ": 1.6398376609967396,
+  "EC": "4.2.1.3",
+  "enzyme": "aconitate hydratase"
+ },
+ "rxn00216": {
+  "dG_kJ": -13.866082741154061,
+  "n": 31,
+  "sd_kJ": 1.2740699051627722,
+  "EC": "2.7.1.1",
+  "enzyme": "hexokinase"
+ },
+ "rxn00695": {
+  "dG_kJ": -0.24577927533941932,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.27",
+  "enzyme": "glucose-1-phosphate adenylyltransferase"
+ },
+ "rxn00290": {
+  "dG_kJ": 13.405485905633626,
+  "n": 19,
+  "sd_kJ": 1.9037583880468492,
+  "EC": "2.8.3.5",
+  "enzyme": "3-oxoacid CoA-transferase"
+ },
+ "rxn10427": {
+  "dG_kJ": -2.216359206237543,
+  "n": 4,
+  "sd_kJ": 1.3287456911142892,
+  "EC": "2.7.4.3",
+  "enzyme": "adenylate kinase"
+ },
+ "rxn03643": {
+  "dG_kJ": -25.524470839413514,
+  "n": 2,
+  "sd_kJ": 0.0,
+  "EC": "4.1.2.-",
+  "enzyme": "D-arabino-3-hexulose phosphate formaldehyde lyase"
+ },
+ "rxn00184": {
+  "dG_kJ": 35.21966786825553,
+  "n": 26,
+  "sd_kJ": 2.6869071984568365,
+  "EC": "1.4.1.4",
+  "enzyme": "glutamate dehydrogenase (NADP+)"
+ },
+ "rxn00499": {
+  "dG_kJ": 20.19266584380835,
+  "n": 37,
+  "sd_kJ": 5.273306519002029,
+  "EC": "1.1.1.27",
+  "enzyme": "L-lactate dehydrogenase"
+ },
+ "rxn00070": {
+  "dG_kJ": 17.985542602911007,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.6.4.2",
+  "enzyme": "glutathione reductase (NAD(P)H)"
+ },
+ "rxn01008": {
+  "dG_kJ": -0.6765667521367283,
+  "n": 3,
+  "sd_kJ": 1.1221608706142014,
+  "EC": "5.1.3.6",
+  "enzyme": "UDPglucuronate 4-epimerase"
+ },
+ "rxn00173": {
+  "dG_kJ": 12.210533375038287,
+  "n": 7,
+  "sd_kJ": 0.9781607692104783,
+  "EC": "2.3.1.8",
+  "enzyme": "phosphate acetyltransferase"
+ },
+ "rxn01530": {
+  "dG_kJ": 2.8589422138353324,
+  "n": 3,
+  "sd_kJ": 5.937746594595613,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn00132": {
+  "dG_kJ": -12.994065610139948,
+  "n": 3,
+  "sd_kJ": 2.0806908761379956,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn00421": {
+  "dG_kJ": -15.920531026516223,
+  "n": 7,
+  "sd_kJ": 1.003718375261133,
+  "EC": "2.7.1.80",
+  "enzyme": "pyrophosphate-serine phosphotransferase"
+ },
+ "rxn00086": {
+  "dG_kJ": 11.877675053224468,
+  "n": 13,
+  "sd_kJ": 6.245094019298124,
+  "EC": "1.6.4.2",
+  "enzyme": "glutathione reductase (NAD(P)H)"
+ },
+ "rxn00545": {
+  "dG_kJ": -19.676410799279473,
+  "n": 9,
+  "sd_kJ": 2.768293773553485,
+  "EC": "2.7.1.11",
+  "enzyme": "6-phosphofructokinase"
+ },
+ "rxn04082": {
+  "dG_kJ": -0.4701581740751216,
+  "n": 5,
+  "sd_kJ": 0.6263366013472076,
+  "EC": "5.1.3.4",
+  "enzyme": "L-ribulose-phosphate 4-epimerase"
+ },
+ "rxn01740": {
+  "dG_kJ": 5.7835165689390005,
+  "n": 5,
+  "sd_kJ": 2.0258249177430177,
+  "EC": "1.1.1.25",
+  "enzyme": "shikimate dehydrogenase"
+ },
+ "rxn00634": {
+  "dG_kJ": 8.198516788840509,
+  "n": 8,
+  "sd_kJ": 4.113120351163415,
+  "EC": "1.1.1.14",
+  "enzyme": "L-iditol dehydrogenase"
+ },
+ "rxn02132": {
+  "dG_kJ": 7.8001750409221415,
+  "n": 9,
+  "sd_kJ": 1.1726744366170314,
+  "EC": "1.1.1.153",
+  "enzyme": "sepiapterin reductase"
+ },
+ "rxn01371": {
+  "dG_kJ": 8.66715369029208,
+  "n": 199,
+  "sd_kJ": 4.3168207040368785,
+  "EC": "2.7.3.2",
+  "enzyme": "creatine kinase"
+ },
+ "rxn00543": {
+  "dG_kJ": 19.0591053642039,
+  "n": 80,
+  "sd_kJ": 8.669730766366362,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn00558": {
+  "dG_kJ": 2.968827172049119,
+  "n": 50,
+  "sd_kJ": 0.6479691037903129,
+  "EC": "5.3.1.9",
+  "enzyme": "glucose-6-phosphate isomerase"
+ },
+ "rxn00097": {
+  "dG_kJ": -1.5183388193994802,
+  "n": 326,
+  "sd_kJ": 1.372071455739233,
+  "EC": "2.7.4.3",
+  "enzyme": "adenylate kinase"
+ },
+ "rxn00765": {
+  "dG_kJ": 34.30404559945677,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.72",
+  "enzyme": "glycerol dehydrogenase (NADP+)"
+ },
+ "rxn01746": {
+  "dG_kJ": 3.9336584430365966,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.5.3.4",
+  "enzyme": "allantoicase"
+ },
+ "rxn01385": {
+  "dG_kJ": 16.631085773170454,
+  "n": 7,
+  "sd_kJ": 4.902012623224361,
+  "EC": "1.1.1.9",
+  "enzyme": "D-xylulose reductase"
+ },
+ "rxn01101": {
+  "dG_kJ": 32.02669330700409,
+  "n": 21,
+  "sd_kJ": 5.423757267080111,
+  "EC": "1.1.1.95",
+  "enzyme": "phosphoglycerate dehydrogenase"
+ },
+ "rxn01358": {
+  "dG_kJ": 9.751140642860447,
+  "n": 6,
+  "sd_kJ": 1.1239754861900688,
+  "EC": "2.4.2.1",
+  "enzyme": "purine-nucleoside phosphorylase"
+ },
+ "rxn00602": {
+  "dG_kJ": -7.575712338175982,
+  "n": 2,
+  "sd_kJ": 0.2938704679470748,
+  "EC": "5.4.99.2",
+  "enzyme": "methylmalonyl-CoA mutase"
+ },
+ "rxn00549": {
+  "dG_kJ": -11.26402252401089,
+  "n": 6,
+  "sd_kJ": 4.425205243301008,
+  "EC": "3.1.3.11",
+  "enzyme": "fructose-biphosphatase"
+ },
+ "rxn03249": {
+  "dG_kJ": 11.998578405178051,
+  "n": 4,
+  "sd_kJ": 7.369008580968431,
+  "EC": "1.1.1.35",
+  "enzyme": "3-hydroxyacyl-CoA dehydrogenase"
+ },
+ "rxn01451": {
+  "dG_kJ": 8.908713626453713,
+  "n": 6,
+  "sd_kJ": 6.938699164422816,
+  "EC": "1.1.1.35",
+  "enzyme": "3-hydroxyacyl-CoA dehydrogenase"
+ },
+ "rxn01100": {
+  "dG_kJ": 20.594013317455598,
+  "n": 21,
+  "sd_kJ": 1.2250268525594283,
+  "EC": "2.7.2.3",
+  "enzyme": "phosphoglycerate kinase"
+ },
+ "rxn01362": {
+  "dG_kJ": -5.33408412159773,
+  "n": 5,
+  "sd_kJ": 2.618810018226979,
+  "EC": "2.4.2.10",
+  "enzyme": "orotate phosphoribosyltransferase"
+ },
+ "rxn01761": {
+  "dG_kJ": -0.13163801107784495,
+  "n": 4,
+  "sd_kJ": 1.0204342633202017,
+  "EC": "5.3.1.14",
+  "enzyme": "L-rhamnose isomerase"
+ },
+ "rxn00747": {
+  "dG_kJ": -7.901630250611171,
+  "n": 9,
+  "sd_kJ": 0.5283368017119326,
+  "EC": "5.3.1.1",
+  "enzyme": "triose-phosphate isomerase"
+ },
+ "rxn01016": {
+  "dG_kJ": 8.208466646048329,
+  "n": 2,
+  "sd_kJ": 1.0540471592389622,
+  "EC": "2.7.2.2",
+  "enzyme": "carbamate kinase"
+ },
+ "rxn00151": {
+  "dG_kJ": 16.20293841714478,
+  "n": 13,
+  "sd_kJ": 6.1682561296178084,
+  "EC": "2.7.9.1",
+  "enzyme": "pyruvate,orthophosphate dikinase"
+ },
+ "rxn01106": {
+  "dG_kJ": -5.912264841222273,
+  "n": 72,
+  "sd_kJ": 1.004927111858476,
+  "EC": "5.4.2.1",
+  "enzyme": "phosphoglycerate mutase"
+ },
+ "rxn01044": {
+  "dG_kJ": 3.791378990477398,
+  "n": 23,
+  "sd_kJ": 0.7015739517791021,
+  "EC": "5.3.1.5",
+  "enzyme": "xylose isomerase"
+ },
+ "rxn01201": {
+  "dG_kJ": -5.676628623392245,
+  "n": 2,
+  "sd_kJ": 3.25668808616244,
+  "EC": "1.1.1.61",
+  "enzyme": "4-hydroxybutyrate dehydrogenase"
+ },
+ "rxn00187": {
+  "dG_kJ": -17.054328928554995,
+  "n": 10,
+  "sd_kJ": 2.3859560274748564,
+  "EC": "6.3.1.2",
+  "enzyme": "glutamate-ammonia ligase"
+ },
+ "rxn00559": {
+  "dG_kJ": -0.5484418778396902,
+  "n": 4,
+  "sd_kJ": 0.7470164792771444,
+  "EC": "5.3.1.8",
+  "enzyme": "mannose-6-phosphate isomerase"
+ },
+ "rxn02451": {
+  "dG_kJ": -3.476906175783731,
+  "n": 2,
+  "sd_kJ": 0.05705223782901529,
+  "EC": "2.4.1.67",
+  "enzyme": "galactinol-raffinose galactosyltransferase"
+ },
+ "rxn00065": {
+  "dG_kJ": 6.77590184049038,
+  "n": 8,
+  "sd_kJ": 2.0746201699656326,
+  "EC": "4.6.1.1",
+  "enzyme": "adenylate cyclase"
+ },
+ "rxn00293": {
+  "dG_kJ": 1.7874398316249367,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.23",
+  "enzyme": "UDP-N-acetylglucosamine pyrophosphorylase"
+ },
+ "rxn00577": {
+  "dG_kJ": -7.550831098206544,
+  "n": 5,
+  "sd_kJ": 0.9167933281696521,
+  "EC": "2.4.1.7",
+  "enzyme": "sucrose phosphorylase"
+ },
+ "rxn51768": {
+  "dG_kJ": 4.030465987513331,
+  "n": 2,
+  "sd_kJ": 11.86301728730368,
+  "EC": "6.4.1.3",
+  "enzyme": "propanoyl-CoA carboxylase"
+ },
+ "rxn00191": {
+  "dG_kJ": 0.9587473974425355,
+  "n": 12,
+  "sd_kJ": 1.0163827142865036,
+  "EC": "2.6.1.2",
+  "enzyme": "alanine transaminase"
+ },
+ "rxn00636": {
+  "dG_kJ": -2.610747835664795,
+  "n": 8,
+  "sd_kJ": 0.38450424092506047,
+  "EC": "5.3.1.7",
+  "enzyme": "mannose isomerase"
+ },
+ "rxn00396": {
+  "dG_kJ": 7.332415865956435,
+  "n": 30,
+  "sd_kJ": 5.246207072698202,
+  "EC": "2.7.3.3",
+  "enzyme": "arginine kinase"
+ },
+ "rxn01548": {
+  "dG_kJ": 11.166501186824934,
+  "n": 2,
+  "sd_kJ": 1.3380952744293015,
+  "EC": "2.4.2.15",
+  "enzyme": "guanosine phosphorylase"
+ },
+ "rxn00992": {
+  "dG_kJ": 7.390678714390182,
+  "n": 16,
+  "sd_kJ": 3.950737867317264,
+  "EC": "1.1.1.30",
+  "enzyme": "3-hydroxybutyrate dehydrogenase"
+ },
+ "rxn00280": {
+  "dG_kJ": 34.24805701458034,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.5.1.17",
+  "enzyme": "alanopine dehydrogenase"
+ },
+ "rxn00629": {
+  "dG_kJ": 6.786583168418787,
+  "n": 4,
+  "sd_kJ": 4.040978841649754,
+  "EC": "1.1.1.14",
+  "enzyme": "mannitol dehydrogenase"
+ },
+ "rxn00402": {
+  "dG_kJ": 31.524644358829153,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.5.1.11",
+  "enzyme": "D-octopine dehydrogenase"
+ },
+ "rxn00283": {
+  "dG_kJ": -0.0,
+  "n": 8,
+  "sd_kJ": 0.23318633297818464,
+  "EC": "5.1.1.1",
+  "enzyme": "alanine racemase"
+ },
+ "rxn00077": {
+  "dG_kJ": -8.513308441493207,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.1.23",
+  "enzyme": "NAD+ kinase"
+ },
+ "rxn01620": {
+  "dG_kJ": 19.815698320273615,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.17",
+  "enzyme": "L-fuculose-phosphate aldolase"
+ },
+ "rxn00336": {
+  "dG_kJ": 12.073674431403868,
+  "n": 4,
+  "sd_kJ": 4.275403395120614,
+  "EC": "4.1.3.1",
+  "enzyme": "isocitrate lyase"
+ },
+ "rxn00799": {
+  "dG_kJ": 3.6952681451256435,
+  "n": 103,
+  "sd_kJ": 0.6185700320736205,
+  "EC": "4.2.1.2",
+  "enzyme": "fumarate hydratase"
+ },
+ "rxn01646": {
+  "dG_kJ": -19.656658049114945,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.2.1",
+  "enzyme": "purine-nucleoside phosphorylase"
+ },
+ "rxn00141": {
+  "dG_kJ": 34.75880832135028,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.3.1.1",
+  "enzyme": "adenosylhomocysteinase"
+ },
+ "rxn00223": {
+  "dG_kJ": -0.21317925341131233,
+  "n": 89,
+  "sd_kJ": 0.33502188731112287,
+  "EC": "5.3.1.5",
+  "enzyme": "xylose isomerase"
+ },
+ "rxn01204": {
+  "dG_kJ": 6.492793852696442,
+  "n": 4,
+  "sd_kJ": 2.355180429028442,
+  "EC": "2.6.1.19",
+  "enzyme": "4-aminobutyrate transaminase"
+ },
+ "rxn31240": {
+  "dG_kJ": -1.3154046330519444,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.3.15",
+  "enzyme": "glucose-6-phosphate 1-epimerase"
+ },
+ "rxn00182": {
+  "dG_kJ": 34.51297918440506,
+  "n": 75,
+  "sd_kJ": 6.227354069693066,
+  "EC": "1.4.1.2",
+  "enzyme": "glutamate dehydrogenase"
+ },
+ "rxn01407": {
+  "dG_kJ": 17.842128184625516,
+  "n": 2,
+  "sd_kJ": 3.995560062305457,
+  "EC": "1.1.1.108",
+  "enzyme": "carnitine dehydrogenase"
+ },
+ "rxn02320": {
+  "dG_kJ": -8.300613525941353,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.9",
+  "enzyme": "histidinol-phosphate transaminase"
+ },
+ "rxn00552": {
+  "dG_kJ": 4.892161320799689,
+  "n": 2,
+  "sd_kJ": 0.0,
+  "EC": "5.3.1.10",
+  "enzyme": "glucosamine-6-phosphate isomerase"
+ },
+ "rxn00800": {
+  "dG_kJ": 12.678698327177546,
+  "n": 4,
+  "sd_kJ": 0.9234739548937559,
+  "EC": "4.3.2.2",
+  "enzyme": "adenylosuccinate lyase"
+ },
+ "rxn00117": {
+  "dG_kJ": -0.1922526175111252,
+  "n": 2,
+  "sd_kJ": 0.6080629741972506,
+  "EC": "2.7.4.4",
+  "enzyme": "nucleoside-phosphate kinase"
+ },
+ "rxn01157": {
+  "dG_kJ": -8.283960883785845,
+  "n": 5,
+  "sd_kJ": 0.6289350250615627,
+  "EC": "4.2.1.48",
+  "enzyme": "D-glutamate cyclase"
+ },
+ "rxn08430": {
+  "dG_kJ": -13.803686750591982,
+  "n": 3,
+  "sd_kJ": 0.9819775880459867,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn04945": {
+  "dG_kJ": -1.6708699191443577,
+  "n": 4,
+  "sd_kJ": 2.9292234729800146,
+  "EC": "1.1.1.119",
+  "enzyme": "glucose dehydrogenase (NADP+)"
+ },
+ "rxn00686": {
+  "dG_kJ": 18.84231058305665,
+  "n": 7,
+  "sd_kJ": 6.229311190293513,
+  "EC": "1.5.1.3",
+  "enzyme": "dihydrofolate reductase"
+ },
+ "rxn00415": {
+  "dG_kJ": -15.031280318958244,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.15",
+  "enzyme": "glutamine-pyruvate aminotransaminase"
+ },
+ "rxn02914": {
+  "dG_kJ": 11.550420507359664,
+  "n": 56,
+  "sd_kJ": 2.2054680910041777,
+  "EC": "2.6.1.52",
+  "enzyme": "phosphoserine transaminase"
+ },
+ "rxn00278": {
+  "dG_kJ": 24.396537017085635,
+  "n": 15,
+  "sd_kJ": 3.791332593341116,
+  "EC": "1.4.1.1",
+  "enzyme": "alanine dehydrogenase"
+ },
+ "rxn00927": {
+  "dG_kJ": -9.842183048492153,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.2.2.7",
+  "enzyme": "adenosine nucleosidase"
+ },
+ "rxn00213": {
+  "dG_kJ": 2.938294031066544,
+  "n": 28,
+  "sd_kJ": 1.5635174783696506,
+  "EC": "2.7.7.9",
+  "enzyme": "UTP-glucose-1-phosphate uridylyltransferase"
+ },
+ "rxn01249": {
+  "dG_kJ": 21.569646192450882,
+  "n": 2,
+  "sd_kJ": 13.158703432399113,
+  "EC": "1.1.1.65",
+  "enzyme": "pyridoxine 4-dehydrogenase"
+ },
+ "rxn01322": {
+  "dG_kJ": 7.088600794037221,
+  "n": 11,
+  "sd_kJ": 1.836753444474039,
+  "EC": "4.1.3.3",
+  "enzyme": "N-acetylneuraminate lyase"
+ },
+ "rxn02459": {
+  "dG_kJ": 34.740008364151926,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.96",
+  "enzyme": "diiodophenylpyruvate reductase"
+ },
+ "rxn00260": {
+  "dG_kJ": 4.742806225783333,
+  "n": 12,
+  "sd_kJ": 0.6109774539559837,
+  "EC": "2.6.1.1",
+  "enzyme": "aspartate transaminase"
+ },
+ "rxn02756": {
+  "dG_kJ": 3.753239670370827,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.99.4",
+  "enzyme": "2-methyleneglutarate mutase"
+ },
+ "rxn01423": {
+  "dG_kJ": -0.7159374494145411,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.39",
+  "enzyme": "2-aminoadipate transaminase"
+ },
+ "rxn00704": {
+  "dG_kJ": -7.170677579087758,
+  "n": 11,
+  "sd_kJ": 2.3154218511450435,
+  "EC": "5.4.2.2",
+  "enzyme": "phosphoglucomutase"
+ },
+ "rxn39443": {
+  "dG_kJ": 1.5402121661415835,
+  "n": 32,
+  "sd_kJ": 5.217764979549046,
+  "EC": "3.5.1.11",
+  "enzyme": "penicillin amidase"
+ },
+ "rxn01043": {
+  "dG_kJ": 11.9087079197702,
+  "n": 2,
+  "sd_kJ": 3.2978324818276716,
+  "EC": "1.1.1.21",
+  "enzyme": "aldehyde reductase"
+ },
+ "rxn00171": {
+  "dG_kJ": -20.430000563359293,
+  "n": 4,
+  "sd_kJ": 2.3531925376439498,
+  "EC": "1.2.1.10",
+  "enzyme": "acetaldehyde dehydrogenase (acetylating)"
+ },
+ "rxn00770": {
+  "dG_kJ": -9.719443970083358,
+  "n": 2,
+  "sd_kJ": 1.5159118041379256,
+  "EC": "2.7.6.1",
+  "enzyme": "ribose-phosphate pyrophosphokinase"
+ },
+ "rxn00248": {
+  "dG_kJ": 23.498711164179568,
+  "n": 71,
+  "sd_kJ": 4.428650538124965,
+  "EC": "1.1.1.37",
+  "enzyme": "malate dehydrogenase"
+ },
+ "rxn00546": {
+  "dG_kJ": 0.5843455357055649,
+  "n": 5,
+  "sd_kJ": 7.126174123520289,
+  "EC": "1.1.1.17",
+  "enzyme": "mannitol-1-phosphate 5-dehydrogenase"
+ },
+ "rxn00347": {
+  "dG_kJ": 12.86758866822032,
+  "n": 27,
+  "sd_kJ": 1.4243789028747003,
+  "EC": "4.3.1.1",
+  "enzyme": "aspartate ammonia-lyase"
+ },
+ "rxn00802": {
+  "dG_kJ": 11.574806687723363,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.3.2.1",
+  "enzyme": "arginosuccinate lyase"
+ },
+ "rxn00131": {
+  "dG_kJ": -12.944930658504244,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.2.2.4",
+  "enzyme": "AMP nucleosidase"
+ },
+ "rxn00604": {
+  "dG_kJ": -4.2207679158170235,
+  "n": 4,
+  "sd_kJ": 4.595874907537885,
+  "EC": "1.1.1.49",
+  "enzyme": "glucose-6-phosphate dehydrogenase"
+ },
+ "rxn01368": {
+  "dG_kJ": -15.946982063612916,
+  "n": 7,
+  "sd_kJ": 3.15901276395691,
+  "EC": "3.5.4.5",
+  "enzyme": "cytidine deaminase"
+ },
+ "rxn02975": {
+  "dG_kJ": -0.6765667521367283,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.3.10",
+  "enzyme": "CDPabequose epimerase"
+ },
+ "rxn00692": {
+  "dG_kJ": 6.0674717728913645,
+  "n": 4,
+  "sd_kJ": 0.7500965476785167,
+  "EC": "2.1.2.1",
+  "enzyme": "glycine hydroxymethyltransferase"
+ },
+ "rxn01333": {
+  "dG_kJ": 0.18306733058859595,
+  "n": 4,
+  "sd_kJ": 1.2796135371101014,
+  "EC": "2.2.1.2",
+  "enzyme": "transaldolase"
+ },
+ "rxn00810": {
+  "dG_kJ": -15.548012420823692,
+  "n": 4,
+  "sd_kJ": 5.140003884683978,
+  "EC": "1.1.1.48",
+  "enzyme": "galactose dehydrogenase"
+ },
+ "rxn00579": {
+  "dG_kJ": -4.1503067629706765,
+  "n": 7,
+  "sd_kJ": 4.408812710163926,
+  "EC": "2.4.1.13",
+  "enzyme": "sucrose synthase"
+ },
+ "rxn00806": {
+  "dG_kJ": -1.8169600510695898,
+  "n": 2,
+  "sd_kJ": 0.528720293840246,
+  "EC": "2.6.1.42",
+  "enzyme": "branched-chain-amino-acid transferase"
+ },
+ "rxn02749": {
+  "dG_kJ": 11.512055853545979,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.35",
+  "enzyme": "(R)-2-methylmalate dehydratase"
+ },
+ "rxn01277": {
+  "dG_kJ": 14.167254527275428,
+  "n": 11,
+  "sd_kJ": 3.068174878921858,
+  "EC": "1.1.99.3",
+  "enzyme": "gluconate 2-dehydrogenase"
+ },
+ "rxn00083": {
+  "dG_kJ": -2.0351755106828455,
+  "n": 13,
+  "sd_kJ": 0.6354203089714576,
+  "EC": "1.6.1.1",
+  "enzyme": "NAD(P)+ transhydrogenase (B-specific)"
+ },
+ "rxn01479": {
+  "dG_kJ": 2.002458536486774,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.14",
+  "enzyme": "ethanolamine-phosphate cytidylyltransferase"
+ },
+ "rxn02842": {
+  "dG_kJ": 14.562934178095144,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.125",
+  "enzyme": "2-deoxy-D-gluconate dehydrogenase"
+ },
+ "rxn00786": {
+  "dG_kJ": 23.31312928057387,
+  "n": 17,
+  "sd_kJ": 1.850829159318025,
+  "EC": "4.1.2.13",
+  "enzyme": "fructose-biphosphate aldolase"
+ },
+ "rxn01506": {
+  "dG_kJ": 2.176371429694181,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.3.9",
+  "enzyme": "N-acylglucosamine-6-phosphate 2-epimerase"
+ },
+ "rxn00328": {
+  "dG_kJ": 11.875493189191227,
+  "n": 3,
+  "sd_kJ": 1.633005348147808,
+  "EC": "4.1.3.16",
+  "enzyme": "4-hydroxy-2-oxoglutarate aldolase"
+ },
+ "rxn02202": {
+  "dG_kJ": 4.079614469956324,
+  "n": 2,
+  "sd_kJ": 2.7114396389258784,
+  "EC": "4.2.1.85",
+  "enzyme": "dimethylmaleate hydratase"
+ },
+ "rxn01465": {
+  "dG_kJ": -4.57712390706532,
+  "n": 3,
+  "sd_kJ": 2.295073852728656,
+  "EC": "3.5.2.3",
+  "enzyme": "dihydroorotase"
+ },
+ "rxn00364": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.14",
+  "enzyme": "cytidylate kinase"
+ },
+ "rxn02930": {
+  "dG_kJ": 20.118256550692067,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.4.1.12",
+  "enzyme": "2,4-diaminopentanoate dehydrogenase"
+ },
+ "rxn00816": {
+  "dG_kJ": -8.795719381222678,
+  "n": 7,
+  "sd_kJ": 1.7092855065203554,
+  "EC": "3.2.1.23",
+  "enzyme": "_-galactosidase"
+ },
+ "rxn00824": {
+  "dG_kJ": -0.5531632751306064,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.8.4.3",
+  "enzyme": "glutathione-CoA-glutathione transhydrogenase"
+ },
+ "rxn01366": {
+  "dG_kJ": 2.1170876560063214,
+  "n": 5,
+  "sd_kJ": 3.7909854599208743,
+  "EC": "2.4.2.3",
+  "enzyme": "uridine phosphorylase"
+ },
+ "rxn00990": {
+  "dG_kJ": -5.0576197647238965,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.8.3.8",
+  "enzyme": "acetate CoA-transferase"
+ },
+ "rxn00778": {
+  "dG_kJ": -8.428842500228493,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.2.7",
+  "enzyme": "phosphopentomutase"
+ },
+ "rxn01491": {
+  "dG_kJ": -6.103484559086143,
+  "n": 2,
+  "sd_kJ": 1.0237147266952145,
+  "EC": "3.1.3.2",
+  "enzyme": "acid phosphatase"
+ },
+ "rxn00906": {
+  "dG_kJ": 11.405335015116107,
+  "n": 3,
+  "sd_kJ": 7.748378901758562,
+  "EC": "1.5.1.15",
+  "enzyme": "methylenetetrahydrofolate dehydrogenase (NAD+)"
+ },
+ "rxn00974": {
+  "dG_kJ": 7.632991003811749,
+  "n": 3,
+  "sd_kJ": 0.5523808205256618,
+  "EC": "4.2.1.3",
+  "enzyme": "aconitate hydratase"
+ },
+ "rxn00836": {
+  "dG_kJ": 30.79876994587233,
+  "n": 2,
+  "sd_kJ": 1.4344554620023569,
+  "EC": "2.4.2.8",
+  "enzyme": "hypoxanthine phosphoribosyltransferase"
+ },
+ "rxn02263": {
+  "dG_kJ": 5.467588420520491,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.1.3",
+  "enzyme": "arabinose isomerase"
+ },
+ "rxn00753": {
+  "dG_kJ": -11.20497867399752,
+  "n": 6,
+  "sd_kJ": 6.153749138866844,
+  "EC": "2.3.1.6",
+  "enzyme": "choline O-acetyltransferase"
+ },
+ "rxn00331": {
+  "dG_kJ": 14.727565218476707,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.3.24",
+  "enzyme": "malyl-CoA lyase"
+ },
+ "rxn00777": {
+  "dG_kJ": 3.0132661244801193,
+  "n": 13,
+  "sd_kJ": 1.1546424976059981,
+  "EC": "5.3.1.6",
+  "enzyme": "ribose-5-phosphate isomerase"
+ },
+ "rxn01790": {
+  "dG_kJ": 16.15217301791571,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.169",
+  "enzyme": "2-dehydropantoate 2-reductase"
+ },
+ "rxn00214": {
+  "dG_kJ": 2.9682989585827464,
+  "n": 12,
+  "sd_kJ": 0.20571301388413907,
+  "EC": "5.1.3.2",
+  "enzyme": "UDPglucose 4-epimerase"
+ },
+ "rxn00831": {
+  "dG_kJ": -12.549955544921032,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn00220": {
+  "dG_kJ": -11.38740240247473,
+  "n": 8,
+  "sd_kJ": 1.278209024021727,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn00459": {
+  "dG_kJ": -3.351403055789209,
+  "n": 94,
+  "sd_kJ": 1.2434760563879792,
+  "EC": "4.2.1.11",
+  "enzyme": "phosphopyruvate hydratase"
+ },
+ "rxn00907": {
+  "dG_kJ": 4.873909286207235,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.5.1.5",
+  "enzyme": "methylenetetrahydrofolate dehydrogenase (NADP+)"
+ },
+ "rxn15964": {
+  "dG_kJ": -7.129211563751036,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.2.1",
+  "enzyme": "glycine hydroxymethyltransferase"
+ },
+ "rxn00746": {
+  "dG_kJ": 19.409548337706948,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.2",
+  "enzyme": "ketotetraose-phosphate aldolase"
+ },
+ "rxn01116": {
+  "dG_kJ": -1.0051305799847012,
+  "n": 5,
+  "sd_kJ": 1.1990656595385505,
+  "EC": "5.1.3.1",
+  "enzyme": "ribulose-phosphate 3-epimerase"
+ },
+ "rxn00175": {
+  "dG_kJ": -5.87809201052106,
+  "n": 39,
+  "sd_kJ": 1.9368304380234074,
+  "EC": "6.2.1.1",
+  "enzyme": "acetate-CoA ligase"
+ },
+ "rxn02625": {
+  "dG_kJ": 3.2470058188473034,
+  "n": 2,
+  "sd_kJ": 0.4405258761417657,
+  "EC": "4.3.1.2",
+  "enzyme": "methylaspartate ammonia-lyase"
+ },
+ "rxn01626": {
+  "dG_kJ": -10.34048734787413,
+  "n": 3,
+  "sd_kJ": 2.2570244114460194,
+  "EC": "3.5.2.2",
+  "enzyme": "dihydropyrimidinase"
+ },
+ "rxn01675": {
+  "dG_kJ": 0.9927666788957049,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.24",
+  "enzyme": "glucose-1-phosphate thymidylyltransferase"
+ },
+ "rxn00265": {
+  "dG_kJ": 6.814336052691269,
+  "n": 25,
+  "sd_kJ": 3.1355020603431587,
+  "EC": "4.1.3.6",
+  "enzyme": "citrate (pro-3S)-lyase"
+ },
+ "rxn01745": {
+  "dG_kJ": 18.902531124067547,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.31",
+  "enzyme": "maleate hydratase"
+ },
+ "rxn01383": {
+  "dG_kJ": 13.264114873448788,
+  "n": 8,
+  "sd_kJ": 4.327625016856845,
+  "EC": "1.1.1.56",
+  "enzyme": "ribitol dehydrogenase"
+ },
+ "rxn00007": {
+  "dG_kJ": -11.847241778368396,
+  "n": 5,
+  "sd_kJ": 0.31456435844540376,
+  "EC": "3.2.1.2",
+  "enzyme": "_-amylase"
+ },
+ "rxn01870": {
+  "dG_kJ": 30.669630446130775,
+  "n": 5,
+  "sd_kJ": 1.4658505350104725,
+  "EC": "4.1.2.13",
+  "enzyme": "fructose-biphosphate aldolase"
+ },
+ "rxn15750": {
+  "dG_kJ": 18.318379024658647,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.a",
+  "enzyme": "2-oxo-3-deoxy-D-gluconate aldolase"
+ },
+ "rxn01617": {
+  "dG_kJ": 19.23469910878628,
+  "n": 4,
+  "sd_kJ": 3.914489208595859,
+  "EC": "1.1.1.55",
+  "enzyme": "lactaldehyde reductase (NADPH)"
+ },
+ "rxn01075": {
+  "dG_kJ": -0.0,
+  "n": 3,
+  "sd_kJ": 0.3792716270448038,
+  "EC": "5.1.3.5",
+  "enzyme": "UDParabinose 4-epimerase"
+ },
+ "rxn01388": {
+  "dG_kJ": 1.4820122355522392,
+  "n": 3,
+  "sd_kJ": 0.4574544537729104,
+  "EC": "4.2.1.3",
+  "enzyme": "aconitate hydratase"
+ },
+ "rxn01011": {
+  "dG_kJ": 30.02891320626277,
+  "n": 52,
+  "sd_kJ": 4.994528606677962,
+  "EC": "1.1.1.29",
+  "enzyme": "glycerate dehydrogenase"
+ },
+ "rxn00250": {
+  "dG_kJ": -3.188697586197722,
+  "n": 6,
+  "sd_kJ": 2.7530445478944854,
+  "EC": "6.4.1.1",
+  "enzyme": "pyruvate carboxylase"
+ },
+ "rxn00909": {
+  "dG_kJ": -20.05029002673819,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.7.99.5",
+  "enzyme": "5,10-methylenetetrahydrofolate reductase (FADH2)"
+ },
+ "rxn01280": {
+  "dG_kJ": 27.191296789921154,
+  "n": 3,
+  "sd_kJ": 4.078356283333776,
+  "EC": "1.1.1.60",
+  "enzyme": "2-hydroxy-3-oxopropionate reductase"
+ },
+ "rxn01265": {
+  "dG_kJ": -1.0219867024060445,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.2.11",
+  "enzyme": "nicotinate phosphoribosyltransferase"
+ },
+ "rxn00838": {
+  "dG_kJ": -2.745602137372356,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "6.3.4.4",
+  "enzyme": "adenylosuccinate synthase"
+ },
+ "rxn00754": {
+  "dG_kJ": -15.482770848679852,
+  "n": 3,
+  "sd_kJ": 2.0249660135720284,
+  "EC": "3.1.1.7",
+  "enzyme": "acetylcholinesterase"
+ },
+ "rxn00379": {
+  "dG_kJ": 47.44548153559846,
+  "n": 4,
+  "sd_kJ": 2.0372110365254046,
+  "EC": "2.7.7.4",
+  "enzyme": "sulfate adenylyltransferase"
+ },
+ "rxn01638": {
+  "dG_kJ": 1.6213440013363039,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.5.2.4",
+  "enzyme": "carboxymethylhydantoinase"
+ },
+ "rxn00915": {
+  "dG_kJ": 29.784456761380383,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.2.8",
+  "enzyme": "hypoxanthine phosphoribosyltransferase"
+ },
+ "rxn00139": {
+  "dG_kJ": 14.291101235685153,
+  "n": 3,
+  "sd_kJ": 3.1128632707112738,
+  "EC": "2.4.2.7",
+  "enzyme": "adenine phosphoribosyltransferase"
+ },
+ "rxn00321": {
+  "dG_kJ": -4.554263411383371,
+  "n": 2,
+  "sd_kJ": 0.49604875043924734,
+  "EC": "5.4.3.2",
+  "enzyme": "lysine 2,3-aminomutase"
+ },
+ "rxn00178": {
+  "dG_kJ": 24.02909228621904,
+  "n": 11,
+  "sd_kJ": 2.681167084539204,
+  "EC": "2.3.1.9",
+  "enzyme": "acetyl-CoA C-acetyltransferase"
+ },
+ "rxn53944": {
+  "dG_kJ": -5.287571487843546,
+  "n": 5,
+  "sd_kJ": 1.2782649456139015,
+  "EC": "4.1.3.27",
+  "enzyme": "anthranilate synthase"
+ },
+ "rxn01259": {
+  "dG_kJ": -7.74448406481055,
+  "n": 12,
+  "sd_kJ": 2.0206633604279824,
+  "EC": "3.2.1.10",
+  "enzyme": "oligo-1,6-glucosidase"
+ },
+ "rxn03876": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.-",
+  "enzyme": "cyclohexa-1,5-diene-1-carboxyl-CoA (dienoyl-CoA) hydratase"
+ },
+ "rxn01847": {
+  "dG_kJ": 33.69489373944973,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.37",
+  "enzyme": "malate dehydrogenase"
+ },
+ "rxn01005": {
+  "dG_kJ": 2.719171406618699,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.44",
+  "enzyme": "glucuronate-1-phosphate uridylyltransferase"
+ },
+ "rxn00784": {
+  "dG_kJ": 20.66178862909965,
+  "n": 3,
+  "sd_kJ": 0.619848787563069,
+  "EC": "4.1.2.4",
+  "enzyme": "deoxyribose-phosphate aldolase"
+ },
+ "rxn00189": {
+  "dG_kJ": -16.786476618913703,
+  "n": 2,
+  "sd_kJ": 0.09238428491444195,
+  "EC": "3.5.1.2",
+  "enzyme": "glutaminase"
+ },
+ "rxn45677": {
+  "dG_kJ": -17.889463971064036,
+  "n": 5,
+  "sd_kJ": 0.4036694849406268,
+  "EC": "3.5.1.5",
+  "enzyme": "urease"
+ },
+ "rxn02591": {
+  "dG_kJ": -10.532476733923167,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.2.1.5",
+  "enzyme": "linoleate isomerase"
+ },
+ "rxn01532": {
+  "dG_kJ": 7.700278522218548,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.2.1.3",
+  "enzyme": "retinal isomerase"
+ },
+ "rxn00422": {
+  "dG_kJ": 4.403185212460538,
+  "n": 8,
+  "sd_kJ": 0.689908331603971,
+  "EC": "2.6.1.51",
+  "enzyme": "serine-pyruvate transaminase"
+ },
+ "rxn00148": {
+  "dG_kJ": 19.67742830843685,
+  "n": 30,
+  "sd_kJ": 4.410859571345838,
+  "EC": "2.7.1.40",
+  "enzyme": "pyruvate kinase"
+ },
+ "rxn02782": {
+  "dG_kJ": 8.05103251233576,
+  "n": 5,
+  "sd_kJ": 3.555515102810186,
+  "EC": "5.5.1.1",
+  "enzyme": "muconate cycloisomerase"
+ },
+ "rxn01138": {
+  "dG_kJ": 7.129211563751036,
+  "n": 3,
+  "sd_kJ": 3.9228987150496613,
+  "EC": "2.4.2.1",
+  "enzyme": "purine-nucleoside phosphorylase"
+ },
+ "rxn03250": {
+  "dG_kJ": 1.0300449306981443,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.17",
+  "enzyme": "enoyl-CoA hydratase"
+ },
+ "rxn02168": {
+  "dG_kJ": 4.25091161759126,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.17",
+  "enzyme": "enoyl-CoA hydratase"
+ },
+ "rxn40442": {
+  "dG_kJ": 3.1918821756445217,
+  "n": 42,
+  "sd_kJ": 2.995928681329918,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn02167": {
+  "dG_kJ": 3.2614674656961857,
+  "n": 3,
+  "sd_kJ": 1.0969197509186377,
+  "EC": "4.2.1.17",
+  "enzyme": "enoyl-CoA hydratase"
+ },
+ "rxn00849": {
+  "dG_kJ": 1.3606226875302938,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.21",
+  "enzyme": "D-alanine transaminase"
+ },
+ "rxn04943": {
+  "dG_kJ": 7.840862236127839,
+  "n": 3,
+  "sd_kJ": 4.7263370427140625,
+  "EC": "1.1.1.9",
+  "enzyme": "D-xylulose reductase"
+ },
+ "rxn01447": {
+  "dG_kJ": -16.62177481463142,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.110",
+  "enzyme": "indolelactate dehydrogenase"
+ },
+ "rxn01505": {
+  "dG_kJ": 4.620464937045798,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.2.3",
+  "enzyme": "phosphoacetylglucosamine mutase"
+ },
+ "rxn01258": {
+  "dG_kJ": 1.0300449306981443,
+  "n": 3,
+  "sd_kJ": 0.5265850317343936,
+  "EC": "5.4.99.6",
+  "enzyme": "isochorismate synthase"
+ },
+ "rxn01117": {
+  "dG_kJ": 2.4677511753900836,
+  "n": 2,
+  "sd_kJ": 0.9621055289889355,
+  "EC": "5.3.1.13",
+  "enzyme": "arabinose-5-phosphate isomerase"
+ },
+ "rxn00867": {
+  "dG_kJ": 7.194396281082694,
+  "n": 8,
+  "sd_kJ": 5.926809356833366,
+  "EC": "4.3.1.3",
+  "enzyme": "histidine ammonia-lyase"
+ },
+ "rxn02066": {
+  "dG_kJ": 16.887758667075925,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn19090": {
+  "dG_kJ": 17.938375973348464,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn01726": {
+  "dG_kJ": -1.1846579386643172,
+  "n": 4,
+  "sd_kJ": 0.17002415263550777,
+  "EC": "2.3.1.7",
+  "enzyme": "carnitine O-acetyltransferase"
+ },
+ "rxn01253": {
+  "dG_kJ": -0.47253968042848815,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.30",
+  "enzyme": "pyridoxamine-pyruvate transaminase"
+ },
+ "rxn01386": {
+  "dG_kJ": -3.0083077655740498,
+  "n": 2,
+  "sd_kJ": 0.8979631202357432,
+  "EC": "5.3.1.15",
+  "enzyme": "D-lyxose ketol-isomerase"
+ },
+ "rxn00781": {
+  "dG_kJ": 2.1446578873884663,
+  "n": 36,
+  "sd_kJ": 2.317458455766241,
+  "EC": "1.2.1.12",
+  "enzyme": "glyceraldehyde-3-phosphate dehydrogenase"
+ },
+ "rxn00500": {
+  "dG_kJ": 20.79333748147304,
+  "n": 2,
+  "sd_kJ": 9.775906550994804,
+  "EC": "1.1.1.28",
+  "enzyme": "D-lactate dehydrogenase"
+ },
+ "rxn00741": {
+  "dG_kJ": 14.424765802656777,
+  "n": 3,
+  "sd_kJ": 3.344254635973768,
+  "EC": "1.1.1.27",
+  "enzyme": "L-lactate dehydrogenase"
+ },
+ "rxn44278": {
+  "dG_kJ": -3.3349603872918543,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.1.5",
+  "enzyme": "xylose isomerase"
+ },
+ "rxn02204": {
+  "dG_kJ": -3.125262024529868,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.3.6",
+  "enzyme": "methylitaconate ?-isomerase"
+ },
+ "rxn01130": {
+  "dG_kJ": -7.549725196939372,
+  "n": 63,
+  "sd_kJ": 4.303763893180478,
+  "EC": "1.1.1.2",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn01392": {
+  "dG_kJ": 14.425530202252428,
+  "n": 5,
+  "sd_kJ": 3.400900603545537,
+  "EC": "1.1.1.10",
+  "enzyme": "L-xylulose reductase"
+ },
+ "rxn01302": {
+  "dG_kJ": 15.072443873476374,
+  "n": 2,
+  "sd_kJ": 4.521171015954001,
+  "EC": "1.1.1.3",
+  "enzyme": "homoserine dehydrogenase"
+ },
+ "rxn00022": {
+  "dG_kJ": -14.408055969125432,
+  "n": 3,
+  "sd_kJ": 0.40679174916658306,
+  "EC": "3.2.1.3",
+  "enzyme": "glucan 1,4--glucosidase"
+ },
+ "rxn00510": {
+  "dG_kJ": 36.582264123553045,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.5.1.7",
+  "enzyme": "saccharopine dehydrogenase (NAD+, L-lysine-forming)"
+ },
+ "rxn00512": {
+  "dG_kJ": 37.29965677867482,
+  "n": 11,
+  "sd_kJ": 2.319560932393426,
+  "EC": "1.1.1.26",
+  "enzyme": "glyoxylate reductase"
+ },
+ "rxn00473": {
+  "dG_kJ": 20.567353829045995,
+  "n": 20,
+  "sd_kJ": 1.1339639653448854,
+  "EC": "4.1.99.1",
+  "enzyme": "tryptophanase"
+ },
+ "rxn01306": {
+  "dG_kJ": 19.785840008651586,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.18",
+  "enzyme": "2-dehydro-3-deoxy-L-pentonate aldolase"
+ },
+ "rxn00817": {
+  "dG_kJ": -10.50239992244769,
+  "n": 3,
+  "sd_kJ": 1.1033296261008698,
+  "EC": "3.2.1.3",
+  "enzyme": "glucan 1,4--glucosidase"
+ },
+ "rxn03886": {
+  "dG_kJ": -1.9545519159807276,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.140",
+  "enzyme": "sorbitol-6-phosphate dehydrogenase"
+ },
+ "rxn00762": {
+  "dG_kJ": 17.260141674309367,
+  "n": 2,
+  "sd_kJ": 9.444433377467835,
+  "EC": "1.1.1.6",
+  "enzyme": "glycerol dehydrogenase"
+ },
+ "rxn01682": {
+  "dG_kJ": 19.188774432572053,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.20",
+  "enzyme": "tryptophan synthase"
+ },
+ "rxn00562": {
+  "dG_kJ": 4.955645145442642,
+  "n": 3,
+  "sd_kJ": 0.10040037870505654,
+  "EC": "4.3.2.3",
+  "enzyme": "ureidoglycolate lyase"
+ },
+ "rxn01054": {
+  "dG_kJ": -2.542624949979959,
+  "n": 2,
+  "sd_kJ": 1.5006098684235214,
+  "EC": "1.1.99.7",
+  "enzyme": "lactate-malate transhydrogenase"
+ },
+ "rxn08948": {
+  "dG_kJ": -9.477798998508687,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn01329": {
+  "dG_kJ": 5.3940995602976995,
+  "n": 3,
+  "sd_kJ": 3.6745775071183435,
+  "EC": "5.4.2.8",
+  "enzyme": "phosphomannomutase"
+ },
+ "rxn00172": {
+  "dG_kJ": 2.984409607320674,
+  "n": 6,
+  "sd_kJ": 1.921928021644182,
+  "EC": "2.3.1.8&2.7.2.1",
+  "enzyme": "phosphate acetyltransferase and acetate kinase"
+ },
+ "rxn00930": {
+  "dG_kJ": 13.94864854668489,
+  "n": 4,
+  "sd_kJ": 0.0,
+  "EC": "1.5.1.1",
+  "enzyme": "pyrroline-2-carboxylate reductase"
+ },
+ "rxn00699": {
+  "dG_kJ": 3.104721489174752,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.1.31",
+  "enzyme": "laminaribiose phosphorylase"
+ },
+ "rxn39373": {
+  "dG_kJ": 9.527608679422192,
+  "n": 2,
+  "sd_kJ": 3.9236263798870765,
+  "EC": "1.1.1.4",
+  "enzyme": "(R,R)-butanediol dehydrogenase"
+ },
+ "rxn00462": {
+  "dG_kJ": 17.677191782420774,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.2.9",
+  "enzyme": "phosphoenolpyruvate mutase"
+ },
+ "rxn01485": {
+  "dG_kJ": -3.2085473380684686,
+  "n": 3,
+  "sd_kJ": 0.22432443089755658,
+  "EC": "5.4.2.2",
+  "enzyme": "phosphoglucomutase"
+ },
+ "rxn00225": {
+  "dG_kJ": 13.504531683965604,
+  "n": 22,
+  "sd_kJ": 1.6466756862877376,
+  "EC": "2.7.2.1",
+  "enzyme": "acetate kinase"
+ },
+ "rxn00495": {
+  "dG_kJ": -4.250618045882451,
+  "n": 28,
+  "sd_kJ": 1.0222789772274066,
+  "EC": "4.3.1.5",
+  "enzyme": "phenylalanine ammonia-lyase"
+ },
+ "rxn01241": {
+  "dG_kJ": 0.528573576351676,
+  "n": 10,
+  "sd_kJ": 3.326110170957136,
+  "EC": "1.8.1.4",
+  "enzyme": "dihydrolipoamide dehydrogenase"
+ },
+ "rxn01099": {
+  "dG_kJ": -14.738637467136666,
+  "n": 23,
+  "sd_kJ": 0.2666131715800526,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn05026": {
+  "dG_kJ": 5.4892589355107315,
+  "n": 2,
+  "sd_kJ": 2.558468388012673,
+  "EC": "2.4.1.64",
+  "enzyme": ",-trehalose phosphorylase"
+ },
+ "rxn03840": {
+  "dG_kJ": -4.663089553469517,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.-",
+  "enzyme": "4-aminobenzoate synthase"
+ },
+ "rxn00302": {
+  "dG_kJ": 5.803733290832371,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.5.4.16",
+  "enzyme": "GTP cyclohydrolase I"
+ },
+ "rxn00239": {
+  "dG_kJ": -2.3219640068718395,
+  "n": 6,
+  "sd_kJ": 2.9083093606462986,
+  "EC": "2.7.4.8",
+  "enzyme": "guanylate kinase"
+ },
+ "rxn00611": {
+  "dG_kJ": 23.380315654264237,
+  "n": 15,
+  "sd_kJ": 4.001231316974166,
+  "EC": "1.1.1.8",
+  "enzyme": "glycerol-3-phosphate dehydrogenase (NAD+)"
+ },
+ "rxn12158": {
+  "dG_kJ": 6.567150540313298,
+  "n": 2,
+  "sd_kJ": 3.645026723297333,
+  "EC": "2.7.7",
+  "enzyme": "ADP-glucose phosphorylase"
+ },
+ "rxn00702": {
+  "dG_kJ": 0.7247766221929136,
+  "n": 2,
+  "sd_kJ": 1.024988928796179,
+  "EC": "2.7.7.33",
+  "enzyme": "glucose-1-phosphate cytidylyltransferase"
+ },
+ "rxn14063": {
+  "dG_kJ": 16.291193710794186,
+  "n": 2,
+  "sd_kJ": 1.5863475635214055,
+  "EC": "1.1.1.274",
+  "enzyme": "2,5-diketo-D-gluconate reductase"
+ },
+ "rxn02651": {
+  "dG_kJ": 16.570865232159562,
+  "n": 3,
+  "sd_kJ": 3.452338282500526,
+  "EC": "1.1.1.129",
+  "enzyme": "L-threonate dehydrogenase"
+ },
+ "rxn01597": {
+  "dG_kJ": -4.281900194516355,
+  "n": 4,
+  "sd_kJ": 6.128256507810093,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn01293": {
+  "dG_kJ": 10.038711217752455,
+  "n": 6,
+  "sd_kJ": 4.647453907532775,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn01513": {
+  "dG_kJ": -0.8676712462234041,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.13",
+  "enzyme": "(deoxy)nucleoside-phosphate kinase"
+ },
+ "rxn01410": {
+  "dG_kJ": -1.0455852737959253,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.89",
+  "enzyme": "carnitine dehydratase"
+ },
+ "rxn01996": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.99.1",
+  "enzyme": "methylmalonyl-CoA epimerase"
+ },
+ "rxn00285": {
+  "dG_kJ": 3.191349022889025,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "6.2.1.5",
+  "enzyme": "succinate-CoA ligase (ADP forming)"
+ },
+ "rxn00423": {
+  "dG_kJ": -6.713140082414758,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.3.1.30",
+  "enzyme": "serine acetyltransferase"
+ },
+ "rxn15726": {
+  "dG_kJ": 27.313486386766144,
+  "n": 2,
+  "sd_kJ": 0.383976219637818,
+  "EC": "1.1.1.-",
+  "enzyme": "(R)-2-hydroxyglutarate dehydrogenase"
+ },
+ "rxn00697": {
+  "dG_kJ": -11.652288845074358,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.1.4",
+  "enzyme": "ADPglucose phosphodiesterase"
+ },
+ "rxn01361": {
+  "dG_kJ": 15.782999294198262,
+  "n": 4,
+  "sd_kJ": 2.77946832030973,
+  "EC": "1.3.99.11",
+  "enzyme": "dihydroorotate dehydrogenase"
+ },
+ "rxn00234": {
+  "dG_kJ": 3.8807249670976693,
+  "n": 6,
+  "sd_kJ": 3.8236121793234106,
+  "EC": "4.1.3.22",
+  "enzyme": "citramalate lyase"
+ },
+ "rxn03884": {
+  "dG_kJ": 16.315485454545183,
+  "n": 2,
+  "sd_kJ": 0.5042742586806299,
+  "EC": "4.1.2.14",
+  "enzyme": "2-dehydro-3-deoxyphosphogluconate aldolase"
+ },
+ "rxn00798": {
+  "dG_kJ": 1.9571431534713273,
+  "n": 8,
+  "sd_kJ": 0.3464176100603873,
+  "EC": "5.3.1.20",
+  "enzyme": "ribose isomerase"
+ },
+ "rxn01702": {
+  "dG_kJ": 15.1581287059385,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.1.1.21",
+  "enzyme": "retinyl-palmitate esterase"
+ },
+ "rxn01137": {
+  "dG_kJ": -14.485895510126696,
+  "n": 15,
+  "sd_kJ": 2.63672774169537,
+  "EC": "3.5.4.4",
+  "enzyme": "adenosine deaminase"
+ },
+ "rxn00237": {
+  "dG_kJ": -0.10146575156928903,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.6",
+  "enzyme": "nucleoside-diphosphate kinase"
+ },
+ "rxn00001": {
+  "dG_kJ": -14.784433733920118,
+  "n": 214,
+  "sd_kJ": 3.7594261642660727,
+  "EC": "3.6.1.1",
+  "enzyme": "inorganic pyrophosphatase"
+ },
+ "rxn01380": {
+  "dG_kJ": 4.1503067629706765,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.15",
+  "enzyme": "choline-phosphate cytidylyltransferase"
+ },
+ "rxn00217": {
+  "dG_kJ": -4.796394604263448,
+  "n": 2,
+  "sd_kJ": 2.869899487556456,
+  "EC": "1.1.1.47",
+  "enzyme": "glucose dehydrogenase"
+ },
+ "rxn02322": {
+  "dG_kJ": -0.6687320384197502,
+  "n": 2,
+  "sd_kJ": 0.9457299183266163,
+  "EC": "2.7.4.2",
+  "enzyme": "phosphomevalonate kinase"
+ },
+ "rxn00062": {
+  "dG_kJ": -26.004286191158407,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.6.1.38",
+  "enzyme": "Ca2+-transporting ATPase"
+ },
+ "rxn00193": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.1.3",
+  "enzyme": "glutamate racemase"
+ },
+ "rxn36656": {
+  "dG_kJ": -3.1753799606052793,
+  "n": 3,
+  "sd_kJ": 0.3756678809113008,
+  "EC": "3.5.1.14",
+  "enzyme": "aminoacylase"
+ },
+ "rxn01846": {
+  "dG_kJ": 22.10211263349499,
+  "n": 2,
+  "sd_kJ": 3.2580105210240116,
+  "EC": "1.1.1.37",
+  "enzyme": "malate dehydrogenase"
+ },
+ "rxn00515": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.6",
+  "enzyme": "nucleoside-diphosphate kinase"
+ },
+ "rxn01292": {
+  "dG_kJ": 4.725733862691481,
+  "n": 3,
+  "sd_kJ": 0.5071788200336623,
+  "EC": "5.3.1.4",
+  "enzyme": "L-arabinose isomerase"
+ },
+ "rxn00147": {
+  "dG_kJ": -10.616275096487998,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.9.2",
+  "enzyme": "pyruvate, water dikinase"
+ },
+ "rxn00337": {
+  "dG_kJ": 19.06486264408949,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.2.4",
+  "enzyme": "aspartate kinase"
+ },
+ "rxn15055": {
+  "dG_kJ": -10.992302955823389,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.13",
+  "enzyme": "ornithine-oxo-acid transaminase"
+ },
+ "rxn00690": {
+  "dG_kJ": -9.57630185305639,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "6.3.4.3",
+  "enzyme": "formate-tetrahydrofolate ligase"
+ },
+ "rxn00987": {
+  "dG_kJ": 1.7182820757664834,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.3.32",
+  "enzyme": "2,3-dimethylmalate lyase"
+ },
+ "rxn01336": {
+  "dG_kJ": -1.6020854113060776,
+  "n": 12,
+  "sd_kJ": 7.296836828412091,
+  "EC": "1.1.1.51",
+  "enzyme": "3(or 17)_-hydroxysteroid dehydrogenase"
+ },
+ "rxn02360": {
+  "dG_kJ": 0.024914350713443154,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.1.8",
+  "enzyme": "4-hydroxyproline epimerase"
+ },
+ "rxn11139": {
+  "dG_kJ": 3.789898368111711,
+  "n": 2,
+  "sd_kJ": 0.0,
+  "EC": "2.4.1.8",
+  "enzyme": "maltose phosphorylase"
+ },
+ "rxn02685": {
+  "dG_kJ": -3.513562453339962,
+  "n": 2,
+  "sd_kJ": 7.23199367349096,
+  "EC": "2.7.3.4",
+  "enzyme": "taurocyamine kinase"
+ },
+ "rxn04785": {
+  "dG_kJ": -8.879567694909305,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.3.5",
+  "enzyme": "lombricine kinase"
+ },
+ "rxn16378": {
+  "dG_kJ": 12.450920288912032,
+  "n": 3,
+  "sd_kJ": 2.639753196927983,
+  "EC": "3.5.1.a",
+  "enzyme": "anandamide amidohydrolase"
+ },
+ "rxn52014": {
+  "dG_kJ": 20.17610671513258,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.5.1.a",
+  "enzyme": "anandamide amidohydrolase"
+ },
+ "rxn00698": {
+  "dG_kJ": 3.789898368111711,
+  "n": 3,
+  "sd_kJ": 0.4916739932360799,
+  "EC": "2.4.1.20",
+  "enzyme": "cellobiose phosphorylase"
+ },
+ "rxn00306": {
+  "dG_kJ": 0.7102044486447258,
+  "n": 38,
+  "sd_kJ": 1.0368541994645701,
+  "EC": "6.2.1.4",
+  "enzyme": "succinate-CoA ligase (GDP-forming)"
+ },
+ "rxn00105": {
+  "dG_kJ": 2.3704853963831276,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.1",
+  "enzyme": "nicotinamide-nucleotide adenylyltransferase"
+ },
+ "rxn14104": {
+  "dG_kJ": 1.2120127319041334,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.1.13",
+  "enzyme": "sucrose synthase"
+ },
+ "rxn00551": {
+  "dG_kJ": 12.682333775772502,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.1.90",
+  "enzyme": "pyrophosphate-fructose-6-phosphate 1-phosphotransferase"
+ },
+ "rxn03087": {
+  "dG_kJ": 0.4701581740751216,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.17",
+  "enzyme": "succinyldiaminopimelate transaminase"
+ },
+ "rxn01004": {
+  "dG_kJ": 5.7080095024300554,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.2.1",
+  "enzyme": "phenylpyruvate tautomerase"
+ },
+ "rxn00195": {
+  "dG_kJ": -5.97426889959444,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.99.1",
+  "enzyme": "methylaspartate mutase"
+ },
+ "rxn01409": {
+  "dG_kJ": 1.7874398316249367,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.3.1.21",
+  "enzyme": "carnitine O-palmitoyltransferase"
+ },
+ "rxn02527": {
+  "dG_kJ": -15.666930622451373,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.1",
+  "enzyme": "alcohol dehydrogenase"
+ },
+ "rxn00631": {
+  "dG_kJ": 21.098265507386927,
+  "n": 4,
+  "sd_kJ": 2.1614300317210158,
+  "EC": "1.1.1.124",
+  "enzyme": "fructose 5-dehydrogenase (NADP+)"
+ },
+ "rxn00785": {
+  "dG_kJ": 7.324199682725373,
+  "n": 2,
+  "sd_kJ": 1.6743943872508218,
+  "EC": "2.2.1.1",
+  "enzyme": "transketolase"
+ },
+ "rxn01985": {
+  "dG_kJ": 9.791937956566642,
+  "n": 3,
+  "sd_kJ": 0.43270663280844435,
+  "EC": "2.4.2.1",
+  "enzyme": "purine-nucleoside phosphorylase"
+ },
+ "rxn01200": {
+  "dG_kJ": 1.0799977537336372,
+  "n": 2,
+  "sd_kJ": 1.1579772455752084,
+  "EC": "2.2.1.1",
+  "enzyme": "transketolase"
+ },
+ "rxn00656": {
+  "dG_kJ": 4.123543540252826,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.18",
+  "enzyme": "_-alanine-pyruvate transaminase"
+ },
+ "rxn04684": {
+  "dG_kJ": -9.327585330036635,
+  "n": 51,
+  "sd_kJ": 0.4822623212571458,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn01834": {
+  "dG_kJ": 23.480497434601425,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.4.1.5",
+  "enzyme": "lactoylglutathione lyase"
+ },
+ "rxn01174": {
+  "dG_kJ": 11.6772031957878,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.59",
+  "enzyme": "3-hydroxypropionate dehydrogenase"
+ },
+ "rxn12188": {
+  "dG_kJ": -11.763624816507866,
+  "n": 2,
+  "sd_kJ": 2.110432030421892,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn01974": {
+  "dG_kJ": -1.6551682447889247,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.1.7",
+  "enzyme": "diaminopimelate epimerase"
+ },
+ "rxn00100": {
+  "dG_kJ": -1.2120127319041334,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.1.24",
+  "enzyme": "dephospho-CoA kinase"
+ },
+ "rxn00326": {
+  "dG_kJ": -9.419971023968904,
+  "n": 5,
+  "sd_kJ": 1.0060525742899207,
+  "EC": "1.2.1.17",
+  "enzyme": "glyoxylate dehydrogenase (acylating)"
+ },
+ "rxn00420": {
+  "dG_kJ": -10.404510155240914,
+  "n": 101,
+  "sd_kJ": 2.021929622381804,
+  "EC": "3.1.3.1",
+  "enzyme": "alkaline phosphatase"
+ },
+ "rxn01434": {
+  "dG_kJ": -5.699591017362239,
+  "n": 4,
+  "sd_kJ": 7.402456750680182,
+  "EC": "6.3.4.5",
+  "enzyme": "arginosuccinate synthase"
+ },
+ "rxn00783": {
+  "dG_kJ": 13.88072766701862,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.21",
+  "enzyme": "2-dehydro-3-deoxy-6-phosphogalactonate aldolase"
+ },
+ "rxn03644": {
+  "dG_kJ": -13.198605618379366,
+  "n": 2,
+  "sd_kJ": 0.0,
+  "EC": "5.3.1.-",
+  "enzyme": "phospho-3-hexuloisomerase"
+ },
+ "rxn02085": {
+  "dG_kJ": 9.905252053109773,
+  "n": 5,
+  "sd_kJ": 1.2784735329766885,
+  "EC": "4.2.1.49",
+  "enzyme": "urocanate hydratase"
+ },
+ "rxn53440": {
+  "dG_kJ": -2.4335000201848525,
+  "n": 6,
+  "sd_kJ": 0.49945482555497117,
+  "EC": "5.3.1.5",
+  "enzyme": "xylose isomerase"
+ },
+ "rxn01713": {
+  "dG_kJ": 3.9336584430365966,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.1.120",
+  "enzyme": "sinapate 1-glucosyltransferase"
+ },
+ "rxn00295": {
+  "dG_kJ": 2.495138518181752,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.3.2",
+  "enzyme": "UDPglucose 4-epimerase"
+ },
+ "rxn00257": {
+  "dG_kJ": -0.45196730485409475,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.3.8",
+  "enzyme": "ATP citrate(pro-3S)-lyase"
+ },
+ "rxn01152": {
+  "dG_kJ": 4.987065558580156,
+  "n": 12,
+  "sd_kJ": 1.2714967621158548,
+  "EC": "5.3.1.3",
+  "enzyme": "arabinose isomerase"
+ },
+ "rxn01999": {
+  "dG_kJ": -1.7874398316249367,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.33",
+  "enzyme": "dTDP-4-amino-4,6-dideoxy-D-glucose transaminase"
+ },
+ "rxn01018": {
+  "dG_kJ": -21.88501935476973,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.3.2",
+  "enzyme": "aspartate carbamoyl-transferase"
+ },
+ "rxn01219": {
+  "dG_kJ": -1.0051269114993457,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.14",
+  "enzyme": "cytidylate kinase"
+ },
+ "rxn01636": {
+  "dG_kJ": 1.9469998274028009,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.3.1.35",
+  "enzyme": "glutamate N-acetyltransferase"
+ },
+ "rxn01725": {
+  "dG_kJ": 16.749903045444885,
+  "n": 3,
+  "sd_kJ": 5.803733290832372,
+  "EC": "1.1.1.108",
+  "enzyme": "carnitine dehydrogenase"
+ },
+ "rxn01457": {
+  "dG_kJ": 1.3536042085132347,
+  "n": 2,
+  "sd_kJ": 3.1413578738550183,
+  "EC": "5.3.1.12",
+  "enzyme": "glucuronate isomerase"
+ },
+ "rxn01080": {
+  "dG_kJ": 0.5117515045099013,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.1.12",
+  "enzyme": "glucuronate isomerase"
+ },
+ "rxn01643": {
+  "dG_kJ": -8.667691998395485,
+  "n": 3,
+  "sd_kJ": 4.092252098409011,
+  "EC": "1.2.1.11",
+  "enzyme": "aspartate-semialdehyde dehydrogenase"
+ },
+ "rxn00541": {
+  "dG_kJ": 10.380297504068892,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.2.1",
+  "enzyme": "glycine hydroxymethyltransferase"
+ },
+ "rxn02902": {
+  "dG_kJ": -15.83207897367399,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.5.1.3",
+  "enzyme": "tetrahydroxypteridine cycloisomerase"
+ },
+ "rxn02305": {
+  "dG_kJ": -4.620464937045798,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.5.1.3",
+  "enzyme": "thiamin-phosphate pyrophosphorylase"
+ },
+ "rxn01780": {
+  "dG_kJ": 0.2716963837538896,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.4.3.5",
+  "enzyme": "D-ornithine 4,5-aminomutase"
+ },
+ "rxn02213": {
+  "dG_kJ": -5.293116006061025,
+  "n": 2,
+  "sd_kJ": 2.1355869370658347,
+  "EC": "4.2.1.10",
+  "enzyme": "3-dehydroquinate dehydratase"
+ },
+ "rxn00527": {
+  "dG_kJ": 0.32254027162983356,
+  "n": 2,
+  "sd_kJ": 0.007985833064697426,
+  "EC": "2.6.1.5",
+  "enzyme": "tyrosine aminotransferase"
+ },
+ "rxn00493": {
+  "dG_kJ": -0.112098633532493,
+  "n": 2,
+  "sd_kJ": 0.07538661002285817,
+  "EC": "2.6.1.5",
+  "enzyme": "tyrosine aminotransferase"
+ },
+ "rxn02900": {
+  "dG_kJ": 1.7182820757664834,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.37",
+  "enzyme": "(2-aminoethyl)phosphonate-pyruvate transferase"
+ },
+ "rxn08066": {
+  "dG_kJ": 0.4919513495715848,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.10",
+  "enzyme": "nucleoside-triphosphate-adenylate kinase"
+ },
+ "rxn00320": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.1.5",
+  "enzyme": "lysine racemase"
+ },
+ "rxn00514": {
+  "dG_kJ": -26.579842524492996,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.6.1.a",
+  "enzyme": "inosine triphosphate pyrophosphohydrolase"
+ },
+ "rxn00643": {
+  "dG_kJ": 1.6863001792090118,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.3.18",
+  "enzyme": "GDP-D-mannose 3,5-epimerase"
+ },
+ "rxn02622": {
+  "dG_kJ": 4.392604869378111,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.2.1.34",
+  "enzyme": "(S)-2-methylmalate dehydratase"
+ },
+ "rxn49067": {
+  "dG_kJ": 1.0678923380603234,
+  "n": 3,
+  "sd_kJ": 5.708009502430056,
+  "EC": "1.1.1.141",
+  "enzyme": "15-hydroxyprostaglandin dehydrogenase (NAD+)"
+ },
+ "rxn01363": {
+  "dG_kJ": 13.648712475961974,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.24",
+  "enzyme": "quinate dehydrogenase"
+ },
+ "rxn02095": {
+  "dG_kJ": 10.765629267153953,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.14",
+  "enzyme": "L-iditol dehydrogenase"
+ },
+ "rxn01299": {
+  "dG_kJ": -12.025753004490412,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "3.2.2.2",
+  "enzyme": "inosine nucleosidase"
+ },
+ "rxn00256": {
+  "dG_kJ": 36.178613612500236,
+  "n": 24,
+  "sd_kJ": 1.9479484259714537,
+  "EC": "4.1.3.7",
+  "enzyme": "citrate (si)-synthase"
+ },
+ "rxn00897": {
+  "dG_kJ": 3.7255517682042623,
+  "n": 2,
+  "sd_kJ": 0.3561156024381016,
+  "EC": "5.1.3.8",
+  "enzyme": "N-acylglucosamine 2-epimerase"
+ },
+ "rxn01621": {
+  "dG_kJ": 6.418240376017762,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.1.2.19",
+  "enzyme": "rhamnulose-1-phosphate aldolase"
+ },
+ "rxn00830": {
+  "dG_kJ": -4.905022846618076,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.3.2",
+  "enzyme": "isopentenyl-diphosphate-isomerase"
+ },
+ "rxn01792": {
+  "dG_kJ": 6.64626939544667,
+  "n": 6,
+  "sd_kJ": 0.6299085293650893,
+  "EC": "3.5.1.22",
+  "enzyme": "pantothenase"
+ },
+ "rxn01509": {
+  "dG_kJ": 3.2826355167472725,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.4.8",
+  "enzyme": "guanylate kinase"
+ },
+ "rxn00266": {
+  "dG_kJ": 5.7080095024300554,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.2.2",
+  "enzyme": "oxaloacetate tautomerase"
+ },
+ "rxn00404": {
+  "dG_kJ": -0.24657172826651724,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.4.1",
+  "enzyme": "glycine amidinotransferase"
+ },
+ "rxn00931": {
+  "dG_kJ": 24.92420354821231,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.5.1.2",
+  "enzyme": "pyrroline-5-carboxylate reductase"
+ },
+ "rxn01887": {
+  "dG_kJ": 3.2085473380684686,
+  "n": 3,
+  "sd_kJ": 3.080054123510228,
+  "EC": "1.1.1.194",
+  "enzyme": "coniferyl-alcohol dehydrogenase"
+ },
+ "rxn03136": {
+  "dG_kJ": 15.665391557302938,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "4.3.2.2",
+  "enzyme": "adenylosuccinate lyase"
+ },
+ "rxn02887": {
+  "dG_kJ": 4.322199754730137,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.97",
+  "enzyme": "3-hydroxybenzyl-alcohol dehydrogenase"
+ },
+ "rxn00603": {
+  "dG_kJ": 3.6609029276779075,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.-",
+  "enzyme": "sorbitol-6-phosphate dehydrogenase (NADP+)"
+ },
+ "rxn01480": {
+  "dG_kJ": 8.240639044254834,
+  "n": 3,
+  "sd_kJ": 4.618829702444313,
+  "EC": "1.1.1.31",
+  "enzyme": "3-hydroxyisobutyrate dehydrogenase"
+ },
+ "rxn00804": {
+  "dG_kJ": 11.157315011267437,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.4.1.9",
+  "enzyme": "leucine dehydrogenase"
+ },
+ "rxn00157": {
+  "dG_kJ": 16.69239798069222,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.3.1.54",
+  "enzyme": "formate C-acetyltransferase"
+ },
+ "rxn01301": {
+  "dG_kJ": 11.732912439776474,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.3",
+  "enzyme": "homoserine dehydrogenase"
+ },
+ "rxn01692": {
+  "dG_kJ": -4.311102636053825,
+  "n": 4,
+  "sd_kJ": 7.369008580968431,
+  "EC": "1.1.1.62",
+  "enzyme": "estradiol 17_-dehydrogenase"
+ },
+ "rxn00911": {
+  "dG_kJ": 2.8421594762266684,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.2.7",
+  "enzyme": "D-alanine 2-hydroxymethyltransferase"
+ },
+ "rxn00700": {
+  "dG_kJ": 3.494195614748344,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.34",
+  "enzyme": "glucose-1-phosphate guanylyltransferase"
+ },
+ "rxn00641": {
+  "dG_kJ": -2.3628669313457404,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.7.7.13",
+  "enzyme": "mannose-1-phosphate guanylyltransferase"
+ },
+ "rxn16141": {
+  "dG_kJ": 3.243300840271549,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.2.1.a",
+  "enzyme": "succinate-semialdehyde reductase"
+ },
+ "rxn54659": {
+  "dG_kJ": -0.0,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.1.1.10",
+  "enzyme": "amino-acid racemase"
+ },
+ "rxn01022": {
+  "dG_kJ": 11.026307546005704,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.2.28",
+  "enzyme": "5 '-methylthioadenosine phosphorylase"
+ },
+ "rxn00630": {
+  "dG_kJ": 6.161187943573316,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.67",
+  "enzyme": "mannitol dehydrogenase"
+ },
+ "rxn00674": {
+  "dG_kJ": -0.3615704403042631,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "6.2.1.1",
+  "enzyme": "acetate-CoA ligase"
+ },
+ "rxn01019": {
+  "dG_kJ": -29.68873297297807,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.3.3",
+  "enzyme": "ornithine carbamoyltransferase"
+ },
+ "rxn01579": {
+  "dG_kJ": 11.73477464439555,
+  "n": 6,
+  "sd_kJ": 1.123500293151327,
+  "EC": "1.5.1.21",
+  "enzyme": "1-piperidine-2-carboxylate reductase"
+ },
+ "rxn03281": {
+  "dG_kJ": 6.805417840819017,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "5.3.3.5",
+  "enzyme": "cholestenol  -isomerase"
+ },
+ "rxn00276": {
+  "dG_kJ": 10.250900204224237,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.6.1.35",
+  "enzyme": "glycine-oxaloacetate transaminase"
+ },
+ "rxn00605": {
+  "dG_kJ": -9.512626257845486,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.4.1.15",
+  "enzyme": ",-trehalose-phosphate synthase (UDP-forming)"
+ },
+ "rxn04932": {
+  "dG_kJ": 17.677191782420774,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "1.1.1.14",
+  "enzyme": "L-iditol 2-dehydrogenase"
+ },
+ "rxn02403": {
+  "dG_kJ": 13.733372336155517,
+  "n": 7,
+  "sd_kJ": 5.209443144636245,
+  "EC": "1.4.1.11",
+  "enzyme": "L-erythro-3,5-diaminohexanoate dehydrogenase"
+ },
+ "rxn12217": {
+  "dG_kJ": -25.715438886122588,
+  "n": 3,
+  "sd_kJ": 2.573690582252188,
+  "EC": "4.3.-.-",
+  "enzyme": "formaldehyde condensation with THF"
+ },
+ "rxn03137": {
+  "dG_kJ": 9.245769624239534,
+  "n": 1,
+  "sd_kJ": null,
+  "EC": "2.1.2.3",
+  "enzyme": "phosphoribosylaminoimidazolecarboxamide formyltransferase"
+ }
+}
