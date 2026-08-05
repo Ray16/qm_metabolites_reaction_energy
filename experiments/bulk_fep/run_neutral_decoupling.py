@@ -89,7 +89,7 @@ def main() -> None:
         context = Context(alchemical_system, initializer, platform)
         context.setPositions(pdb.positions)
         sampler_states = []
-        for lambda_e, lambda_s in schedule:
+        for state_index, (lambda_e, lambda_s) in enumerate(schedule):
             context.setParameter("lambda_electrostatics", lambda_e)
             context.setParameter("lambda_sterics", lambda_s)
             LocalEnergyMinimizer.minimize(context, tolerance=10 * unit.kilojoule_per_mole / unit.nanometer,

@@ -8,8 +8,10 @@ dGPredictor and experiment (TECRDB)?
 **Short answer: no, not competitively — and it does not need to.** On the
 benchmark reactions the data-driven method eQuilibrator already agrees with
 experiment to within its noise (MAE **3.6 kJ/mol**, experimental sd 6.2), while
-the QM composite is at **38.3 kJ/mol**. QM cannot referee 16–100 kJ/mol
-disagreements when its own error is ~38. The full, self-critical account —
+the pure-QM composite is at **31.7 kJ/mol**. A parameter-free external-reference
+layer brings this to **19.4 kJ/mol (9/10 correct signs)** but still does not beat
+the trivial predict-zero baseline (10.5) on MAE — QM cannot referee 16–100 kJ/mol
+disagreements when its own error is ~20–30. The full, self-critical account —
 including everything that was tried and rejected — is in
 [`pipeline/FINDINGS.md`](pipeline/FINDINGS.md),
 **which is the status of record; read it first.**
@@ -50,14 +52,38 @@ reproduces Jinich et al., *Sci. Rep.* 2014.
 
 ## Results at a glance (10 top-disagreement reactions, MAE vs TECRDB)
 
-| method | MAE (kJ/mol) | note |
-|---|---:|---|
-| eQuilibrator | 3.6 | within the 6.2 experimental sd |
-| predict zero | 10.5 | the trivial baseline |
-| GroupContribution | 35.4 | |
-| QM composite, pH-7 fixed-microspecies baseline | 40.1 | |
-| **QM composite, fixed-species pH-midpoint sensitivity** | **38.3** | **diagnostic only; not full speciation** |
-| dGPredictor (retrained) | 61.2 | the method under evaluation |
+| method | MAE (kJ/mol) | signs | note |
+|---|---:|---:|---|
+| eQuilibrator | 3.6 | — | within the 6.2 experimental sd |
+| predict zero | 10.5 | — | the trivial baseline |
+| **QM + external references (parameter-free)** | **19.4** | **9/10** | hybrid; external anchors only — see below |
+| **QM composite, pH-7 fixed-microspecies baseline** | **31.7** | 7/10 | the honest pure-QM number |
+| GroupContribution | 35.4 | — | |
+| dGPredictor (retrained) | 61.2 | 8/10 | the method under evaluation |
+
+The pure-QM baseline is **31.7 kJ/mol** (`--pH-mode fixed`, MACE-POLAR-1 + xtb-ALPB,
+16-seed ensemble). Adding **parameter-free external references** (`--pH-mode
+referenced`) reaches **19.4 kJ/mol, 9/10 correct signs** — still short of predict-zero
+(10.5) on MAE, but with the direction correct on 9 of 10, which is the property that
+matters for adjudication.
+
+### The `referenced` column — what it is and is not
+Each correction cancels a badly-solvated shared moiety against an **external**
+experimental anchor (a reaction *not* in the ten, or a tabulated E°′); it never uses a
+scored reaction's own experimental value, and nothing is fitted. Applied corrections:
+
+| class | reaction(s) | correction | err before → after |
+|---|---|---|---:|
+| redox | rxn00070/34788 | NAD↔NADP equalization via external E°′ | 53 → 14 |
+| pyrophosphate transfer | rxn01005/rxn01675 | isodesmic vs UDP-glucose pyrophosphorylase (EC 2.7.7.9) | 23/29 → 5/12 |
+| glyoxalase | rxn01834 | methylglyoxal gem-diol hydrate microspecies | 70 → 62 |
+
+**Glycosyl transfer is deliberately *not* corrected.** The only available external
+reference (sucrose synthase) is rxn00579 itself, and referencing the others to it makes
+them *worse* (rxn00605 6 → 51) because the acceptors differ in charge, so the isodesmic
+residual is not charge-balanced and the anion-solvation error does not cancel. This is
+the honest boundary of the method — see `pipeline/reference_reactions.json` and
+`qm_thermo/external_reference.py`.
 
 Database-wide (1550 TECRDB↔ModelSEED matched reactions): eQuilibrator covers 84%
 at MAE 5.5; dGPredictor covers 100% at 13.2.
