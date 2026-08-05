@@ -23,7 +23,8 @@ from qm_thermo import config
 from qm_thermo import external_reference
 from qm_thermo.composite import extract_ensemble_energy
 from qm_thermo.reactions import Reaction, SpeciesInfo, reaction_dG
-from qm_thermo.speciation import families_from_dict
+from qm_thermo.modelseed_pka import load_compounds
+from qm_thermo.speciation import families_from_dict, independent_site_correction_kJ
 from qm_thermo.reaction_correction import canonical_signature
 
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
@@ -67,6 +68,12 @@ def main():
     ap.add_argument("--extra-energies", action="append", default=[],
                     help="additional G_aq json files merged into the breakdown "
                          "(e.g. compounds that appear only in a reference reaction)")
+    ap.add_argument("--speciation", choices=("none", "chemaxon"), default="none",
+                    help="none keeps the reported fixed-microspecies baseline; chemaxon "
+                         "adds the independent-site protonation-ensemble correction from "
+                         "ModelSEED's predicted pKa/pKb sites (bounded, sub-kJ per reaction)")
+    ap.add_argument("--modelseed",
+                    default=os.path.join(os.path.dirname(THERMO), "ModelSEEDDatabase"))
     ap.add_argument("--write-calibration-input",
                     help="write labelled reaction rows for the separate class-calibration CLI")
     args = ap.parse_args()
@@ -105,6 +112,35 @@ def main():
     S = {c: SpeciesInfo(c, n_hydrogens=int(v["n_hydrogens"]), charge=int(v["charge"]))
          for c, v in spec.items()}
     C = config.DEFAULT_CONDITIONS
+
+    # Protonation-ensemble correction, applied to G *before* any reaction is
+    # scored so it composes with every downstream mode rather than becoming
+    # another parallel column.  It is a correctness term: the fixed-microspecies
+    # model evaluates one protonation state where the compound is really an
+    # equilibrium mixture.  Bounded at -1.72 kJ/mol per site, so it will not
+    # move the benchmark -- that is expected, not a disappointment.
+    speciation_provenance = {}
+    if args.speciation == "chemaxon":
+        compounds = load_compounds(args.modelseed, set(G))
+        for compound, record in compounds.items():
+            if compound not in G:
+                continue
+            values = [site.value for site in record["sites"]]
+            if not values:
+                continue
+            correction = independent_site_correction_kJ(values, C.pH, C.temperature_K)
+            G[compound] += correction
+            speciation_provenance[compound] = {
+                "name": record["name"], "correction_kJ": correction,
+                "n_sites": len(values),
+                "sites_within_1_pH_unit": sum(1 for v in values if abs(v - C.pH) <= 1.0),
+                "source": "ModelSEED atom-level ChemAxon pKa/pKb prediction",
+                "model": "independent sites; -RT ln(1 + 10^-|pH-pK|) each",
+            }
+        missing = sorted(set(G) - set(speciation_provenance))
+        if missing:
+            print(f"[speciation] no ChemAxon sites for {len(missing)} compound(s): "
+                  f"{', '.join(missing)} (left as fixed microspecies)")
     cond7 = {r: C for r in reactions}
     condX = {r: config.Conditions(pH=(float(meta[r]["pH_min"]) +
                                       float(meta[r]["pH_max"])) / 2.0)
@@ -174,8 +210,10 @@ def main():
     out_dir = os.path.join(THERMO, "results", "benchmark")
     os.makedirs(out_dir, exist_ok=True)
     json.dump({"models_kJ": res, "pH_mode": args.pH_mode,
+               "speciation": args.speciation,
                "family_provenance": family_provenance,
-               "reference_provenance": reference_provenance},
+               "reference_provenance": reference_provenance,
+               "speciation_provenance": speciation_provenance},
               open(os.path.join(out_dir, "final_model_out.json"), "w"), indent=2)
     with open(os.path.join(out_dir, "perreaction_dG.csv"), "w", newline="") as fh:
         w = csv.writer(fh)

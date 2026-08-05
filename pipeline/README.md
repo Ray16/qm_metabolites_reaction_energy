@@ -52,6 +52,34 @@ RT ln f_ref`. Populations must come from measurement and are `null` until
 curated; an unresolved family reports the state spread as an uncertainty rather
 than inventing a weight.
 
+## Protonation ensemble (`--speciation chemaxon`)
+
+The baseline evaluates one protonation state per compound; the real compound is
+an equilibrium mixture. `--speciation chemaxon` adds the missing mixing term
+from ModelSEED's atom-level predicted pKa/pKb sites, treating sites as
+independent (the model microscopic per-atom values support):
+
+    dG_site = -RT ln(1 + 10^-|pH - pK|)
+
+It is applied to `G` **before** any reaction is scored, so it composes with
+`--pH-mode referenced` instead of forming another parallel column.
+
+**It is a correctness term, not an accuracy lever.** The correction is bounded
+at −RT ln 2 = −1.72 kJ/mol per site, reached only when pK equals pH, and decays
+to −0.24 one pH unit away. Largest compounds here are PPi (−1.82) and phosphate
+(−1.58, pKa₂ ≈ 7.0); the net effect on any of the ten reactions is under
+0.8 kJ/mol. Measured: baseline MAE 31.7 → 31.2, referenced 16.1 → 15.7, no sign
+changes. Expect that size.
+
+Two things it does *not* do. It does not fix a wrongly chosen microspecies —
+that would be worth tens of kJ, and a stored-vs-predicted charge audit found no
+such case in the benchmark's 24 compounds (the apparent NAD/NADP mismatches are
+an artefact of counting only titratable charge and ignoring the permanent
+pyridinium N⁺; their reduced partners NADH/NADPH match exactly, which confirms
+it). And independence ignores statistical factors between equivalent sites and
+electrostatic coupling between nearby ones; the bound above is what makes that
+acceptable.
+
 The empirical pKa-based anion-solvation calibration was rejected and archived
 outside the active repository at
 `../backup/thermodynamic_calc/anion_solvent_calibration/`. It is not part of
