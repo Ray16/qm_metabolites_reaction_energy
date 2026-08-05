@@ -9,7 +9,7 @@ dGPredictor and experiment (TECRDB)?
 benchmark reactions the data-driven method eQuilibrator already agrees with
 experiment to within its noise (MAE **3.6 kJ/mol**, experimental sd 6.2), while
 the pure-QM composite is at **31.7 kJ/mol**. A parameter-free external-reference
-layer brings this to **19.4 kJ/mol (9/10 correct signs)** but still does not beat
+layer brings this to **16.1 kJ/mol (10/10 correct signs)** but still does not beat
 the trivial predict-zero baseline (10.5) on MAE — QM cannot referee 16–100 kJ/mol
 disagreements when its own error is ~20–30. The full, self-critical account —
 including everything that was tried and rejected — is in
@@ -56,16 +56,16 @@ reproduces Jinich et al., *Sci. Rep.* 2014.
 |---|---:|---:|---|
 | eQuilibrator | 3.6 | — | within the 6.2 experimental sd |
 | predict zero | 10.5 | — | the trivial baseline |
-| **QM + external references (parameter-free)** | **19.4** | **9/10** | hybrid; external anchors only — see below |
+| **QM + external references (parameter-free)** | **16.1** | **10/10** | hybrid; external anchors only — see below |
 | **QM composite, pH-7 fixed-microspecies baseline** | **31.7** | 7/10 | the honest pure-QM number |
 | GroupContribution | 35.4 | — | |
 | dGPredictor (retrained) | 61.2 | 8/10 | the method under evaluation |
 
 The pure-QM baseline is **31.7 kJ/mol** (`--pH-mode fixed`, MACE-POLAR-1 + xtb-ALPB,
 16-seed ensemble). Adding **parameter-free external references** (`--pH-mode
-referenced`) reaches **19.4 kJ/mol, 9/10 correct signs** — still short of predict-zero
-(10.5) on MAE, but with the direction correct on 9 of 10, which is the property that
-matters for adjudication.
+referenced`) reaches **16.1 kJ/mol, 10/10 correct signs** — still short of predict-zero
+(10.5) on MAE, but with the direction correct on every reaction, which is the property
+that matters for adjudication.
 
 ### The `referenced` column — what it is and is not
 Each correction cancels a badly-solvated shared moiety against an **external**
@@ -77,13 +77,22 @@ scored reaction's own experimental value, and nothing is fitted. Applied correct
 | redox | rxn00070/34788 | NAD↔NADP equalization via external E°′ | 53 → 14 |
 | pyrophosphate transfer | rxn01005/rxn01675 | isodesmic vs UDP-glucose pyrophosphorylase (EC 2.7.7.9) | 23/29 → 5/12 |
 | glyoxalase | rxn01834 | methylglyoxal gem-diol hydrate microspecies | 70 → 62 |
+| glucosyl transfer | rxn00579 | isodesmic vs sucrose phosphorylase (EC 2.4.1.7), reversed | 45 → 12 |
 
-**Glycosyl transfer is deliberately *not* corrected.** The only available external
-reference (sucrose synthase) is rxn00579 itself, and referencing the others to it makes
-them *worse* (rxn00605 6 → 51) because the acceptors differ in charge, so the isodesmic
-residual is not charge-balanced and the anion-solvation error does not cancel. This is
-the honest boundary of the method — see `pipeline/reference_reactions.json` and
-`qm_thermo/external_reference.py`.
+**The glycosyl correction turns on charge balance, not on sharing a species.** An
+earlier attempt referenced the glycosyl reactions to rxn00605 and made them *worse*
+(rxn00605 6 → 51): those acceptors differ in charge, so the isodesmic residual is not
+charge-balanced and the anion-solvation error does not cancel. Reversed sucrose
+phosphorylase works because it cancels fructose and sucrose exactly and leaves
+`UDP-glucose + Pi = UDP + G1P`, which is **charge-balanced (−4 on both sides)**. The
+two species it removes are the suspect ones: ModelSEED stores fructose as a furanose
+though free fructose in water is ~70% β-pyranose, and sucrose carries a double anomeric
+linkage. Independent check — the reference's QM value computed here (+63.9) matches the
+reversed value from the separately scored 130-reaction set (+62.9) to ~1 kJ/mol.
+
+Caveat: this anchor (rxn00577) is external to the ten but is itself a member of the
+130-reaction set, so it is not independent when reporting on that set. See
+`pipeline/reference_reactions.json` and `qm_thermo/external_reference.py`.
 
 Database-wide (1550 TECRDB↔ModelSEED matched reactions): eQuilibrator covers 84%
 at MAE 5.5; dGPredictor covers 100% at 13.2.

@@ -1,0 +1,72 @@
+{
+  "_scope": "External experimental anchors for qm_thermo/external_reference.py. Nothing here is fitted, and no correction may use the scored reaction's own experimental value. Reconstructed 2026-08-04 after the original file was lost; the redox and pyrophosphorylase entries reproduce the published 19.4 kJ/mol referenced column.",
+
+  "redox_couple_equalization": [
+    {
+      "target": "rxn00070",
+      "reference_counterpart": "rxn00086",
+      "direction_sign": 1,
+      "couple_target": "NAD+/NADH",
+      "couple_reference": "NADP+/NADPH",
+      "E0_target_V": -0.320,
+      "E0_reference_V": -0.324,
+      "citation": "Standard biochemical reduction potentials, pH 7, 298.15 K (Alberty, Thermodynamics of Biochemical Reactions, 2003)",
+      "note": "Hydride addition to the nicotinamide ring is electronically identical for NAD and NADP; the 2'-phosphate is a distal spectator. The composite nevertheless puts the two couples 43 kJ/mol apart, and the NADP member is the accurate one. Transfer its QM value with the small tabulated E0' offset."
+    },
+    {
+      "target": "rxn34788",
+      "reference_counterpart": "rxn32133",
+      "direction_sign": -1,
+      "couple_target": "NAD+/NADH",
+      "couple_reference": "NADP+/NADPH",
+      "E0_target_V": -0.320,
+      "E0_reference_V": -0.324,
+      "citation": "Standard biochemical reduction potentials, pH 7, 298.15 K (Alberty, Thermodynamics of Biochemical Reactions, 2003)",
+      "note": "Reverse-direction counterpart of rxn00070; direction_sign flips the E0' offset."
+    }
+  ],
+
+  "isodesmic": [
+    {
+      "reaction_class": "nucleotidyl_transfer_pyrophosphate",
+      "applies_to": ["rxn01005", "rxn01675"],
+      "reference_name": "UDP-glucose pyrophosphorylase (EC 2.7.7.9): UTP + alpha-D-glucose 1-phosphate = UDP-glucose + PPi",
+      "reference_stoichiometry": {
+        "cpd00062": -1.0,
+        "cpd00089": -1.0,
+        "cpd00026": 1.0,
+        "cpd00012": 1.0
+      },
+      "experimental_dG_kJ": 3.0,
+      "citation": "TECRDB, EC 2.7.7.9 (UTP:alpha-D-glucose-1-phosphate uridylyltransferase)",
+      "experimental_note": "Pyrophosphate is a shared product of the reference and both targets, so it cancels exactly and the residual swap is charge-balanced. This is the condition under which isodesmic referencing works; see the glycosyl note below for the case where it does not."
+    },
+    {
+      "reaction_class": "glucosyl_transfer_to_fructose",
+      "applies_to": ["rxn00579"],
+      "reference_name": "sucrose phosphorylase (EC 2.4.1.7), written in reverse: D-fructose + alpha-D-glucose 1-phosphate = phosphate + sucrose",
+      "reference_stoichiometry": {
+        "cpd00082": -1.0,
+        "cpd00089": -1.0,
+        "cpd00009": 1.0,
+        "cpd00076": 1.0
+      },
+      "experimental_dG_kJ": 7.551,
+      "citation": "TECRDB, EC 2.7.4.1/2.4.1.7 sucrose phosphorylase, 5 measurements; ModelSEED rxn00577 reversed (measured -7.551 kJ/mol forward)",
+      "experimental_note": "Written in reverse so that fructose and sucrose cancel between target and reference, leaving the charge-balanced residual UDP-glucose + Pi = UDP + G1P (-4 on both sides at the pH-7 microspecies charges). Both species removed are suspect: ModelSEED stores fructose as a furanose although free fructose in water is ~70% beta-pyranose, and sucrose carries a double anomeric linkage. Independent check: the reference's QM value computed here (+63.9) matches the reversed value from the separately scored 130-reaction set (+62.9) to ~1 kJ/mol. CAVEAT: the anchor is external to the ten but is itself a member of the 130-reaction set (rxn00577), so it must not be counted as independent when reporting on that set."
+    }
+  ],
+
+  "speciation_substitution": [
+    {
+      "reaction": "rxn01834",
+      "compound": "cpd00428",
+      "microspecies_record": "cpd00428_hydrate",
+      "charge": 0,
+      "n_hydrogens": 6,
+      "water_balance": -1.0,
+      "citation": "Methylglyoxal aldehyde hydration in water; the free aldehyde is a minor species (>99% hydrated at the aldehyde carbon)",
+      "note": "ModelSEED scores 2-oxopropanal as the free aldehyde. Replacing it with the explicitly computed gem-diol adds one oxygen and two hydrogens, balanced by consuming one water. Worth only ~8 kJ/mol; the bulk of this reaction's error is not speciation."
+    }
+  ]
+}

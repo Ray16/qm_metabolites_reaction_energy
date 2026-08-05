@@ -1,0 +1,14 @@
+{
+ "cpd00009": [
+  {
+   "conf": 0,
+   "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/pipeline/geometries_ensemble_ref/cpd00009/conf_000.xyz",
+   "dGsolv_kJ": -1032.175865567259,
+   "G_RRHO_kJ": -12.821719668349564,
+   "g_tot_kJ": null,
+   "rel_kJ": 0.0,
+   "n_imag": 0,
+   "imag_cm": 0.0
+  }
+ ]
+}

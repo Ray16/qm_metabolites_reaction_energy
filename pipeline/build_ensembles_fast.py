@@ -58,7 +58,9 @@ from qm_thermo.structures import load_metabolites             # noqa: E402
 
 XTB = config.XTB_BIN
 HARTREE_TO_KJ = 2625.499639
-MET_JSON = os.path.join(HERE, "metabolites.json")
+# Overridable so an extra species (a reference-reaction compound, a resolved
+# anomer) can be built without editing the benchmark's own metabolite list.
+MET_JSON = os.environ.get("FAST_MET_JSON", os.path.join(HERE, "metabolites.json"))
 ENS_DIR = os.environ.get("FAST_ENS_DIR", os.path.join(HERE, "geometries_ensemble_fast"))
 ENS_JSON = os.environ.get("FAST_ENS_JSON",
                           os.path.join(HERE, "ensemble_fast_xtb.json"))

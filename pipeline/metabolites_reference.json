@@ -1,0 +1,11 @@
+[
+  {
+    "id": "cpd00009",
+    "name": "Phosphate",
+    "smiles": "O=P([O-])([O-])O",
+    "formula": "HO4P",
+    "charge": -2,
+    "inchikey": "NBIIXXVUZAFLBC-UHFFFAOYSA-L",
+    "opentecr_species": ""
+  }
+]

@@ -20,6 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
 sys.path.insert(0, THERMO)
 from qm_thermo import config
+from qm_thermo import external_reference
 from qm_thermo.composite import extract_ensemble_energy
 from qm_thermo.reactions import Reaction, SpeciesInfo, reaction_dG
 from qm_thermo.speciation import families_from_dict
@@ -28,6 +29,7 @@ from qm_thermo.reaction_correction import canonical_signature
 RXN_CSV = os.path.join(HERE, "top10_reactions_stereo_significant.csv")
 FAMILIES_JSON = os.path.join(HERE, "microspecies_families.json")
 MICROSPECIES_G_JSON = os.path.join(THERMO, "mlip", "G_aq_microspecies.json")
+REFERENCES_JSON = os.path.join(HERE, "reference_reactions.json")
 
 
 def score_with_families(reactions, G, S, conditions, families):
@@ -55,15 +57,29 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--breakdown", default=os.path.join(
         THERMO, "mlip", "G_aq_macepolar_deep.json"))
-    ap.add_argument("--pH-mode", choices=("fixed", "families"), default="fixed",
-                    help="fixed is the reported baseline; families applies curated pKa ensembles")
+    ap.add_argument("--pH-mode", choices=("fixed", "families", "referenced"), default="fixed",
+                    help="fixed is the reported baseline; families applies curated pKa "
+                         "ensembles; referenced adds the parameter-free external anchors")
     ap.add_argument("--families", default=FAMILIES_JSON,
                     help="curated microspecies-family metadata")
+    ap.add_argument("--references", default=REFERENCES_JSON,
+                    help="external experimental anchors for --pH-mode referenced")
+    ap.add_argument("--extra-energies", action="append", default=[],
+                    help="additional G_aq json files merged into the breakdown "
+                         "(e.g. compounds that appear only in a reference reaction)")
     ap.add_argument("--write-calibration-input",
                     help="write labelled reaction rows for the separate class-calibration CLI")
     args = ap.parse_args()
 
     bd = json.load(open(args.breakdown))
+    # Reference reactions may involve compounds outside the benchmark (phosphate,
+    # for instance).  Merging is additive and refuses to silently overwrite a
+    # benchmark energy with a differently-produced one.
+    for path in args.extra_energies:
+        for compound, record in json.load(open(path)).items():
+            if compound in bd:
+                raise ValueError(f"{compound} in both {args.breakdown} and {path}")
+            bd[compound] = record
     spec = json.load(open(os.path.join(HERE, "species.json")))
     reactions = json.load(open(os.path.join(HERE, "reactions.json")))
     meta = {r["modelseed_rxn"]: r for r in csv.DictReader(open(RXN_CSV))}
@@ -125,6 +141,17 @@ def main():
             reactions, G_family, S_family, condX, families)
         models.append((label, condX))
 
+    reference_provenance = {}
+    if args.pH_mode == "referenced":
+        label = "QM + external references [param-free]"
+        references = json.load(open(args.references))
+        micro_energies = json.load(open(MICROSPECIES_G_JSON))
+        values, reference_provenance = external_reference.apply_all(
+            references, reactions, G, S, C, micro_energies,
+            baseline=res["pH7 fixed species"])
+        res[label] = values
+        models.append((label, cond7))
+
     labels = [label for label, _ in models]
     width = max(14, max(len(label) for label in labels) + 2)
     print(f"{'rxn':10}{'exp':>8}" + "".join(f"{label:>{width}}" for label in labels))
@@ -147,7 +174,8 @@ def main():
     out_dir = os.path.join(THERMO, "results", "benchmark")
     os.makedirs(out_dir, exist_ok=True)
     json.dump({"models_kJ": res, "pH_mode": args.pH_mode,
-               "family_provenance": family_provenance},
+               "family_provenance": family_provenance,
+               "reference_provenance": reference_provenance},
               open(os.path.join(out_dir, "final_model_out.json"), "w"), indent=2)
     with open(os.path.join(out_dir, "perreaction_dG.csv"), "w", newline="") as fh:
         w = csv.writer(fh)

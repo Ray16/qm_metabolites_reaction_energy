@@ -113,5 +113,10 @@
   "name": "(R)-S-Lactoylglutathione",
   "charge": -1,
   "n_hydrogens": 20
+ },
+ "cpd00009": {
+  "name": "Phosphate",
+  "charge": -2,
+  "n_hydrogens": 1
  }
 }
