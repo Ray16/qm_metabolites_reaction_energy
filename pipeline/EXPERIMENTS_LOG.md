@@ -63,6 +63,38 @@ the documented method limitation. Only two ways past it:
    warranted precisely because the physics methods have a documented, systematic
    phosphate failure (the user's stated criterion for allowing correction).
 
+## Explicit solvent: feasible but ruled out on cost (2026-08-09)
+
+- MACE-POLAR runs **stable** bulk-water MD (758-atom solvated HPO4²⁻ + 2 Na⁺;
+  energy flat at −546335 eV) and supports all needed elements (Z 1–83).
+- But **~0.7 s/step / 758 atoms ≈ 8 GPU-days per ns** → pure MLIP-MD FEP is
+  GPU-months (infeasible). The tractable alternative (indirect ML/MM: classical-MD
+  sampling + MACE-POLAR endpoint correction) is only GPU-hours but reintroduces a
+  force field and carries a real MM→MLIP convergence risk.
+- **Decision (user): do not pursue FEP — too expensive.** Static MLIP clusters
+  also fail (miss configurational entropy of the hydration shell). So there is no
+  first-principles phosphate-solvation fix within budget.
+
+## Where the phosphate reaction error actually lives — and why cheap corrections fail
+
+The error does **not** track phosphate count or total charge (those are conserved
+in phosphoryl-transfer/hydrolysis reactions, so Δz² and per-P corrections cancel —
+measured: Δz² reaction correction removes only ~4 kJ/mol). It tracks the
+**phosphoanhydride bond environment** (P–O–P vs ester vs free): the pre-registered
+d(P-O-P)=−1 bias is +64 kJ/mol. Any fix must target the *bond*, not the charge.
+
+## Recommendation (cheap, physics-grounded, already partly built)
+
+The only lever that is cheap, avoids new MD, and is consistent with "correction
+only for a documented method limitation" is the **external-reference / isodesmic
+layer**: express each phosphate reaction relative to a reference reaction of the
+same bond-change class (phosphoanhydride hydrolysis, glycosyl transfer, redox
+E°′) with a known anchor, so the mis-solvated shared moiety cancels. This already
+exists in the repo and is validated: top-10 disagreements **31.7 → 16.1 kJ/mol,
+10/10 correct signs, parameter-free anchors** (README). Systematising it
+database-wide is the pragmatic path. Realistic ceiling remains ~16 MAE (the
+non-additive floor), i.e. a ~2× win over the 36.1 baseline, not <10.
+
 ## Orthogonal cheap wins (the non-solvation ~12 floor)
 - Tier-0 speciation: dominant tautomer/anomer/hydrate + pH-7 microstates
   (11/23 metabolites flagged; worth 12–23 kJ/mol on sensitive reactions).

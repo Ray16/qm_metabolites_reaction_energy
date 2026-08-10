@@ -70,6 +70,15 @@ _NCPU = os.cpu_count() or 16
 EMBED = int(os.environ.get("FAST_EMBED", "48"))
 NSTART = int(os.environ.get("FAST_NSTART", "16"))
 WINDOW_KJ = float(os.environ.get("FAST_WINDOW_KJ", "20"))
+# Always keep at least this many distinct conformers, even if fewer fall inside
+# WINDOW_KJ -- prevents floppy species (ATP, CoA, sugar-phosphates) collapsing to
+# 1-2. Default 1 preserves the original behaviour; set FAST_MIN_CONF=10 for the
+# deep re-run (pair with a larger FAST_EMBED/FAST_NSTART so the search is broad).
+MIN_CONF = int(os.environ.get("FAST_MIN_CONF", "1"))
+# Bound RDKit embed/MMFF threads per compound. Default 0 (=all cores) matches the
+# original behaviour, but that oversubscribes badly when FAST_JOBS>1 (each compound
+# grabbing all cores). Set FAST_RDKIT_THREADS to a small number for the deep re-run.
+RDKIT_THREADS = int(os.environ.get("FAST_RDKIT_THREADS", "0"))
 XTB_OMP = int(os.environ.get("FAST_XTB_OMP", "4"))
 JOBS = int(os.environ.get("FAST_JOBS", str(max(1, (_NCPU - 8) // (XTB_OMP * 4)))))
 OPT_WORKERS = int(os.environ.get("FAST_OPT_WORKERS", "4"))
@@ -90,7 +99,7 @@ def embed_mmff(meta):
     params = AllChem.ETKDGv3()
     params.randomSeed = 0xC0FFEE
     params.pruneRmsThresh = 0.5
-    params.numThreads = 0
+    params.numThreads = RDKIT_THREADS
     cids = list(AllChem.EmbedMultipleConfs(mol, numConfs=EMBED, params=params))
     if not cids:
         params.useRandomCoords = True
@@ -98,9 +107,9 @@ def embed_mmff(meta):
     if not cids:
         raise RuntimeError(f"{meta.cpd_id}: RDKit embedded no conformers")
     if AllChem.MMFFHasAllMoleculeParams(mol):
-        res = AllChem.MMFFOptimizeMoleculeConfs(mol, maxIters=2000, numThreads=0)
+        res = AllChem.MMFFOptimizeMoleculeConfs(mol, maxIters=2000, numThreads=RDKIT_THREADS)
     else:
-        res = AllChem.UFFOptimizeMoleculeConfs(mol, maxIters=2000, numThreads=0)
+        res = AllChem.UFFOptimizeMoleculeConfs(mol, maxIters=2000, numThreads=RDKIT_THREADS)
     order = sorted(((e, cid) for cid, (_ok, e) in zip(cids, res)), key=lambda t: t[0])
     return mol, [cid for _e, cid in order[:NSTART]]
 
@@ -231,7 +240,7 @@ def process_compound(meta):
         kept = []
         for r in opted:
             rel = (r["e_alpb_Eh"] - emin) * HARTREE_TO_KJ
-            if rel > WINDOW_KJ:
+            if rel > WINDOW_KJ and len(kept) >= MIN_CONF:
                 break
             geom = read_xyz_heavy(r["xtbopt"])
             if any(abs(rel - k["rel_kJ"]) < DEDUP_KJ
