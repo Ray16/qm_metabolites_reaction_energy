@@ -1,0 +1,134 @@
+[
+ {
+  "id": "formaldehyde",
+  "class": "hydration",
+  "reactant": "formaldehyde_R",
+  "product": "formaldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": -18.8,
+  "charge": 0,
+  "note": "Khyd~2000, >99.9% hydrated",
+  "citation": "Bell 1966; Winkelman 2002 formaldehyde hydration K"
+ },
+ {
+  "id": "acetaldehyde",
+  "class": "hydration",
+  "reactant": "acetaldehyde_R",
+  "product": "acetaldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": -0.2,
+  "charge": 0,
+  "note": "Khyd~1.06, ~51% hydrated",
+  "citation": "Bell & Clunie 1952"
+ },
+ {
+  "id": "acetone",
+  "class": "hydration",
+  "reactant": "acetone_R",
+  "product": "acetone_P",
+  "add_water": true,
+  "dG_ref_kJ": 16.3,
+  "charge": 0,
+  "note": "Khyd~1.4e-3, keto dominant",
+  "citation": "Bell 1966"
+ },
+ {
+  "id": "pyruvate",
+  "class": "hydration",
+  "reactant": "pyruvate_R",
+  "product": "pyruvate_P",
+  "add_water": true,
+  "dG_ref_kJ": 6.8,
+  "charge": -1,
+  "note": "Khyd~0.065 for the anion, ~6% hydrated",
+  "citation": "Pocker 1969; Kozlowski 1988"
+ },
+ {
+  "id": "glyoxylate",
+  "class": "hydration",
+  "reactant": "glyoxylate_R",
+  "product": "glyoxylate_P",
+  "add_water": true,
+  "dG_ref_kJ": -9.2,
+  "charge": -1,
+  "note": ">95% hydrated in water",
+  "citation": "Sorensen 1974 glyoxylate hydration"
+ },
+ {
+  "id": "glyceraldehyde",
+  "class": "hydration",
+  "reactant": "glyceraldehyde_R",
+  "product": "glyceraldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": -3.0,
+  "charge": 0,
+  "note": "substantially hydrated (~70-90%)",
+  "citation": "estimate; aldotriose hydration, medium confidence"
+ },
+ {
+  "id": "methylglyoxal",
+  "class": "hydration",
+  "reactant": "methylglyoxal_R",
+  "product": "methylglyoxal_P",
+  "add_water": true,
+  "dG_ref_kJ": -12.0,
+  "charge": 0,
+  "note": "aldehyde ~fully hydrated in water",
+  "citation": "Creighton & Hamilton 2001; methylglyoxal hydration"
+ },
+ {
+  "id": "2-pyridone",
+  "class": "tautomer",
+  "reactant": "2-pyridone_R",
+  "product": "2-pyridone_P",
+  "add_water": false,
+  "dG_ref_kJ": -18.0,
+  "charge": 0,
+  "note": "2-pyridone favored in water, K~900-2000; classic tautomer benchmark",
+  "citation": "Beak 1977; Wong 1992 aqueous 2-pyridone/2-hydroxypyridine"
+ },
+ {
+  "id": "4-pyridone",
+  "class": "tautomer",
+  "reactant": "4-pyridone_R",
+  "product": "4-pyridone_P",
+  "add_water": false,
+  "dG_ref_kJ": -14.0,
+  "charge": 0,
+  "note": "4-pyridone favored in water",
+  "citation": "Beak 1977, medium confidence"
+ },
+ {
+  "id": "cytosine",
+  "class": "tautomer",
+  "reactant": "cytosine_R",
+  "product": "cytosine_P",
+  "add_water": false,
+  "dG_ref_kJ": -8.0,
+  "charge": 0,
+  "note": "amino-keto (canonical) favored in water",
+  "citation": "aqueous cytosine tautomer; canonical dominant, medium confidence"
+ },
+ {
+  "id": "uracil",
+  "class": "tautomer",
+  "reactant": "uracil_R",
+  "product": "uracil_P",
+  "add_water": false,
+  "dG_ref_kJ": -18.0,
+  "charge": 0,
+  "note": "diketo strongly favored in water",
+  "citation": "diketo dominant, high confidence qualitative"
+ },
+ {
+  "id": "glucose",
+  "class": "anomer",
+  "reactant": "glucose_R",
+  "product": "glucose_P",
+  "add_water": false,
+  "dG_ref_kJ": -1.4,
+  "charge": 0,
+  "note": "alpha->beta-D-glucopyranose, 38:62 in water",
+  "citation": "standard mutarotation equilibrium"
+ }
+]
