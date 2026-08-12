@@ -1,0 +1,15 @@
+{
+  "_scope": "Aqueous carbonyl hydration constants Khyd = [gem-diol]/[carbonyl] at 298 K for species in the 367-reaction set. The stored ModelSEED microspecies is the free carbonyl; the effective transformed formation energy of the equilibrium mixture is lower by -RT ln(1 + Khyd). Only species with a defensible literature Khyd are listed; all others are treated as unhydrated (the current pipeline behaviour). conf = confidence in the value.",
+  "compounds": {
+    "cpd00040": {"name": "Glyoxylate", "Khyd": 300, "conf": "high", "citation": "Sorensen 1974; >99% hydrated"},
+    "cpd00428": {"name": "Methylglyoxal (2-oxopropanal)", "Khyd": 100, "conf": "high", "citation": "Creighton 2001; aldehyde ~fully hydrated"},
+    "cpd00102": {"name": "Glyceraldehyde-3-phosphate", "Khyd": 24, "conf": "high", "citation": "Trentham 1969; GAP ~96% hydrate"},
+    "cpd00071": {"name": "Acetaldehyde", "Khyd": 1.06, "conf": "high", "citation": "Bell & Clunie 1952"},
+    "cpd00229": {"name": "Glycolaldehyde", "Khyd": 15, "conf": "medium", "citation": "aqueous glycolaldehyde, largely hydrated/dimer"},
+    "cpd00448": {"name": "D-Glyceraldehyde", "Khyd": 5, "conf": "medium", "citation": "aldotriose hydration"},
+    "cpd00236": {"name": "D-Erythrose-4-phosphate", "Khyd": 15, "conf": "medium", "citation": "phosphorylated aldose, heavily hydrated (analogy to GAP)"},
+    "cpd00817": {"name": "D-Arabinose-5-phosphate", "Khyd": 8, "conf": "low", "citation": "phosphorylated aldose (estimate)"},
+    "cpd00843": {"name": "Tartronate semialdehyde", "Khyd": 20, "conf": "low", "citation": "alpha-hydroxy/acid aldehyde, heavily hydrated (estimate)"},
+    "cpd00191": {"name": "3-Oxopropanoate (malonate semialdehyde)", "Khyd": 3, "conf": "low", "citation": "aldehyde (estimate)"}
+  }
+}

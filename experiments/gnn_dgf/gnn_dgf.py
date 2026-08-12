@@ -82,46 +82,63 @@ BOND_DIM = len(bond_features(Chem.MolFromSmiles("CC").GetBondWithIdx(0)))
 
 
 class CompoundGraphs:
-    """All compounds packed into one disconnected graph for scatter MPNN."""
+    """All compounds packed into one disconnected graph for scatter MPNN.
 
-    def __init__(self, mets, ensemble, use_qm=True):
+    QM feature levels (ablation ladder):
+      'none' : molecular graph only (no QM physics)
+      'solv' : + graph-level dGsolv (ALPB solvation free energy)
+      'full' : + per-atom xtb Mulliken charge (node) + HOMO/LUMO/gap (graph)
+    """
+
+    def __init__(self, mets, ensemble, qmfeat=None, level="full"):
         self.ids = [m["id"] for m in mets]
         self.idx = {c: i for i, c in enumerate(self.ids)}
+        qmfeat = qmfeat or {}
         node_feats, batch, src, dst, edge_feats = [], [], [], [], []
         offset = 0
         qm = []
+        use_atom_qm = level == "full"
         for i, m in enumerate(mets):
             mol = Chem.MolFromSmiles(m["smiles"])
-            mol = Chem.AddHs(mol) if False else mol  # heavy-atom graph
             n = mol.GetNumAtoms()
+            qf = qmfeat.get(m["id"]) or {}
+            mull = qf.get("mulliken") or []
             for a in mol.GetAtoms():
-                node_feats.append(atom_features(a))
+                af = atom_features(a)
+                if use_atom_qm:
+                    q = mull[a.GetIdx()] if a.GetIdx() < len(mull) else 0.0
+                    af = af + [q]                      # QM partial charge node feat
+                node_feats.append(af)
                 batch.append(i)
             for b in mol.GetBonds():
                 u, v = b.GetBeginAtomIdx() + offset, b.GetEndAtomIdx() + offset
                 bf = bond_features(b)
                 src += [u, v]; dst += [v, u]; edge_feats += [bf, bf]
-            # self-loops so isolated atoms (single-atom species) still update
-            for a in range(n):
+            for a in range(n):                          # self-loops
                 src.append(a + offset); dst.append(a + offset)
                 edge_feats.append([0.0] * BOND_DIM)
             offset += n
-            # per-compound QM + trivial descriptors
-            e = ensemble.get(m["id"]) or [{}]
-            dgsolv = e[0].get("dGsolv_kJ")
-            qm.append([
-                (dgsolv if dgsolv is not None else 0.0) / 100.0,
-                float(m.get("charge", 0)),
-                n / 50.0,
-            ])
+            # graph-level QM vector
+            e = (ensemble.get(m["id"]) or [{}])[0]
+            dgsolv = e.get("dGsolv_kJ")
+            gvec = []
+            if level in ("solv", "full"):
+                gvec.append((dgsolv if dgsolv is not None else 0.0) / 100.0)
+            if level == "full":
+                gvec += [
+                    (qf.get("homo") if qf.get("homo") is not None else 0.0),
+                    (qf.get("lumo") if qf.get("lumo") is not None else 0.0),
+                    (qf.get("gap") if qf.get("gap") is not None else 0.0) / 5.0,
+                ]
+            if not gvec:                                # 'none' -> single zero col
+                gvec = [0.0]
+            qm.append(gvec)
+        self.atom_dim = len(node_feats[0])
         self.x = torch.tensor(node_feats, dtype=torch.float32)
         self.batch = torch.tensor(batch, dtype=torch.long)
         self.edge_index = torch.tensor([src, dst], dtype=torch.long)
         self.edge_attr = torch.tensor(edge_feats, dtype=torch.float32)
-        qm = torch.tensor(qm, dtype=torch.float32)
-        if not use_qm:
-            qm = qm[:, 1:2] * 0.0  # keep shape (n,1) of zeros -> QM ablated
-        self.qm = qm
+        self.qm = torch.tensor(qm, dtype=torch.float32)
         self.n_comp = len(self.ids)
 
 
@@ -185,23 +202,44 @@ def targets(tgt, rxn_ids):
 # --------------------------------------------------------------------------- #
 # Training / evaluation
 # --------------------------------------------------------------------------- #
-def train_fold(g, S, y, w, tr, te, epochs=400, lr=3e-3, wd=1e-4, seed=0):
+def _train_once(g, S, y, w, tr, te, epochs, lr, wd, seed, patience=40):
     torch.manual_seed(seed)
-    model = MPNN(ATOM_DIM, BOND_DIM, g.qm.size(1))
+    model = MPNN(g.atom_dim, BOND_DIM, g.qm.size(1))
     opt = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=wd)
-    Str, ytr, wtr = S[tr], y[tr], w[tr]
-    Ste, yte = S[te], y[te]
-    best = (1e9, None)
+    # inner val split of the training reactions for early stopping
+    rng = np.random.default_rng(seed)
+    perm = rng.permutation(len(tr))
+    nval = max(4, len(tr) // 6)
+    vi, ti = tr[perm[:nval]], tr[perm[nval:]]
+    Sti, yti, wti = S[ti], y[ti], w[ti]
+    Sv, yv = S[vi], y[vi]
+    best = (1e9, None, 0)
     for ep in range(epochs):
         model.train(); opt.zero_grad()
-        f = model(g)
-        pred = Str @ f
-        loss = (wtr * (pred - ytr) ** 2).mean()
+        pred = Sti @ model(g)
+        loss = (wti * (pred - yti) ** 2).mean()
         loss.backward(); opt.step()
+        if ep % 5 == 0:
+            model.eval()
+            with torch.no_grad():
+                vmae = (Sv @ model(g) - yv).abs().mean().item()
+            if vmae < best[0] - 1e-4:
+                best = (vmae, {k: v.clone() for k, v in model.state_dict().items()}, ep)
+            elif ep - best[2] > patience * 5:
+                break
+    if best[1] is not None:
+        model.load_state_dict(best[1])
     model.eval()
     with torch.no_grad():
-        pe = Ste @ model(g)
-    return (pe - yte).abs()
+        return (S @ model(g))[te]
+
+
+def train_fold(g, S, y, w, tr, te, epochs=600, lr=3e-3, wd=1e-4, seed=0, n_ens=3):
+    """Seed-ensemble of early-stopped models; return |pred-truth| on test."""
+    preds = torch.stack([
+        _train_once(g, S, y, w, tr, te, epochs, lr, wd, seed + 100 * s)
+        for s in range(n_ens)]).mean(0)
+    return (preds - y[te]).abs()
 
 
 def kfold_indices(n, k, seed):
@@ -276,12 +314,18 @@ def main():
     w = torch.log1p(n); w = w / w.mean()
     feats = compound_count_feats(mets)
 
-    g_qm = CompoundGraphs(mets, exp, use_qm=True)
-    g_noqm = CompoundGraphs(mets, exp, use_qm=False)
+    qmf_path = f"{HERE}/qm_features.json"
+    qmf = json.load(open(qmf_path)) if os.path.exists(qmf_path) else {}
+    graphs = {lvl: CompoundGraphs(mets, exp, qmf, level=lvl)
+              for lvl in ("none", "solv", "full")}
+    if not qmf:
+        print("[warn] qm_features.json missing -> 'full' level has no xtb feats")
 
     print(f"reactions={len(rxn_ids)}  compounds={len(mets)}  "
-          f"predict-zero MAE={y.abs().mean():.2f}\n")
+          f"predict-zero MAE={y.abs().mean():.2f}  "
+          f"xtb feats for {sum(1 for v in qmf.values() if v and v.get('mulliken'))} cpds\n")
 
+    results = {}
     for scheme, folds in [
         ("RANDOM 5-fold (interpolation)",
          [(np.setdiff1d(np.arange(len(rxn_ids)), te), te)
@@ -290,22 +334,25 @@ def main():
          compound_disjoint_folds(rxns, rxn_ids, cidx, args.folds, args.seed)),
     ]:
         print(f"=== {scheme} ===")
-        e_zero, e_ridge, e_gnn, e_gnn0 = [], [], [], []
+        acc = {k: [] for k in ("zero", "ridge", "none", "solv", "full")}
         for fi, (tr, te) in enumerate(folds):
             if len(te) == 0:
                 continue
-            e_zero.append(y[te].abs().numpy())
-            e_ridge.append(ridge_baseline(S, y, tr, te, feats))
-            e_gnn.append(train_fold(g_qm, S, y, w, tr, te,
-                                    epochs=args.epochs, seed=args.seed + fi).numpy())
-            e_gnn0.append(train_fold(g_noqm, S, y, w, tr, te,
-                                     epochs=args.epochs, seed=args.seed + fi).numpy())
+            acc["zero"].append(y[te].abs().numpy())
+            acc["ridge"].append(ridge_baseline(S, y, tr, te, feats))
+            for lvl in ("none", "solv", "full"):
+                acc[lvl].append(train_fold(graphs[lvl], S, y, w, tr, te,
+                                           epochs=args.epochs,
+                                           seed=args.seed + fi).numpy())
         cat = lambda L: np.concatenate(L)
-        report("predict-zero", cat(e_zero))
-        report("ridge (linear group additivity)", cat(e_ridge))
-        report("GNN (graph only, QM ablated)", cat(e_gnn0))
-        report("GNN + QM feature (dGsolv)", cat(e_gnn))
+        results[scheme] = {}
+        results[scheme]["predict-zero"] = report("predict-zero", cat(acc["zero"]))
+        results[scheme]["ridge-linear"] = report("ridge (linear group additivity)", cat(acc["ridge"]))
+        results[scheme]["gnn-graph-only"] = report("GNN (graph only)", cat(acc["none"]))
+        results[scheme]["gnn+dGsolv"] = report("GNN + dGsolv", cat(acc["solv"]))
+        results[scheme]["gnn+xtb(full)"] = report("GNN + xtb charges+orbitals", cat(acc["full"]))
         print()
+    json.dump(results, open(f"{HERE}/results.json", "w"), indent=2)
 
 
 if __name__ == "__main__":
