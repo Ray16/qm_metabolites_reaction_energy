@@ -52,3 +52,49 @@ Reference values are literature-curated with citations in
 `pipeline/speciation_validation.json`; confidence varies (formaldehyde/acetone/
 2-pyridone high; glyceraldehyde/4-pyridone/cytosine medium). Expanding the set
 is the next step before quoting a firm per-class MAE.
+
+---
+
+## Update (2026-08-12): expanded to 22 pairs + DFT check on aromatic-N
+
+Expanded set (11 hydration, 8 tautomer, 3 anomer). Numbers hold:
+
+| class | n | MAE | dominant species correct |
+|---|--:|--:|--:|
+| hydration | 11 | 10.8 | 9/11 |
+| tautomer  |  8 | 11.4 | 7/8 |
+| anomer    |  3 |  4.2 | 1/3 |
+| overall   | 22 | 10.1 | 17/22 |
+
+New tautomer misses confirm MACE-POLAR has class-specific electronic errors:
+acetylacetone enol over-stabilised (QC -20 vs exp +4.3; intramolecular H-bond),
+pyridones under-stabilised. Anomers remain unresolvable (all within ~2 kJ of
+50:50 -- intrinsic, not fixable).
+
+### DFT check (r2SCAN-3c/CPCM single points + xtb RRHO)
+
+Tested whether the aromatic-N tautomer miss is electronic (MLIP) or solvation:
+
+| tautomer | exp | MACE err | DFT err |
+|---|--:|--:|--:|
+| 2-pyridone | -18 | +17.0 | **-5.1** |
+| 4-pyridone | -14 | +11.2 | **-4.4** |
+| cytosine   |  -8 |  +1.8 | -24.4 |
+| uracil     | -18 | -16.0 | -24.6 |
+
+**Two-headed, not one fix.** DFT decisively corrects the pyridones (a real ~20
+kJ MLIP electronic error -- hydroxypyridine/pyridone), but overshoots the
+nucleobases. The latter is the known continuum-solvation failure for nucleobase
+tautomers (implicit solvent under-stabilises the lactim; explicit water needed),
+not a DFT electronic problem -- MACE-POLAR is closer here, possibly for the
+wrong reasons. Aggregate MACE 11.5 vs DFT 14.6 on these four.
+
+### Verdict
+QC speciation is usable for **decisive** equilibria (~10 kJ, dominant species
+17/22) and is the only method that addresses tautomers/hydrates at all. Its
+ceiling is set by the same two errors as everywhere, now small: class-specific
+MLIP electronic error (DFT-fixable for O-heterocycles) and continuum solvation
+(nucleobases need explicit water). A production speciation module should: use
+the MLIP for hydration/anomer/simple tautomers; flag aromatic-N and
+1,3-dicarbonyl tautomers for a DFT single point; and treat near-degenerate
+(<5 kJ) equilibria as unresolved rather than forcing a call.

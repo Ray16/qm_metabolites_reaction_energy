@@ -77,6 +77,50 @@
   "citation": "Creighton & Hamilton 2001; methylglyoxal hydration"
  },
  {
+  "id": "chloral",
+  "class": "hydration",
+  "reactant": "chloral_R",
+  "product": "chloral_P",
+  "add_water": true,
+  "dG_ref_kJ": -26.0,
+  "charge": 0,
+  "note": "Khyd~3.5e4, essentially 100% hydrate",
+  "citation": "Bell 1966 chloral hydrate"
+ },
+ {
+  "id": "benzaldehyde",
+  "class": "hydration",
+  "reactant": "benzaldehyde_R",
+  "product": "benzaldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": 12.0,
+  "charge": 0,
+  "note": "Khyd~8e-3, carbonyl dominant",
+  "citation": "Bell 1966"
+ },
+ {
+  "id": "propionaldehyde",
+  "class": "hydration",
+  "reactant": "propionaldehyde_R",
+  "product": "propionaldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": 0.9,
+  "charge": 0,
+  "note": "Khyd~0.71, ~42% hydrate",
+  "citation": "Bell 1966"
+ },
+ {
+  "id": "isobutyraldehyde",
+  "class": "hydration",
+  "reactant": "isobutyraldehyde_R",
+  "product": "isobutyraldehyde_P",
+  "add_water": true,
+  "dG_ref_kJ": 1.7,
+  "charge": 0,
+  "note": "Khyd~0.5",
+  "citation": "Bell 1966, medium confidence"
+ },
+ {
   "id": "2-pyridone",
   "class": "tautomer",
   "reactant": "2-pyridone_R",
@@ -121,6 +165,50 @@
   "citation": "diketo dominant, high confidence qualitative"
  },
  {
+  "id": "acetylacetone",
+  "class": "tautomer",
+  "reactant": "acetylacetone_R",
+  "product": "acetylacetone_P",
+  "add_water": false,
+  "dG_ref_kJ": 4.3,
+  "charge": 0,
+  "note": "~15% enol in water, keto favored",
+  "citation": "Emsley 1984; aqueous acac keto/enol"
+ },
+ {
+  "id": "2-thiopyridone",
+  "class": "tautomer",
+  "reactant": "2-thiopyridone_R",
+  "product": "2-thiopyridone_P",
+  "add_water": false,
+  "dG_ref_kJ": -20.0,
+  "charge": 0,
+  "note": "thione strongly favored in water",
+  "citation": "aqueous 2-mercaptopyridine, high conf qualitative"
+ },
+ {
+  "id": "barbituric",
+  "class": "tautomer",
+  "reactant": "barbituric_R",
+  "product": "barbituric_P",
+  "add_water": false,
+  "dG_ref_kJ": 8.0,
+  "charge": 0,
+  "note": "triketo favored over enol in water",
+  "citation": "aqueous barbituric acid, medium"
+ },
+ {
+  "id": "oxaloacetate_ke",
+  "class": "tautomer",
+  "reactant": "oxaloacetate_ke_R",
+  "product": "oxaloacetate_ke_P",
+  "add_water": false,
+  "dG_ref_kJ": 6.5,
+  "charge": -2,
+  "note": "enol ~6-13% in water, keto favored",
+  "citation": "aqueous OAA keto/enol, medium"
+ },
+ {
   "id": "glucose",
   "class": "anomer",
   "reactant": "glucose_R",
@@ -130,5 +218,27 @@
   "charge": 0,
   "note": "alpha->beta-D-glucopyranose, 38:62 in water",
   "citation": "standard mutarotation equilibrium"
+ },
+ {
+  "id": "mannose",
+  "class": "anomer",
+  "reactant": "mannose_R",
+  "product": "mannose_P",
+  "add_water": false,
+  "dG_ref_kJ": 1.8,
+  "charge": 0,
+  "note": "alpha->beta-D-mannopyranose, alpha favored ~67:33",
+  "citation": "mutarotation equilibrium"
+ },
+ {
+  "id": "galactose",
+  "class": "anomer",
+  "reactant": "galactose_R",
+  "product": "galactose_P",
+  "add_water": false,
+  "dG_ref_kJ": -1.4,
+  "charge": 0,
+  "note": "alpha->beta-D-galactopyranose, beta favored ~64:36",
+  "citation": "mutarotation equilibrium"
  }
 ]

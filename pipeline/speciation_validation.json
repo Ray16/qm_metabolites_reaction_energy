@@ -1,49 +1,210 @@
 {
-  "_scope": "Curated aqueous tautomer / hydration / anomer equilibria with literature reference dG at 298 K. This is the Route-2 validation set: can QC pick the right microspecies from RELATIVE energies? Each pair differs by a proton shift, a water addition, or a ring configuration -- same or nearly-same charge, so the polyanion solvation error should largely cancel. dG_ref_kJ is dG(product - reactant); sign convention matches the 'reaction' field.",
-
-  "hydration": [
-    {"id": "formaldehyde", "reactant": "C=O", "product": "OCO", "add_water": true,
-     "dG_ref_kJ": -18.8, "note": "Khyd~2000, >99.9% hydrated",
-     "citation": "Bell 1966; Winkelman 2002 formaldehyde hydration K"},
-    {"id": "acetaldehyde", "reactant": "CC=O", "product": "CC(O)O", "add_water": true,
-     "dG_ref_kJ": -0.2, "note": "Khyd~1.06, ~51% hydrated",
-     "citation": "Bell & Clunie 1952"},
-    {"id": "acetone", "reactant": "CC(C)=O", "product": "CC(C)(O)O", "add_water": true,
-     "dG_ref_kJ": 16.3, "note": "Khyd~1.4e-3, keto dominant",
-     "citation": "Bell 1966"},
-    {"id": "pyruvate", "reactant": "CC(=O)C(=O)[O-]", "product": "CC(O)(O)C(=O)[O-]", "add_water": true,
-     "charge": -1, "dG_ref_kJ": 6.8, "note": "Khyd~0.065 for the anion, ~6% hydrated",
-     "citation": "Pocker 1969; Kozlowski 1988"},
-    {"id": "glyoxylate", "reactant": "O=CC(=O)[O-]", "product": "OC(O)C(=O)[O-]", "add_water": true,
-     "charge": -1, "dG_ref_kJ": -9.2, "note": ">95% hydrated in water",
-     "citation": "Sorensen 1974 glyoxylate hydration"},
-    {"id": "glyceraldehyde", "reactant": "OCC(O)C=O", "product": "OCC(O)C(O)O", "add_water": true,
-     "dG_ref_kJ": -3.0, "note": "substantially hydrated (~70-90%)",
-     "citation": "estimate; aldotriose hydration, medium confidence"},
-    {"id": "methylglyoxal", "reactant": "CC(=O)C=O", "product": "CC(=O)C(O)O", "add_water": true,
-     "dG_ref_kJ": -12.0, "note": "aldehyde ~fully hydrated in water",
-     "citation": "Creighton & Hamilton 2001; methylglyoxal hydration"}
-  ],
-
-  "tautomer": [
-    {"id": "2-pyridone", "reactant": "Oc1ccccn1", "product": "O=c1cccc[nH]1", "add_water": false,
-     "dG_ref_kJ": -18.0, "note": "2-pyridone favored in water, K~900-2000; classic tautomer benchmark",
-     "citation": "Beak 1977; Wong 1992 aqueous 2-pyridone/2-hydroxypyridine"},
-    {"id": "4-pyridone", "reactant": "Oc1ccncc1", "product": "O=c1cc[nH]cc1", "add_water": false,
-     "dG_ref_kJ": -14.0, "note": "4-pyridone favored in water",
-     "citation": "Beak 1977, medium confidence"},
-    {"id": "cytosine", "reactant": "Nc1ccnc(O)n1", "product": "Nc1cc[nH]c(=O)n1", "add_water": false,
-     "dG_ref_kJ": -8.0, "note": "amino-keto (canonical) favored in water",
-     "citation": "aqueous cytosine tautomer; canonical dominant, medium confidence"},
-    {"id": "uracil", "reactant": "Oc1cc[nH]c(=O)n1", "product": "O=c1cc[nH]c(=O)[nH]1", "add_water": false,
-     "dG_ref_kJ": -18.0, "note": "diketo strongly favored in water",
-     "citation": "diketo dominant, high confidence qualitative"}
-  ],
-
-  "anomer": [
-    {"id": "glucose", "reactant": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
-     "product": "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O", "add_water": false,
-     "dG_ref_kJ": -1.4, "note": "alpha->beta-D-glucopyranose, 38:62 in water",
-     "citation": "standard mutarotation equilibrium"}
-  ]
+ "_scope": "Curated aqueous tautomer / hydration / anomer equilibria with literature reference dG at 298 K. This is the Route-2 validation set: can QC pick the right microspecies from RELATIVE energies? Each pair differs by a proton shift, a water addition, or a ring configuration -- same or nearly-same charge, so the polyanion solvation error should largely cancel. dG_ref_kJ is dG(product - reactant); sign convention matches the 'reaction' field.",
+ "hydration": [
+  {
+   "id": "formaldehyde",
+   "reactant": "C=O",
+   "product": "OCO",
+   "add_water": true,
+   "dG_ref_kJ": -18.8,
+   "note": "Khyd~2000, >99.9% hydrated",
+   "citation": "Bell 1966; Winkelman 2002 formaldehyde hydration K"
+  },
+  {
+   "id": "acetaldehyde",
+   "reactant": "CC=O",
+   "product": "CC(O)O",
+   "add_water": true,
+   "dG_ref_kJ": -0.2,
+   "note": "Khyd~1.06, ~51% hydrated",
+   "citation": "Bell & Clunie 1952"
+  },
+  {
+   "id": "acetone",
+   "reactant": "CC(C)=O",
+   "product": "CC(C)(O)O",
+   "add_water": true,
+   "dG_ref_kJ": 16.3,
+   "note": "Khyd~1.4e-3, keto dominant",
+   "citation": "Bell 1966"
+  },
+  {
+   "id": "pyruvate",
+   "reactant": "CC(=O)C(=O)[O-]",
+   "product": "CC(O)(O)C(=O)[O-]",
+   "add_water": true,
+   "charge": -1,
+   "dG_ref_kJ": 6.8,
+   "note": "Khyd~0.065 for the anion, ~6% hydrated",
+   "citation": "Pocker 1969; Kozlowski 1988"
+  },
+  {
+   "id": "glyoxylate",
+   "reactant": "O=CC(=O)[O-]",
+   "product": "OC(O)C(=O)[O-]",
+   "add_water": true,
+   "charge": -1,
+   "dG_ref_kJ": -9.2,
+   "note": ">95% hydrated in water",
+   "citation": "Sorensen 1974 glyoxylate hydration"
+  },
+  {
+   "id": "glyceraldehyde",
+   "reactant": "OCC(O)C=O",
+   "product": "OCC(O)C(O)O",
+   "add_water": true,
+   "dG_ref_kJ": -3.0,
+   "note": "substantially hydrated (~70-90%)",
+   "citation": "estimate; aldotriose hydration, medium confidence"
+  },
+  {
+   "id": "methylglyoxal",
+   "reactant": "CC(=O)C=O",
+   "product": "CC(=O)C(O)O",
+   "add_water": true,
+   "dG_ref_kJ": -12.0,
+   "note": "aldehyde ~fully hydrated in water",
+   "citation": "Creighton & Hamilton 2001; methylglyoxal hydration"
+  },
+  {
+   "id": "chloral",
+   "reactant": "O=CC(Cl)(Cl)Cl",
+   "product": "OC(O)C(Cl)(Cl)Cl",
+   "add_water": true,
+   "dG_ref_kJ": -26.0,
+   "note": "Khyd~3.5e4, essentially 100% hydrate",
+   "citation": "Bell 1966 chloral hydrate"
+  },
+  {
+   "id": "benzaldehyde",
+   "reactant": "O=Cc1ccccc1",
+   "product": "OC(O)c1ccccc1",
+   "add_water": true,
+   "dG_ref_kJ": 12.0,
+   "note": "Khyd~8e-3, carbonyl dominant",
+   "citation": "Bell 1966"
+  },
+  {
+   "id": "propionaldehyde",
+   "reactant": "CCC=O",
+   "product": "CCC(O)O",
+   "add_water": true,
+   "dG_ref_kJ": 0.9,
+   "note": "Khyd~0.71, ~42% hydrate",
+   "citation": "Bell 1966"
+  },
+  {
+   "id": "isobutyraldehyde",
+   "reactant": "CC(C)C=O",
+   "product": "CC(C)C(O)O",
+   "add_water": true,
+   "dG_ref_kJ": 1.7,
+   "note": "Khyd~0.5",
+   "citation": "Bell 1966, medium confidence"
+  }
+ ],
+ "tautomer": [
+  {
+   "id": "2-pyridone",
+   "reactant": "Oc1ccccn1",
+   "product": "O=c1cccc[nH]1",
+   "add_water": false,
+   "dG_ref_kJ": -18.0,
+   "note": "2-pyridone favored in water, K~900-2000; classic tautomer benchmark",
+   "citation": "Beak 1977; Wong 1992 aqueous 2-pyridone/2-hydroxypyridine"
+  },
+  {
+   "id": "4-pyridone",
+   "reactant": "Oc1ccncc1",
+   "product": "O=c1cc[nH]cc1",
+   "add_water": false,
+   "dG_ref_kJ": -14.0,
+   "note": "4-pyridone favored in water",
+   "citation": "Beak 1977, medium confidence"
+  },
+  {
+   "id": "cytosine",
+   "reactant": "Nc1ccnc(O)n1",
+   "product": "Nc1cc[nH]c(=O)n1",
+   "add_water": false,
+   "dG_ref_kJ": -8.0,
+   "note": "amino-keto (canonical) favored in water",
+   "citation": "aqueous cytosine tautomer; canonical dominant, medium confidence"
+  },
+  {
+   "id": "uracil",
+   "reactant": "Oc1cc[nH]c(=O)n1",
+   "product": "O=c1cc[nH]c(=O)[nH]1",
+   "add_water": false,
+   "dG_ref_kJ": -18.0,
+   "note": "diketo strongly favored in water",
+   "citation": "diketo dominant, high confidence qualitative"
+  },
+  {
+   "id": "acetylacetone",
+   "reactant": "CC(=O)CC(C)=O",
+   "product": "CC(=O)/C=C(O)/C",
+   "add_water": false,
+   "dG_ref_kJ": 4.3,
+   "note": "~15% enol in water, keto favored",
+   "citation": "Emsley 1984; aqueous acac keto/enol"
+  },
+  {
+   "id": "2-thiopyridone",
+   "reactant": "Sc1ccccn1",
+   "product": "S=c1cccc[nH]1",
+   "add_water": false,
+   "dG_ref_kJ": -20.0,
+   "note": "thione strongly favored in water",
+   "citation": "aqueous 2-mercaptopyridine, high conf qualitative"
+  },
+  {
+   "id": "barbituric",
+   "reactant": "O=C1CC(=O)NC(=O)N1",
+   "product": "OC1=CC(=O)NC(=O)N1",
+   "add_water": false,
+   "dG_ref_kJ": 8.0,
+   "note": "triketo favored over enol in water",
+   "citation": "aqueous barbituric acid, medium"
+  },
+  {
+   "id": "oxaloacetate_ke",
+   "reactant": "O=C(CC(=O)[O-])C(=O)[O-]",
+   "product": "OC(=CC(=O)[O-])C(=O)[O-]",
+   "add_water": false,
+   "charge": -2,
+   "dG_ref_kJ": 6.5,
+   "note": "enol ~6-13% in water, keto favored",
+   "citation": "aqueous OAA keto/enol, medium"
+  }
+ ],
+ "anomer": [
+  {
+   "id": "glucose",
+   "reactant": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+   "product": "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+   "add_water": false,
+   "dG_ref_kJ": -1.4,
+   "note": "alpha->beta-D-glucopyranose, 38:62 in water",
+   "citation": "standard mutarotation equilibrium"
+  },
+  {
+   "id": "mannose",
+   "reactant": "OC[C@H]1O[C@@H](O)[C@@H](O)[C@@H](O)[C@@H]1O",
+   "product": "OC[C@H]1O[C@H](O)[C@@H](O)[C@@H](O)[C@@H]1O",
+   "add_water": false,
+   "dG_ref_kJ": 1.8,
+   "note": "alpha->beta-D-mannopyranose, alpha favored ~67:33",
+   "citation": "mutarotation equilibrium"
+  },
+  {
+   "id": "galactose",
+   "reactant": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O",
+   "product": "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@H]1O",
+   "add_water": false,
+   "dG_ref_kJ": -1.4,
+   "note": "alpha->beta-D-galactopyranose, beta favored ~64:36",
+   "citation": "mutarotation equilibrium"
+  }
+ ]
 }
