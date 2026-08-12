@@ -1,0 +1,15 @@
+# Single self-contained env for the whole gnn_dgf pipeline (featurization + GPU
+# training). Create with:  mamba env create -f environment.yml
+# CUDA build cu124 targets NVIDIA driver >= 550 / CUDA 12.4 (this cluster's V100s).
+name: gnndgf
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu124
+      - torch==2.6.0        # +cu124 build resolved from the extra-index-url
+      - rdkit               # tested with 2026.3.5
+      - numpy
+      - matplotlib

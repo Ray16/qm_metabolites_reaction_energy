@@ -25,27 +25,53 @@ logs/                run logs
 FINDINGS.md          the writeup
 ```
 
-## Environments
-Featurization needs **rdkit** (base env); GPU training needs **CUDA torch**
-(`uma` env — the base torch cu130 can't see the CUDA-12.4 driver). The package
-is split so training modules never import rdkit.
-- base env:  `python scripts/prepare_data.py`, `run_baselines.py`, `plot_*.py`
-- xtb env:   `conda run -n xtb python scripts/extract_xtb.py`
-- uma env:   `CUDA_VISIBLE_DEVICES=1 <uma>/python scripts/run_cv.py`
+## Setup — one conda env (`gnndgf`)
 
-## Pipeline
+Everything (rdkit featurization **and** CUDA GPU training) runs in a single env.
+Create it either from the file or by hand:
+
+```bash
+# from the environment file (recommended)
+mamba env create -f environment.yml          # or: conda env create -f environment.yml
+conda activate gnndgf
+
+# --- or manually ---
+mamba create -n gnndgf python=3.11 -y
+conda activate gnndgf
+pip install torch --index-url https://download.pytorch.org/whl/cu124
+pip install rdkit numpy matplotlib
 ```
-scripts/extract_xtb.py     geometries -> artifacts/qm_features.json      (xtb env)
-scripts/prepare_data.py    -> artifacts/data.pt                          (base)
-scripts/run_cv.py          held-out CV: linear vs GNN vs GNN-delta       (uma/GPU)
-scripts/run_baselines.py   fair dGP-linear + QC charge-gated test        (base)
-scripts/save_model.py      --mode scratch|delta -> artifacts/checkpoint.pt (uma)
-scripts/predict.py         held-out OOF preds -> artifacts/predictions.json (uma)
-scripts/plot_comparison.py GNN vs eQ vs dGP scatter -> figures/          (base)
-scripts/plot_reactions.py  10-reaction disagreement figure -> figures/   (base)
-scripts/prepare_distill.py -> artifacts/distill_data.pt (eQ 8.7k + 367)  (base)
-scripts/run_datascale.py   --mode distill|finetune (both negative)       (uma/GPU)
+
+Verify (should print `cuda avail True` and an rdkit version):
+```bash
+python -c "import torch, rdkit; print('cuda', torch.cuda.is_available(), '| rdkit', rdkit.__version__)"
 ```
+
+**Dependencies:** python 3.11 · torch 2.6.0 **+cu124** · rdkit 2026.3.5 · numpy · matplotlib.
+The cu124 build matches this cluster's CUDA-12.4 driver on the V100s. (The old
+base-env torch was cu130 and could not see that driver — hence a single pinned
+env; do not use the base env.) `xtb` (for `extract_xtb.py`) is a separate binary,
+available in the `xtb` conda env.
+
+## Pipeline — run everything with the `gnndgf` env
+
+```bash
+conda activate gnndgf
+CUDA_VISIBLE_DEVICES=1 python scripts/run_cv.py     # (set a free GPU)
+
+scripts/extract_xtb.py     geometries -> artifacts/qm_features.json   (needs xtb; conda run -n xtb)
+scripts/prepare_data.py    -> artifacts/data.pt
+scripts/run_cv.py          held-out CV: linear vs GNN vs GNN-delta    (GPU)
+scripts/run_baselines.py   fair dGP-linear + QC charge-gated test
+scripts/save_model.py      --mode scratch|delta -> artifacts/checkpoint.pt (GPU)
+scripts/predict.py         held-out OOF preds -> artifacts/predictions.json (GPU)
+scripts/plot_comparison.py GNN vs eQ vs dGP scatter -> figures/
+scripts/plot_reactions.py  10-reaction disagreement figure -> figures/
+scripts/prepare_distill.py -> artifacts/distill_data.pt (eQ 8.7k + 367)
+scripts/run_datascale.py   --mode distill|finetune (both negative)    (GPU)
+scripts/diagnose_training.py  prints device + convergence curve       (GPU)
+```
+Pick a free GPU with `CUDA_VISIBLE_DEVICES` (check `nvidia-smi`).
 
 ## The saved model (`artifacts/checkpoint.pt`)
 From-scratch GNN[rich] (no dGPredictor anchor — coverage-appropriate), 4-seed
