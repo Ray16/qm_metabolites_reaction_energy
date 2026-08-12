@@ -1,0 +1,22 @@
+{
+  "RANDOM 5-fold (interpolation)": {
+    "predict-zero": 9.693799358835744,
+    "ridge-linear": 9.04891449255913,
+    "gnn-graph-only": 9.059544925681983,
+    "gnn+dGsolv": 8.89160844542553,
+    "gnn+xtb": 8.66392577834407,
+    "eQuilibrator[in-sample,ref]": 3.0837721304728736,
+    "dGP-standard[in-sample,ref]": 2.9932404878978778,
+    "dGP-retrained[in-sample,ref]": 5.65886704674423
+  },
+  "COMPOUND-DISJOINT (extrapolation)": {
+    "predict-zero": 10.252724100106857,
+    "ridge-linear": 10.10728482687823,
+    "gnn-graph-only": 9.384209088162116,
+    "gnn+dGsolv": 9.465670127122186,
+    "gnn+xtb": 9.657044438596806,
+    "eQuilibrator[in-sample,ref]": 3.1759570898668077,
+    "dGP-standard[in-sample,ref]": 3.2005131868373087,
+    "dGP-retrained[in-sample,ref]": 5.724824136491709
+  }
+}

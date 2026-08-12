@@ -36,7 +36,7 @@
 \title{Can Quantum Chemistry Referee Metabolic \dg?}
 \subtitle{A QM/ML composite vs.\ dGPredictor on TECRDB disagreements}
 \author{ModelSEED thermodynamics project}
-\date{Progress summary — July 2026}
+\date{Progress summary — August 2026}
 
 % =====================================================================
 \begin{document}
@@ -326,6 +326,114 @@
       \normalsize\\[0.4em]
       Diagnosis is \textbf{solid}; every candidate correction was
       \textbf{rejected} on its own test.
+  \end{columns}
+\end{frame}
+
+% =====================================================================
+\section{A learned component-contribution model}
+% =====================================================================
+
+\begin{frame}{``dGPredictor done right'' — a GNN, and an honest test}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+      \textbf{The idea}\\[0.2em]
+      Replace the linear group-contribution \emph{lookup table} with a
+      message-passing \textbf{GNN} that maps each compound's graph to a scalar
+      formation energy $f$; a reaction is the stoichiometric difference
+      \[
+        \Delta_r G'^{\circ} \;=\; \mathbf{S}\,f ,\qquad f=\text{GNN(compound)} .
+      \]
+      Trained on reaction \dg\ \emph{only} (no per-compound labels).
+      \textbf{Sum readout} (energy is extensive) $+$ \textbf{QC injected as
+      features} (xtb Mulliken charges, HOMO/LUMO, CPCM-X solvation) $+$
+      \textbf{$\Delta$-learning} on the group prior.
+    \column{0.5\textwidth}
+      \textbf{Why it might beat the incumbents}
+      \begin{itemize}
+        \item No \emph{coverage cliff}: a GNN interpolates in representation
+              space instead of failing on a missing group.
+        \item Nonlinear group interactions $+$ QC physics the linear table
+              cannot see.
+      \end{itemize}
+      \vspace{0.3em}
+      \begin{alertblock}{The discipline that matters}
+        Every number below is \textbf{held-out} cross-validation. The
+        incumbents' famous 3.0 is \textbf{in-sample} — they were trained on
+        these reactions.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Result: the model class is \emph{not} the bottleneck}
+  \begin{columns}[T]
+    \column{0.54\textwidth}
+      \begin{center}\small
+      \begin{tabular}{@{}llrr@{}}
+        \toprule
+        model & eval & \shortstack{rand.\\CV} & \shortstack{cpd.-\\disj.} \\
+        \midrule
+        eQuilibrator / dGP    & \emph{in-sample} & \win{3.0} & --- \\
+        \midrule
+        predict-zero          & ---              & 9.7  & 10.4 \\
+        linear group-CC       & held-out         & 6.6  & 8.7 \\
+        GNN (graph only)      & held-out         & 7.0  & 8.9 \\
+        \textbf{GNN $+$ QC $+$ $\Delta$} & held-out & \textbf{6.8} & \textbf{8.6} \\
+        \bottomrule
+      \end{tabular}
+      \end{center}
+      \footnotesize $n=367$ reactions, 453 compounds. Compound-disjoint $=$
+      held-out \emph{compounds} (the extrapolation / coverage regime).
+    \column{0.46\textwidth}
+      \small
+      \begin{itemize}
+        \item Linear CC, GNN, GNN$+$QC and GNN$+\Delta$ all land within
+              \textbf{$0.3\kj$} of each other.
+        \item Random held-out $\sim$6.7 $\approx$ the \textbf{experimental noise
+              floor} (TECRDB sd $\sim$6). Little room for \emph{any} model.
+        \item Drive regularization down and in-sample hits 1.6 while held-out
+              worsens — the overfitting made visible.
+      \end{itemize}
+      \begin{block}{Verdict}
+        At $n=367$ the bottleneck is \textbf{data, not architecture}. A learned
+        representation buys nothing over regularized group additivity.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{But it is \emph{robust} — no blow-ups}
+  \begin{center}
+    \includegraphics[height=0.70\textheight]{figures/qm_vs_dgpredictor_gnn.png}
+  \end{center}
+  \vspace{-0.4em}
+  {\footnotesize On the cherry-picked hard subset the \textbf{GNN-$\Delta$}
+  (\textcolor{good}{green}, held-out) tracks experiment — subset MAE \win{6} —
+  while the retrained-dGP (\lose{red}, overfit blow-ups) and absolute QC
+  (\textcolor{accent}{blue}, anion-solvation blow-ups) swing to $\pm$100.
+  A well-regularized learned model dodges \emph{both} failure modes.}
+\end{frame}
+
+\begin{frame}{How QC can — and cannot — help}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+      \textbf{Static QC features: marginal.} Per-compound charges/orbitals are
+      redundant with group counts for the \emph{additive} part of formation
+      energy; $n\!=\!367$ is too little to learn the nonadditive part they enable.
+      \\[0.4em]
+      \textbf{QC as a charge-gated prior: physics is right.} QC's absolute error
+      $\sim$ Born $(z^2)$ anion under-solvation. A correction in
+      $\Delta(\sum\nu z^2)$ \win{improves QC-alone} (9.4$\to$9.1) and
+      \emph{transfers across compounds} — unlike group features.
+    \column{0.5\textwidth}
+      \begin{alertblock}{The catch}
+        On TECRDB, QC still cannot beat group-additivity (9.1 vs 6.7) and adds
+        nothing on top of it (6.94 vs 7.01). Every TECRDB reaction is
+        group-coverable, so QC's real advantage is \textbf{invisible here}.
+      \end{alertblock}
+      \textbf{QC's payoff is coverage} — the $\sim$42\% of ModelSEED with no
+      group decomposition — which has no experimental labels by construction.
+      \\[0.3em]
+      $\Rightarrow$ the lever is \textbf{training signal}: distil eQuilibrator
+      over \textbf{56k} ModelSEED reactions into the GNN (in progress).
   \end{columns}
 \end{frame}
 

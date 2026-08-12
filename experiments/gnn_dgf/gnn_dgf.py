@@ -29,8 +29,24 @@ import numpy as np
 import torch
 import torch.nn as nn
 from rdkit import Chem, RDLogger
+from rdkit.Chem import Descriptors, rdMolDescriptors
 
 RDLogger.DisableLog("rdApp.*")
+
+
+def rdkit_descriptors(mol):
+    """Physicochemical descriptors tied to solvation/thermo (raw; scaled later)."""
+    return [
+        Descriptors.MolWt(mol) / 100.0,
+        rdMolDescriptors.CalcTPSA(mol) / 50.0,
+        rdMolDescriptors.CalcNumHBD(mol) / 3.0,
+        rdMolDescriptors.CalcNumHBA(mol) / 5.0,
+        rdMolDescriptors.CalcNumRotatableBonds(mol) / 5.0,
+        rdMolDescriptors.CalcNumAromaticRings(mol) / 2.0,
+        rdMolDescriptors.CalcFractionCSP3(mol),
+        Descriptors.MolLogP(mol) / 3.0,
+        rdMolDescriptors.CalcLabuteASA(mol) / 100.0,
+    ]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PIPE = os.path.normpath(os.path.join(HERE, "..", "..", "pipeline"))
@@ -50,9 +66,10 @@ BOND_VOCAB = [Chem.BondType.SINGLE, Chem.BondType.DOUBLE,
 
 def _onehot(x, vocab):
     v = [0.0] * (len(vocab) + 1)
-    v[vocab.index(x)] = 1.0 if x in vocab else 0.0
-    if x not in vocab:
-        v[-1] = 1.0
+    if x in vocab:
+        v[vocab.index(x)] = 1.0
+    else:
+        v[-1] = 1.0            # unknown / out-of-vocab (e.g. metals)
     return v
 
 
@@ -90,14 +107,14 @@ class CompoundGraphs:
       'full' : + per-atom xtb Mulliken charge (node) + HOMO/LUMO/gap (graph)
     """
 
-    def __init__(self, mets, ensemble, qmfeat=None, level="full"):
+    def __init__(self, mets, ensemble, qmfeat=None, level="full", cpcmx_solv=None):
         self.ids = [m["id"] for m in mets]
         self.idx = {c: i for i, c in enumerate(self.ids)}
         qmfeat = qmfeat or {}
         node_feats, batch, src, dst, edge_feats = [], [], [], [], []
         offset = 0
         qm = []
-        use_atom_qm = level == "full"
+        use_atom_qm = level in ("full", "rich")
         for i, m in enumerate(mets):
             mol = Chem.MolFromSmiles(m["smiles"])
             n = mol.GetNumAtoms()
@@ -122,14 +139,19 @@ class CompoundGraphs:
             e = (ensemble.get(m["id"]) or [{}])[0]
             dgsolv = e.get("dGsolv_kJ")
             gvec = []
-            if level in ("solv", "full"):
+            if level in ("solv", "full", "rich"):
                 gvec.append((dgsolv if dgsolv is not None else 0.0) / 100.0)
-            if level == "full":
+            if level in ("full", "rich"):
                 gvec += [
                     (qf.get("homo") if qf.get("homo") is not None else 0.0),
                     (qf.get("lumo") if qf.get("lumo") is not None else 0.0),
                     (qf.get("gap") if qf.get("gap") is not None else 0.0) / 5.0,
                 ]
+                gvec += rdkit_descriptors(mol)          # physicochemical descriptors
+            if level == "rich":
+                cpcmx = (cpcmx_solv or {}).get(m["id"])  # better-theory solvation
+                gvec.append((cpcmx if cpcmx is not None else
+                             (dgsolv if dgsolv is not None else 0.0)) / 100.0)
             if not gvec:                                # 'none' -> single zero col
                 gvec = [0.0]
             qm.append(gvec)
