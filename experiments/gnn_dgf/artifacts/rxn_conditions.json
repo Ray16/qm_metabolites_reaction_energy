@@ -1,0 +1,2204 @@
+{
+ "rxn15726": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01253": {
+  "p_h": 8.85,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01101": {
+  "p_h": 7.32,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.0
+ },
+ "rxn00462": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00546": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01005": {
+  "p_h": 8.2,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn02622": {
+  "p_h": 8.2,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn08066": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00234": {
+  "p_h": 7.4,
+  "ionic_strength": 0.399,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01423": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01200": {
+  "p_h": 7.3,
+  "ionic_strength": 0.25,
+  "temperature": 304.65,
+  "p_mg": 3.0
+ },
+ "rxn00062": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02322": {
+  "p_h": 7.65,
+  "ionic_strength": null,
+  "temperature": 306.65,
+  "p_mg": null
+ },
+ "rxn49067": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01746": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01996": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01004": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01434": {
+  "p_h": 7.305,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": 2.18
+ },
+ "rxn00836": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 307.15,
+  "p_mg": 3.0
+ },
+ "rxn01054": {
+  "p_h": 7.65,
+  "ionic_strength": null,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn02900": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00559": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 303.945,
+  "p_mg": null
+ },
+ "rxn00911": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn00973": {
+  "p_h": 7.3,
+  "ionic_strength": 0.1,
+  "temperature": 310.15,
+  "p_mg": 2.6900000000000004
+ },
+ "rxn05026": {
+  "p_h": 6.65,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00636": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 300.65,
+  "p_mg": null
+ },
+ "rxn00543": {
+  "p_h": 7.7,
+  "ionic_strength": 0.1,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00239": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 1.89
+ },
+ "rxn01761": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00306": {
+  "p_h": 7.085,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.88
+ },
+ "rxn00631": {
+  "p_h": 6.675,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01692": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01011": {
+  "p_h": 7.03,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": 2.26
+ },
+ "rxn01457": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01201": {
+  "p_h": 7.57,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00702": {
+  "p_h": 8.25,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01410": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00641": {
+  "p_h": 8.26,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00173": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn01299": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn39443": {
+  "p_h": 6.5649999999999995,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00105": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn12217": {
+  "p_h": 7.0,
+  "ionic_strength": 0.625,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00800": {
+  "p_h": 6.875,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn00086": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01265": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01016": {
+  "p_h": 8.77,
+  "ionic_strength": null,
+  "temperature": 290.65,
+  "p_mg": null
+ },
+ "rxn01385": {
+  "p_h": 7.47,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01740": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00824": {
+  "p_h": 6.9,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00770": {
+  "p_h": 7.45,
+  "ionic_strength": 0.25,
+  "temperature": 310.65,
+  "p_mg": 3.0
+ },
+ "rxn00781": {
+  "p_h": 7.09,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 3.115
+ },
+ "rxn01530": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00100": {
+  "p_h": 7.3,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01513": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01643": {
+  "p_h": 5.7,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01846": {
+  "p_h": 7.835000000000001,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02320": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00248": {
+  "p_h": 7.805,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": 2.95
+ },
+ "rxn00700": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00629": {
+  "p_h": 7.625,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01277": {
+  "p_h": 7.79,
+  "ionic_strength": null,
+  "temperature": 293.15,
+  "p_mg": null
+ },
+ "rxn00499": {
+  "p_h": 8.0,
+  "ionic_strength": 0.10750000000000001,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn16141": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn15964": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01792": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 294.0,
+  "p_mg": null
+ },
+ "rxn00260": {
+  "p_h": 7.140000000000001,
+  "ionic_strength": 0.19,
+  "temperature": 300.65,
+  "p_mg": null
+ },
+ "rxn00747": {
+  "p_h": 7.3,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn03886": {
+  "p_h": 9.31,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00171": {
+  "p_h": 7.55,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01302": {
+  "p_h": 8.45,
+  "ionic_strength": null,
+  "temperature": 304.15,
+  "p_mg": null
+ },
+ "rxn00266": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00331": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00603": {
+  "p_h": 8.66,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01371": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": 3.0
+ },
+ "rxn00605": {
+  "p_h": 6.1,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn02914": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.39
+ },
+ "rxn01491": {
+  "p_h": 7.15,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn00500": {
+  "p_h": 7.3,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00404": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn00515": {
+  "p_h": 6.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01368": {
+  "p_h": 8.84,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00139": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": 3.0
+ },
+ "rxn01790": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00217": {
+  "p_h": 6.85,
+  "ionic_strength": null,
+  "temperature": 298.65,
+  "p_mg": null
+ },
+ "rxn01075": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00193": {
+  "p_h": 6.8,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01985": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 297.15,
+  "p_mg": null
+ },
+ "rxn01044": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 321.65,
+  "p_mg": null
+ },
+ "rxn00549": {
+  "p_h": 6.99,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 2.635
+ },
+ "rxn00907": {
+  "p_h": 6.9,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02305": {
+  "p_h": 9.2,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00867": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 304.25,
+  "p_mg": null
+ },
+ "rxn00753": {
+  "p_h": 7.015000000000001,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00562": {
+  "p_h": 8.4,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn02263": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01100": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 0.045000000000000005
+ },
+ "rxn00551": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00785": {
+  "p_h": 7.3,
+  "ionic_strength": 0.25,
+  "temperature": 304.65,
+  "p_mg": 3.0
+ },
+ "rxn00195": {
+  "p_h": 8.2,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01465": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01548": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 310.65,
+  "p_mg": 3.0
+ },
+ "rxn04082": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00686": {
+  "p_h": 7.75,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn45677": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 293.15,
+  "p_mg": null
+ },
+ "rxn03884": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03876": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00915": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 3.0
+ },
+ "rxn02202": {
+  "p_h": 7.0,
+  "ionic_strength": 0.1,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00326": {
+  "p_h": 6.8,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03840": {
+  "p_h": 8.6,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn04945": {
+  "p_h": 6.475,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00083": {
+  "p_h": 7.475,
+  "ionic_strength": 0.01,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00741": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.65,
+  "p_mg": null
+ },
+ "rxn00495": {
+  "p_h": 7.505,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00280": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00256": {
+  "p_h": 6.970000000000001,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.56
+ },
+ "rxn00798": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 326.75,
+  "p_mg": null
+ },
+ "rxn00214": {
+  "p_h": 8.7,
+  "ionic_strength": null,
+  "temperature": 299.15,
+  "p_mg": null
+ },
+ "rxn01626": {
+  "p_h": 7.41,
+  "ionic_strength": 0.315,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02625": {
+  "p_h": 8.8,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00423": {
+  "p_h": 6.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00927": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00931": {
+  "p_h": 9.23,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00545": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01204": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 296.65,
+  "p_mg": null
+ },
+ "rxn00777": {
+  "p_h": 7.5,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn01386": {
+  "p_h": 7.2,
+  "ionic_strength": null,
+  "temperature": 300.65,
+  "p_mg": null
+ },
+ "rxn00611": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02902": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 296.15,
+  "p_mg": null
+ },
+ "rxn00987": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00415": {
+  "p_h": 8.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00838": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01532": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 309.15,
+  "p_mg": null
+ },
+ "rxn04684": {
+  "p_h": 6.94,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.59
+ },
+ "rxn02887": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00336": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn02360": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00293": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00420": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 308.2,
+  "p_mg": 2.0
+ },
+ "rxn02782": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01106": {
+  "p_h": 6.78,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": 2.04
+ },
+ "rxn02975": {
+  "p_h": 8.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01646": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn53944": {
+  "p_h": 8.0,
+  "ionic_strength": 0.14500000000000002,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00992": {
+  "p_h": 7.5,
+  "ionic_strength": 0.10350000000000001,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00065": {
+  "p_h": 7.15,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01174": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03281": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00157": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00001": {
+  "p_h": 7.6,
+  "ionic_strength": 0.1,
+  "temperature": 303.15,
+  "p_mg": 2.0
+ },
+ "rxn00695": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01018": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn02403": {
+  "p_h": 7.37,
+  "ionic_strength": null,
+  "temperature": 299.15,
+  "p_mg": null
+ },
+ "rxn00151": {
+  "p_h": 7.24,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00182": {
+  "p_h": 7.0,
+  "ionic_strength": 0.135,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn00909": {
+  "p_h": 6.3,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01280": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 296.15,
+  "p_mg": null
+ },
+ "rxn00765": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01870": {
+  "p_h": 8.8,
+  "ionic_strength": null,
+  "temperature": 300.65,
+  "p_mg": null
+ },
+ "rxn01505": {
+  "p_h": 7.7,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00347": {
+  "p_h": 7.255,
+  "ionic_strength": null,
+  "temperature": 309.45,
+  "p_mg": null
+ },
+ "rxn01293": {
+  "p_h": 8.75,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01974": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01509": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn16378": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00007": {
+  "p_h": 5.65,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01682": {
+  "p_h": 7.52,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00337": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 288.15,
+  "p_mg": null
+ },
+ "rxn00974": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00930": {
+  "p_h": 8.75,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00213": {
+  "p_h": 7.8,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn00762": {
+  "p_h": 8.05,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00514": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01887": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01780": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01506": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn03249": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00191": {
+  "p_h": 7.3,
+  "ionic_strength": 0.25,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn00290": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": 2.28
+ },
+ "rxn00552": {
+  "p_h": 8.45,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01621": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn31240": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00225": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 1.75
+ },
+ "rxn02651": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00698": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01080": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00510": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00778": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 3.0
+ },
+ "rxn00265": {
+  "p_h": 8.4,
+  "ionic_strength": 0.1,
+  "temperature": 298.15,
+  "p_mg": 2.78
+ },
+ "rxn01362": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00147": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 323.15,
+  "p_mg": null
+ },
+ "rxn04785": {
+  "p_h": 7.25,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn00295": {
+  "p_h": null,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn02930": {
+  "p_h": 8.75,
+  "ionic_strength": null,
+  "temperature": 301.15,
+  "p_mg": null
+ },
+ "rxn00320": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01333": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn14063": {
+  "p_h": 9.399999999999999,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00402": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00802": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn01116": {
+  "p_h": 7.5,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn01638": {
+  "p_h": 6.1,
+  "ionic_strength": null,
+  "temperature": 307.15,
+  "p_mg": null
+ },
+ "rxn01292": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01725": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00132": {
+  "p_h": 8.02,
+  "ionic_strength": 0.125,
+  "temperature": 298.15,
+  "p_mg": 3.0
+ },
+ "rxn02167": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00187": {
+  "p_h": 7.05,
+  "ionic_strength": 0.21,
+  "temperature": 310.15,
+  "p_mg": 1.31
+ },
+ "rxn01366": {
+  "p_h": 7.56,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01713": {
+  "p_h": 6.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01597": {
+  "p_h": 7.75,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01329": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn03137": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00321": {
+  "p_h": 7.75,
+  "ionic_strength": null,
+  "temperature": 306.65,
+  "p_mg": null
+ },
+ "rxn00577": {
+  "p_h": 6.6,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn08948": {
+  "p_h": 8.6,
+  "ionic_strength": null,
+  "temperature": 307.4,
+  "p_mg": null
+ },
+ "rxn00810": {
+  "p_h": 6.8,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01258": {
+  "p_h": 7.42,
+  "ionic_strength": 0.27,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01043": {
+  "p_h": 7.65,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn54659": {
+  "p_h": 8.3,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00806": {
+  "p_h": 7.2,
+  "ionic_strength": 0.31,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00302": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00783": {
+  "p_h": 6.8,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn51768": {
+  "p_h": 8.125,
+  "ionic_strength": null,
+  "temperature": 305.65,
+  "p_mg": null
+ },
+ "rxn00223": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 333.2,
+  "p_mg": null
+ },
+ "rxn00257": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01726": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00379": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn01301": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00117": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn36656": {
+  "p_h": 7.25,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03136": {
+  "p_h": 7.2,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00189": {
+  "p_h": 5.14,
+  "ionic_strength": 0.11,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn10427": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": 1.645
+ },
+ "rxn00754": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00421": {
+  "p_h": 6.7,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01249": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00148": {
+  "p_h": 7.94,
+  "ionic_strength": 0.25,
+  "temperature": 300.65,
+  "p_mg": 3.0
+ },
+ "rxn00602": {
+  "p_h": 7.45,
+  "ionic_strength": null,
+  "temperature": 300.65,
+  "p_mg": null
+ },
+ "rxn01361": {
+  "p_h": 6.550000000000001,
+  "ionic_strength": null,
+  "temperature": 293.15,
+  "p_mg": null
+ },
+ "rxn00250": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 2.35
+ },
+ "rxn01322": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 309.8,
+  "p_mg": null
+ },
+ "rxn02685": {
+  "p_h": 7.175,
+  "ionic_strength": null,
+  "temperature": 305.65,
+  "p_mg": null
+ },
+ "rxn00131": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00097": {
+  "p_h": 7.4,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": 2.62
+ },
+ "rxn14104": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01219": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00704": {
+  "p_h": 7.04,
+  "ionic_strength": 0.25,
+  "temperature": 303.15,
+  "p_mg": 3.1
+ },
+ "rxn01847": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02204": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 307.15,
+  "p_mg": null
+ },
+ "rxn01479": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00849": {
+  "p_h": 8.3,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn04932": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00604": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00022": {
+  "p_h": 4.75,
+  "ionic_strength": null,
+  "temperature": 303.85,
+  "p_mg": null
+ },
+ "rxn00558": {
+  "p_h": 8.5,
+  "ionic_strength": 0.12,
+  "temperature": 299.0,
+  "p_mg": 3.0
+ },
+ "rxn00817": {
+  "p_h": 5.075,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn53440": {
+  "p_h": 7.2,
+  "ionic_strength": null,
+  "temperature": 318.15,
+  "p_mg": null
+ },
+ "rxn01019": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn04943": {
+  "p_h": 7.484999999999999,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02095": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn15750": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 313.15,
+  "p_mg": null
+ },
+ "rxn11139": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn02756": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 307.15,
+  "p_mg": null
+ },
+ "rxn02213": {
+  "p_h": 7.42,
+  "ionic_strength": 0.067,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00175": {
+  "p_h": 7.03,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 3.11
+ },
+ "rxn02749": {
+  "p_h": 7.0,
+  "ionic_strength": 0.1,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00830": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01447": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01999": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00172": {
+  "p_h": 7.01,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 3.35
+ },
+ "rxn01130": {
+  "p_h": 7.03,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00527": {
+  "p_h": 7.64,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02459": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01336": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00656": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn00278": {
+  "p_h": 8.77,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00699": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01380": {
+  "p_h": 7.5,
+  "ionic_strength": 0.15,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn00643": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00473": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00396": {
+  "p_h": 7.05,
+  "ionic_strength": 0.25,
+  "temperature": 298.15,
+  "p_mg": 3.0
+ },
+ "rxn00178": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 1.295
+ },
+ "rxn03644": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00784": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00276": {
+  "p_h": 7.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03087": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00804": {
+  "p_h": 11.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00746": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 301.15,
+  "p_mg": null
+ },
+ "rxn01358": {
+  "p_h": 7.1,
+  "ionic_strength": 0.25,
+  "temperature": 310.15,
+  "p_mg": 3.0
+ },
+ "rxn00220": {
+  "p_h": 8.629999999999999,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.49
+ },
+ "rxn03250": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn19090": {
+  "p_h": 8.3,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00816": {
+  "p_h": 5.65,
+  "ionic_strength": null,
+  "temperature": 304.15,
+  "p_mg": null
+ },
+ "rxn01485": {
+  "p_h": 7.53,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00697": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01480": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01620": {
+  "p_h": 7.2,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01008": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00216": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 298.19,
+  "p_mg": 1.72
+ },
+ "rxn39373": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn01152": {
+  "p_h": 7.300000000000001,
+  "ionic_strength": null,
+  "temperature": 326.7,
+  "p_mg": null
+ },
+ "rxn01137": {
+  "p_h": 8.17,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01392": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01022": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00328": {
+  "p_h": 8.4,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn44278": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 333.15,
+  "p_mg": null
+ },
+ "rxn00541": {
+  "p_h": 7.6,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00674": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn00493": {
+  "p_h": 7.46,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn03643": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn02085": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 293.15,
+  "p_mg": null
+ },
+ "rxn01117": {
+  "p_h": 7.75,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn52014": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01745": {
+  "p_h": 7.0,
+  "ionic_strength": 0.1,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00634": {
+  "p_h": 7.55,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01157": {
+  "p_h": 7.9,
+  "ionic_strength": null,
+  "temperature": 303.2,
+  "p_mg": null
+ },
+ "rxn01675": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00906": {
+  "p_h": 7.8,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01259": {
+  "p_h": 5.65,
+  "ionic_strength": null,
+  "temperature": 310.25,
+  "p_mg": null
+ },
+ "rxn02527": {
+  "p_h": 8.55,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00799": {
+  "p_h": 7.3,
+  "ionic_strength": 0.1,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00077": {
+  "p_h": 6.1,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn08430": {
+  "p_h": 8.8,
+  "ionic_strength": 0.29,
+  "temperature": 311.15,
+  "p_mg": 2.49
+ },
+ "rxn00285": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 293.15,
+  "p_mg": null
+ },
+ "rxn02132": {
+  "p_h": 7.93,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00422": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.08
+ },
+ "rxn00283": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn15055": {
+  "p_h": 7.1,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01388": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00786": {
+  "p_h": 7.15,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": 1.7999999999999998
+ },
+ "rxn01834": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn00184": {
+  "p_h": 6.98,
+  "ionic_strength": 0.134,
+  "temperature": 300.15,
+  "p_mg": null
+ },
+ "rxn00364": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01617": {
+  "p_h": 9.25,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00459": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 2.1
+ },
+ "rxn01636": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00579": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 303.15,
+  "p_mg": null
+ },
+ "rxn02168": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01138": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn02066": {
+  "p_h": 8.3,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00897": {
+  "p_h": 7.55,
+  "ionic_strength": null,
+  "temperature": 304.15,
+  "p_mg": null
+ },
+ "rxn00690": {
+  "p_h": 7.7,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01579": {
+  "p_h": 9.1,
+  "ionic_strength": null,
+  "temperature": 288.20000000000005,
+  "p_mg": null
+ },
+ "rxn01241": {
+  "p_h": 7.82,
+  "ionic_strength": null,
+  "temperature": 295.15,
+  "p_mg": null
+ },
+ "rxn02591": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn01363": {
+  "p_h": 7.2,
+  "ionic_strength": null,
+  "temperature": 305.15,
+  "p_mg": null
+ },
+ "rxn00831": {
+  "p_h": 8.350000000000001,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 3.0
+ },
+ "rxn00692": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 305.65,
+  "p_mg": null
+ },
+ "rxn00990": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn00237": {
+  "p_h": 7.0,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn01383": {
+  "p_h": 8.0,
+  "ionic_strength": null,
+  "temperature": 299.65,
+  "p_mg": null
+ },
+ "rxn12158": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": 4.0
+ },
+ "rxn01211": {
+  "p_h": 6.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01702": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01451": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn02451": {
+  "p_h": 6.75,
+  "ionic_strength": null,
+  "temperature": 301.65,
+  "p_mg": null
+ },
+ "rxn12188": {
+  "p_h": 7.15,
+  "ionic_strength": null,
+  "temperature": 311.15,
+  "p_mg": null
+ },
+ "rxn02842": {
+  "p_h": 9.0,
+  "ionic_strength": null,
+  "temperature": 308.15,
+  "p_mg": null
+ },
+ "rxn01409": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn00070": {
+  "p_h": 7.0,
+  "ionic_strength": null,
+  "temperature": 313.15,
+  "p_mg": null
+ },
+ "rxn40442": {
+  "p_h": 7.621,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01407": {
+  "p_h": 8.5,
+  "ionic_strength": null,
+  "temperature": 295.15,
+  "p_mg": null
+ },
+ "rxn00512": {
+  "p_h": 8.1,
+  "ionic_strength": null,
+  "temperature": 298.15,
+  "p_mg": null
+ },
+ "rxn01099": {
+  "p_h": 6.95,
+  "ionic_strength": 0.25,
+  "temperature": 311.15,
+  "p_mg": 2.4
+ },
+ "rxn00630": {
+  "p_h": 7.5,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ },
+ "rxn01306": {
+  "p_h": 7.4,
+  "ionic_strength": null,
+  "temperature": 301.15,
+  "p_mg": null
+ },
+ "rxn00141": {
+  "p_h": 6.3,
+  "ionic_strength": null,
+  "temperature": 310.15,
+  "p_mg": null
+ }
+}

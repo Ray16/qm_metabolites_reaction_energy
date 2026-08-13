@@ -18,7 +18,7 @@ from gnn.features import CompoundGraphs, compound_count_feats, BOND_DIM
 rxns, mets, ens, tgt, rxn_ids = data.load_tecrdb()
 cidx = {m["id"]: i for i, m in enumerate(mets)}
 S = data.stoich_matrix(rxns, rxn_ids, cidx)
-y, n = data.targets(tgt, rxn_ids)
+y, n, sd = data.targets(tgt, rxn_ids)
 feats = compound_count_feats(mets)
 qmf = json.load(open(paths.artifact("qm_features.json")))
 
@@ -41,7 +41,7 @@ for name, fn in [("eQuilibrator", "equilibrator_full.json"),
     baselines[name] = [d.get(r, {}).get("dG_kJ") for r in rxn_ids]
 
 rxn_comps = [[cidx[c] for c in rxns[r]] for r in rxn_ids]
-torch.save(dict(graphs=graphs, S=S, y=y, n=n, feats=feats, rxn_ids=rxn_ids,
+torch.save(dict(graphs=graphs, S=S, y=y, n=n, sd=sd, feats=feats, rxn_ids=rxn_ids,
                 n_comp=len(mets), rxn_comps=rxn_comps, baselines=baselines,
                 Xgroup=torch.tensor(Xg, dtype=torch.float32)),
            paths.artifact("data.pt"))

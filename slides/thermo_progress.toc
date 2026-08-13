@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Methodology}{3}{0}{1}
+\beamer@sectionintoc {2}{Implementation}{6}{0}{2}
+\beamer@sectionintoc {3}{Results}{9}{0}{3}
+\beamer@sectionintoc {4}{A learned component-contribution model}{15}{0}{4}
+\beamer@sectionintoc {5}{Where this leaves us}{20}{0}{5}

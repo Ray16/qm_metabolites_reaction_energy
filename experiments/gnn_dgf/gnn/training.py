@@ -8,7 +8,7 @@ delta_targets                residual target for Delta-learning on a prior
 import numpy as np
 import torch
 
-from .model import MPNN, Graph, DEV
+from .model import MPNN, CondHead, Graph, DEV
 
 DEFAULT_HP = dict(hidden=96, layers=3, drop=0.1, lr=3e-3, wd=1e-4)
 
@@ -18,45 +18,79 @@ def ridge_fit(X, y, tr, lam):
     return np.linalg.solve(A, X[tr].T @ y[tr])
 
 
-def train_once(g, S, y, w, tr, epochs=500, hp=None, seed=0, patience=8, val_every=20):
-    """Train one GNN on training reactions `tr`; return the full S@f prediction
-    vector (float tensor on DEV), early-stopped on an inner validation split."""
+def _resid_loss(r, w, loss, delta):
+    """Weighted MSE or Huber over residual r (both reduce to a scalar mean)."""
+    if loss == "huber":
+        a = r.abs()
+        per = torch.where(a <= delta, 0.5 * r ** 2, delta * (a - 0.5 * delta))
+        return (w * per).mean()
+    return (w * r ** 2).mean()
+
+
+def train_once(g, S, y, w, tr, epochs=500, hp=None, seed=0, patience=8, val_every=20,
+               loss="mse", huber_delta=6.0, cond=None):
+    """Train one GNN on training reactions `tr`; return the full prediction vector
+    (float tensor on DEV), early-stopped (on val MAE) on an inner split.
+
+    All ablation variants share this one code path:
+      hp['qm_in_messages']  -> QM injected before message passing (variant #4)
+      loss='huber'          -> robust loss (variant #6)
+      w                     -> per-reaction weights, e.g. inverse-variance (#6)
+      cond (N,cond_dim)     -> also fit a CondHead; pred = S@f + h(cond) (#1)
+    """
     hp = {**DEFAULT_HP, **(hp or {})}
     torch.manual_seed(seed)
-    model = MPNN(g.atom_dim, g.bond_dim, g.qm.size(1),
-                 hp["hidden"], hp["layers"], hp["drop"]).to(DEV)
-    opt = torch.optim.Adam(model.parameters(), lr=hp["lr"], weight_decay=hp["wd"])
+    model = MPNN(g.atom_dim, g.bond_dim, g.qm.size(1), hp["hidden"], hp["layers"],
+                 hp["drop"], qm_in_messages=hp.get("qm_in_messages", False)).to(DEV)
+    params = list(model.parameters())
+    head = None
+    if cond is not None:
+        head = CondHead(cond.size(1), drop=hp["drop"]).to(DEV)
+        params += list(head.parameters())
+    opt = torch.optim.Adam(params, lr=hp["lr"], weight_decay=hp["wd"])
     tr = np.asarray(tr)
     perm = np.random.default_rng(seed).permutation(len(tr))
     nval = max(4, len(tr) // 6)
     vi = torch.as_tensor(tr[perm[:nval]], device=DEV)
     ti = torch.as_tensor(tr[perm[nval:]], device=DEV)
-    Sti, yti, wti = S[ti], y[ti], w[ti]
-    Sv, yv = S[vi], y[vi]
+    yti, wti, yv = y[ti], w[ti], y[vi]
+
+    def predict():
+        p = S @ model(g)
+        return p if head is None else p + head(cond)
+
     best = (1e9, None, 0)
     for ep in range(epochs):
         model.train(); opt.zero_grad()
-        loss = (wti * (Sti @ model(g) - yti) ** 2).mean()
-        loss.backward(); opt.step()
+        pred = predict()
+        _resid_loss(pred[ti] - yti, wti, loss, huber_delta).backward(); opt.step()
         if ep % val_every == 0:
             model.eval()
             with torch.no_grad():
-                vmae = (Sv @ model(g) - yv).abs().mean().item()
+                vmae = (predict()[vi] - yv).abs().mean().item()
+            state = ({k: v.clone() for k, v in model.state_dict().items()},
+                     None if head is None else {k: v.clone() for k, v in head.state_dict().items()})
             if vmae < best[0] - 1e-4:
-                best = (vmae, {k: v.clone() for k, v in model.state_dict().items()}, ep)
+                best = (vmae, state, ep)
             elif ep - best[2] > patience * val_every:
                 break
     if best[1] is not None:
-        model.load_state_dict(best[1])
+        model.load_state_dict(best[1][0])
+        if head is not None:
+            head.load_state_dict(best[1][1])
     model.eval()
     with torch.no_grad():
-        return (S @ model(g)).detach()
+        return predict().detach()
 
 
-def gnn_predict(g, S, y, w, tr, epochs=500, hp=None, seed=0, n_ens=3):
-    """Seed-ensemble mean of train_once."""
-    return torch.stack([train_once(g, S, y, w, tr, epochs, hp, seed + 100 * s)
-                        for s in range(n_ens)]).mean(0)
+def gnn_predict(g, S, y, w, tr, epochs=500, hp=None, seed=0, n_ens=3,
+                return_stack=False, **kw):
+    """Seed-ensemble of train_once. Returns the mean, or the (n_ens, N) stack when
+    return_stack=True (per-seed spread is the uncertainty signal for variant #7).
+    Extra kwargs (loss, huber_delta, cond) pass through to train_once."""
+    stack = torch.stack([train_once(g, S, y, w, tr, epochs, hp, seed + 100 * s, **kw)
+                         for s in range(n_ens)])
+    return stack if return_stack else stack.mean(0)
 
 
 def kfold(n, k, seed):
