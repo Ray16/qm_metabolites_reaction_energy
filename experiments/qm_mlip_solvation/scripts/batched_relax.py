@@ -46,11 +46,26 @@ def _predict(pu, atoms_list):
     return E, F, batch.batch.to(F.device).long()
 
 
-def batched_fire(pu, atoms_list, fmax=0.03, steps=300, maxstep=0.2,
-                 dt0=0.1, dtmax=1.0, Nmin=5, finc=1.1, fdec=0.5, astart=0.1, fa=0.99,
+def batched_energies(pu, atoms_list, chunk=256):
+    """Batched single-point energies (eV) for ranking; no relaxation. Chunked to
+    bound GPU memory when the pool is large."""
+    out = []
+    for i in range(0, len(atoms_list), chunk):
+        E, _, _ = _predict(pu, atoms_list[i:i + chunk])
+        out.append(E.cpu().numpy())
+    return np.concatenate(out) if out else np.array([])
+
+
+def batched_fire(pu, atoms_list, fmax=0.05, steps=300, maxstep=0.2, stop_frac=1.0,
+                 straggler_fmax=None, return_converged=False, dt0=0.1, dtmax=1.0,
+                 Nmin=5, finc=1.1, fdec=0.5, astart=0.1, fa=0.99,
                  verbose=False, log_every=25, label=""):
     """Relax all atoms_list simultaneously. Returns (relaxed_atoms, energies_eV np).
-    verbose=True prints per-step progress (#converged, worst residual force)."""
+    Straggler-robust: stops early once `stop_frac` of structures are below `fmax`
+    AND every remaining structure is below `straggler_fmax` (default 2*fmax) — so a
+    single slow conformer can't drag the whole batch to the step cap (energies of
+    near-converged stragglers are fine to <~1 kJ). verbose prints per-step progress."""
+    straggler_fmax = straggler_fmax if straggler_fmax is not None else 2.0 * fmax
     import time as _time
     _t0 = _time.time()
     N = len(atoms_list)
@@ -81,12 +96,14 @@ def batched_fire(pu, atoms_list, fmax=0.03, steps=300, maxstep=0.2,
         fmax_s = torch.zeros(N, device=DEV).scatter_reduce_(0, bi, fnorm, reduce="amax",
                                                             include_self=False)
         done = fmax_s < fmax
-        if verbose and (_step % log_every == 0 or bool(done.all())):
-            worst = float(fmax_s.max())
+        frac = float(done.float().mean())
+        worst = float(fmax_s.max())
+        early = (frac >= stop_frac) and (worst < straggler_fmax)
+        if verbose and (_step % log_every == 0 or bool(done.all()) or early):
             print(f"    [relax{(' '+label) if label else ''}] step {_step:4d}  "
                   f"converged {int(done.sum()):3d}/{N}  worst fmax {worst:.3f}  "
                   f"{_time.time()-_t0:5.1f}s", flush=True)
-        if bool(done.all()):
+        if bool(done.all()) or early:
             break
         active_atom = ~done[bi]                              # mask atoms of unconverged structures
         # FIRE mixing (per structure)
@@ -121,4 +138,7 @@ def batched_fire(pu, atoms_list, fmax=0.03, steps=300, maxstep=0.2,
     off = 0
     for i, a in enumerate(atoms_list):
         n = int(nat[i]); a.set_positions(pos[off:off + n].detach().cpu().numpy()); off += n
+    converged = done.detach().cpu().numpy()   # per-structure: reached fmax
+    if return_converged:
+        return atoms_list, E_last.detach().cpu().numpy(), converged
     return atoms_list, E_last.detach().cpu().numpy()

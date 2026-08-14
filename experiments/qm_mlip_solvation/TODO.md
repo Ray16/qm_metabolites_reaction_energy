@@ -4,13 +4,16 @@ Living checklist of what's next. See `PROGRESS.md` for status/results,
 `EXPLORATION_LOG.md` for the full reasoning. Check items off as done.
 
 ## NOW — make the batched Boltzmann pipeline work + get the reproducibility answer
-- [ ] Smoke-test `step4d_batched_boltzmann.py` end-to-end (1 seed, 8 conf) — running
-- [ ] Full run: 5 seeds × 48 conformers → does Boltzmann + more sampling make the
-      glycosyl ΔG reproducible? (Step-4b min-only: std 12.5, range 37 kJ)
-  - target: std ≤ ~5 kJ and mean near exp −4.2
+- [x] Batched UMA relaxation (`batched_relax.py`) — verified 0.19 kJ; charge bug fixed
+- [x] Straggler-robust early-stop + **drop unconverged stragglers** (bad geometries)
+- [x] Energy-TARGETED sampling: ETKDG pool → UMA single-point rank → relax lowest keep
+      (settled "which/how many conformers": random-48 wasteful; ~20-24 targeted)
+- [ ] **RUN: `step4e_targeted.py --seeds 1,2,3,4,5 --pool 128 --keep 24`**
+      → Boltzmann ΔG reproducibility (target std ≤ ~5 kJ, mean near exp −4.2)
+      + keep-k convergence sweep (how few conformers suffice)
 - [ ] Decide the outcome:
   - reproducible → **per-compound caching architecture is viable** (option 2)
-  - still swings → try matched-transfer conformers, or fragment references (option 1)
+  - still swings → CREST sampling, or matched-transfer conformers, or fragment refs
 - [ ] Sanity: re-run REDOX (rxn00070/86) through the batched pipeline — confirm the
       MAE ~3 result survives batching (regression guard)
 

@@ -5,6 +5,22 @@ state survives even if external notes are lost. Companion docs:
 `EXPLORATION_LOG.md` (full methodology + term-by-term ledgers), `README.md` (plan),
 `artifacts/*.json` (raw numbers). Last updated: 2026-08-14.
 
+## ▶ PICK UP HERE (as of 2026-08-14, batching phase)
+The scalable **batched** pipeline is built and the sampling strategy is settled;
+the reproducibility answer for the glycosyl transfer is the immediate next result.
+- **Done:** batched UMA relaxation (`batched_relax.py`, verified 0.19 kJ vs
+  single-structure; charge bug fixed via `r_data_keys=["spin","charge"]`).
+  Straggler-robust early-stop + **drop unconverged stragglers**. Energy-TARGETED
+  sampling: ETKDG pool → batched UMA single-point rank → relax lowest `keep`
+  (answers "which/how many conformers"; random-48 was wasteful).
+- **RUN NEXT:** `CUDA_VISIBLE_DEVICES=0 python scripts/step4e_targeted.py
+  --seeds 1,2,3,4,5 --pool 128 --keep 24` → reproducibility of Boltzmann ΔG
+  (target std ≤ ~5 kJ, mean near exp −4.2) + convergence sweep over keep-k.
+  - reproducible → per-compound caching architecture is viable → build DB sweep
+  - still swings → targeted sampling insufficient → CREST / matched-transfer / fragments
+- **Then:** regression-check redox (rxn00070/86) through the batched pipeline;
+  cover the other hard-ten reactions (see TODO.md) to map where to improve.
+
 ## Goal
 Can a modern foundation MLIP (**UMA / OMol25**) + explicit-solvation machinery
 predict **absolute** biochemical reaction ΔG'° accurately — on the hard reactions
@@ -84,9 +100,10 @@ scale to 50k reactions**. Two scalable options, and the reproducibility test
 | `step4_glycosyl_transfer.py` | Step 4: glycosyl transfer rxn00579 (min, un-batched) | ✅ done (untrusted) |
 | `step4b_reproducibility.py` | Step 4b: min-ΔG reproducibility across seeds | ✅ done (std 12.5) |
 | `step4c_boltzmann.py` | Step 4c: Boltzmann vs min, un-batched (superseded by 4d) | ⚠️ superseded |
-| `batched_relax.py` | **batched FIRE relaxation** (module) — scale infra | ✅ built+verified (0.19 kJ) |
+| `batched_relax.py` | **batched FIRE relax** + `batched_energies` (rank) — scale infra; straggler drop | ✅ built+verified (0.19 kJ) |
 | `verify_batched_relax.py` | batched-vs-sequential energy/speed check | ✅ done |
-| `step4d_batched_boltzmann.py` | **Step 4d**: batched Boltzmann ensemble ΔG + conf cache | ⏳ running |
+| `step4d_batched_boltzmann.py` | batched Boltzmann, RANDOM conformers | ⚠️ superseded by 4e |
+| `step4e_targeted.py` | **Step 4e**: energy-TARGETED (pool→rank→relax lowest keep) Boltzmann + conf cache + keep-k convergence | ▶ RUN NEXT (5 seeds) |
 
 Env note: `batched_relax._predict` MUST pass `r_data_keys=["spin","charge"]` to
 `AtomicData.from_ase` or charge is dropped (every structure computed neutral).
