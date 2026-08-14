@@ -184,7 +184,22 @@ to **0.19 kJ**. Lesson: verify batched == reference on a single charged structur
 before trusting any batched pipeline. Speedup grows with batch size (batch ALL
 species' conformers together, not per-species).
 
-### Step 4d — BATCHED Boltzmann ensemble ΔG (rxn00579).  ⏳ running
+### Step 4e — energy-TARGETED batched Boltzmann (rxn00579).  ✅ reproducible, ❌ biased
+`step4e_targeted.py`. ETKDG pool 128 → batched UMA single-point RANK → relax lowest
+24 → xTB solvation → Boltzmann. 5 seeds: ΔG = +21,+21,+23,+26,+29 kJ →
+**std 3.1 (was 12.5), keep-k FLAT (k=10..24 within <0.2 kJ).**
+**RESOLUTIONS:** (1) reproducibility SOLVED by energy-targeting + Boltzmann;
+(2) **~10 conformers suffice → per-compound caching is cheap + viable (scalable)**;
+(3) the Step-4 −3.0 was LUCK — proper sampling converges the method's true value
+**+24, a reproducible +28 kJ BIAS vs exp −4.2.** Reframes the problem from noise
+(solved) to a diagnosable systematic error. Suspects for the glycosyl +28 kJ:
+uridine→methyl **truncation** not a clean spectator for a phosphoester transfer;
+**xTB-ALPB anion-solvation asymmetry** (MeUDPGlc glucosyl-diester vs MeUDP free
+phosphate don't cancel perfectly); microspecies/protonation. Next: decompose the
+bias term-by-term. (Infra bug fixed: `conda run` xtb = 30 s/call → direct binary
+0.04 s; see CLAUDE.md.)
+
+### Step 4d — BATCHED Boltzmann ensemble ΔG (rxn00579).  ⚠️ superseded by 4e
 `step4d_batched_boltzmann.py`. Batched relax of all species' conformers + threaded
 per-conformer xTB solvation + Boltzmann free energy + per-conformer disk cache.
 Tests whether Boltzmann (correct statistic) + more conformers (cheap now) makes the

@@ -20,13 +20,13 @@ the reproducibility answer for the glycosyl transfer is the immediate next resul
   - still swings → targeted sampling insufficient → CREST / matched-transfer / fragments
 - **Then:** regression-check redox (rxn00070/86) through the batched pipeline;
   cover the other hard-ten reactions (see TODO.md) to map where to improve.
-- **⚠ Smoke flag (1 seed, pool 32 / keep 12):** ΔG = **+17.9** vs exp −4.2
-  (err +21.6); keep-k stable *within* the seed (17.9 at k=10 and 12) — good — BUT
-  differs sharply from the random seed-1's −3.0. So *which* low-energy conformers
-  are kept shifts the value a lot. Open Qs for the 5-seed run: (a) is +17.9
-  reproducible across seeds? (b) does energy-targeting BIAS the value vs random?
-  If reproducible-but-biased, the bias (not the noise) becomes the thing to fix
-  (e.g., solvation reordering conformers, or the pool missing a key basin).
+- **✅ RESULT (5 seeds, pool 128 / keep 24):** ΔG_boltz +21,+21,+23,+26,+29 →
+  **std 3.1 (was 12.5), keep-k FLAT (~10 conf suffice), mean +24 → +28 kJ BIAS vs
+  exp −4.2.** REPRODUCIBILITY SOLVED; per-compound caching viable (few conformers).
+  The −3.0 was luck; the method's true value is a reproducible +28 kJ bias.
+  **→ Next: DECOMPOSE the glycosyl bias** (truncation uridine→methyl? xTB-ALPB
+  anion-solvation asymmetry MeUDPGlc vs MeUDP? microspecies?). It's now a
+  diagnosable systematic error, not noise.
 
 ## Goal
 Can a modern foundation MLIP (**UMA / OMol25**) + explicit-solvation machinery
