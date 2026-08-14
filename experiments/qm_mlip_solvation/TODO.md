@@ -8,14 +8,19 @@ Living checklist of what's next. See `PROGRESS.md` for status/results,
 - [x] Straggler-robust early-stop + **drop unconverged stragglers** (bad geometries)
 - [x] Energy-TARGETED sampling: ETKDG pool → UMA single-point rank → relax lowest keep
       (settled "which/how many conformers": random-48 wasteful; ~20-24 targeted)
-- [ ] **RUN: `step4e_targeted.py --seeds 1,2,3,4,5 --pool 128 --keep 24`**
-      → Boltzmann ΔG reproducibility (target std ≤ ~5 kJ, mean near exp −4.2)
-      + keep-k convergence sweep (how few conformers suffice)
-- [ ] Decide the outcome:
-  - reproducible → **per-compound caching architecture is viable** (option 2)
-  - still swings → CREST sampling, or matched-transfer conformers, or fragment refs
-- [ ] Sanity: re-run REDOX (rxn00070/86) through the batched pipeline — confirm the
-      MAE ~3 result survives batching (regression guard)
+- [x] **Reproducibility RESULT** (energy-targeted Boltzmann, 5 seeds): **std 12.5→3.1,
+      keep-k FLAT (~10 conformers suffice)** → **per-compound caching viable.** Revealed
+      a reproducible +28 kJ BIAS (the earlier −3.0 was luck).
+- [x] **SOLVATION — the bias is xTB-ALPB anion under-solvation; COSMO FIXES IT.**
+      Step 5 (glycosyl): ALPB +18.6, GBSA +17.1, **COSMO +0.4** vs exp −4.2.
+      Step 5b (redox regression): COSMO 14.9 ≈ ALPB 15.8 (err ~3) → COSMO is a
+      **universal upgrade**, not a per-class tradeoff. GBSA out. Cost modest
+      (~1 s/call, implicit COSMO not COSMO-RS). **COSMO now the pipeline default.**
+- [x] Truncation is a secondary ~10 kJ effect (methyl vs ethyl cap); note as caveat.
+- [~] Confirm COSMO in the FULL batched Boltzmann pipeline (glycosyl 5-seed, keep 10)
+      — running; expect ~+0.4, std ~3.
+- [ ] Sanity: re-run REDOX (rxn00070/86) through the full batched pipeline with COSMO
+      — confirm MAE ~3 survives batching + COSMO (regression guard).
 
 ## NEXT — cover more reactions to map where the method works / breaks
 Goal: identify the failure modes to prioritize improvements. Run the batched
@@ -38,9 +43,11 @@ pipeline on:
 - [ ] Amortize thermal: compute once per compound (or cheap vibrational estimate)
 
 ## ACCURACY / robustness (open questions)
-- [ ] Convergence vs conformer count (24 vs 48 vs 100) — how many needed per compound?
+- [x] Convergence vs conformer count — keep-k FLAT, **~10 conformers suffice** per compound
+- [x] **Solvation model — RESOLVED: use COSMO** (ALPB/GBSA under-solvate polyanions;
+      COSMO fixes it, preserves redox, affordable). Cluster-continuum not needed for now.
 - [ ] Proton reference audit (redox): the −1171 constant is load-bearing
-- [ ] Solvation model: is xTB-ALPB enough, or need cluster-continuum for polyanions?
+- [ ] Truncation error (~10 kJ, methyl→ethyl): bound with a larger/real cap where it matters
 - [ ] Thermal: ideal-gas entropy valid only for Δn=0 reactions — handle Δn≠0
 - [ ] Independent validation reactions (not the hard-ten) before any generality claim
 
