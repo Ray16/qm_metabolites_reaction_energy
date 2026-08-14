@@ -130,13 +130,30 @@ environment of the cysteine thiol; capping restores it.
 cancellation (the thiol model alone swung 10 kJ); n=2 sharing GSH/GSSG ≈ one
 independent couple; the −1171 proton constant is load-bearing.
 
-### Step 4 — INDEPENDENCE TEST: glycosyl transfer (rxn00579).  ⏳ running
+### Step 4 — INDEPENDENCE TEST: glycosyl transfer (rxn00579).  ⚠️ good number, UNTRUSTED
 `step4_glycosyl_transfer.py`. UDP-glucose + fructose → UDP + sucrose (exp −4.2).
 Truncate uridine→methyl. Model **verified atom- & charge-balanced, NO net proton**
 → drops the load-bearing proton constant; q−2 diphosphate on both sides → anion
-solvation cancels (cancellation (c)). Different reaction class, genuinely
-independent of redox. Watch: **sugar conformer spread** (reactive center is now
-flexible — the regime where truncation may not fully tame the noise). [result TBD]
+solvation cancels (cancellation (c)). **Term ledger:**
+| term | kJ/mol |
+|---|--:|
+| ΔG_elec (UMA gas) | +93.3 |
+| ΔG_thermal shift | −0.8 |
+| ΔΔG_solv (xTB-ALPB) | −95.5 |
+| **ΔG_aq (with thermal)** | **−3.0** |
+| exp | −4.2 |
+Error **+1.2 kJ** (dGP-retrained −46.9, off ~43). **BUT: max conformer spread 85.8
+kJ** (MeUDPGlc 85, MeUDP 63, Suc 86, Fru 38) — vs 7 kJ for the rigid nicotinamide.
+The result is a cancellation of +93/−95 where each term carries that ~85 kJ noise,
+so **the 1.2 kJ agreement is very possibly fortuitous** (right answer, partly wrong
+reason). **Confirms the boundary:** truncation removed the *spectator* noise but the
+*reactive center is the flexible part* here (sugars) → noise stays. **Key open
+question: is −3.0 REPRODUCIBLE across conformer seeds?** (within ~5 kJ ⇒ noise
+genuinely cancels because sugar moieties are conserved across the transfer; large
+swing ⇒ luck). That reproducibility test is the next step and the diagnostic for
+how to fix the sugar-conformer problem.
+**Lesson:** within-species conf-spread (85) is NOT the error bar on the reaction —
+the real diagnostic is reaction-ΔG reproducibility across independent samplings.
 
 ## 6. "What helped and why" ledger
 | change | Δ on result | why |
