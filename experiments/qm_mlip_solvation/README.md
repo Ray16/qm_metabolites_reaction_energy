@@ -67,7 +67,31 @@ mirrors `PALM/benchmarks/omol25/smoke_uma.py`.
   scaffold so spectator conformer noise cancels). Isomerizations are a worst case
   for this (whole molecule reorganizes); the ten transfers keep a big identical
   spectator, so cancellation applies there.
-- [ ] Step 2 MATCHED-scaffold difference on the redox pair (rxn00086/70) — the
-  real test of whether cancellation tames the noise
-- [ ] Step 3 (conditional) cluster-continuum solvation + CHE for the ten
-- [ ] Step 4 audit protocol
+- [x] **Step 2 matched-scaffold redox (rxn00086/70) — POSITIVE on the key test.**
+  `scripts/step2_redox_matched.py`. Truncated spectators to small models
+  (1-methylnicotinamide for NAD(P); methanethiol/disulfide for glutathione);
+  CHE proton reference. **Conformer noise collapsed 49 → 7.2 kJ — cancellation
+  defeats the noise wall.** Assembled ΔG (gas elec + CHE proton, NO solvation
+  yet) = −213.5 kJ vs exp +18/+12; the ~230 kJ gap is the missing desolvation of
+  the CATION MNA⁺ (reliable regime, not the anion wall) → Step 3 must compute it.
+- [x] **Step 3 full aqueous ΔG (UMA gas + xTB-ALPB solv + CHE proton) — MIXED.**
+  `scripts/step3_redox_solvation.py`. Predicted −6.0 kJ vs exp +18 (NAD)/+12 (NADP),
+  err −24/−18. **Wins:** MAE ~21 vs dGP-retrained ~90 and old QM composite ~38;
+  NAD≈NADP differential captured correctly (relative QM works). **Problem:** ~20 kJ
+  absolute error, sign wrong — it's a delicate cancellation of ~1000 kJ terms
+  (ΔE_elec +957, ΔΔGsolv +207, G(H+) −1171), so any 1–2% component error = 10–20 kJ.
+  Biggest legitimate missing physics: THERMAL free-energy corrections (used
+  electronic ΔE, not ΔG — no ZPE/thermal/entropy, worth 10–30 kJ). Consistent with
+  the standing absolute-QM wall.
+- [x] **Step 3b thermal + faithful model — STRONG POSITIVE.**
+  `scripts/step3b_redox_thermal.py`. UMA-Hessian Gibbs corrections + capped-cysteine
+  thiol model → **ΔG = 15.8 kJ vs exp 18.0/11.9 (err −2.2/+3.9, MAE ~3 kJ)**. From
+  first principles, nothing fit. vs dGP-retrained off ~90, old QM composite ~38.
+  Thermal shift +32–44 kJ; faithful model brought methanethiol's 26.1 → 15.8.
+  **CAVEATS (do not over-claim):** (1) delicate cancellation of ~1000 kJ terms —
+  the ~10 kJ swing between thiol models means true uncertainty is ~±10 kJ, not ±3;
+  (2) n=2 and both share GSH/GSSG ≈ one independent redox couple; (3) needs the
+  transfer classes + independent reactions to claim generality.
+- [ ] Step 4 VALIDATE on glycosyl/nucleotidyl transfers (rxn00605/01713/00579/
+  01675/01005) — cleaner cancellation, no redox/proton; the real independence test
+- [ ] Step 5 audit protocol if it holds
