@@ -71,6 +71,12 @@ def pool_confs(smiles, q, seed, pool):
                   info={"charge": int(q), "spin": 1}) for c in cids]
 
 
+# DIRECT xtb binary — NEVER `conda run` in a loop (~30 s overhead/call vs 0.57 s).
+# See ../../CLAUDE.md. OMP=1 avoids CPU oversubscription when threaded/fanned-out.
+XTB_BIN = os.environ.get("XTB_BIN", f"{os.environ['HOME']}/miniforge3/envs/xtb/bin/xtb")
+XTB_ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
+
+
 def xtb_dgsolv(atoms, q):
     with tempfile.TemporaryDirectory() as d:
         xyz = os.path.join(d, "m.xyz")
@@ -80,9 +86,10 @@ def xtb_dgsolv(atoms, q):
                 f.write(f"{s} {x:.6f} {y:.6f} {z:.6f}\n")
 
         def e(solv):
-            cmd = ["conda", "run", "-n", "xtb", "xtb", xyz, "--gfn", "2",
-                   "--chrg", str(int(q)), "--sp"] + (["--alpb", solv] if solv else [])
-            r = subprocess.run(cmd, cwd=d, capture_output=True, text=True, timeout=400)
+            cmd = [XTB_BIN, xyz, "--gfn", "2", "--chrg", str(int(q)), "--sp"] \
+                  + (["--alpb", solv] if solv else [])
+            r = subprocess.run(cmd, cwd=d, env=XTB_ENV, capture_output=True,
+                               text=True, timeout=120)
             m = re.search(r"TOTAL ENERGY\s+(-?\d+\.\d+)\s+Eh", r.stdout)
             return float(m.group(1)) if m else None
         eg, ew = e(None), e("water")
