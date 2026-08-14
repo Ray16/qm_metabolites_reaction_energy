@@ -1,0 +1,8 @@
+quantity,count,pct_of_active,note
+active_compounds,45662,100.0,non-obsolete ModelSEED Biochemistry compounds
+with_smiles_structured,36801,80.6,scorable in principle by any structure method
+no_structure_at_all,8861,19.4,hard floor - no method (dGP/eQ/GNN) can score these
+rdkit_parse_failures,19,0.0,bad valence etc among structured
+contain_star_Rgroup,6454,14.1,incomplete structures - dGf ill-defined - excluded from fair denominator
+complete_structures,30335,66.4,parseable SMILES with no '*' - the fair coverage denominator
+modelseed_own_stored_deltag,19782,43.3,ModelSEED's legacy group-contribution dGf (the coverage hole it leaves)

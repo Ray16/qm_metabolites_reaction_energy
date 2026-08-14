@@ -1,0 +1,120 @@
+{
+  "RANDOM": {
+    "gnn_heldout": {
+      "MAE": 6.864170561667675,
+      "RMSE": 9.569104780240407,
+      "medAE": 4.7930420239766445,
+      "R2": 0.4094189017144345,
+      "sign_pct": 70.02724795640327,
+      "n": 367
+    },
+    "dgp_original_heldout": {
+      "MAE": 6.539110303231171,
+      "RMSE": 9.418464923319815,
+      "medAE": 4.440851399149938,
+      "R2": 0.42786677040385956,
+      "sign_pct": 73.84196185286103,
+      "n": 367
+    },
+    "dgp_retrained_heldout": {
+      "MAE": 6.520504440008101,
+      "RMSE": 9.459960008272436,
+      "medAE": 4.392153554729942,
+      "R2": 0.42126359290201754,
+      "sign_pct": 73.9010989010989,
+      "n": 364
+    },
+    "paired_gnn_vs_original": {
+      "dMAE": 0.3250602584365039,
+      "ci": [
+        -0.0708069423576169,
+        0.7236930844853454
+      ],
+      "verdict": "tie (within noise)"
+    },
+    "paired_gnn_vs_retrained": {
+      "dMAE": 0.28145668164316895,
+      "ci": [
+        -0.13831749986159783,
+        0.7012413105394558
+      ],
+      "verdict": "tie (within noise)"
+    }
+  },
+  "CPD-DISJOINT": {
+    "gnn_heldout": {
+      "MAE": 7.656080755302776,
+      "RMSE": 10.419120250784738,
+      "medAE": 5.542128324508667,
+      "R2": 0.2998372144190511,
+      "sign_pct": 66.7574931880109,
+      "n": 367
+    },
+    "dgp_original_heldout": {
+      "MAE": 7.5381768848106345,
+      "RMSE": 10.400258777052077,
+      "medAE": 5.563124899186012,
+      "R2": 0.3023698944021177,
+      "sign_pct": 68.39237057220708,
+      "n": 367
+    },
+    "dgp_retrained_heldout": {
+      "MAE": 7.451968062390756,
+      "RMSE": 10.349013368465084,
+      "medAE": 5.403222051616169,
+      "R2": 0.3073719129769015,
+      "sign_pct": 67.03296703296702,
+      "n": 364
+    },
+    "paired_gnn_vs_original": {
+      "dMAE": 0.11790387049214157,
+      "ci": [
+        -0.31866513501569776,
+        0.5398295397859468
+      ],
+      "verdict": "tie (within noise)"
+    },
+    "paired_gnn_vs_retrained": {
+      "dMAE": 0.13084657588869053,
+      "ci": [
+        -0.25993837516112256,
+        0.5382673068624301
+      ],
+      "verdict": "tie (within noise)"
+    }
+  },
+  "in_sample_reference": {
+    "dGP-original (in-sample, leaked)": {
+      "MAE": 3.396040268725886,
+      "RMSE": 4.846088777359767,
+      "medAE": 2.387372431458852,
+      "R2": 0.8485324311522462,
+      "sign_pct": 84.46866485013625,
+      "n": 367
+    },
+    "dGP-retrained (in-sample, leaked)": {
+      "MAE": 3.5644261938252964,
+      "RMSE": 5.049001909214155,
+      "medAE": 2.4721564158461358,
+      "R2": 0.8351407678481086,
+      "sign_pct": 84.61538461538461,
+      "n": 364
+    },
+    "eQuilibrator (in-sample, leaked)": {
+      "MAE": 3.0837721095069734,
+      "RMSE": 5.269692526377652,
+      "medAE": 1.4442937469274568,
+      "R2": 0.8208950969835995,
+      "sign_pct": 88.28337874659401,
+      "n": 367
+    }
+  },
+  "_meta": {
+    "level": "none",
+    "ens": 8,
+    "seeds": 3,
+    "epochs": 300,
+    "folds": 5,
+    "note": "GNN + BOTH dGPredictor variants (original KEGG basis, retrained ModelSEED basis) run held-out on IDENTICAL CV folds; dGP model = BayesianRidge(fit_intercept=False) on its own group features, coefficients refit per fold. In-sample rows are leaked (train==test), reference only."
+  }
+}

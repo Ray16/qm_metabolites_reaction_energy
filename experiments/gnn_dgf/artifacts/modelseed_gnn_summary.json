@@ -1,0 +1,25 @@
+{
+  "tiers": {
+    "in_domain": 15901,
+    "extrapolation": 1767,
+    "imbalanced": 20333,
+    "unpredictable": 9632,
+    "out_of_domain": 770
+  },
+  "extrap_cut_kJ": 24.89398672285727,
+  "n_reactions": 48403,
+  "calibration": {
+    "regime": "CPD-DISJOINT",
+    "s": 2.9192307692307695,
+    "tau": 4.163461538461538
+  },
+  "in_domain_elements": [
+    "C",
+    "H",
+    "I",
+    "N",
+    "O",
+    "P",
+    "S"
+  ]
+}

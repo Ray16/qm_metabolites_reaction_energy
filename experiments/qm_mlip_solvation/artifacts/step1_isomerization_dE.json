@@ -1,0 +1,109 @@
+{
+  "reactions": [
+    {
+      "rxn": "rxn00223",
+      "reactant": "cpd00027",
+      "product": "cpd00082",
+      "charge": 0,
+      "exp_dG_kJ": -0.21317925341131233,
+      "n_meas": 89,
+      "uma_dE_min_kJ": 14.52,
+      "uma_dE_boltz_kJ": 14.73,
+      "err_min": 14.73,
+      "err_boltz": 14.95,
+      "conf_spread_kJ": 49.9,
+      "n_conf": [
+        9,
+        11
+      ]
+    },
+    {
+      "rxn": "rxn00636",
+      "reactant": "cpd00138",
+      "product": "cpd00082",
+      "charge": 0,
+      "exp_dG_kJ": -2.610747835664795,
+      "n_meas": 8,
+      "uma_dE_min_kJ": 15.95,
+      "uma_dE_boltz_kJ": 16.61,
+      "err_min": 18.56,
+      "err_boltz": 19.22,
+      "conf_spread_kJ": 48.2,
+      "n_conf": [
+        8,
+        11
+      ]
+    },
+    {
+      "rxn": "rxn00558",
+      "reactant": "cpd00079",
+      "product": "cpd00072",
+      "charge": -2,
+      "exp_dG_kJ": 2.968827172049119,
+      "n_meas": 50,
+      "uma_dE_min_kJ": -51.13,
+      "uma_dE_boltz_kJ": -51.76,
+      "err_min": -54.1,
+      "err_boltz": -54.73,
+      "conf_spread_kJ": 99.9,
+      "n_conf": [
+        12,
+        12
+      ]
+    },
+    {
+      "rxn": "rxn01106",
+      "reactant": "cpd00482",
+      "product": "cpd00169",
+      "charge": -3,
+      "exp_dG_kJ": -5.912264841222273,
+      "n_meas": 72,
+      "uma_dE_min_kJ": -31.2,
+      "uma_dE_boltz_kJ": -30.64,
+      "err_min": -25.28,
+      "err_boltz": -24.72,
+      "conf_spread_kJ": 33.2,
+      "n_conf": [
+        11,
+        8
+      ]
+    },
+    {
+      "rxn": "rxn00747",
+      "reactant": "cpd00102",
+      "product": "cpd00095",
+      "charge": -2,
+      "exp_dG_kJ": -7.901630250611171,
+      "n_meas": 9,
+      "uma_dE_min_kJ": -24.53,
+      "uma_dE_boltz_kJ": -24.45,
+      "err_min": -16.63,
+      "err_boltz": -16.54,
+      "conf_spread_kJ": 61.9,
+      "n_conf": [
+        9,
+        10
+      ]
+    },
+    {
+      "rxn": "rxn00973",
+      "reactant": "cpd00137",
+      "product": "cpd00260",
+      "charge": -3,
+      "exp_dG_kJ": 7.605571390601545,
+      "n_meas": 75,
+      "uma_dE_min_kJ": -5.29,
+      "uma_dE_boltz_kJ": -4.26,
+      "err_min": -12.9,
+      "err_boltz": -11.87,
+      "conf_spread_kJ": 48.1,
+      "n_conf": [
+        12,
+        12
+      ]
+    }
+  ],
+  "mae_min": 23.700000000000003,
+  "mae_boltz": 23.671666666666667,
+  "nconf": 12
+}

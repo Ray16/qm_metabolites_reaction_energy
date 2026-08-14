@@ -33,10 +33,16 @@ linear group contribution and extend coverage?
    GNN+QM, and GNN-delta all land within ~0.3 kJ/mol of each other. Adding a
    nonlinear learned representation on top of group-additivity captures
    essentially no residual signal at n=367.
-2. **Random held-out ~6.6 is near the experimental noise floor** (TECRDB sd
-   ~6 kJ/mol). The incumbents' in-sample 3.0 is fitting below that floor
-   (see lam sweep: in-sample reaches 1.6 while held-out worsens — visible
-   overfitting). So on random CV there is little room for ANY model.
+2. **Random held-out ~6.6 sits ABOVE the experimental noise floor, not at it.**
+   The floor — median per-reaction measurement sd over the 212 multiply-measured
+   TECRDB reactions — is **~2.0 kJ/mol** (mean 2.6, IQR 1.0–3.9), NOT ~6. (An
+   earlier draft wrote "~6 kJ floor"; that conflated it with sd(y)=12.5, the
+   signal spread across reactions.) The incumbents' in-sample MAE 3.0 / medAE 1.5
+   is near that ~2 kJ floor (train≈test). Held-out 6.6 leaves a real ~4–5 kJ gap
+   above the floor. The ablation shows that gap is **data-limited (n=367), not
+   architecture-limited** — no model class closes it held-out and the naive
+   retrain overfits — but it is NOT irreducible noise. Room exists in principle;
+   more/broader labels, not a better model, is what would use it.
 3. **QM/physical features help only where it matters — compound-disjoint
    extrapolation — and only a little.** CPCM-X ("rich") is the single best
    config on CPD-DISJOINT (8.59), physically sensible (better solvation aids

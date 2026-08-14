@@ -55,13 +55,17 @@ def main():
     ap.add_argument("--ens", type=int, default=4)
     ap.add_argument("--epochs", type=int, default=500)
     ap.add_argument("--lam", type=float, default=30.0)
+    ap.add_argument("--level", choices=["none", "solv", "full", "rich"], default="rich",
+                    help="'none' = graph-only (RDKit features, xtb-free; deployable "
+                         "for a full-database sweep). 'rich' = with xtb QM (research).")
+    ap.add_argument("--out", default="checkpoint.pt", help="artifact filename")
     a = ap.parse_args()
     hp = DEFAULT_HP
 
     d = torch.load(paths.artifact("data.pt"))
     S = d["S"].to(DEV); y = d["y"].to(DEV); n = d["n"].to(DEV)
     w = torch.log1p(n); w = w / w.mean()
-    g = Graph(d["graphs"]["rich"])
+    g = Graph(d["graphs"][a.level])
     yn = y.cpu().numpy(); Xg = d["Xgroup"].numpy(); N = len(d["rxn_ids"])
 
     coef = None
@@ -71,21 +75,23 @@ def main():
         target = torch.as_tensor(yn - Xg @ coef, dtype=torch.float32, device=DEV)
     states = train_ensemble(g, S, target, w, a.ens, a.epochs, hp)
 
+    tag = "graph-only, RDKit features, xtb-FREE" if a.level == "none" else f"{a.level} (QC features)"
     ckpt = dict(
-        kind=("GNN[rich] from-scratch (graph + QC features, NO group anchor)"
-              if a.mode == "scratch" else "GNN-delta[rich] (group-CC prior + GNN residual)"),
-        mode=a.mode, held_out_mae_kJ=MAE[a.mode],
+        kind=(f"GNN[{a.level}] from-scratch ({tag}, NO group anchor)"
+              if a.mode == "scratch" else f"GNN-delta[{a.level}] (group-CC prior + GNN residual)"),
+        mode=a.mode, level=a.level, held_out_mae_kJ=MAE[a.mode],
         note="Prediction: dG = " + ("S@f" if a.mode == "scratch" else "Xgroup@coef + S@f")
-             + "; f = mean over ensemble. Accuracy is held-out CV, not in-sample.",
-        model_states=states, n_ensemble=a.ens, level="rich",
+             + "; f = mean over ensemble. Accuracy is held-out CV, not in-sample."
+             + (" held_out_mae_kJ is the rich-level reference; graph-only is ~7.0/8.9."
+                if a.level == "none" else ""),
+        model_states=states, n_ensemble=a.ens,
         prior_coef=coef, prior_lambda=(a.lam if a.mode == "delta" else None),
         hp=hp, atom_dim=g.atom_dim, bond_dim=g.bond_dim, qm_dim=g.qm.size(1),
         arch="MPNN; sum-readout + LayerNorm(QC) + MLP; pred = "
              + ("S@f" if a.mode == "scratch" else "prior + S@f"),
         repro="scripts/{prepare_data.py,save_model.py}")
-    torch.save(ckpt, paths.artifact("checkpoint.pt"))
-    print(f"saved artifacts/checkpoint.pt  mode={a.mode}  {a.ens}-model ensemble  "
-          f"held-out {MAE[a.mode]['random_cv']} random / {MAE[a.mode]['compound_disjoint_cv']} cpd-disjoint")
+    torch.save(ckpt, paths.artifact(a.out))
+    print(f"saved artifacts/{a.out}  mode={a.mode}  level={a.level}  {a.ens}-model ensemble")
 
 
 if __name__ == "__main__":
