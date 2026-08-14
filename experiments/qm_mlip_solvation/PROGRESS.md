@@ -73,6 +73,24 @@ scale to 50k reactions**. Two scalable options, and the reproducibility test
 - Cheap pre-filter (MMFF/GFN-FF) to rank conformers, UMA-refine only the top few.
 - Faster is required but **must not cost accuracy** (user directive).
 
+## Implementation inventory (scripts/)
+| script | what it does | status |
+|---|---|---|
+| `probe_uma_charge.py` | Step 0: UMA on charge ladder (neutral→PO₄³⁻) | ✅ done |
+| `step1_isomerization_dE.py` | Step 1: naive gas-phase ΔE, 6 isomerizations | ✅ done (neg) |
+| `step2_redox_matched.py` | Step 2: truncated-model redox, gas + CHE proton | ✅ done |
+| `step3_redox_solvation.py` | Step 3: + xTB-ALPB solvation | ✅ done |
+| `step3b_redox_thermal.py` | Step 3b: + UMA-Hessian thermal + cysteine model | ✅ done (MAE ~3) |
+| `step4_glycosyl_transfer.py` | Step 4: glycosyl transfer rxn00579 (min, un-batched) | ✅ done (untrusted) |
+| `step4b_reproducibility.py` | Step 4b: min-ΔG reproducibility across seeds | ✅ done (std 12.5) |
+| `step4c_boltzmann.py` | Step 4c: Boltzmann vs min, un-batched (superseded by 4d) | ⚠️ superseded |
+| `batched_relax.py` | **batched FIRE relaxation** (module) — scale infra | ✅ built+verified (0.19 kJ) |
+| `verify_batched_relax.py` | batched-vs-sequential energy/speed check | ✅ done |
+| `step4d_batched_boltzmann.py` | **Step 4d**: batched Boltzmann ensemble ΔG + conf cache | ⏳ running |
+
+Env note: `batched_relax._predict` MUST pass `r_data_keys=["spin","charge"]` to
+`AtomicData.from_ase` or charge is dropped (every structure computed neutral).
+
 ## Environment & reproduce
 - **`uma` conda env**: fairchem-core 2.21.0, torch 2.8+cu128, ase 3.29, rdkit.
   UMA checkpoint `uma-s-1p2` cached at `~/.cache/fairchem/models--facebook--UMA`.

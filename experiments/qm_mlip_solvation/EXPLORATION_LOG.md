@@ -170,6 +170,26 @@ untrustworthy when flexible (sugars). The min-conformer estimate is the culprit 
 option 2 if yes; (ii) matched-transfer conformers (cancel sugar noise, reaction-
 level); (iii) fragment references (scales, additivity error). All must be BATCHED.
 
+### Step 5 — BATCHED relaxation infrastructure (for scale).  ✅ built + verified
+`batched_relax.py` (`batched_fire`): relax ALL conformers/species in ONE forward
+pass per step (custom batched FIRE, per-structure dt/alpha, `maxstep=0.2` cap,
+converged structures freeze). Needed because the ~50k-reaction database can't use
+sequential per-structure BFGS.
+**Bug found + fixed (important):** first batched energies were ~1180 kJ too high —
+NOT the optimizer (FIRE converged 8/8 to fmax 0.03) and NOT maxstep. Root cause:
+`AtomicData.from_ase` needs **`r_data_keys=["spin","charge"]`** to read charge/spin
+from `atoms.info`; without it every structure was computed NEUTRAL (batched q−2 ==
+q0). One-line fix → batched energy now matches the single-structure FAIRChemCalculator
+to **0.19 kJ**. Lesson: verify batched == reference on a single charged structure
+before trusting any batched pipeline. Speedup grows with batch size (batch ALL
+species' conformers together, not per-species).
+
+### Step 4d — BATCHED Boltzmann ensemble ΔG (rxn00579).  ⏳ running
+`step4d_batched_boltzmann.py`. Batched relax of all species' conformers + threaded
+per-conformer xTB solvation + Boltzmann free energy + per-conformer disk cache.
+Tests whether Boltzmann (correct statistic) + more conformers (cheap now) makes the
+glycosyl ΔG reproducible (Step-4b min-only was std 12.5). [result TBD]
+
 ## 6. "What helped and why" ledger
 | change | Δ on result | why |
 |---|---|---|
