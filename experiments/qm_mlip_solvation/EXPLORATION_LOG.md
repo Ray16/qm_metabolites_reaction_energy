@@ -199,6 +199,30 @@ phosphate don't cancel perfectly); microspecies/protonation. Next: decompose the
 bias term-by-term. (Infra bug fixed: `conda run` xtb = 30 s/call → direct binary
 0.04 s; see CLAUDE.md.)
 
+### Step 5 — bias decomposition (rxn00579 +28 kJ).  ✅ it's SOLVATION; COSMO fixes it
+`step5_bias_diag.py`. **(A) solvation model:** ALPB ΔG +18.6 (err +22.8), GBSA +17.1
+(+21.3), **COSMO +0.4 (err +4.6)** — COSMO solvates the exposed phosphate anion ~18
+kJ more → near-experiment. The +28 bias was xTB-ALPB/GBSA anion UNDER-solvation (the
+documented wall); reaction is anion-dominated (q−2 diphosphates ~−800 kJ each) so the
+anion model dominates. **(B) truncation:** methyl vs ethyl cap shifts ΔE_elec +10.5 kJ
+→ uridine cap NOT a perfectly clean spectator (secondary ~10 kJ effect, << 24 kJ solv).
+**Caveats:** COSMO under-solvates NEUTRALS (Fructose −10 vs ALPB −66; conductor model)
+so its win may be partly fortuitous on anion-dominated reactions; MUST regression-check
+COSMO on REDOX (good with ALPB, cation+neutrals) — if COSMO breaks redox, it's a
+per-charge-class choice, not a universal upgrade.
+
+### Step 5b — COSMO regression on REDOX + cost.  ✅ COSMO is a UNIVERSAL upgrade
+`step5b_redox_solv.py` (xtb solvation swapped on the saved step3b geometries, gas
+free energy + CHE proton fixed). Redox ΔG: ALPB 15.8, GBSA 5.5, **COSMO 14.9**
+(err NAD −3.1 / NADP +3.0). **COSMO KEEPS redox accurate (≈ALPB) AND fixes glycosyl
+(+28→+0.4) → universal, not a per-class tradeoff.** GBSA HURTS redox (5.5) → out.
+**Cost:** COSMO ~8–9× ALPB per call but absolute tiny (MNA⁺ 0.54s, CysSSCys 1.6s vs
+ALPB 0.06–0.19s) → ~2 h threaded for the whole DB. NOTE: xtb `--cosmo` = cheap
+implicit-continuum COSMO, NOT the expensive COSMO-RS (COSMOtherm/CPCM-X).
+**DECISION: adopt COSMO as the solvation model.** Next: confirm it generalizes on
+the other transfers (nucleotidyl rxn01675/01005, glycosyl rxn00605/01713) before
+wiring in as default.
+
 ### Step 4d — BATCHED Boltzmann ensemble ΔG (rxn00579).  ⚠️ superseded by 4e
 `step4d_batched_boltzmann.py`. Batched relax of all species' conformers + threaded
 per-conformer xTB solvation + Boltzmann free energy + per-conformer disk cache.
