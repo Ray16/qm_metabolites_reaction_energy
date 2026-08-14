@@ -20,6 +20,13 @@ the reproducibility answer for the glycosyl transfer is the immediate next resul
   - still swings → targeted sampling insufficient → CREST / matched-transfer / fragments
 - **Then:** regression-check redox (rxn00070/86) through the batched pipeline;
   cover the other hard-ten reactions (see TODO.md) to map where to improve.
+- **⚠ Smoke flag (1 seed, pool 32 / keep 12):** ΔG = **+17.9** vs exp −4.2
+  (err +21.6); keep-k stable *within* the seed (17.9 at k=10 and 12) — good — BUT
+  differs sharply from the random seed-1's −3.0. So *which* low-energy conformers
+  are kept shifts the value a lot. Open Qs for the 5-seed run: (a) is +17.9
+  reproducible across seeds? (b) does energy-targeting BIAS the value vs random?
+  If reproducible-but-biased, the bias (not the noise) becomes the thing to fix
+  (e.g., solvation reordering conformers, or the pool missing a key basin).
 
 ## Goal
 Can a modern foundation MLIP (**UMA / OMol25**) + explicit-solvation machinery
