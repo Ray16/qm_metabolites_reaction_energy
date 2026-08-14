@@ -251,6 +251,20 @@ per-conformer xTB solvation + Boltzmann free energy + per-conformer disk cache.
 Tests whether Boltzmann (correct statistic) + more conformers (cheap now) makes the
 glycosyl ΔG reproducible (Step-4b min-only was std 12.5). [result TBD]
 
+### Step 6 — nucleotidyl transfer (rxn01675/01005).  ❌ hard; SOLVATION RANKING FLIPS
+`step6_nucleotidyl_proper.py`. Truncated MeP(−2)+MePPP(−3)→MePPMe(−2)+PPi(−3)
+(balanced −5/−5, Δn=0). Proper per-species UMA-Hessian thermal + all solvation
+models (fixing an earlier attempt that used the glycosyl thermal −0.8 and only
+CPCM-X). ΔG (−3 microspecies, exp ~+2): **ALPB −23.8, GBSA −28.8, COSMO −37.7,
+CPCM-X −52.4.** **Solvation ranking FLIPPED vs glycosyl** — ALPB BEST, COSMO/CPCM-X
+WORST. Reason: this reaction CREATES **PPi** (compact charge-dense −3); COSMO/CPCM-X
+OVER-solvate compact anions → too stable → ΔG too negative. (Glycosyl created an
+EXPOSED phosphate → ALPB under-solvates → COSMO fixed it.) **→ NO universal
+solvation model; it's anion-charge-density-dependent.** Even ALPB (best) err −25 →
+nucleotidyl genuinely hard (PPi solvation + truncation). The −4 protonation (ATP⁴⁻,
+CHE proton) gives garbage (−2380): gas-phase trianion deprotonation (~+1230) doesn't
+cancel the proton ref without pKa treatment → use the −3 proton-balanced microspecies.
+
 ## 6. "What helped and why" ledger
 | change | Δ on result | why |
 |---|---|---|
