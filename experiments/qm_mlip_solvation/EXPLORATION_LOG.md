@@ -155,6 +155,21 @@ how to fix the sugar-conformer problem.
 **Lesson:** within-species conf-spread (85) is NOT the error bar on the reaction —
 the real diagnostic is reaction-ΔG reproducibility across independent samplings.
 
+### Step 4b — reproducibility across 5 conformer seeds.  ❌ NOT reproducible (decisive)
+`step4b_reproducibility.py` (parallelized 1 seed/GPU). rxn00579 ΔG_aq per seed:
+−3.0, +8.6, +10.0, +4.1, +34.0 kJ → **mean +10.7, std ~12.5, range 37 kJ** (exp −4.2).
+**The Step-4 −3.0 was LUCK** (seed 1). Real conformer uncertainty ±13 kJ; seed 5 blew
+to +34. **Architecture verdict:** per-compound absolute G does NOT converge with
+cheap 24-conformer min-sampling for flexible molecules → the clean "sample once,
+cache, ΔG=S·G" scalable option is **not viable as-is**. Confirms the boundary
+sharply: the method is trustworthy when the reactive center is rigid (redox, 7 kJ),
+untrustworthy when flexible (sugars). The min-conformer estimate is the culprit —
+24 conformers don't find a stable global min for a floppy sugar-diphosphate.
+**Next fork:** (i) does convergent sampling (CREST/metadynamics or Boltzmann over
+100s of conformers, cached once per compound) make per-compound G stable? — rescues
+option 2 if yes; (ii) matched-transfer conformers (cancel sugar noise, reaction-
+level); (iii) fragment references (scales, additivity error). All must be BATCHED.
+
 ## 6. "What helped and why" ledger
 | change | Δ on result | why |
 |---|---|---|

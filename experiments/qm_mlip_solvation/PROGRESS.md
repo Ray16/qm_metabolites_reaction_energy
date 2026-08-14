@@ -34,7 +34,7 @@ the same phosphate anion on both sides so ALPB anion error cancels.
 | 3 | + xTB-ALPB solvation | −6.0 kJ | delicate 1000-kJ cancel | ◑ mixed |
 | 3b | + thermal + cysteine model | **15.8 vs exp 18/12, MAE ~3** | dGP off ~90, QM ~38 | ✅ strong |
 | 4 | glycosyl rxn00579 (truncated) | **−3.0 vs exp −4.2, err 1.2** | dGP off ~43 | ⚠️ good but UNTRUSTED |
-| 4b | reproducibility across seeds | *running* | — | ⏳ decides architecture |
+| 4b | reproducibility across seeds | std 12.5, range 37 kJ | — | ❌ NOT reproducible |
 
 **Headline:** on the redox couple, UMA + truncation + thermal + solvation reaches
 **~3 kJ MAE from first principles (nothing fit)** — a ~30× improvement over the
