@@ -211,7 +211,17 @@ so its win may be partly fortuitous on anion-dominated reactions; MUST regressio
 COSMO on REDOX (good with ALPB, cation+neutrals) — if COSMO breaks redox, it's a
 per-charge-class choice, not a universal upgrade.
 
-### Step 5b — COSMO regression on REDOX + cost.  ✅ COSMO is a UNIVERSAL upgrade
+### ⚠ CORRECTION — COSMO was over-claimed (single-geometry artifact)
+The Step 5 COSMO +0.4 and Step 5b redox "COSMO preserves it" were computed on ONE
+geometry each. The **full 5-seed Boltzmann pipeline with `--cosmo`** (per-conformer,
+proper ensemble) gives glycosyl **mean +12.0, std 6.2 (was +24/3.1 with ALPB)** →
+COSMO HELPS (err 28→16) but does NOT fully fix AND HURTS reproducibility (ddCOSMO is
+geometry-sensitive, re-ranks the ensemble). Software used: xtb 6.7.1 `--cosmo water`
+= ddCOSMO at GFN2 level (Gsolv, ε=80). Solvation fix NOT settled. **Next: test
+`--cpcmx` (CPCM-X, the rigorous variant, adds non-electrostatic terms) in the FULL
+pipeline — may be more accurate AND less noisy than bare ddCOSMO.**
+
+### Step 5b — COSMO regression on REDOX + cost (single-geometry — see correction above)
 `step5b_redox_solv.py` (xtb solvation swapped on the saved step3b geometries, gas
 free energy + CHE proton fixed). Redox ΔG: ALPB 15.8, GBSA 5.5, **COSMO 14.9**
 (err NAD −3.1 / NADP +3.0). **COSMO KEEPS redox accurate (≈ALPB) AND fixes glycosyl

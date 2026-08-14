@@ -27,6 +27,18 @@ keep total workers ≤ physical cores.
 - `AtomicData.from_ase` MUST get `r_data_keys=["spin","charge"]` or every structure
   is computed NEUTRAL. charge/spin in `atoms.info` must be `int`.
 
+## Settled method decisions — QM reaction-ΔG (experiments/qm_mlip_solvation)
+Terse DECISIONS only (not an experiment log — results/status live in
+`experiments/qm_mlip_solvation/{PROGRESS,EXPLORATION_LOG,TODO}.md`).
+**When a stage completes, record the decision here.**
+
+- Engine: UMA `uma-s-1p2` (OMol25), `uma` env; charge/spin `int` in `atoms.info`.
+- ΔG = ΔE_elec(UMA gas) + thermal(UMA Hessian) + ΔΔGsolv(xtb) + n_H⁺·G(H⁺,aq,pH7).
+- Sampling: ETKDG pool → batched UMA single-point rank → relax lowest ~10
+  (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
+- Solvation model: UNDER EVALUATION (ALPB under-solvates polyanions; COSMO/CPCM-X
+  being tested — see EXPLORATION_LOG). Not yet finalized.
+
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
 branch `master`, SSH). Commit + push after each meaningful step; the daily cron

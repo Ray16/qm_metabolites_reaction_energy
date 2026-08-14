@@ -11,14 +11,13 @@ Living checklist of what's next. See `PROGRESS.md` for status/results,
 - [x] **Reproducibility RESULT** (energy-targeted Boltzmann, 5 seeds): **std 12.5→3.1,
       keep-k FLAT (~10 conformers suffice)** → **per-compound caching viable.** Revealed
       a reproducible +28 kJ BIAS (the earlier −3.0 was luck).
-- [x] **SOLVATION — the bias is xTB-ALPB anion under-solvation; COSMO FIXES IT.**
-      Step 5 (glycosyl): ALPB +18.6, GBSA +17.1, **COSMO +0.4** vs exp −4.2.
-      Step 5b (redox regression): COSMO 14.9 ≈ ALPB 15.8 (err ~3) → COSMO is a
-      **universal upgrade**, not a per-class tradeoff. GBSA out. Cost modest
-      (~1 s/call, implicit COSMO not COSMO-RS). **COSMO now the pipeline default.**
+- [x] **SOLVATION — bias IS xTB-ALPB anion under-solvation** (single-geom: ALPB +18.6,
+      GBSA +17.1, COSMO +0.4). But **COSMO over-claimed:** full 5-seed pipeline gives
+      glycosyl **+12.0, std 6.2** (helps err 28→16, but does NOT fully fix AND hurts
+      reproducibility — ddCOSMO geometry-sensitive). Fix NOT settled.
 - [x] Truncation is a secondary ~10 kJ effect (methyl vs ethyl cap); note as caveat.
-- [~] Confirm COSMO in the FULL batched Boltzmann pipeline (glycosyl 5-seed, keep 10)
-      — running; expect ~+0.4, std ~3.
+- [ ] **TEST `--cpcmx` (CPCM-X, rigorous COSMO variant) in the FULL pipeline** — may be
+      more accurate AND less noisy than bare ddCOSMO. Then re-check redox full-ensemble.
 - [ ] Sanity: re-run REDOX (rxn00070/86) through the full batched pipeline with COSMO
       — confirm MAE ~3 survives batching + COSMO (regression guard).
 
@@ -44,8 +43,9 @@ pipeline on:
 
 ## ACCURACY / robustness (open questions)
 - [x] Convergence vs conformer count — keep-k FLAT, **~10 conformers suffice** per compound
-- [x] **Solvation model — RESOLVED: use COSMO** (ALPB/GBSA under-solvate polyanions;
-      COSMO fixes it, preserves redox, affordable). Cluster-continuum not needed for now.
+- [~] **Solvation model — IN PROGRESS.** ALPB under-solvates polyanions (confirmed).
+      ddCOSMO helps but noisy/incomplete in full pipeline. Test CPCM-X next; maybe
+      cluster-continuum if implicit models insufficient.
 - [ ] Proton reference audit (redox): the −1171 constant is load-bearing
 - [ ] Truncation error (~10 kJ, methyl→ethyl): bound with a larger/real cap where it matters
 - [ ] Thermal: ideal-gas entropy valid only for Δn=0 reactions — handle Δn≠0
