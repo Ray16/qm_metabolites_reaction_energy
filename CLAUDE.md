@@ -37,7 +37,9 @@ Terse DECISIONS only (not an experiment log — results/status live in
 - Sampling: ETKDG pool → batched UMA single-point rank → relax lowest ~10
   (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
 - Solvation model: UNDER EVALUATION (ALPB under-solvates polyanions; COSMO/CPCM-X
-  being tested — see EXPLORATION_LOG). Not yet finalized.
+  tested — see EXPLORATION_LOG). Not finalized. NOTE: CPCM-X was designed to be
+  FASTER than COSMO(-RS), NOT more accurate — don't crown it from one reaction;
+  judge accuracy across multiple reactions.
 
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
