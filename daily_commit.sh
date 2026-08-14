@@ -11,10 +11,11 @@
 # turning a recoverable accident into a permanent one. So this refuses to run
 # when the tree looks damaged and leaves a loud note instead.
 #
-# Local commits only. Pushing is opt-in (DAILY_COMMIT_PUSH=1) because the
-# remote is HTTPS and an unattended push would block on credentials -- and
-# because a local commit is enough to survive an accidental rm, which is the
-# failure this exists for. It is NOT a backup: it does not survive disk loss.
+# Pushes by default (DAILY_COMMIT_PUSH defaults to 1) so the remote stays in
+# sync -- a local-only commit does not survive disk loss and the remote was
+# found 3 commits behind on 2026-08-14. Set DAILY_COMMIT_PUSH=0 to disable.
+# Push is best-effort: if credentials are unavailable it logs a WARN and the
+# commit is still safe locally. (Credentials verified working for HTTPS push.)
 
 set -uo pipefail
 
@@ -73,7 +74,7 @@ else
     exit 1
 fi
 
-if [ "${DAILY_COMMIT_PUSH:-0}" = "1" ]; then
+if [ "${DAILY_COMMIT_PUSH:-1}" = "1" ]; then
     if git push -q 2>>"$LOG"; then
         log "ok  pushed to $(git remote get-url origin 2>/dev/null)"
     else
