@@ -73,11 +73,14 @@ def pool_confs(smiles, q, seed, pool):
 
 # DIRECT xtb binary — NEVER `conda run` in a loop (~30 s overhead/call vs 0.57 s).
 # See ../../CLAUDE.md. OMP=1 avoids CPU oversubscription when threaded/fanned-out.
+# Solvation: COSMO by default (Step 5/5b: ALPB/GBSA under-solvate polyanions by
+# ~24 kJ; COSMO fixes glycosyl +28→+0.4 AND preserves redox → universal upgrade).
 XTB_BIN = os.environ.get("XTB_BIN", f"{os.environ['HOME']}/miniforge3/envs/xtb/bin/xtb")
 XTB_ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
+SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo")   # cosmo | alpb | gbsa
 
 
-def xtb_dgsolv(atoms, q):
+def xtb_dgsolv(atoms, q, model=SOLV_MODEL):
     with tempfile.TemporaryDirectory() as d:
         xyz = os.path.join(d, "m.xyz")
         with open(xyz, "w") as f:
@@ -85,14 +88,15 @@ def xtb_dgsolv(atoms, q):
             for s, (x, y, z) in zip(atoms.get_chemical_symbols(), atoms.get_positions()):
                 f.write(f"{s} {x:.6f} {y:.6f} {z:.6f}\n")
 
-        def e(solv):
-            cmd = [XTB_BIN, xyz, "--gfn", "2", "--chrg", str(int(q)), "--sp"] \
-                  + (["--alpb", solv] if solv else [])
+        def e(solvated):
+            cmd = [XTB_BIN, xyz, "--gfn", "2", "--chrg", str(int(q)), "--sp"]
+            if solvated:
+                cmd += (["--gbsa", "water"] if model == "gbsa" else [f"--{model}", "water"])
             r = subprocess.run(cmd, cwd=d, env=XTB_ENV, capture_output=True,
                                text=True, timeout=120)
             m = re.search(r"TOTAL ENERGY\s+(-?\d+\.\d+)\s+Eh", r.stdout)
             return float(m.group(1)) if m else None
-        eg, ew = e(None), e("water")
+        eg, ew = e(False), e(True)
         return (ew - eg) * HARTREE2KJ if (eg is not None and ew is not None) else None
 
 
