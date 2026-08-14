@@ -76,12 +76,34 @@ def pool_confs(smiles, q, seed, pool):
 # Solvation: COSMO by default (Step 5/5b: ALPB/GBSA under-solvate polyanions by
 # ~24 kJ; COSMO fixes glycosyl +28→+0.4 AND preserves redox → universal upgrade).
 XTB_BIN = os.environ.get("XTB_BIN", f"{os.environ['HOME']}/miniforge3/envs/xtb/bin/xtb")
-XTB_ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
-SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo")   # cosmo | alpb | gbsa
+XTBCPX_BIN = os.environ.get("XTBCPX_BIN", f"{os.environ['HOME']}/miniforge3/envs/xtbcpx/bin/xtb")
+XTB_ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
+           "OPENBLAS_NUM_THREADS": "1", "OMP_STACKSIZE": "4G"}
+SOLV_MODEL = os.environ.get("SOLV_MODEL", "cpcmx")   # cpcmx | cosmo | alpb | gbsa
+
+
+def _cpcmx_dgsolv(atoms, q, d):
+    """CPCM-X dG_solv (kJ) in one call via the xtbcpx build; reads fort.6."""
+    xyz = os.path.join(d, "in.xyz")
+    with open(xyz, "w") as f:
+        f.write(f"{len(atoms)}\n\n")
+        for s, (x, y, z) in zip(atoms.get_chemical_symbols(), atoms.get_positions()):
+            f.write(f"{s} {x:.6f} {y:.6f} {z:.6f}\n")
+    subprocess.run([XTBCPX_BIN, "in.xyz", "--gfn", "2", "--chrg", str(int(q)),
+                    "--uhf", "0", "--cpcmx", "water"],
+                   cwd=d, env=XTB_ENV, capture_output=True, text=True, timeout=600)
+    f6 = os.path.join(d, "fort.6")
+    if not os.path.isfile(f6):
+        return None
+    m = re.search(r"solvation free energy \(dG_solv\):\s+(-?\d+\.\d+E[+-]\d+)",
+                  open(f6, errors="replace").read())
+    return float(m.group(1)) * HARTREE2KJ if m else None
 
 
 def xtb_dgsolv(atoms, q, model=SOLV_MODEL):
     with tempfile.TemporaryDirectory() as d:
+        if model == "cpcmx":
+            return _cpcmx_dgsolv(atoms, q, d)
         xyz = os.path.join(d, "m.xyz")
         with open(xyz, "w") as f:
             f.write(f"{len(atoms)}\n\n")
