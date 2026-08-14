@@ -36,6 +36,8 @@ Terse DECISIONS only (not an experiment log — results/status live in
 - ΔG = ΔE_elec(UMA gas) + thermal(UMA Hessian) + ΔΔGsolv(xtb) + n_H⁺·G(H⁺,aq,pH7).
 - Sampling: ETKDG pool → batched UMA single-point rank → relax lowest ~10
   (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
+  keep=10 = fast default (cross-seed std ~6-8 kJ); keep~24 for tight final numbers
+  (std ~3). A speed knob — sample more when accuracy matters.
 - Solvation model: UNDER EVALUATION (ALPB under-solvates polyanions; COSMO/CPCM-X
   tested — see EXPLORATION_LOG). Not finalized. NOTE: CPCM-X was designed to be
   FASTER than COSMO(-RS), NOT more accurate — don't crown it from one reaction;

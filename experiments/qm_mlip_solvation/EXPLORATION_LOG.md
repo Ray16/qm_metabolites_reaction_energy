@@ -221,6 +221,18 @@ geometry-sensitive, re-ranks the ensemble). Software used: xtb 6.7.1 `--cosmo wa
 `--cpcmx` (CPCM-X, the rigorous variant, adds non-electrostatic terms) in the FULL
 pipeline — may be more accurate AND less noisy than bare ddCOSMO.**
 
+### Step 5c — full-pipeline solvation comparison (glycosyl, 5 seeds, keep=10).  ✅ done, set aside
+`step5c_solv_compare.py` — ALL four implicit models on the SAME UMA geometries.
+Glycosyl rxn00579 (exp −4.2): ALPB +22.6 (std 5.4), GBSA +23.7 (4.5), COSMO +12.0
+(6.2), CPCM-X +8.7 (7.1). Conclusions: ALPB/GBSA UNDER-solvate polyanions (err ~27);
+COSMO/CPCM-X cut it ~15 kJ (err ~13–16). **CPCM-X TRACKS COSMO (~4 kJ below, ~same
+std) — a fast COSMO surrogate, NOT independently more accurate** (user's point). std
+~5–7 kJ for ALL models → reproducibility is model-agnostic, limited by keep=10 (NOT
+the 3.1 at keep=24 → cross-seed wants ~24 conformers, "10 suffice" was within-seed).
+**~13 kJ residual after best solvation → the ~10 kJ TRUNCATION is now the next term.**
+Solvation set aside per steer; carry all models through the next reactions and judge
+accuracy across the SET, not one reaction.
+
 ### Step 5b — COSMO regression on REDOX + cost (single-geometry — see correction above)
 `step5b_redox_solv.py` (xtb solvation swapped on the saved step3b geometries, gas
 free energy + CHE proton fixed). Redox ΔG: ALPB 15.8, GBSA 5.5, **COSMO 14.9**
