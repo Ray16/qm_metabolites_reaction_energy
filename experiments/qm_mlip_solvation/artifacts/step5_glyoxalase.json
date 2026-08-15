@@ -1,0 +1,44 @@
+{
+  "reaction": "rxn01834",
+  "exp": 23.48,
+  "G_gas": {
+    "MeSH": -1151674.2368517255,
+    "MeS_lactoyl": -1853065.5336829422,
+    "MethylGlyox": -701351.880532565,
+    "CysSH": -2346944.9642632217,
+    "CysS_lactoyl": -3048337.2061725273
+  },
+  "E_elec": {
+    "MeSH": -1151731.8029491352,
+    "MeS_lactoyl": -1853289.163134465,
+    "MethylGlyox": -701447.6541918006,
+    "CysSH": -2347325.017693224,
+    "CysS_lactoyl": -3048892.1831913553
+  },
+  "dGsolv": {
+    "MeSH": -2.730719376644134,
+    "MeS_lactoyl": -20.027276481237617,
+    "MethylGlyox": -8.813111133579662,
+    "CysSH": -41.5466576659931,
+    "CysS_lactoyl": -53.88145996958598
+  },
+  "methanethiol": {
+    "model": "methanethiol",
+    "dE": 109.70599352917634,
+    "dG_gas": 39.41629865183495,
+    "dSolv": 8.483445971013822,
+    "dG_aq_elec": 118.18943950019016,
+    "dG_aq_thermal": 47.89974462284877,
+    "thermal_shift": -70.28969487734139
+  },
+  "cysteine": {
+    "model": "capped cysteine (Ac-Cys-NHMe)",
+    "dE": 119.51130633056164,
+    "dG_gas": 40.361376740504056,
+    "dSolv": 3.52169117001322,
+    "dG_aq_elec": 123.03299750057485,
+    "dG_aq_thermal": 43.883067910517276,
+    "thermal_shift": -79.14992959005758
+  },
+  "caveat": "Dn=+1 (1->2 molecules): gas trans/rot entropy does not cancel"
+}
