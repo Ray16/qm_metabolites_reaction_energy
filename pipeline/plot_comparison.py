@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 """Grouped bar chart on the 10 dGPredictor-disagreement reactions:
-experiment / retrained-dGPredictor / QC composite.
+experiment / retrained-dGPredictor / UMA+truncation pipeline.
 
 PROVENANCE (read before trusting this figure):
 - These reactions are a CHERRY-PICKED subset selected where the retrained
   dGPredictor disagrees most with experiment (bench226 significant=True). They
-  are NOT representative. Unbiased full-367-reaction MAEs are in the caption and
-  in results/eq/HEADTOHEAD.md.
+  are NOT representative. Unbiased full-367-reaction MAEs are in the caption.
 - "dGPredictor" here is Freiburger's RETRAINED-on-ModelSEED model (reproduced,
   results/eq/dgpredictor_retrained_full.json). Its worst-case errors here (40-90)
   are NOT its average (full-set 5.7); the STANDARD dGPredictor gets these to 0-10.
-- QC values are the full-367 composite run (results/benchmark/tecrdb_full_scored.json),
-  NOT the earlier dedicated top-10 run. All series are single, consistent sources.
+- "UMA+truncation pipeline" = current QM pipeline (systematic truncation + convergent
+  sampling + solvation), pipeline/current_pipeline_top10.json. The old MACE-POLAR
+  "QC composite" series was removed (superseded by this pipeline).
 """
 from __future__ import annotations
 import json, os
@@ -37,14 +37,9 @@ RXNS = [("rxn00086", "redox", None), ("rxn32133", "redox", "rxn00086"),
 def main():
     exp = {r: v["dG_kJ"] for r, v in json.load(open(f"{HERE}/tecrdb_full_experiment.json")).items()}
     meta = {r: v for r, v in json.load(open(f"{HERE}/tecrdb_full_experiment.json")).items()}
-    qc = json.load(open(f"{THERMO}/results/benchmark/tecrdb_full_scored.json"))["scored_kJ"]
     rtr = json.load(open(f"{THERMO}/results/eq/dgpredictor_retrained_full.json"))
     cur = {k: v for k, v in json.load(open(f"{HERE}/current_pipeline_top10.json")).items()
-           if not k.startswith("_")}                     # this-work UMA+truncation pipeline
-    # full-set raw QC MAE for the caption (authoritative, unbiased)
-    common = [r for r in qc if r in exp]
-    raw_qc_mae = float(np.mean([abs(qc[r] - exp[r]) for r in common]))
-
+           if not k.startswith("_")}                     # UMA+truncation pipeline
     ids = [r for r, _, _ in RXNS]
     # source value for each reaction; reverse-duplicates negate their parent
     def val(d, r, parent, key=None):
@@ -55,7 +50,6 @@ def main():
     series = [
         ("TECRDB (experiment)", E, "#4C4C4C"),
         ("dGPredictor (retrained-ModelSEED)", np.array([val(rtr, r, par, "dG_kJ") for r, _, par in RXNS]), "#D1495B"),
-        ("QC composite (MACE-POLAR + xtb-ALPB)", np.array([val(qc, r, par) for r, _, par in RXNS]), "#2E86AB"),
         ("UMA + truncation pipeline", np.array([val(cur, r, par) for r, _, par in RXNS]), "#2A9D8F"),
     ]
     sd = [float(meta[par or r]["sd_kJ"] or 0.0) if (meta[par or r]["sd_kJ"] and meta[par or r]["n"] > 1) else 0.0
@@ -82,7 +76,7 @@ def main():
     ax.set_xticklabels([f"{r}\n{c}" for r, c, _ in RXNS], fontsize=9)
     ax.legend(frameon=False, ncol=2, loc="upper left", fontsize=8.5)
     cap = ("Cherry-picked disagreement subset (NOT representative). Unbiased full-367 MAE: "
-           f"raw QC {raw_qc_mae:.0f}, retrained-dGP 5.7, standard-dGP 3.0, eQuilibrator 3.0.  "
+           "retrained-dGP 5.7, standard-dGP 3.0, eQuilibrator 3.0 (UMA+truncation full-367 pending).  "
            "error bars = TECRDB sd; n=1 = single measurement.")
     ax.text(0.0, -0.20, cap, transform=ax.transAxes, ha="left", fontsize=7.6, color="gray")
     ax.spines[["top", "right"]].set_visible(False)
