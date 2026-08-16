@@ -86,6 +86,21 @@ only the C-X electronic floor. Coverage: works for unit-coeff reactions with a c
 falls back to full molecules otherwise (multi-coeff, atom-splitting NTP->NDP+PPi). Full-367
 coverage run pending (MCS is ~seconds/reaction; needs caching/parallel).
 
+## AUTO_TRUNCATE generalization test (5 huge/floppy TECRDB failures) + safety guard
+| rxn | full err | AUTO_TRUNCATE (guarded) |
+|-----|----------|-------------------------|
+| rxn00605 | -45 | +16.5 (big win) |
+| rxn00577 | +48 | -24.8 |
+| rxn00132 | -37 | +25 |
+| rxn00216 | +34 | REJECT->full (no harm) |
+| rxn00545 | +35 | REJECT->full (no harm) |
+CORRECTNESS GUARD (essential): truncation removes only conserved spectators, so truncated
+n_H+ MUST equal full n_H+. rxn00545/00216 truncation mis-detected the center and INVENTED a
+proton (n_H+ 1->2 -> bogus -2342 kJ term -> -61/-67 garbage); the guard rejects these -> full
+fallback. So AUTO_TRUNCATE is now SAFE + net-positive: removes catastrophic cancellation on
+clean truncations, falls back harmlessly otherwise. Residual on accepted truncations (+16..+25)
+= the C-X electronic floor.
+
 ## Central lever for the huge/floppy 55%: AUTO-TRUNCATION (hardening TODO)
 The sweep confirms the untruncated pipeline fails on the huge/floppy majority via catastrophic
 cancellation. `truncate.py` (systematic spectator truncation) is the general, non-hard-coded fix:
