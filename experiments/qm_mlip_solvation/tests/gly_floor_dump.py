@@ -7,6 +7,7 @@ two methods give the same reaction ΔE_elec, the +11 kJ floor is NOT electronic
 import os, sys, json
 import numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "..", "backup", "explicit_water"))
 from batched_relax import load_uma, batched_energies, batched_fire
 from step4e_targeted import pool_confs, boltz

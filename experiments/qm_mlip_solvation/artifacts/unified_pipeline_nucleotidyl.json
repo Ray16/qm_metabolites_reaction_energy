@@ -1,12 +1,12 @@
 [
   {
     "reaction": "nucleotidyl",
-    "dG": -0.4,
+    "dG": -14.0,
     "exp": [
       1.85
     ],
     "err": [
-      -2.3
+      -15.8
     ],
     "explicit": true
   }

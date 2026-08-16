@@ -1,0 +1,30 @@
+{
+  "donorCap": {
+    "coeff": -1,
+    "charge": 0,
+    "uma_E_kj": -604597.482,
+    "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/../artifacts/gly_floor/donorCap.xyz",
+    "n": 10
+  },
+  "G6Pt": {
+    "coeff": -1,
+    "charge": -1,
+    "uma_E_kj": -3293884.078,
+    "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/../artifacts/gly_floor/G6Pt.xyz",
+    "n": 28
+  },
+  "glycoside": {
+    "coeff": 1,
+    "charge": 0,
+    "uma_E_kj": -2208328.705,
+    "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/../artifacts/gly_floor/glycoside.xyz",
+    "n": 31
+  },
+  "Pi": {
+    "coeff": 1,
+    "charge": -1,
+    "uma_E_kj": -1690092.317,
+    "xyz": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/../artifacts/gly_floor/Pi.xyz",
+    "n": 7
+  }
+}

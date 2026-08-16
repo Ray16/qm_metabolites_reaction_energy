@@ -307,5 +307,77 @@
         "O=P([O-])(O)O"
       ]
     }
+  },
+  "rxn01713_ph0_r3": {
+    "exp": [
+      3.93
+    ],
+    "n_Hplus": 0,
+    "explicit": false,
+    "pka_sites": [
+      [
+        "react",
+        4.4
+      ]
+    ],
+    "note": "rxn01713 pH0 neutral, less-truncated acyl (conjugation test)",
+    "species": {
+      "acid": [
+        -1,
+        0,
+        "C=CC(=O)O"
+      ],
+      "Pglc": [
+        -1,
+        -1,
+        "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+      ],
+      "ester": [
+        1,
+        0,
+        "C=CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+      ],
+      "Pi": [
+        1,
+        -1,
+        "O=P([O-])(O)O"
+      ]
+    }
+  },
+  "rxn01713_ph0_full": {
+    "exp": [
+      3.93
+    ],
+    "n_Hplus": 0,
+    "explicit": false,
+    "pka_sites": [
+      [
+        "react",
+        4.4
+      ]
+    ],
+    "note": "rxn01713 pH0 neutral, less-truncated acyl (conjugation test)",
+    "species": {
+      "acid": [
+        -1,
+        0,
+        "COc1cc(/C=C/C(=O)O)cc(OC)c1O"
+      ],
+      "Pglc": [
+        -1,
+        -1,
+        "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+      ],
+      "ester": [
+        1,
+        0,
+        "COc1cc(/C=C/C(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)cc(OC)c1O"
+      ],
+      "Pi": [
+        1,
+        -1,
+        "O=P([O-])(O)O"
+      ]
+    }
   }
 }
