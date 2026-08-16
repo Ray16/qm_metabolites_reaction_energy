@@ -264,6 +264,17 @@ solvation model; it's anion-charge-density-dependent.** Even ALPB (best) err −
 nucleotidyl genuinely hard (PPi solvation + truncation). The −4 protonation (ATP⁴⁻,
 CHE proton) gives garbage (−2380): gas-phase trianion deprotonation (~+1230) doesn't
 cancel the proton ref without pKa treatment → use the −3 proton-balanced microspecies.
+**Truncation RULED OUT** (3-seed methyl vs ethyl caps): Et−Me shift only −2.9 (ALPB)
+to +6.6 (CPCM-X) — nowhere near the ~28 kJ residual. **Gas/solv decomposition** (the
+anatomy): **ΔE_elec(gas) = +48** (PPi compact −3 → huge intramolecular Coulomb
+repulsion destabilizes products in gas) vs **ΔΔG_solv −69 (ALPB) to −86 (CPCM-X)**
+(PPi strongly solvated) → net −21 to −38 + thermal. **So it's a delicate cancellation
+of a +48 gas term against a ~−75 solvation term, both dominated by the compact PPi
+anion**; the ~24 kJ model spread in ΔΔG_solv IS the failure. **Verdict: nucleotidyl
+fails because ΔG hinges on PPi's gas-repulsion-vs-solvation balance — a large
+cancellation implicit solvation can't nail. NOT truncation. Domain boundary: the
+method works when the reaction doesn't create/destroy a compact high-charge-density
+anion (PPi). Fix would need explicit/cluster-continuum solvation of PPi.**
 
 ## 6. "What helped and why" ledger
 | change | Δ on result | why |
