@@ -100,13 +100,30 @@ def sampling_budget(smi):
     return seeds, keep, pool
 
 
+# auto-convergent sampling knobs (env-overridable for stress tests; NOT per-reaction tuning)
+CONV_TOL   = float(os.environ.get("CONV_TOL", "1.5"))    # kJ: Gens & min-E must move < this
+CONV_HITS  = int(os.environ.get("CONV_HITS", "2"))       # for this many consecutive seed-batches
+CONV_MAX   = int(os.environ.get("CONV_MAX", "16"))       # hard cap on seed-batches (runaway guard)
+
+
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     """Boltzmann(E_elec[UMA] + ΔGsolv[cosmo]) over conformers + UMA thermal(min-E).
-    Sampling budget is flexibility-adaptive (seeds/keep/pool from rotatable bonds)."""
-    seeds, keep, pool = sampling_budget(smi)
+
+    HEURISTIC (general, self-calibrating -- no fixed per-flexibility tiers, no per-reaction
+    tuning): keep adding conformer seed-batches until BOTH the Boltzmann Gens AND the minimum
+    energy stop moving (< CONV_TOL for CONV_HITS consecutive batches), capped at CONV_MAX.
+    Rigid species converge in ~2-3 batches; floppy sugar-phosphates draw as many as they need.
+    Per-batch pool/keep still scale with rotatable bonds (bigger search for floppier molecules).
+    Reports the seed count + the last increment so the sampling uncertainty is visible (UQ)."""
+    _, keep, pool = sampling_budget(smi)                  # per-batch pool/keep sizing only
     all_G = []
     best = (1e18, None, None)
-    for seed in seeds:
+    prev_Gens = prev_best = None
+    hits = 0
+    seed = 0
+    last_dG = float("nan")
+    while seed < CONV_MAX:
+        seed += 1
         cands = pool_confs(smi, q, seed, pool)
         order = np.argsort(batched_energies(pu, cands))[:keep]
         sel = [cands[i] for i in order]
@@ -121,11 +138,25 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
                 all_G.append(e + s)
                 if e < best[0]:
                     best = (float(e), a.get_chemical_symbols(), a.get_positions())
+        if not all_G:
+            continue
+        Gens = boltz(all_G)
+        if prev_Gens is not None:
+            last_dG = abs(Gens - prev_Gens)
+            if last_dG < CONV_TOL and abs(best[0] - prev_best) < CONV_TOL:
+                hits += 1
+                if hits >= CONV_HITS:
+                    prev_Gens = Gens; break
+            else:
+                hits = 0
+        prev_Gens, prev_best = Gens, best[0]
     if not all_G:
         return None
     Gens = boltz(all_G)
     therm = uma_gibbs_corr(pu, best[1], best[2], q)
-    log(f"    {name:9s} q{q:+d} [implicit]: Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
+    tag = "conv" if seed < CONV_MAX else "CAPPED"
+    log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} last|ΔGens|={last_dG:.1f}]: "
+        f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
     return Gens + therm
 
 
