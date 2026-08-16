@@ -106,6 +106,25 @@ REACTIONS = {
         "glycoside":(+1, 0,  "CO[C@H](O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)[C@@H](C)O"),
         "PPt":      (+1, -1, "O=P([O-])(O)OP"),
     }),
+    # rxn01713 full-molecule missed by +41 kJ. Truncation shrinks sinapate->acetate but
+    # the carboxylate anion is still DESTROYED (->ester) -> implicit over-solvates it.
+    #   _t2i = truncated, all implicit (isolates truncation alone; expect it still misses)
+    #   _t2e = truncated + EXPLICIT first-shell water on the carboxylate only (the fix)
+    # comparing the two isolates the carboxylate-desolvation term. exp +3.93, n_H+=-1.
+    "rxn01713_t2i": dict(exp=[3.93], n_Hplus=-1, explicit=False,
+                         note="rxn01713 TRUNC r2, all implicit", species={
+        "AcO":   (-1, -1, "CC(=O)[O-]"),
+        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "Pi":    (+1, -1, "O=P([O-])(O)O"),
+    }),
+    "rxn01713_t2e": dict(exp=[3.93], n_Hplus=-1, explicit={"AcO"},
+                         note="rxn01713 TRUNC r2, explicit water on carboxylate", species={
+        "AcO":   (-1, -1, "CC(=O)[O-]"),
+        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "Pi":    (+1, -1, "O=P([O-])(O)O"),
+    }),
 }
 
 
@@ -203,9 +222,17 @@ def explicit_G(pu, q, smi, seeds, log, name):
 def run_reaction(pu, key, seeds, keep, pool, log):
     rx = REACTIONS[key]
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
+    # `explicit` may be True/False (whole reaction) OR a list/set of species names
+    # that need explicit first-shell waters (per-species triage: only the anion that
+    # is CREATED/DESTROYED, never a spectator phosphate).
+    exp_flag = rx["explicit"]
+    def use_explicit(nm):
+        if isinstance(exp_flag, (list, set, tuple)):
+            return nm in exp_flag
+        return bool(exp_flag)
     G = {}
     for name, (coeff, q, smi) in rx["species"].items():
-        G[name] = (explicit_G(pu, q, smi, seeds, log, name) if rx["explicit"]
+        G[name] = (explicit_G(pu, q, smi, seeds, log, name) if use_explicit(name)
                    else implicit_G(pu, q, smi, seeds, keep, pool, log, name))
         if G[name] is None:
             log(f"    {name}: FAILED"); return None
