@@ -23,6 +23,7 @@ Run (uma env), one reaction per GPU in parallel:
 """
 import argparse
 import json
+import math
 import os
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -253,6 +254,25 @@ def run_reaction(pu, key, seeds, keep, pool, log):
                 log(f"  [auto-truncation fallback: full molecules]")
         except Exception as e:
             log(f"  [auto-truncation error: {e}; full molecules]")
+    # pH-0 / pKa AUTO-ROUTING (general heuristic, opt-in PH0_AUTO=1): for the charged-anion class
+    # (phosphoryl/NTP/PPi/carboxylate) protonate every anionic site to its NEUTRAL microspecies
+    # -- UMA's comfortable regime (no formal charge to delocalise, no diffuse-anion basis ceiling,
+    # continuum-solvation valid) -- then bridge to pH7 analytically with textbook pKa's. Runs AFTER
+    # truncation so it neutralises the small cores. Falls back (no-op) when no anionic site exists
+    # (thioester/glycosyl-anomeric neutral classes) or on any parse failure. Not fitted to the DB.
+    if os.environ.get("PH0_AUTO") and not rx.get("pka_sites"):
+        try:
+            from ph0_auto import build_ph0_reaction
+            out = build_ph0_reaction(rx["species"], rx["n_Hplus"])
+            if out is not None:
+                ns, pks, nh = out
+                rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
+                          note=rx.get("note", "") + " [pH0-AUTO]")
+                log(f"  [pH0-auto -> {len(pks)} pKa sites, n_H+={nh}]")
+            else:
+                log(f"  [pH0-auto: no anionic site -> unchanged]")
+        except Exception as e:
+            log(f"  [pH0-auto error: {e}; unchanged]")
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
     # `explicit` may be True/False (whole reaction) OR a list/set of species names
     # that need explicit first-shell waters (per-species triage: only the anion that
@@ -303,11 +323,17 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # propagate per-species sampling σ to a reaction sampling-uncertainty (quadrature).
     U_samp = float(np.sqrt(sum((coeff * sig[name])**2
                                for name, (coeff, q, smi) in rx["species"].items())))
-    # pH-0 route: analytic pKa transform replaces the anion-solvation + explicit-proton terms
+    # pH-0 route: analytic pKa transform replaces the anion-solvation + explicit-proton terms.
+    # EXACT Alberty form -RT*ln(1+10^(pH-pKa)) per proton (correct near AND above pH~pKa; the
+    # linear RT*ln10*(pH-pKa) form wrongly makes a high-pKa site e.g. Pi's 12.35 count -5 kJ).
+    pka_total = 0.0
     for side, pka in rx.get("pka_sites", []):
-        contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * (PH - pka)
+        # RT*ln(1+10^(pH-pKa)) == RT_LN10*log10(1+10^(pH-pKa))
+        contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * math.log10(1.0 + 10.0 ** (PH - pka))
         dG += contrib
-        log(f"    pKa transform [{side} pKa {pka}] += {contrib:+.1f} kJ/mol")
+        pka_total += contrib
+    if rx.get("pka_sites"):
+        log(f"    pKa transform (exact Alberty, {len(rx['pka_sites'])} protons) += {pka_total:+.1f} kJ/mol")
     errs = [dG - e for e in rx["exp"]]
     # RESOLUTION heuristic (general, no hard-coding): if the sampling uncertainty is
     # comparable to |ΔG|, the sign/magnitude is not QM-resolvable -- flag it (regime-2
