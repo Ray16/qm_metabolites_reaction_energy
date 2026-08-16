@@ -65,6 +65,23 @@ UMA vs AIMNet2 disagree +86 on glycosyl gas ΔE). AIMNet2≈UMA won't fix it (bo
 either a genuinely higher-theory anchor (DFT/CC on the small reactive core — not installed) or a
 matched-geometry isodesmic scheme. This is the frontier for lifting ~55% of TECRDB.
 
+## UQ caveat (IMPORTANT for TMFA) — U_samp is a LOWER BOUND
+The reported `U_samp` captures **conformer sampling noise only**. The TECRDB sweep proved it is
+NOT the total uncertainty: full-molecule reactions show errors of 30-64 kJ while U_samp is only
+±2-5 kJ, because the dominant error is **catastrophic cancellation + C-X electronic floor**, which
+conformer-σ cannot see. So DO NOT feed U_samp to TMFA as-is for untruncated large reactions — it is
+overconfident. The honest total-U needs either (a) TRUNCATION first (shrinks species -> cancellation
+error drops -> U_samp becomes representative), or (b) a cross-method electronic-U (UMA vs AIMNet2).
+For now: treat U_samp as a floor; flag reactions with any species >~20 heavy atoms as high
+method-uncertainty regardless of U_samp.
+
+## Central lever for the huge/floppy 55%: AUTO-TRUNCATION (next general heuristic)
+The sweep confirms the untruncated pipeline fails on the huge/floppy majority via catastrophic
+cancellation. `truncate.py` (systematic spectator truncation) is the general, non-hard-coded fix:
+integrate it as a pipeline preprocessing step so every reaction is scored on its truncated reactive
+core. Caveats to harden first: MCS-bijection pairing can't represent one reactant splitting across
+two products (needs a real atom-mapper for those); cap-quality (methyl-only, avoid hemiacetal/bare-P).
+
 ## Correctness / verification log
 - TECRDB builder: 367/367 reactions parse + proton-balance (0 skipped); spot-checked rxn00605/579/1675.
 - Reverses exactly antisymmetric for deterministic (implicit) reactions (code-correctness ✓);
