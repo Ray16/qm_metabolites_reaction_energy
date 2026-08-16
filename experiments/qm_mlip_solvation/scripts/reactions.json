@@ -768,5 +768,25 @@
         "CC(=O)C=O"
       ]
     }
+  },
+  "iso_g6p_f6p": {
+    "exp": [
+      2.9
+    ],
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "REGIME2 isomerase G6P->F6P (EC 5.3.1.9) tiny dG, noise-floor demo",
+    "species": {
+      "G6P": [
+        -1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+      ],
+      "F6P": [
+        1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+      ]
+    }
   }
 }
