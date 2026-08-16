@@ -1,0 +1,11 @@
+{
+  "_provenance": "Best current UMA pipeline (truncation + convergent sampling + solvation) this session. redox=truncated nicotinamide+thiol model (+21.5); glycosyl rxn00605=AUTO_TRUNCATE (+7.0), rxn00579=truncated (+4.6), rxn01713=truncated-implicit (+37.1); glyoxalase=thiol-cap truncation (+44.1); nucleotidyl rxn01675/01005=truncated real (electronic floor, -76.1/-39.2). Reverses = -forward.",
+  "rxn00086": 21.5,
+  "rxn00070": 21.5,
+  "rxn00605": 7.0,
+  "rxn01713": 37.1,
+  "rxn01834": 44.1,
+  "rxn00579": 4.6,
+  "rxn01675": -76.1,
+  "rxn01005": -39.2
+}

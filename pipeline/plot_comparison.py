@@ -39,6 +39,8 @@ def main():
     meta = {r: v for r, v in json.load(open(f"{HERE}/tecrdb_full_experiment.json")).items()}
     qc = json.load(open(f"{THERMO}/results/benchmark/tecrdb_full_scored.json"))["scored_kJ"]
     rtr = json.load(open(f"{THERMO}/results/eq/dgpredictor_retrained_full.json"))
+    cur = {k: v for k, v in json.load(open(f"{HERE}/current_pipeline_top10.json")).items()
+           if not k.startswith("_")}                     # this-work UMA+truncation pipeline
     # full-set raw QC MAE for the caption (authoritative, unbiased)
     common = [r for r in qc if r in exp]
     raw_qc_mae = float(np.mean([abs(qc[r] - exp[r]) for r in common]))
@@ -54,6 +56,7 @@ def main():
         ("TECRDB (experiment)", E, "#4C4C4C"),
         ("dGPredictor (retrained-ModelSEED)", np.array([val(rtr, r, par, "dG_kJ") for r, _, par in RXNS]), "#D1495B"),
         ("QC composite (MACE-POLAR + xtb-ALPB)", np.array([val(qc, r, par) for r, _, par in RXNS]), "#2E86AB"),
+        ("UMA + truncation pipeline", np.array([val(cur, r, par) for r, _, par in RXNS]), "#2A9D8F"),
     ]
     sd = [float(meta[par or r]["sd_kJ"] or 0.0) if (meta[par or r]["sd_kJ"] and meta[par or r]["n"] > 1) else 0.0
           for r, _, par in RXNS]
