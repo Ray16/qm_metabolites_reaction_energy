@@ -5,34 +5,32 @@ state survives even if external notes are lost. Companion docs:
 `EXPLORATION_LOG.md` (full methodology + term-by-term ledgers), `README.md` (plan),
 `artifacts/*.json` (raw numbers). Last updated: 2026-08-15.
 
-## ▶ PICK UP HERE (as of 2026-08-15, explicit-water + DB-triage phase)
-Redox (err ~3) and glycosyl (err ~13, COSMO) work on implicit solvation. The
-NUCLEOTIDYL failure (PPi over-solvated by continuum) is now SOLVED with explicit
-first-shell waters. Current thrust: generalize the water-count rule across the DB.
+## ▶ PICK UP HERE (as of 2026-08-15, three classes solved → move to next category)
+Redox (err ~3) and glycosyl (err ~13, COSMO) work on implicit solvation; NUCLEOTIDYL
+(PPi over-solvated by continuum) SOLVED with explicit first-shell waters. Efficiency
+fixed and occupancy self-selection ABANDONED. Next: a new reaction category.
 
 - **✅ Nucleotidyl SOLVED (step7b, charge-balanced explicit waters):** implicit
   −28..−52 → WPC1 −32.3 → WPC2 +5.9 → WPC3 +4.0, converged vs exp +1.9. n=WPC·|charge|
-  per species; μ_water CANCELS because the reaction conserves charge (waters balance
-  both sides). This is the informative convergence table — KEEP.
-- **✅ Cluster-cycle grand potential (step7c):** references added waters to their own
-  same-size water cluster G_wc(n) (Bryantsev/Ho) → occupancy PEAKS naturally, no
-  μ_water, no pinning. Validates step7b (G_wc cancels for same-charge species). The
-  obsolete pinned monomer-cycle step7 was REMOVED (wrong equation).
+  per species; μ_water CANCELS because the reaction conserves charge. KEEP.
+- **✅ EFFICIENCY FIXED — the fast split (`thermal_solv.corr_fast`):** UMA-Hessian
+  thermal (batched finite-diff on GPU) + `xtb --sp --cosmo` solvation single point,
+  replacing the CPU-bound `xtb --ohess --cosmo` bundle. Accuracy-neutral for ΔG
+  (bare species Δ +4-7 kJ; nucleotidyl ΔG −9.5 vs −12.5 within 3 kJ), ~10× faster.
+  Ladder relaxations now BATCHED (one call, all rungs) and backends run on separate
+  GPUs. `cache.py` method-tagged cache in use (key = canon_smiles,charge,n_water).
+- **✅ WATER-COUNT DECISION (`water_count.py`):** deterministic coordination rule —
+  2 waters/hard anionic O, 1/soft S⁻, 1/cationic N-H. Reaction ΔG needs the count
+  ENOUGH + CONSISTENT (waters cancel), not "exactly right". Verify per reaction with
+  a cheap ΔG(n) vs ΔG(n+1) probe, not an occupancy peak.
+- **❌ ABANDONED + REMOVED — occupancy self-selection:** former step7 (pinned
+  monomer-cycle), step7c (cluster-cycle grand potential), step8 (peak calibration)
+  DELETED. The self-selected peak is a NOISY, method-dependent observable (fast/UMA
+  pins at cap; GFN2 --ohess bounces 4/6/4 for a −2 phosphate across seeds) AND
+  irrelevant to ΔG (insensitive to n; waters cancel). Proof + rule in `water_count.py`;
+  evidence in `test_peak_stability.py` + artifacts/test_peak_stability_{fast,ohess}.json.
 - **✅ Library triage (`library_solvation_triage.py`):** 30,498 scoreable pH-7
-  compounds. 40% NEED_EXPLICIT (carboxylate 7741, phosphate 4580), **20% compact
-  polyanions** (PPi-hardest), 11% BORDERLINE (soft/delocalized/cation), 49%
-  IMPLICIT_OK; 6501 R-group fragments excluded. artifacts/library_solvation_triage.*
-- **▶ RUNNING (GPU4):** `step8_calibration_set.py --nmax 8 --seeds 3` — 2-3 curated
-  small reps per category through the cluster-cycle ladder; compares self-selected
-  PEAK ⟨n⟩ to the coordination rule. READ logs/step8_full.log →
-  artifacts/step8_calibration_set.json when done → per-group water-count table.
-- **▶ RUNNING (GPU5):** step7c PPi ladder (nmax=9). NOTE noisy large-molecule peaks
-  (MePPP −3 peaked at 4 < MeP −2 at 7 = backwards → under-seeding big flexible mols).
-
-- **⚠ EFFICIENCY (TOP next-session task):** GPUs at **0% util** — CPU-bound on
-  `xtb --ohess`. Fix = UMA-Hessian thermal on GPU (once per species, solute-only) +
-  `xtb --sp --cosmo` solvation (no Hessian). See TODO ▶ TOP PRIORITY. `cache.py`
-  (method-tagged results cache) written, NOT yet wired in.
+  compounds; 40% NEED_EXPLICIT (upper bound), 20% compact polyanions, 49% IMPLICIT_OK.
 
 - **KEY DISTINCTION:** the 40% NEED_EXPLICIT is an UPPER BOUND — implicit is fine when
   the anion CANCELS across the reaction (glycosyl's phosphate is a spectator). Explicit

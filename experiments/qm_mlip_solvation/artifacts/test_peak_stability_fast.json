@@ -1,0 +1,34 @@
+[
+  {
+    "backend": "fast",
+    "nmax": 6,
+    "name": "acetate",
+    "charge": -1,
+    "peaks": [
+      6,
+      6,
+      6
+    ],
+    "means": [
+      6.0,
+      5.96,
+      6.0
+    ]
+  },
+  {
+    "backend": "fast",
+    "nmax": 6,
+    "name": "methylphosphate",
+    "charge": -2,
+    "peaks": [
+      6,
+      6,
+      6
+    ],
+    "means": [
+      6.0,
+      5.99,
+      6.0
+    ]
+  }
+]

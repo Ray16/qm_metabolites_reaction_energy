@@ -3,36 +3,29 @@
 Living checklist. See `PROGRESS.md` for status/results, `EXPLORATION_LOG.md` for
 full reasoning. Check items off as done.
 
-## ▶ TOP PRIORITY (next session) — kill the xtb --ohess bottleneck
-GPUs sit at **0% util**: the pipeline is CPU-bound on `xtb --ohess` (thermal+solv
-Hessian on 30-40-atom clusters), UMA/GPU idle. `--ohess` bundles geometry re-opt
-(NOT needed, UMA already relaxed) + Hessian thermal (expensive) + COSMO solvation
-(cheap, needs no Hessian). Fix:
-- [ ] **Thermal via batched UMA Hessian on GPU** (reuse `gibbs_corr` from step6), NOT
-      xtb. Solvation via single `xtb --sp --cosmo water` (no Hessian, ~0.5s).
-- [ ] **Hessian on the SOLUTE only**, not the full water cluster (waters' thermal
-      cancels via the water-cluster reference).
-- [ ] **Thermal once per species** (slowly varying): find occupancy peak with
-      UMA-electronics + xtb --sp solvation only (fast), add ONE thermal at the peak.
-- [ ] Wire `cache.py` into step7c/step8 (key = canon_smiles,charge,n_water; method tag
-      encodes engine+thermal+solv+scheme). Bump tag when method changes.
-- [ ] Parallelize remaining xtb --sp across CPU cores (OMP_NUM_THREADS=1 each).
+## ▶ TOP PRIORITY (next) — validate a NEW reaction category
+Three classes solved (redox ~3 implicit, glycosyl ~13 implicit, nucleotidyl ~2-4
+explicit). Efficiency + water-count settled. Move to the next mechanism (candidate:
+Δn≠0 hydrolysis/decarboxylation, which stresses trans/rot entropy cancellation).
+- [ ] Pick the category + 2-3 reactions with trustworthy experimental ΔG.
+- [ ] Score with the fast split + `water_count` rule; compare vs experiment + dGP/eQ.
+- [ ] If Δn≠0: handle trans/rot entropy (ideal-gas S no longer cancels — see below).
 
-## NOW — explicit-water solvation (nucleotidyl SOLVED; generalize)
-- [x] Nucleotidyl PPi SOLVED: charge-balanced explicit waters (step7b) implicit
-      -28..-52 → WPC2 +5.9 → WPC3 +4.0, exp +1.9. mu_water cancels (charge-conserving).
-- [x] Cluster-cycle grand potential (step7c): water-cluster reference → occupancy
-      self-selects (no mu_water/pinning). Removed obsolete pinned step7.
-- [x] Library triage (`library_solvation_triage.py`): 30,498 scoreable compounds;
-      40% NEED_EXPLICIT (carboxylate 7741 + phosphate 4580), 20% compact polyanions,
-      11% BORDERLINE (soft/delocalized/cation), 49% IMPLICIT_OK. 6501 R-group excluded.
-- [~] **Calibration set (step8) RUNNING** (GPU4, nmax=8): 2-3 small reps/category,
-      compare grand-potential PEAK ⟨n⟩ to coordination rule (hard O- ×2-3, soft S-
-      ×1-2, cation N-H ×1). Validates whether the fixed-count rule transfers.
-- [ ] Read step8 result → per-group water-count TABLE → confirm soft/delocalized
-      (thiolate/phenolate) peak LOW (implicit-ish) and hard oxyanions in-band.
-- [ ] step7c PPi ladder finish: note large-flexible-molecule peak noise (MePPP -3
-      peaked at 4 < MeP -2 at 7, backwards — under-seeding; needs more seeds for big mols).
+## DONE — efficiency + water-count (this session)
+- [x] **Killed xtb --ohess bottleneck**: fast split `thermal_solv.corr_fast` = batched
+      UMA-Hessian thermal (GPU) + `xtb --sp --cosmo` solvation. Accuracy-neutral for ΔG
+      (bare +4-7 kJ; nucleotidyl −9.5 vs −12.5), ~10× faster. Ladder relax BATCHED;
+      backends on separate GPUs; `cache.py` wired (method-tagged).
+- [x] **Water count = deterministic coordination rule** (`water_count.py`): 2/hard O,
+      1/soft S⁻, 1/cation N-H. First-shell saturation, NOT padding (more ≠ safer:
+      extra waters re-explode conformer noise + stop cancelling). Verify per reaction
+      with ΔG(n) vs ΔG(n+1) probe (`converged_enough`).
+- [x] **ABANDONED + removed occupancy self-selection** (step7/step7c/step8 deleted):
+      self-selected peak is noisy (fast pins at cap; ohess bounces 4/6/4 for −2
+      phosphate) AND irrelevant to ΔG (insensitive to n; waters cancel). Evidence:
+      `test_peak_stability.py` + artifacts/test_peak_stability_{fast,ohess}.json.
+- [x] Nucleotidyl PPi SOLVED (step7b): implicit −28..−52 → WPC3 +4.0, exp +1.9.
+- [x] Library triage: 40% NEED_EXPLICIT (upper bound), 20% compact polyanions.
 
 ## KEY DISTINCTION (do not lose) — compound-level vs reaction-level
 The 40% NEED_EXPLICIT is an UPPER BOUND. Implicit is FINE when the anion's solvation

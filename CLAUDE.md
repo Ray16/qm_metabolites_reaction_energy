@@ -34,6 +34,15 @@ Terse DECISIONS only (not an experiment log — results/status live in
 
 - Engine: UMA `uma-s-1p2` (OMol25), `uma` env; charge/spin `int` in `atoms.info`.
 - ΔG = ΔE_elec(UMA gas) + thermal(UMA Hessian) + ΔΔGsolv(xtb) + n_H⁺·G(H⁺,aq,pH7).
+- corr backend (thermal+solv): the FAST SPLIT — `thermal_solv.corr_fast` = UMA-Hessian
+  thermal (batched finite-diff on GPU) + `xtb --sp --cosmo` solvation single point.
+  REPLACES the CPU-bound `xtb --ohess --cosmo` bundle. Accuracy-neutral for reaction
+  ΔG (bare species Δ +4-7 kJ vs --ohess; nucleotidyl ΔG −9.5 vs −12.5, within 3 kJ)
+  and ~10× faster (GPU-utilizing). CAVEAT: on floppy explicit-water clusters the
+  UMA finite-diff Hessian's soft-water modes do NOT cancel like GFN2's analytical
+  Hessian → it pins occupancy at the cap. Harmless for ΔG (waters cancel), fatal for
+  absolute per-species occupancy — which is why we DON'T use occupancy self-selection
+  (below). Always BATCH the ladder relaxation + run backends on separate GPUs.
 - Sampling: ETKDG pool → batched UMA single-point rank → relax lowest ~10
   (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
   keep=10 = fast default (cross-seed std ~6-8 kJ); keep~24 for tight final numbers
@@ -44,12 +53,23 @@ Terse DECISIONS only (not an experiment log — results/status live in
   (cluster-continuum): UMA electronics + xtb(RRHO+COSMO) correction. Solved
   nucleotidyl (implicit −28..−52 → +4, exp +1.9). NOTE: CPCM-X was designed
   FASTER than COSMO(-RS), NOT more accurate — don't crown it from one reaction.
-- Water COUNT for explicit solvation: physics-based, NOT a global constant.
-  Selector = cluster-cycle grand-potential PEAK (reference waters to their own
-  same-size water cluster G_wc(n) → occupancy self-selects, no μ_water/fitting;
-  step7c). Seed rule = ~2–3 waters per anionic O/S H-bond site + ~1 per strong
-  donor. Charge-balanced fixed count (n=WPC·|charge|) is a μ_water-free shortcut
-  ONLY for charge-conserving reactions (waters cancel; step7b).
+- Water COUNT for explicit solvation: a DETERMINISTIC coordination rule
+  (`water_count.py`), NOT a self-selected occupancy peak. Rule = 2 waters per hard
+  anionic O (carboxylate/phosphate/sulfonate/sulfate O⁻), 1 per soft S⁻, 1 per
+  cationic N–H donor. Rationale: reaction ΔG needs the count (a) ENOUGH — saturate the
+  FIRST shell of the compact anionic site — and (b) CONSISTENT (same species → same n
+  so waters cancel). A noisy self-selected peak breaks (b). MORE IS NOT SAFER: the
+  window is bounded — too few = under-solvated bias, first-shell = accurate, TOO MANY =
+  re-exploded conformer noise + wandering waters that stop cancelling + worse-than-
+  continuum bulk model + degraded thermal Hessian. Target first-shell coordination and
+  STOP; verify per reaction with a cheap ΔG(n) vs ΔG(n+1/site) probe
+  (`water_count.converged_enough`, catches BOTH under- and over-watering), not padding.
+- ABANDONED (removed): occupancy self-selection via grand potential — former step7
+  (pinned monomer-cycle), step7c (cluster-cycle grand potential), step8 (peak
+  calibration). The self-selected peak is a noisy, method-dependent observable
+  (fast/UMA-Hessian pins at cap; GFN2 --ohess bounces 4/6/4 for a −2 phosphate) AND
+  irrelevant to ΔG (insensitive to n, waters cancel). Charge-balanced fixed count
+  (n=WPC·|charge|, step7b) still valid for charge-conserving reactions.
 
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,

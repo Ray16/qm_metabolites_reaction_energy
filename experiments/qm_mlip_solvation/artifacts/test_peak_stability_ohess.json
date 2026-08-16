@@ -1,0 +1,34 @@
+[
+  {
+    "backend": "ohess",
+    "nmax": 6,
+    "name": "acetate",
+    "charge": -1,
+    "peaks": [
+      4,
+      4,
+      4
+    ],
+    "means": [
+      4.15,
+      4.04,
+      3.87
+    ]
+  },
+  {
+    "backend": "ohess",
+    "nmax": 6,
+    "name": "methylphosphate",
+    "charge": -2,
+    "peaks": [
+      4,
+      6,
+      4
+    ],
+    "means": [
+      4.27,
+      5.98,
+      4.76
+    ]
+  }
+]
