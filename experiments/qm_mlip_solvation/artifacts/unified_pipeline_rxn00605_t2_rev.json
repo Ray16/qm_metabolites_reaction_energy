@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "rxn00605_t2_rev",
+    "dG": -3.1,
+    "exp": [
+      9.51
+    ],
+    "err": [
+      -12.6
+    ],
+    "explicit": false
+  }
+]

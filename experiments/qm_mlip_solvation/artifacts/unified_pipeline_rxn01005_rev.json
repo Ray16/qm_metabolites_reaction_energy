@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "rxn01005_rev",
+    "dG": 39.2,
+    "exp": [
+      -2.719
+    ],
+    "err": [
+      41.9
+    ],
+    "explicit": false
+  }
+]
