@@ -88,27 +88,37 @@ def build_truncated_reaction_v2(species_dict, radius=2, min_conserved_frac=0.15)
     keepR = keepR | {inv[j] for j in keepP if j in inv}
 
     def per_species(smis, offs, keep_global):
-        """Split a global keep-set back to each original species; truncate+cap each."""
-        # group kept global indices by species
+        """Split a global keep-set back to each original species; truncate+cap each.
+        Returns (caps, removed_fragment_multiset) or (None, None)."""
         by_sp = {}
         for g, (si, local) in enumerate(offs):
             if g in keep_global:
                 by_sp.setdefault(si, set()).add(local)
         caps = []
+        removed = Counter()
         for si, smi in enumerate(smis):
             keep_local = by_sp.get(si, set())
             if not keep_local:
-                return None                               # a whole species dropped -> ill-posed here
-            cap, _ = T.truncate_species(smi, keep_local)
+                return None, None                         # a whole species dropped -> ill-posed here
+            cap, rem = T.truncate_species(smi, keep_local)
             cm = Chem.MolFromSmiles(cap)
             if cm is None:
-                return None
+                return None, None
             caps.append(cap)
-        return caps
+            for fr in rem:                                # canonicalise each dropped piece
+                for piece in fr.split("."):
+                    pm = Chem.MolFromSmiles(piece)
+                    removed[Chem.MolToSmiles(pm) if pm else piece] += 1
+        return caps, removed
 
-    r_caps = per_species([s for _, _, s in R], offR, keepR)
-    p_caps = per_species([s for _, _, s in P], offP, keepP)
+    r_caps, rem_r = per_species([s for _, _, s in R], offR, keepR)
+    p_caps, rem_p = per_species([s for _, _, s in P], offP, keepP)
     if r_caps is None or p_caps is None:
+        return None
+    # CONSISTENCY GUARD: the removed spectator must be the SAME multiset of fragments on both sides,
+    # else it does not cancel in ΔG (balance + n_H+ can pass yet the cut be asymmetric -> garbage:
+    # rxn00065 barely shrank but flipped +25 -> -27 with a non-cancelling cut). Reject -> fall back.
+    if rem_r != rem_p:
         return None
 
     new = {}
@@ -129,4 +139,10 @@ def build_truncated_reaction_v2(species_dict, radius=2, min_conserved_frac=0.15)
         return None
     if nHplus_H != full_nH:                                # GUARD: truncation changed net H+ -> bad cut
         return None
+    # NOTE: balance + n_H+ + removed-fragment-consistency are all NECESSARY but not SUFFICIENT --
+    # rxn00065 passes them yet flips +25 -> -27 (a cut that touches the reactive context). The
+    # RIGOROUS, reaction-agnostic validity test is RADIUS-SENSITIVITY: a true spectator removal
+    # leaves ΔG invariant to the cut radius, so the caller should score at radius R and R+1 and
+    # trust the truncation only when |ΔΔG| < tol (truncate.py guard C). Implemented in the pipeline
+    # via TRUNC_VALIDATE, not as a tuned structural threshold here.
     return new, int(nHplus_H)
