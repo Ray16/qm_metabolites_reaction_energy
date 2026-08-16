@@ -179,9 +179,34 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     return Gens + therm
 
 
+_WATER_REF = {}
+def water_ref_G(pu, log=None):
+    """Free energy of ONE liquid-water molecule in the SAME method, for the Bryantsev
+    cluster-continuum monomer cycle. Subtracting n_water*this from a cluster G makes the
+    explicit waters reference bulk liquid, so they cancel for a SPECTATOR anion (equal n
+    both sides) AND stay correct for a CREATED/DESTROYED anion (unequal n). Without it,
+    explicit_G leaks n*G(water) (~ -2e5 kJ each) into any reaction that changes anion count.
+      G*_liq(H2O) = E_UMA(H2O) + thermal(H2O) + dGsolv(H2O) + RT ln(55.34)   [gas->liquid std state]"""
+    if "G" in _WATER_REF:
+        return _WATER_REF["G"]
+    sym, coord = bare_geom(pu, 0, "O")
+    atoms = Atoms(symbols=list(sym), positions=coord, info={"charge": 0, "spin": 1})
+    E = float(batched_energies(pu, [atoms])[0]) * EV2KJ
+    solv = xtb_dgsolv(list(sym), coord, 0, "cosmo")
+    thermal = uma_gibbs_corr(pu, list(sym), coord, 0)
+    conc = 8.314e-3 * 298.15 * float(np.log(55.34))          # +9.96 kJ/mol, gas 1M -> liquid 55.3M
+    G = E + solv + thermal + conc
+    _WATER_REF["G"] = G
+    if log:
+        log(f"    [water ref] G*_liq(H2O) = E {E:.1f} + solv {solv:.1f} + thermal {thermal:.1f} "
+            f"+ conc {conc:.1f} = {G:.1f}")
+    return G
+
+
 def explicit_G(pu, q, smi, seeds, log, name):
     """Cluster-continuum G_aq: first-shell waters + cluster solvation, but thermal on
-    the BARE SOLUTE only.
+    the BARE SOLUTE only. The n explicit waters are referenced to bulk liquid via
+    water_ref_G (Bryantsev monomer cycle) so the count need NOT cancel across the reaction.
     FIX 2: the floppy explicit-water librational modes make the full-cluster UMA
     finite-diff Hessian noisy and it does NOT cancel across the fixed-count reaction
     (this is what pinned the occupancy AND cost nucleotidyl ~20 kJ). So:
@@ -213,9 +238,10 @@ def explicit_G(pu, q, smi, seeds, log, name):
         return None
     Gens = boltz(Gt)
     thermal = uma_gibbs_corr(pu, bsym, bcoord, q)         # bare solute, no water modes
-    g = Gens + thermal
+    wref = n_water * water_ref_G(pu, log)                 # reference explicit waters to bulk liquid
+    g = Gens + thermal - wref
     log(f"    {name:9s} q{q:+d} [explicit n={n_water} {sites} keep{len(Gt)}/{N_EXPLICIT_SEEDS}]: "
-        f"Gens(E+solv) {Gens:.1f} + thermal(solute) {thermal:.1f} = {g:.1f}")
+        f"Gens(E+solv) {Gens:.1f} + thermal(solute) {thermal:.1f} - {n_water}*Gwater {wref:.1f} = {g:.1f}")
     return g
 
 
@@ -240,8 +266,9 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     dG += rx["n_Hplus"] * G_HPLUS
     errs = [dG - e for e in rx["exp"]]
     log(f"  ΔG = {dG:+.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}")
+    exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
     return dict(reaction=key, dG=round(dG, 1), exp=rx["exp"],
-                err=[round(e, 1) for e in errs], explicit=rx["explicit"])
+                err=[round(e, 1) for e in errs], explicit=exp_out)
 
 
 def main():
