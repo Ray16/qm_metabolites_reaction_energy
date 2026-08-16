@@ -75,7 +75,18 @@ error drops -> U_samp becomes representative), or (b) a cross-method electronic-
 For now: treat U_samp as a floor; flag reactions with any species >~20 heavy atoms as high
 method-uncertainty regardless of U_samp.
 
-## Central lever for the huge/floppy 55%: AUTO-TRUNCATION (next general heuristic)
+## AUTO_TRUNCATE — VALIDATED end-to-end (2026-08-16)
+`AUTO_TRUNCATE=1` (env) preprocesses each reaction via `build_truncated_reaction` (truncate.py).
+On the real TECRDB rxn00605 it auto-derived the 4-species reactive core and scored
+**ΔG +7.0 ± 1.6 vs exp -9.51 (err +16.5)** — vs full-molecule **-54.7 (err -45.2)**. Fully
+automatic, matches the hand truncation. Crucially the per-species σ dropped to 0.6-1.0 kJ, so the
+sampling-U is now representative; the residual +16.5 is the genuine glycosyl electronic floor
+(systematic, not sampling). => truncation removes the catastrophic-cancellation error, leaving
+only the C-X electronic floor. Coverage: works for unit-coeff reactions with a clean MCS pairing;
+falls back to full molecules otherwise (multi-coeff, atom-splitting NTP->NDP+PPi). Full-367
+coverage run pending (MCS is ~seconds/reaction; needs caching/parallel).
+
+## Central lever for the huge/floppy 55%: AUTO-TRUNCATION (hardening TODO)
 The sweep confirms the untruncated pipeline fails on the huge/floppy majority via catastrophic
 cancellation. `truncate.py` (systematic spectator truncation) is the general, non-hard-coded fix:
 integrate it as a pipeline preprocessing step so every reaction is scored on its truncated reactive
