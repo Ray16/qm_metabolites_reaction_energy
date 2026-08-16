@@ -327,3 +327,28 @@ peak self-selects n per species by free-energy convergence; (2) structural seed 
 numbers), which is why WPC~2-3 matched here (phosphates ~2 O- per charge); (3)
 converge until incremental ΔΔGsolv(n->n+1)->0; (4) geometric first-shell check.
 Ref: Bryantsev-Diallo-Goddard JPCB 2008; Pliego-Riveros.
+
+### Systematic reaction-level spectator truncation (`scripts/truncate.py`)  ✅ built + validated
+Automates the hand-built caps *at the reaction level* (we have both sides in hand, so
+the spectator is exactly the atom-mapped, bonding-unchanged sub-structure). Pipeline:
+MCS atom-map → reaction center = {unmapped ∪ mapped-but-bonding-changed} → grow radius R
+→ H-cap the severed bonds (cutting a C–C bond auto-yields a methyl). Guards: GLOBAL
+atom/charge/H balance + cap-consistency (removed multiset identical both sides) +
+radius-sensitivity (R vs R+1 = the Me/Et convergence knob) + rotatable-bond rigidity gate.
+Known limitation: bijective MCS pairing can't represent one reactant splitting across two
+products (UTP→UDP-Glc+PPi) → cap-consistency flags False there, but global BALANCE (the
+stronger guarantee) still passes. Proper fix = real atom-mapper (RXNMapper) later.
+
+**Validation — reproduces the hand caps:** nucleotidyl UTP+Glc-1-P→UDP-Glc+PPi truncates
+at radius 5 to **Me-PPP + Glc-1-P → Me-PP-Glc + PPi** (uridine→methyl on both sides), i.e.
+the hand model, automatically, balanced.
+
+**Fixes the hard-ten glycosyl blow-ups (full-molecule scheme unreliable):**
+| rxn | full-molecule err | truncated err | cause |
+|-----|------|------|-------|
+| rxn00605 (→trehalose-6-P) | **−45.2** | **+12.6** (r2) | disaccharide catastrophic cancellation (subtracting two ~1.6 M-kJ glucosyl energies); truncate acceptor to ≤1 ring → noise cancels. Residual +12.6 ≈ the genuine glycosyl-class ~+11 kJ electronic floor. |
+| rxn01713 (→sinapoyl-Glc) | +41.2 | testing | carboxylate anion DESTROYED (sinapate⁻→ester) under implicit → over-solvated; truncation shrinks it but does NOT fix solvation → needs explicit first-shell water on the carboxylate (per-species triage now in pipeline). |
+
+Lesson: the full-molecule unified scheme fails on (a) large floppy multi-ring species
+(absolute-energy noise ∝ size) and (b) created/destroyed compact anions under implicit.
+Truncation addresses (a) directly; (b) needs the explicit-water triage, not truncation.
