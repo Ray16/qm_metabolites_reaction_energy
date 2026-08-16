@@ -72,6 +72,21 @@ REACTIONS = {
         "MePPMe": (+1, -2, "COP(=O)([O-])OP(=O)([O-])OC"),
         "PPi":    (+1, -3, "O=P([O-])([O-])OP(=O)([O-])O"),
     }),
+    # --- hard-ten depth: independent glycosyl transfers (UDP nucleoside -> Me cap) ---
+    "glycosyl_00605": dict(exp=[-9.51], n_Hplus=0, explicit=False,
+                           note="rxn00605: MeUDPGlc + Glc-6-P -> MeUDP + Trehalose-6-P", species={
+        "MeUDPGlc":   (-1, -2, "OC[C@H]1O[C@@H](OP(=O)([O-])OP(=O)([O-])OC)[C@H](O)[C@@H](O)[C@@H]1O"),
+        "G6P":        (-1, -2, "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"),
+        "MeUDP":      (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
+        "Trehalose6P":(+1, -2, "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"),
+    }),
+    "glycosyl_01713": dict(exp=[3.93], n_Hplus=-1, explicit=False,
+                           note="rxn01713: MeUDPGlc + Sinapate + H+ -> MeUDP + Sinapoyl-Glc", species={
+        "MeUDPGlc":   (-1, -2, "OC[C@H]1O[C@@H](OP(=O)([O-])OP(=O)([O-])OC)[C@H](O)[C@@H](O)[C@@H]1O"),
+        "Sinapate":   (-1, -1, "COc1cc(/C=C/C(=O)[O-])cc(OC)c1O"),
+        "MeUDP":      (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
+        "SinapoylGlc":(+1,  0, "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O"),
+    }),
 }
 
 
