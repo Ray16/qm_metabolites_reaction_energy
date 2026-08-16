@@ -3,30 +3,40 @@
 Read this first. It captures *where we are, what's decided, and what's next* so the
 state survives even if external notes are lost. Companion docs:
 `EXPLORATION_LOG.md` (full methodology + term-by-term ledgers), `README.md` (plan),
-`artifacts/*.json` (raw numbers). Last updated: 2026-08-14.
+`artifacts/*.json` (raw numbers). Last updated: 2026-08-15.
 
-## ▶ PICK UP HERE (as of 2026-08-14, batching phase)
-The scalable **batched** pipeline is built and the sampling strategy is settled;
-the reproducibility answer for the glycosyl transfer is the immediate next result.
-- **Done:** batched UMA relaxation (`batched_relax.py`, verified 0.19 kJ vs
-  single-structure; charge bug fixed via `r_data_keys=["spin","charge"]`).
-  Straggler-robust early-stop + **drop unconverged stragglers**. Energy-TARGETED
-  sampling: ETKDG pool → batched UMA single-point rank → relax lowest `keep`
-  (answers "which/how many conformers"; random-48 was wasteful).
-- **RUN NEXT:** `CUDA_VISIBLE_DEVICES=0 python scripts/step4e_targeted.py
-  --seeds 1,2,3,4,5 --pool 128 --keep 24` → reproducibility of Boltzmann ΔG
-  (target std ≤ ~5 kJ, mean near exp −4.2) + convergence sweep over keep-k.
-  - reproducible → per-compound caching architecture is viable → build DB sweep
-  - still swings → targeted sampling insufficient → CREST / matched-transfer / fragments
-- **Then:** regression-check redox (rxn00070/86) through the batched pipeline;
-  cover the other hard-ten reactions (see TODO.md) to map where to improve.
-- **✅ RESULT (5 seeds, pool 128 / keep 24):** ΔG_boltz +21,+21,+23,+26,+29 →
-  **std 3.1 (was 12.5), keep-k FLAT (~10 conf suffice), mean +24 → +28 kJ BIAS vs
-  exp −4.2.** REPRODUCIBILITY SOLVED; per-compound caching viable (few conformers).
-  The −3.0 was luck; the method's true value is a reproducible +28 kJ bias.
-  **→ Next: DECOMPOSE the glycosyl bias** (truncation uridine→methyl? xTB-ALPB
-  anion-solvation asymmetry MeUDPGlc vs MeUDP? microspecies?). It's now a
-  diagnosable systematic error, not noise.
+## ▶ PICK UP HERE (as of 2026-08-15, explicit-water + DB-triage phase)
+Redox (err ~3) and glycosyl (err ~13, COSMO) work on implicit solvation. The
+NUCLEOTIDYL failure (PPi over-solvated by continuum) is now SOLVED with explicit
+first-shell waters. Current thrust: generalize the water-count rule across the DB.
+
+- **✅ Nucleotidyl SOLVED (step7b, charge-balanced explicit waters):** implicit
+  −28..−52 → WPC1 −32.3 → WPC2 +5.9 → WPC3 +4.0, converged vs exp +1.9. n=WPC·|charge|
+  per species; μ_water CANCELS because the reaction conserves charge (waters balance
+  both sides). This is the informative convergence table — KEEP.
+- **✅ Cluster-cycle grand potential (step7c):** references added waters to their own
+  same-size water cluster G_wc(n) (Bryantsev/Ho) → occupancy PEAKS naturally, no
+  μ_water, no pinning. Validates step7b (G_wc cancels for same-charge species). The
+  obsolete pinned monomer-cycle step7 was REMOVED (wrong equation).
+- **✅ Library triage (`library_solvation_triage.py`):** 30,498 scoreable pH-7
+  compounds. 40% NEED_EXPLICIT (carboxylate 7741, phosphate 4580), **20% compact
+  polyanions** (PPi-hardest), 11% BORDERLINE (soft/delocalized/cation), 49%
+  IMPLICIT_OK; 6501 R-group fragments excluded. artifacts/library_solvation_triage.*
+- **▶ RUNNING (GPU4):** `step8_calibration_set.py --nmax 8 --seeds 3` — 2-3 curated
+  small reps per category through the cluster-cycle ladder; compares self-selected
+  PEAK ⟨n⟩ to the coordination rule. READ logs/step8_full.log →
+  artifacts/step8_calibration_set.json when done → per-group water-count table.
+- **▶ RUNNING (GPU5):** step7c PPi ladder (nmax=9). NOTE noisy large-molecule peaks
+  (MePPP −3 peaked at 4 < MeP −2 at 7 = backwards → under-seeding big flexible mols).
+
+- **⚠ EFFICIENCY (TOP next-session task):** GPUs at **0% util** — CPU-bound on
+  `xtb --ohess`. Fix = UMA-Hessian thermal on GPU (once per species, solute-only) +
+  `xtb --sp --cosmo` solvation (no Hessian). See TODO ▶ TOP PRIORITY. `cache.py`
+  (method-tagged results cache) written, NOT yet wired in.
+
+- **KEY DISTINCTION:** the 40% NEED_EXPLICIT is an UPPER BOUND — implicit is fine when
+  the anion CANCELS across the reaction (glycosyl's phosphate is a spectator). Explicit
+  water only needed when a compact high-charge-density anion is CREATED/DESTROYED.
 
 ## Goal
 Can a modern foundation MLIP (**UMA / OMol25**) + explicit-solvation machinery

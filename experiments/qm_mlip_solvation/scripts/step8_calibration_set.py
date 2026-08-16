@@ -86,18 +86,19 @@ def main():
             om, peak, occ = species_omega(pu, name, q, smi, a.nmax, a.seeds, Gwc, log)
         except Exception as e:
             log(f"    {name}: FAILED ({e})"); continue
-        ok = lo <= peak <= hi
+        mean_n = sum(k * v for k, v in occ.items())   # Boltzmann-mean occupancy (robust to flat surface)
+        ok = lo <= mean_n <= hi                          # judge on mean, not the noisy mode
         results.append(dict(name=name, cat=cat, triage=tri, charge=q, peak=peak,
-                            rule_lo=lo, rule_hi=hi, sites=sites, in_band=ok,
-                            pinned=(peak == a.nmax)))
-        log(f"    -> {name:17s} [{cat:11s}] peak n={peak}  rule {lo}-{hi}  "
+                            mean_n=round(mean_n, 2), rule_lo=lo, rule_hi=hi, sites=sites,
+                            in_band=ok, pinned=(peak == a.nmax)))
+        log(f"    -> {name:17s} [{cat:11s}] peak n={peak} <n>={mean_n:.1f}  rule {lo}-{hi}  "
             f"{'OK' if ok else 'OUT'}{'  PINNED@cap!' if peak==a.nmax else ''}")
 
-    log(f"\n==== HEURISTIC VALIDATION (peak vs coordination rule) ====")
-    log(f"  {'compound':17s} {'category':11s} {'q':>2}  peak  rule    verdict")
+    log(f"\n==== HEURISTIC VALIDATION (Boltzmann-mean occupancy vs coordination rule) ====")
+    log(f"  {'compound':17s} {'category':11s} {'q':>2} peak <n>  rule    verdict")
     for r in results:
         v = "PINNED-raise-cap" if r["pinned"] else ("in-band" if r["in_band"] else "OUT-of-band")
-        log(f"  {r['name']:17s} {r['cat']:11s} {r['charge']:+2d}   {r['peak']:2d}   "
+        log(f"  {r['name']:17s} {r['cat']:11s} {r['charge']:+2d}   {r['peak']:2d}  {r['mean_n']:4.1f}  "
             f"{r['rule_lo']}-{r['rule_hi']:<3d}  {v}")
     n_ok = sum(r["in_band"] for r in results)
     log(f"\n  {n_ok}/{len(results)} within predicted band. Soft/delocalized (thiolate,"
