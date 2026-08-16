@@ -125,6 +125,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     hits = 0
     seed = 0
     last_dG = float("nan")
+    gens_traj = []
     while seed < CONV_MAX:
         seed += 1
         cands = pool_confs(smi, q, seed, pool)
@@ -143,7 +144,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
                     best = (float(e), a.get_chemical_symbols(), a.get_positions())
         if not all_G:
             continue
-        Gens = boltz(all_G)
+        Gens = boltz(all_G); gens_traj.append(Gens)
         if prev_Gens is not None:
             last_dG = abs(Gens - prev_Gens)
             if last_dG < CONV_TOL and abs(best[0] - prev_best) < CONV_TOL:
@@ -154,13 +155,16 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
                 hits = 0
         prev_Gens, prev_best = Gens, best[0]
     if not all_G:
-        return None
+        return None, None
     Gens = boltz(all_G)
     therm = uma_gibbs_corr(pu, best[1], best[2], q)
+    # sampling uncertainty: spread of Gens over the last few batches (0 if never moved / capped-tight)
+    tail = gens_traj[-3:]
+    sigma = float(np.std(tail)) if len(tail) > 1 else (last_dG if np.isfinite(last_dG) else 3.0)
     tag = "conv" if seed < CONV_MAX else "CAPPED"
-    log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} last|ΔGens|={last_dG:.1f}]: "
+    log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} σ={sigma:.1f}]: "
         f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
-    return Gens + therm
+    return Gens + therm, sigma
 
 
 _WATER_REF = {}
@@ -208,7 +212,7 @@ def explicit_G(pu, q, smi, seeds, log, name):
                                 return_converged=True, label=f"{name}w{n_water}")
     rel = [a for a, c in zip(rel, conv) if c]; E = E[conv] * EV2KJ
     if not len(E):
-        return None
+        return None, None
     # FIX: BOLTZMANN over the cluster ensemble (NOT min — min is non-convergent for
     # floppy clusters: E_UMA drifts down as you add seeds). Keep the lowest-E clusters,
     # relaxed-in-solvent solvation (xtb --opt --cosmo) on each, Boltzmann of E_UMA+ΔGsolv.
@@ -219,14 +223,17 @@ def explicit_G(pu, q, smi, seeds, log, name):
                                                         a.get_positions(), q, "cosmo"), sel))
     Gt = [e + s for e, s in zip(Eu, solv) if s is not None]
     if not Gt:
-        return None
+        return None, None
     Gens = boltz(Gt)
     thermal = uma_gibbs_corr(pu, bsym, bcoord, q)         # bare solute, no water modes
     wref = n_water * water_ref_G(pu, log)                 # reference explicit waters to bulk liquid
     g = Gens + thermal - wref
-    log(f"    {name:9s} q{q:+d} [explicit n={n_water} {sites} keep{len(Gt)}/{N_EXPLICIT_SEEDS}]: "
+    # explicit clusters are noisier than implicit (stochastic seeding; reverse-test showed
+    # ~14 kJ run-to-run) -> conservative sampling-σ floor from the kept-cluster spread.
+    sigma = max(float(np.std(Gt)) if len(Gt) > 1 else 7.0, 5.0)
+    log(f"    {name:9s} q{q:+d} [explicit n={n_water} {sites} keep{len(Gt)}/{N_EXPLICIT_SEEDS} σ={sigma:.1f}]: "
         f"Gens(E+solv) {Gens:.1f} + thermal(solute) {thermal:.1f} - {n_water}*Gwater {wref:.1f} = {g:.1f}")
-    return g
+    return g, sigma
 
 
 def run_reaction(pu, key, seeds, keep, pool, log):
@@ -260,33 +267,42 @@ def run_reaction(pu, key, seeds, keep, pool, log):
         return False
 
     G = {}
+    sig = {}
     for name, (coeff, q, smi) in rx["species"].items():
         if smi == "O" and q == 0:                        # liquid-water reactant (hydrolysis)
-            G[name] = water_ref_G(pu, log)
+            G[name] = water_ref_G(pu, log); sig[name] = 1.0
             log(f"    {name:9s} q+0 [water ref liquid]: {G[name]:.1f}")
         elif requested_explicit(name):
             if is_spectator_anion(name):
-                G[name] = explicit_G(pu, q, smi, seeds, log, name)
+                G[name], sig[name] = explicit_G(pu, q, smi, seeds, log, name)
             else:                                        # GUARD: explicit invalid here
                 log(f"    !! {name}: explicit REFUSED (created/destroyed anion, no "
                     f"cancellation partner) -> implicit. Use pH-0 (pka_sites) for accuracy.")
-                G[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
+                G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         else:
-            G[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
+            G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         if G[name] is None:
             log(f"    {name}: FAILED"); return None
     dG = sum(coeff * G[name] for name, (coeff, q, smi) in rx["species"].items())
     dG += rx["n_Hplus"] * G_HPLUS
+    # propagate per-species sampling σ to a reaction sampling-uncertainty (quadrature).
+    U_samp = float(np.sqrt(sum((coeff * sig[name])**2
+                               for name, (coeff, q, smi) in rx["species"].items())))
     # pH-0 route: analytic pKa transform replaces the anion-solvation + explicit-proton terms
     for side, pka in rx.get("pka_sites", []):
         contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * (PH - pka)
         dG += contrib
         log(f"    pKa transform [{side} pKa {pka}] += {contrib:+.1f} kJ/mol")
     errs = [dG - e for e in rx["exp"]]
-    log(f"  ΔG = {dG:+.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}")
+    # RESOLUTION heuristic (general, no hard-coding): if the sampling uncertainty is
+    # comparable to |ΔG|, the sign/magnitude is not QM-resolvable -- flag it (regime-2
+    # isomerases, near-equilibrium). Such reactions are concentration-limited, not QM-fixable.
+    unresolved = abs(dG) < U_samp
+    flag = "  [UNRESOLVED: |ΔG|<U_samp -> concentration-limited]" if unresolved else ""
+    log(f"  ΔG = {dG:+.1f} ± {U_samp:.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}{flag}")
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
-    return dict(reaction=key, dG=round(dG, 1), exp=rx["exp"],
-                err=[round(e, 1) for e in errs], explicit=exp_out)
+    return dict(reaction=key, dG=round(dG, 1), U_samp=round(U_samp, 1), unresolved=unresolved,
+                exp=rx["exp"], err=[round(e, 1) for e in errs], explicit=exp_out)
 
 
 def main():
@@ -303,10 +319,11 @@ def main():
     rows = [r for r in (run_reaction(pu, k, seeds, a.keep, a.pool, log) for k in keys) if r]
 
     log(f"\n==== UNIFIED PIPELINE — one scheme, three classes ====")
-    log(f"  {'reaction':12s} {'ΔG':>7s} {'exp':>14s} {'err':>16s} {'solv':>9s}")
+    log(f"  {'reaction':14s} {'ΔG':>7s} {'±U':>6s} {'exp':>14s} {'err':>16s} {'note':>12s}")
     for r in rows:
-        log(f"  {r['reaction']:12s} {r['dG']:7.1f} {str(r['exp']):>14s} {str(r['err']):>16s} "
-            f"{'explicit' if r['explicit'] else 'implicit':>9s}")
+        note = "UNRESOLVED" if r.get("unresolved") else ("explicit" if r["explicit"] else "implicit")
+        log(f"  {r['reaction']:14s} {r['dG']:7.1f} {r.get('U_samp',0):6.1f} {str(r['exp']):>14s} "
+            f"{str(r['err']):>16s} {note:>12s}")
     tag = a.only or "all"
     json.dump(rows, open(os.path.join(OUT, f"unified_pipeline_{tag}.json"), "w"), indent=2)
     log(f"wrote artifacts/unified_pipeline_{tag}.json")
