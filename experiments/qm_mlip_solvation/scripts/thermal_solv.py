@@ -111,13 +111,33 @@ def _xtb_sp_E(xyz, q, d, flag):
 
 
 def xtb_dgsolv(symbols, coords, q, model="cosmo"):
-    """ΔG_solv (kJ) = E_xtb(--sp <model> water) - E_xtb(--sp gas), no Hessian."""
+    """ΔG_solv (kJ) = E_xtb(--sp <model> water) - E_xtb(--sp gas), no Hessian.
+    VERTICAL (single point) — fine for bare species; for water-decorated clusters the
+    solute/water reorganization in solvent is under-captured (use xtb_dgsolv_relaxed)."""
     with tempfile.TemporaryDirectory() as d:
         xyz = os.path.join(d, "m.xyz")
         _write_xyz(xyz, symbols, coords)
         eg = _xtb_sp_E(xyz, q, d, [])
         flag = ["--gbsa", "water"] if model == "gbsa" else [f"--{model}", "water"]
         es = _xtb_sp_E(xyz, q, d, flag)
+        return (es - eg) if (es is not None and eg is not None) else None
+
+
+def xtb_dgsolv_relaxed(symbols, coords, q, model="cosmo"):
+    """RELAXED ΔG_solv (kJ) = E_xtb(--opt <model> water) - E_xtb(--sp gas). Optimizes
+    the geometry IN the continuum (captures solute + explicit-water reorganization that
+    the vertical single point misses) but NO Hessian — so it recovers what step7b's
+    --ohess did for water-decorated clusters, at ~seconds not minutes. Use for explicit
+    clusters; bare species don't need it."""
+    with tempfile.TemporaryDirectory() as d:
+        xyz = os.path.join(d, "m.xyz")
+        _write_xyz(xyz, symbols, coords)
+        eg = _xtb_sp_E(xyz, q, d, [])
+        flag = ["--gbsa", "water"] if model == "gbsa" else [f"--{model}", "water"]
+        r = subprocess.run([XTB, "m.xyz", "--gfn", "2", "--chrg", str(int(q)), "--opt"] + flag,
+                           cwd=d, env=ENV, capture_output=True, text=True, timeout=600)
+        m = re.search(r"TOTAL ENERGY\s+(-?\d+\.\d+)\s+Eh", r.stdout)
+        es = float(m.group(1)) * HARTREE2KJ if m else None
         return (es - eg) if (es is not None and eg is not None) else None
 
 

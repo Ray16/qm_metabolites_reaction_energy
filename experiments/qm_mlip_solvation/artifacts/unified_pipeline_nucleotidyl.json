@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "nucleotidyl",
+    "dG": -12.4,
+    "exp": [
+      1.85
+    ],
+    "err": [
+      -14.2
+    ],
+    "explicit": true
+  }
+]

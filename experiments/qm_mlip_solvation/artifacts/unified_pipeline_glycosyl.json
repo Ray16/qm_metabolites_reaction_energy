@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "glycosyl",
+    "dG": 11.8,
+    "exp": [
+      -4.2
+    ],
+    "err": [
+      16.0
+    ],
+    "explicit": false
+  }
+]
