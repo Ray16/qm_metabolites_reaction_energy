@@ -71,6 +71,12 @@
     "err": 10.8,
     "unresolved": false
   },
+  "rxn00290": {
+    "dG": -55.6,
+    "U": 22.7,
+    "err": -69.0,
+    "unresolved": false
+  },
   "rxn00070": {
     "dG": 0.0,
     "U": 3.8,
@@ -83,6 +89,12 @@
     "err": 66.9,
     "unresolved": false
   },
+  "rxn01211": {
+    "dG": -138.6,
+    "U": 1.9,
+    "err": -137.0,
+    "unresolved": false
+  },
   "rxn00973": {
     "dG": 7.4,
     "U": 1.6,
@@ -93,6 +105,18 @@
     "dG": -10.7,
     "U": 6.1,
     "err": -10.0,
+    "unresolved": false
+  },
+  "rxn04082": {
+    "dG": -14.0,
+    "U": 1.1,
+    "err": -13.5,
+    "unresolved": false
+  },
+  "rxn00558": {
+    "dG": -26.5,
+    "U": 2.0,
+    "err": -29.5,
     "unresolved": false
   },
   "rxn01761": {
