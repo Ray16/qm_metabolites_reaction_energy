@@ -202,17 +202,41 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # that need explicit first-shell waters (per-species triage: only the anion that
     # is CREATED/DESTROYED, never a spectator phosphate).
     exp_flag = rx["explicit"]
-    def use_explicit(nm):
+    def requested_explicit(nm):
         if isinstance(exp_flag, (list, set, tuple)):
             return nm in exp_flag
         return bool(exp_flag)
+
+    def is_spectator_anion(nm):
+        """Explicit first-shell water is ONLY valid for a SPECTATOR anion -- one with a
+        charge- and site-matched partner on the opposite side, so the waters (and the
+        ~125 kJ anion-water binding) cancel in ΔG. For a CREATED/DESTROYED anion there is
+        no partner and explicit leaks the binding (demonstrated: acetate explicit err
+        -126; rxn01713 +166). Such species must use implicit or the pH-0 route instead."""
+        coeff_n, q_n, smi_n = rx["species"][nm]
+        if q_n >= 0:
+            return True
+        nwn = water_count(smi_n)[0]
+        side_n = coeff_n > 0
+        for other, (c, q, s) in rx["species"].items():
+            if other == nm:
+                continue
+            if (c > 0) != side_n and q == q_n and water_count(s)[0] == nwn:
+                return True
+        return False
+
     G = {}
     for name, (coeff, q, smi) in rx["species"].items():
         if smi == "O" and q == 0:                        # liquid-water reactant (hydrolysis)
             G[name] = water_ref_G(pu, log)
             log(f"    {name:9s} q+0 [water ref liquid]: {G[name]:.1f}")
-        elif use_explicit(name):
-            G[name] = explicit_G(pu, q, smi, seeds, log, name)
+        elif requested_explicit(name):
+            if is_spectator_anion(name):
+                G[name] = explicit_G(pu, q, smi, seeds, log, name)
+            else:                                        # GUARD: explicit invalid here
+                log(f"    !! {name}: explicit REFUSED (created/destroyed anion, no "
+                    f"cancellation partner) -> implicit. Use pH-0 (pka_sites) for accuracy.")
+                G[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         else:
             G[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         if G[name] is None:
