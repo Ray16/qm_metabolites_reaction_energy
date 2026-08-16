@@ -1,0 +1,22 @@
+{
+  "G6Pt": {
+    "coeff": -1,
+    "charge": -1,
+    "aimnet_E_kj": -3294847.518
+  },
+  "Pi": {
+    "coeff": 1,
+    "charge": -1,
+    "aimnet_E_kj": -1690030.167
+  },
+  "donorCap": {
+    "coeff": -1,
+    "charge": 0,
+    "aimnet_E_kj": -604978.519
+  },
+  "glycoside": {
+    "coeff": 1,
+    "charge": 0,
+    "aimnet_E_kj": -2209649.323
+  }
+}

@@ -22,13 +22,16 @@ def main():
     from ase import Atoms
     rows = {}
     calc = None
+    SPECIES = {"donorCap", "G6Pt", "glycoside", "Pi"}
     for p in sorted(glob.glob(os.path.join(ART, "*.xyz"))):
         name = os.path.splitext(os.path.basename(p))[0]
+        if name not in SPECIES:          # skip diagnostic clusters (different comment format)
+            continue
         sym, pos, q, coeff = read_xyz(p)
         atoms = Atoms(symbols=sym, positions=pos)
         ase_calc = AIMNet2ASE("aimnet2", charge=q)
         atoms.calc = ase_calc
-        E_kj = float(atoms.get_potential_energy()) * EV2KJ
+        E_kj = float(np.asarray(atoms.get_potential_energy()).reshape(-1)[0]) * EV2KJ
         rows[name] = dict(coeff=coeff, charge=q, aimnet_E_kj=round(E_kj, 3))
         print(f"{name:10s} q{q:+d} AIMNet2_E {E_kj:.1f} kJ", flush=True)
     dE = sum(r["coeff"] * r["aimnet_E_kj"] for r in rows.values())
