@@ -27,7 +27,7 @@ os.makedirs(OUT, exist_ok=True)
 def relax_best(pu, smi, q, seeds=(1, 2, 3), keep=12, pool=160):
     best = None
     for seed in seeds:
-        cands = pool_confs(smi, q, n=pool, seed=seed)
+        cands = pool_confs(smi, q, seed, pool)
         order = np.argsort(batched_energies(pu, cands))[:keep]
         sel = [cands[i] for i in order]
         rel, E, conv = batched_fire(pu, sel, fmax=0.05, steps=300, stop_frac=0.9,
