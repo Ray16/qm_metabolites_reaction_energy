@@ -1,0 +1,1244 @@
+{
+  "rxn01211": [
+    "huge/floppy"
+  ],
+  "rxn00973": [
+    "isomerase"
+  ],
+  "rxn00216": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00695": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00290": [
+    "huge/floppy"
+  ],
+  "rxn10427": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn03643": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00184": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00499": [
+    "huge/floppy"
+  ],
+  "rxn00070": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01008": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00173": [
+    "huge/floppy"
+  ],
+  "rxn01530": [
+    "huge/floppy"
+  ],
+  "rxn00132": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00421": [
+    "anion-count-change"
+  ],
+  "rxn00086": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00545": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn04082": [
+    "isomerase"
+  ],
+  "rxn01740": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00634": [
+    "huge/floppy"
+  ],
+  "rxn02132": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01371": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00543": [
+    "huge/floppy"
+  ],
+  "rxn00558": [
+    "isomerase"
+  ],
+  "rxn00097": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00765": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01746": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01385": [
+    "huge/floppy"
+  ],
+  "rxn01101": [
+    "huge/floppy"
+  ],
+  "rxn01358": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00602": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00549": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03249": [
+    "huge/floppy"
+  ],
+  "rxn01451": [
+    "huge/floppy"
+  ],
+  "rxn01100": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01362": [
+    "anion-count-change"
+  ],
+  "rxn01761": [
+    "isomerase"
+  ],
+  "rxn00747": [
+    "isomerase"
+  ],
+  "rxn01016": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00151": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01106": [
+    "isomerase"
+  ],
+  "rxn01044": [
+    "isomerase"
+  ],
+  "rxn01201": [
+    "huge/floppy"
+  ],
+  "rxn00187": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00559": [
+    "isomerase"
+  ],
+  "rxn02451": [
+    "huge/floppy"
+  ],
+  "rxn00065": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00293": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00577": [
+    "CLEAN(tractable)"
+  ],
+  "rxn51768": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00191": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00636": [
+    "isomerase"
+  ],
+  "rxn00396": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01548": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00992": [
+    "huge/floppy"
+  ],
+  "rxn00280": [
+    "huge/floppy"
+  ],
+  "rxn00629": [
+    "huge/floppy"
+  ],
+  "rxn00402": [
+    "huge/floppy"
+  ],
+  "rxn00283": [
+    "isomerase"
+  ],
+  "rxn00077": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01620": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00336": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00799": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01646": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00141": [
+    "huge/floppy"
+  ],
+  "rxn00223": [
+    "isomerase"
+  ],
+  "rxn01204": [
+    "CLEAN(tractable)"
+  ],
+  "rxn31240": [
+    "isomerase"
+  ],
+  "rxn00182": [
+    "huge/floppy"
+  ],
+  "rxn01407": [
+    "huge/floppy"
+  ],
+  "rxn02320": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00552": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00800": [
+    "huge/floppy"
+  ],
+  "rxn00117": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01157": [
+    "anion-count-change"
+  ],
+  "rxn08430": [
+    "CLEAN(tractable)"
+  ],
+  "rxn04945": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00686": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00415": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02914": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00278": [
+    "huge/floppy"
+  ],
+  "rxn00927": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00213": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01249": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01322": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02459": [
+    "huge/floppy"
+  ],
+  "rxn00260": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02756": [
+    "isomerase"
+  ],
+  "rxn01423": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00704": [
+    "isomerase"
+  ],
+  "rxn39443": [
+    "anion-count-change"
+  ],
+  "rxn01043": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00171": [
+    "huge/floppy"
+  ],
+  "rxn00770": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00248": [
+    "huge/floppy"
+  ],
+  "rxn00546": [
+    "huge/floppy"
+  ],
+  "rxn00347": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00802": [
+    "huge/floppy"
+  ],
+  "rxn00131": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00604": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01368": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02975": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00692": [
+    "huge/floppy"
+  ],
+  "rxn01333": [
+    "huge/floppy"
+  ],
+  "rxn00810": [
+    "huge/floppy"
+  ],
+  "rxn00579": [
+    "huge/floppy"
+  ],
+  "rxn00806": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02749": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01277": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00083": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01479": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn02842": [
+    "huge/floppy"
+  ],
+  "rxn00786": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01506": [
+    "isomerase"
+  ],
+  "rxn00328": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02202": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01465": [
+    "anion-count-change"
+  ],
+  "rxn00364": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn02930": [
+    "huge/floppy"
+  ],
+  "rxn00816": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00824": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01366": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00990": [
+    "huge/floppy"
+  ],
+  "rxn00778": [
+    "isomerase"
+  ],
+  "rxn01491": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00906": [
+    "huge/floppy"
+  ],
+  "rxn00974": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00836": [
+    "anion-count-change"
+  ],
+  "rxn02263": [
+    "isomerase"
+  ],
+  "rxn00753": [
+    "huge/floppy"
+  ],
+  "rxn00331": [
+    "huge/floppy"
+  ],
+  "rxn00777": [
+    "isomerase"
+  ],
+  "rxn01790": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00214": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00831": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00220": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00459": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00907": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn15964": [
+    "huge/floppy"
+  ],
+  "rxn00746": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01116": [
+    "isomerase"
+  ],
+  "rxn00175": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn02625": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01626": [
+    "anion-count-change"
+  ],
+  "rxn01675": [
+    "huge/floppy"
+  ],
+  "rxn00265": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01745": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01383": [
+    "huge/floppy"
+  ],
+  "rxn00007": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01870": [
+    "CLEAN(tractable)"
+  ],
+  "rxn15750": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01617": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01075": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn01388": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01011": [
+    "huge/floppy"
+  ],
+  "rxn00250": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00909": [
+    "huge/floppy",
+    "open-shell/cofactor"
+  ],
+  "rxn01280": [
+    "huge/floppy"
+  ],
+  "rxn01265": [
+    "anion-count-change"
+  ],
+  "rxn00838": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00754": [
+    "anion-count-change"
+  ],
+  "rxn00379": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01638": [
+    "anion-count-change"
+  ],
+  "rxn00915": [
+    "anion-count-change"
+  ],
+  "rxn00139": [
+    "anion-count-change"
+  ],
+  "rxn00321": [
+    "isomerase"
+  ],
+  "rxn00178": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn53944": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01259": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03876": [
+    "huge/floppy"
+  ],
+  "rxn01847": [
+    "huge/floppy"
+  ],
+  "rxn01005": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00784": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00189": [
+    "anion-count-change"
+  ],
+  "rxn45677": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02591": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn01532": [
+    "isomerase"
+  ],
+  "rxn00422": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00148": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn02782": [
+    "anion-count-change"
+  ],
+  "rxn01138": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03250": [
+    "huge/floppy"
+  ],
+  "rxn02168": [
+    "huge/floppy"
+  ],
+  "rxn40442": [
+    "huge/floppy"
+  ],
+  "rxn02167": [
+    "huge/floppy"
+  ],
+  "rxn00849": [
+    "CLEAN(tractable)"
+  ],
+  "rxn04943": [
+    "huge/floppy"
+  ],
+  "rxn01447": [
+    "huge/floppy"
+  ],
+  "rxn01505": [
+    "isomerase"
+  ],
+  "rxn01258": [
+    "isomerase"
+  ],
+  "rxn01117": [
+    "isomerase"
+  ],
+  "rxn00867": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02066": [
+    "huge/floppy"
+  ],
+  "rxn19090": [
+    "huge/floppy"
+  ],
+  "rxn01726": [
+    "huge/floppy"
+  ],
+  "rxn01253": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01386": [
+    "isomerase"
+  ],
+  "rxn00781": [
+    "huge/floppy"
+  ],
+  "rxn00500": [
+    "huge/floppy"
+  ],
+  "rxn00741": [
+    "huge/floppy"
+  ],
+  "rxn44278": [
+    "isomerase"
+  ],
+  "rxn02204": [
+    "isomerase"
+  ],
+  "rxn01130": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01392": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01302": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00022": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00510": [
+    "huge/floppy"
+  ],
+  "rxn00512": [
+    "huge/floppy"
+  ],
+  "rxn00473": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01306": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00817": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03886": [
+    "huge/floppy"
+  ],
+  "rxn00762": [
+    "huge/floppy"
+  ],
+  "rxn01682": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00562": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01054": [
+    "CLEAN(tractable)"
+  ],
+  "rxn08948": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01329": [
+    "isomerase"
+  ],
+  "rxn00172": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00930": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00699": [
+    "CLEAN(tractable)"
+  ],
+  "rxn39373": [
+    "huge/floppy"
+  ],
+  "rxn00462": [
+    "anion-count-change"
+  ],
+  "rxn01485": [
+    "isomerase"
+  ],
+  "rxn00225": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00495": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01241": [
+    "huge/floppy"
+  ],
+  "rxn01099": [
+    "CLEAN(tractable)"
+  ],
+  "rxn05026": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03840": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00302": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00239": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00611": [
+    "huge/floppy"
+  ],
+  "rxn12158": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00702": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn14063": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn02651": [
+    "huge/floppy"
+  ],
+  "rxn01597": [
+    "huge/floppy"
+  ],
+  "rxn01293": [
+    "huge/floppy"
+  ],
+  "rxn01513": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01410": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01996": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00285": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00423": [
+    "huge/floppy"
+  ],
+  "rxn15726": [
+    "huge/floppy"
+  ],
+  "rxn00697": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01361": [
+    "huge/floppy"
+  ],
+  "rxn00234": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03884": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00798": [
+    "isomerase"
+  ],
+  "rxn01702": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01137": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00237": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00001": [
+    "anion-count-change"
+  ],
+  "rxn01380": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00217": [
+    "huge/floppy"
+  ],
+  "rxn02322": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00062": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00193": [
+    "isomerase"
+  ],
+  "rxn36656": [
+    "anion-count-change"
+  ],
+  "rxn01846": [
+    "huge/floppy"
+  ],
+  "rxn00515": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01292": [
+    "isomerase"
+  ],
+  "rxn00147": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00337": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn15055": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00690": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00987": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01336": [
+    "huge/floppy"
+  ],
+  "rxn02360": [
+    "isomerase"
+  ],
+  "rxn11139": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02685": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn04785": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn16378": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn52014": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00698": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00306": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00105": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn14104": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00551": [
+    "anion-count-change"
+  ],
+  "rxn03087": [
+    "huge/floppy"
+  ],
+  "rxn01004": [
+    "isomerase"
+  ],
+  "rxn00195": [
+    "isomerase"
+  ],
+  "rxn01409": [
+    "huge/floppy"
+  ],
+  "rxn02527": [
+    "huge/floppy"
+  ],
+  "rxn00631": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00785": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01985": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01200": [
+    "huge/floppy"
+  ],
+  "rxn00656": [
+    "CLEAN(tractable)"
+  ],
+  "rxn04684": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01834": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01174": [
+    "huge/floppy"
+  ],
+  "rxn12188": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01974": [
+    "isomerase"
+  ],
+  "rxn00100": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00326": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00420": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01434": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00783": [
+    "CLEAN(tractable)"
+  ],
+  "rxn03644": [
+    "isomerase"
+  ],
+  "rxn02085": [
+    "CLEAN(tractable)"
+  ],
+  "rxn53440": [
+    "isomerase"
+  ],
+  "rxn01713": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00295": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00257": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01152": [
+    "isomerase"
+  ],
+  "rxn01999": [
+    "huge/floppy"
+  ],
+  "rxn01018": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01219": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01636": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01725": [
+    "huge/floppy"
+  ],
+  "rxn01457": [
+    "isomerase"
+  ],
+  "rxn01080": [
+    "isomerase"
+  ],
+  "rxn01643": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00541": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02902": [
+    "isomerase"
+  ],
+  "rxn02305": [
+    "anion-count-change"
+  ],
+  "rxn01780": [
+    "isomerase"
+  ],
+  "rxn02213": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00527": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00493": [
+    "CLEAN(tractable)"
+  ],
+  "rxn02900": [
+    "CLEAN(tractable)"
+  ],
+  "rxn08066": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00320": [
+    "isomerase"
+  ],
+  "rxn00514": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00643": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn02622": [
+    "CLEAN(tractable)"
+  ],
+  "rxn49067": [
+    "huge/floppy"
+  ],
+  "rxn01363": [
+    "huge/floppy"
+  ],
+  "rxn02095": [
+    "huge/floppy"
+  ],
+  "rxn01299": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00256": [
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00897": [
+    "isomerase"
+  ],
+  "rxn01621": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00830": [
+    "Mg-prone(NTP/PPi)",
+    "isomerase"
+  ],
+  "rxn01792": [
+    "anion-count-change"
+  ],
+  "rxn01509": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn00266": [
+    "isomerase"
+  ],
+  "rxn00404": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00931": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01887": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn03136": [
+    "huge/floppy"
+  ],
+  "rxn02887": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00603": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn01480": [
+    "huge/floppy"
+  ],
+  "rxn00804": [
+    "huge/floppy"
+  ],
+  "rxn00157": [
+    "huge/floppy"
+  ],
+  "rxn01301": [
+    "huge/floppy"
+  ],
+  "rxn01692": [
+    "huge/floppy"
+  ],
+  "rxn00911": [
+    "huge/floppy"
+  ],
+  "rxn00700": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00641": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn16141": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn54659": [
+    "isomerase"
+  ],
+  "rxn01022": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00630": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn00674": [
+    "Mg-prone(NTP/PPi)",
+    "anion-count-change",
+    "huge/floppy"
+  ],
+  "rxn01019": [
+    "CLEAN(tractable)"
+  ],
+  "rxn01579": [
+    "Mg-prone(NTP/PPi)",
+    "huge/floppy"
+  ],
+  "rxn03281": [
+    "huge/floppy",
+    "isomerase"
+  ],
+  "rxn00276": [
+    "CLEAN(tractable)"
+  ],
+  "rxn00605": [
+    "huge/floppy"
+  ],
+  "rxn04932": [
+    "huge/floppy"
+  ],
+  "rxn02403": [
+    "huge/floppy"
+  ],
+  "rxn12217": [
+    "huge/floppy"
+  ],
+  "rxn03137": [
+    "huge/floppy"
+  ]
+}

@@ -1,0 +1,673 @@
+{
+  "rxn03643": {
+    "exp": [
+      -25.52
+    ],
+    "exp_sd": 0,
+    "EC": "4.1.2.-",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn03643 D-arabino-3-hexulose phosphate formaldeh | flags=CLEAN(tractable)",
+    "species": {
+      "Formaldehyde": [
+        -1,
+        0,
+        "C=O"
+      ],
+      "D-Ribulose5-ph": [
+        -1,
+        -2,
+        "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+      ],
+      "D-arabino-6-Ph": [
+        1,
+        -2,
+        "O=C([C@H](O)CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+      ]
+    }
+  },
+  "rxn00132": {
+    "exp": [
+      -12.99
+    ],
+    "exp_sd": 2.08,
+    "EC": "3.1.3.1",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00132 alkaline phosphatase | flags=CLEAN(tractable)",
+    "species": {
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "AMP": [
+        -1,
+        -2,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+      ],
+      "Phosphate": [
+        1,
+        -2,
+        "O=P([O-])([O-])O"
+      ],
+      "Adenosine": [
+        1,
+        0,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
+      ]
+    }
+  },
+  "rxn01746": {
+    "exp": [
+      3.93
+    ],
+    "exp_sd": 0,
+    "EC": "3.5.3.4",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn01746 allantoicase | flags=CLEAN(tractable)",
+    "species": {
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "Allantoate": [
+        -1,
+        -1,
+        "NC(=O)NC(NC(N)=O)C(=O)[O-]"
+      ],
+      "Urea": [
+        1,
+        0,
+        "NC(N)=O"
+      ],
+      "Ureidoglycolat": [
+        1,
+        -1,
+        "NC(=O)N[C@@H](O)C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn01358": {
+    "exp": [
+      9.75
+    ],
+    "exp_sd": 1.12,
+    "EC": "2.4.2.1",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn01358 purine-nucleoside phosphorylase | flags=CLEAN(tractable)",
+    "species": {
+      "Phosphate": [
+        -1,
+        -2,
+        "O=P([O-])([O-])O"
+      ],
+      "Inosine": [
+        -1,
+        0,
+        "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
+      ],
+      "HYXN": [
+        1,
+        0,
+        "O=c1[nH]cnc2[nH]cnc12"
+      ],
+      "Ribose 1-phosp": [
+        1,
+        -2,
+        "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
+      ]
+    }
+  },
+  "rxn00549": {
+    "exp": [
+      -11.26
+    ],
+    "exp_sd": 4.43,
+    "EC": "3.1.3.11",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00549 fructose-biphosphatase | flags=CLEAN(tractable)",
+    "species": {
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "D-fructose-1,6": [
+        -1,
+        -4,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
+      ],
+      "Phosphate": [
+        1,
+        -2,
+        "O=P([O-])([O-])O"
+      ],
+      "D-fructose-6-p": [
+        1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+      ]
+    }
+  },
+  "rxn00577": {
+    "exp": [
+      -7.55
+    ],
+    "exp_sd": 0.92,
+    "EC": "2.4.1.7",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00577 sucrose phosphorylase | flags=CLEAN(tractable)",
+    "species": {
+      "Phosphate": [
+        -1,
+        -2,
+        "O=P([O-])([O-])O"
+      ],
+      "Sucrose": [
+        -1,
+        0,
+        "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O"
+      ],
+      "D-Fructose": [
+        1,
+        0,
+        "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+      ],
+      "Glucose-1-phos": [
+        1,
+        -2,
+        "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+      ]
+    }
+  },
+  "rxn00216": {
+    "exp": [
+      -13.87
+    ],
+    "exp_sd": 1.27,
+    "EC": "2.7.1.1",
+    "n_Hplus": 1,
+    "explicit": false,
+    "note": "TECRDB rxn00216 hexokinase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+    "species": {
+      "ATP": [
+        -1,
+        -3,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+      ],
+      "D-Glucose": [
+        -1,
+        0,
+        "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+      ],
+      "ADP": [
+        1,
+        -2,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+      ],
+      "D-glucose-6-ph": [
+        1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+      ]
+    }
+  },
+  "rxn00695": {
+    "exp": [
+      -0.25
+    ],
+    "exp_sd": 0,
+    "EC": "2.7.7.27",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00695 glucose-1-phosphate adenylyltransferase | flags=Mg-prone(NTP/PPi),huge/floppy",
+    "species": {
+      "ATP": [
+        -1,
+        -3,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+      ],
+      "Glucose-1-phos": [
+        -1,
+        -2,
+        "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+      ],
+      "PPi": [
+        1,
+        -3,
+        "O=P([O-])([O-])OP(=O)([O-])O"
+      ],
+      "ADPglucose": [
+        1,
+        -2,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O"
+      ]
+    }
+  },
+  "rxn10427": {
+    "exp": [
+      -2.22
+    ],
+    "exp_sd": 1.33,
+    "EC": "2.7.4.3",
+    "n_Hplus": -1,
+    "explicit": false,
+    "note": "TECRDB rxn10427 adenylate kinase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+    "species": {
+      "dATP": [
+        -1,
+        -3,
+        "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)O1"
+      ],
+      "dAMP": [
+        -1,
+        -2,
+        "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)([O-])[O-])O1"
+      ],
+      "dADP": [
+        2,
+        -2,
+        "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)(O)OP(=O)([O-])[O-])O1"
+      ]
+    }
+  },
+  "rxn00184": {
+    "exp": [
+      35.22
+    ],
+    "exp_sd": 2.69,
+    "EC": "1.4.1.4",
+    "n_Hplus": 1,
+    "explicit": false,
+    "note": "TECRDB rxn00184 glutamate dehydrogenase (NADP+) | flags=Mg-prone(NTP/PPi),huge/floppy",
+    "species": {
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "NADP": [
+        -1,
+        -3,
+        "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)c1"
+      ],
+      "L-Glutamate": [
+        -1,
+        -1,
+        "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+      ],
+      "NADPH": [
+        1,
+        -4,
+        "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1"
+      ],
+      "NH3": [
+        1,
+        1,
+        "[NH4+]"
+      ],
+      "2-Oxoglutarate": [
+        1,
+        -2,
+        "O=C([O-])CCC(=O)C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn00086": {
+    "exp": [
+      11.88
+    ],
+    "exp_sd": 6.25,
+    "EC": "1.6.4.2",
+    "n_Hplus": -1,
+    "explicit": false,
+    "note": "TECRDB rxn00086 glutathione reductase (NAD(P)H) | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+    "species": {
+      "NADP": [
+        -1,
+        -3,
+        "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)c1"
+      ],
+      "GSH": [
+        -2,
+        -2,
+        "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+      ],
+      "NADPH": [
+        1,
+        -4,
+        "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1"
+      ],
+      "Oxidized gluta": [
+        1,
+        -2,
+        "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn00545": {
+    "exp": [
+      -19.68
+    ],
+    "exp_sd": 2.77,
+    "EC": "2.7.1.11",
+    "n_Hplus": 1,
+    "explicit": false,
+    "note": "TECRDB rxn00545 6-phosphofructokinase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+    "species": {
+      "ATP": [
+        -1,
+        -3,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+      ],
+      "D-fructose-6-p": [
+        -1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+      ],
+      "ADP": [
+        1,
+        -2,
+        "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+      ],
+      "D-fructose-1,6": [
+        1,
+        -4,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
+      ]
+    }
+  },
+  "rxn00070": {
+    "exp": [
+      17.99
+    ],
+    "exp_sd": 0,
+    "EC": "1.6.4.2",
+    "n_Hplus": -1,
+    "explicit": false,
+    "note": "TECRDB rxn00070 glutathione reductase (NAD(P)H) | flags=anion-count-change,huge/floppy",
+    "species": {
+      "NAD": [
+        -1,
+        -1,
+        "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c1"
+      ],
+      "GSH": [
+        -2,
+        -2,
+        "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+      ],
+      "NADH": [
+        1,
+        -2,
+        "NC(=O)C1=CN([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)C=CC1"
+      ],
+      "Oxidized gluta": [
+        1,
+        -2,
+        "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn00421": {
+    "exp": [
+      -15.92
+    ],
+    "exp_sd": 1.0,
+    "EC": "2.7.1.80",
+    "n_Hplus": 1,
+    "explicit": false,
+    "note": "TECRDB rxn00421 pyrophosphate-serine phosphotransferase | flags=anion-count-change",
+    "species": {
+      "PPi": [
+        -1,
+        -3,
+        "O=P([O-])([O-])OP(=O)([O-])O"
+      ],
+      "L-Serine": [
+        -1,
+        0,
+        "[NH3+][C@@H](CO)C(=O)[O-]"
+      ],
+      "Phosphate": [
+        1,
+        -2,
+        "O=P([O-])([O-])O"
+      ],
+      "phosphoserine": [
+        1,
+        -2,
+        "[NH3+][C@@H](COP(=O)([O-])[O-])C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn01211": {
+    "exp": [
+      -1.51
+    ],
+    "exp_sd": 5.62,
+    "EC": "3.5.4.9",
+    "n_Hplus": 1,
+    "explicit": false,
+    "note": "TECRDB rxn01211 methenyltetrahydrofolate cyclohydrolase | flags=huge/floppy",
+    "species": {
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "5-10-Methenylt": [
+        -1,
+        -1,
+        "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21"
+      ],
+      "10-Formyltetra": [
+        1,
+        -2,
+        "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+      ]
+    }
+  },
+  "rxn00290": {
+    "exp": [
+      13.41
+    ],
+    "exp_sd": 1.9,
+    "EC": "2.8.3.5",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00290 3-oxoacid CoA-transferase | flags=huge/floppy",
+    "species": {
+      "Succinyl-CoA": [
+        -1,
+        -5,
+        "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"
+      ],
+      "Acetoacetate": [
+        -1,
+        -1,
+        "CC(=O)CC(=O)[O-]"
+      ],
+      "Succinate": [
+        1,
+        -2,
+        "O=C([O-])CCC(=O)[O-]"
+      ],
+      "Acetoacetyl-Co": [
+        1,
+        -4,
+        "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
+      ]
+    }
+  },
+  "rxn00973": {
+    "exp": [
+      7.61
+    ],
+    "exp_sd": 1.64,
+    "EC": "4.2.1.3",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00973 aconitate hydratase | flags=isomerase",
+    "species": {
+      "Citrate": [
+        -1,
+        -3,
+        "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]"
+      ],
+      "Isocitrate": [
+        1,
+        -3,
+        "O=C([O-])CC(C(=O)[O-])C(O)C(=O)[O-]"
+      ]
+    }
+  },
+  "rxn01008": {
+    "exp": [
+      -0.68
+    ],
+    "exp_sd": 1.12,
+    "EC": "5.1.3.6",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn01008 UDPglucuronate 4-epimerase | flags=huge/floppy,isomerase",
+    "species": {
+      "UDPglucuronate": [
+        -1,
+        -3,
+        "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+      ],
+      "UDPgalacturona": [
+        1,
+        -3,
+        "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O"
+      ]
+    }
+  },
+  "rxn04082": {
+    "exp": [
+      -0.47
+    ],
+    "exp_sd": 0.63,
+    "EC": "5.1.3.4",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn04082 L-ribulose-phosphate 4-epimerase | flags=isomerase",
+    "species": {
+      "L-ribulose-5-p": [
+        -1,
+        -2,
+        "O=C(CO)[C@@H](O)[C@@H](O)COP(=O)([O-])[O-]"
+      ],
+      "D-Xylulose5-ph": [
+        1,
+        -2,
+        "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]"
+      ]
+    }
+  },
+  "rxn00558": {
+    "exp": [
+      2.97
+    ],
+    "exp_sd": 0.65,
+    "EC": "5.3.1.9",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00558 glucose-6-phosphate isomerase | flags=isomerase",
+    "species": {
+      "D-glucose-6-ph": [
+        -1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+      ],
+      "D-fructose-6-p": [
+        1,
+        -2,
+        "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+      ]
+    }
+  },
+  "rxn00602": {
+    "exp": [
+      -7.58
+    ],
+    "exp_sd": 0.29,
+    "EC": "5.4.99.2",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00602 methylmalonyl-CoA mutase | flags=huge/floppy,isomerase",
+    "species": {
+      "L-methylmalony": [
+        -1,
+        -5,
+        "C[C@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
+      ],
+      "Succinyl-CoA": [
+        1,
+        -5,
+        "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"
+      ]
+    }
+  },
+  "rxn01761": {
+    "exp": [
+      -0.13
+    ],
+    "exp_sd": 1.02,
+    "EC": "5.3.1.14",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn01761 L-rhamnose isomerase | flags=isomerase",
+    "species": {
+      "L-Rhamnose": [
+        -1,
+        0,
+        "C[C@@H]1OC(O)[C@H](O)[C@H](O)[C@H]1O"
+      ],
+      "L-Rhamnulose": [
+        1,
+        0,
+        "C[C@H](O)[C@H](O)[C@@H](O)C(=O)CO"
+      ]
+    }
+  },
+  "rxn00909": {
+    "exp": [
+      -20.05
+    ],
+    "exp_sd": 0,
+    "EC": "1.7.99.5",
+    "n_Hplus": 0,
+    "explicit": false,
+    "note": "TECRDB rxn00909 5,10-methylenetetrahydrofolate reductase | flags=huge/floppy,open-shell/cofactor",
+    "species": {
+      "5-10-Methylene": [
+        -1,
+        -2,
+        "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21"
+      ],
+      "FADH2": [
+        -1,
+        -2,
+        "Cc1cc2c(cc1C)N(C[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n3cnc4c(N)ncnc43)[C@H](O)[C@@H]1O)C1=NC(=O)NC(=O)C1N2"
+      ],
+      "FAD": [
+        1,
+        -2,
+        "Cc1cc2nc3c(=O)[nH]c(=O)nc-3n(C[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)c2cc1C"
+      ],
+      "5-Methyltetrah": [
+        1,
+        -2,
+        "CN1c2c([nH]c(N)nc2=O)NC[C@@H]1CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1"
+      ]
+    }
+  }
+}

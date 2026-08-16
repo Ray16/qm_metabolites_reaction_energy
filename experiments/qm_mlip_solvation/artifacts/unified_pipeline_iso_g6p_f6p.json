@@ -1,12 +1,12 @@
 [
   {
-    "reaction": "rxn01675",
-    "dG": -76.9,
+    "reaction": "iso_g6p_f6p",
+    "dG": -31.3,
     "exp": [
-      0.993
+      2.9
     ],
     "err": [
-      -77.9
+      -34.2
     ],
     "explicit": false
   }

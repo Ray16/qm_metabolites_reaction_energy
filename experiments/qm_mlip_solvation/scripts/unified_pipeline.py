@@ -62,7 +62,7 @@ RT_LN10 = 2.303 * 8.314e-3 * T                            # ~5.71 kJ/mol per pKa
 # (stoichiometry {species: [coeff(+prod/-react), charge, SMILES]}, exp ΔG, n_Hplus,
 # explicit-water flag/list, optional pH-0 pka_sites). This file stays generic: sampling
 # heuristics, solvation triage, thermal/electronic backends. Add reactions to the JSON.
-_RXN_JSON = os.path.join(os.path.dirname(__file__), "reactions.json")
+_RXN_JSON = os.environ.get("RXN_FILE", os.path.join(os.path.dirname(__file__), "reactions.json"))
 def _load_reactions(path=_RXN_JSON):
     raw = json.load(open(path))
     out = {}
