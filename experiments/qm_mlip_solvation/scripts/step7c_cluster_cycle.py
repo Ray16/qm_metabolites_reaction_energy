@@ -128,7 +128,7 @@ def main():
     log(f"\n==== nucleotidyl ΔG, cluster-cycle grand potential ====")
     log(f"  water occupancy peaks: {peaks}")
     log(f"  ΔG = {dG:+.1f} kJ/mol   vs exp {EXP:+.1f}   err {dG-EXP:+.1f}")
-    log(f"  (step7 monomer-cycle PINNED at cap -> +33; charge-balanced step7b for comparison)")
+    log(f"  (monomer-cycle (superseded, removed) PINNED -> +33; charge-balanced step7b for comparison)")
     json.dump(dict(Omega=Omega, peaks=peaks, dG=dG, exp=EXP, nmax=a.nmax, seeds=a.seeds,
                    Gwc={str(k): v for k, v in Gwc.items()}),
               open(os.path.join(OUT, "step7c_cluster_cycle.json"), "w"), indent=2)
