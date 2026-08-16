@@ -100,10 +100,13 @@ def sampling_budget(smi):
     return seeds, keep, pool
 
 
-# auto-convergent sampling knobs (env-overridable for stress tests; NOT per-reaction tuning)
-CONV_TOL   = float(os.environ.get("CONV_TOL", "1.5"))    # kJ: Gens & min-E must move < this
+# auto-convergent sampling knobs (env-overridable; NOT per-reaction tuning).
+# BUDGET: adaptive by design (rigid species stop early); the cap bounds worst-case cost.
+# TOL is set at the noise floor -- chasing sub-2 kJ convergence wastes compute for no
+# accuracy gain (exp noise is ~2 kJ, method floor higher), so we DON'T.
+CONV_TOL   = float(os.environ.get("CONV_TOL", "2.5"))    # kJ: Gens & min-E must move < this
 CONV_HITS  = int(os.environ.get("CONV_HITS", "2"))       # for this many consecutive seed-batches
-CONV_MAX   = int(os.environ.get("CONV_MAX", "16"))       # hard cap on seed-batches (runaway guard)
+CONV_MAX   = int(os.environ.get("CONV_MAX", "8"))        # cap on seed-batches (budget guard)
 
 
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
