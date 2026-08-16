@@ -87,6 +87,25 @@ REACTIONS = {
         "MeUDP":      (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
         "SinapoylGlc":(+1,  0, "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O"),
     }),
+    # --- systematic-truncation variants (truncate.py) of the failing full-molecule
+    #     glycosyl reactions. rxn00605 full-molecule missed by -45 kJ (disaccharide
+    #     conformer noise); the truncated model shrinks every species to <=1 sugar ring
+    #     so the transferred-glucosyl energy cancels cleanly. t2/t3 = radius 2/3 (the
+    #     Me/Et cap-sensitivity check: if t2 ~ t3 the cap is converged). exp -9.51.
+    "rxn00605_t2": dict(exp=[-9.51], n_Hplus=0, explicit=False,
+                        note="rxn00605 TRUNC r2: donor-anomer + acceptor-Glc", species={
+        "donorCap": (-1, 0,  "CC(O)O"),
+        "G6Pt":     (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "glycoside":(+1, 0,  "C[C@H](O)O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "Pi":       (+1, -1, "O=P([O-])(O)O"),
+    }),
+    "rxn00605_t3": dict(exp=[-9.51], n_Hplus=0, explicit=False,
+                        note="rxn00605 TRUNC r3: one more shell (cap-sensitivity check)", species={
+        "donorCap": (-1, 0,  "COC(O)[C@@H](C)O"),
+        "G6Pt":     (-1, -1, "O=P([O-])(OP)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "glycoside":(+1, 0,  "CO[C@H](O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)[C@@H](C)O"),
+        "PPt":      (+1, -1, "O=P([O-])(O)OP"),
+    }),
 }
 
 
