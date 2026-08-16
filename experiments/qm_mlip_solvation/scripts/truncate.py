@@ -159,6 +159,46 @@ def rotatable_in_core(smiles):
     return rdMD.CalcNumRotatableBonds(Chem.MolFromSmiles(smiles))
 
 
+# ---------------------------------------------- pipeline preprocessing hook
+def build_truncated_reaction(species_dict, radius=2):
+    """Convert a pipeline species dict {name:[coeff,charge,SMILES]} into its TRUNCATED
+    reactive-core form for scoring. General preprocessing heuristic (no per-reaction tuning):
+    removes the conserved spectator backbone so catastrophic cancellation + its conformer
+    noise drop. Returns (new_species_dict, n_Hplus) or None if not cleanly balanced (caller
+    falls back to full molecules). Handles unit-coefficient reactions; multi-coeff -> None."""
+    items = list(species_dict.items())
+    if any(abs(c) != 1 for _, (c, q, s) in items):
+        return None                                   # multi-coeff: not handled -> fallback
+    R = [(n, s) for n, (c, q, s) in items if c < 0]
+    P = [(n, s) for n, (c, q, s) in items if c > 0]
+    if len(R) != len(P):                              # unequal sides -> pairing ill-posed
+        return None
+    res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius)
+    caps = res["species"]
+    r_caps = [d["capped"] for d in caps if d["side"] == "reactant"]
+    p_caps = [d["capped"] for d in caps if d["side"] == "product"]
+    if len(r_caps) != len(R) or len(p_caps) != len(P):
+        return None
+    def chg(smi):
+        m = Chem.MolFromSmiles(smi); return Chem.GetFormalCharge(m) if m else None
+    def nH(smi):
+        m = Chem.MolFromSmiles(smi); return sum(a.GetTotalNumHs() for a in m.GetAtoms()) if m else None
+    new = {}
+    Hr = Hp = qr = qp = 0
+    for (n, _), cap in zip(R, r_caps):
+        q = chg(cap); h = nH(cap)
+        if q is None or h is None: return None
+        new[n + "_t"] = [-1, int(q), cap]; Hr += h; qr += q
+    for (n, _), cap in zip(P, p_caps):
+        q = chg(cap); h = nH(cap)
+        if q is None or h is None: return None
+        new[n + "_t"] = [1, int(q), cap]; Hp += h; qp += q
+    nHplus_H = Hr - Hp
+    if nHplus_H != qr - qp:                            # truncated rxn not proton-consistent
+        return None
+    return new, int(nHplus_H)
+
+
 # ------------------------------------------------------------ top-level driver
 def truncate_reaction(reactants, products, radius=2, cap="C"):
     """Truncate every species; return per-species caps + guard report."""

@@ -237,7 +237,22 @@ def explicit_G(pu, q, smi, seeds, log, name):
 
 
 def run_reaction(pu, key, seeds, keep, pool, log):
-    rx = REACTIONS[key]
+    rx = dict(REACTIONS[key])
+    # AUTO-TRUNCATION (general heuristic, opt-in AUTO_TRUNCATE=1): replace the reaction with
+    # its truncated reactive core (removes conserved backbone -> kills catastrophic cancellation
+    # + its conformer noise). Falls back to full molecules if no clean balanced truncation.
+    if os.environ.get("AUTO_TRUNCATE"):
+        try:
+            from truncate import build_truncated_reaction
+            tr = build_truncated_reaction(rx["species"], radius=int(os.environ.get("TRUNC_RADIUS", "2")))
+            if tr is not None:
+                rx = dict(rx, species=tr[0], n_Hplus=tr[1], explicit=False,
+                          note=rx.get("note", "") + " [AUTO-TRUNCATED]")
+                log(f"  [auto-truncated -> {len(tr[0])} core species, n_H+={tr[1]}]")
+            else:
+                log(f"  [auto-truncation fallback: full molecules]")
+        except Exception as e:
+            log(f"  [auto-truncation error: {e}; full molecules]")
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
     # `explicit` may be True/False (whole reaction) OR a list/set of species names
     # that need explicit first-shell waters (per-species triage: only the anion that
