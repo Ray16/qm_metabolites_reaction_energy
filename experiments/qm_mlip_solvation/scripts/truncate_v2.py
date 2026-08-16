@@ -62,9 +62,11 @@ def _global_map(superR, superP, timeout=20):
     return dict(zip(ma, mb)), res.numAtoms
 
 
-def build_truncated_reaction_v2(species_dict, radius=2, min_conserved_frac=0.15):
+def build_truncated_reaction_v2(species_dict, radius=2):
     """Same contract as truncate.build_truncated_reaction: -> (new_species, n_Hplus) or None.
-    Handles multi-coeff + unequal-sides via a single global MCS over combined molecules."""
+    Handles multi-coeff + unequal-sides via a single global MCS over combined molecules.
+    No tuned coverage threshold: requires only that SOME substructure is conserved (nmcs>0);
+    truncation QUALITY is judged by the reaction-agnostic radius-sensitivity test, not a magic frac."""
     units = _expand_multicoeff(species_dict)
     R = [(n, q, s) for (n, side, q, s) in units if side < 0]
     P = [(n, q, s) for (n, side, q, s) in units if side > 0]
@@ -78,8 +80,8 @@ def build_truncated_reaction_v2(species_dict, radius=2, min_conserved_frac=0.15)
     if superR is None or superP is None:
         return None
     amap, nmcs = _global_map(superR, superP)
-    if nmcs < min_conserved_frac * max(superR.GetNumAtoms(), superP.GetNumAtoms()):
-        return None                                       # too little conserved -> not truncatable
+    if nmcs == 0:
+        return None                                       # nothing conserved -> no spectator to remove
     inv = {v: k for k, v in amap.items()}
     cR = T.reaction_center(superR, amap, superP)
     cP = T.reaction_center(superP, inv, superR)
