@@ -50,6 +50,13 @@ EV2KJ = 96.485
 T = 298.15
 # CHE aqueous proton free energy at pH 7 (step3b/step6 convention)
 G_HPLUS = -26.3 - 1104.5 - 2.303 * 8.314e-3 * T * 7.0    # ~ -1170.8 kJ/mol
+PH = 7.0
+RT_LN10 = 2.303 * 8.314e-3 * T                            # ~5.71 kJ/mol per pKa unit
+# pH-0 route (Jinich/Alberty): compute the NEUTRAL protonated microspecies (well-solvated
+# by continuum -> no created/destroyed-anion pathology, no huge G(H+) term), then bridge
+# to pH 7 analytically with the EXPERIMENTAL pKa. `pka_sites` = list of (side, pKa) for
+# each ionizable group that is deprotonated at pH7 but PROTONATED in the QM microspecies.
+#   ΔG'(pH7) = ΔG_QM(neutral) + Σ sign·RT ln10·(pH - pKa),  sign=+1 reactant, -1 product.
 
 # each reaction: exp ΔG, net H+ RELEASED (products), explicit-water flag, and
 # stoichiometry {species: (coeff (+prod/-react), charge, SMILES)}
@@ -121,6 +128,17 @@ REACTIONS = {
     "rxn01713_t2e": dict(exp=[3.93], n_Hplus=-1, explicit={"AcO"},
                          note="rxn01713 TRUNC r2, explicit water on carboxylate", species={
         "AcO":   (-1, -1, "CC(=O)[O-]"),
+        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
+        "Pi":    (+1, -1, "O=P([O-])(O)O"),
+    }),
+    # pH-0 route: the carboxylate is computed as NEUTRAL acetic ACID (continuum solvates
+    # neutrals well -> no created/destroyed-anion error, no G(H+) term), then bridged to
+    # pH7 with the sinapate carboxyl pKa (~4.4, experimental). Truncation makes the small
+    # neutral substrate viable (the full-cofactor pH0 attempt drowned in conformer noise).
+    "rxn01713_ph0": dict(exp=[3.93], n_Hplus=0, explicit=False, pka_sites=[("react", 4.4)],
+                         note="rxn01713 TRUNC + pH0 neutral-carboxyl + pKa transform", species={
+        "AcOH":  (-1, 0,  "CC(=O)O"),
         "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
         "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
         "Pi":    (+1, -1, "O=P([O-])(O)O"),
@@ -264,6 +282,11 @@ def run_reaction(pu, key, seeds, keep, pool, log):
             log(f"    {name}: FAILED"); return None
     dG = sum(coeff * G[name] for name, (coeff, q, smi) in rx["species"].items())
     dG += rx["n_Hplus"] * G_HPLUS
+    # pH-0 route: analytic pKa transform replaces the anion-solvation + explicit-proton terms
+    for side, pka in rx.get("pka_sites", []):
+        contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * (PH - pka)
+        dG += contrib
+        log(f"    pKa transform [{side} pKa {pka}] += {contrib:+.1f} kJ/mol")
     errs = [dG - e for e in rx["exp"]]
     log(f"  ΔG = {dG:+.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}")
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
