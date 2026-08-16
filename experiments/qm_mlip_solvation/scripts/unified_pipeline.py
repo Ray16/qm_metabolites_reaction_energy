@@ -58,92 +58,24 @@ RT_LN10 = 2.303 * 8.314e-3 * T                            # ~5.71 kJ/mol per pKa
 # each ionizable group that is deprotonated at pH7 but PROTONATED in the QM microspecies.
 #   ΔG'(pH7) = ΔG_QM(neutral) + Σ sign·RT ln10·(pH - pKa),  sign=+1 reactant, -1 product.
 
-# each reaction: exp ΔG, net H+ RELEASED (products), explicit-water flag, and
-# stoichiometry {species: (coeff (+prod/-react), charge, SMILES)}
-REACTIONS = {
-    "redox": dict(exp=[18.0, 11.9], n_Hplus=1, explicit=False, note="2 MeSH + MNA+ -> MeSSMe + MNAH + H+", species={
-        "MeSH":   (-2, 0, "CS"),
-        "MNA+":   (-1, +1, "C[n+]1cccc(C(N)=O)c1"),
-        "MeSSMe": (+1, 0, "CSSC"),
-        "MNAH":   (+1, 0, "O=C(N)C1=CN(C)C=CC1"),
-    }),
-    "glycosyl": dict(exp=[-4.2], n_Hplus=0, explicit=False, note="MeUDPGlc + Fru -> MeUDP + Suc", species={
-        "MeUDPGlc": (-1, -2, "OC[C@H]1O[C@@H](OP(=O)([O-])OP(=O)([O-])OC)[C@H](O)[C@@H](O)[C@@H]1O"),
-        "Fructose": (-1, 0,  "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"),
-        "MeUDP":    (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
-        "Suc":      (+1, 0,  "OC[C@H]1O[C@@H](O[C@]2(CO)O[C@H](CO)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"),
-    }),
-    "nucleotidyl": dict(exp=[1.85], n_Hplus=0, explicit=True, note="MeP + MePPP -> MePPMe + PPi", species={
-        "MeP":    (-1, -2, "COP(=O)([O-])[O-]"),
-        "MePPP":  (-1, -3, "COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O"),
-        "MePPMe": (+1, -2, "COP(=O)([O-])OP(=O)([O-])OC"),
-        "PPi":    (+1, -3, "O=P([O-])([O-])OP(=O)([O-])O"),
-    }),
-    # --- hard-ten depth: independent glycosyl transfers (UDP nucleoside -> Me cap) ---
-    "glycosyl_00605": dict(exp=[-9.51], n_Hplus=0, explicit=False,
-                           note="rxn00605: MeUDPGlc + Glc-6-P -> MeUDP + Trehalose-6-P", species={
-        "MeUDPGlc":   (-1, -2, "OC[C@H]1O[C@@H](OP(=O)([O-])OP(=O)([O-])OC)[C@H](O)[C@@H](O)[C@@H]1O"),
-        "G6P":        (-1, -2, "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"),
-        "MeUDP":      (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
-        "Trehalose6P":(+1, -2, "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"),
-    }),
-    "glycosyl_01713": dict(exp=[3.93], n_Hplus=-1, explicit=False,
-                           note="rxn01713: MeUDPGlc + Sinapate + H+ -> MeUDP + Sinapoyl-Glc", species={
-        "MeUDPGlc":   (-1, -2, "OC[C@H]1O[C@@H](OP(=O)([O-])OP(=O)([O-])OC)[C@H](O)[C@@H](O)[C@@H]1O"),
-        "Sinapate":   (-1, -1, "COc1cc(/C=C/C(=O)[O-])cc(OC)c1O"),
-        "MeUDP":      (+1, -2, "COP(=O)([O-])OP(=O)([O-])O"),
-        "SinapoylGlc":(+1,  0, "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O"),
-    }),
-    # --- systematic-truncation variants (truncate.py) of the failing full-molecule
-    #     glycosyl reactions. rxn00605 full-molecule missed by -45 kJ (disaccharide
-    #     conformer noise); the truncated model shrinks every species to <=1 sugar ring
-    #     so the transferred-glucosyl energy cancels cleanly. t2/t3 = radius 2/3 (the
-    #     Me/Et cap-sensitivity check: if t2 ~ t3 the cap is converged). exp -9.51.
-    "rxn00605_t2": dict(exp=[-9.51], n_Hplus=0, explicit=False,
-                        note="rxn00605 TRUNC r2: donor-anomer + acceptor-Glc", species={
-        "donorCap": (-1, 0,  "CC(O)O"),
-        "G6Pt":     (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "glycoside":(+1, 0,  "C[C@H](O)O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "Pi":       (+1, -1, "O=P([O-])(O)O"),
-    }),
-    "rxn00605_t3": dict(exp=[-9.51], n_Hplus=0, explicit=False,
-                        note="rxn00605 TRUNC r3: one more shell (cap-sensitivity check)", species={
-        "donorCap": (-1, 0,  "COC(O)[C@@H](C)O"),
-        "G6Pt":     (-1, -1, "O=P([O-])(OP)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "glycoside":(+1, 0,  "CO[C@H](O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)[C@@H](C)O"),
-        "PPt":      (+1, -1, "O=P([O-])(O)OP"),
-    }),
-    # rxn01713 full-molecule missed by +41 kJ. Truncation shrinks sinapate->acetate but
-    # the carboxylate anion is still DESTROYED (->ester) -> implicit over-solvates it.
-    #   _t2i = truncated, all implicit (isolates truncation alone; expect it still misses)
-    #   _t2e = truncated + EXPLICIT first-shell water on the carboxylate only (the fix)
-    # comparing the two isolates the carboxylate-desolvation term. exp +3.93, n_H+=-1.
-    "rxn01713_t2i": dict(exp=[3.93], n_Hplus=-1, explicit=False,
-                         note="rxn01713 TRUNC r2, all implicit", species={
-        "AcO":   (-1, -1, "CC(=O)[O-]"),
-        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "Pi":    (+1, -1, "O=P([O-])(O)O"),
-    }),
-    "rxn01713_t2e": dict(exp=[3.93], n_Hplus=-1, explicit={"AcO"},
-                         note="rxn01713 TRUNC r2, explicit water on carboxylate", species={
-        "AcO":   (-1, -1, "CC(=O)[O-]"),
-        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "Pi":    (+1, -1, "O=P([O-])(O)O"),
-    }),
-    # pH-0 route: the carboxylate is computed as NEUTRAL acetic ACID (continuum solvates
-    # neutrals well -> no created/destroyed-anion error, no G(H+) term), then bridged to
-    # pH7 with the sinapate carboxyl pKa (~4.4, experimental). Truncation makes the small
-    # neutral substrate viable (the full-cofactor pH0 attempt drowned in conformer noise).
-    "rxn01713_ph0": dict(exp=[3.93], n_Hplus=0, explicit=False, pka_sites=[("react", 4.4)],
-                         note="rxn01713 TRUNC + pH0 neutral-carboxyl + pKa transform", species={
-        "AcOH":  (-1, 0,  "CC(=O)O"),
-        "Pglc":  (-1, -1, "O=P([O-])(O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "ester": (+1, 0,  "CC(=O)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"),
-        "Pi":    (+1, -1, "O=P([O-])(O)O"),
-    }),
-}
+# Reaction DEFINITIONS are DATA, deliberately kept OUT of this engine -> reactions.json
+# (stoichiometry {species: [coeff(+prod/-react), charge, SMILES]}, exp ΔG, n_Hplus,
+# explicit-water flag/list, optional pH-0 pka_sites). This file stays generic: sampling
+# heuristics, solvation triage, thermal/electronic backends. Add reactions to the JSON.
+_RXN_JSON = os.path.join(os.path.dirname(__file__), "reactions.json")
+def _load_reactions(path=_RXN_JSON):
+    raw = json.load(open(path))
+    out = {}
+    for key, rx in raw.items():
+        d = dict(rx)
+        d["species"] = {n: tuple(v) for n, v in d["species"].items()}
+        if isinstance(d.get("explicit"), list):
+            d["explicit"] = set(d["explicit"])
+        if "pka_sites" in d:
+            d["pka_sites"] = [tuple(x) for x in d["pka_sites"]]
+        out[key] = d
+    return out
+REACTIONS = _load_reactions()
 
 
 def sampling_budget(smi):
