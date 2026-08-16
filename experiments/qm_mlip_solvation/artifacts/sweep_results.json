@@ -1,0 +1,104 @@
+{
+  "rxn03643": {
+    "dG": -35.7,
+    "U": 1.9,
+    "err": -10.1,
+    "unresolved": false
+  },
+  "rxn00132": {
+    "dG": -49.9,
+    "U": 2.2,
+    "err": -36.9,
+    "unresolved": false
+  },
+  "rxn01746": {
+    "dG": -21.7,
+    "U": 2.1,
+    "err": -25.7,
+    "unresolved": false
+  },
+  "rxn01358": {
+    "dG": -10.9,
+    "U": 1.8,
+    "err": -20.7,
+    "unresolved": false
+  },
+  "rxn00549": {
+    "dG": -8.8,
+    "U": 1.8,
+    "err": 2.4,
+    "unresolved": false
+  },
+  "rxn00577": {
+    "dG": 40.6,
+    "U": 1.8,
+    "err": 48.2,
+    "unresolved": false
+  },
+  "rxn00216": {
+    "dG": 20.0,
+    "U": 3.3,
+    "err": 33.9,
+    "unresolved": false
+  },
+  "rxn00695": {
+    "dG": -64.1,
+    "U": 4.8,
+    "err": -63.8,
+    "unresolved": false
+  },
+  "rxn10427": {
+    "dG": 59.1,
+    "U": 1.8,
+    "err": 61.3,
+    "unresolved": false
+  },
+  "rxn00545": {
+    "dG": 15.1,
+    "U": 2.6,
+    "err": 34.8,
+    "unresolved": false
+  },
+  "rxn00184": {
+    "dG": -20.3,
+    "U": 2.5,
+    "err": -55.5,
+    "unresolved": false
+  },
+  "rxn00086": {
+    "dG": 22.7,
+    "U": 2.8,
+    "err": 10.8,
+    "unresolved": false
+  },
+  "rxn00070": {
+    "dG": 0.0,
+    "U": 3.8,
+    "err": -18.0,
+    "unresolved": true
+  },
+  "rxn00421": {
+    "dG": 51.0,
+    "U": 2.3,
+    "err": 66.9,
+    "unresolved": false
+  },
+  "rxn00973": {
+    "dG": 7.4,
+    "U": 1.6,
+    "err": -0.2,
+    "unresolved": false
+  },
+  "rxn01008": {
+    "dG": -10.7,
+    "U": 6.1,
+    "err": -10.0,
+    "unresolved": false
+  },
+  "rxn01761": {
+    "dG": 11.1,
+    "U": 1.7,
+    "err": 11.3,
+    "unresolved": false
+  }
+}
