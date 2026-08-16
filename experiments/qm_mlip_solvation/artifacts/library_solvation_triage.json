@@ -1,0 +1,75 @@
+{
+  "n_compounds": 30498,
+  "failed": 12,
+  "triage": {
+    "IMPLICIT_OK": 14942,
+    "NEED_EXPLICIT": 12218,
+    "BORDERLINE": 3338
+  },
+  "groups": {
+    "phosphate": 4580,
+    "aromatic_N+": 314,
+    "ammonium": 5113,
+    "carboxylate": 7741,
+    "thiolate": 107,
+    "sulfonate": 613,
+    "sulfate": 319,
+    "guanidinium": 346,
+    "phenolate": 788,
+    "enolate": 270,
+    "alkoxide": 1
+  },
+  "polyanions": 6175,
+  "representatives": {
+    "phosphate": {
+      "cpd": "cpd04099",
+      "heavy": 4,
+      "smiles": "O=[PH]([O-])O"
+    },
+    "ammonium": {
+      "cpd": "cpd00013",
+      "heavy": 1,
+      "smiles": "[NH4+]"
+    },
+    "carboxylate": {
+      "cpd": "cpd00047",
+      "heavy": 3,
+      "smiles": "O=C[O-]"
+    },
+    "sulfonate": {
+      "cpd": "cpd00048",
+      "heavy": 5,
+      "smiles": "O=S(=O)([O-])[O-]"
+    },
+    "guanidinium": {
+      "cpd": "cpd19240",
+      "heavy": 4,
+      "smiles": "NC(N)=[NH2+]"
+    },
+    "aromatic_N+": {
+      "cpd": "cpd20519",
+      "heavy": 6,
+      "smiles": "Cc1[nH]cc[nH+]1"
+    },
+    "thiolate": {
+      "cpd": "cpd00239",
+      "heavy": 1,
+      "smiles": "[SH-]"
+    },
+    "phenolate": {
+      "cpd": "cpd31211",
+      "heavy": 7,
+      "smiles": "O=c1cc([O-])c1=O"
+    },
+    "enolate": {
+      "cpd": "cpd33078",
+      "heavy": 7,
+      "smiles": "O=C1C=C([O-])CN1"
+    },
+    "alkoxide": {
+      "cpd": "cpd03868",
+      "heavy": 29,
+      "smiles": "[NH3+]CC(CCCCNC(=O)c1cccc(O)c1O)[NH2+]C([O-])c1cccc(O)c1O"
+    }
+  }
+}
