@@ -83,11 +83,18 @@ def sampling_budget(smi):
     nrot = rdMolDescriptors.CalcNumRotatableBonds(m) if m is not None else 0
     # pools are generous — conformer gen + batched UMA relax are cheap; only the xtb
     # solvation on `keep` conformers scales linearly (threaded across cores).
+    # SAMPLE_SCALE (env) multiplies seed count + pool for stress-testing convergence.
+    sc = float(os.environ.get("SAMPLE_SCALE", "1"))
     if nrot <= 3:
-        return [1, 2], 10, 96
-    if nrot <= 7:
-        return [1, 2, 3], 14, 192
-    return [1, 2, 3, 4, 5, 6], 18, 320
+        seeds, keep, pool = [1, 2], 10, 96
+    elif nrot <= 7:
+        seeds, keep, pool = [1, 2, 3], 14, 192
+    else:
+        seeds, keep, pool = [1, 2, 3, 4, 5, 6], 18, 320
+    if sc != 1:
+        seeds = list(range(1, max(2, int(round(len(seeds) * sc))) + 1))
+        pool = int(round(pool * sc))
+    return seeds, keep, pool
 
 
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
