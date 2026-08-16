@@ -298,3 +298,32 @@ anion (PPi). Fix would need explicit/cluster-continuum solvation of PPi.**
 Env: `uma` (UMA + rdkit + ase) for energies/thermal; calls `xtb` env binary for
 solvation. Scripts in `scripts/step*`. Raw outputs in `artifacts/*.json`, geoms in
 `artifacts/geom_*`. Each script prints its full term ledger.
+
+## 9. Nucleotidyl SOLVED — explicit charge-balanced first-shell waters (Step 7b/c)
+The PPi failure (§5) was PPi's compact-anion over-solvation by implicit continuum.
+Fixed with explicit first-shell waters + UMA electronics + xtb(RRHO+COSMO) correction.
+
+**Step 7b — charge-balanced fixed count (mu_water-free):** n_water = WPC*|charge| per
+species. The reaction conserves charge (-5 both sides) so total waters balance
+(5*WPC each side) and the bulk-water reference CANCELS -> no mu_water calibration.
+| WPC | waters/side | ΔG | err (exp +1.9) |
+|-----|-------------|------|-----|
+| implicit | 0 | -28..-52 | -30..-54 |
+| 1 | 5   | -32.3 | -34.2 |
+| 2 | 10  | +5.9  | +4.0 |
+| 3 | 15  | +4.0  | +2.2 |
+Converged (WPC 2->3: +5.9->+4.0, both within QM noise of exp). **Nucleotidyl solved.**
+
+**Step 7c — cluster-cycle grand potential (physics-based count, no fitting):** fixes
+the step7 pinning by referencing added waters to their OWN same-size water cluster
+G_wc(n) (Bryantsev/Ho cluster cycle). Ω = -RT log Σ_n exp(-(G_clus(A,n)-G_wc(n)
+-G_clus(A,0))/RT). The same-size water cluster carries the same bound-water
+low-freq entropy error -> cancels -> occupancy PEAKS naturally (no mu_water). Also
+proves G_wc(n) cancels across same-charge species in the balanced rxn -> validates 7b.
+
+**How many waters (transferable to the DB):** NOT a global WPC. (1) grand-potential
+peak self-selects n per species by free-energy convergence; (2) structural seed rule
+= ~2-3 waters per anionic O/S H-bond site + ~1 per strong donor (coordination
+numbers), which is why WPC~2-3 matched here (phosphates ~2 O- per charge); (3)
+converge until incremental ΔΔGsolv(n->n+1)->0; (4) geometric first-shell check.
+Ref: Bryantsev-Diallo-Goddard JPCB 2008; Pliego-Riveros.

@@ -38,10 +38,18 @@ Terse DECISIONS only (not an experiment log — results/status live in
   (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
   keep=10 = fast default (cross-seed std ~6-8 kJ); keep~24 for tight final numbers
   (std ~3). A speed knob — sample more when accuracy matters.
-- Solvation model: UNDER EVALUATION (ALPB under-solvates polyanions; COSMO/CPCM-X
-  tested — see EXPLORATION_LOG). Not finalized. NOTE: CPCM-X was designed to be
-  FASTER than COSMO(-RS), NOT more accurate — don't crown it from one reaction;
-  judge accuracy across multiple reactions.
+- Solvation model: implicit continuum (ALPB/COSMO) is FINE when no compact
+  high-charge-density anion is created/destroyed (redox, glycosyl). For compact
+  anions (e.g. PPi) implicit over-solvates → use EXPLICIT first-shell waters
+  (cluster-continuum): UMA electronics + xtb(RRHO+COSMO) correction. Solved
+  nucleotidyl (implicit −28..−52 → +4, exp +1.9). NOTE: CPCM-X was designed
+  FASTER than COSMO(-RS), NOT more accurate — don't crown it from one reaction.
+- Water COUNT for explicit solvation: physics-based, NOT a global constant.
+  Selector = cluster-cycle grand-potential PEAK (reference waters to their own
+  same-size water cluster G_wc(n) → occupancy self-selects, no μ_water/fitting;
+  step7c). Seed rule = ~2–3 waters per anionic O/S H-bond site + ~1 per strong
+  donor. Charge-balanced fixed count (n=WPC·|charge|) is a μ_water-free shortcut
+  ONLY for charge-conserving reactions (waters cancel; step7b).
 
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
