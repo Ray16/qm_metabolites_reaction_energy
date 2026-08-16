@@ -208,8 +208,13 @@ def run_reaction(pu, key, seeds, keep, pool, log):
         return bool(exp_flag)
     G = {}
     for name, (coeff, q, smi) in rx["species"].items():
-        G[name] = (explicit_G(pu, q, smi, seeds, log, name) if use_explicit(name)
-                   else implicit_G(pu, q, smi, seeds, keep, pool, log, name))
+        if smi == "O" and q == 0:                        # liquid-water reactant (hydrolysis)
+            G[name] = water_ref_G(pu, log)
+            log(f"    {name:9s} q+0 [water ref liquid]: {G[name]:.1f}")
+        elif use_explicit(name):
+            G[name] = explicit_G(pu, q, smi, seeds, log, name)
+        else:
+            G[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         if G[name] is None:
             log(f"    {name}: FAILED"); return None
     dG = sum(coeff * G[name] for name, (coeff, q, smi) in rx["species"].items())

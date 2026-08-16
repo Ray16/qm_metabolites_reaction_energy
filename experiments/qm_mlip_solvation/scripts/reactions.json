@@ -379,5 +379,103 @@
         "O=P([O-])(O)O"
       ]
     }
+  },
+  "ach_impl": {
+    "exp": [
+      -16.6
+    ],
+    "note": "acetylcholine + H2O -> acetate + choline (clean carboxylate-creation, EC 3.1.1.7) [impl]",
+    "n_Hplus": 1,
+    "explicit": false,
+    "species": {
+      "ach": [
+        -1,
+        1,
+        "CC(=O)OCC[N+](C)(C)C"
+      ],
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "acetate": [
+        1,
+        -1,
+        "CC(=O)[O-]"
+      ],
+      "choline": [
+        1,
+        1,
+        "OCC[N+](C)(C)C"
+      ]
+    }
+  },
+  "ach_expl": {
+    "exp": [
+      -16.6
+    ],
+    "note": "acetylcholine + H2O -> acetate + choline (clean carboxylate-creation, EC 3.1.1.7) [expl]",
+    "n_Hplus": 1,
+    "explicit": [
+      "acetate"
+    ],
+    "species": {
+      "ach": [
+        -1,
+        1,
+        "CC(=O)OCC[N+](C)(C)C"
+      ],
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "acetate": [
+        1,
+        -1,
+        "CC(=O)[O-]"
+      ],
+      "choline": [
+        1,
+        1,
+        "OCC[N+](C)(C)C"
+      ]
+    }
+  },
+  "ach_ph0": {
+    "exp": [
+      -16.6
+    ],
+    "note": "acetylcholine + H2O -> acetate + choline (clean carboxylate-creation, EC 3.1.1.7) [pH0]",
+    "n_Hplus": 0,
+    "explicit": false,
+    "pka_sites": [
+      [
+        "prod",
+        4.76
+      ]
+    ],
+    "species": {
+      "ach": [
+        -1,
+        1,
+        "CC(=O)OCC[N+](C)(C)C"
+      ],
+      "H2O": [
+        -1,
+        0,
+        "O"
+      ],
+      "AcOH": [
+        1,
+        0,
+        "CC(=O)O"
+      ],
+      "choline": [
+        1,
+        1,
+        "OCC[N+](C)(C)C"
+      ]
+    }
   }
 }
