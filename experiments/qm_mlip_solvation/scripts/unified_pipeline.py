@@ -245,7 +245,13 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     if os.environ.get("AUTO_TRUNCATE"):
         try:
             from truncate import build_truncated_reaction
-            tr = build_truncated_reaction(rx["species"], radius=int(os.environ.get("TRUNC_RADIUS", "2")))
+            _rad = int(os.environ.get("TRUNC_RADIUS", "2"))
+            tr = build_truncated_reaction(rx["species"], radius=_rad)
+            if tr is None and os.environ.get("TRUNC_V2"):   # v2: global-map truncation for the
+                from truncate_v2 import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
+                tr = build_truncated_reaction_v2(rx["species"], radius=_rad)
+                if tr is not None:
+                    log("  [v2 global-map truncation engaged]")
             if tr is not None:
                 rx = dict(rx, species=tr[0], n_Hplus=tr[1], explicit=False,
                           note=rx.get("note", "") + " [AUTO-TRUNCATED]")
