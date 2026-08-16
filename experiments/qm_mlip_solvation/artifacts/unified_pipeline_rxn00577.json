@@ -1,0 +1,15 @@
+[
+  {
+    "reaction": "rxn00577",
+    "dG": -32.4,
+    "U_samp": 1.7,
+    "unresolved": false,
+    "exp": [
+      -7.55
+    ],
+    "err": [
+      -24.8
+    ],
+    "explicit": false
+  }
+]
