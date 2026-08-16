@@ -1,0 +1,15 @@
+[
+  {
+    "reaction": "ach_expl",
+    "dG": -18.5,
+    "exp": [
+      -16.6
+    ],
+    "err": [
+      -1.9
+    ],
+    "explicit": [
+      "acetate"
+    ]
+  }
+]

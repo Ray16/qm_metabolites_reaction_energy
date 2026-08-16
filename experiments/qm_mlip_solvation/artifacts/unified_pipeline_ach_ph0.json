@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "ach_ph0",
+    "dG": -19.5,
+    "exp": [
+      -16.6
+    ],
+    "err": [
+      -2.9
+    ],
+    "explicit": false
+  }
+]

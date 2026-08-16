@@ -1,0 +1,13 @@
+[
+  {
+    "reaction": "ach_impl",
+    "dG": -18.5,
+    "exp": [
+      -16.6
+    ],
+    "err": [
+      -1.9
+    ],
+    "explicit": false
+  }
+]
