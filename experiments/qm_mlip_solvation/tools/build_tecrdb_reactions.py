@@ -36,7 +36,13 @@ for rid, stoich in rxns.items():
     for c, coeff in stoich.items():
         nh, q = nH_q(mols[c])
         smi = Chem.MolToSmiles(mols[c])
-        species[mets[c]["name"][:14] or c] = [int(coeff), int(q), smi]
+        # KEY by FULL name (never truncate: name[:14] collided isomer substrate/product, e.g.
+        # GlcNAc-1-P vs GlcNAc-6-P both -> "N-Acetyl-D-glu", collapsing the reaction to one species
+        # and producing garbage ΔG). Disambiguate any residual name collision with the unique cid.
+        key = mets[c]["name"] or c
+        if key in species:
+            key = f"{key} [{c}]"
+        species[key] = [int(coeff), int(q), smi]
         if coeff < 0: Hr += -coeff * nh; qr += -coeff * q
         else:         Hp += coeff * nh;  qp += coeff * q
     nHplus_H = Hr - Hp            # net H+ released (from H balance)
