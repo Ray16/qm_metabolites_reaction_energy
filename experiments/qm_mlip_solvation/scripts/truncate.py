@@ -160,15 +160,34 @@ def rotatable_in_core(smiles):
 
 
 # ---------------------------------------------- pipeline preprocessing hook
+def _full_nHplus(species_dict):
+    """Net H+ released by the FULL reaction (from microspecies H/charge balance)."""
+    Hr = Hp = qr = qp = 0
+    for _, (c, q, s) in species_dict.items():
+        m = Chem.MolFromSmiles(s)
+        if m is None:
+            return None
+        h = sum(a.GetTotalNumHs() for a in m.GetAtoms())
+        if c < 0: Hr += -c * h; qr += -c * q
+        else:     Hp += c * h;  qp += c * q
+    return (Hr - Hp) if (Hr - Hp) == (qr - qp) else None
+
+
 def build_truncated_reaction(species_dict, radius=2):
     """Convert a pipeline species dict {name:[coeff,charge,SMILES]} into its TRUNCATED
     reactive-core form for scoring. General preprocessing heuristic (no per-reaction tuning):
     removes the conserved spectator backbone so catastrophic cancellation + its conformer
-    noise drop. Returns (new_species_dict, n_Hplus) or None if not cleanly balanced (caller
-    falls back to full molecules). Handles unit-coefficient reactions; multi-coeff -> None."""
+    noise drop. Returns (new_species_dict, n_Hplus) or None if not cleanly truncatable (caller
+    falls back to full molecules). Handles unit-coefficient reactions; multi-coeff -> None.
+
+    QUALITY GUARD: truncation only removes CONSERVED spectators, so it must NOT change the
+    reaction's net proton count. If truncated n_H+ != full n_H+, the cut was asymmetric / the
+    reaction center was mis-detected (demonstrated: rxn00545/00216 invented n_H+=2 -> garbage
+    -80 kJ). Such truncations are REJECTED -> fall back to full molecules."""
     items = list(species_dict.items())
     if any(abs(c) != 1 for _, (c, q, s) in items):
         return None                                   # multi-coeff: not handled -> fallback
+    full_nH = _full_nHplus(species_dict)
     R = [(n, s) for n, (c, q, s) in items if c < 0]
     P = [(n, s) for n, (c, q, s) in items if c > 0]
     if len(R) != len(P):                              # unequal sides -> pairing ill-posed
@@ -195,6 +214,8 @@ def build_truncated_reaction(species_dict, radius=2):
         new[n + "_t"] = [1, int(q), cap]; Hp += h; qp += q
     nHplus_H = Hr - Hp
     if nHplus_H != qr - qp:                            # truncated rxn not proton-consistent
+        return None
+    if full_nH is None or nHplus_H != full_nH:         # GUARD: truncation changed net H+ -> bad cut
         return None
     return new, int(nHplus_H)
 
