@@ -1,0 +1,92 @@
+{
+ "C=CC": {
+  "charge": 0,
+  "G_implicit": -309345.7405340222,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "C=CN": {
+  "charge": 0,
+  "G_implicit": -351545.1447277299,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "C=C[NH3+]": {
+  "charge": 1,
+  "G_implicit": -352677.5642242901,
+  "G_micro": -352861.7928475145,
+  "delta": -184.22862322442234
+ },
+ "C=[N+](C)C": {
+  "charge": 1,
+  "G_implicit": -455779.500129158,
+  "G_micro": -455787.4353958769,
+  "delta": -7.935266718850471
+ },
+ "C=[NH2+]": {
+  "charge": 1,
+  "G_implicit": -249559.80439320233,
+  "G_micro": -249670.11590675876,
+  "delta": -110.31151355642942
+ },
+ "CC(C)=O": {
+  "charge": 0,
+  "G_implicit": -506968.4633954921,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "CC(C)O": {
+  "charge": 0,
+  "G_implicit": -510028.30932008824,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "CC(C)[NH3+]": {
+  "charge": 1,
+  "G_implicit": -458987.7748060201,
+  "G_micro": -459169.5989208857,
+  "delta": -181.82411486562341
+ },
+ "CC=[NH2+]": {
+  "charge": 1,
+  "G_implicit": -352724.12430377695,
+  "G_micro": -352830.2592059165,
+  "delta": -106.13490213954356
+ },
+ "CCC": {
+  "charge": 0,
+  "G_implicit": -312489.7176324136,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "CN": {
+  "charge": 0,
+  "G_implicit": -251533.57823592259,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "CN(C)C": {
+  "charge": 0,
+  "G_implicit": -457738.26331188093,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "C[NH3+]": {
+  "charge": 1,
+  "G_implicit": -252717.6715502403,
+  "G_micro": -252892.38166382944,
+  "delta": -174.710113589128
+ },
+ "O": {
+  "charge": 0,
+  "G_implicit": -200673.1684091401,
+  "G_micro": null,
+  "delta": 0.0
+ },
+ "[NH4+]": {
+  "charge": 1,
+  "G_implicit": -149633.07401767033,
+  "G_micro": null,
+  "delta": 0.0
+ }
+}

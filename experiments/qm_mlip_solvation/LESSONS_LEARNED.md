@@ -119,6 +119,16 @@ expensive knowledge. Companion: `EXPLORATION_LOG.md` (term-by-term ledgers), `ER
 
 ---
 
+## Part III½ — CBH library via microsolvation — DEAD (2026-08-17)
+The CBH-2 *decomposition* is sound and scalable (one-time cached library, O(functional groups), marginal
+per-reaction cost ≈0). But sourcing the library δ from per-fragment explicit **microsolvation FAILED**:
+`[NH4+]` clusters wouldn't converge (δ=0 for the key species) and alkylammoniums gave implausible −175
+deltas (over-binding + proton transfer R-NH₃⁺·(H₂O)ₙ→R-NH₂·H₃O⁺). Deamination Δcorr +195 vs wanted +43;
+guard blew up. **Lesson: never microsolvate a Brønsted-acidic cation with explicit waters — the proton
+walks.** The library needs a PT-safe, uniformly-converging reference: DLPNO-CCSD(T)+implicit (SMD/CPCM,
+no explicit water to accept the proton) or tabulated single-ion ΔG_solv. Decomposition kept; library
+method pivoted.
+
 ## Part IV — The current frontier (2026-08-17)
 Error is scatter-limited but with sign-consistent *reference* errors per bond-type (deamination −43,
 phosphagen +47, hydratase +15, phosphatase +14). These are NOT sampling/floppy/imbalance — they are

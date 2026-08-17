@@ -28,6 +28,28 @@ Reaction correction: Δcorr = Σ_species coeff · δ(M_species).
 5. **Held-out generality**: apply the SAME library to phosphagen + ammonia-lyase (not used to build it);
    must move them the right direction without new fitting. — Phase 4.
 
+## PHASE 2 RESULT (2026-08-17): microsolvation library FAILED — pivot to DLPNO+implicit
+
+Phase 1 (decomposition) is PROVEN and scalable — the library is a ONE-TIME cached build, marginal
+per-reaction cost ≈0, grows as O(unique functional-group environments) not O(reactions). But the Phase-2
+library-energy source (per-fragment explicit microsolvation via `explicit_G`) is UNRELIABLE:
+- **`[NH4+]` microsolvation crashed** (all cluster relaxations non-convergent → δ=0 fallback) — the single
+  most important product species got no correction.
+- **alkylammonium δ ≈ −175 to −184** (methyl/isopropyl/vinyl ammonium all ~−180): implausibly large and
+  suspiciously uniform → cluster over-binding + likely PROTON TRANSFER to explicit water
+  (R-NH₃⁺·(H₂O)ₙ → R-NH₂·H₃O⁺). Microsolvating Brønsted-acidic cations is a known failure mode.
+- Result: deamination Δcorr +195 (want +43) → err −43→+152; alcohol-DH guard blows to ±150. Excluding the
+  aromatic-ring fragments does NOT save it (deamination −43→−36; NH₄⁺ crash + unbalanced waters remain).
+
+**Lesson:** the CBH DECOMPOSITION correctly isolates the reactive fragments, but the library needs a
+PROTON-TRANSFER-SAFE, uniformly-converging reference — NOT per-fragment explicit microsolvation.
+**Pivot:** compute the library at DLPNO-CCSD(T) + IMPLICIT solvation (SMD/CPCM) — no explicit water to
+accept a proton, uniform across fragments, ab initio. This ALSO tests whether the −43 is captured by a
+higher electronic+implicit-solvation level at all (if DLPNO+SMD reproduces −43 → electronic/implicit; if
+not → the error is genuinely explicit-solvation/entropy and needs a different handle). The parallel DLPNO
+workstream is establishing exactly this ORCA capability. Fallback: tabulated single-ion aqueous ΔG_solv
+(NIST physical constants — independent of TECRDB, not a benchmark fit).
+
 ## Anti-overfitting discipline
 - Library δ come from theory only (DLPNO-CCSD(T)+solvation, or independent small-molecule reference
   thermochem) — never from TECRDB ΔG. Memory warns fitted species-corrections die at grouped-CV
