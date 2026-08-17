@@ -304,6 +304,17 @@
   \end{minipage}
 \end{frame}
 
+% ---- 11b. HEAD-TO-HEAD vs dGPredictor ---------------------------------------------
+\begin{frame}{Head-to-head where group-contribution struggles}
+  \centering
+  \includegraphics[width=0.92\textwidth]{deck_top10_comparison.png}
+  \\[0.2em]
+  {\footnotesize The 10 reactions where retrained-dGPredictor disagrees most with experiment
+  (cherry-picked, \emph{not} representative). The QM pipeline (pH-0 $+$ ring-cofactor $+$ truncation)
+  tracks experiment where the group method flies off by $80$–$100\kj$ --- the value is \textbf{coverage
+  of the frontier}, not beating dGPredictor on its average (full-367 dGP $\approx$ 5.7).}
+\end{frame}
+
 % ---- 12. SCALE --------------------------------------------------------------------
 \begin{frame}{From 367 benchmark reactions to the database}
   \begin{columns}[T]

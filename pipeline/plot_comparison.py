@@ -50,7 +50,7 @@ def main():
     series = [
         ("TECRDB (experiment)", E, "#4C4C4C"),
         ("dGPredictor (retrained-ModelSEED)", np.array([val(rtr, r, par, "dG_kJ") for r, _, par in RXNS]), "#D1495B"),
-        ("UMA + truncation pipeline", np.array([val(cur, r, par) for r, _, par in RXNS]), "#2A9D8F"),
+        ("UMA pipeline (pH-0 + cofactor cores + truncation)", np.array([val(cur, r, par) for r, _, par in RXNS]), "#2A9D8F"),
     ]
     sd = [float(meta[par or r]["sd_kJ"] or 0.0) if (meta[par or r]["sd_kJ"] and meta[par or r]["n"] > 1) else 0.0
           for r, _, par in RXNS]
@@ -75,9 +75,9 @@ def main():
     ax.set_xticks(x)
     ax.set_xticklabels([f"{r}\n{c}" for r, c, _ in RXNS], fontsize=9)
     ax.legend(frameon=False, ncol=2, loc="upper left", fontsize=8.5)
-    cap = ("Cherry-picked disagreement subset (NOT representative). Unbiased full-367 MAE: "
-           "retrained-dGP 5.7, standard-dGP 3.0, eQuilibrator 3.0 (UMA+truncation full-367 pending).  "
-           "error bars = TECRDB sd; n=1 = single measurement.")
+    cap = ("Cherry-picked disagreement subset (NOT representative). Pipeline = pH-0 anion routing + "
+           "canonical cofactor cores (NAD ring / GSH thiol) + spectator truncation. Unbiased full-367 "
+           "MAE: retrained-dGP 5.7, standard-dGP 3.0, eQuilibrator 3.0. error bars = TECRDB sd; n=1 = single.")
     ax.text(0.0, -0.20, cap, transform=ax.transAxes, ha="left", fontsize=7.6, color="gray")
     ax.spines[["top", "right"]].set_visible(False)
     fig.tight_layout()
