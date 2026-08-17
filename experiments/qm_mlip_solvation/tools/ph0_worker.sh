@@ -14,7 +14,7 @@ for rid in "${RIDS[@]}"; do
   grep -q "ΔG =" "$OUT/$rid.log" 2>/dev/null && continue
   mkdir "$CLAIMS/$rid" 2>/dev/null || continue
   grep -q "ΔG =" "$OUT/$rid.log" 2>/dev/null && continue
-  AUTO_TRUNCATE=1 PH0_AUTO=1 TRUNC_RADIUS=2 CONV_MAX=5 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  AUTO_TRUNCATE=1 PH0_AUTO=1 COFACTOR_RING=1 TRUNC_RADIUS=2 CONV_MAX=5 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
     PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True RXN_FILE=scripts/reactions_tecrdb_all.json \
     CUDA_VISIBLE_DEVICES="$GPU" "$PY" scripts/unified_pipeline.py --only "$rid" > "$OUT/$rid.log" 2>&1
   if grep -q "ΔG =" "$OUT/$rid.log" 2>/dev/null; then ran=$((ran+1)); fails=0
