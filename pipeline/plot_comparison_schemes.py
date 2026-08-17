@@ -24,26 +24,28 @@ from truncate import mcs_atom_map, reaction_center
 
 HL = (0.95, 0.75, 0.12)                                     # gold highlight for the transformation
 
-# Curated transformation motifs: the specific bond/atoms that form or break in each reaction TYPE.
-# Reliable (no fragile MCS): a small SMARTS per motif marks exactly the reacting center, symmetric on
-# both sides. Order matters only for which fires; a molecule may match several.
-_MOTIFS = [
-    "[#16X2H1,#16X1H0-]",                    # thiol / thiolate S  (redox S-H)
-    "[#16X2]-[#16X2]",                       # disulfide S-S
-    "[C,c]([#7X3,n])=,:[C,c]",               # nicotinamide C4 / dihydro C=C-N region (approx redox ring)
-    "[CX4;R]([OX2;R])[OX2][#6]",             # anomeric C with ring-O and exocyclic O-glycoside
-    "[CX4;R]([OX2;R])[NX3,n]",               # anomeric C with ring-O and N-glycoside
-    "[PX4](=O)([OX2])[OX2][PX4]",            # phosphoanhydride P-O-P
-    "[#16X2][CX3]=O",                        # thioester S-C(=O)
-]
-_MOTIF_MOLS = [Chem.MolFromSmarts(s) for s in _MOTIFS]
+# Bonds that form/break, REASONED per reaction TYPE from the mechanism (reliable for this curated
+# set -- RXNMapper's atom-maps are low-confidence on these phosphate/redox reactions, conf 0.1-0.2).
+# Tight SMARTS so they mark ONLY the reacting center, symmetric on both sides, and don't bleed onto
+# spectators (e.g. the uracil/thymine base, which a loose C=C-N motif would wrongly hit).
+_RX_MOTIFS = {
+    # nicotinamide ring reduced (hydride at C4, delocalised over the ring) + the thiol/disulfide S.
+    # ring = 6-membered, one N-methyl, five C, NO ring carbonyl -> excludes uracil/thymine.
+    "redox": ["[#16]", "[#6]1~[#6]~[#6]~[#6]~[#7](~[CH3])~[#6]1"],
+    # glycosyl transfer: the anomeric C (ring-C bonded to ring-O) and its glycosidic O-linkage.
+    "glycosyl": ["[C;R]([O;R])[O;!R][#6]", "[C;R]([O;R])[O;!R][P]"],
+    # nucleotidyl transfer: the P-O-P anhydride (broken) + the P-O-C(sugar) ester (formed).
+    "nucleotidyl": ["[P]~[OX2]~[P]", "[P]~[OX2]~[C;R]"],
+    # glyoxalase: the thioester S-C=O.
+    "glyoxalase": ["[#16][CX3]=O", "[#16]"],
+}
+_RX_MOTIF_MOLS = {c: [Chem.MolFromSmarts(s) for s in v] for c, v in _RX_MOTIFS.items()}
 
 
-def _changed(mol, partners=None):
-    """Atoms of the reacting center in `mol`, matched by curated transformation SMARTS (reliable +
-    symmetric), NOT by fragile pairwise MCS. `partners` kept for signature compatibility."""
+def _changed(mol, cat):
+    """Atoms of the bond(s) that form/break in `mol`, from reasoned per-type SMARTS."""
     hit = set()
-    for pat in _MOTIF_MOLS:
+    for pat in _RX_MOTIF_MOLS.get(cat, []):
         if pat is None:
             continue
         for m in mol.GetSubstructMatches(pat):
@@ -107,14 +109,14 @@ def _arrow():
     return im
 
 
-def scheme_row(rid):
+def scheme_row(rid, cat):
     sp = cofactor_ring({n: tuple(v) for n, v in RXN_DB[rid]["species"].items()})
     react = [s for c, q, s in sp.values() if c < 0 for _ in range(abs(int(c)))]
     prod = [s for c, q, s in sp.values() if c > 0 for _ in range(abs(int(c)))]
     rmol = [Chem.MolFromSmiles(s) for s in react]
     pmol = [Chem.MolFromSmiles(s) for s in prod]
-    rhl = [_changed(m, [p for p in pmol if p]) if m else set() for m in rmol]   # transformation atoms
-    phl = [_changed(m, [r for r in rmol if r]) if m else set() for m in pmol]
+    rhl = [_changed(m, cat) if m else set() for m in rmol]   # bonds that form/break (reasoned per type)
+    phl = [_changed(m, cat) if m else set() for m in pmol]
     parts = []
     for k, m in enumerate(rmol):
         if k: parts.append(_plus())
@@ -161,7 +163,7 @@ def main():
     axL.set_xlim(0, 1); axL.set_ylim(-0.6, n - 0.4); axL.axis("off")
     for i, (rid, cat) in enumerate(RXNS):
         y = yrow[i]
-        im = scheme_row(rid)
+        im = scheme_row(rid, cat)
         zoom = min(0.34, 980.0 / im.width * 0.34)          # fit width; consistent, legible height
         ab = AnnotationBbox(OffsetImage(im, zoom=zoom), (0.0, y - 0.02),
                             frameon=False, xycoords=("axes fraction", "data"), box_alignment=(0.0, 0.5))
