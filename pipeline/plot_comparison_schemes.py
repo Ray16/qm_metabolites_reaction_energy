@@ -22,18 +22,33 @@ sys.path.insert(0, os.path.join(THERMO, "experiments", "qm_mlip_solvation", "scr
 from cofactor_truncate import cofactor_ring
 from truncate import mcs_atom_map, reaction_center
 
-HL = (1.0, 0.80, 0.28)                                      # amber highlight for the transformation
+HL = (1.0, 0.50, 0.05)                                      # orange highlight for the transformation
+
+# Curated transformation motifs: the specific bond/atoms that form or break in each reaction TYPE.
+# Reliable (no fragile MCS): a small SMARTS per motif marks exactly the reacting center, symmetric on
+# both sides. Order matters only for which fires; a molecule may match several.
+_MOTIFS = [
+    "[#16X2H1,#16X1H0-]",                    # thiol / thiolate S  (redox S-H)
+    "[#16X2]-[#16X2]",                       # disulfide S-S
+    "[C,c]([#7X3,n])=,:[C,c]",               # nicotinamide C4 / dihydro C=C-N region (approx redox ring)
+    "[CX4;R]([OX2;R])[OX2][#6]",             # anomeric C with ring-O and exocyclic O-glycoside
+    "[CX4;R]([OX2;R])[NX3,n]",               # anomeric C with ring-O and N-glycoside
+    "[PX4](=O)([OX2])[OX2][PX4]",            # phosphoanhydride P-O-P
+    "[#16X2][CX3]=O",                        # thioester S-C(=O)
+]
+_MOTIF_MOLS = [Chem.MolFromSmarts(s) for s in _MOTIFS]
 
 
-def _changed(mol, partners):
-    """Atoms of `mol` whose bonding changes vs its best-matching opposite-side molecule
-    (bond-order MCS) -- the reaction center, to highlight and guide the eye."""
-    best, bestn, bestmap = None, -1, None
-    for p in partners:
-        amap, nn = mcs_atom_map(mol, p)
-        if nn > bestn:
-            bestn, best, bestmap = nn, p, amap
-    return reaction_center(mol, bestmap, best) if best is not None else set()
+def _changed(mol, partners=None):
+    """Atoms of the reacting center in `mol`, matched by curated transformation SMARTS (reliable +
+    symmetric), NOT by fragile pairwise MCS. `partners` kept for signature compatibility."""
+    hit = set()
+    for pat in _MOTIF_MOLS:
+        if pat is None:
+            continue
+        for m in mol.GetSubstructMatches(pat):
+            hit.update(m)
+    return hit
 
 DECK = os.path.join(THERMO, "experiments", "qm_mlip_solvation", "figures", "deck_top10_comparison.png")
 RXNS = [("rxn00086", "redox"), ("rxn00070", "redox"),
