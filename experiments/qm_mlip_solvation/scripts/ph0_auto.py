@@ -160,6 +160,16 @@ def _canonicalize_maxanion(smi):
     return Chem.MolToSmiles(m2)
 
 
+def _hcount(smi):
+    """Total hydrogen count (explicit + implicit) of a SMILES, or None on parse failure.
+    Used by build_ph0_reaction's mass-balance guard."""
+    m = Chem.MolFromSmiles(smi)
+    if m is None:
+        return None
+    m = Chem.AddHs(m)
+    return sum(1 for a in m.GetAtoms() if a.GetSymbol() == "H")
+
+
 def _neutralize(smi):
     """Canonicalise to max-anion, then protonate every anionic O to its neutral acid; return
     (neutral_smiles, list_of_pKa, net_charge_of_neutralised_form). Cationic centres (e.g.
@@ -197,10 +207,15 @@ def build_ph0_reaction(species, n_Hplus=0):
     new_species = {}
     pka_sites = []
     any_anion = False
+    h_residual = 0                                    # Sum coeff*H over NEUTRAL microspecies
     for name, (coeff, q, smi) in species.items():
         neutral, pkas, netq = _neutralize(smi)
         if neutral is None:
             return None                              # bail safely on any parse failure
+        nH = _hcount(neutral)
+        if nH is None:
+            return None
+        h_residual += int(coeff) * nH
         if pkas:
             any_anion = True
         side = "react" if coeff < 0 else "prod"
@@ -209,6 +224,16 @@ def build_ph0_reaction(species, n_Hplus=0):
                 pka_sites.append([side, pka])
         new_species[name] = [coeff, netq, neutral]
     if not any_anion:
+        return None
+    # MASS-BALANCE GUARD: n_H+=0 is only valid if the NEUTRALISED reaction is already H-balanced
+    # (Sum coeff*H == 0). This holds for the validated anion-transfer class (phosphoryl/carboxyl
+    # transfer: an anion moves but the H count per side cancels). It FAILS for net-proton-exchange
+    # reactions -- redox / deamination / decarboxylation (n_H+_charged != 0) -- where re-protonating
+    # to neutral leaves a residual H that n_H+=0 does NOT carry, injecting ~1170 kJ per unbalanced
+    # proton (validated: rxn00184 NADP deamination err +1112, rxn00070/rxn00086 GSH redox +/-1150).
+    # For those, refuse pH-0 and fall back to the implicit-anion baseline (the coherent router does
+    # this already). General/testable: works on ModelSEED with no reaction-id or flag.
+    if h_residual != 0:
         return None
     return new_species, pka_sites, 0                 # n_H+=0: transforms carry all proton exchange
 

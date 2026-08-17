@@ -268,15 +268,20 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # (thioester/glycosyl-anomeric neutral classes) or on any parse failure. Not fitted to the DB.
     if os.environ.get("PH0_AUTO") and not rx.get("pka_sites"):
         try:
-            from ph0_auto import build_ph0_reaction
-            out = build_ph0_reaction(rx["species"], rx["n_Hplus"])
-            if out is not None:
-                ns, pks, nh = out
-                rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
-                          note=rx.get("note", "") + " [pH0-AUTO]")
-                log(f"  [pH0-auto -> {len(pks)} pKa sites, n_H+={nh}]")
+            from ph0_auto import build_ph0_reaction, is_isomerization
+            if is_isomerization(rx["species"]):
+                # ISOMERASE GATE: pH-0 hurts isomerizations (no anion-solvation change to
+                # fix; neutralising spectator anions only injects sampling noise). Skip.
+                log("  [pH0-auto: isomerization -> gated OFF (pH-0 would only add noise)]")
             else:
-                log(f"  [pH0-auto: no anionic site -> unchanged]")
+                out = build_ph0_reaction(rx["species"], rx["n_Hplus"])
+                if out is not None:
+                    ns, pks, nh = out
+                    rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
+                              note=rx.get("note", "") + " [pH0-AUTO]")
+                    log(f"  [pH0-auto -> {len(pks)} pKa sites, n_H+={nh}]")
+                else:
+                    log(f"  [pH0-auto: no anionic site -> unchanged]")
         except Exception as e:
             log(f"  [pH0-auto error: {e}; unchanged]")
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
