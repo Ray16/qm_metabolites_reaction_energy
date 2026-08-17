@@ -1,0 +1,62 @@
+{
+ "rxn00086": {
+  "species": {
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "GSH": [
+    -2,
+    0,
+    "CC(=O)NC(CS)C(=O)NC"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "Oxidized glutathione": [
+    1,
+    0,
+    "CC(=O)NC(CSSCC(NC(C)=O)C(=O)NC)C(=O)NC"
+   ]
+  },
+  "exp": [
+   11.88
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00086 glutathione reductase (NAD(P)H) | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy [RING+THIOL]",
+  "explicit": false
+ },
+ "rxn00070": {
+  "species": {
+   "NAD": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "GSH": [
+    -2,
+    0,
+    "CC(=O)NC(CS)C(=O)NC"
+   ],
+   "NADH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "Oxidized glutathione": [
+    1,
+    0,
+    "CC(=O)NC(CSSCC(NC(C)=O)C(=O)NC)C(=O)NC"
+   ]
+  },
+  "exp": [
+   17.99
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00070 glutathione reductase (NAD(P)H) | flags=anion-count-change,huge/floppy [RING+THIOL]",
+  "explicit": false
+ }
+}
