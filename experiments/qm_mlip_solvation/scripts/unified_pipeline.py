@@ -239,6 +239,22 @@ def explicit_G(pu, q, smi, seeds, log, name):
 
 def run_reaction(pu, key, seeds, keep, pool, log):
     rx = dict(REACTIONS[key])
+    # COFACTOR RING-TRUNCATION (opt-in COFACTOR_RING=1): replace NAD(P)+/NAD(P)H with their
+    # redox-active nicotinamide RING model. The identical ADP-ribose-phosphate tail cancels in
+    # ΔG but its floppy-conformer error does NOT in full-molecule QM -- which is why NAD (floppy)
+    # carries a spurious ~-49 kJ bias while NADP (rigid) does not. Ring model removes the noise +
+    # collapses NAD/NADP to one model. Isodesmic, experiment-free. Runs BEFORE truncation so the
+    # small ring survives. Validated on TECRDB redox: NAD MAE 44.6->10.4 (n=4). Gated to a genuine
+    # ox/red couple (never mis-fires on NAD biosynthesis). n_H+ preserved (Δq,ΔH of the couple kept).
+    if os.environ.get("COFACTOR_RING"):
+        try:
+            from cofactor_truncate import cofactor_ring
+            new = cofactor_ring(rx["species"])
+            if new is not rx["species"]:
+                rx = dict(rx, species=new, note=rx.get("note", "") + " [RINGCOFACTOR]")
+                log("  [cofactor-ring: NAD(P) -> nicotinamide ring model]")
+        except Exception as e:
+            log(f"  [cofactor-ring error: {e}; unchanged]")
     # AUTO-TRUNCATION (general heuristic, opt-in AUTO_TRUNCATE=1): replace the reaction with
     # its truncated reactive core (removes conserved backbone -> kills catastrophic cancellation
     # + its conformer noise). Falls back to full molecules if no clean balanced truncation.
