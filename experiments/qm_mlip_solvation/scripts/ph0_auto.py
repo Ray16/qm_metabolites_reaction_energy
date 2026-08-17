@@ -192,6 +192,121 @@ def _neutralize(smi):
     return Chem.MolToSmiles(m2), pkas, Chem.GetFormalCharge(m2)
 
 
+# ---- BASE (cation) pKa's: conjugate-acid pKa of protonated N centres (textbook, NOT fitted) ----
+# The deamination/transaminase/lyase classes create/destroy CATIONS (NH4+, alpha-amino -NH3+,
+# guanidinium). The current _neutralize only protonates ANIONS -> leaves these charged -> the
+# mass-balance guard refuses (net-proton reaction). v2 also DEPROTONATES the bases to neutral and
+# emits a base pKa term using the EXACT Alberty form for a base: -RT ln(1+10^(pKa-pH)) (protonated
+# form favoured below pKa), the mirror of the acid form -RT ln(1+10^(pH-pKa)).
+AMMONIA_PKA = 9.25          # NH4+/NH3
+AMINE_PKA = 9.7             # primary alkyl / alpha-amino-acid -NH3+  (~9.5-10.6; 9.7 typical)
+GUANIDINIUM_PKA = 12.5      # arginine/creatine guanidinium
+
+def _classify_cations(mol):
+    """Every deprotonatable protonated-N cation: (atom_idx, pKa, kind). Quaternary/aromatic N with
+    no H (e.g. NAD+ N-ribosyl pyridinium) is NOT deprotonatable -> skipped (stays charged; the redox
+    couple is validated as-is)."""
+    sites = []
+    guan_c = {m[1] for m in mol.GetSubstructMatches(Chem.MolFromSmarts("[NX3][CX3]=[NX3+,NX2+]"))}
+    for a in mol.GetAtoms():
+        if a.GetSymbol() != "N" or a.GetFormalCharge() != 1 or a.GetTotalNumHs() < 1:
+            continue
+        # is this N part of a protonated guanidinium?
+        in_guan = any(nb.GetIdx() in guan_c for nb in a.GetNeighbors()) or \
+                  mol.GetSubstructMatch(Chem.MolFromSmarts("[NX3,NX3+;H1,H2][CX3]=[NX2,NX3+]"))
+        heavy = [nb for nb in a.GetNeighbors() if nb.GetSymbol() != "H"]
+        if any(nb.GetSymbol() == "C" and nb.GetIsAromatic() and nb.GetDegree() >= 3 for nb in heavy) \
+           and a.GetTotalNumHs() == 0:
+            continue
+        if in_guan:
+            sites.append((a.GetIdx(), GUANIDINIUM_PKA, "base"))
+        elif a.GetTotalNumHs() == 4 or (len(heavy) == 0):     # NH4+
+            sites.append((a.GetIdx(), AMMONIA_PKA, "base"))
+        else:
+            sites.append((a.GetIdx(), AMINE_PKA, "base"))
+    return sites
+
+
+def _neutralize_v2(smi):
+    """Neutralize BOTH anions (protonate O-) AND cations (deprotonate protonated N) to the fully
+    neutral microspecies; return (neutral_smiles, acid_pkas, base_pkas, net_charge)."""
+    smi = _canonicalize_maxanion(smi)
+    mol, anion_sites = _classify_species(smi)
+    if mol is None:
+        return None, [], [], None
+    cation_sites = _classify_cations(mol)
+    acid_pkas = [pka for _, pka in anion_sites]
+    base_pkas = [pka for _, pka, _ in cation_sites]
+    rw = Chem.RWMol(mol)
+    for o, _ in anion_sites:                                   # protonate anion O-
+        a = rw.GetAtomWithIdx(o); a.SetFormalCharge(0); a.SetNumExplicitHs(a.GetNumExplicitHs() + 1)
+    for n, _, _ in cation_sites:                               # deprotonate cation N+
+        a = rw.GetAtomWithIdx(n); a.SetFormalCharge(0)
+        if a.GetNumExplicitHs() > 0:
+            a.SetNumExplicitHs(a.GetNumExplicitHs() - 1)
+        else:
+            a.SetNoImplicit(True); a.SetNumExplicitHs(max(0, a.GetTotalNumHs() - 1))
+    m2 = rw.GetMol()
+    try:
+        Chem.SanitizeMol(m2)
+    except Exception:
+        return None, [], [], None
+    return Chem.MolToSmiles(m2), acid_pkas, base_pkas, Chem.GetFormalCharge(m2)
+
+
+# BASIC aliphatic amine/ammonium on an sp3 carbon ONLY: this is what protonates to a real cation at
+# physiological pH and whose creation/destruction leaves an unmatched charged-species solvation error.
+# Excludes (correctly) amides (!$(NC=O)), the NAD(P)H dihydropyridine ring N (an enamine on sp2 C -> not
+# [CX4], not basic), aromatic/pyridinium N, and imines (N=*).
+_AMINE_ON_C = Chem.MolFromSmarts("[CX4]-[NX3;H1,H2;!$(NC=O);!$(N=*)]")
+_AMMONIUM_ON_C = Chem.MolFromSmarts("[CX4]-[NX4+;H1,H2,H3]")
+def _amine_cn_change(species):
+    """Net change in the count of chargeable amine-on-carbon C-N bonds across the reaction
+    (Sum coeff*count). NON-zero = a C-N amine is CREATED/DESTROYED (deamination/amination/lyase) --
+    exactly where neutralizing the cation removes an UNMATCHED charged-species solvation error. ZERO
+    = the cations (if any) are spectators (e.g. malate-DH carboxylates, or a transaminase that just
+    moves the amine) -> v2 would only inject neutral-vs-ion sampling noise -> don't fire. Generic,
+    no atom-mapper (mirrors the anion pH-0's created/destroyed logic)."""
+    net = 0
+    for coeff, q, smi in species.values():
+        m = Chem.MolFromSmiles(smi)
+        if m is None:
+            return 0
+        cnt = len(m.GetSubstructMatches(_AMINE_ON_C)) + len(m.GetSubstructMatches(_AMMONIUM_ON_C))
+        net += int(coeff) * cnt
+    return net
+
+
+def build_ph0_reaction_v2(species):
+    """pH-0 with BASE support (PH0_BASES): neutralize anions AND cations, emit acid+base pKa sites,
+    and carry the net proton in n_H+ = -h_residual (NOT forced 0). Handles the net-proton classes
+    (deamination/transaminase/lyase) the anion-only build refuses. Returns (new_species, pka_sites,
+    n_Hplus) with pka_sites = [side, pKa, kind]; kind in {'acid','base'} tells the pipeline which
+    Alberty form to use. Returns None (fall back) if no ionisable site or on any parse failure."""
+    if _amine_cn_change(species) == 0:                        # GATE: only fire when a C-N amine is
+        return None                                           # created/destroyed (else spectator noise)
+    new_species = {}; pka_sites = []; any_ionizable = False; h_residual = 0
+    for name, (coeff, q, smi) in species.items():
+        neutral, acids, bases, netq = _neutralize_v2(smi)
+        if neutral is None:
+            return None
+        nH = _hcount(neutral)
+        if nH is None:
+            return None
+        h_residual += int(coeff) * nH
+        if acids or bases:
+            any_ionizable = True
+        side = "react" if coeff < 0 else "prod"
+        for pka in acids:
+            for _ in range(abs(int(coeff))): pka_sites.append([side, pka, "acid"])
+        for pka in bases:
+            for _ in range(abs(int(coeff))): pka_sites.append([side, pka, "base"])
+        new_species[name] = [coeff, netq, neutral]
+    if not any_ionizable:
+        return None
+    return new_species, pka_sites, -h_residual                # n_H+ carries the net (redox) proton
+
+
 def build_ph0_reaction(species, n_Hplus=0):
     """species: {name: [coeff, q, smi]}, n_Hplus of the CHARGED reaction  ->
     (new_species, pka_sites, n_Hplus_neutral) or None.

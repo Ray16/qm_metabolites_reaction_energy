@@ -284,8 +284,19 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # (thioester/glycosyl-anomeric neutral classes) or on any parse failure. Not fitted to the DB.
     if os.environ.get("PH0_AUTO") and not rx.get("pka_sites"):
         try:
-            from ph0_auto import build_ph0_reaction, is_isomerization
-            if is_isomerization(rx["species"]):
+            from ph0_auto import build_ph0_reaction, build_ph0_reaction_v2, is_isomerization
+            if os.environ.get("PH0_BASES") and not is_isomerization(rx["species"]):
+                # v2: neutralize anions AND cations -> handles net-proton classes (deamination/
+                # transaminase/lyase) the anion-only build refuses. n_H+ carries the redox proton.
+                out = build_ph0_reaction_v2(rx["species"])
+                if out is not None:
+                    ns, pks, nh = out
+                    rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
+                              note=rx.get("note", "") + " [pH0-v2-BASES]")
+                    log(f"  [pH0-v2 -> {len(pks)} pKa sites (acid+base), n_H+={nh}]")
+                else:
+                    log("  [pH0-v2: no ionizable site -> unchanged]")
+            elif is_isomerization(rx["species"]):
                 # ISOMERASE GATE: pH-0 hurts isomerizations (no anion-solvation change to
                 # fix; neutralising spectator anions only injects sampling noise). Skip.
                 log("  [pH0-auto: isomerization -> gated OFF (pH-0 would only add noise)]")
@@ -354,9 +365,13 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # EXACT Alberty form -RT*ln(1+10^(pH-pKa)) per proton (correct near AND above pH~pKa; the
     # linear RT*ln10*(pH-pKa) form wrongly makes a high-pKa site e.g. Pi's 12.35 count -5 kJ).
     pka_total = 0.0
-    for side, pka in rx.get("pka_sites", []):
-        # RT*ln(1+10^(pH-pKa)) == RT_LN10*log10(1+10^(pH-pKa))
-        contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * math.log10(1.0 + 10.0 ** (PH - pka))
+    for site in rx.get("pka_sites", []):
+        side, pka = site[0], site[1]
+        kind = site[2] if len(site) > 2 else "acid"
+        # acid group (neutral=protonated HA): -RT ln(1+10^(pH-pKa)); base group (neutral=deprotonated
+        # B, protonates below pKa): the mirror -RT ln(1+10^(pKa-pH)). Sign per side (react +, prod -).
+        expo = (PH - pka) if kind == "acid" else (pka - PH)
+        contrib = (1.0 if side == "react" else -1.0) * RT_LN10 * math.log10(1.0 + 10.0 ** expo)
         dG += contrib
         pka_total += contrib
     if rx.get("pka_sites"):
