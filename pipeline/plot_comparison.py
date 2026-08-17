@@ -66,10 +66,6 @@ def main():
                edgecolor="white", linewidth=0.5,
                yerr=sd if label.startswith("TECRDB") else None,
                error_kw=dict(ecolor="black", capsize=3, lw=1.2))
-    for xi, (r, _, par) in enumerate(RXNS):
-        if meta[par or r]["n"] <= 1:
-            ax.text(xi, 0.015, "n=1", ha="center", fontsize=7.5, color="gray",
-                    transform=ax.get_xaxis_transform())
     ax.axhline(0, color="black", lw=0.8); ax.margins(y=0.18)
     ax.set_ylabel(r"$\Delta_r G'^{\circ}$ (kJ/mol)")
     ax.set_xticks(x)
@@ -78,12 +74,12 @@ def main():
     ax.spines[["top", "right"]].set_visible(False)
     fig.tight_layout()
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    fig.savefig(OUT, dpi=200, bbox_inches="tight")
+    fig.savefig(OUT, dpi=300, bbox_inches="tight")
     # also refresh the copies under figures/ (both the repo and the top-level dir)
     for d in (os.path.join(THERMO, "figures"),
               "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/figures"):
         os.makedirs(d, exist_ok=True)
-        fig.savefig(os.path.join(d, "qm_vs_dgpredictor_top10.png"), dpi=200, bbox_inches="tight")
+        fig.savefig(os.path.join(d, "qm_vs_dgpredictor_top10.png"), dpi=300, bbox_inches="tight")
     print(f"wrote {OUT}")
 
 
