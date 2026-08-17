@@ -352,3 +352,68 @@ the hand model, automatically, balanced.
 Lesson: the full-molecule unified scheme fails on (a) large floppy multi-ring species
 (absolute-energy noise ∝ size) and (b) created/destroyed compact anions under implicit.
 Truncation addresses (a) directly; (b) needs the explicit-water triage, not truncation.
+
+---
+
+## 2026-08-16 — Full-367 multi-node sweep + pH-0 auto-fix + truncation-v2 + DFT floor verdict
+
+### DFT C–X floor probe → it is the REFERENCE CEILING, not UMA (negative result, closes a branch)
+Ran wB97M-V/def2-TZVPD (OMol25's OWN level) on the UMA-relaxed **truncated** rxn00605 glucosyl core.
+Gas ΔE_elec: **DFT +61.2 vs UMA +60.5 → DFT−UMA = +0.7 kJ** (per-species diffs +1.7/+10.4/+6.3/+5.2).
+UMA reproduces its DFT reference almost exactly on the charged glycosyl core → the +12–16 glycosyl
+residual is NOT UMA's electronic error and NOT a locality/charge-embedding failure; it is ωB97M-V's
+own residual for anomeric/negative-hyperconjugation energetics + def2-TZVPD's light diffuseness.
+**Lesson:** the "C–X electronic floor" is a reference-method ceiling, not a bond-type artifact.
+Truncation+DFT-electronics hybrid is DEAD (DFT gives the same wrong gas ΔE). Fix would need
+double-hybrid / DLPNO-CCSD(T). The three "floor" motifs (glycosyl C–O, nucleotidyl P–O, thioester
+C–S) share not a bond but *thermochemistry dominated by charge delocalisation/resonance on a
+polarised heteroatom* — here that error lives in the functional.
+
+### pH-0 auto-routing for the Mg/NTP/PPi/phosphate anion class (`scripts/ph0_auto.py`, PH0_AUTO=1)
+The full-367 sweep's dominant error engine = compact polyphosphate anions: implicit continuum
+mis-solvates each charge state by ±20–50 kJ and, because phosphoryl transfer CHANGES charge
+concentration, the errors DON'T cancel (baseline rxn00695 −96, rxn10427 +61 — OPPOSITE signs =
+sign-varying scatter, not a subtractable bias). This is also UMA's softest regime (formal anionic
+charge → all three weaknesses at once). FIX = Jinich/Alberty pH-0: protonate every anionic site to
+its NEUTRAL microspecies before QM (no formal charge, no diffuse-anion basis need, continuum-solv
+valid), then bridge to pH7 with EXACT Alberty transform Σ sign·RT·ln(1+10^(pH−pKa)) over textbook
+per-group pKa ladders (free Pi [2.15,7.20,12.35]; terminal [1.5,6.5]; internal [1.5]; carboxyl 4.75).
+No atom-mapper: neutralise all sites + per-side terms → matched spectators cancel analytically.
+
+Three refinements, each caught/validated by testing vs TECRDB ground truth:
+1. **max-anion canonicalization before neutralising** → source-protonation-independent ladder →
+   fixed the 61 FRAGILE charge-state cases (adenylate-kinase transform +57 → +0.0, correct: it is
+   genuinely pH-independent). The TECRDB/ChemAxon source draws the SAME terminal phosphate at
+   DIFFERENT protonation across ATP/ADP/AMP → spurious transforms until canonicalized.
+2. **exact Alberty form** not linear (pH−pKa): the linear form wrongly counts Pi's 12.35 site as −5 kJ.
+3. **n_H+ = 0 in the pH-0 route (CRITICAL BUG the ground-truth test caught).** ΔfG'(H+)=0 in the
+   transformed framework → all proton exchange is in the pKa transforms; keeping the charged rxn's
+   n_H+ double-counts +G_HPLUS (~+1170 kJ). Symptom: adenylate kinase gave ΔG **+1173** while its
+   ΔG_QM(neutral) was ~+2.6 (correct!). Matches the hand pH-0 reactions (all n_H+=0).
+
+**Validation (baseline err → pH-0 err), GPU vs TECRDB:** rxn00695 −96.0→+0.2 | rxn10427 +61.3→+4.8 |
+rxn00216 +32.4→−11.3 | rxn00151 −117.5→+24.0 | rxn01362 +150.2→+49.7. **MAE 91.5 → 18.0 kJ (n=5).**
+Also helps phosphatases (create Pi): rxn00132 25→17.6, rxn00549 23→15.9. Residuals are diagnostic:
+rxn01362 = glycosyl electronic (the DFT ceiling above) ON TOP of the anion; rxn00216 = truncation-fail
+noise; rxn00151 = PEP enol-phosphate special chemistry. **Scope:** 343/367 trigger, 282 SAFE
+(|transform|<8, proton-symmetric), pH-0 HELPS the created/destroyed-anion subset; harmlessness on
+spectator-anion redox NOT yet confirmed (scope test inconclusive on contended T4s) → rollout gated.
+
+### Truncation v2 (global-MCS) + the radius-sensitivity validity lesson
+v1 (1:1-MCS) REFUSES 20% of TECRDB before trying: 9 multi-coeff + 64 unequal-side (atom splits
+A→B+C). `truncate_v2` expands multi-coeff to unit species and takes ONE global MCS over combined
+all-reactants vs all-products → isolates the reaction center across splits. Recovers ~5/9 of a
+refused sample. BUT multi-case validation (the essential discipline) showed it **helped 2/3, HURT 1/3**:
+rxn03643 −10.1→+1.4 (16→7 heavy, big shrink), rxn00336 +37→+26, but **rxn00065 +25→−27** — a marginal
+cut (22→21 heavy) that passed balance + n_H+ + removed-fragment-consistency guards yet flipped ΔG 52 kJ.
+**Lesson:** structural guards are NECESSARY but NOT SUFFICIENT. The reaction-agnostic validity test is
+**radius-sensitivity**: a true spectator removal leaves ΔG invariant to cut radius. Confirmed on the good
+case — rxn03643 ΔG(r2)=−24.1, ΔG(r3)=−25.4, |ΔΔG|=1.3 kJ (stable, near exp −25.5). A tuned shrinkage
+threshold was REJECTED as overfitting (per review: changes must be empirical/general, not reaction-
+specific). Coherent end-state: fold global-MCS + radius-sensitivity into truncate.py, delete the v2 file.
+
+### Infra: multi-node sweep (memory [[lambda-multinode-sweep]]) + genericity audit
+Sweep now spans ~37 GPUs (lambda0/1/5/6, claim-based mkdir locks, preflight + circuit-breaker) vs 8.
+Node-local envs differ (lambda5 py3.11 lacked rdkit; lambda5+6 lacked the xtb env) — fixed. Genericity
+audit: all pKa's are textbook functional-group constants assigned by SMARTS (not fitted to any ΔG); NO
+code branches on reaction/species identity; removed the shrinkage + min_conserved_frac magic numbers.

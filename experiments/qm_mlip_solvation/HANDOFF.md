@@ -1,57 +1,70 @@
-# HANDOFF — QM reaction-ΔG pipeline (2026-08-16)
+# HANDOFF — QM reaction-ΔG pipeline (read PIPELINE_REFERENCE.md + EXPLORATION_LOG.md for depth)
 
-Authoritative reference = `PIPELINE_REFERENCE.md`. Reasoning log = `EXPLORATION_LOG.md`.
-Checklist = `TODO.md`. Repo = own git (`Ray16/qm_metabolites_reaction_energy`, master),
-all pushed through commit 6106e23. Memory updated (tecrdb-hard-regimes, tecrdb-empirical-failure-map).
+## RUNNING NOW (survives session end)
+- **pH-0 full-367 pass** (`tools/ph0_worker.sh` + `launch_ph0.sh`, ~37 GPUs lambda0/1/5/6): AUTO_TRUNCATE
+  (v1) + PH0_AUTO on all 367 -> logs/ph0_sweep/. **~101/367 done** when this was written. Verified
+  CORRECT (reproduces hand-validation: rxn00695 err +0.3, rxn10427 +4.8, n_H+=0). Completion monitor
+  was set at >=360 done. lambda5 T4s OOM on big cofactors + circuit-break (self-heals: big rxns go to
+  V100; relaunch idle lambda5 workers with `launch_ph0.sh` if throughput drops).
+- Baseline sweep (implicit-anion) already COMPLETE in logs/full367/ (365/367; 2 carnitine failures).
 
-## RUNNING IN BACKGROUND (survives this session; setsid nohup)
-- **Full-367 best-pipeline run** (`tools/run_full367.sh`, 8-GPU strict queue, AUTO_TRUNCATE=1).
-  ~9/367 done when this was written; ETA ~4-6 h; HEALTHY (0 errors, no OOM). Resumable
-  (skips logs with a ΔG). Logs: `logs/full367/<rxn>.log`.
-  -> FIRST THING NEW SESSION: `python tools/full367_table.py` refreshes the rolling
-     predicted-vs-measured table `artifacts/full367_results.md` (MAE, per-mode, sorted by |err|).
-     The rolling monitor from this session dies at session end — just re-run that script, or
-     re-arm a monitor. When done, `python tools/analyze_sweep.py` (point it at full367) for
-     per-category MAE = the unbiased full-367 UMA+truncation number (roadmap step 2).
-- **DFT C-X floor probe** (`tests/dft_cx_floor.py`, CPU): wB97M-V/def2-TZVPD (OMol25's own level)
-  on the truncated rxn00605 core, to test if DFT electronics fixes the +16 glycosyl residual.
-  donorCap done (DFT≈UMA within 1.7 kJ, neutral); charged glucose-phosphate species still
-  computing (slow). Log: `logs/dft_cx_floor.log`. If DFT ΔE_elec closes the residual -> the
-  C-X floor is UMA electronic error -> truncation+DFT-electronics hybrid is the fix.
+## FIRST THING NEXT SESSION — when pH-0 pass completes
+1. `python tools/ph0_final_analysis.py`  -> the GATED coherent MAE vs baseline vs TECRDB, per class.
+   Partial (41 done): baseline 26.5 -> **gated coherent 10.0 kJ** (will rise as hard rxns finish).
+2. **Wire the isomerase gate into the pipeline** (make it AUTOMATIC): in unified_pipeline.py PH0_AUTO
+   block, change the condition to `if os.environ.get("PH0_AUTO") and not is_isomerization(rx["species"])
+   and not rx.get("pka_sites"):` and `from ph0_auto import build_ph0_reaction, is_isomerization`.
+   (is_isomerization already added + validated; pH-0 HURTS isomerases -> must skip them.)
+3. **Re-run garbage/failed** with the gated pipeline: rxn01211, rxn01646, rxn01157 (pH-0 garbage),
+   rxn01407, rxn01725 (carnitine, NADH_t sampling-fail).
+4. **Calibrate uncertainty.py SIGMA_CLASS** from the final per-class residuals (esp. `anion` 47->~18).
 
-## WHAT WORKS (6 general heuristics, NOTHING fitted to the DB; TECRDB = validation only)
-1. **AUTO_TRUNCATE** (`truncate.build_truncated_reaction`, env AUTO_TRUNCATE=1) — removes conserved
-   backbone -> kills catastrophic cancellation. rxn00605 -45 -> +16.5 automatic. SAFE via
-   n_H+-conservation guard (rejects mis-detected truncations -> full fallback; caught rxn00545).
-2. Auto-convergent sampling (bounded). 3. Per-reaction UQ + resolution flag (U_samp is a LOWER
-   bound — misses cancellation/electronic error). 4. Spectator-anion guard. 5. pH-0 + pKa transform
-   (created/destroyed anions; acetylcholine err -2.9). 6. Systematic truncation (MCS atom-map).
+## WHAT WAS BUILT THIS SESSION (all committed + pushed, master)
+- **pH-0 auto-routing fix** (`ph0_auto.py` + PH0_AUTO): neutral-species QM + EXACT Alberty pKa transform
+  for the phosphate/NTP anion class. Validated MAE 91.5->18 on 5 phosphate rxns. Key: max-anion
+  canonicalization (fixes 61 FRAGILE), full per-group pKa ladders, **n_H+=0** (bug the test caught: the
+  charged n_H+ double-counts +1170 kJ). Textbook pKa's, no DB fitting.
+- **Isomerase gate** (`ph0_auto.is_isomerization`, formula-bijection, general/no-flags) — validated, in
+  code, NOT yet wired (step 2 above). pH-0 helps EVERY class except isomerase.
+- **truncate_v2** (`truncate_v2.py` + TRUNC_V2): global-MCS for the 20% (multi-coeff/unequal-side) v1
+  refuses. RISKY unguarded (helped 2/3, hurt rxn00065) -> gated by **radius-sensitivity** (validated:
+  good cut |ΔΔG|=1.3, bad cut 27.7; `tools/radius_sensitivity.sh`). Strategy = escalate radius until
+  ΔG stable. NOT yet integrated as default (measured LOWER priority: after pH-0, full≈trunc MAE ~9.6).
+- **uncertainty.py**: calibrated total σ (U_samp + class-σ + motif) for TFA/flux. CHEAP (lookups, no
+  extra QM). NEEDS final σ_class calibration. Error is SCATTER not bias -> calibration won't fix it;
+  need method (pH-0/truncation) + isodesmic referencing to reduce it.
+- **ModelSEED input adapter** (`tools/build_modelseed_reactions.py` -> scripts/reactions_modelseed.json):
+  **20,802 runnable reactions** (57x TECRDB). Format + prep verified (truncation/gate/pH-0 all accept it).
+  End-to-end GPU run pending free GPUs. exp from GCM deltag (QM-vs-GCM comparison).
+- **Loader collision bug FIXED** (build_tecrdb_reactions.py name[:14] collapsed isomer substrate/product
+  -> garbage -3.6M kJ; restored rxn01505/rxn03087).
+- **Multi-node sweep infra** (lambda-fleet skill + full367_worker/launch_workers): ~37 GPUs, claim-based,
+  preflight+circuit-breaker. Node-env gotchas fixed (rdkit lambda5, xtb env lambda5+6). NOT lambda13.
 
-## HEADLINE RESULT
-Top-10 dGPredictor-disagreement subset: **UMA+truncation MAE 22** vs retrained-dGP 61, and better
-than AIMNet2 (27) / xtb-ALPB (32). Figure `figures/qm_vs_dgpredictor_top10.png` (3 series;
-old MACE-POLAR QC composite removed). Roadmap: (1) beat dGP on hard cases DONE ->
-(2) validate full-367 (RUNNING) -> (3) extend to ModelSEED.
+## KEY MEASURED FINDINGS
+- **Baseline MAE 29.1 kJ** (excl 4 garbage outliers; median 21.9). By class: Mg/anion ~40-43 (pH-0 target),
+  clean 18.7, isomerase 6.6 (UNRESOLVED, ok), huge/floppy 49 (truncation).
+- **pH-0 helps every class except isomerase.** Gate = skip isomerase. Gated coherent MAE ~10 (partial).
+- **After pH-0, truncated ≈ full-molecule error (~9.6)** -> v2/radius-escalation is LOWER priority than
+  thought (pH-0 does the heavy lifting; the huge/floppy conformer noise mostly rides on anions pH-0 fixes).
+- **Mg: subsumed by pH-0** (no pMg data; exp_sd absorbs Mg variation; no systematic Mg bias). Mechanism
+  detector (phosphoanhydride SMARTS) finds 192 Mg-relevant vs flag's 89 (flag misses 103); 36 precise
+  (anhydride created/destroyed). Don't build explicit Mg unless a systematic-bias test demands it.
+- **DFT probe: glycosyl floor = REFERENCE ceiling not UMA** (DFT≈UMA +0.7 kJ) -> truncation+DFT DEAD.
+- **MCS vs RXNMapper (measured, IN PROGRESS):** neither best alone. RXNMapper unreliable on PHOSPHATE
+  (median conf 0.36, n=257) but reliable on non-phosphate (0.83, n=110); handles 43 splits MCS refuses.
+  BEST = confidence-gated HYBRID. `truncate_rxnmapper.py` built (works rxn00973; small-frag bug fixed for
+  water/hydrolysis). NEXT: finish coverage comparison + GPU ΔG on the differing rxns to set the gate
+  EMPIRICALLY (run both — cheap — decide by ΔG accuracy). Maps in artifacts/rxnmapper_maps.json.
 
-## FAILURE MAP (empirical, full-molecule baseline; structural flags in tecrdb367_failure_flags.json)
-huge/floppy 55% (MAE ~49, cancellation -> AUTO_TRUNCATE) | Mg-prone 24% (MAE 43 -> explicit-Mg,
-viable: hydration within 6%, binding TODO) | anion-change 16% (MAE 38 -> pH-0) | isomerase 15%
-(MAE 13, near-eq -> flag, concentration-limited) | clean 26%.
-
-## THE ONE FRONTIER LIMIT
-**C-X electronic floor** (glycosyl/nucleotidyl/thioester reactive bond, +16..+25 after truncation;
-real nucleotidyl rxn01675/01005 still -76/-39). UMA electronic error; AIMNet2≈UMA. Needs DFT/CC ->
-the DFT probe now running is the attack.
+## THE COHERENT ROUTER (the goal — mostly built, needs wiring)
+Per reaction, auto-route (no manual flags): truncate (MCS+radius-sensitivity, +RXNMapper-hybrid for splits)
+-> gated pH-0 (skip isomerase) -> UNRESOLVED flag (|ΔG|<U_samp) -> calibrated σ -> reduced-confidence tag
+for glycosyl/thioester (reference ceiling). Wiring = step 2 above + make AUTO_TRUNCATE+PH0_AUTO default.
 
 ## NEXT (priority)
-1. Read DFT probe result -> if it fixes rxn00605, build truncation+DFT-electronics hybrid.
-2. Full-367 table/analysis when done = step-2 validation number.
-3. AUTO_TRUNCATE hardening: real atom-mapper (RXNMapper) for the ~44% that fall back
-   (atom-splitting NTP->NDP+PPi, multi-coeff) -> would truncate + speed up most of them.
-4. Mg-phosphate binding (ligand-substitution; free -3 phosphate needs pH-0/explicit).
-
-## GPUs / ENVS
-uma env = `/homes/rzhu/miniforge3/envs/uma/bin/python` (pyscf 2.14 now installed there too).
-Launch pattern: `AUTO_TRUNCATE=1 RXN_FILE=... CONV_MAX=5 CUDA_VISIBLE_DEVICES=N setsid nohup
-<py> scripts/unified_pipeline.py --only <rxn> > log 2>&1 </dev/null &`. NEVER oversubscribe
-GPUs (1 job/GPU; OOM lesson) — use the strict-queue pattern in run_full367.sh.
+1. [pass done] gated analysis + wire gate + re-run garbage + calibrate σ (the 4 first-thing steps).
+2. Finish MCS-vs-RXNMapper: coverage + GPU ΔG on differing rxns -> empirical hybrid gate.
+3. Isodesmic/reference-reaction referencing = the untapped accuracy multiplier (scatter-dominated error).
+4. ModelSEED demo run (coherent pipeline on a sample of the 20,802, QM vs GCM).
+Everything pushed to Ray16/qm_metabolites_reaction_energy master.
