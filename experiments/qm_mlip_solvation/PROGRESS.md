@@ -5,7 +5,31 @@ state survives even if external notes are lost. Companion docs:
 `EXPLORATION_LOG.md` (full methodology + term-by-term ledgers), `README.md` (plan),
 `artifacts/*.json` (raw numbers). Last updated: 2026-08-15.
 
-## ▶ PICK UP HERE (as of 2026-08-15, three classes solved → move to next category)
+## ▶ PICK UP HERE (as of 2026-08-17 — error decomposition done → building generic CBH corrector)
+
+Full-pipeline TECRDB MAE 14.6 (pH-0 + COFACTOR_RING + truncation). MEASURED the error source
+(`tools/error_tail_analysis.py`, `mechanism_bias.py`, `error_source_decomp.py`; writeup
+`ERROR_SOURCE_DECOMP.md`):
+- **Undersampling RULED OUT** (96% of >20 tail well-sampled, σ<3), **floppy MINOR** (r~0.2).
+- **Charge imbalance real but route-specific** — ModelSEED already balances these
+  (`mass_charge_balance/landscape.tsv`); pipeline re-patches most. NOT the dominant residual.
+- **Dominant = bond-type REFERENCE errors** (sign-consistent, size-independent → physics not fitting):
+  deamination (amino-acid→keto+NH₄⁺) **−42.9 std 4.0**; NAD-alcohol +0.1 (NAD couple fine);
+  phosphagen P–N/Mg **+47**; ammonia-lyase −24; hydratase +15; phosphatase +14; glycosyl/thioester ceiling.
+- **VALIDATED (no GPU)** the fix is isodesmic-referenceable: deamination LOO-isodesmic 42.9→3.8,
+  cofactor-cancelled difference reactions MAE 7.5; phosphagen difference MAE 8.4 (excl taurocyamine).
+  Phosphagen "pH-0 erases Mg" REFUTED (baseline worse) → residual is genuine P–N/Mg physics.
+
+**NOW BUILDING: generic experiment-free CBH-2 isodesmic corrector** (`scripts/cbh_correct.py`,
+`CBH_PLAN.md`). Phase 1 DONE + proven: decomposition balances exactly (elements+H+charge), spectators
+cancel, 13/13 cluster reactions → a **26-molecule library** of 1–5-heavy-atom fragments dominated by the
+implicated ions ([NH4+], methyl-phosphate, [NH3+]P). Phase 2 (next): compute library δ =
+G_UMA-ALPB − G_microsolvated on the CHARGED fragments (explicit microsolvation of tiny isolated ions —
+sidesteps the water-bookkeeping wall). Phase 3: verify Δcorr reproduces −43 & collapses cluster to ~4
+from COMPUTED anchors; Phase 4: held-out generality (phosphagen/lyase) + guard that already-good
+clusters (alcohol-DH) stay ~0. Gates in CBH_PLAN.md.
+
+## ▶ (superseded 2026-08-15, three classes solved → move to next category)
 Redox (err ~3) and glycosyl (err ~13, COSMO) work on implicit solvation; NUCLEOTIDYL
 (PPi over-solvated by continuum) SOLVED with explicit first-shell waters. Efficiency
 fixed and occupancy self-selection ABANDONED. Next: a new reaction category.

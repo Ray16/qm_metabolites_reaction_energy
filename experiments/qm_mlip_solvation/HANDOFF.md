@@ -19,16 +19,32 @@ huge/floppy 26%, clean 24%, isomerase 10%, anion 17%. Mechanistic drivers:
 - **Glycosyl** (orotate PRTase +49) — N-glycosidic electronic ceiling.
 - **Reductive-amination DHs** (alanine/alanopine DH) — NAD redox + C=O->C-NH2 double transform.
 
-## FIRST THING NEXT SESSION — the path forward (priority)
-1. **Extend canonical cofactor cores to FAD + CoA** (`scripts/cofactor_truncate.py` COUPLES table — one
-   row each, same recipe as the validated nicotinamide/cysteine). Biggest lever: attacks the thioester
-   (55%) + flavin-redox tail; FAD/CoA are among the most common cofactors (free at scale). Validate like
-   the ring-cofactor (build reactions_*.json, GPU run, compare vs logs/ph0_sweep).
-2. **Glycosyl electronic ceiling** -> DLPNO-CCSD(T) on the truncated core (affordable now).
-3. **Mg-phosphagen kinases** -> the P-N + Mg sub-class.
-4. **Calibrate uncertainty.py SIGMA_CLASS** from the final per-class residuals.
-5. Re-run sweep with COFACTOR_RING=1 (now default in ph0_worker.sh) for a clean single aggregate.
-6. General localizer (localize.py) -> symmetry-robust atom mapping to retire the curated table (GENERALITY.md).
+## FIRST THING NEXT SESSION — GENERIC CBH CORRECTOR (supersedes the FAD/CoA-first plan)
+
+**Error-source decomposition (2026-08-17) reordered the roadmap.** Measured (not guessed): undersampling
+RULED OUT (96% of tail well-sampled), floppy MINOR (r~0.2), charge-imbalance route-specific (ModelSEED
+already balances these). The dominant residual is **bond-type REFERENCE errors** — sign-consistent,
+size-independent = fixable by PHYSICS (isodesmic referencing), not fitting. Key numbers: deamination
+(amino-acid→keto+NH₄⁺) −42.9 std 4.0; NAD-alcohol +0.1 (NAD couple is FINE); phosphagen P–N/Mg +47;
+ammonia-lyase −24; hydratase +15; phosphatase +14. Full writeup `ERROR_SOURCE_DECOMP.md`;
+tools/{error_tail_analysis,mechanism_bias,error_source_decomp}.py. FAD/CoA cores fix SCATTER in
+thioester/flavin — NOT these systematic reference errors → deprioritised.
+
+The user wants a fix that is **generic + experiment-free** (no TECRDB fitting). Building it:
+
+1. **CBH-2 generic isodesmic corrector** (`scripts/cbh_correct.py` + `CBH_PLAN.md`). ΔG_corr = ΔG_UMA +
+   Σ_frag n·[G_high(frag) − G_UMA(frag)] over a small precomputed library. **Phase 1 DONE + proven**:
+   decomposition balances exactly, spectators cancel, 13/13 cluster rxns → 26-molecule library of tiny
+   ions ([NH4+], methyl-phosphate, [NH3+]P) + 6 strained ring fragments to verify. Validated cancellable:
+   deamination LOO-isodesmic 42.9→3.8, difference-rxn MAE 7.5; phosphagen difference 8.4.
+   - **Phase 2**: library δ via **explicit microsolvation of the CHARGED fragments** (tiny isolated ions;
+     G_UMA-ALPB − G_microsolv). Root-cause targeted (ion solvation), sidesteps the water-bookkeeping wall.
+   - **Phase 3**: verify Δcorr reproduces −43 & collapses deamination to ~4 from COMPUTED anchors.
+   - **Phase 4**: held-out generality (phosphagen/ammonia-lyase); GUARD that already-good clusters
+     (alcohol-DH ~0) are not moved. If it can't beat predict-shared-mean on held-out classes, it is not
+     adding physics — do not ship (memory: fitted species-corrections die at grouped-CV R²=0.177).
+2. (deferred) Glycosyl electronic ceiling -> DLPNO on truncated core. FAD/CoA cores for thioester scatter.
+3. Calibrate uncertainty.py SIGMA_CLASS from final per-class residuals; re-run sweep with COFACTOR_RING=1.
 
 ## DONE THIS SESSION (2026-08-16/17, all committed+pushed, master)
 - **pH-0 wired + guarded**: isomerase gate + H-mass-balance guard in unified_pipeline/ph0_auto (the guard

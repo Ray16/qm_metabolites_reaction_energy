@@ -417,3 +417,31 @@ Sweep now spans ~37 GPUs (lambda0/1/5/6, claim-based mkdir locks, preflight + ci
 Node-local envs differ (lambda5 py3.11 lacked rdkit; lambda5+6 lacked the xtb env) — fixed. Genericity
 audit: all pKa's are textbook functional-group constants assigned by SMARTS (not fitted to any ΔG); NO
 code branches on reaction/species identity; removed the shrinkage + min_conserved_frac magic numbers.
+
+---
+## 2026-08-17 — Error-source decomposition + generic CBH corrector (Phase 1)
+
+**Decomposition (tools/error_tail_analysis, mechanism_bias, error_source_decomp; ERROR_SOURCE_DECOMP.md).**
+Measured the source of the 14.6 kJ full-pipeline MAE, not guessed:
+- Undersampling RULED OUT: 96% of the >20 tail well-sampled (max per-species σ<3, U_samp~2-3);
+  corr(|err|,σ)=0.13. rxn00184 σ~1.1 yet 43 off.
+- Floppy MINOR: corr(|err|,rotbonds)=0.23 — cofactor-core truncation already removed the floppy tails.
+- Charge imbalance real but route-specific (corr 0.10). ModelSEED already balances these
+  (mass_charge_balance/landscape.tsv: 138/142 OK); defect is the thermo builder, pipeline re-patches most.
+- DOMINANT = bond-type REFERENCE errors (sign-consistent, size-independent → physics not fitting):
+  deamination (amino-acid→keto+NH4+) -42.9 std 4.0; NAD-alcohol +0.1 (NAD couple FINE); phosphagen P-N/Mg
+  +47; ammonia-lyase -24; hydratase +15; phosphatase +14 (Pi dianion under-solv); glycosyl/thioester ceiling.
+
+**Validation, no GPU:** deamination LOO-isodesmic 42.9→3.8; cofactor-cancelled difference reactions (real
+transaminases, from logged per-species G) MAE 7.5; phosphagen difference MAE 8.4 (excl taurocyamine
+sulfonate outlier). Phosphagen "pH-0 erases Mg" REFUTED — baseline is WORSE (49-118 vs 44-77); the +47 is
+genuine P-N/Mg physics ON TOP of a correct pH-0.
+
+**Generic CBH-2 corrector (scripts/cbh_correct.py, CBH_PLAN.md) — experiment-free, no TECRDB fitting.**
+δ(M)=Σ_atoms atom-frag − Σ_bonds bond-frag; ΔG_corr = ΔG_UMA + Σ_frag n·[G_high−G_UMA]. CBH-2 keeps
+carboxylate/phosphate/guanidinium/ammonium intact (charge/resonance never split). Phase 1 PROVEN:
+per-molecule + reaction balance gate passes (elements+H+charge); spectators (adenine/ribose) cancel;
+13/13 cluster rxns → a 26-molecule library of 1-5 heavy-atom fragments dominated by the implicated ions
+([NH4+], methyl-phosphate, [NH3+]P) + 6 strained ring fragments (iminium/enamine from Kekulizing
+nicotinamide) flagged to verify. Next: Phase 2 library δ via explicit microsolvation of the CHARGED
+fragments (tiny isolated ions — sidesteps the water-bookkeeping wall); GUARD that alcohol-DH stays ~0.
