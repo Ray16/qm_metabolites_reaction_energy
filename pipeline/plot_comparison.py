@@ -75,10 +75,6 @@ def main():
     ax.set_xticks(x)
     ax.set_xticklabels([f"{r}\n{c}" for r, c, _ in RXNS], fontsize=9)
     ax.legend(frameon=False, ncol=2, loc="upper left", fontsize=8.5)
-    cap = ("Cherry-picked disagreement subset (NOT representative). Pipeline = pH-0 anion routing + "
-           "canonical cofactor cores (NAD ring / GSH thiol) + spectator truncation. Unbiased full-367 "
-           "MAE: retrained-dGP 5.7, standard-dGP 3.0, eQuilibrator 3.0. error bars = TECRDB sd; n=1 = single.")
-    ax.text(0.0, -0.20, cap, transform=ax.transAxes, ha="left", fontsize=7.6, color="gray")
     ax.spines[["top", "right"]].set_visible(False)
     fig.tight_layout()
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
