@@ -1,28 +1,50 @@
 # HANDOFF — QM reaction-ΔG pipeline (read PIPELINE_REFERENCE.md + EXPLORATION_LOG.md for depth)
 
-## RUNNING NOW (survives session end)
-- **pH-0 full-367 pass** (`tools/ph0_worker.sh` + `launch_ph0.sh`, ~37 GPUs lambda0/1/5/6): AUTO_TRUNCATE
-  (v1) + PH0_AUTO on all 367 -> logs/ph0_sweep/. **~101/367 done** when this was written. Verified
-  CORRECT (reproduces hand-validation: rxn00695 err +0.3, rxn10427 +4.8, n_H+=0). Completion monitor
-  was set at >=360 done. lambda5 T4s OOM on big cofactors + circuit-break (self-heals: big rxns go to
-  V100; relaunch idle lambda5 workers with `launch_ph0.sh` if throughput drops).
-- Baseline sweep (implicit-anion) already COMPLETE in logs/full367/ (365/367; 2 carnitine failures).
+## STATE (2026-08-17)
+- **pH-0 full-367 sweep COMPLETE** (364/367 in logs/ph0_sweep/; 3 stragglers won't finish, fine).
+  Baseline in logs/full367/. Redox 94-run in logs/ringcofactor/ (89/94).
+- **FULL PIPELINE accuracy (pH-0 + COFACTOR_RING + truncation), 361 rxns:**
+  baseline 29.1 -> pH-0-gated 20.0 -> **+cofactor-ring 15.3 kJ MAE** (median ~10, **bias ~0 = unbiased,
+  scatter-limited**). Redox class 35.5 -> 16.5 via the ring (pH-0 alone does NOTHING for redox).
+- **vs dGPredictor (retrained), 354 rxns:** UMA MAE 14 / med 10 vs dGP MAE 5 / med 2. UMA NOT yet
+  competitive on TECRDB (expected — dGP is trained on it); UMA's value is frontier coverage. See the
+  error histogram `figures/error_histogram_uma_vs_dgp.png` (tools/make_error_histogram.py).
 
-## FIRST THING NEXT SESSION — when pH-0 pass completes
-A background poller (`tasks/bhcqgcw06`) fires when >=360 reactions have a final ΔG (or on a ~1h stall).
-Steps 2 & 3 below are DONE (2026-08-16); remaining is the final analysis + σ calibration.
-1. `python tools/ph0_final_analysis.py`  -> the GATED coherent MAE vs baseline vs TECRDB, per class.
-   Partial (121 done, 2026-08-16): baseline 25.7 -> **gated coherent 12.5 kJ** (huge/floppy 45.9->11.9,
-   clean 21->14, anion 57->27; will settle as hard rxns finish). |err|<10 at 51%.
-2. [DONE] **Isomerase gate WIRED** into unified_pipeline PH0_AUTO block (`is_isomerization` skip).
-   BONUS: added an **H-mass-balance guard** to `build_ph0_reaction` — refuses pH-0 (->baseline) when the
-   neutralised reaction is not H-balanced at n_H+=0. This is what produced the +-1150 kJ "garbage": all 21
-   were net-proton-exchange (NAD(P)/GSH redox, deamination) where forcing n_H+=0 drops one proton (~1170 kJ).
-   Guard refuses all 21, keeps the validated phosphate class, and the 4 previously-"good" refused rxns had
-   baseline==pH0 (pH-0 was a no-op) -> ZERO accuracy cost. So step 3 (re-run garbage) is now AUTOMATIC.
-3. [SUBSUMED by the guard] The 21 pH-0 "garbage" now self-route to baseline. Only genuine BASELINE
-   sampling-fails remain (rxn01407, rxn01725 carnitine/NADH_t) — low priority, orthogonal to pH-0.
-4. **Calibrate uncertainty.py SIGMA_CLASS** from the final per-class residuals (esp. `anion` 47->~18).
+## THE >20 kJ TAIL = the roadmap (26% of rxns, 92/357; tools + worst offenders in EXPLORATION_LOG)
+By class in tail: **thioester 55%** (CoA still uncored), **glycosyl 50%** (electronic ceiling),
+huge/floppy 26%, clean 24%, isomerase 10%, anion 17%. Mechanistic drivers:
+- **CoA thioesters** (acetaldehyde DH etc.) — the full CoA rides along like NAD did.
+- **Flavin redox** (dihydroorotate DH +92) — COFACTOR_RING is nicotinamide-only, no FAD yet.
+- **Phosphagen kinases** (taurocyamine/lombricine, P-N + Mg).
+- **Glycosyl** (orotate PRTase +49) — N-glycosidic electronic ceiling.
+- **Reductive-amination DHs** (alanine/alanopine DH) — NAD redox + C=O->C-NH2 double transform.
+
+## FIRST THING NEXT SESSION — the path forward (priority)
+1. **Extend canonical cofactor cores to FAD + CoA** (`scripts/cofactor_truncate.py` COUPLES table — one
+   row each, same recipe as the validated nicotinamide/cysteine). Biggest lever: attacks the thioester
+   (55%) + flavin-redox tail; FAD/CoA are among the most common cofactors (free at scale). Validate like
+   the ring-cofactor (build reactions_*.json, GPU run, compare vs logs/ph0_sweep).
+2. **Glycosyl electronic ceiling** -> DLPNO-CCSD(T) on the truncated core (affordable now).
+3. **Mg-phosphagen kinases** -> the P-N + Mg sub-class.
+4. **Calibrate uncertainty.py SIGMA_CLASS** from the final per-class residuals.
+5. Re-run sweep with COFACTOR_RING=1 (now default in ph0_worker.sh) for a clean single aggregate.
+6. General localizer (localize.py) -> symmetry-robust atom mapping to retire the curated table (GENERALITY.md).
+
+## DONE THIS SESSION (2026-08-16/17, all committed+pushed, master)
+- **pH-0 wired + guarded**: isomerase gate + H-mass-balance guard in unified_pipeline/ph0_auto (the guard
+  refuses net-proton redox/deamination -> baseline, killing the +-1150 kJ garbage at zero cost).
+- **COFACTOR_RING** (`cofactor_truncate.py`, table-driven canonical cores): NAD(P) ring + GSH cysteine-thiol,
+  couples COMPOSE (glutathione reductase +34.7->+19.2 auto). Redox class 35.5->16.5. Now default in worker.
+- **localize.py** general MCS localizer (works on substrates, fails on symmetric cofactors -> why table needed).
+  **GENERALITY.md** = path to a fully general localizer.
+- **glycosyl reclassification** (is_glycosyl_transfer): anion class was contaminated by phosphoribosyltransferases;
+  pure anion is 5.6 kJ, glycosyl (electronic ceiling) 26.
+- **truncate.py naming-scramble bug FIXED** (pair_by_mcs reorder -> mislabeled cores in logs; ΔG unaffected).
+- **DECK** `slides/pipeline_talk.pdf` (~15 slides): pipeline story + slide 12 = dGPredictor head-to-head with
+  localized reaction schemes (A+B<=>C+D, gold-highlighted reacting bonds via reasoned per-type SMARTS) +
+  per-class MAE + before/after scatter. Figures via make_deck_figures.py, plot_comparison_schemes.py,
+  update_top10_json.py, make_error_histogram.py. KEEP UPDATED on new results (memory: update-slides-on-new-results).
+- Code reorg: 21 one-offs -> backup/qm_exploration_scripts/; README_MODULES.md; REFACTOR_PLAN.md.
 
 ## CODE REORG (2026-08-16, committed)
 - `scripts/` now holds ONLY the 12 production modules; 21 exploration one-offs moved to

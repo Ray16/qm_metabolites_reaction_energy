@@ -70,6 +70,20 @@ Terse DECISIONS only (not an experiment log — results/status live in
   (fast/UMA-Hessian pins at cap; GFN2 --ohess bounces 4/6/4 for a −2 phosphate) AND
   irrelevant to ΔG (insensitive to n, waters cancel). Charge-balanced fixed count
   (n=WPC·|charge|, step7b) still valid for charge-conserving reactions.
+- **Coherent auto-router (all opt-in flags, all SELF-GATING, all default-on for production):**
+  AUTO_TRUNCATE (spectator truncation, radius-sensitivity + mass-balance guarded, falls back to full) ->
+  COFACTOR_RING (`cofactor_truncate.py` canonical cores: NAD(P) nicotinamide ring + GSH cysteine-thiol,
+  table-driven, couples compose) -> PH0_AUTO (`ph0_auto.py`: neutral-species QM + exact-Alberty pKa;
+  gated OFF for isomerases via is_isomerization; REFUSED -> baseline by an H-mass-balance guard when the
+  neutralised reaction isn't H-balanced at n_H+=0, which kills the ±1150 kJ net-proton-redox garbage).
+  Each gate makes "always on" safe (gated ≥ baseline). Order: cofactor-ring BEFORE truncate BEFORE pH-0.
+- **Cofactor ring-truncation (the redox fix):** the NAD −49 kJ bias is the floppy full-cofactor tail
+  (not anion solvation — pH-0 alone does nothing for redox). Replace NAD(P)+/H with 1-methylnicotinamide
+  ±dihydro, GSH/GSSG with capped-cysteine thiol/disulfide — ISODESMIC (tail cancels), experiment-free.
+  Redox class 35.5 -> 16.5. TODO: add FAD (flavin) + CoA (pantetheine-thioester) rows -> attacks the tail.
+- **CURRENT ACCURACY (2026-08-17, 361 TECRDB):** baseline 29.1 -> pH-0-gated 20.0 -> +cofactor-ring
+  **15.3 kJ MAE** (median ~10, bias ~0 = unbiased, SCATTER-limited). vs retrained-dGP MAE 5 (trained on
+  TECRDB). |err|>20 tail = 26%, dominated by CoA-thioester(55%)/glycosyl(50%)/flavin/Mg-phosphagen.
 
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
