@@ -26,6 +26,25 @@ glycosyl anomeric (neutral stereoelectronic) have no ionisable proton -> untouch
 species unchanged for those; those stay on the DFT-electronics frontier).
 """
 from rdkit import Chem
+from rdkit.Chem import rdMolDescriptors as _rdMD
+
+
+def is_isomerization(species):
+    """GATE for pH-0: True if the reaction is an ISOMERIZATION (every reactant molecular-formula
+    has a matching product formula -> a rearrangement with conserved anionic groups). pH-0 must be
+    SKIPPED for these -- there's no anion-solvation change to fix, so neutralising the (spectator)
+    anions only injects neutral-vs-anion sampling noise (validated: pH-0 hurts isomerases). General
+    structural rule (no flags / no reaction-id) -> works on ModelSEED too. Wire into the pipeline as:
+        if os.environ.get("PH0_AUTO") and not is_isomerization(rx["species"]) and not rx.get("pka_sites"):
+    """
+    def formula(s):
+        m = Chem.MolFromSmiles(s)
+        return _rdMD.CalcMolFormula(m) if m else None
+    R = [formula(s) for c, q, s in species.values() if c < 0 for _ in range(abs(int(c)))]
+    P = [formula(s) for c, q, s in species.values() if c > 0 for _ in range(abs(int(c)))]
+    if None in R or None in P:
+        return False
+    return sorted(R) == sorted(P)
 
 # ---- textbook functional-group pKa's (experimental; NOT fitted to any dG) ---------------------
 # Each entry: the pKa of REMOVING one proton from the neutral acid at that site.
