@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(THERMO, "experiments", "qm_mlip_solvation", "scr
 from cofactor_truncate import cofactor_ring
 from truncate import mcs_atom_map, reaction_center
 
-HL = (1.0, 0.50, 0.05)                                      # orange highlight for the transformation
+HL = (0.95, 0.75, 0.12)                                     # gold highlight for the transformation
 
 # Curated transformation motifs: the specific bond/atoms that form or break in each reaction TYPE.
 # Reliable (no fragile MCS): a small SMARTS per motif marks exactly the reacting center, symmetric on
