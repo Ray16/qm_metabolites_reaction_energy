@@ -1,0 +1,163 @@
+{
+ "rxn00552": {
+  "exp": [
+   4.89
+  ],
+  "exp_sd": 0,
+  "EC": "5.3.1.10",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00552 glucosamine-6-phosphate isomerase | flags=CLEAN(tractable)",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "D-Glucosamine phosphate": [
+    -1,
+    -1,
+    "[NH3+][C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "D-fructose-6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+   ]
+  }
+ },
+ "rxn00692": {
+  "exp": [
+   6.07
+  ],
+  "exp_sd": 0.75,
+  "EC": "2.1.2.1",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00692 glycine hydroxymethyltransferase | flags=huge/floppy",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Glycine": [
+    -1,
+    0,
+    "[NH3+]CC(=O)[O-]"
+   ],
+   "5-10-Methylenetetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21"
+   ],
+   "L-Serine": [
+    1,
+    0,
+    "[NH3+][C@@H](CO)C(=O)[O-]"
+   ],
+   "Tetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ]
+  }
+ },
+ "rxn00930": {
+  "species": {
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "L-Proline": [
+    -1,
+    0,
+    "O=C([O-])[C@@H]1CCC[NH2+]1"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "1-Pyrroline-2-carboxylate": [
+    1,
+    -1,
+    "O=C([O-])C1=NCCC1"
+   ]
+  },
+  "exp": [
+   13.95
+  ],
+  "n_Hplus": 2,
+  "note": "TECRDB rxn00930 pyrroline-2-carboxylate reductase | flags=Mg-prone(NTP/PPi),huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn52014": {
+  "exp": [
+   20.18
+  ],
+  "exp_sd": 0,
+  "EC": "3.5.1.a",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn52014 anandamide amidohydrolase | flags=anion-count-change,huge/floppy",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Palmidrol": [
+    -1,
+    0,
+    "CCCCCCCCCCCCCCCC(=O)NCCO"
+   ],
+   "Aminoethanol": [
+    1,
+    1,
+    "[NH3+]CCO"
+   ],
+   "Palmitate": [
+    1,
+    -1,
+    "CCCCCCCCCCCCCCCC(=O)[O-]"
+   ]
+  }
+ },
+ "rxn01579": {
+  "species": {
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "L-Pipecolate": [
+    -1,
+    0,
+    "O=C([O-])[C@@H]1CCCC[NH2+]1"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "delta1-Piperideine-2-carboxylate": [
+    1,
+    -1,
+    "O=C([O-])C1=NCCCC1"
+   ]
+  },
+  "exp": [
+   11.73
+  ],
+  "n_Hplus": 2,
+  "note": "TECRDB rxn01579 1-piperidine-2-carboxylate reductase | flags=Mg-prone(NTP/PPi),huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ }
+}

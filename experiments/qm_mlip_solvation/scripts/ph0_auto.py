@@ -199,8 +199,18 @@ def _neutralize(smi):
 # emits a base pKa term using the EXACT Alberty form for a base: -RT ln(1+10^(pKa-pH)) (protonated
 # form favoured below pKa), the mirror of the acid form -RT ln(1+10^(pH-pKa)).
 AMMONIA_PKA = 9.25          # NH4+/NH3
-AMINE_PKA = 9.7             # primary alkyl / alpha-amino-acid -NH3+  (~9.5-10.6; 9.7 typical)
+AAA_AMINE_PKA = 9.60        # alpha-amino-acid -NH3+ (electron-withdrawing COOH lowers it, ~9.1-9.9)
+PRIMARY_AMINE_PKA = 10.6    # plain primary aliphatic amine
+IMIDAZOLE_PKA = 6.5         # histidine imidazolium (straddles pH 7)
 GUANIDINIUM_PKA = 12.5      # arginine/creatine guanidinium
+_ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+;H1,H2,H3][CX4][CX3](=O)[OX1,OX2]")  # N-C-COOH
+
+def _amine_pka(mol, n_idx):
+    """Per-environment base pKa for a protonated amine N. alpha-amino-acid amine (N on a C bearing a
+    carboxyl) ~9.6; plain primary amine ~10.6."""
+    aa_ns = {m[0] for m in mol.GetSubstructMatches(_ALPHA_AMINO_ACID)}
+    return AAA_AMINE_PKA if n_idx in aa_ns else PRIMARY_AMINE_PKA
+
 
 def _classify_cations(mol):
     """Every deprotonatable protonated-N cation: (atom_idx, pKa, kind). Quaternary/aromatic N with
@@ -218,12 +228,14 @@ def _classify_cations(mol):
         if any(nb.GetSymbol() == "C" and nb.GetIsAromatic() and nb.GetDegree() >= 3 for nb in heavy) \
            and a.GetTotalNumHs() == 0:
             continue
-        if in_guan:
+        if a.GetIsAromatic():                                 # imidazolium / aromatic N-H (his)
+            sites.append((a.GetIdx(), IMIDAZOLE_PKA, "base"))
+        elif in_guan:
             sites.append((a.GetIdx(), GUANIDINIUM_PKA, "base"))
         elif a.GetTotalNumHs() == 4 or (len(heavy) == 0):     # NH4+
             sites.append((a.GetIdx(), AMMONIA_PKA, "base"))
         else:
-            sites.append((a.GetIdx(), AMINE_PKA, "base"))
+            sites.append((a.GetIdx(), _amine_pka(mol, a.GetIdx()), "base"))
     return sites
 
 

@@ -1,0 +1,177 @@
+{
+ "rxn01211": {
+  "exp": [
+   -1.51
+  ],
+  "exp_sd": 5.62,
+  "EC": "3.5.4.9",
+  "n_Hplus": 1,
+  "explicit": false,
+  "note": "TECRDB rxn01211 methenyltetrahydrofolate cyclohydrolase | flags=huge/floppy",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "5-10-Methenyltetrahydrofolate": [
+    -1,
+    -1,
+    "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21"
+   ],
+   "10-Formyltetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ]
+  }
+ },
+ "rxn00686": {
+  "species": {
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "Tetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "Dihydrofolate": [
+    1,
+    -2,
+    "Nc1nc2c(c(=O)[nH]1)N=C(CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)CN2"
+   ]
+  },
+  "exp": [
+   18.84
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00686 dihydrofolate reductase | flags=Mg-prone(NTP/PPi),huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn02625": {
+  "exp": [
+   3.25
+  ],
+  "exp_sd": 0.44,
+  "EC": "4.3.1.2",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn02625 methylaspartate ammonia-lyase | flags=CLEAN(tractable)",
+  "species": {
+   "L-threo-3-Methylaspartate": [
+    -1,
+    -1,
+    "C[C@H](C(=O)[O-])[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Mesaconate": [
+    1,
+    -2,
+    "C/C(=C\\C(=O)[O-])C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn00302": {
+  "exp": [
+   5.8
+  ],
+  "exp_sd": 0,
+  "EC": "3.5.4.16",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00302 GTP cyclohydrolase I | flags=Mg-prone(NTP/PPi),huge/floppy",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "GTP": [
+    -1,
+    -3,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Formamidopyrimidine nucleoside triphosphate": [
+    1,
+    -3,
+    "Nc1nc(=O)c(NC=O)c(N[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)[nH]1"
+   ]
+  }
+ },
+ "rxn01792": {
+  "exp": [
+   6.65
+  ],
+  "exp_sd": 0.63,
+  "EC": "3.5.1.22",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn01792 pantothenase | flags=anion-count-change",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "PAN": [
+    -1,
+    -1,
+    "CC(C)(CO)[C@@H](O)C(=O)NCCC(=O)[O-]"
+   ],
+   "beta-Alanine": [
+    1,
+    0,
+    "[NH3+]CCC(=O)[O-]"
+   ],
+   "Pantoate": [
+    1,
+    -1,
+    "CC(C)(CO)[C@@H](O)C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn03137": {
+  "exp": [
+   9.25
+  ],
+  "exp_sd": 0,
+  "EC": "2.1.2.3",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn03137 phosphoribosylaminoimidazolecarboxamide  | flags=huge/floppy",
+  "species": {
+   "10-Formyltetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "AICAR": [
+    -1,
+    -2,
+    "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1N"
+   ],
+   "Tetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "FAICAR": [
+    1,
+    -2,
+    "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1NC=O"
+   ]
+  }
+ }
+}

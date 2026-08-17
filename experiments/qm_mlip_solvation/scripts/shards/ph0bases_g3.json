@@ -1,0 +1,188 @@
+{
+ "rxn00402": {
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "NAD": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "Octopine": [
+    -1,
+    0,
+    "C[C@@H]([NH2+][C@@H](CCCNC(N)=[NH2+])C(=O)[O-])C(=O)[O-]"
+   ],
+   "NADH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "L-Arginine": [
+    1,
+    1,
+    "NC(=[NH2+])NCCC[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "exp": [
+   31.52
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00402 D-octopine dehydrogenase | flags=huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn00347": {
+  "exp": [
+   12.87
+  ],
+  "exp_sd": 1.42,
+  "EC": "4.3.1.1",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00347 aspartate ammonia-lyase | flags=CLEAN(tractable)",
+  "species": {
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Fumarate": [
+    1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn00510": {
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "NAD": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "Saccharopine": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCCC[NH2+][C@@H](CCC(=O)[O-])C(=O)[O-])C(=O)[O-]"
+   ],
+   "NADH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "2-Oxoglutarate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "L-Lysine": [
+    1,
+    1,
+    "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "exp": [
+   36.58
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00510 saccharopine dehydrogenase (NAD+, L-lysi | flags=huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn00690": {
+  "exp": [
+   -9.58
+  ],
+  "exp_sd": 0,
+  "EC": "6.3.4.3",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00690 formate-tetrahydrofolate ligase | flags=Mg-prone(NTP/PPi),huge/floppy",
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Formate": [
+    -1,
+    -1,
+    "O=C[O-]"
+   ],
+   "Tetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "10-Formyltetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ]
+  }
+ },
+ "rxn00911": {
+  "exp": [
+   2.84
+  ],
+  "exp_sd": 0,
+  "EC": "2.1.2.7",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn00911 D-alanine 2-hydroxymethyltransferase | flags=huge/floppy",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "D-Alanine": [
+    -1,
+    0,
+    "C[C@@H]([NH3+])C(=O)[O-]"
+   ],
+   "5-10-Methylenetetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21"
+   ],
+   "Tetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "2-Methylserine": [
+    1,
+    0,
+    "CC([NH3+])(CO)C(=O)[O-]"
+   ]
+  }
+ }
+}

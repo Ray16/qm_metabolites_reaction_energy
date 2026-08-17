@@ -1,0 +1,162 @@
+{
+ "rxn01157": {
+  "exp": [
+   -8.28
+  ],
+  "exp_sd": 0.63,
+  "EC": "4.2.1.48",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn01157 D-glutamate cyclase | flags=anion-count-change",
+  "species": {
+   "D-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "5-Oxo-D-proline": [
+    1,
+    -1,
+    "O=C1CC[C@H](C(=O)[O-])N1"
+   ]
+  }
+ },
+ "rxn15964": {
+  "exp": [
+   -7.13
+  ],
+  "exp_sd": 0,
+  "EC": "2.1.2.1",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn15964 glycine hydroxymethyltransferase | flags=huge/floppy",
+  "species": {
+   "L-Serine": [
+    -1,
+    0,
+    "[NH3+][C@@H](CO)C(=O)[O-]"
+   ],
+   "H4MPT": [
+    -1,
+    -3,
+    "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N[C@H]1[C@@H](C)Nc1ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]2O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]2O)cc1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Glycine": [
+    1,
+    0,
+    "[NH3+]CC(=O)[O-]"
+   ],
+   "5,10-Methylenetetrahydromethanopterin": [
+    1,
+    -3,
+    "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N2CN(c3ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]4O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]4O)cc3)[C@H](C)[C@@H]12"
+   ]
+  }
+ },
+ "rxn03840": {
+  "exp": [
+   -4.66
+  ],
+  "exp_sd": 0,
+  "EC": "4.-",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn03840 4-aminobenzoate synthase | flags=CLEAN(tractable)",
+  "species": {
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "Chorismate": [
+    -1,
+    -2,
+    "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "ADC": [
+    1,
+    -1,
+    "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1[NH3+])C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn01018": {
+  "exp": [
+   -21.89
+  ],
+  "exp_sd": 0,
+  "EC": "2.1.3.2",
+  "n_Hplus": 1,
+  "explicit": false,
+  "note": "TECRDB rxn01018 aspartate carbamoyl-transferase | flags=CLEAN(tractable)",
+  "species": {
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "Carbamoylphosphate": [
+    -1,
+    -2,
+    "NC(=O)OP(=O)([O-])[O-]"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "N-Carbamoyl-L-aspartate": [
+    1,
+    -2,
+    "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn12217": {
+  "exp": [
+   -25.72
+  ],
+  "exp_sd": 2.57,
+  "EC": "4.3.-.-",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn12217 formaldehyde condensation with THF | flags=huge/floppy",
+  "species": {
+   "Formaldehyde": [
+    -1,
+    0,
+    "C=O"
+   ],
+   "Tetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "5-10-Methylenetetrahydrofolate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21"
+   ]
+  }
+ }
+}

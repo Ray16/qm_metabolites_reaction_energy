@@ -1,0 +1,176 @@
+{
+ "rxn00184": {
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "2-Oxoglutarate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ]
+  },
+  "exp": [
+   35.22
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00184 glutamate dehydrogenase (NADP+) | flags=Mg-prone(NTP/PPi),huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn00278": {
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "NAD": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "L-Alanine": [
+    -1,
+    0,
+    "C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "NADH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ]
+  },
+  "exp": [
+   24.4
+  ],
+  "n_Hplus": 1,
+  "note": "TECRDB rxn00278 alanine dehydrogenase | flags=huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ },
+ "rxn53944": {
+  "exp": [
+   -5.29
+  ],
+  "exp_sd": 1.28,
+  "EC": "4.1.3.27",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn53944 anthranilate synthase | flags=CLEAN(tractable)",
+  "species": {
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "Chorismate": [
+    -1,
+    -2,
+    "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "2-amino-2-deoxyisochorismic acid": [
+    1,
+    -1,
+    "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1[NH3+])C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn36656": {
+  "exp": [
+   -3.18
+  ],
+  "exp_sd": 0.38,
+  "EC": "3.5.1.14",
+  "n_Hplus": 0,
+  "explicit": false,
+  "note": "TECRDB rxn36656 aminoacylase | flags=anion-count-change",
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "N-Acetylmethionine": [
+    -1,
+    -1,
+    "CSCC[C@H](NC(C)=O)C(=O)[O-]"
+   ],
+   "Acetate": [
+    1,
+    -1,
+    "CC(=O)[O-]"
+   ],
+   "L-Methionine": [
+    1,
+    0,
+    "CSCC[C@H]([NH3+])C(=O)[O-]"
+   ]
+  }
+ },
+ "rxn00931": {
+  "species": {
+   "NADP": [
+    -1,
+    1,
+    "NC(=O)c1ccc[n+](C)c1"
+   ],
+   "L-Proline": [
+    -1,
+    0,
+    "O=C([O-])[C@@H]1CCC[NH2+]1"
+   ],
+   "NADPH": [
+    1,
+    0,
+    "NC(=O)C1=CN(C)C=CC1"
+   ],
+   "1-Pyrroline-5-carboxylate": [
+    1,
+    -1,
+    "O=C([O-])[C@@H]1CCC=N1"
+   ]
+  },
+  "exp": [
+   24.92
+  ],
+  "n_Hplus": 2,
+  "note": "TECRDB rxn00931 pyrroline-5-carboxylate reductase | flags=Mg-prone(NTP/PPi),huge/floppy [RINGCOFACTOR]",
+  "explicit": false
+ }
+}
