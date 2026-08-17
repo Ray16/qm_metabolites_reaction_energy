@@ -1,6 +1,25 @@
 # HANDOFF — QM reaction-ΔG pipeline (read PIPELINE_REFERENCE.md + EXPLORATION_LOG.md for depth)
 
-## STATE (2026-08-17)
+## STATE (2026-08-17, PM) — deamination/lyase SOLVED via pH-0 base extension
+- **pH-0 extended to CATIONS (`PH0_BASES`, `ph0_auto.build_ph0_reaction_v2`)** fixes the deamination −43
+  reference error from first principles: score NH₄⁺/zwitterion as NEUTRAL (NH₃/amino acid) + Alberty base
+  pKa. Validated: glutamate DH −43→−15, alanine −50→−6, leucine −39→+11, aspartase −26→+2. Experiment-free,
+  scalable, reuses machinery. Gated on amine C–N created/destroyed (guard: malate-DH no-ops). See
+  `LESSONS_LEARNED.md` Part IV + memory ph0-base-extension-deamination-fix. NOT yet default in worker
+  (refine diaminopent/histidine 2nd-N pKa + broad-validate first).
+- **CBH-2 corrector**: decomposition proven+scalable but microsolvation library DEAD (proton transfer);
+  superseded by pH-0-bases for the solvation classes. `cbh_correct.py` kept for the general decomposition.
+- **DLPNO glycosyl pilot GO** (`DLPNO_GLYCOSYL_PILOT.md`): −12.6 kJ correlation move on rxn01362 core,
+  error-correcting; scale the class overnight (cc-pVTZ + Boltzmann ensemble). DLPNO for ELECTRONIC classes
+  only (glycosyl/thioester), never the solvation-driven deamination/phosphagen.
+- Error-source decomposition done (`ERROR_SOURCE_DECOMP.md`): undersampling ruled out, floppy minor,
+  imbalance route-specific; dominant = bond-type reference errors, class-specific fixes above.
+
+### NEXT: (1) refine 2nd-N pKa for diaminopent/histidine; (2) sweep PH0_BASES over ALL amine-change
+reactions in TECRDB + guard the non-amine classes; (3) make PH0_BASES default if the sweep holds;
+(4) phosphagen +47 = P–N/Mg (test neutral-guanidinium + explicit Mg); (5) glycosyl DLPNO class run.
+
+## STATE (2026-08-17, AM)
 - **pH-0 full-367 sweep COMPLETE** (364/367 in logs/ph0_sweep/; 3 stragglers won't finish, fine).
   Baseline in logs/full367/. Redox 94-run in logs/ringcofactor/ (89/94).
 - **FULL PIPELINE accuracy (pH-0 + COFACTOR_RING + truncation), 361 rxns:**

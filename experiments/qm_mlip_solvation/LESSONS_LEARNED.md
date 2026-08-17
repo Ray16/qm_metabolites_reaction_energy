@@ -129,10 +129,35 @@ walks.** The library needs a PT-safe, uniformly-converging reference: DLPNO-CCSD
 no explicit water to accept the proton) or tabulated single-ion ΔG_solv. Decomposition kept; library
 method pivoted.
 
-## Part IV — The current frontier (2026-08-17)
-Error is scatter-limited but with sign-consistent *reference* errors per bond-type (deamination −43,
-phosphagen +47, hydratase +15, phosphatase +14). These are NOT sampling/floppy/imbalance — they are
-UMA reference errors on the created/destroyed small charged species. The generic, experiment-free fix
-being built: **CBH-2 isodesmic correction** (`cbh_correct.py`, `CBH_PLAN.md`) — decompose any reaction to
-a small library of tiny fragments (spectators cancel), correct the charged fragments' solvation by
-microsolvation, transfer to unseen reactions. Guard: it must NOT move the already-correct alcohol-DH class.
+## Part IV — Deamination/lyase SOLVED by extending pH-0 to bases (2026-08-17)
+The −43 deamination reference error was charged-species SOLVATION of the created NH₄⁺ and the destroyed
+α-amino-acid zwitterion. **Fix = extend the validated pH-0 route to CATIONS** (`ph0_auto.build_ph0_
+reaction_v2`, `PH0_BASES`): deprotonate NH₄⁺→NH₃, −NH₃⁺→−NH₂, guanidinium→guanidine to the neutral
+microspecies (UMA-comfortable), bridge back with the textbook base pKa via the Alberty MIRROR form
+−RT ln(1+10^(pKa−pH)); `n_H+ = −h_residual` carries the redox proton. Validated (GPU): glutamate DH
+−43→−15, alanine −50→−6, leucine −39→+11, aspartate ammonia-lyase −26→+2. Experiment-free (textbook
+pKa), scalable (analytic + neutral scoring), reuses proven machinery. The pKa arithmetic is only ~+2.6
+kJ — **the win is scoring the NEUTRAL species**, confirming the error was ion solvation not electronics.
+
+**Two lessons banked:**
+- *Gate on created/destroyed, not presence.* Neutralizing a SPECTATOR (matched both sides) injects
+  neutral-vs-ion sampling noise for zero benefit (malate-DH +23→+40 when it fired on spectator
+  carboxylates). Gate: fire only when a chargeable amine C–N bond is created/destroyed
+  (`_amine_cn_change`). Mirror of the anion-pH-0 created/destroyed logic.
+- *Match the SMARTS to the chemistry.* The first amine-gate SMARTS caught the NAD(P)H dihydropyridine
+  ring N (an enamine on sp² C, not basic) and mis-fired on malate-DH. Restrict to basic aliphatic amine
+  on sp³ C (`[CX4]-[NX3;H1,H2;!$(NC=O)]`).
+
+Residual outliers (fire but not fixed): diaminopentanoate DH (2 amines) and histidine ammonia-lyase
+(imidazole) — a SECOND ionizable N my uniform pKa mishandles → per-N-environment pKa refinement TODO.
+
+### CBH-2 microsolvation library — DEAD (see Part III½); pH-0-bases is the scalable replacement
+The generic CBH-2 *decomposition* was sound but its microsolvation *library* failed (proton transfer).
+pH-0-bases achieves the same physics (neutral-species scoring) WITHOUT a per-fragment library — analytic
+pKa instead of microsolvation, O(1) per reaction, no proton-transfer fragility. This is the scalable win.
+
+### Other frontier (parallel): glycosyl/thioester electronic ceiling
+DLPNO-CCSD(T) pilot (`DLPNO_GLYCOSYL_PILOT.md`): confirmed real electronic ceiling — DLPNO moves the
+rxn01362 core −12.6 kJ vs DFT (correlation, not solvation), error-correcting. GO for the class overnight
+(cc-pVTZ + Boltzmann ensemble). DLPNO reserved for these ELECTRONIC classes only; NOT for the
+solvation-driven deamination/phosphagen (where pH-0-bases / neutral-scoring is the right, scalable tool).
