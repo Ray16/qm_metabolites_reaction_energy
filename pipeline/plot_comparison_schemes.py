@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-"""Grouped bar chart on the dGPredictor-disagreement reactions, with each reaction's LOCALIZED-core
-scheme drawn above its bar (reactants over products -- two lines). 8 unique reactions (the 2 reversal
-duplicates are dropped; they carry no new chemistry). Localized cores = what the pipeline computes
-(cofactor cores shrink NAD/GSH); substrate reactions shown as-is. dpi 300, no baked-in captions.
+"""One reaction per ROW: the localized reaction scheme (A + B <=> C + D) on the left, its
+experiment / dGPredictor / pipeline bars on the right, same row. 8 unique reactions (the 2 reversal
+duplicates dropped). Localized cores = what the pipeline computes. dpi 300, no baked-in captions.
 """
 from __future__ import annotations
 import json, os, sys
@@ -11,10 +10,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from rdkit import Chem
-from rdkit.Chem import Draw
-from rdkit.Chem.Draw import rdMolDraw2D
+from rdkit.Chem import Draw, AllChem
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
@@ -22,64 +20,69 @@ sys.path.insert(0, os.path.join(THERMO, "experiments", "qm_mlip_solvation", "scr
 from cofactor_truncate import cofactor_ring
 
 DECK = os.path.join(THERMO, "experiments", "qm_mlip_solvation", "figures", "deck_top10_comparison.png")
-
 RXNS = [("rxn00086", "redox"), ("rxn00070", "redox"),
         ("rxn00605", "glycosyl"), ("rxn01713", "glycosyl"),
         ("rxn01834", "glyoxalase"), ("rxn00579", "glycosyl"),
         ("rxn01675", "nucleotidyl"), ("rxn01005", "nucleotidyl")]
-
 RXN_DB = json.load(open(os.path.join(THERMO, "experiments", "qm_mlip_solvation",
                                      "scripts", "reactions_tecrdb_all.json")))
+H = 300                                                     # common scheme-element height (px)
 
 
 def _trim(im):
-    """Crop transparent/white margins to reduce intra-scheme whitespace."""
-    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
-    diff = Image.alpha_composite(bg, im).convert("RGB")
     from PIL import ImageChops
-    bbox = ImageChops.difference(diff, Image.new("RGB", im.size, (255, 255, 255))).getbbox()
-    return im.crop(bbox) if bbox else im
+    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+    diff = ImageChops.difference(Image.alpha_composite(bg, im).convert("RGB"),
+                                 Image.new("RGB", im.size, (255, 255, 255))).getbbox()
+    return im.crop(diff) if diff else im
 
 
-def _row(smis, w_per=420, h=360):
-    """Render a horizontal row of molecules (localized cores) at high resolution + clean options."""
-    from rdkit.Chem import AllChem
-    mols = []
-    for s in smis:
-        m = Chem.MolFromSmiles(s)
-        if m is not None:
-            AllChem.Compute2DCoords(m)
-            mols.append(m)
-    if not mols:
-        return Image.new("RGBA", (w_per, h), (255, 255, 255, 0))
+def _mol(smi):
+    m = Chem.MolFromSmiles(smi)
+    if m is None:
+        return Image.new("RGBA", (H, H), (255, 255, 255, 0))
+    AllChem.Compute2DCoords(m)
     opts = Draw.rdMolDraw2D.MolDrawOptions()
-    opts.bondLineWidth = 2
-    opts.minFontSize = 22
-    opts.maxFontSize = 30
-    opts.padding = 0.06
-    img = Draw.MolsToGridImage(mols, molsPerRow=len(mols), subImgSize=(w_per, h),
-                               useSVG=False, drawOptions=opts).convert("RGBA")
-    return _trim(img)
+    opts.bondLineWidth = 3; opts.minFontSize = 26; opts.maxFontSize = 34; opts.padding = 0.05
+    img = _trim(Draw.MolToImage(m, size=(560, 460), options=opts).convert("RGBA"))
+    w = max(1, int(img.width * H / img.height))
+    return img.resize((w, H), Image.LANCZOS)
 
 
-def scheme_image(rid):
-    """Two-line localized scheme: reactant cores (top) over product cores (bottom)."""
-    sp = {n: tuple(v) for n, v in RXN_DB[rid]["species"].items()}
-    sp = cofactor_ring(sp)                                  # shrink NAD/GSH; no-op otherwise
+def _plus():
+    im = Image.new("RGBA", (70, H), (255, 255, 255, 0)); d = ImageDraw.Draw(im)
+    c = H // 2
+    d.line([(20, c), (50, c)], fill=(40, 40, 40, 255), width=6)
+    d.line([(35, c - 15), (35, c + 15)], fill=(40, 40, 40, 255), width=6)
+    return im
+
+
+def _arrow():
+    im = Image.new("RGBA", (120, H), (255, 255, 255, 0)); d = ImageDraw.Draw(im)
+    c = H // 2
+    d.line([(20, c - 9), (100, c - 9)], fill=(40, 40, 40, 255), width=5)      # top -> right
+    d.polygon([(100, c - 17), (100, c - 1), (112, c - 9)], fill=(40, 40, 40, 255))
+    d.line([(20, c + 9), (100, c + 9)], fill=(40, 40, 40, 255), width=5)      # bottom <- left
+    d.polygon([(20, c + 1), (20, c + 17), (8, c + 9)], fill=(40, 40, 40, 255))
+    return im
+
+
+def scheme_row(rid):
+    sp = cofactor_ring({n: tuple(v) for n, v in RXN_DB[rid]["species"].items()})
     react = [s for c, q, s in sp.values() if c < 0 for _ in range(abs(int(c)))]
     prod = [s for c, q, s in sp.values() if c > 0 for _ in range(abs(int(c)))]
-    top = _row(react); bot = _row(prod)
-    W = max(top.width, bot.width)
-    gap = 26
-    canvas = Image.new("RGBA", (W, top.height + bot.height + gap), (255, 255, 255, 0))
-    canvas.paste(top, ((W - top.width) // 2, 0), top)
-    canvas.paste(bot, ((W - bot.width) // 2, top.height + gap), bot)
-    # a downward arrow between the two lines
-    from PIL import ImageDraw
-    dr = ImageDraw.Draw(canvas)
-    cx, y0, y1 = W // 2, top.height + 3, top.height + gap - 3
-    dr.line([(cx, y0), (cx, y1)], fill=(60, 60, 60, 255), width=3)
-    dr.polygon([(cx - 6, y1 - 7), (cx + 6, y1 - 7), (cx, y1)], fill=(60, 60, 60, 255))
+    parts = []
+    for k, s in enumerate(react):
+        if k: parts.append(_plus())
+        parts.append(_mol(s))
+    parts.append(_arrow())
+    for k, s in enumerate(prod):
+        if k: parts.append(_plus())
+        parts.append(_mol(s))
+    W = sum(p.width for p in parts)
+    canvas = Image.new("RGBA", (W, H), (255, 255, 255, 0)); x = 0
+    for p in parts:
+        canvas.paste(p, (x, 0), p); x += p.width
     return canvas
 
 
@@ -90,42 +93,37 @@ def main():
            if not k.startswith("_")}
     ids = [r for r, _ in RXNS]
     E = np.array([exp[r] for r in ids])
-    series = [
-        ("TECRDB (experiment)", E, "#4C4C4C"),
-        ("dGPredictor (retrained-ModelSEED)", np.array([rtr[r]["dG_kJ"] for r in ids]), "#D1495B"),
-        ("UMA pipeline (pH-0 + cofactor cores + truncation)", np.array([cur[r] for r in ids]), "#2A9D8F"),
-    ]
+    # top-to-bottom within each row group: experiment, UMA pipeline, dGPredictor
+    series = [("TECRDB (experiment)", E, "#4C4C4C"),
+              ("UMA pipeline (pH-0 + cofactor cores + truncation)", np.array([cur[r] for r in ids]), "#2A9D8F"),
+              ("dGPredictor (retrained-ModelSEED)", np.array([rtr[r]["dG_kJ"] for r in ids]), "#D1495B")]
 
-    fig, ax = plt.subplots(figsize=(16, 8.4))
-    x = np.arange(len(ids)); width = 0.8 / len(series); off = (len(series) - 1) / 2.0
+    n = len(ids)
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(18, 10), width_ratios=[1.32, 1.0])
+    yrow = np.arange(n)[::-1]                               # first reaction at top
+    h = 0.24
     for i, (label, vals, color) in enumerate(series):
-        leg = label if label.startswith("TECRDB") else f"{label}   (subset MAE {np.mean(np.abs(vals - E)):.0f})"
-        ax.bar(x + (i - off) * width, vals, width, label=leg, color=color, edgecolor="white", linewidth=0.5)
-    # reserve an empty band at the bottom for the reaction schemes, so each scheme sits RIGHT
-    # ABOVE the x-axis line (bars above the band; x-axis line + labels below the band)
-    hi_bar = max(max(v) for _, v, _ in series)
-    lo_bar = min(min(v) for _, v, _ in series)
-    band_top = lo_bar - 10                                  # just below the deepest bar
-    band_h = 78
-    band_bot = band_top - band_h
-    band_ctr = (band_top + band_bot) / 2
-    ax.axhline(0, color="black", lw=0.8)
-    ax.set_ylim(band_bot - 2, hi_bar + 14)
-    ax.set_ylabel(r"$\Delta_r G'^{\circ}$ (kJ/mol)")
-    ax.set_yticks([t for t in range(-50, 101, 25)])         # label the data range, not the band
-    ax.set_xticks(x); ax.set_xticklabels([f"{r}\n{c}" for r, c in RXNS], fontsize=10)
-    ax.set_xlim(-0.5, len(ids) - 0.5)
-    ax.legend(frameon=False, ncol=2, loc="upper left", fontsize=9.5)
-    ax.spines[["top", "right"]].set_visible(False)
-    ax.spines["bottom"].set_position(("data", band_bot))    # x-axis line + labels BELOW the schemes
-    ax.spines["left"].set_bounds(-50, 100)                  # don't extend the y-spine into the band
-    # localized reaction scheme in the band, right above the x-axis line, under each column
-    for xi, (rid, _) in enumerate(RXNS):
-        im = scheme_image(rid)
-        zoom = 0.16 if im.width < 720 else 0.11
-        ab = AnnotationBbox(OffsetImage(im, zoom=zoom), (xi, band_ctr),
-                            frameon=False, xycoords="data", box_alignment=(0.5, 0.5))
-        ax.add_artist(ab)
+        off = (1 - i) * h                                  # i=0 exp -> +h (top), dGP -> -h (bottom)
+        leg = label if label.startswith("TECRDB") else f"{label}  (MAE {np.mean(np.abs(vals - E)):.0f})"
+        axR.barh(yrow + off, vals, h, color=color, edgecolor="white", linewidth=0.5, label=leg)
+    axR.axvline(0, color="black", lw=0.8)
+    axR.set_yticks([]); axR.set_ylim(-0.6, n - 0.4)
+    xmin = min(min(v) for _, v, _ in series); xmax = max(max(v) for _, v, _ in series)
+    axR.set_xlim(xmin - 6, xmax + 6)                       # tight padding -> less gap to the schemes
+    axR.set_xlabel(r"$\Delta_r G'^{\circ}$ (kJ/mol)")
+    axR.spines[["top", "right", "left"]].set_visible(False)
+    axR.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.01), fontsize=10, ncol=1)
+
+    axL.set_xlim(0, 1); axL.set_ylim(-0.6, n - 0.4); axL.axis("off")
+    for i, (rid, cat) in enumerate(RXNS):
+        y = yrow[i]
+        im = scheme_row(rid)
+        zoom = min(0.34, 980.0 / im.width * 0.34)          # fit width; consistent, legible height
+        ab = AnnotationBbox(OffsetImage(im, zoom=zoom), (0.0, y - 0.02),
+                            frameon=False, xycoords=("axes fraction", "data"), box_alignment=(0.0, 0.5))
+        axL.add_artist(ab)
+        axL.text(0.0, y + 0.40, f"{rid}  ({cat})", fontsize=10, color="#555", va="bottom", ha="left")
+    fig.subplots_adjust(wspace=0.0, left=0.01, right=0.995, top=0.93, bottom=0.06)
     os.makedirs(os.path.dirname(DECK), exist_ok=True)
     fig.savefig(DECK, dpi=300, bbox_inches="tight")
     print(f"wrote {DECK}")
