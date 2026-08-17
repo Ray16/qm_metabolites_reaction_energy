@@ -39,7 +39,7 @@ for rid in base:
 common = [r for r in base if r in ph0]
 cls = {r: pfa.rxn_class(r) for r in common}
 
-CLASSES = ["clean", "huge/floppy", "isomerase", "thioester", "anion"]
+CLASSES = ["clean", "huge/floppy", "isomerase", "glycosyl", "thioester", "anion"]
 # brand-neutral, colorblind-safe pair
 C_BASE, C_PIPE = "#9aa0a6", "#1a73e8"
 
@@ -76,7 +76,7 @@ plt.close(fig)
 pts = [(abs(base[r]), abs(coh[r]), cls[r]) for r in common]
 fig, ax = plt.subplots(figsize=(6.4, 6.0), constrained_layout=True)
 cmap = {"clean": "#1a73e8", "huge/floppy": "#d93025", "isomerase": "#188038",
-        "thioester": "#f9ab00", "anion": "#9334e6"}
+        "glycosyl": "#e8710a", "thioester": "#f9ab00", "anion": "#9334e6"}
 lim = 120
 ax.plot([0, lim], [0, lim], "--", color="#888", lw=1, zorder=1)
 ax.fill_between([0, lim], [0, lim], lim, color="#1a73e8", alpha=0.05, zorder=0)

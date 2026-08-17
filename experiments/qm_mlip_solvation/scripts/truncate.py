@@ -194,24 +194,36 @@ def build_truncated_reaction(species_dict, radius=2):
         return None
     res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius)
     caps = res["species"]
-    r_caps = [d["capped"] for d in caps if d["side"] == "reactant"]
-    p_caps = [d["capped"] for d in caps if d["side"] == "product"]
-    if len(r_caps) != len(R) or len(p_caps) != len(P):
+    if (sum(d["side"] == "reactant" for d in caps) != len(R)
+            or sum(d["side"] == "product" for d in caps) != len(P)):
         return None
     def chg(smi):
         m = Chem.MolFromSmiles(smi); return Chem.GetFormalCharge(m) if m else None
     def nH(smi):
         m = Chem.MolFromSmiles(smi); return sum(a.GetTotalNumHs() for a in m.GetAtoms()) if m else None
+    # Match each cap back to its ORIGINAL species by orig-SMILES, NOT by position: pair_by_mcs
+    # reorders species relative to the input dict, so a positional zip(R, r_caps) mislabels the
+    # cores (the ΔG sum is unaffected -- coeff+SMILES travel together -- but the logs were wrong,
+    # which sent an earlier debug chasing a phantom cache collision). Pop matches to handle
+    # duplicate SMILES on a side.
+    r_pool, p_pool = list(R), list(P)
     new = {}
     Hr = Hp = qr = qp = 0
-    for (n, _), cap in zip(R, r_caps):
+    for capd in caps:
+        side, orig, cap = capd["side"], capd["orig"], capd["capped"]
+        pool = r_pool if side == "reactant" else p_pool
+        idx = next((k for k, (nm, smi) in enumerate(pool) if smi == orig), None)
+        if idx is None:                                # cap's original not found -> ill-posed
+            return None
+        name, _ = pool.pop(idx)
         q = chg(cap); h = nH(cap)
         if q is None or h is None: return None
-        new[n + "_t"] = [-1, int(q), cap]; Hr += h; qr += q
-    for (n, _), cap in zip(P, p_caps):
-        q = chg(cap); h = nH(cap)
-        if q is None or h is None: return None
-        new[n + "_t"] = [1, int(q), cap]; Hp += h; qp += q
+        if side == "reactant":
+            new[name + "_t"] = [-1, int(q), cap]; Hr += h; qr += q
+        else:
+            new[name + "_t"] = [1, int(q), cap]; Hp += h; qp += q
+    if r_pool or p_pool:                               # every original must be matched exactly once
+        return None
     nHplus_H = Hr - Hp
     if nHplus_H != qr - qp:                            # truncated rxn not proton-consistent
         return None

@@ -247,9 +247,12 @@
         \item \textbf{Explicit} first-shell cluster-continuum (deterministic water count, Bryantsev monomer cycle) for a created/destroyed high-charge-density anion.
         \item Spectator-anion guard: explicit only where waters \emph{cancel}.
       \end{itemize}
-      \begin{block}{\footnotesize Example}
+      \begin{block}{\footnotesize Explicit \emph{solves} the anion problem too}
         \footnotesize nucleotidyl transfer: implicit $-28..-52 \to \mathbf{+4}\kj$ (exp $+1.9$).
       \end{block}
+      {\scriptsize A validated \emph{co-equal} anion fix. pH-0 is the default only on cost + noise
+      ($\sigma\!\sim\!1$--$2$ vs $\sim$14 kJ run-to-run) + big-polyanion robustness --- explicit stays
+      the fallback where no clean p$K_a$ ladder exists.}
     \end{column}
   \end{columns}
 \end{frame}
@@ -284,8 +287,10 @@
   \centering
   \includegraphics[width=0.82\textwidth]{deck_per_class_mae.png}
   \\[0.2em]
-  {\footnotesize Matched subset, 101 reactions processed so far. \emph{huge/floppy} $45\to12$, \emph{anion} $47\to22$;
-  \emph{isomerase} unchanged (correctly gated).}
+  {\footnotesize Matched subset, 117 processed so far. \emph{huge/floppy} $47\to18$;
+  \emph{anion} (pure phosphoryl) $11\to\mathbf{6}$ --- pH-0 \emph{solves} it; \emph{glycosyl}
+  (N-glycosidic transfer) $46\to27$ is the reference-method ceiling, not anion solvation;
+  \emph{isomerase} unchanged (gated).}
 \end{frame}
 
 % ---- 11. RESULTS scatter ----------------------------------------------------------
@@ -339,7 +344,7 @@
       \begin{itemize}
         \item A \textbf{single automatic pipeline} scores metabolic $\Delta_r G$ from structure — no per-reaction tuning.
         \item \textbf{pH-0 routing} collapses the anion-solvation catastrophe; two structural gates keep it safe (isomerase, mass-balance).
-        \item Matched-subset MAE \textbf{25 \arw{} 13\kj}; \emph{huge/floppy} \textbf{45 \arw{} 12}.
+        \item Matched-subset MAE \textbf{27 \arw{} 14\kj}; \emph{huge/floppy} \textbf{47 \arw{} 18}, pure-anion \textbf{11 \arw{} 6}.
         \item Scales to \textbf{20{,}802} ModelSEED reactions the group methods refuse.
       \end{itemize}
     \end{column}

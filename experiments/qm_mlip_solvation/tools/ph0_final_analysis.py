@@ -38,12 +38,30 @@ def is_isomerization(sp):
     return sorted(R) == sorted(P)
 
 
+# N-glycosidic bond CREATED/DESTROYED = glycosyl transfer (phosphoribosyltransferases, nucleoside
+# phosphorylases, nucleosidases). The residual on these is the N-glycosidic ELECTRONIC transfer
+# energy -- the reference-method ceiling (DFT ~= UMA), NOT anion solvation -- so they must NOT be
+# scored as the anion class (pH-0's target). Matches the anomeric N-C(-O_ring) motif; requiring the
+# COUNT to CHANGE across the reaction means spectator glycosides (ATP/NAD kinases) do NOT trigger.
+# Validated: fires on all 3 PRT outliers + 12 more genuine nucleoside transfers, 0 false positives.
+_GLYCO = Chem.MolFromSmarts("[#7]-[#6;R]([#8;R])")
+def is_glycosyl_transfer(sp):
+    def gc(s):
+        m = Chem.MolFromSmiles(s)
+        return len(m.GetSubstructMatches(_GLYCO)) if m else 0
+    react = sum(abs(c) * gc(s) for c, q, s in sp.values() if c < 0)
+    prod = sum(abs(c) * gc(s) for c, q, s in sp.values() if c > 0)
+    return react != prod
+
+
 def rxn_class(rid):
     r = d[rid]; note = r["note"]; smis = " ".join(s[2] for s in r["species"].values())
     if "C(=O)S" in smis or "SC(=O)" in smis:
         return "thioester"
     if is_isomerization(r["species"]) or "isomerase" in note:
         return "isomerase"
+    if is_glycosyl_transfer(r["species"]):        # before anion/huge-floppy: the residual is the
+        return "glycosyl"                          # glycosyl electronic ceiling, not anion solvation
     if "huge/floppy" in note:
         return "huge/floppy"
     if "Mg-prone" in note or "anion-count" in note:

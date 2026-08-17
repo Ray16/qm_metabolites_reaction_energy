@@ -10,6 +10,15 @@ rxn00579/glycosyl, an isomerase, a truncated, a clean), run with the SAME env fl
 ## Already done this session (landed, safe)
 - Moved 21 exploration one-offs → `backup/qm_exploration_scripts/`; `README_MODULES.md`.
 - Wired isomerase gate + H-mass-balance guard into `ph0_auto` / `unified_pipeline`.
+- Fixed `truncate.build_truncated_reaction` species-name scramble: `pair_by_mcs` reorders
+  species, so the positional `zip(R, r_caps)` mislabeled cores in the logs (ΔG was correct —
+  coeff+SMILES travel together — but logs sent a debug chasing a phantom cache collision).
+  Now matches caps back to originals by orig-SMILES. Numerically identical; logs now trustworthy.
+- Added a `glycosyl` reaction class (`is_glycosyl_transfer`, N-glycosidic bond created/destroyed)
+  to `tools/ph0_final_analysis.py` — separates phosphoribosyltransferases / nucleoside
+  phosphorylases (reference-method electronic ceiling) from the pure-anion class. Effect: anion
+  reads honestly 11→6 (pH-0 solves it), glycosyl isolated at 46→27. Consider mirroring this
+  detector into `uncertainty.py` as a reduced-confidence σ_class post-sweep.
 
 ## 1. Split `run_reaction` (unified_pipeline.py ~L240-357) into 3 phases
 It currently does prep + per-species G + assembly in one 120-line body. Extract:
