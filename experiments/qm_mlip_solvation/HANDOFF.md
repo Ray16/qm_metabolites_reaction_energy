@@ -9,15 +9,27 @@
 - Baseline sweep (implicit-anion) already COMPLETE in logs/full367/ (365/367; 2 carnitine failures).
 
 ## FIRST THING NEXT SESSION — when pH-0 pass completes
+A background poller (`tasks/bhcqgcw06`) fires when >=360 reactions have a final ΔG (or on a ~1h stall).
+Steps 2 & 3 below are DONE (2026-08-16); remaining is the final analysis + σ calibration.
 1. `python tools/ph0_final_analysis.py`  -> the GATED coherent MAE vs baseline vs TECRDB, per class.
-   Partial (41 done): baseline 26.5 -> **gated coherent 10.0 kJ** (will rise as hard rxns finish).
-2. **Wire the isomerase gate into the pipeline** (make it AUTOMATIC): in unified_pipeline.py PH0_AUTO
-   block, change the condition to `if os.environ.get("PH0_AUTO") and not is_isomerization(rx["species"])
-   and not rx.get("pka_sites"):` and `from ph0_auto import build_ph0_reaction, is_isomerization`.
-   (is_isomerization already added + validated; pH-0 HURTS isomerases -> must skip them.)
-3. **Re-run garbage/failed** with the gated pipeline: rxn01211, rxn01646, rxn01157 (pH-0 garbage),
-   rxn01407, rxn01725 (carnitine, NADH_t sampling-fail).
+   Partial (121 done, 2026-08-16): baseline 25.7 -> **gated coherent 12.5 kJ** (huge/floppy 45.9->11.9,
+   clean 21->14, anion 57->27; will settle as hard rxns finish). |err|<10 at 51%.
+2. [DONE] **Isomerase gate WIRED** into unified_pipeline PH0_AUTO block (`is_isomerization` skip).
+   BONUS: added an **H-mass-balance guard** to `build_ph0_reaction` — refuses pH-0 (->baseline) when the
+   neutralised reaction is not H-balanced at n_H+=0. This is what produced the +-1150 kJ "garbage": all 21
+   were net-proton-exchange (NAD(P)/GSH redox, deamination) where forcing n_H+=0 drops one proton (~1170 kJ).
+   Guard refuses all 21, keeps the validated phosphate class, and the 4 previously-"good" refused rxns had
+   baseline==pH0 (pH-0 was a no-op) -> ZERO accuracy cost. So step 3 (re-run garbage) is now AUTOMATIC.
+3. [SUBSUMED by the guard] The 21 pH-0 "garbage" now self-route to baseline. Only genuine BASELINE
+   sampling-fails remain (rxn01407, rxn01725 carnitine/NADH_t) — low priority, orthogonal to pH-0.
 4. **Calibrate uncertainty.py SIGMA_CLASS** from the final per-class residuals (esp. `anion` 47->~18).
+
+## CODE REORG (2026-08-16, committed)
+- `scripts/` now holds ONLY the 12 production modules; 21 exploration one-offs moved to
+  `backup/qm_exploration_scripts/` (gitignored, in git history). See `README_MODULES.md` for the map
+  and `REFACTOR_PLAN.md` for the deferred hot-path cleanup (split run_reaction, drop dead seeds params,
+  rename step4e_targeted->conformers / step7b->explicit_clusters) — DEFERRED until the sweep frees those
+  module names; includes a before/after identical-ΔG verification gate.
 
 ## WHAT WAS BUILT THIS SESSION (all committed + pushed, master)
 - **pH-0 auto-routing fix** (`ph0_auto.py` + PH0_AUTO): neutral-species QM + EXACT Alberty pKa transform

@@ -39,6 +39,10 @@ ModelSEED reactions. Rewrite to match `README_MODULES.md`.
 - `step7b_charge_balanced_waters.py` → `explicit_clusters.py` (exports `bare_geom`).
 Update the two `from ...import` lines in `unified_pipeline.py` + any tool refs in the
 same commit. (Deferred hardest because a half-applied rename breaks every worker.)
+Also **strip the vestigial `main()`** from both: they carry an old hardcoded
+single-reaction experiment driver (rxn00579 etc.) that is dead now that unified_pipeline
+is the sole entry point — reducing them to pure libraries makes unified_pipeline the
+unambiguous core (nothing else runs reactions end-to-end).
 
 ## 5. Factor the two env-gated auto-routing blocks
 `AUTO_TRUNCATE` and `PH0_AUTO` blocks share the shape: env-gate → try import → transform
