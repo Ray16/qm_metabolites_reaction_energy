@@ -11,13 +11,29 @@ import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
 from PIL import Image, ImageDraw
+from io import BytesIO
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
+from rdkit.Chem.Draw import rdMolDraw2D
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THERMO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(THERMO, "experiments", "qm_mlip_solvation", "scripts"))
 from cofactor_truncate import cofactor_ring
+from truncate import mcs_atom_map, reaction_center
+
+HL = (1.0, 0.80, 0.28)                                      # amber highlight for the transformation
+
+
+def _changed(mol, partners):
+    """Atoms of `mol` whose bonding changes vs its best-matching opposite-side molecule
+    (bond-order MCS) -- the reaction center, to highlight and guide the eye."""
+    best, bestn, bestmap = None, -1, None
+    for p in partners:
+        amap, nn = mcs_atom_map(mol, p)
+        if nn > bestn:
+            bestn, best, bestmap = nn, p, amap
+    return reaction_center(mol, bestmap, best) if best is not None else set()
 
 DECK = os.path.join(THERMO, "experiments", "qm_mlip_solvation", "figures", "deck_top10_comparison.png")
 RXNS = [("rxn00086", "redox"), ("rxn00070", "redox"),
@@ -37,14 +53,23 @@ def _trim(im):
     return im.crop(diff) if diff else im
 
 
-def _mol(smi):
-    m = Chem.MolFromSmiles(smi)
+def _mol(m, highlight=None):
+    if isinstance(m, str):
+        m = Chem.MolFromSmiles(m)
     if m is None:
         return Image.new("RGBA", (H, H), (255, 255, 255, 0))
     AllChem.Compute2DCoords(m)
-    opts = Draw.rdMolDraw2D.MolDrawOptions()
-    opts.bondLineWidth = 3; opts.minFontSize = 26; opts.maxFontSize = 34; opts.padding = 0.05
-    img = _trim(Draw.MolToImage(m, size=(560, 460), options=opts).convert("RGBA"))
+    hl = list(highlight or [])
+    hb = [b.GetIdx() for b in m.GetBonds()
+          if b.GetBeginAtomIdx() in hl and b.GetEndAtomIdx() in hl]
+    d = rdMolDraw2D.MolDraw2DCairo(560, 460)
+    o = d.drawOptions()
+    o.bondLineWidth = 3; o.minFontSize = 26; o.maxFontSize = 34; o.padding = 0.06
+    rdMolDraw2D.PrepareAndDrawMolecule(d, m, highlightAtoms=hl, highlightBonds=hb,
+                                       highlightAtomColors={a: HL for a in hl},
+                                       highlightBondColors={b: HL for b in hb})
+    d.FinishDrawing()
+    img = _trim(Image.open(BytesIO(d.GetDrawingText())).convert("RGBA"))
     w = max(1, int(img.width * H / img.height))
     return img.resize((w, H), Image.LANCZOS)
 
@@ -71,14 +96,18 @@ def scheme_row(rid):
     sp = cofactor_ring({n: tuple(v) for n, v in RXN_DB[rid]["species"].items()})
     react = [s for c, q, s in sp.values() if c < 0 for _ in range(abs(int(c)))]
     prod = [s for c, q, s in sp.values() if c > 0 for _ in range(abs(int(c)))]
+    rmol = [Chem.MolFromSmiles(s) for s in react]
+    pmol = [Chem.MolFromSmiles(s) for s in prod]
+    rhl = [_changed(m, [p for p in pmol if p]) if m else set() for m in rmol]   # transformation atoms
+    phl = [_changed(m, [r for r in rmol if r]) if m else set() for m in pmol]
     parts = []
-    for k, s in enumerate(react):
+    for k, m in enumerate(rmol):
         if k: parts.append(_plus())
-        parts.append(_mol(s))
+        parts.append(_mol(m, rhl[k]))
     parts.append(_arrow())
-    for k, s in enumerate(prod):
+    for k, m in enumerate(pmol):
         if k: parts.append(_plus())
-        parts.append(_mol(s))
+        parts.append(_mol(m, phl[k]))
     W = sum(p.width for p in parts)
     canvas = Image.new("RGBA", (W, H), (255, 255, 255, 0)); x = 0
     for p in parts:
@@ -99,7 +128,7 @@ def main():
               ("dGPredictor (retrained-ModelSEED)", np.array([rtr[r]["dG_kJ"] for r in ids]), "#D1495B")]
 
     n = len(ids)
-    fig, (axL, axR) = plt.subplots(1, 2, figsize=(18, 10), width_ratios=[1.32, 1.0])
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(18, 10), width_ratios=[1.08, 1.0])
     yrow = np.arange(n)[::-1]                               # first reaction at top
     h = 0.24
     for i, (label, vals, color) in enumerate(series):
