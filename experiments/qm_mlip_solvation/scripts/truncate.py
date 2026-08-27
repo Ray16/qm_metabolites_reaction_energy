@@ -14,13 +14,17 @@ Algorithm (deterministic):
   1. pair reactants<->products by maximum common substructure (greedy, MCS atom count)
   2. per pair, get the ATOM MAP from the shared MCS
   3. reaction center = {unmapped atoms} U {mapped atoms whose bonding changed}
-  4. keep = reaction center grown by `radius` bonds; FragmentOnBonds at the boundary;
-     cap the severed valence with methyl
+  4. keep = reaction center grown by `radius` bonds, then RING-CLOSED (no partial rings);
+     FragmentOnBonds at the boundary; cap the severed valence with methyl
 Guards (all automated):
   A. balance      : truncated rxn is atom + charge + H balanced          (hard reject)
   B. consistency  : each removed fragment is identical on both sides       (else no cancel)
   C. sensitivity  : caller compares ΔG(radius) vs ΔG(radius+1) < tol       (hook: emit both)
   D. rigidity     : rotatable bonds in each reacting core                  (report, not gate)
+  E. ring-closure : cuts fall ONLY on acyclic bonds (`_ring_close`)        (a priori structural)
+                    -- a severed ring bond opens the ring + changes hybridization (cyclic lactone
+                    -> acyclic methyl ester), a stably-wrong cut B/C cannot catch. Fixes the
+                    aldose-dehydrogenase +33 kJ artifact (D-Glucose_t COC(O)C(C)O -> ring intact).
 
 Cap-length (methyl at radius R vs the extra bond at R+1) IS the Me/Et sensitivity knob.
 """
@@ -105,6 +109,26 @@ def grow(a, seed, radius, within=None):
                 if k not in keep:
                     keep.add(k); nxt.add(k)
         frontier = nxt
+    return keep
+
+
+def _ring_close(mol, keep):
+    """Expand `keep` so NO ring is partially included: if any ring shares an atom with keep,
+    add the whole ring (iterating to a fixpoint to absorb fused systems). This guarantees the
+    truncation cut falls only on ACYCLIC bonds. A severed ring bond cannot be faithfully
+    methyl-capped -- it opens the ring and changes topology + hybridization (e.g. a pyranose
+    hemiacetal -> an acyclic methyl-hemiacetal, and a cyclic lactone -> an acyclic methyl ester),
+    which does NOT cancel in ΔG (the aldose-dehydrogenase +33 kJ artifact). Only rings NEAR the
+    reaction center are touched (keep is radius-bounded), so distant spectator rings are untouched."""
+    rings = [set(r) for r in mol.GetRingInfo().AtomRings()]
+    keep = set(keep)
+    changed = True
+    while changed:
+        changed = False
+        for rs in rings:
+            if (rs & keep) and not (rs <= keep):
+                keep |= rs
+                changed = True
     return keep
 
 
@@ -241,15 +265,19 @@ def truncate_reaction(reactants, products, radius=2, cap="C"):
         inv = {v: k for k, v in amap.items()}
         c_r = reaction_center(R, amap, P)
         c_p = reaction_center(P, inv, R)
-        # keep on the reactant = reaction center grown by `radius`
-        keep_r = grow(R, c_r, radius)
-        # MIRROR the cut through the atom map so the removed spectator is IDENTICAL on
-        # both sides (this is what makes it cancel in ΔG). Product keeps: its own
-        # reacting center, grown, PLUS the map-images of every kept mapped reactant atom.
-        mirrored = {amap[i] for i in keep_r if i in amap}
-        keep_p = grow(P, c_p, radius) | mirrored
-        # symmetric back-mirror so the reactant also keeps images of kept product atoms
-        keep_r = keep_r | {inv[j] for j in keep_p if j in inv}
+        # keep on each side = reaction center grown by `radius`, then RING-CLOSED so no cut
+        # falls on a ring bond (a methyl cap can't represent a severed ring -> topology change).
+        keep_r = _ring_close(R, grow(R, c_r, radius))
+        keep_p = _ring_close(P, grow(P, c_p, radius))
+        # MIRROR the cut through the atom map so the removed spectator is IDENTICAL on both sides
+        # (this is what makes it cancel in ΔG), then re-close, iterating to a fixpoint so the kept
+        # core is both map-symmetric AND ring-complete on both sides.
+        for _ in range(8):
+            new_r = _ring_close(R, keep_r | {inv[j] for j in keep_p if j in inv})
+            new_p = _ring_close(P, keep_p | {amap[i] for i in new_r if i in amap})
+            if new_r == keep_r and new_p == keep_p:
+                break
+            keep_r, keep_p = new_r, new_p
         cr, rem_r = truncate_species(r_smi, keep_r)
         cp, rem_p = truncate_species(p_smi, keep_p)
         out["species"].append(dict(side="reactant", orig=r_smi, capped=cr,
