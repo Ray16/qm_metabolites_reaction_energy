@@ -46,8 +46,15 @@ ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
 
 
 # ------------------------------------------------------------------ thermal (UMA)
-def _forces_batched(pu, structs, chunk=128):
-    """Per-structure forces (list of (nat,3) arrays) via batched UMA passes."""
+_HESS_CHUNK = int(os.environ.get("UMA_HESS_CHUNK", "128"))
+
+
+def _forces_batched(pu, structs, chunk=None):
+    """Per-structure forces (list of (nat,3) arrays) via batched UMA passes.
+    chunk defaults to UMA_HESS_CHUNK (result-preserving memory lever for big
+    molecules on small GPUs; forces are independent per displaced structure)."""
+    if chunk is None:
+        chunk = _HESS_CHUNK
     out = [None] * len(structs)
     for s in range(0, len(structs), chunk):
         sub = structs[s:s + chunk]
@@ -58,7 +65,7 @@ def _forces_batched(pu, structs, chunk=128):
     return out
 
 
-def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=128,
+def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
                    geometry="nonlinear", symmetrynumber=1):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
@@ -87,12 +94,47 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=128,
     H = 0.5 * (H + H.T)
     vd = VibrationsData.from_2d(base, H)
     en = vd.get_energies()                                  # eV, complex for imaginary
-    mags = np.sort(np.abs(en.real))[6:]                    # drop 6 trans/rot
-    mags = np.where(mags < 50 * CM2EV, 50 * CM2EV, mags)   # low-frequency floor
+    mags_real = np.sort(np.abs(en.real))[6:]               # drop 6 trans/rot (pre-floor)
+    mags = np.where(mags_real < 50 * CM2EV, 50 * CM2EV, mags_real)   # low-frequency floor
     th = IdealGasThermo(vib_energies=mags, potentialenergy=E_elec, atoms=base,
                         geometry=geometry, symmetrynumber=symmetrynumber, spin=0)
     G = th.get_gibbs_energy(temperature=T, pressure=101325.0, verbose=False)
-    return float((G - E_elec) * EV2KJ)
+    Gcorr = float((G - E_elec) * EV2KJ)
+    if os.environ.get("QRRHO"):                             # Grimme quasi-RRHO entropy for low-freq modes
+        # replace the floored-harmonic vibrational entropy with the free-rotor-interpolated one (S only;
+        # ZPE/enthalpy stay harmonic). Uses the REAL frequency for each mode vs the floored one the
+        # harmonic G above used, so it RESTORES the entropy the 50 cm^-1 floor suppresses on floppy modes.
+        Gcorr += _qrrho_S_correction(mags_real / CM2EV, mags / CM2EV, T)
+    return Gcorr
+
+
+# ------------------------------------------------------------------ quasi-RRHO (Grimme 2012)
+_H = 6.62607015e-34; _C = 2.99792458e10; _KB = 1.380649e-23; _R = 8.314462618e-3  # kJ/mol/K
+_BAV = 1e-44                                                # limiting moment of inertia (kg m^2)
+
+
+def _S_HO(w_cm, T):
+    x = _H * _C * w_cm / (_KB * T)
+    return _R * (x / (np.exp(x) - 1.0) - np.log(1.0 - np.exp(-x)))     # kJ/mol/K
+
+
+def _S_FR(w_cm, T):
+    mu = _H / (8.0 * np.pi**2 * _C * w_cm)                  # moment of inertia of the mode (kg m^2)
+    mup = mu * _BAV / (mu + _BAV)
+    return _R * (0.5 + np.log(np.sqrt(8.0 * np.pi**3 * mup * _KB * T) / _H))
+
+
+def _qrrho_S_correction(freqs_real_cm, freqs_floored_cm, T, w0=100.0):
+    """G correction (kJ/mol) = -T * Σ_modes [ S_qRRHO(real) - S_HO(floored) ]. Grimme interpolation
+    w = 1/(1+(w0/w)^4) between harmonic and free rotor; only low-freq (floppy) modes are shifted."""
+    corr = 0.0
+    for wr, wf in zip(freqs_real_cm, freqs_floored_cm):
+        if wr <= 0:
+            continue
+        w = 1.0 / (1.0 + (w0 / wr) ** 4)
+        S_q = w * _S_HO(wr, T) + (1.0 - w) * _S_FR(wr, T)   # qRRHO entropy at the real frequency
+        corr += -T * (S_q - _S_HO(wf, T))                  # minus the floored-harmonic entropy used above
+    return corr
 
 
 # --------------------------------------------------------------- solvation (xtb sp)

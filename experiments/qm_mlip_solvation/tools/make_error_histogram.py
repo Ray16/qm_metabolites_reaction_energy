@@ -34,7 +34,18 @@ def is_redox(rid):
 
 
 def uma_dG(rid):
-    """Full pipeline: ringcofactor for redox, else gated pH-0 (baseline for isomerase / missing)."""
+    """Full pipeline: ringcofactor for redox, else gated pH-0 (baseline for isomerase / missing).
+    PRECEDENCE: logs/production/ (the coherent single-sweep, current defaults + corrected data) is the
+    single source of truth and OVERRIDES everything; logs/corrected/ next (validated one-off fixes);
+    then the legacy fragmented dirs as fallback for any reaction production missed. See DATA_CORRECTIONS.md.
+    Set NO_PRODUCTION=1 to reproduce the old fragmented routing (for before/after comparison)."""
+    if not os.environ.get("NO_PRODUCTION"):
+        v = _dG("production", rid)
+        if v is not None and abs(v) < 1e5:
+            return v
+    v = _dG("corrected", rid)
+    if v is not None and abs(v) < 1e5:
+        return v
     if is_redox(rid):
         v = _dG("ringcofactor", rid)
         if v is not None and abs(v) < 1e5:
@@ -45,6 +56,29 @@ def uma_dG(rid):
     return v if v is not None else _dG("full367", rid)
 
 
+sys.path.insert(0, os.path.join(EXP, "scripts"))
+import aldehyde_hydration as _ah
+
+
+def aldehyde_delta(rid):
+    """Gated aldehyde-hydration correction to ΔG for this reaction: Σ coeff*(logged hydration shift), only
+    for EWG-activated aldehydes (is_strongly_hydrated). Reads logs/ah367_on/ (the wired-pipeline run).
+    Returns 0 if the reaction has no gated aldehyde or no log. Keeps the plot consistent with the wired
+    ALDEHYDE_HYDRATION default without re-sweeping all 367."""
+    p = os.path.join(EXP, "logs", "ah367_on", f"{rid}.log")
+    if not os.path.exists(p):
+        return 0.0
+    txt = open(p, errors="ignore").read(); dd = 0.0
+    for m in re.finditer(r"\[hydration: (\S+) carbonyl.*?shift ([+-][0-9.]+)\]", txt):
+        nm, sh = m.group(1), float(m.group(2))
+        for sp, (c, q, s) in d[rid]["species"].items():
+            if (nm == sp or nm == sp + "_t" or nm[:8] == sp[:8]):
+                if _ah.is_strongly_hydrated(s):
+                    dd += c * sh
+                break
+    return dd
+
+
 def main():
     exp = {r: v["exp"][0] for r, v in d.items()}               # TECRDB experiment (reactions_tecrdb_all)
     dgp = json.load(open(os.path.join(THERMO, "results", "eq", "dgpredictor_retrained_full.json")))
@@ -53,6 +87,7 @@ def main():
         u = uma_dG(rid)
         if u is None:
             continue
+        u = u + aldehyde_delta(rid)                            # wired ALDEHYDE_HYDRATION (α-EWG gated)
         ue = u - exp[rid]
         if abs(ue) > 200:                                      # drop QM garbage / loader failures
             continue

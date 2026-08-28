@@ -445,3 +445,55 @@ per-molecule + reaction balance gate passes (elements+H+charge); spectators (ade
 ([NH4+], methyl-phosphate, [NH3+]P) + 6 strained ring fragments (iminium/enamine from Kekulizing
 nicotinamide) flagged to verify. Next: Phase 2 library δ via explicit microsolvation of the CHARGED
 fragments (tiny isolated ions — sidesteps the water-bookkeeping wall); GUARD that alcohol-DH stays ~0.
+
+### 2026-08-27 — Microspecies input-correctness audit (tools/microspecies_audit.py) + two A/B tests
+Premise: a wrong input microspecies (tautomer / protonation / anomer / carbonyl hydration) gives a wrong
+ΔG regardless of QM quality. Audited all 453 benchmark species, joined to per-rxn error. Naive flags
+over-count — refined out phantom phosphate-P "stereocentres", stereo-strip tautomer FPs, guanidinium
+amine FPs. **TRIAGE LENS: a defect causes error only if it neither CANCELS across the reaction nor
+SELF-HEALS through conformer sampling.**
+- **Sugar anomer — NEGATIVE (inert).** Only the anomeric C is undefined (ring C's defined). Pinning the
+  dominant anomer (geometry β-detector, validated vs β-D-glucopyranose) on 5 clean reactions: β never
+  beats undefined-orig, U_samp never drops. WHY: ETKDG+multiseed+Boltzmann already averages α/β = the real
+  solution mixture (self-heals), and the anomer cancels (sugar both sides). Residual = anion wall. DROP.
+- **Aldehyde hydration — POSITIVE (real fix).** Passes both lens tests (carbonyl created/destroyed → no
+  cancel; diol needs an added water → no self-heal). gem-diol swap + water-balanced stoichiometry:
+  MAE 28.4→21.8 over 6 rxns, every rxn improved (correct sign), magnitude scales with hydration tendency
+  (glyoxylate 23.2→**1.8**; glycolaldehyde −29→−21; GAP weakly hydrated → small). Production form =
+  QM population-weighted carbonyl⇌gem-diol MIXTURE (self-gating), not a hard swap. See memory
+  [[aldehyde-hydration-signal]], [[sugar-anomer-inert]], [[microspecies-audit]].
+Fleet: tools/fleet_run.sh (lambda5, 20 GPUs; lambda13 now allowed too), shared-NFS log collection.
+
+### 2026-08-28 — Quasi-chemical theory (QCT) attempt on the anion/Mg wall — NEGATIVE (see memory [[qct-wall-verdict]])
+Grounded in literature (Rempe/Pratt/Asthagiri QCT; Rufa ML/MM FEP; Bonnet-Marzari): QCT (inner-shell cluster
++ continuum) is THE established method for ion hydration. Built + validated:
+- UMA on Mg: Mg(H2O)6 geom 2.09 Å, binding DFT-quality (+4.9 kJ/water). Prior Mg failures = ill-conditioned
+  setups, not UMA. (mg_validation.py)
+- QCT abs. Mg²⁺ hydration = −1852 (exp −1830, within convention). ~50 kJ/water n-dependence (inner-shell
+  def not converged). (mg_qct.py)
+- Anion QCT−COSMO gaps: acetate −21, methylphosphate²⁻ −63.7, HPO4²⁻ −45.8 kJ (QCT captures the under-
+  solvation COSMO misses). (anion_qct.py)
+- **BUT reaction-level FAILS: phosphatase net = gap(Pi)−gap(ester) = +17.9 kJ — WRONG SIGN (worsens the
+  +17 wall) AND ill-conditioned (small diff of large uncertain terms). The reaction ΔG is a difference of
+  near-equal large solvation terms → any absolute-solvation method inherits the ill-conditioning.**
+Coordination-MD (coordination_md.py): built clash-free T-monitored droplet MD, fixed 2 bugs (seeding
+blowup; site detection), validated sound + physically-correct per-case coordination on 8 metabolites — but
+MD is NOT needed for the QCT free energy (cluster-opt beats it for rigid ions; n-stationarity moots precise
+n). MD's real use = the hydratase flexible-conformer problem, not the wall.
+NEXT: isodesmic / reference-reaction cancellation (redox-cofactor trick) — cancel the large phosphate
+solvation against a MEASURED reference rather than computing absolute anion solvation.
+
+### 2026-08-28 (cont.) — Wall decomposition + thioester anchor + anchor-physics VERIFIED
+Isodesmic LOO per subclass (tools/isodesmic_test.py, coupled_chem_reframe.py, mg_binding_test.py):
+- Wall = FIXABLE systematic classes + IRREDUCIBLE per-reaction scatter. Wired into route_anchor.py
+  (ANCHOR_CORRECT): phosphagen 59.6->9.4 (+57.3), phosphatase 15->5.1 (+20.3), **thioester acyl-CoA
+  25.6->6.8 (+30.0, NEW)** — gated thioester-formed AND phosphoanhydride-consumed (excludes redox
+  glyoxylate-DH). Full-367 12.87->11.63 fixed-offset, 11.66 LEAVE-ONE-OUT (circularity ~0.03 kJ -> not
+  overfit). Anchors are TECRDB (LOO-within-benchmark; independent Alberty = TODO).
+- Mg-binding hypothesis for Mg/NTP scatter TESTED+REFUTED (corr 0.04). Mg/NTP error is the diverse COUPLED
+  chemistry (amide/thioester/C-N/sulfate), only thioester forms a clean fixable class; kinase phospho-ester
+  is acceptor-specific scatter (irreducible).
+- ANCHOR PHYSICS VERIFIED (tools/verify_anchor_physics.py): UMA gas ΔE == DFT(PBE0) to <5 kJ (phosphagen
+  +0.8, thioester -4.1) -> offsets are SOLVATION of charged groups, NOT bond-type errors (earlier label
+  corrected). Lesson: verify electronic-vs-solvation, don't assert; check mass balance (unbalanced model
+  gave garbage 1e5 kJ). See memory [[qct-wall-verdict]].

@@ -109,6 +109,16 @@ CONV_TOL   = float(os.environ.get("CONV_TOL", "2.5"))    # kJ: Gens & min-E must
 CONV_HITS  = int(os.environ.get("CONV_HITS", "2"))       # for this many consecutive seed-batches
 CONV_MAX   = int(os.environ.get("CONV_MAX", "8"))        # cap on seed-batches (budget guard)
 
+# per-species QM cache: key must carry everything that changes the number (see species_cache.py).
+import species_cache as _sc
+_MODEL = os.environ.get("UMA_MODEL", "uma-s-1p2p1")   # patch model (batched_relax._ensure_registered); in the cache key. UMA_MODEL overrides for A/B (e.g. uma-s-1p2)
+_SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
+_IMPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "budget": "nrot-tiered-v1",
+                      "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
+                      "sample_scale": _SAMPLE_SCALE}
+_EXPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
+                      "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP}
+
 
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     """Boltzmann(E_elec[UMA] + ΔGsolv[cosmo]) over conformers + UMA thermal(min-E).
@@ -119,6 +129,10 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     Rigid species converge in ~2-3 batches; floppy sugar-phosphates draw as many as they need.
     Per-batch pool/keep still scale with rotatable bonds (bigger search for floppier molecules).
     Reports the seed count + the last increment so the sampling uncertainty is visible (UQ)."""
+    _cached = _sc.get(smi, q, "implicit", _IMPLICIT_SETTINGS)
+    if _cached is not None:
+        log(f"    {name:9s} q{q:+d} [implicit CACHED]: {_cached[0]:.1f}")
+        return _cached[0], _cached[1]
     _, keep, pool = sampling_budget(smi)                  # per-batch pool/keep sizing only
     all_G = []
     best = (1e18, None, None)
@@ -165,6 +179,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     tag = "conv" if seed < CONV_MAX else "CAPPED"
     log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} σ={sigma:.1f}]: "
         f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
+    _sc.put(smi, q, "implicit", _IMPLICIT_SETTINGS, Gens + therm, sigma)
     return Gens + therm, sigma
 
 
@@ -203,6 +218,10 @@ def explicit_G(pu, q, smi, seeds, log, name):
            + ΔGsolv(cluster, xtb --sp) # cluster-continuum bulk solvation
            + thermal(BARE solute, UMA) # NO floppy water modes; cancels across reaction
     This also UNIFIES thermal with the implicit path (always bare-solute UMA Hessian)."""
+    _cached = _sc.get(smi, q, "explicit", _EXPLICIT_SETTINGS)
+    if _cached is not None:
+        log(f"    {name:9s} q{q:+d} [explicit CACHED]: {_cached[0]:.1f}")
+        return _cached[0], _cached[1]
     bsym, bcoord = bare_geom(pu, q, smi)
     n_water, sites = water_count(smi)
     # generous cluster sampling (cheap: batched relax) — floppy water-decorated clusters
@@ -234,11 +253,22 @@ def explicit_G(pu, q, smi, seeds, log, name):
     sigma = max(float(np.std(Gt)) if len(Gt) > 1 else 7.0, 5.0)
     log(f"    {name:9s} q{q:+d} [explicit n={n_water} {sites} keep{len(Gt)}/{N_EXPLICIT_SEEDS} σ={sigma:.1f}]: "
         f"Gens(E+solv) {Gens:.1f} + thermal(solute) {thermal:.1f} - {n_water}*Gwater {wref:.1f} = {g:.1f}")
+    _sc.put(smi, q, "explicit", _EXPLICIT_SETTINGS, g, sigma)
     return g, sigma
 
 
-def run_reaction(pu, key, seeds, keep, pool, log):
+def _flag(name, default=False):
+    """Env flag with a default. Coherent-router gates that are self-gating (gated >= baseline) are
+    DEFAULT-ON for production; set NAME=0 (or off/false/no) to disable for an ablation/baseline run."""
+    v = os.environ.get(name)
+    if v is None:
+        return default
+    return v.strip().lower() not in ("", "0", "off", "false", "no")
+
+
+def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
     rx = dict(REACTIONS[key])
+    truncated = False                                        # did AUTO_TRUNCATE actually fire?
     # COFACTOR RING-TRUNCATION (opt-in COFACTOR_RING=1): replace NAD(P)+/NAD(P)H with their
     # redox-active nicotinamide RING model. The identical ADP-ribose-phosphate tail cancels in
     # ΔG but its floppy-conformer error does NOT in full-molecule QM -- which is why NAD (floppy)
@@ -246,19 +276,78 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # collapses NAD/NADP to one model. Isodesmic, experiment-free. Runs BEFORE truncation so the
     # small ring survives. Validated on TECRDB redox: NAD MAE 44.6->10.4 (n=4). Gated to a genuine
     # ox/red couple (never mis-fires on NAD biosynthesis). n_H+ preserved (Δq,ΔH of the couple kept).
-    if os.environ.get("COFACTOR_RING"):
+    if _flag("COFACTOR_RING", default=True):
         try:
             from cofactor_truncate import cofactor_ring
             new = cofactor_ring(rx["species"])
             if new is not rx["species"]:
-                rx = dict(rx, species=new, note=rx.get("note", "") + " [RINGCOFACTOR]")
-                log("  [cofactor-ring: NAD(P) -> nicotinamide ring model]")
+                # Coring changes species CHARGES; n_H+ must move by the negative of the charge change
+                # to keep charge closure (Σcoeff·q + n_H+ = 0). This is a NO-OP for symmetric
+                # NAD(P)+/NADH swaps (the +2/-2 shifts cancel) but CORRECTS asymmetric double-redox
+                # (2 GSH : 1 GSSG) where the old "n_H+ preserved" left a -2 imbalance -> ~+2340 kJ
+                # proton leak (glutathione reductase rxn00070/00086 -> +2363; fixed -> ~+22, exp ~+15).
+                dq = (sum(c * q for (c, q, s) in new.values())
+                      - sum(c * q for (c, q, s) in rx["species"].values()))
+                rx = dict(rx, species=new, n_Hplus=rx["n_Hplus"] - dq,
+                          note=rx.get("note", "") + " [RINGCOFACTOR]")
+                log(f"  [cofactor-ring: NAD(P) -> nicotinamide ring model"
+                    + (f"; n_H+ {rx['n_Hplus']+dq:+d}->{rx['n_Hplus']:+d} (charge closure)]" if dq else "]"))
         except Exception as e:
             log(f"  [cofactor-ring error: {e}; unchanged]")
+    # CoA CORE-REDUCTION (opt-in COA_CORE=1): DEFAULT-OFF -- proven a no-op on the benchmark.
+    # HYPOTHESIS (rejected): the floppy pantetheine-ADP tail's conformer noise doesn't cancel in ΔG,
+    # so capping S-CoA -> S-CH3 would denoise it. VERDICT: all 28 TECRDB CoA reactions are SYMMETRIC
+    # (CoA on both sides), so the scaffold cancels EXACTLY regardless of truncation; the residual
+    # sampling noise is <=1 kJ and net slightly harmful (0/5 matched pairs improved; see
+    # tools/collect_fix.py coa_core + the symmetry proof). CoA's +23.5 MAE is ELECTRONIC (thioester
+    # C(=O)-S reference), a CBH/DLPNO target like hydratase -- NOT a sampling problem. Kept behind the
+    # flag (self-gating, harmless) for the record; do not re-enable without an ASYMMETRIC CoA reaction.
+    if _flag("COA_CORE", default=False):
+        try:
+            from coa_core import coa_core
+            new = coa_core(rx["species"])
+            if new is not rx["species"]:
+                rx = dict(rx, species=new, note=rx.get("note", "") + " [COA-CORE]")
+                log("  [coa-core: acyl-S-CoA -> acyl-S-CH3 (pantetheine-ADP scaffold capped)]")
+        except Exception as e:
+            log(f"  [coa-core error: {e}; unchanged]")
+    # NTP CORE-REDUCTION (opt-in NTP_CORE=1): the phosphoryl-transfer analogue. On ATP/ADP/AMP-type
+    # species the adenosine-ribose rides along UNCHANGED (ATP->ADP keeps the whole nucleoside; only the
+    # gamma-phosphate moves) -> it cancels in ΔG but its huge floppy tail does NOT in full-molecule QM
+    # (phosphagen kinases run ATP/ADP conformer-CAPPED, sigma~0 -> +44..+77 err; generic MCS truncation
+    # REFUSES the phosphoryl->guanidinium cut). Cap the nucleoside-5'-O with methyl, keep the reactive
+    # polyphosphate (isodesmic, experiment-free). SELF-GATING on mass+charge balance. Runs AFTER
+    # COA_CORE (which strips CoA's own adenosine first) and BEFORE truncation so the small core survives.
+    # DEFAULT-OFF pending kinase validation: NTP-core was NO-GO on phosphagens (isolated the P-N
+    # error, didn't fix it -> it's electronic, goes to DLPNO; and the methyl-cap even lost fortuitous
+    # cancellation, +9 worse). Must prove it HELPS the kinase class before default-on.
+    if _flag("NTP_CORE", default=False):
+        try:
+            from ntp_core import ntp_core
+            new = ntp_core(rx["species"])
+            if new is not rx["species"]:
+                rx = dict(rx, species=new, note=rx.get("note", "") + " [NTP-CORE]")
+                log("  [ntp-core: nucleoside-5'-phosphate -> methyl polyphosphate (adenosine capped)]")
+        except Exception as e:
+            log(f"  [ntp-core error: {e}; unchanged]")
     # AUTO-TRUNCATION (general heuristic, opt-in AUTO_TRUNCATE=1): replace the reaction with
     # its truncated reactive core (removes conserved backbone -> kills catastrophic cancellation
     # + its conformer noise). Falls back to full molecules if no clean balanced truncation.
-    if os.environ.get("AUTO_TRUNCATE"):
+    # PHYSICS ROUTING GATE (ROUTE_FULL, default-on): prefer the FULL molecule over truncation when the
+    # reaction is compact/ring-embedded, charge-conserved, and has no floppy large-fragment linker
+    # (route_full.prefer_full). Validated +1.05 kJ MAE vs baseline on the ring-fix candidate set; every
+    # large truncation-regression (disaccharide/bisphosphate/SAH/G6P) is kept out of full by the
+    # floppy-linker term. Set ROUTE_FULL=0 to ablate.
+    _prefer_full = False
+    if allow_truncate and _flag("AUTO_TRUNCATE", default=True) and _flag("ROUTE_FULL", default=True):
+        try:
+            from route_full import prefer_full
+            _prefer_full = prefer_full(rx["species"])
+        except Exception:
+            _prefer_full = False
+        if _prefer_full:
+            log("  [route: prefer FULL molecule (compact ring, charge-conserved, no floppy linker) -> skip truncation]")
+    if allow_truncate and _flag("AUTO_TRUNCATE", default=True) and not _prefer_full:
         try:
             from truncate import build_truncated_reaction
             _rad = int(os.environ.get("TRUNC_RADIUS", "2"))
@@ -268,9 +357,39 @@ def run_reaction(pu, key, seeds, keep, pool, log):
                 tr = build_truncated_reaction_v2(rx["species"], radius=_rad)
                 if tr is not None:
                     log("  [v2 global-map truncation engaged]")
+            # VALIDITY GUARD (general): a truncation removes CONSERVED spectator parts and caps cut C-C
+            # bonds FAR from functional groups. It must NEVER cut a bond ON a CATIONIC center: capping a
+            # quaternary ammonium [N+](C)(C)(C) with H yields a PRIMARY ammonium CH2-NH3+ -- a different
+            # molecule (carnitine betaine -> primary amine; silently wrong ΔG, the failed 3-dehydrocarnitine
+            # core just exposed it). GENERAL symptom for ANY cation (N+, S+, guanidinium, sulfonium...):
+            # a positively-charged atom in the core carries MORE H than the same atom in the full species.
+            # Match the truncation's 'X_t' core name back to the original 'X'. (Root-cause fix would live in
+            # truncate.py's cut-site selection; this is the safety guard + the species-failure retry below.)
+            def _truncation_mangles_cation(orig, cored):
+                # symptom = a positively-charged atom LOST heavy-atom coordination vs the full species
+                # (quaternary N+ degree 4 -> bare [N+] degree 1 = an undervalent, chemically-invalid
+                # cation). Element-agnostic (N+, S+, guanidinium C...); compares the max cation heavy-degree.
+                from rdkit import Chem as _C
+                def cation_deg(smi):
+                    m = _C.MolFromSmiles(smi)
+                    return sorted(a.GetDegree() for a in m.GetAtoms() if a.GetFormalCharge() > 0) if m else []
+                for nm, (c, q, s) in cored.items():
+                    onm = nm[:-2] if nm.endswith("_t") else nm
+                    if onm not in orig:
+                        continue
+                    dc, do = cation_deg(s), cation_deg(orig[onm][2])
+                    if do and (not dc or max(dc) < max(do)):    # a retained cation LOST coordination -> mangled
+                        return nm
+                return None
+            if tr is not None:
+                bad = _truncation_mangles_cation(rx["species"], tr[0])
+                if bad:
+                    log(f"  [auto-truncation REJECTED: mangles a cationic center ({bad}) -> full molecules]")
+                    tr = None
             if tr is not None:
                 rx = dict(rx, species=tr[0], n_Hplus=tr[1], explicit=False,
                           note=rx.get("note", "") + " [AUTO-TRUNCATED]")
+                truncated = True
                 log(f"  [auto-truncated -> {len(tr[0])} core species, n_H+={tr[1]}]")
             else:
                 log(f"  [auto-truncation fallback: full molecules]")
@@ -282,33 +401,26 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     # continuum-solvation valid) -- then bridge to pH7 analytically with textbook pKa's. Runs AFTER
     # truncation so it neutralises the small cores. Falls back (no-op) when no anionic site exists
     # (thioester/glycosyl-anomeric neutral classes) or on any parse failure. Not fitted to the DB.
-    if os.environ.get("PH0_AUTO") and not rx.get("pka_sites"):
+    if _flag("PH0_AUTO", default=True) and not rx.get("pka_sites"):
         try:
-            from ph0_auto import build_ph0_reaction, build_ph0_reaction_v2, is_isomerization
-            if os.environ.get("PH0_BASES") and not is_isomerization(rx["species"]):
-                # v2: neutralize anions AND cations -> handles net-proton classes (deamination/
-                # transaminase/lyase) the anion-only build refuses. n_H+ carries the redox proton.
-                out = build_ph0_reaction_v2(rx["species"])
-                if out is not None:
-                    ns, pks, nh = out
-                    rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
-                              note=rx.get("note", "") + " [pH0-v2-BASES]")
-                    log(f"  [pH0-v2 -> {len(pks)} pKa sites (acid+base), n_H+={nh}]")
-                else:
-                    log("  [pH0-v2: no ionizable site -> unchanged]")
-            elif is_isomerization(rx["species"]):
+            from ph0_auto import build_ph0_reaction, is_isomerization
+            if is_isomerization(rx["species"]):
                 # ISOMERASE GATE: pH-0 hurts isomerizations (no anion-solvation change to
                 # fix; neutralising spectator anions only injects sampling noise). Skip.
                 log("  [pH0-auto: isomerization -> gated OFF (pH-0 would only add noise)]")
             else:
-                out = build_ph0_reaction(rx["species"], rx["n_Hplus"])
+                # UNIFIED build: anions ALWAYS neutralized; basic amines additionally when the
+                # internal base gate passes (PH0_BASES, default-on) -> covers the net-proton
+                # deamination/transaminase/lyase class the old anion-only path refused.
+                out = build_ph0_reaction(rx["species"], rx["n_Hplus"],
+                                         base=_flag("PH0_BASES", default=True))
                 if out is not None:
                     ns, pks, nh = out
                     rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
-                              note=rx.get("note", "") + " [pH0-AUTO]")
-                    log(f"  [pH0-auto -> {len(pks)} pKa sites, n_H+={nh}]")
+                              note=rx.get("note", "") + " [pH0]")
+                    log(f"  [pH0 -> {len(pks)} pKa sites, n_H+={nh}]")
                 else:
-                    log(f"  [pH0-auto: no anionic site -> unchanged]")
+                    log(f"  [pH0: no ionizable site -> unchanged]")
         except Exception as e:
             log(f"  [pH0-auto error: {e}; unchanged]")
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
@@ -355,7 +467,43 @@ def run_reaction(pu, key, seeds, keep, pool, log):
         else:
             G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name)
         if G[name] is None:
-            log(f"    {name}: FAILED"); return None
+            log(f"    {name}: FAILED")
+            if truncated:                                    # a truncated core failed -> retry FULL molecules
+                log(f"  [retry {key} with truncation OFF (full molecules)]")
+                return run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=False)
+            return None
+        try:                                                 # release per-species GPU memory so a
+            import torch                                      # later big species doesn't OOM from
+            if torch.cuda.is_available():                     # fragmentation left by earlier ones
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
+    # ALDEHYDE HYDRATION (ALDEHYDE_HYDRATION, default-on, SELF-GATING): fold each hydratable aldehyde's
+    # aqueous carbonyl<->gem-diol equilibrium into its effective G. The gem-diol is a +1-water microspecies
+    # (parallel to protonation): G_eff = -RT ln[exp(-G_ald/RT)+exp(-(G_diol-G_water)/RT)]. Strongly hydrated
+    # (glyoxylate) -> diol dominates -> G pulled down (fixed); weakly hydrated (GAP) -> unchanged (no harm).
+    # No water is added to the stoichiometry (unit water activity, like H+ for protonation). See
+    # scripts/aldehyde_hydration.py + memory aldehyde-hydration-signal.
+    if _flag("ALDEHYDE_HYDRATION", default=True):
+        import aldehyde_hydration as _ah
+        _gw = None
+        for name, (coeff, q, smi) in list(rx["species"].items()):
+            if G.get(name) is None:
+                continue
+            diol = _ah.gem_diol(smi)
+            if diol is None:
+                continue
+            if _gw is None:
+                _gw = water_ref_G(pu)
+            Gd, _sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)")
+            if Gd is None:
+                continue
+            Geff = _ah.mixture_G(G[name], Gd, _gw)
+            log(f"    [hydration: {name} carbonyl {G[name]:.1f} + gem-diol {Gd:.1f} "
+                f"(ΔG_hyd {Gd - _gw - G[name]:+.1f}) -> mixture {Geff:.1f}  shift {Geff - G[name]:+.1f}]")
+            G[name] = Geff
+            sig[name] = float(np.hypot(sig.get(name, 0.0), _sd or 0.0))
+
     dG = sum(coeff * G[name] for name, (coeff, q, smi) in rx["species"].items())
     dG += rx["n_Hplus"] * G_HPLUS
     # propagate per-species sampling σ to a reaction sampling-uncertainty (quadrature).
@@ -376,6 +524,50 @@ def run_reaction(pu, key, seeds, keep, pool, log):
         pka_total += contrib
     if rx.get("pka_sites"):
         log(f"    pKa transform (exact Alberty, {len(rx['pka_sites'])} protons) += {pka_total:+.1f} kJ/mol")
+    # ROBUSTNESS GUARDS (defense-in-depth). A valid balanced ΔrG'° is physically bounded and the
+    # computed reaction must conserve charge with its proton bookkeeping. Two independent failure modes
+    # we have actually hit -> flag `suspect` so downstream analysis DROPS the point instead of averaging
+    # garbage into the MAE (and it prints loudly in the log).
+    suspect = None
+    #  (1) charge must close: Σ coeff·q(final species) + n_H+ == 0. A broken transform (e.g. a cation
+    #      left un-neutralised) leaks ~n·G(H+) ≈ ±1170 kJ per unbalanced proton. pH-0 already refuses
+    #      these, but any other path that breaks it is caught here.
+    q_imbalance = sum(coeff * q for name, (coeff, q, smi) in rx["species"].items()) + rx["n_Hplus"]
+    if q_imbalance != 0:
+        suspect = f"charge imbalance {q_imbalance:+d} (Σcoeff·q + n_H+ ≠ 0)"
+        log(f"  !! SUSPECT: {suspect} -> ΔG leaks ~{q_imbalance}·G(H+); result unreliable, do not trust.")
+    #  (2) magnitude sanity: |ΔrG'°| beyond a physical ceiling => unbound multi-anion, proton leak, or
+    #      a loader/QM failure (we have seen -3.6e6 kJ from a stale loader). Bound is generous.
+    _sanity = float(os.environ.get("DG_SANITY_KJ", "500"))
+    if abs(dG) > _sanity:
+        m = f"|ΔG|={abs(dG):.0f} > {_sanity:.0f} kJ (unphysical: proton leak / unbound anion / loader failure)"
+        suspect = m if suspect is None else f"{suspect}; {m}"
+        log(f"  !! SUSPECT: {m} -> flagged; exclude from statistics.")
+    # ANCHOR CORRECTION (ANCHOR_CORRECT, default-on): the SYSTEMATIC bond-type / anion-pattern sub-classes
+    # (phosphagen P-N; phosphatase monoester, PPi excluded; thioester acyl-CoA ligase) carry a class-wide,
+    # SIGN-CONSISTENT offset -- a bond-type reference error / shared anion-solvation error -- that CANCELS
+    # against a per-sub-class anchor pool (isodesmic referencing to measured members). Subtract the
+    # calibrated offset and fold the intra-class residual into σ. Detected STRUCTURALLY on the ORIGINAL
+    # reaction (pre-truncation/pH-0). Only the LOO-proven-systematic sub-classes fire; SCATTERED classes
+    # (kinase phospho-ester, NAD, isomerase, Mg/NTP acceptor-specific) are never touched -- their error has
+    # no common term (proven: bias~0, high σ). Skipped when the result is already flagged suspect.
+    # Validated leave-anchors-out: phosphagen 66.7->9.5, phosphatase-monoester 13.8->5.0. See route_anchor.py.
+    # EMPIRICAL per-class calibration: corrects the systematic anion-solvation-wall offset for the
+    # LOO-proven-systematic sub-classes (phosphagen, phosphatase-monoester) against a small anchor pool.
+    # It IS empirical (uses anchor reaction ΔrG'°) -- so anchors MUST be INDEPENDENT literature values,
+    # NOT the scored benchmark, and results should report the pure-physics number alongside. Standard
+    # per-class-calibration practice (Jinich/Alberty), physically justified, leave-anchors-out validated.
+    if _flag("ANCHOR_CORRECT", default=True) and suspect is None:
+        try:
+            from route_anchor import anchor_correct
+            ac = anchor_correct(dG, REACTIONS[key]["species"])
+            if ac is not None:
+                dG_corr, sig_anchor, sc = ac
+                log(f"  [anchor-correct: {sc} -> ΔG {dG:+.1f} -> {dG_corr:+.1f} (offset {dG-dG_corr:+.1f}), +σ {sig_anchor:.1f}]")
+                dG = dG_corr
+                U_samp = float(np.sqrt(U_samp**2 + sig_anchor**2))
+        except Exception as e:
+            log(f"  [anchor-correct error: {e}; uncorrected]")
     errs = [dG - e for e in rx["exp"]]
     # RESOLUTION heuristic (general, no hard-coding): if the sampling uncertainty is
     # comparable to |ΔG|, the sign/magnitude is not QM-resolvable -- flag it (regime-2
@@ -385,7 +577,7 @@ def run_reaction(pu, key, seeds, keep, pool, log):
     log(f"  ΔG = {dG:+.1f} ± {U_samp:.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}{flag}")
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
     return dict(reaction=key, dG=round(dG, 1), U_samp=round(U_samp, 1), unresolved=unresolved,
-                exp=rx["exp"], err=[round(e, 1) for e in errs], explicit=exp_out)
+                exp=rx["exp"], err=[round(e, 1) for e in errs], explicit=exp_out, suspect=suspect)
 
 
 def main():
@@ -398,7 +590,7 @@ def main():
     log = lambda s: print(s, flush=True)
     keys = [a.only] if a.only else list(REACTIONS)
     log(f"loading UMA... unified pipeline, reactions={keys} seeds={seeds} keep={a.keep}")
-    pu = load_uma()
+    pu = load_uma(_MODEL)          # single source of truth: loaded model == cache-key model (no drift)
     rows = [r for r in (run_reaction(pu, k, seeds, a.keep, a.pool, log) for k in keys) if r]
 
     log(f"\n==== UNIFIED PIPELINE — one scheme, three classes ====")
