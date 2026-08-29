@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.metag_cache/
+metag_out/
+metag/artifacts/
+# LaTeX build artifacts (keep .tex and .pdf)
+slides/*.aux
+slides/*.log
+slides/*.nav
+slides/*.out
+slides/*.snm
+slides/*.toc

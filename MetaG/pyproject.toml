@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metag"
+version = "0.1.0"
+description = "First-principles (UMA MLIP) reaction free energies for metabolism, with calibrated uncertainty"
+readme = "README.md"
+requires-python = ">=3.10"
+# Pure-logic layer (routing, corrections, uncertainty) needs only these:
+dependencies = [
+    "numpy",
+    "rdkit",
+]
+
+[project.optional-dependencies]
+# The QM pipeline backend (UMA electronics + xtb solvation). Heavy; install in the `uma` env.
+qm = [
+    "torch",
+    "fairchem-core",
+    "ase",
+]
+test = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["metag*"]
+
+[tool.setuptools.package-data]
+metag = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
