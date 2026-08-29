@@ -141,6 +141,8 @@ def build_truncated_reaction_v2(species_dict, radius=2):
         return None
     if nHplus_H != full_nH:                                # GUARD: truncation changed net H+ -> bad cut
         return None
+    if T._truncation_invalid(species_dict, new):          # GUARD: collapsed sides or dropped a thioester
+        return None
     # NOTE: balance + n_H+ + removed-fragment-consistency are all NECESSARY but not SUFFICIENT --
     # rxn00065 passes them yet flips +25 -> -27 (a cut that touches the reactive context). The
     # RIGOROUS, reaction-agnostic validity test is RADIUS-SENSITIVITY: a true spectator removal

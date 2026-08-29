@@ -197,6 +197,47 @@ def _full_nHplus(species_dict):
     return (Hr - Hp) if (Hr - Hp) == (qr - qp) else None
 
 
+_THIOESTER_SM = Chem.MolFromSmarts("[CX3](=O)[SX2]")   # C(=O)-S thioester (acyl-CoA reaction centre)
+
+
+def _count_thioesters(species):
+    """Total thioester (C(=O)-S) bonds in a species dict, weighted by |coeff|."""
+    n = 0
+    for _, (c, q, s) in species.items():
+        m = Chem.MolFromSmiles(s)
+        if m is not None:
+            n += abs(int(c)) * len(m.GetSubstructMatches(_THIOESTER_SM))
+    return n
+
+
+def _truncation_degenerate(new):
+    """True if the truncated cores form the SAME canonical multiset on both sides -> the reaction
+    cancels to ΔG≡0 and the measured chemistry has been truncated away. This happens on acyl-transfer
+    reactions (e.g. 3-oxoacid CoA-transferase rxn00290): an acyl-CoA is truncated down to its free acid,
+    which is exactly the spectator acid on the OTHER side, so succinyl-CoA+acetoacetate -> succinate+
+    acetoacetyl-CoA collapses to succinate+acetoacetate -> acetoacetate+succinate = 0. Reject such a cut
+    so the caller falls back to full molecules (noisier, but not a spurious 0)."""
+    def canon(smi):
+        m = Chem.MolFromSmiles(smi)
+        return Chem.MolToSmiles(m) if m else smi
+    r = Counter(canon(s) for _, (c, q, s) in new.items() if c < 0)
+    p = Counter(canon(s) for _, (c, q, s) in new.items() if c > 0)
+    return r == p
+
+
+def _truncation_invalid(species_full, new):
+    """Reject a truncation that (a) collapses both sides to the same cores (ΔG≡0), or (b) DROPS a
+    thioester bond -- the C(=O)-S is the reaction centre of every acyl-CoA reaction, so cutting it
+    (succinyl-CoA -> succinate, or the v2 mangle succinyl-CoA -> butyrate / acetoacetyl-CoA -> methyl
+    ketone) destroys exactly the chemistry being scored. Truncation may trim the CoA TAIL but must
+    keep the thioester; if the thioester count drops, the cut hit the reaction centre -> reject."""
+    if _truncation_degenerate(new):
+        return True
+    if _count_thioesters(new) < _count_thioesters(species_full):
+        return True
+    return False
+
+
 def build_truncated_reaction(species_dict, radius=2):
     """Convert a pipeline species dict {name:[coeff,charge,SMILES]} into its TRUNCATED
     reactive-core form for scoring. General preprocessing heuristic (no per-reaction tuning):
@@ -252,6 +293,8 @@ def build_truncated_reaction(species_dict, radius=2):
     if nHplus_H != qr - qp:                            # truncated rxn not proton-consistent
         return None
     if full_nH is None or nHplus_H != full_nH:         # GUARD: truncation changed net H+ -> bad cut
+        return None
+    if _truncation_invalid(species_dict, new):         # GUARD: collapsed sides or dropped a thioester
         return None
     return new, int(nHplus_H)
 
