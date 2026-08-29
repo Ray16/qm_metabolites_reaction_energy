@@ -40,20 +40,35 @@ COL = {"UMA (MetaG)\nfirst-principles, NOT fit to TECRDB": "#009E73",
 
 lim = [np.percentile(np.concatenate([E]+list(preds.values())), 1) - 20,
        np.percentile(np.concatenate([E]+list(preds.values())), 99) + 20]
-fig, axes = plt.subplots(1, 3, figsize=(19, 6.6), sharex=True, sharey=True)
-for ax, (name, P) in zip(axes, preds.items()):
+bins = np.linspace(lim[0], lim[1], 34)
+fig = plt.figure(figsize=(20, 7.6))
+outer = fig.add_gridspec(1, 3, wspace=0.28)
+for i, (name, P) in enumerate(preds.items()):
+    inner = outer[i].subgridspec(2, 2, width_ratios=[4, 1], height_ratios=[1, 4], wspace=0.04, hspace=0.04)
+    ax = fig.add_subplot(inner[1, 0])
+    axtop = fig.add_subplot(inner[0, 0], sharex=ax)
+    axright = fig.add_subplot(inner[1, 1], sharey=ax)
     err = np.abs(P - E)
+    # scatter + parity + ±20 band
     ax.fill_between(lim, [lim[0]-20, lim[1]-20], [lim[0]+20, lim[1]+20], color="0.88", zorder=0)
     ax.plot(lim, lim, "--", color="black", lw=1.2, zorder=1)
-    ax.scatter(E, P, s=40, color=COL[name], edgecolor="black", linewidth=0.3, alpha=0.75, zorder=3)
-    ax.set_xlim(lim); ax.set_ylim(lim); ax.set_aspect("equal")
-    ax.set_title(name, fontsize=17)
+    ax.scatter(E, P, s=38, color=COL[name], edgecolor="black", linewidth=0.3, alpha=0.75, zorder=3)
+    ax.set_xlim(lim); ax.set_ylim(lim)
     ax.set_xlabel("experiment ΔrG′°  (kJ/mol)")
+    if i == 0:
+        ax.set_ylabel("predicted ΔrG′°  (kJ/mol)")
     ax.text(0.04, 0.96, f"MAE {err.mean():.1f}\nmedian {np.median(err):.1f}\nn={len(K)}",
-            transform=ax.transAxes, va="top", ha="left", fontsize=16,
+            transform=ax.transAxes, va="top", ha="left", fontsize=15,
             bbox=dict(boxstyle="round", fc="white", ec="0.7"))
-axes[0].set_ylabel("predicted ΔrG′°  (kJ/mol)")
-fig.tight_layout()
+    # top marginal = experiment (same everywhere -> grey); right marginal = predicted (method colour)
+    axtop.hist(E, bins=bins, color="0.6", edgecolor="white", linewidth=0.3)
+    axright.hist(P, bins=bins, orientation="horizontal", color=COL[name], edgecolor="white", linewidth=0.3)
+    axtop.set_title(name, fontsize=17)
+    for a in (axtop, axright):                          # marginals show SHAPE only; drop ticks (keeps 18pt rule clean)
+        a.axis("off")
+    # dashed guides on the marginals so the reader sees experiment-vs-predicted spread mismatch
+    axtop.axvline(np.median(E), color="0.3", ls=":", lw=1)
+    axright.axhline(np.median(P), color=COL[name], ls=":", lw=1.2)
 out = os.path.join(HERE, "..", "figures", "tecrdb_threeway.png")
 fig.savefig(out, bbox_inches="tight")
 print(f"n={len(K)}  MAE: UMA {np.abs(preds[list(preds)[0]]-E).mean():.1f}  "
