@@ -154,13 +154,20 @@ def prediction_interval(note, species_smiles, dG, level=95):
     """
     cls = mech_class(note, species_smiles)
     st = CLASS_STATS.get(cls)
-    if st and "resid_q025" in st:
-        qlo, qhi = ("resid_q025", "resid_q975") if level == 95 else ("resid_q16", "resid_q84")
-        lo = dG - st[qhi]                       # exp = dG - residual; high residual -> low exp bound
-        hi = dG - st[qlo]
-        center = dG - st.get("resid_q50", 0.0)  # de-biased point estimate (median residual removed)
+    if st and "reg_q975" in st:
+        # residual = pred - exp.  exp = dG - residual, residual ~ center + within(q_lo .. q_hi).
+        # center + within-quantiles are SHRUNK/POOLED toward the global shape for small n (calibrate_
+        # uncertainty), and the held-out coverage of THIS interval is cv_coverage_interval95 in the
+        # artifact. IN-DISTRIBUTION ONLY: the de-biased center is a first-moment benchmark fit, more OOD-
+        # fragile than the width -- do not trust it on reactions unlike the TECRDB calibration set until the
+        # structural-class + OOD gate (review #3) is in place.
+        c = st["center"]
+        qlo, qhi = ("reg_q025", "reg_q975") if level == 95 else ("reg_q16", "reg_q84")
+        lo = dG - c - st[qhi]
+        hi = dG - c - st[qlo]
+        center = dG - c
         return round(lo, 1), round(hi, 1), round(center, 1), {"class": cls, "level": level,
-                "resid_q_lo": st[qlo], "resid_q_hi": st[qhi], "resid_med": st.get("resid_q50")}
+                "center_shift": c, "n": st.get("n"), "in_distribution_only": True}
     # fallback: symmetric sigma
     s = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
     k = 2.0 if level == 95 else 1.0

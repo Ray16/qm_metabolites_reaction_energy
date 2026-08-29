@@ -86,44 +86,39 @@ def main():
     for _, cls, e in rows:
         by.setdefault(cls, []).append(e)
 
+    # GLOBAL within-class residual distribution: each class's residuals de-median'd, then pooled -> the
+    # typical SHAPE of the error AROUND a class centre. Small-n class quantiles are pooled toward this, so a
+    # 2-reaction class cannot claim a spuriously tight (or wild) interval from 2 points.
+    within_all = []
+    for _cls, _es in by.items():
+        _es = np.array(_es); within_all.extend(list(_es - np.median(_es)))
+    within_all = np.array(within_all)
+    GQ = {q: float(np.quantile(within_all, q)) for q in (0.025, 0.16, 0.84, 0.975)}
+    KQ = 8.0     # quantile pooling strength (pseudo-counts): small n -> mostly the global shape
+
     classes = {}
     for cls, es in by.items():
-        es = np.array(es)
-        rms = float(np.sqrt((es ** 2).mean()))
-        mae = float(np.abs(es).mean())
-        bias = float(es.mean())
-        med = float(np.median(np.abs(es)))
-        # sigma = residual RMS, made SAFE for small n. Shrinkage toward the overall RMS
-        # (sigma = sqrt((n*rms^2 + k*overall_rms^2)/(n+k)), k=4 pseudo-counts) protects a tiny-n class
-        # whose RMS is spuriously SMALL from being overconfident. But it must NEVER pull a legitimately
-        # LARGE class down (e.g. phosphagen RMS 60 -> would wrongly become 44 and under-cover its real
-        # +60 error), so we take the MAX of the shrunk value and the raw RMS -> one-sided (inflate-only)
-        # shrinkage. Floored at 6 kJ so a near-exact class isn't reported as certain.
-        n = len(es)
+        es = np.array(es); n = len(es)
+        rms = float(np.sqrt((es ** 2).mean())); mae = float(np.abs(es).mean())
+        bias = float(es.mean()); medAE = float(np.median(np.abs(es)))
+        # sigma (kept for the symmetric fallback): residual RMS, inflate-only shrinkage toward overall_rms
+        # for small n, floored at 6 kJ.
         k = 4.0
         shrunk = float(np.sqrt((n * rms ** 2 + k * overall_rms ** 2) / (n + k)))
         sigma = round(max(shrunk, rms, 6.0), 1)
-        # NON-PARAMETRIC cross-check: empirical quantiles of |residual|. If the Gaussian sigma is right,
-        # q68 ~= sigma and q95 ~= 2*sigma. (Noisy for small n; reported as a diagnostic, not the bar.)
-        aes = np.abs(es)
-        q68 = float(np.quantile(aes, 0.68))
-        q95 = float(np.quantile(aes, 0.95))
-        # SIGNED residual quantiles -> a DE-BIASED, ASYMMETRIC, tail-aware prediction interval:
-        # exp lies in [dG - q_hi, dG - q_lo]. Corrects the mis-centering a symmetric sigma has on a
-        # biased class (hydratase +16, glycosyl -13) WITHOUT a physical anchor -- purely empirical
-        # calibration, reported alongside the pure-physics dG_raw. Bias is SHRUNK toward 0 for small n
-        # (n/(n+k)) so a 2-reaction class doesn't get a spurious point-correction.
-        bias_shrunk = float(bias * n / (n + k))
+        # DE-BIASED, ASYMMETRIC, REGULARIZED interval. centre = class MEDIAN residual, shrunk toward 0 for
+        # small n (n/(n+KQ)) -> replaces the dead bias_shrunk. Half-widths = the class's within-class
+        # quantiles POOLED toward the global shape GQ by n/(n+KQ) -> a 2-reaction class inherits ~the global
+        # width, not a 2-point artefact. exp ~ dG - center - within(reg_q_lo .. reg_q_hi). These intervals
+        # are what the pipeline ships, and _cv_coverage below validates THEM held-out (not just sigma).
+        med_signed = float(np.median(es))
+        center = round(med_signed * n / (n + KQ), 1)
+        ew = es - med_signed
+        reg = {tag: round((n * float(np.quantile(ew, q)) + KQ * GQ[q]) / (n + KQ), 1)
+               for tag, q in (("reg_q025", 0.025), ("reg_q16", 0.16), ("reg_q84", 0.84), ("reg_q975", 0.975))}
         classes[cls] = {"n": n, "sigma": sigma, "rms": round(rms, 1), "mae": round(mae, 1),
-                        "bias": round(bias, 1), "bias_shrunk": round(bias_shrunk, 1),
-                        "medAE": round(med, 1), "sigma_raw_rms": round(rms, 1),
-                        "emp_q68": round(q68, 1), "emp_q95": round(q95, 1),
-                        # signed residual (pred-exp) quantiles for the asymmetric interval
-                        "resid_q025": round(float(np.quantile(es, 0.025)), 1),
-                        "resid_q16":  round(float(np.quantile(es, 0.16)), 1),
-                        "resid_q50":  round(float(np.quantile(es, 0.50)), 1),
-                        "resid_q84":  round(float(np.quantile(es, 0.84)), 1),
-                        "resid_q975": round(float(np.quantile(es, 0.975)), 1)}
+                        "bias": round(bias, 1), "medAE": round(medAE, 1),
+                        "center": center, **reg}
 
     default_sigma = round(overall_rms, 1)
 
@@ -133,26 +128,43 @@ def main():
         import hashlib
         fold = {rid: int(hashlib.md5(rid.encode()).hexdigest(), 16) % n_folds
                 for rid, _, _ in rows}
-        got1 = got2 = 0
+        got1 = got2 = gotI = 0                        # sigma-1, sigma-2, and the ASYMMETRIC INTERVAL
         for f in range(n_folds):
             tr = {}
             for rid, cls, e in rows:
                 if fold[rid] != f:
                     tr.setdefault(cls, []).append(e)
             tr_rms = {c: float(np.sqrt(np.mean(np.square(v)))) for c, v in tr.items()}
+            tw = []
+            for c, v in tr.items():
+                tw.extend(list(np.array(v) - np.median(v)))    # train within-class residuals -> global shape
+            tw = np.array(tw)
+            gq = ({q: float(np.quantile(tw, q)) for q in (0.025, 0.975)} if len(tw)
+                  else {0.025: -2 * overall_rms, 0.975: 2 * overall_rms})
             for rid, cls, e in rows:
                 if fold[rid] != f:
                     continue
                 v = tr.get(cls, [])
                 n = len(v)
+                # symmetric sigma (existing)
                 crms = tr_rms.get(cls, overall_rms)
                 shrunk = np.sqrt((n * crms ** 2 + 4 * overall_rms ** 2) / (n + 4)) if n else overall_rms
-                s = max(shrunk, crms, 6.0)   # one-sided (inflate-only) shrinkage, matches deploy rule
+                s = max(shrunk, crms, 6.0)
                 got1 += abs(e) <= s
                 got2 += abs(e) <= 2 * s
-        return got1 / len(rows), got2 / len(rows)
+                # ASYMMETRIC INTERVAL fit on TRAIN, coverage on held-out e (residual = pred - exp; exp in
+                # [dG-center-q_hi, dG-center-q_lo]  <=>  e in [center+q_lo, center+q_hi]).
+                if n:
+                    med = float(np.median(v)); c = med * n / (n + 8.0)
+                    ewv = np.array(v) - med
+                    qlo = (n * float(np.quantile(ewv, 0.025)) + 8.0 * gq[0.025]) / (n + 8.0)
+                    qhi = (n * float(np.quantile(ewv, 0.975)) + 8.0 * gq[0.975]) / (n + 8.0)
+                else:
+                    c, qlo, qhi = 0.0, gq[0.025], gq[0.975]
+                gotI += (c + qlo) <= e <= (c + qhi)
+        return got1 / len(rows), got2 / len(rows), gotI / len(rows)
 
-    cv1, cv2 = _cv_coverage()
+    cv1, cv2, cvI = _cv_coverage()
 
     out = {
         "source": os.path.relpath(LOGDIR, EXP),
@@ -163,6 +175,7 @@ def main():
                     "medAE": round(float(np.median(np.abs(allerr))), 2)},
         "cv_coverage_1sigma": round(cv1, 3),
         "cv_coverage_2sigma": round(cv2, 3),
+        "cv_coverage_interval95": round(cvI, 3),   # held-out coverage of the ASYMMETRIC interval we ship
         "default_sigma": default_sigma,
         "classes": classes,
         "per_reaction": [{"rid": rid, "class": cls, "err": round(float(e), 2),
@@ -187,8 +200,9 @@ def main():
     for m in (1.0, 2.0):
         cov = float((np.abs(allerr) <= m * sig).mean())
         print(f"  in-sample within {m:.0f} sigma: {cov*100:5.1f}%   (ideal {'68' if m==1 else '95'}%)")
-    print(f"  5-fold CV  within 1 sigma: {cv1*100:5.1f}%   (ideal 68%)   <- the honest number")
+    print(f"  5-fold CV  within 1 sigma: {cv1*100:5.1f}%   (ideal 68%)")
     print(f"  5-fold CV  within 2 sigma: {cv2*100:5.1f}%   (ideal 95%)")
+    print(f"  5-fold CV  ASYMMETRIC 95% interval: {cvI*100:5.1f}%   (ideal 95%)   <- the shipped intervals")
 
     # does a continuous structural feature carry residual-magnitude signal BEYOND the class label?
     # (if strong, a within-class refinement term would help; if weak, class-only sigma is justified.)
