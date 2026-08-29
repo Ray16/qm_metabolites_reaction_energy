@@ -191,6 +191,14 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None):
     st = CLASS_STATS.get(cls, {})
     s = st.get("sigma", SIGMA_CLASS.get(cls, _DEFAULT_SIGMA))
     q95abs = st.get("q95abs", 0.0)
+    ood_info = None
+    if species:                                              # OOD gate floors the interval sigma too
+        try:
+            from metag.routing.ood import ood_assessment
+            ood_info = ood_assessment(species)
+            s = max(s, ood_info["sigma_floor"])
+        except Exception:
+            ood_info = None
     # SYMMETRIC, NESTED-CV-validated interval centred on the (physics+anchor) prediction. Half-width =
     # max(m*sigma, q95abs): m is the multiplier (nested-CV to >=95% held-out), q95abs is a per-class
     # heavy-tail floor for classes (e.g. reductive-amination-DH) that k*sigma under-covers. An asymmetric
@@ -202,6 +210,8 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None):
     # wants a sharper estimate MAY recenter dG - class_bias; do not also widen for it (double-applying).
     return round(dG - hw, 1), round(dG + hw, 1), round(dG, 1), {"class": cls, "level": level,
             "sigma": s, "sigma_mult": m, "half_width": round(hw, 1),
+            "ood": bool(ood_info and ood_info["ood"]),
+            "ood_reasons": (ood_info["reasons"] if ood_info else []),
             "point_bias": st.get("bias"), "point_bias_note": "point-estimate metadata (in-distribution); "
             "interval already covers -- optional recenter dG-point_bias, do NOT also widen"}
 
@@ -217,7 +227,19 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
     s_class = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
     terms = {"U_samp": float(U_samp), "sigma_class": float(s_class)}
     sigma = math.sqrt(sum(v * v for v in terms.values()))
-    return round(sigma, 1), {"class": cls, **terms}
+    br = {"class": cls, **terms}
+    # OOD gate: if the reaction is structurally unlike the calibration set, FLOOR sigma (never narrow).
+    if species:
+        try:
+            from metag.routing.ood import ood_assessment
+            oa = ood_assessment(species)
+            br["ood"] = oa["ood"]; br["ood_reasons"] = oa["reasons"]
+            if oa["sigma_floor"] > sigma:
+                br["sigma_floored_from"] = round(sigma, 1)
+                sigma = oa["sigma_floor"]
+        except Exception:
+            pass
+    return round(sigma, 1), br
 
 
 if __name__ == "__main__":

@@ -25,6 +25,7 @@ metag/
     truncate.py        spectator truncation (Δq=0, mass-balance guarded)
     aldehyde.py        carbonyl⇌gem-diol mixture, α-EWG gated
     anchor.py          per-class empirical anchors (4 sub-classes; the only calibrated pieces)
+    ood.py             out-of-distribution gate (floors σ when unlike the calibration set)
     route_full.py      full-vs-truncated routing
   backend/             QM engine (needs the `uma` runtime: torch + fairchem + xtb)
     uma.py             batched UMA electronics
@@ -103,6 +104,14 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
     measures *consistency across substrates, not the accuracy* of the +25 target. Its σ is therefore
     inflated to **~11** (the three direct-reference anchors keep intra-class-only σ). Direction robust,
     magnitude soft. TODO to fully earn it: a direct ATP–PPi-exchange activation Keq to pin the reference.
+- **The σ-class is assigned structurally where it can be, and note-based otherwise.** Reactions matching
+  a structural anchor sub-class (SMARTS) get that class regardless of the enzyme note — so the same
+  chemistry always gets the same σ, and it works on cryptic/absent notes (the GC-silent deployment
+  target). The subtler mechanism classes still use the note taxonomy (structure alone would misclassify
+  them). An **OOD gate** (`routing/ood.py`) floors σ when a reaction is structurally unlike the TECRDB
+  calibration set — metals/uncommon elements, de-novo aromatic N-heterocycle condensations, very large
+  molecules — and flags it with reasons. Conservative guardrail (floors are heuristic, not error-fit),
+  and it never narrows σ.
 - **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
   not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
   ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate
