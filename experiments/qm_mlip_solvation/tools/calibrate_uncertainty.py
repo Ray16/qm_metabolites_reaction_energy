@@ -41,6 +41,7 @@ sys.path.insert(0, os.path.join(EXP, "tools"))
 sys.path.insert(0, os.path.join(EXP, "scripts"))
 import where_lacking as _wl          # ald_delta(rid) reads logs/ah367_on
 from route_anchor import anchor_correct as _anchor
+from mol_symmetry import thermal_sigma_delta as _thermal_delta
 
 
 def read_dG(rid, species=None):
@@ -52,8 +53,9 @@ def read_dG(rid, species=None):
         return None
     dG = float(m.group(1)) + _wl.ald_delta(rid)          # deployed: + aldehyde hydration
     if species is not None:
-        ac = _anchor(dG, species)                        # deployed: + anchor correction
-        if ac is not None:
+        dG += _thermal_delta(species)                    # deployed: + RRHO symmetry-number fix (analytic,
+        ac = _anchor(dG, species)                        #   bridges pre-fix logs to current physics)
+        if ac is not None:                               # deployed: + anchor correction
             dG = ac[0]
     return dG
 

@@ -120,6 +120,52 @@ def symmetry_number(symbols, coords, tol=0.15):
     return len(rots)
 
 
+_SIGMA_CACHE = {}
+
+
+def species_sigma_from_smiles(smi):
+    """Rotational symmetry number sigma from a SMILES (embed a 3D conformer, then count proper rotations).
+    Cached. Rigid small species (water=2, ammonia=3, CO2/O2/H2/N2=2) are unambiguous; floppy species may
+    read 1 on an asymmetric instantaneous conformer (conservative). Returns 1 on any failure."""
+    if smi in _SIGMA_CACHE:
+        return _SIGMA_CACHE[smi]
+    sig = 1
+    try:
+        from rdkit import Chem
+        from rdkit.Chem import AllChem
+        m = Chem.AddHs(Chem.MolFromSmiles(smi))
+        if AllChem.EmbedMolecule(m, randomSeed=1) == 0:
+            try:
+                AllChem.MMFFOptimizeMolecule(m)
+            except Exception:
+                pass
+            c = m.GetConformer()
+            sym = [a.GetSymbol() for a in m.GetAtoms()]
+            crd = [[c.GetAtomPosition(i).x, c.GetAtomPosition(i).y, c.GetAtomPosition(i).z]
+                   for i in range(m.GetNumAtoms())]
+            sig = symmetry_number(sym, crd)
+    except Exception:
+        sig = 1
+    _SIGMA_CACHE[smi] = sig
+    return sig
+
+
+def thermal_sigma_delta(species, T=298.15):
+    """Analytic ΔG shift (kJ/mol) of the RRHO symmetry-number fix (old hard-coded sigma=1 -> sigma_true):
+    Δ(ΔG) = RT * Σ coeff * ln(sigma_species). EXACT and geometry-independent (the rotational partition
+    function ∝ 1/sigma), so it applies the thermal fix to a cached pre-fix ΔG WITHOUT re-running QM.
+    Nonzero only for reactions with a net symmetric species (net water/ammonia/...). For TECRDB there are
+    no net LINEAR species, so this is the complete effect of the fix. `species` = {name:[coeff,q,smi]}."""
+    import math
+    RT = 8.314e-3 * T
+    d = 0.0
+    for coeff, q, smi in species.values():
+        sg = species_sigma_from_smiles(smi)
+        if sg > 1:
+            d += coeff * RT * math.log(sg)
+    return d
+
+
 def geometry_and_sigma(symbols, coords):
     """Return (geometry_str, sigma, n_drop) for ase.thermochemistry.IdealGasThermo, where n_drop is the
     number of external (translation+rotation) modes to remove from the sorted |frequency| list:
