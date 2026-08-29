@@ -16,6 +16,29 @@ subprocess.run([XTB_BIN, xyz, "--gfn", "2", "--chrg", str(q), "--sp", "--alpb", 
 ```
 `conda run` is fine ONCE at the top of a shell script; never per-item in Python.
 
+## Multi-GPU sweeps: ONE job per GPU at a time (per-GPU sequential shards)
+The 15 GB cards OOM if two UMA jobs share one GPU (a big reaction like folate needs >7 GB +
+model). Do NOT dispatch N jobs with a global throttle + `GPU = i % NG` — a new job lands on a GPU
+whose previous job is still running → OOM (burned 2026-08-18: ~16/82 jobs died mid-sweep). Instead
+give each GPU its OWN shard and run it SEQUENTIALLY (`idx=g; while ...; idx+=NG`), so exactly one job
+occupies a GPU at a time. Template: `tools/production_sweep.sh` (resumable: skips a rid whose log
+already has a ΔG line). Also export `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`. Note: `pgrep -f
+unified_pipeline.py` also matches your own shell command — count real jobs with
+`nvidia-smi --query-compute-apps=pid` instead.
+
+## Big reactions OOM on the ~15 GB cards: chunk the UMA batches (result-preserving)
+The cards are effectively ~14.6 GB (a torch OOM prints "GPU has a total capacity of 14.57 GiB" even
+though `nvidia-smi` reports 32 GB — it's partitioned/misleading). Big floppy cofactor/folate
+reactions (folate-linked, e.g. rxn00692/rxn15964) exceed that at the default conformer-batch sizes.
+Fix WITHOUT changing physics: reduce how many conformers are batched per GPU forward pass — same
+conformers, same energies, byte-identical ΔG, smaller footprint. Env knobs (added 2026-08-18):
+`UMA_ENERGY_CHUNK` (batched_relax.batched_energies, default 256), `UMA_FIRE_CHUNK`
+(batched_relax.batched_fire force eval, default 0=one batch), `UMA_HESS_CHUNK`
+(thermal_solv._forces_batched, default 128). Also `torch.cuda.empty_cache()` runs per species in
+`unified_pipeline.run_reaction` so a later big species doesn't OOM on fragmentation from earlier ones.
+rxn00692 (huge folate) went from OOM to ~5 GB. For the full sweep, apply small chunks ONLY to big
+reactions (auto-detect by heavy-atom count) so the ~90% that fit keep default chunks and aren't slowed.
+
 ## Set thread limits for CPU tools when parallelizing
 CPU QM tools (xtb, etc.) default to multi-threaded (all cores). Running N of them
 concurrently oversubscribes the CPU and everything crawls. Always set
@@ -43,6 +66,16 @@ Terse DECISIONS only (not an experiment log — results/status live in
   Hessian → it pins occupancy at the cap. Harmless for ΔG (waters cancel), fatal for
   absolute per-species occupancy — which is why we DON'T use occupancy self-selection
   (below). Always BATCH the ladder relaxation + run backends on separate GPUs.
+- RRHO rotational term: geometry (linear vs nonlinear → drop 5 vs 6 external modes) and
+  the rotational symmetry number σ are DETECTED from the geometry (`scripts/mol_symmetry.py`,
+  numpy-only proper-rotation count), NOT hard-coded. The old `geometry='nonlinear', σ=1`
+  for every species (a) gave water (σ=2, 77 net-water TECRDB rxns) a fixed −RT·ln2 ≈ 1.7 kJ
+  rotational-entropy error that does NOT cancel when water is created/destroyed, and (b)
+  was PATHOLOGICAL for linear species (CO₂/O₂/H₂/N₂: a spurious 3rd rotational axis with
+  I≈0 → CO₂ off by ~29 kJ) — 0 such in TECRDB but ubiquitous in ModelSEED. Detector exact on
+  water/CO₂/O₂/H₂/N₂/CO/HCN/NH₃/CH₄ (`tests/test_mol_symmetry.py`); undercounts conservatively
+  on rare high-symmetry floppy species (benzene/H₃PO₄), never overcounts. Pass geometry/σ
+  explicitly only to override (testing).
 - Sampling: ETKDG pool → batched UMA single-point rank → relax lowest ~10
   (energy-targeted); Boltzmann ensemble (not min); drop unconverged stragglers.
   keep=10 = fast default (cross-seed std ~6-8 kJ); keep~24 for tight final numbers
@@ -81,9 +114,24 @@ Terse DECISIONS only (not an experiment log — results/status live in
   (not anion solvation — pH-0 alone does nothing for redox). Replace NAD(P)+/H with 1-methylnicotinamide
   ±dihydro, GSH/GSSG with capped-cysteine thiol/disulfide — ISODESMIC (tail cancels), experiment-free.
   Redox class 35.5 -> 16.5. TODO: add FAD (flavin) + CoA (pantetheine-thioester) rows -> attacks the tail.
-- **CURRENT ACCURACY (2026-08-17, 361 TECRDB):** baseline 29.1 -> pH-0-gated 20.0 -> +cofactor-ring
-  **15.3 kJ MAE** (median ~10, bias ~0 = unbiased, SCATTER-limited). vs retrained-dGP MAE 5 (trained on
-  TECRDB). |err|>20 tail = 26%, dominated by CoA-thioester(55%)/glycosyl(50%)/flavin/Mg-phosphagen.
+- **CURRENT ACCURACY (2026-08-21, 362 TECRDB, clean coherent `logs/production/` sweep + rxn01211 routing fix + adenine N9-H data fix):** **MAE 13.2**
+  (median 9.6, bias ~0). vs retrained-dGP MAE 5.6 (FIT to TECRDB; its edge is fitting, won't survive
+  off-distribution). Prior "15.3" read stale fragmented logs; 13.5 is the honest coherent number.
+- **WHERE THE RESIDUAL LIVES (physics root-cause, 2026-08-21, all validated vs INDEPENDENT references —
+  never TECRDB):** UMA ELECTRONIC = gold-standard for every class (gas ΔE vs DLPNO-CCSD(T) within ~2 kJ,
+  incl. the P-N phosphoramidate); THERMAL (RRHO) fine; solvation FUNCTIONAL error CANCELS in balanced
+  reactions (COSMO vs FreeSolv); ionic strength = no gap (exp are standard ΔrG'° at I=0, pipeline too).
+  => the residual is the aqueous free energy of REAL solutes = SOLVATION. BUT (2026-08-21) NO CHEAP fix
+  survives validation: (1) CHARGED-solute (phosphagen +60, phosphate scatter) — explicit small-cluster
+  FAILED (its −55 was min-over-seeds SELECTION BIAS -> −91.7; does not converge; does not reproduce exp
+  ion solvation), implicit MODEL SWAP is DEAD (xtb-COSMO/ALPB/ORCA-SMD all agree within ~15-20 kJ), and we
+  lack reliable ion ΔGhyd to validate (single-ion convention problem; need MNSol DB). Root cause not cleanly
+  established beyond "not electronic/thermal/model-choice"; would need reliable ion data + explicit FEP,
+  bounded ~2-3 kJ prize. (2) neutral flexible-conformer (hydratase +16) needs explicit dynamics (open form
+  is not a gas minimum). DO NOT build electronic / functional / ionic-strength / cheap-cluster / model-swap
+  corrections — all proven not the cause or not helpful (= fitting). **13.5 is near the honest floor for a
+  CALIBRATED method; the proven-clean method IS the deliverable; next value = ModelSEED GENERALIZATION, not
+  more TECRDB squeezing.** See experiments/.../RUNNING_TASKS.md.
 
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,

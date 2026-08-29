@@ -66,12 +66,25 @@ def _forces_batched(pu, structs, chunk=None):
 
 
 def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
-                   geometry="nonlinear", symmetrynumber=1):
+                   geometry=None, symmetrynumber=None):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
-    Central-difference Hessian from UMA forces; all 6N displacements batched. Uses
-    the same low-frequency floor (50 cm^-1) and drop-6-modes convention as step6.
+    Central-difference Hessian from UMA forces; all 6N displacements batched. Uses the same
+    low-frequency floor (50 cm^-1) as step6.
+
+    The molecular geometry (linear vs nonlinear -> drop 5 vs 6 external modes) and the rotational
+    symmetry number sigma are DETECTED from the geometry (mol_symmetry.geometry_and_sigma), not
+    hard-coded: sigma=1/nonlinear-for-everything biases every reaction whose net species include a
+    symmetric molecule (water sigma=2 does not cancel when water is created/destroyed) and mis-treats
+    the linear species (CO2/O2/H2/N2) common in ModelSEED. Pass geometry/symmetrynumber explicitly only
+    to override the automatic detection (e.g. for testing).
     """
+    from mol_symmetry import geometry_and_sigma
+    geo_auto, sigma_auto, n_drop = geometry_and_sigma(symbols, coords)
+    if geometry is None:
+        geometry = geo_auto
+    if symmetrynumber is None:
+        symmetrynumber = sigma_auto
     base = Atoms(symbols=symbols, positions=np.asarray(coords, float),
                  info={"charge": int(q), "spin": 1})
     nat = len(base); ndof = 3 * nat
@@ -94,7 +107,10 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
     H = 0.5 * (H + H.T)
     vd = VibrationsData.from_2d(base, H)
     en = vd.get_energies()                                  # eV, complex for imaginary
-    mags_real = np.sort(np.abs(en.real))[6:]               # drop 6 trans/rot (pre-floor)
+    # drop the external (trans+rot) modes: 3 monatomic / 5 linear / 6 nonlinear (keep consistent with
+    # the resolved `geometry`, in case it was overridden).
+    n_drop = {"monatomic": 3, "linear": 5, "nonlinear": 6}[geometry]
+    mags_real = np.sort(np.abs(en.real))[n_drop:]          # drop external trans/rot (pre-floor)
     mags = np.where(mags_real < 50 * CM2EV, 50 * CM2EV, mags_real)   # low-frequency floor
     th = IdealGasThermo(vib_energies=mags, potentialenergy=E_elec, atoms=base,
                         geometry=geometry, symmetrynumber=symmetrynumber, spin=0)
