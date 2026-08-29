@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02213",
+ "note": "rxn02213 3-Dehydroquinate hydro-lyase | EC=4.2.1.10",
+ "max_heavy": 13,
+ "gc": -8.5,
+ "eq": -1.3,
+ "delta_gc_eq": -7.2,
+ "dG": 8.9,
+ "dG_raw": 8.9,
+ "ci95": [
+  -35.3,
+  53.2
+ ],
+ "sigma_pred": 20.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "hydratase",
+ "d_to_gc": 17.4,
+ "d_to_eq": 10.2,
+ "secs": 82.2
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn18778",
+ "note": "rxn18778 xenobiotic-transporting ATPase | EC=3.6.3.44",
+ "max_heavy": 31,
+ "gc": -6.8,
+ "eq": -6.2,
+ "delta_gc_eq": -0.6,
+ "dG": -4372579.7,
+ "dG_raw": -4372579.7,
+ "ci95": [
+  -4372614.5,
+  -4372544.9
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": "charge imbalance +1 (\u03a3coeff\u00b7q + n_H+ \u2260 0); |\u0394G|=4372580 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -4372572.9,
+ "d_to_eq": -4372573.5,
+ "secs": 995.5
+}

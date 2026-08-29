@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01979",
+ "note": "rxn01979 gamma-L-Glutamyl-L-cysteine:beta-alanine ligase (ADP-forming) | EC=6.3.2.23",
+ "max_heavy": 31,
+ "gc": -6.3,
+ "eq": -5.5,
+ "delta_gc_eq": -0.8,
+ "dG": 8.0,
+ "dG_raw": 8.0,
+ "ci95": [
+  -26.8,
+  42.8
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 14.3,
+ "d_to_eq": 13.5,
+ "secs": 274.9
+}

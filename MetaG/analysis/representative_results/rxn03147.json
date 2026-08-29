@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03147",
+ "note": "rxn03147 1-(5-Phosphoribosyl)-5-amino-4-carboxyimidazole:L-aspartate ligase (ADP-forming) | EC=6.3.2.6",
+ "max_heavy": 31,
+ "gc": -16.1,
+ "eq": -15.5,
+ "delta_gc_eq": -0.6,
+ "dG": 38.9,
+ "dG_raw": 38.9,
+ "ci95": [
+  -14.0,
+  91.8
+ ],
+ "sigma_pred": 24.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "glycosyl/PRT/nucleoside",
+ "d_to_gc": 55.0,
+ "d_to_eq": 54.4,
+ "secs": 501.7
+}

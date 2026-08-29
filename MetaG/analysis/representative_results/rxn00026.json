@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00026",
+ "note": "rxn00026 thiamine:oxygen 5-oxidoreductase | EC=1.1.3.23",
+ "max_heavy": 18,
+ "gc": -26.5,
+ "eq": -26.8,
+ "delta_gc_eq": 0.3,
+ "dG": -86.3,
+ "dG_raw": -86.3,
+ "ci95": [
+  -120.7,
+  -51.9
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -59.8,
+ "d_to_eq": -59.5,
+ "secs": 173.8
+}

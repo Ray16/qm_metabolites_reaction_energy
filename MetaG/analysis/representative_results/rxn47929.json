@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn47929",
+ "note": "rxn47929  | EC=2.1.1.M8",
+ "max_heavy": 27,
+ "gc": -20.6,
+ "eq": -5.5,
+ "delta_gc_eq": -15.1,
+ "dG": -125.5,
+ "dG_raw": -125.5,
+ "ci95": [
+  -160.4,
+  -90.7
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -104.9,
+ "d_to_eq": -120.0,
+ "secs": 672.0
+}

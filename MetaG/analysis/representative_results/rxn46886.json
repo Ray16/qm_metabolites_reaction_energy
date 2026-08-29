@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn46886",
+ "note": "rxn46886  | EC=1.13.11.81",
+ "max_heavy": 18,
+ "gc": -109.3,
+ "eq": -129.7,
+ "delta_gc_eq": 20.4,
+ "dG": -481.9,
+ "dG_raw": -481.9,
+ "ci95": [
+  -516.8,
+  -447.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -372.6,
+ "d_to_eq": -352.2,
+ "secs": 125.4
+}

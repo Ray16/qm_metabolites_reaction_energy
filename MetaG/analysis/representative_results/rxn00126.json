@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00126",
+ "note": "rxn00126 ATP:L-methionine S-adenosyltransferase | EC=2.5.1.6",
+ "max_heavy": 31,
+ "gc": -12.6,
+ "eq": -20.4,
+ "delta_gc_eq": 7.8,
+ "dG": -46.1,
+ "dG_raw": -46.1,
+ "ci95": [
+  -81.0,
+  -11.3
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -33.5,
+ "d_to_eq": -25.7,
+ "secs": 344.8
+}

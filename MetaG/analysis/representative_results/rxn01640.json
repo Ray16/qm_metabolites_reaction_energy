@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01640",
+ "note": "rxn01640 N-Formimino-L-glutamate iminohydrolase | EC=3.5.3.13",
+ "max_heavy": 12,
+ "gc": 2.8,
+ "eq": -7.0,
+ "delta_gc_eq": 9.8,
+ "dG": -57.9,
+ "dG_raw": -57.9,
+ "ci95": [
+  -92.7,
+  -23.1
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -60.7,
+ "d_to_eq": -50.9,
+ "secs": 28.4
+}

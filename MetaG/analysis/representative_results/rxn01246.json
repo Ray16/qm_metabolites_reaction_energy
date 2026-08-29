@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01246",
+ "note": "rxn01246 Hexadecanoate:hydrogen-peroxide oxidoreductase | EC=1.11.1.3",
+ "max_heavy": 18,
+ "gc": -137.6,
+ "eq": -139.0,
+ "delta_gc_eq": 1.4,
+ "dG": -577.9,
+ "dG_raw": -577.9,
+ "ci95": [
+  -612.3,
+  -543.5
+ ],
+ "sigma_pred": 16.5,
+ "anchor": null,
+ "suspect": "|\u0394G|=578 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -440.3,
+ "d_to_eq": -438.9,
+ "secs": 353.8
+}

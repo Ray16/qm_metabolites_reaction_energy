@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01801",
+ "note": "rxn01801 2-Deoxyuridine,2-Oxoglutarate:oxygen oxidoreductase (1'-hydroxylating) | EC=1.14.11.10",
+ "max_heavy": 16,
+ "gc": -125.4,
+ "eq": -130.5,
+ "delta_gc_eq": 5.1,
+ "dG": -524.4,
+ "dG_raw": -524.4,
+ "ci95": [
+  -558.8,
+  -490.0
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": "|\u0394G|=524 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -399.0,
+ "d_to_eq": -393.9,
+ "secs": 164.7
+}

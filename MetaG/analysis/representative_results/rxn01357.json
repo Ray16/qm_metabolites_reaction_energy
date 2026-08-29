@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01357",
+ "note": "rxn01357 3'-Phosphoadenylyl-sulfate:benzenamine N-sulfotransferase | EC=2.8.2.3",
+ "max_heavy": 31,
+ "gc": -14.8,
+ "eq": -65.0,
+ "delta_gc_eq": 50.2,
+ "dG": -6.4,
+ "dG_raw": -6.4,
+ "ci95": [
+  -41.3,
+  28.4
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 8.4,
+ "d_to_eq": 58.6,
+ "secs": 63.8
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn28948",
+ "note": "rxn28948 RXNQT-4304.c | EC=4.3.2.7",
+ "max_heavy": 20,
+ "gc": -3.1,
+ "eq": -5.9,
+ "delta_gc_eq": 2.8,
+ "dG": -14.7,
+ "dG_raw": -14.7,
+ "ci95": [
+  -49.6,
+  20.1
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -11.6,
+ "d_to_eq": -8.8,
+ "secs": 534.1
+}

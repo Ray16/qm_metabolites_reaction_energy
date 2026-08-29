@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16318",
+ "note": "rxn16318 (S)-2,3-epoxysqualene mutase (cyclizing, taraxerol-forming) | EC=5.4.99.35",
+ "max_heavy": 31,
+ "gc": -121.6,
+ "eq": -252.3,
+ "delta_gc_eq": 130.7,
+ "dG": -275.5,
+ "dG_raw": -275.5,
+ "ci95": [
+  -305.8,
+  -245.2
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -153.9,
+ "d_to_eq": -23.2,
+ "secs": 707.0
+}

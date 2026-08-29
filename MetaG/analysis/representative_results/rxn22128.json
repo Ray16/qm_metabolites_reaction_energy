@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn22128",
+ "note": "rxn22128 RXN-11774.c | EC=4.2.3.190",
+ "max_heavy": 30,
+ "gc": -37.0,
+ "eq": -45.8,
+ "delta_gc_eq": 8.8,
+ "dG": -49.4,
+ "dG_raw": -49.4,
+ "ci95": [
+  -84.2,
+  -14.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -12.4,
+ "d_to_eq": -3.6,
+ "secs": 1258.9
+}

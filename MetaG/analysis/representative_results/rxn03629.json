@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03629",
+ "note": "rxn03629 8'-apo-beta-Carotenol:O2 oxidoreductase | EC=1.13.11.67",
+ "max_heavy": 31,
+ "gc": -84.7,
+ "eq": -88.5,
+ "delta_gc_eq": 3.8,
+ "dG": -377.4,
+ "dG_raw": -377.4,
+ "ci95": [
+  -411.8,
+  -343.0
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -292.7,
+ "d_to_eq": -288.9,
+ "secs": 78.1
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02713",
+ "note": "rxn02713 S-Adenosyl-L-methionine:(S)-scoclaurine 9-O-methyltransferase | EC=2.1.1.117",
+ "max_heavy": 27,
+ "gc": -4.4,
+ "eq": -1.8,
+ "delta_gc_eq": -2.6,
+ "dG": -56.5,
+ "dG_raw": -56.5,
+ "ci95": [
+  -91.3,
+  -21.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -52.1,
+ "d_to_eq": -54.7,
+ "secs": 526.6
+}

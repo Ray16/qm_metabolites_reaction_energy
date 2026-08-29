@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn39359",
+ "note": "rxn39359 ATP:D-fructose-6-phosphate 2-phosphotransferase | EC=2.7.1.105",
+ "max_heavy": 31,
+ "gc": -14.0,
+ "eq": 1.1,
+ "delta_gc_eq": -15.1,
+ "dG": -53.7,
+ "dG_raw": -53.7,
+ "ci95": [
+  -88.5,
+  -18.8
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -39.7,
+ "d_to_eq": -54.8,
+ "secs": 1157.1
+}

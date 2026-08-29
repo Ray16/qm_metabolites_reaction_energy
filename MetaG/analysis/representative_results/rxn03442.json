@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03442",
+ "note": "rxn03442 R05078 | EC=4.2.1.-",
+ "max_heavy": 12,
+ "gc": 2.4,
+ "eq": 0.4,
+ "delta_gc_eq": 2.0,
+ "dG": 21.7,
+ "dG_raw": 21.7,
+ "ci95": [
+  -13.2,
+  56.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 19.3,
+ "d_to_eq": 21.3,
+ "secs": 83.8
+}

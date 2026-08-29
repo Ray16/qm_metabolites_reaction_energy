@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn11660",
+ "note": "rxn11660 R05697 | EC=1.1.3.39",
+ "max_heavy": 20,
+ "gc": -41.5,
+ "eq": -40.4,
+ "delta_gc_eq": -1.1,
+ "dG": -166.9,
+ "dG_raw": -166.9,
+ "ci95": [
+  -201.8,
+  -132.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -125.4,
+ "d_to_eq": -126.5,
+ "secs": 102.9
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn05179",
+ "note": "rxn05179 nonpolar-amino-acid-transporting ATPase | EC=3.6.3.22",
+ "max_heavy": 31,
+ "gc": -6.8,
+ "eq": -6.2,
+ "delta_gc_eq": -0.6,
+ "dG": -1144074.2,
+ "dG_raw": -1144074.2,
+ "ci95": [
+  -1144109.0,
+  -1144039.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": "charge imbalance -13 (\u03a3coeff\u00b7q + n_H+ \u2260 0); |\u0394G|=1144074 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -1144067.4,
+ "d_to_eq": -1144068.0,
+ "secs": 421.9
+}

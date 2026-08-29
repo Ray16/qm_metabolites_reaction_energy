@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01854",
+ "note": "rxn01854 N(alpha)-Benzyloxycarbonyl-L-leucine urethanehydrolase | EC=3.5.1.64",
+ "max_heavy": 19,
+ "gc": 5.3,
+ "eq": -86.0,
+ "delta_gc_eq": 91.3,
+ "dG": 11.4,
+ "dG_raw": 11.4,
+ "ci95": [
+  -23.4,
+  46.2
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 6.1,
+ "d_to_eq": 97.4,
+ "secs": 137.6
+}

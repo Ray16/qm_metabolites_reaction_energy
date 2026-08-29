@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02885",
+ "note": "rxn02885 R04134 | EC=5.3.2.M1",
+ "max_heavy": 12,
+ "gc": 5.0,
+ "eq": -0.0,
+ "delta_gc_eq": 5.0,
+ "dG": 0.0,
+ "dG_raw": 0.0,
+ "ci95": [
+  -34.8,
+  34.8
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -5.0,
+ "d_to_eq": 0.0,
+ "secs": 43.0
+}

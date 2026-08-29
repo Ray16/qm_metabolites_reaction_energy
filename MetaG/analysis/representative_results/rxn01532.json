@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01532",
+ "note": "rxn01532 all-trans-Retinal 11-cis-trans-isomerase | EC=5.2.1.3",
+ "max_heavy": 21,
+ "gc": 0.0,
+ "eq": 1.8,
+ "delta_gc_eq": -1.8,
+ "dG": 16.8,
+ "dG_raw": 16.8,
+ "ci95": [
+  -13.5,
+  47.1
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": 16.8,
+ "d_to_eq": 15.0,
+ "secs": 213.0
+}

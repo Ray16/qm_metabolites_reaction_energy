@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00022",
+ "note": "rxn00022 maltose glucohydrolase | EC=3.2.1.20",
+ "max_heavy": 23,
+ "gc": -3.1,
+ "eq": -3.5,
+ "delta_gc_eq": 0.4,
+ "dG": -14.7,
+ "dG_raw": -14.7,
+ "ci95": [
+  -49.5,
+  20.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -11.6,
+ "d_to_eq": -11.2,
+ "secs": 252.3
+}

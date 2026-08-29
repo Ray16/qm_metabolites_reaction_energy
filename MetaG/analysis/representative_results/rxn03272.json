@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03272",
+ "note": "rxn03272 4-Carboxy-4-hydroxy-2-oxoadipate hydro-lyase | EC=4.2.1.80",
+ "max_heavy": 15,
+ "gc": 1.5,
+ "eq": 0.4,
+ "delta_gc_eq": 1.1,
+ "dG": 23.4,
+ "dG_raw": 23.4,
+ "ci95": [
+  -20.9,
+  67.7
+ ],
+ "sigma_pred": 20.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "hydratase",
+ "d_to_gc": 21.9,
+ "d_to_eq": 23.0,
+ "secs": 108.5
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16799",
+ "note": "rxn16799 R09952 | EC=5.3.99.-",
+ "max_heavy": 12,
+ "gc": 0.0,
+ "eq": 0.0,
+ "delta_gc_eq": 0.0,
+ "dG": -10.0,
+ "dG_raw": -10.0,
+ "ci95": [
+  -44.9,
+  24.8
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -10.0,
+ "d_to_eq": -10.0,
+ "secs": 118.3
+}

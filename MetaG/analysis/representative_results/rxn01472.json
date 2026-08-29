@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01472",
+ "note": "rxn01472 geranyl-diphosphate diphosphate-lyase (cyclizing, terpinolene-forming) | EC=4.2.3.113",
+ "max_heavy": 19,
+ "gc": -9.1,
+ "eq": -47.0,
+ "delta_gc_eq": 37.9,
+ "dG": -73.4,
+ "dG_raw": -73.4,
+ "ci95": [
+  -108.2,
+  -38.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -64.3,
+ "d_to_eq": -26.4,
+ "secs": 383.3
+}

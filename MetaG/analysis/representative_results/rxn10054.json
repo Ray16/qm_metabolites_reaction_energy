@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn10054",
+ "note": "rxn10054 dCMP deaminase (CMP) | EC=3.5.4.12",
+ "max_heavy": 21,
+ "gc": -5.1,
+ "eq": -5.1,
+ "delta_gc_eq": 0.0,
+ "dG": -19.1,
+ "dG_raw": -19.1,
+ "ci95": [
+  -54.3,
+  16.2
+ ],
+ "sigma_pred": 16.5,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "amide/amidine-hydrolysis",
+ "d_to_gc": -14.0,
+ "d_to_eq": -14.0,
+ "secs": 0.0
+}

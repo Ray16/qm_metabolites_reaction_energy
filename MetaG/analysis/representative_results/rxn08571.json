@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn08571",
+ "note": "rxn08571 D-galactose 1-phosphatase | EC=3.1.3.10",
+ "max_heavy": 16,
+ "gc": 7.2,
+ "eq": -4.9,
+ "delta_gc_eq": 12.1,
+ "dG": -23.5,
+ "dG_raw": -3.2,
+ "ci95": [
+  -47.9,
+  0.9
+ ],
+ "sigma_pred": 11.4,
+ "anchor": {
+  "subclass": "phosphatase_monoester",
+  "offset": 20.3,
+  "sigma": 5.0
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "phosphatase",
+ "d_to_gc": -30.7,
+ "d_to_eq": -18.6,
+ "secs": 56.5
+}

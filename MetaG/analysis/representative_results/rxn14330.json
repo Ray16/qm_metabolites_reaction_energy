@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn14330",
+ "note": "rxn14330 portulacaxanthin-II,dopaxanthin:oxygen oxidoreductase | EC=1.14.18.-",
+ "max_heavy": 28,
+ "gc": -81.3,
+ "eq": -92.4,
+ "delta_gc_eq": 11.1,
+ "dG": -245.1,
+ "dG_raw": -245.1,
+ "ci95": [
+  -279.5,
+  -210.7
+ ],
+ "sigma_pred": 16.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -163.8,
+ "d_to_eq": -152.7,
+ "secs": 713.7
+}

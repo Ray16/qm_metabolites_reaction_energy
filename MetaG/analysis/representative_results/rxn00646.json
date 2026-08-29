@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00646",
+ "note": "rxn00646 L-glutamate:L-cysteine gamma-ligase (ADP-forming) | EC=6.3.2.2",
+ "max_heavy": 31,
+ "gc": -6.3,
+ "eq": -7.4,
+ "delta_gc_eq": 1.1,
+ "dG": 4.6,
+ "dG_raw": 4.6,
+ "ci95": [
+  -30.3,
+  39.4
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 10.9,
+ "d_to_eq": 12.0,
+ "secs": 23.1
+}

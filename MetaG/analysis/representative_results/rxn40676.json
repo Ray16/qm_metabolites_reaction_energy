@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn40676",
+ "note": "rxn40676  | EC=4.2.3.169",
+ "max_heavy": 24,
+ "gc": -60.1,
+ "eq": -95.4,
+ "delta_gc_eq": 35.3,
+ "dG": -136.5,
+ "dG_raw": -136.5,
+ "ci95": [
+  -171.4,
+  -101.7
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -76.4,
+ "d_to_eq": -41.1,
+ "secs": 304.6
+}

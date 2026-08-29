@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn04913",
+ "note": "rxn04913 8,9-EET hydrolase | EC=3.3.2.10",
+ "max_heavy": 24,
+ "gc": -3.6,
+ "eq": 6.5,
+ "delta_gc_eq": -10.1,
+ "dG": -60.5,
+ "dG_raw": -60.5,
+ "ci95": [
+  -95.4,
+  -25.7
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -56.9,
+ "d_to_eq": -67.0,
+ "secs": 926.9
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn22519",
+ "note": "rxn22519 ATP diphosphohydrolase (phosphate-forming) | EC=3.6.1.5",
+ "max_heavy": 29,
+ "gc": -23.1,
+ "eq": -11.5,
+ "delta_gc_eq": -11.6,
+ "dG": -32.1,
+ "dG_raw": -32.1,
+ "ci95": [
+  -72.3,
+  8.1
+ ],
+ "sigma_pred": 18.9,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "kinase/phosphotransfer",
+ "d_to_gc": -9.0,
+ "d_to_eq": -20.6,
+ "secs": 495.5
+}

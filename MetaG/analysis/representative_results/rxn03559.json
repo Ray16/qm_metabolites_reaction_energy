@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03559",
+ "note": "rxn03559 2,3-Dihydroxy-4'-chlorobiphenyl:oxygen 1,2-oxidoreductase (decyclizing) | EC=1.13.11.39",
+ "max_heavy": 17,
+ "gc": -74.5,
+ "eq": -62.1,
+ "delta_gc_eq": -12.4,
+ "dG": -313.0,
+ "dG_raw": -313.0,
+ "ci95": [
+  -347.4,
+  -278.6
+ ],
+ "sigma_pred": 16.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -238.5,
+ "d_to_eq": -250.9,
+ "secs": 71.9
+}

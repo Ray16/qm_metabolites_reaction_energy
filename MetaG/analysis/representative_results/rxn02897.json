@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02897",
+ "note": "rxn02897 Nicotinate-nucleotide:dimethylbenzimidazole phospho-D-ribosyltransferase | EC=2.4.2.21",
+ "max_heavy": 24,
+ "gc": -2.9,
+ "eq": -5.6,
+ "delta_gc_eq": 2.7,
+ "dG": -43.5,
+ "dG_raw": -43.5,
+ "ci95": [
+  -78.3,
+  -8.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -40.6,
+ "d_to_eq": -37.9,
+ "secs": 108.5
+}

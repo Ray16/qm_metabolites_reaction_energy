@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01644",
+ "note": "rxn01644 L-Aspartate-4-semialdehyde hydro-lyase (adding pyruvate and cyclizing) | EC=4.2.1.52",
+ "max_heavy": 12,
+ "gc": -30.9,
+ "eq": -29.6,
+ "delta_gc_eq": -1.3,
+ "dG": 40.7,
+ "dG_raw": 40.7,
+ "ci95": [
+  -3.6,
+  85.0
+ ],
+ "sigma_pred": 20.8,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "hydratase",
+ "d_to_gc": 71.6,
+ "d_to_eq": 70.3,
+ "secs": 94.6
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn21194",
+ "note": "rxn21194 RXN-10887.c | EC=6.3.-.-",
+ "max_heavy": 31,
+ "gc": -26.8,
+ "eq": -8.1,
+ "delta_gc_eq": -18.7,
+ "dG": -100.6,
+ "dG_raw": -100.6,
+ "ci95": [
+  -135.4,
+  -65.8
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -73.8,
+ "d_to_eq": -92.5,
+ "secs": 28.5
+}

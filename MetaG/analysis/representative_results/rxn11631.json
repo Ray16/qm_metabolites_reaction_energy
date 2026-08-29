@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn11631",
+ "note": "rxn11631 5-hydroxyindoleacetaldehyde:oxygen oxidoreductase | EC=1.2.3.1",
+ "max_heavy": 14,
+ "gc": -41.5,
+ "eq": -40.4,
+ "delta_gc_eq": -1.1,
+ "dG": -163.2,
+ "dG_raw": -163.2,
+ "ci95": [
+  -197.6,
+  -128.8
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -121.7,
+ "d_to_eq": -122.8,
+ "secs": 64.3
+}

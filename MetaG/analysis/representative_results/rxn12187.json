@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn12187",
+ "note": "rxn12187 (2E,6E)-Farnesyl-diphosphate diphosphate-lyase (beta-selinene-forming) | EC=4.2.3.66",
+ "max_heavy": 24,
+ "gc": -26.9,
+ "eq": -89.8,
+ "delta_gc_eq": 62.9,
+ "dG": -143.7,
+ "dG_raw": -143.7,
+ "ci95": [
+  -178.5,
+  -108.9
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -116.8,
+ "d_to_eq": -53.9,
+ "secs": 563.9
+}

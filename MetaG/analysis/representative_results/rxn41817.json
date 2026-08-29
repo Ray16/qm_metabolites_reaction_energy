@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn41817",
+ "note": "rxn41817  | EC=4.2.3.173",
+ "max_heavy": 24,
+ "gc": -51.7,
+ "eq": -142.0,
+ "delta_gc_eq": 90.3,
+ "dG": -159.4,
+ "dG_raw": -159.4,
+ "ci95": [
+  -194.2,
+  -124.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -107.7,
+ "d_to_eq": -17.4,
+ "secs": 54.9
+}

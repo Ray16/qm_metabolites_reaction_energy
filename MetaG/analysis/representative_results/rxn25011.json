@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn25011",
+ "note": "rxn25011 RXN-8577.c | EC=4.2.3.-",
+ "max_heavy": 19,
+ "gc": -33.4,
+ "eq": -142.3,
+ "delta_gc_eq": 108.9,
+ "dG": -41.8,
+ "dG_raw": -41.8,
+ "ci95": [
+  -76.6,
+  -7.0
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -8.4,
+ "d_to_eq": 100.5,
+ "secs": 391.1
+}

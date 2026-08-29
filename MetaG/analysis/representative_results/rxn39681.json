@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn39681",
+ "note": "rxn39681 Copalyl-diphosphate diphosphate-lyase (cyclizing) | EC=4.2.3.147",
+ "max_heavy": 29,
+ "gc": -41.0,
+ "eq": -106.9,
+ "delta_gc_eq": 65.9,
+ "dG": -93.0,
+ "dG_raw": -93.0,
+ "ci95": [
+  -127.8,
+  -58.1
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -52.0,
+ "d_to_eq": 13.9,
+ "secs": 1328.7
+}

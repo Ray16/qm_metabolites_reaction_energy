@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01098",
+ "note": "rxn01098 2,3-Dihydroxybenzoate:L-serine ligase | EC=6.3.2.14",
+ "max_heavy": 31,
+ "gc": -26.8,
+ "eq": -9.9,
+ "delta_gc_eq": -16.9,
+ "dG": -146.1,
+ "dG_raw": -146.1,
+ "ci95": [
+  -180.9,
+  -111.2
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -119.3,
+ "d_to_eq": -136.2,
+ "secs": 100.7
+}

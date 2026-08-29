@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00774",
+ "note": "rxn00774 Ribose-5-phosphate:ammonia ligase (ADP-forming) | EC=6.3.4.7",
+ "max_heavy": 31,
+ "gc": -9.3,
+ "eq": -7.7,
+ "delta_gc_eq": -1.6,
+ "dG": -15.3,
+ "dG_raw": -15.3,
+ "ci95": [
+  -50.2,
+  19.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -6.0,
+ "d_to_eq": -7.6,
+ "secs": 154.6
+}

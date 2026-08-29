@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn39926",
+ "note": "rxn39926 ATP:N-acetyl-D-glucosamine 1-phosphotransferase | EC=1.1.1.124",
+ "max_heavy": 31,
+ "gc": -14.0,
+ "eq": -0.4,
+ "delta_gc_eq": -13.6,
+ "dG": -16.7,
+ "dG_raw": -16.7,
+ "ci95": [
+  -51.6,
+  18.1
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -2.7,
+ "d_to_eq": -16.3,
+ "secs": 215.6
+}

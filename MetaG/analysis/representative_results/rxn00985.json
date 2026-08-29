@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00985",
+ "note": "rxn00985 ATP:propanoate phosphotransferase | EC=2.7.2.1",
+ "max_heavy": 31,
+ "gc": -6.9,
+ "eq": 8.2,
+ "delta_gc_eq": -15.1,
+ "dG": 19.4,
+ "dG_raw": 19.4,
+ "ci95": [
+  -15.4,
+  54.2
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 26.3,
+ "d_to_eq": 11.2,
+ "secs": 0.0
+}

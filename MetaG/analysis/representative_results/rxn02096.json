@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02096",
+ "note": "rxn02096 L-Glutamate:ethylamine ligase (ADP-forming) | EC=6.3.1.6",
+ "max_heavy": 31,
+ "gc": -6.3,
+ "eq": -5.1,
+ "delta_gc_eq": -1.2,
+ "dG": 18.3,
+ "dG_raw": 18.3,
+ "ci95": [
+  -16.5,
+  53.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 24.6,
+ "d_to_eq": 23.4,
+ "secs": 92.3
+}

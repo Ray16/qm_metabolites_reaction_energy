@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16802",
+ "note": "rxn16802 5-androstene-3,17-dione delta5-delta4-isomerase | EC=5.3.3.1",
+ "max_heavy": 21,
+ "gc": -1.6,
+ "eq": 0.4,
+ "delta_gc_eq": -2.0,
+ "dG": -19.9,
+ "dG_raw": -19.9,
+ "ci95": [
+  -50.2,
+  10.4
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -18.3,
+ "d_to_eq": -20.3,
+ "secs": 151.9
+}

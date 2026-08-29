@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00495",
+ "note": "rxn00495 L-phenylalanine ammonia-lyase (trans-cinnamate-forming) | EC=4.3.1.24",
+ "max_heavy": 12,
+ "gc": -0.2,
+ "eq": -0.9,
+ "delta_gc_eq": 0.7,
+ "dG": -13.0,
+ "dG_raw": -13.0,
+ "ci95": [
+  -45.7,
+  19.7
+ ],
+ "sigma_pred": 15.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "ammonia-lyase",
+ "d_to_gc": -12.8,
+ "d_to_eq": -12.1,
+ "secs": 43.7
+}

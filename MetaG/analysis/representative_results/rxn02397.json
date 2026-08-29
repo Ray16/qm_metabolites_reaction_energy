@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02397",
+ "note": "rxn02397 3-(4-Hydroxyphenyl)pyruvate keto-enol-isomerase | EC=5.3.2.1",
+ "max_heavy": 13,
+ "gc": 5.0,
+ "eq": -13.8,
+ "delta_gc_eq": 18.8,
+ "dG": 0.0,
+ "dG_raw": 0.0,
+ "ci95": [
+  -30.3,
+  30.3
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "isomerase/mutase",
+ "d_to_gc": -5.0,
+ "d_to_eq": 13.8,
+ "secs": 45.0
+}

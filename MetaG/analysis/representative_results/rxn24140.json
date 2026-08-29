@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn24140",
+ "note": "rxn24140 2',4,4',6'-tetrahydroxychalcone:oxygen oxidoreductase | EC=1.21.3.6",
+ "max_heavy": 21,
+ "gc": -78.0,
+ "eq": -126.8,
+ "delta_gc_eq": 48.8,
+ "dG": -359.1,
+ "dG_raw": -359.1,
+ "ci95": [
+  -393.5,
+  -324.7
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -281.1,
+ "d_to_eq": -232.3,
+ "secs": 60.9
+}

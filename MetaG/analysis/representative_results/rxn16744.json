@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16744",
+ "note": "rxn16744 (3S)-2,3-epoxy-2,3-dihydrosqualene mutase (cyclizing, shionone-forming) | EC=5.4.99.46",
+ "max_heavy": 31,
+ "gc": -116.6,
+ "eq": -156.1,
+ "delta_gc_eq": 39.5,
+ "dG": -272.8,
+ "dG_raw": -272.8,
+ "ci95": [
+  -303.1,
+  -242.5
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -156.2,
+ "d_to_eq": -116.7,
+ "secs": 642.1
+}

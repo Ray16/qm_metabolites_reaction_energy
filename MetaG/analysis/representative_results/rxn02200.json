@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02200",
+ "note": "rxn02200 2-amino-4-hydroxy-6-hydroxymethyl-7,8-dihydropteridine:4-aminobenzoate 2-amino-4-hydroxydihydropteridine-6-methenyltransferase | EC=2.5.1.15",
+ "max_heavy": 23,
+ "gc": -6.7,
+ "eq": -6.5,
+ "delta_gc_eq": -0.2,
+ "dG": -42.8,
+ "dG_raw": -42.8,
+ "ci95": [
+  -77.6,
+  -8.0
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -36.1,
+ "d_to_eq": -36.3,
+ "secs": 172.6
+}

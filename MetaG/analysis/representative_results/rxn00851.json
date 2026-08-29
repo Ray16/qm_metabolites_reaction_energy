@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00851",
+ "note": "rxn00851 D-alanine:D-alanine ligase (ADP-forming) | EC=6.3.2.4",
+ "max_heavy": 31,
+ "gc": -6.3,
+ "eq": -6.1,
+ "delta_gc_eq": -0.2,
+ "dG": 31.6,
+ "dG_raw": 31.6,
+ "ci95": [
+  -3.3,
+  66.4
+ ],
+ "sigma_pred": 16.5,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 37.9,
+ "d_to_eq": 37.7,
+ "secs": 469.6
+}

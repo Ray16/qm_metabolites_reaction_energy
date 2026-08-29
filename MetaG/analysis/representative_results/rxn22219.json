@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn22219",
+ "note": "rxn22219 5-methyl-phenazine-1-carboxylate N-methyltransferase | EC=2.1.1.-",
+ "max_heavy": 27,
+ "gc": -3.8,
+ "eq": 7.4,
+ "delta_gc_eq": -11.2,
+ "dG": 26.6,
+ "dG_raw": 26.6,
+ "ci95": [
+  -8.2,
+  61.4
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 30.4,
+ "d_to_eq": 19.2,
+ "secs": 450.5
+}

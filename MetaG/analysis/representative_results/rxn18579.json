@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn18579",
+ "note": "rxn18579 ATP phosphohydrolase (polar-amino-acid-importing) | EC=3.6.3.21",
+ "max_heavy": 31,
+ "gc": -6.8,
+ "eq": -6.2,
+ "delta_gc_eq": -0.6,
+ "dG": -1641001.3,
+ "dG_raw": -1641001.3,
+ "ci95": [
+  -1641036.1,
+  -1640966.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": "charge imbalance -11 (\u03a3coeff\u00b7q + n_H+ \u2260 0); |\u0394G|=1641001 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -1640994.5,
+ "d_to_eq": -1640995.1,
+ "secs": 1001.7
+}

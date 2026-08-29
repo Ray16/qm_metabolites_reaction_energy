@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16410",
+ "note": "rxn16410 2-imino-3-(7-chloroindol-3-yl)propanoate ammonia-lyase (dichlorochromopyrrolate-forming) | EC=1.21.3.9",
+ "max_heavy": 31,
+ "gc": -45.2,
+ "eq": -144.4,
+ "delta_gc_eq": 99.2,
+ "dG": -661.1,
+ "dG_raw": -661.1,
+ "ci95": [
+  -693.8,
+  -628.5
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": "|\u0394G|=661 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "ammonia-lyase",
+ "d_to_gc": -615.9,
+ "d_to_eq": -516.7,
+ "secs": 140.3
+}

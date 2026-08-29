@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn05012",
+ "note": "rxn05012 carbamoyl-phosphate:N2-acetyl-L-ornithine carbamoyltransferase | EC=2.1.3.9",
+ "max_heavy": 15,
+ "gc": 0.6,
+ "eq": -1.6,
+ "delta_gc_eq": 2.2,
+ "dG": -15.3,
+ "dG_raw": -15.3,
+ "ci95": [
+  -47.4,
+  16.7
+ ],
+ "sigma_pred": 15.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "carbamoyltransfer",
+ "d_to_gc": -15.9,
+ "d_to_eq": -13.7,
+ "secs": 53.1
+}

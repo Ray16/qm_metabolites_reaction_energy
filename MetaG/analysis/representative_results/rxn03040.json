@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03040",
+ "note": "rxn03040 5-Carboxymethyl-2-hydroxymuconate delta2,delta4-2-oxo,delta3-isomerase | EC=5.3.3.10",
+ "max_heavy": 15,
+ "gc": -4.4,
+ "eq": -0.0,
+ "delta_gc_eq": -4.4,
+ "dG": -1.3,
+ "dG_raw": -1.3,
+ "ci95": [
+  -31.6,
+  29.0
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "isomerase/mutase",
+ "d_to_gc": 3.1,
+ "d_to_eq": -1.3,
+ "secs": 88.9
+}

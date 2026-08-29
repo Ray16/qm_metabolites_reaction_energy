@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00884",
+ "note": "rxn00884 S-adenosyl-L-methionine:1D-myo-inositol 1-O-methyltransferase | EC=2.1.1.40",
+ "max_heavy": 27,
+ "gc": -4.4,
+ "eq": 7.2,
+ "delta_gc_eq": -11.6,
+ "dG": -72.2,
+ "dG_raw": -72.2,
+ "ci95": [
+  -107.0,
+  -37.4
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -67.8,
+ "d_to_eq": -79.4,
+ "secs": 863.5
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02320",
+ "note": "rxn02320 5-Amino-2-oxopentanoate:2-oxoglutarate aminotransferase | EC=2.6.1.9",
+ "max_heavy": 14,
+ "gc": -2.5,
+ "eq": -1.8,
+ "delta_gc_eq": -0.7,
+ "dG": 6.3,
+ "dG_raw": 6.3,
+ "ci95": [
+  -19.5,
+  32.1
+ ],
+ "sigma_pred": 11.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "transaminase",
+ "d_to_gc": 8.8,
+ "d_to_eq": 8.1,
+ "secs": 107.3
+}

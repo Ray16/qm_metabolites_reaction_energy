@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn15378",
+ "note": "rxn15378 Flavanone lyase (decyclizing) | EC=5.5.1.6",
+ "max_heavy": 17,
+ "gc": 8.4,
+ "eq": 23.3,
+ "delta_gc_eq": -14.9,
+ "dG": 31.4,
+ "dG_raw": 31.4,
+ "ci95": [
+  -3.4,
+  66.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 23.0,
+ "d_to_eq": 8.1,
+ "secs": 63.6
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn15607",
+ "note": "rxn15607 (+)-Copalyl-diphosphate lyase (decyclizing) | EC=5.5.1.12",
+ "max_heavy": 29,
+ "gc": -22.7,
+ "eq": -82.0,
+ "delta_gc_eq": 59.3,
+ "dG": -98.3,
+ "dG_raw": -98.3,
+ "ci95": [
+  -133.1,
+  -63.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -75.6,
+ "d_to_eq": -16.3,
+ "secs": 233.7
+}

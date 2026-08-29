@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01159",
+ "note": "rxn01159 L-Glutamate:methylamine ligase (ADP-forming) | EC=6.3.4.12",
+ "max_heavy": 31,
+ "gc": -6.7,
+ "eq": -7.0,
+ "delta_gc_eq": 0.3,
+ "dG": 13.1,
+ "dG_raw": 13.1,
+ "ci95": [
+  -21.7,
+  48.0
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 19.8,
+ "d_to_eq": 20.1,
+ "secs": 261.2
+}

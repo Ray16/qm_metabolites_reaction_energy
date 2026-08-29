@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn23417",
+ "note": "rxn23417 6-deoxy-5-ketofructose 1-phosphate synthase | EC=2.2.1.-",
+ "max_heavy": 16,
+ "gc": -0.7,
+ "eq": 5.3,
+ "delta_gc_eq": -6.0,
+ "dG": 5.4,
+ "dG_raw": 5.4,
+ "ci95": [
+  -29.4,
+  40.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 6.1,
+ "d_to_eq": 0.1,
+ "secs": 288.2
+}

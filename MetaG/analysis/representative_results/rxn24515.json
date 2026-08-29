@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn24515",
+ "note": "rxn24515 4a-hydroxytetrahydrobiopterin dehydratase | EC=4.2.1.96",
+ "max_heavy": 18,
+ "gc": -3.6,
+ "eq": -33.5,
+ "delta_gc_eq": 29.9,
+ "dG": -58.7,
+ "dG_raw": -58.7,
+ "ci95": [
+  -103.0,
+  -14.4
+ ],
+ "sigma_pred": 20.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "hydratase",
+ "d_to_gc": -55.1,
+ "d_to_eq": -25.2,
+ "secs": 108.6
+}
