@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00418",
+ "note": "rxn00418 ENTF-RXN.c",
+ "max_heavy": 31,
+ "gc": -11.1,
+ "eq": 278.5,
+ "delta_gc_eq": -289.6,
+ "dG": 28.2,
+ "dG_raw": 49.8,
+ "ci95": [
+  4.6,
+  51.9
+ ],
+ "sigma_pred": 11.2,
+ "anchor": {
+  "subclass": "adenylylate",
+  "offset": 21.6,
+  "sigma": 11.0
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "adenylylate",
+ "d_to_gc": 39.3,
+ "d_to_eq": -250.3,
+ "secs": 0.2
+}

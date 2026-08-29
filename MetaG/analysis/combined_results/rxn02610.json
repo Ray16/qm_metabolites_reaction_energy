@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02610",
+ "note": "rxn02610 L-Dopachrome delta7-delta2-isomerase | EC=5.3.3.12",
+ "max_heavy": 14,
+ "gc": -21.7,
+ "eq": 71.1,
+ "delta_gc_eq": -92.8,
+ "dG": -45.8,
+ "dG_raw": -45.8,
+ "ci95": [
+  -76.1,
+  -15.5
+ ],
+ "sigma_pred": 14.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -24.1,
+ "d_to_eq": -116.9,
+ "secs": 0.0
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02988",
+ "note": "rxn02988 glycerone phosphate:iminosuccinate alkyltransferase (cyclizing) | EC=2.5.1.72",
+ "max_heavy": 12,
+ "gc": 9.5,
+ "eq": 51.4,
+ "delta_gc_eq": -41.9,
+ "dG": 169.2,
+ "dG_raw": 169.2,
+ "ci95": [
+  134.4,
+  204.0
+ ],
+ "sigma_pred": 16.5,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 159.7,
+ "d_to_eq": 117.8,
+ "secs": 3.3
+}

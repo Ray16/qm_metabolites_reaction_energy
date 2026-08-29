@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00226",
+ "note": "rxn00226 ATP:acetate adenylyltransferase",
+ "max_heavy": 31,
+ "gc": -9.6,
+ "eq": 281.5,
+ "delta_gc_eq": -291.1,
+ "dG": 19.9,
+ "dG_raw": 41.5,
+ "ci95": [
+  -3.7,
+  43.6
+ ],
+ "sigma_pred": 11.1,
+ "anchor": {
+  "subclass": "adenylylate",
+  "offset": 21.6,
+  "sigma": 11.0
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "adenylylate",
+ "d_to_gc": 29.5,
+ "d_to_eq": -261.6,
+ "secs": 0.0
+}

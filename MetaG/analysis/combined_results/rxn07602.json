@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn07602",
+ "note": "rxn07602 2,3-dihydroxybenzenesulfonate 2,3-dioxygenase | EC=1.13.11.2",
+ "max_heavy": 12,
+ "gc": -82.8,
+ "eq": -10.7,
+ "delta_gc_eq": -72.1,
+ "dG": -397.7,
+ "dG_raw": -397.7,
+ "ci95": [
+  -432.6,
+  -362.9
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -314.9,
+ "d_to_eq": -387.0,
+ "secs": 3.3
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn25600",
+ "note": "rxn25600 geosmin synthase | EC=4.1.99.16",
+ "max_heavy": 13,
+ "gc": -5.5,
+ "eq": 47.5,
+ "delta_gc_eq": -53.0,
+ "dG": -12.4,
+ "dG_raw": -12.4,
+ "ci95": [
+  -47.3,
+  22.4
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -6.9,
+ "d_to_eq": -59.9,
+ "secs": 3.0
+}

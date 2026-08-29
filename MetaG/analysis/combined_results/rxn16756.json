@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16756",
+ "note": "rxn16756 prosolanapyrone-III:(-)-solanapyrone A isomerase | EC=5.5.1.20",
+ "max_heavy": 22,
+ "gc": -29.1,
+ "eq": -126.7,
+ "delta_gc_eq": 97.6,
+ "dG": -122.7,
+ "dG_raw": -122.7,
+ "ci95": [
+  -153.0,
+  -92.3
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -93.6,
+ "d_to_eq": 4.0,
+ "secs": 0.0
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn04034",
+ "note": "rxn04034 limonene-1,2-epoxide hydrolase | EC=3.3.2.8",
+ "max_heavy": 12,
+ "gc": 9.2,
+ "eq": 43.5,
+ "delta_gc_eq": -34.3,
+ "dG": -45.8,
+ "dG_raw": -45.8,
+ "ci95": [
+  -80.6,
+  -11.0
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -55.0,
+ "d_to_eq": -89.3,
+ "secs": 3.7
+}

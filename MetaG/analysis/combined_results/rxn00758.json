@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00758",
+ "note": "rxn00758 sn-Glycero-3-phosphocholine glycerophosphohydrolase",
+ "max_heavy": 16,
+ "gc": -14.3,
+ "eq": -60.7,
+ "delta_gc_eq": 46.4,
+ "dG": -22.1,
+ "dG_raw": -1.8,
+ "ci95": [
+  -46.5,
+  2.3
+ ],
+ "sigma_pred": 11.4,
+ "anchor": {
+  "subclass": "phosphatase_monoester",
+  "offset": 20.3,
+  "sigma": 5.0
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "phosphatase",
+ "d_to_gc": -7.8,
+ "d_to_eq": 38.6,
+ "secs": 0.0
+}

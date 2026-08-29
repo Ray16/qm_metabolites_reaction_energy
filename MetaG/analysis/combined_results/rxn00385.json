@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00385",
+ "note": "rxn00385 3'-Phosphoadenylylsulfate:17beta-estradiol 3-sulfotransferase",
+ "max_heavy": 31,
+ "gc": -14.0,
+ "eq": -66.8,
+ "delta_gc_eq": 52.8,
+ "dG": -12.6,
+ "dG_raw": -12.6,
+ "ci95": [
+  -47.4,
+  22.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 1.4,
+ "d_to_eq": 54.2,
+ "secs": 0.0
+}

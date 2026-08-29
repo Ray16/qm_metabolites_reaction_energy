@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn07307",
+ "note": "rxn07307 (2R)-O-phospho-3-sulfolactate sulfo-lyase | EC=4.4.1.19",
+ "max_heavy": 14,
+ "gc": 11.9,
+ "eq": 74.8,
+ "delta_gc_eq": -62.9,
+ "dG": 50.4,
+ "dG_raw": 50.4,
+ "ci95": [
+  15.5,
+  85.2
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 38.5,
+ "d_to_eq": -24.4,
+ "secs": 0.0
+}

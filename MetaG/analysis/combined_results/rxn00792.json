@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00792",
+ "note": "rxn00792 biotin:CoA ligase (AMP-forming)",
+ "max_heavy": 38,
+ "gc": -11.1,
+ "eq": 278.7,
+ "delta_gc_eq": -289.8,
+ "dG": 1.5,
+ "dG_raw": 23.1,
+ "ci95": [
+  -22.2,
+  25.1
+ ],
+ "sigma_pred": 11.1,
+ "anchor": {
+  "subclass": "adenylylate",
+  "offset": 21.6,
+  "sigma": 11.0
+ },
+ "suspect": null,
+ "unresolved": true,
+ "class": "adenylylate",
+ "d_to_gc": 12.6,
+ "d_to_eq": -277.2,
+ "secs": 6.3
+}

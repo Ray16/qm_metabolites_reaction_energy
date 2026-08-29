@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00054",
+ "note": "rxn00054 2-aminophenol:oxygen oxidoreductase (dimerizing)",
+ "max_heavy": 16,
+ "gc": -286.3,
+ "eq": -236.8,
+ "delta_gc_eq": -49.5,
+ "dG": -1028.4,
+ "dG_raw": -1028.4,
+ "ci95": [
+  -1062.8,
+  -994.0
+ ],
+ "sigma_pred": 17.6,
+ "anchor": null,
+ "suspect": "|\u0394G|=1028 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -742.1,
+ "d_to_eq": -791.6,
+ "secs": 0.0
+}

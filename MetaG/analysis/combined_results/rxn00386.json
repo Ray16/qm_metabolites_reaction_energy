@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00386",
+ "note": "rxn00386 3'-Phosphoadenylylsulfate:phenolic-steroid sulfotransferase",
+ "max_heavy": 31,
+ "gc": -14.0,
+ "eq": -67.4,
+ "delta_gc_eq": 53.4,
+ "dG": -10.3,
+ "dG_raw": -10.3,
+ "ci95": [
+  -45.1,
+  24.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 3.7,
+ "d_to_eq": 57.1,
+ "secs": 0.0
+}

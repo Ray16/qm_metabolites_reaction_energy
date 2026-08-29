@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00721",
+ "note": "rxn00721 ATP:anthranilate N-adenylyltransferase",
+ "max_heavy": 32,
+ "gc": -20.0,
+ "eq": 194.8,
+ "delta_gc_eq": -214.8,
+ "dG": 37.6,
+ "dG_raw": 37.6,
+ "ci95": [
+  -2.6,
+  77.8
+ ],
+ "sigma_pred": 18.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "kinase/phosphotransfer",
+ "d_to_gc": 57.6,
+ "d_to_eq": -157.2,
+ "secs": 5.2
+}
