@@ -108,13 +108,15 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
   a structural anchor sub-class (SMARTS) get that class regardless of the enzyme note — so the same
   chemistry always gets the same σ, and it works on cryptic/absent notes (the GC-silent deployment
   target). The subtler mechanism classes still use the note taxonomy (structure alone would misclassify
-  them). An **OOD gate** (`routing/ood.py`) separates two kinds of signal, because a blunt "unlike the
-  training set → widen" would fire on every frontier reaction and defeat the coverage claim: **physics-limit
-  signals FLOOR σ** (metals/uncommon elements, very large molecules — real approximation limits a
-  first-principles method should own), while **empirical signals are flag-only** (de-novo aromatic
-  N-heterocycle condensation — surfaced but *no* σ effect until the mechanism is diagnosed). The floors are
-  conservative heuristics, not error-fit, and never narrow σ. The generalizable uncertainty fix is a
-  *computed* physics σ (ensemble disagreement / cycle-consistency), not this gate.
+  them). An **OOD layer** (`routing/ood.py`) is **flag-only transparency — it never changes σ.** Inflating
+  σ for structurally-unusual reactions is a "unlike the training set → widen" crutch that would fire on
+  exactly the frontier reactions the method exists to score, defeating coverage. The ΔG is first-principles
+  and generalizes (UMA is a universal potential; matched experiment to <10 kJ on O₂/aromatic oxidation far
+  outside TECRDB — metals included, it generalizes electronically). So the layer surfaces notable features
+  as informational flags (divalent-cation coordination-speciation gaps, rare elements, de-novo aromatic
+  N-heterocycle condensations, very large molecules) without touching σ. The **generalizable uncertainty is
+  a *computed* physics σ** (ensemble UMA-vs-MACE disagreement / cycle-consistency), naturally larger where
+  UMA is less sure — that is the real fix, not a structural floor.
 - **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
   not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
   ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate
