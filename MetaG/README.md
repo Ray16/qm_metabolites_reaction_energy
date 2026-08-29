@@ -5,9 +5,13 @@ interatomic potential) pipeline that scores standard transformed Gibbs energies 
 structure alone, with **calibrated, cross-validated uncertainty** for downstream thermodynamic flux
 analysis (TFA/MDF).
 
-MetaG is not fit to an experimental ΔG database (with one transparent, LOO-validated exception — see
-*Honesty*). Its value is **coverage**: it scores reactions that group-contribution methods cannot — novel
-structures, no group decomposition — where a first-principles method is the only option.
+MetaG is first-principles at its core. The only departures are a **small set of transparent per-class
+empirical anchors** (currently **four** — see *Honesty*), each calibrated to an independent reference ΔG
+and reported *alongside* the pure-physics number (`dG_raw`), so a user can always take the unanchored
+value. Every anchor added is an erosion of the first-principles claim, so each must clear a high bar; one
+of the four (adenylylate) is currently **provisional** and does not yet meet it (see *Honesty*). Its value
+is **coverage**: it scores reactions that group-contribution methods cannot — novel structures, no group
+decomposition — where a first-principles method is the only option.
 
 ## Layout
 
@@ -20,7 +24,7 @@ metag/
     cofactor.py        isodesmic NAD(P)/GSH ring cores
     truncate.py        spectator truncation (Δq=0, mass-balance guarded)
     aldehyde.py        carbonyl⇌gem-diol mixture, α-EWG gated
-    anchor.py          per-sub-class solvation offset (the one calibrated piece)
+    anchor.py          per-class empirical anchors (4 sub-classes; the only calibrated pieces)
     route_full.py      full-vs-truncated routing
   backend/             QM engine (needs the `uma` runtime: torch + fairchem + xtb)
     uma.py             batched UMA electronics
@@ -83,9 +87,22 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
 
 ## Honesty
 
-- **Nothing is fit to the ΔG database except the 3 anchor sub-classes** (phosphagen, phosphatase,
-  thioester), which are systematic charged-group *solvation* offsets (verified UMA≈DFT), LOO-validated and
-  reported *alongside* the pure-physics number (`dG_raw`).
+- **Nothing is fit to the ΔG database except the 4 anchor sub-classes**, all reported *alongside* the
+  pure-physics number (`dG_raw`) so the unanchored value is always available. They are **not** all equally
+  earned:
+  - **Three are solid** (phosphagen, phosphatase, thioester): systematic charged-group *solvation* offsets,
+    **verified UMA≈DFT** (electronic error ruled out — the offset is solvation, not a model error),
+    LOO-validated against Alberty literature ΔrG′°.
+  - **One is provisional** (adenylylate, added 2026-08 — ATP + X → X-AMP + PPi): a bond-type reference
+    error on the acyl-adenylate mixed anhydride. Weaker on two counts, stated plainly: (1) its reference
+    (~+25 kJ) is an **indirect thermodynamic cycle** over six measured parent ligases (no direct
+    measurement of the adenylylation step is used), so it carries **~±8–10 kJ beyond** the intra-class
+    spread; (2) the electronic-vs-solvation physics is **not yet verified** (no UMA≈DFT check), so we
+    cannot yet rule out that UMA is right and the reference is low. The LOO result (MAE 21.6→6.0) shows the
+    offset is *consistent across substrates* — that tests **precision, not the accuracy** of the +25
+    target. Direction is robust (UMA is too endergonic even at the generous end of the reference range);
+    magnitude is soft. TODO to earn it: pin the reference with a direct ATP–PPi-exchange activation Keq,
+    run the UMA≈DFT physics check, and widen its σ to ~11 to reflect the reference uncertainty.
 - **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
   not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
   ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate
