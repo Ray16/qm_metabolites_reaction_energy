@@ -69,15 +69,15 @@ ANCHORS = {
     # set), vs a literature reference of ~+25 kJ derived from SIX measured parent ligases (acetate/
     # propanoate-CoA, Ser/Phe/Ile/Tyr-tRNA) that are ALL near-equilibrium, minus the ~-30 kJ
     # acyl-transfer step. OFFSET/SIGMA finalised from analysis/confirm_results (5-point calibration).
-    # PROVISIONAL -- weaker than the 3 above; see README *Honesty*. 5-point calibration (acetate/seryl/
-    # Tyr/propanoate/Ile adenylylation): raw 41.5/49.8/48.1/39.7/53.8 vs reference +25 -> offset +21.6,
-    # intra-class std 5.9, LOO MAE 21.6->6.0. BUT: (1) the +25 reference is an INDIRECT cycle over six
-    # measured parent ligases (no direct adenylylation Keq used) -> ~±8-10 kJ on the target itself, which
-    # LOO does NOT test (LOO measures consistency, not accuracy); (2) electronic-vs-solvation physics NOT
-    # verified (no UMA≈DFT check), so we can't yet rule out UMA being right + the reference low. Sigma is
-    # therefore inflated to sqrt(6^2 + 9^2) ~= 11 to carry the reference uncertainty (unlike the 3 verified
-    # anchors whose sigma is intra-class only). Direction robust, magnitude soft. TODO to promote: direct
-    # ATP-PPi-exchange activation Keq + physics check. See analysis/confirm_results, memory adenylyl-transfer-anchor.
+    # 5-point calibration (acetate/seryl/Tyr/propanoate/Ile adenylylation): raw 41.5/49.8/48.1/39.7/53.8
+    # vs reference +25 -> offset +21.6, intra-class std 5.9, LOO MAE 21.6->6.0. PHYSICS VERIFIED
+    # (analysis/verify_adenylylate_physics.py): UMA≈DFT (PBE0/def2-TZVP) to +1.1 kJ on the neutral
+    # mixed-anhydride bond-swap (pyrophosphate+AcOH -> acetyl-P+H3PO4) -> the ~+20 error is SOLVATION,
+    # same KIND as the 3 verified anchors (NOT an electronic bond error; UMA-being-right ruled out).
+    # REMAINING weakness: the +25 reference is an INDIRECT cycle over six measured parent ligases (no
+    # direct adenylylation Keq) -> ~±8-10 kJ on the MAGNITUDE, which LOO does NOT test (LOO measures
+    # consistency, not accuracy). Sigma inflated to sqrt(6^2+9^2)~=11 to carry that (the 3 direct-reference
+    # anchors keep intra-class-only sigma). TODO to fully promote: a direct ATP-PPi-exchange activation Keq.
     "adenylylate":           {"offset": 21.6, "sigma": 11.0,
                               "anchor_rids": ["rxn00226", "rxn00418", "adyl_Tyr", "adyl_propanoate", "adyl_Ile"]},
 }

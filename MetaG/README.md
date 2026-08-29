@@ -93,16 +93,16 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
   - **Three are solid** (phosphagen, phosphatase, thioester): systematic charged-group *solvation* offsets,
     **verified UMA≈DFT** (electronic error ruled out — the offset is solvation, not a model error),
     LOO-validated against Alberty literature ΔrG′°.
-  - **One is provisional** (adenylylate, added 2026-08 — ATP + X → X-AMP + PPi): a bond-type reference
-    error on the acyl-adenylate mixed anhydride. Weaker on two counts, stated plainly: (1) its reference
-    (~+25 kJ) is an **indirect thermodynamic cycle** over six measured parent ligases (no direct
-    measurement of the adenylylation step is used), so it carries **~±8–10 kJ beyond** the intra-class
-    spread; (2) the electronic-vs-solvation physics is **not yet verified** (no UMA≈DFT check), so we
-    cannot yet rule out that UMA is right and the reference is low. The LOO result (MAE 21.6→6.0) shows the
-    offset is *consistent across substrates* — that tests **precision, not the accuracy** of the +25
-    target. Direction is robust (UMA is too endergonic even at the generous end of the reference range);
-    magnitude is soft. TODO to earn it: pin the reference with a direct ATP–PPi-exchange activation Keq,
-    run the UMA≈DFT physics check, and widen its σ to ~11 to reflect the reference uncertainty.
+  - **One is half-earned** (adenylylate, added 2026-08 — ATP + X → X-AMP + PPi): a solvation offset on the
+    acyl-adenylate mixed-anhydride class. **Physics VERIFIED** (`analysis/verify_adenylylate_physics.py`):
+    UMA≈DFT (PBE0/def2-TZVP) to **+1.1 kJ** on the neutral mixed-anhydride bond-swap, so the ~+20 error is
+    **solvation**, the same physical basis as the three above — *not* an electronic bond error, and
+    UMA-being-right is ruled out. **Remaining weakness (the reason it's not fully earned):** its magnitude
+    reference (~+25 kJ) is an **indirect thermodynamic cycle** over six measured parent ligases (no direct
+    adenylylation Keq), carrying **~±8–10 kJ**, which the LOO result (MAE 21.6→6.0) does **not** test — LOO
+    measures *consistency across substrates, not the accuracy* of the +25 target. Its σ is therefore
+    inflated to **~11** (the three direct-reference anchors keep intra-class-only σ). Direction robust,
+    magnitude soft. TODO to fully earn it: a direct ATP–PPi-exchange activation Keq to pin the reference.
 - **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
   not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
   ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate
