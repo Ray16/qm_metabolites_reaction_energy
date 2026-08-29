@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn07289",
+ "note": "rxn07289 3-Dehydro-6-deoxoteasterone:brassinosteroid C6-oxidase | EC=1.14.-.-",
+ "max_heavy": 32,
+ "gc": -93.9,
+ "eq": -97.5,
+ "delta_gc_eq": 3.6,
+ "dG": -369.5,
+ "dG_raw": -369.5,
+ "ci95": [
+  -403.9,
+  -335.1
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -275.6,
+ "d_to_eq": -272.0,
+ "secs": 132.5
+}

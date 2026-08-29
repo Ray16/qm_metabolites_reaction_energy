@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn05114",
+ "note": "rxn05114 5-amino-1-(5-phospho-D-ribosyl)imidazole:carbon-dioxide ligase (ADP-forming) | EC=6.3.4.18",
+ "max_heavy": 31,
+ "gc": -21.9,
+ "eq": -13.7,
+ "delta_gc_eq": -8.2,
+ "dG": 5.9,
+ "dG_raw": 5.9,
+ "ci95": [
+  -28.9,
+  40.8
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 27.8,
+ "d_to_eq": 19.6,
+ "secs": 420.1
+}

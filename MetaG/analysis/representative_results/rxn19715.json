@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn19715",
+ "note": "rxn19715 formyl dihydrofolate synthase | EC=6.3.4.17",
+ "max_heavy": 34,
+ "gc": -0.9,
+ "eq": -3.3,
+ "delta_gc_eq": 2.4,
+ "dG": 15.7,
+ "dG_raw": 15.7,
+ "ci95": [
+  -19.1,
+  50.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 16.6,
+ "d_to_eq": 19.0,
+ "secs": 562.3
+}

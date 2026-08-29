@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn40420",
+ "note": "rxn40420 N-acetyl-L-aspartate:L-glutamate ligase (ADP, N-acetyl-L-aspartyl-L-glutamate-forming) | EC=6.3.2.41",
+ "max_heavy": 31,
+ "gc": -6.3,
+ "eq": -6.0,
+ "delta_gc_eq": -0.3,
+ "dG": 29.7,
+ "dG_raw": 29.7,
+ "ci95": [
+  -5.1,
+  64.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 36.0,
+ "d_to_eq": 35.7,
+ "secs": 193.0
+}

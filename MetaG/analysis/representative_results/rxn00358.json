@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00358",
+ "note": "rxn00358 UDP-D-galactopyranose furanomutase | EC=5.4.99.9",
+ "max_heavy": 36,
+ "gc": 0.2,
+ "eq": 0.6,
+ "delta_gc_eq": -0.4,
+ "dG": 10.2,
+ "dG_raw": 10.2,
+ "ci95": [
+  -20.1,
+  40.5
+ ],
+ "sigma_pred": 14.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "isomerase/mutase",
+ "d_to_gc": 10.0,
+ "d_to_eq": 9.6,
+ "secs": 180.9
+}

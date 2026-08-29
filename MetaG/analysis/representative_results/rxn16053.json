@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16053",
+ "note": "rxn16053 S-adenosyl-L-methionine:4-amino-anhydrotetracycline N-methyltransferase | EC=2.1.1.-",
+ "max_heavy": 31,
+ "gc": -23.6,
+ "eq": -3.1,
+ "delta_gc_eq": -20.5,
+ "dG": -93.8,
+ "dG_raw": -93.8,
+ "ci95": [
+  -128.6,
+  -59.0
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -70.2,
+ "d_to_eq": -90.7,
+ "secs": 615.4
+}

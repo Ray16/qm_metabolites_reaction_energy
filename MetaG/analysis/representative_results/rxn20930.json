@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn20930",
+ "note": "rxn20930 RXN-10456.c | EC=6.3.-.-",
+ "max_heavy": 31,
+ "gc": -26.8,
+ "eq": -10.9,
+ "delta_gc_eq": -15.9,
+ "dG": -146.3,
+ "dG_raw": -146.3,
+ "ci95": [
+  -181.2,
+  -111.5
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -119.5,
+ "d_to_eq": -135.4,
+ "secs": 105.9
+}

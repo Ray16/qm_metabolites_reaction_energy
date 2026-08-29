@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn40028",
+ "note": "rxn40028 mycophenolic acid O-acyl-glucuronide-ester hydrolase | EC=3.1.1.93",
+ "max_heavy": 35,
+ "gc": -2.1,
+ "eq": -5.9,
+ "delta_gc_eq": 3.8,
+ "dG": -31.4,
+ "dG_raw": -31.4,
+ "ci95": [
+  -66.2,
+  3.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -29.3,
+ "d_to_eq": -25.5,
+ "secs": 106.4
+}

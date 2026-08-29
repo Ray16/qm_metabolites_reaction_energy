@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn37266",
+ "note": "rxn37266 sucrose-UDP glucosyltransferase | EC=2.4.1.13",
+ "max_heavy": 36,
+ "gc": -1.7,
+ "eq": -1.2,
+ "delta_gc_eq": -0.5,
+ "dG": 13.6,
+ "dG_raw": 13.6,
+ "ci95": [
+  -21.2,
+  48.4
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 15.3,
+ "d_to_eq": 14.8,
+ "secs": 261.9
+}

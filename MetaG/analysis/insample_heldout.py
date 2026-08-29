@@ -21,29 +21,29 @@ plt.rcParams.update({"font.size": 18, "axes.titlesize": 18, "axes.labelsize": 18
                      "figure.dpi": 300, "savefig.dpi": 300})
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# (method, in-sample MAE or None, held-out MAE or None)
-M = [("dGPredictor", 5.7, 6.5),
-     ("eQuilibrator", 8.0, None),
-     ("Group\nContribution", 9.3, None),
-     ("UMA (MetaG)", None, 11.6)]
+# (method, in-sample MAE or None, held-out MAE or None, reason-if-held-out-missing)
+M = [("dGPredictor\n(original)", 3.0, None, "fixed\nweights"),     # famous ~3; published, can't hold out
+     ("dGPredictor\n(retrained)", 5.7, 6.5, None),                 # our CV: the honest leakage-corrected pair
+     ("eQuilibrator", 8.0, None, "CV\nnot run"),
+     ("Group\nContribution", 9.3, None, "CV\nnot run"),
+     ("UMA (MetaG)", None, 11.6, None)]
 
 x = np.arange(len(M)); w = 0.38
-fig, ax = plt.subplots(figsize=(11, 6.6))
-for i, (name, ins, ho) in enumerate(M):
+fig, ax = plt.subplots(figsize=(13, 6.6))
+for i, (name, ins, ho, miss) in enumerate(M):
     if ins is not None:
         ax.bar(i - w/2, ins, w, color="#9ecae1", edgecolor="black", linewidth=0.6,
                label="in-sample (fit to TECRDB)" if i == 0 else None)
         ax.text(i - w/2, ins + 0.3, f"{ins:.1f}", ha="center", va="bottom", fontsize=15)
+    else:
+        ax.text(i - w/2, 0.5, "never\nfit", ha="center", va="bottom", fontsize=13, color="0.5", style="italic")
     if ho is not None:
         c = "#009E73" if name.startswith("UMA") else "#08519c"
         ax.bar(i + w/2, ho, w, color=c, edgecolor="black", linewidth=0.6,
-               label="held-out (fair)" if i == 0 else None)
+               label="held-out (fair)" if i == 1 else None)
         ax.text(i + w/2, ho + 0.3, f"{ho:.1f}", ha="center", va="bottom", fontsize=15)
-    # mark the not-computed held-out cells
-    if ho is None:
-        ax.text(i + w/2, 0.5, "CV\nnot run", ha="center", va="bottom", fontsize=13, color="0.5", style="italic")
-    if ins is None:
-        ax.text(i - w/2, 0.5, "never\nfit", ha="center", va="bottom", fontsize=13, color="0.5", style="italic")
+    elif miss:
+        ax.text(i + w/2, 0.5, miss, ha="center", va="bottom", fontsize=13, color="0.5", style="italic")
 ax.set_xticks(x); ax.set_xticklabels([m[0] for m in M])
 ax.set_ylabel("MAE vs experiment  (kJ/mol)")
 ax.set_ylim(0, 13.5)

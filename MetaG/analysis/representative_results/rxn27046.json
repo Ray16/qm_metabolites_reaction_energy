@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn27046",
+ "note": "rxn27046 RXNQT-4324.c | EC=2.4.1.195",
+ "max_heavy": 36,
+ "gc": -14.4,
+ "eq": 4.0,
+ "delta_gc_eq": -18.4,
+ "dG": 29.8,
+ "dG_raw": 29.8,
+ "ci95": [
+  -5.0,
+  64.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 44.2,
+ "d_to_eq": 25.8,
+ "secs": 148.2
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00528",
+ "note": "rxn00528 L-Tyrosine:L-arginine ligase (AMP-forming) | EC=6.3.2.24",
+ "max_heavy": 31,
+ "gc": -26.8,
+ "eq": -16.4,
+ "delta_gc_eq": -10.4,
+ "dG": -106.9,
+ "dG_raw": -106.9,
+ "ci95": [
+  -141.7,
+  -72.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -80.1,
+ "d_to_eq": -90.5,
+ "secs": 219.9
+}

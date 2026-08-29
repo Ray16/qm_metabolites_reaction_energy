@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03390",
+ "note": "rxn03390 R04982 | EC=1.14.13.-",
+ "max_heavy": 40,
+ "gc": -80.8,
+ "eq": -80.5,
+ "delta_gc_eq": -0.3,
+ "dG": -292.9,
+ "dG_raw": -292.9,
+ "ci95": [
+  -327.7,
+  -258.1
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -212.1,
+ "d_to_eq": -212.4,
+ "secs": 54.7
+}

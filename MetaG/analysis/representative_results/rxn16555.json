@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn16555",
+ "note": "rxn16555 (S)-2,3-epoxysqualene mutase (cyclizing, thalianol-forming) | EC=5.4.99.31",
+ "max_heavy": 31,
+ "gc": -51.1,
+ "eq": -182.6,
+ "delta_gc_eq": 131.5,
+ "dG": -205.0,
+ "dG_raw": -205.0,
+ "ci95": [
+  -235.3,
+  -174.7
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -153.9,
+ "d_to_eq": -22.4,
+ "secs": 399.2
+}

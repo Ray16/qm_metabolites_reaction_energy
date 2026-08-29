@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn47177",
+ "note": "rxn47177 4'-methylcyclopenin synthetase | EC=6.3.2.40",
+ "max_heavy": 31,
+ "gc": -71.8,
+ "eq": -11.9,
+ "delta_gc_eq": -59.9,
+ "dG": -107.8,
+ "dG_raw": -107.8,
+ "ci95": [
+  -142.7,
+  -73.0
+ ],
+ "sigma_pred": 16.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -36.0,
+ "d_to_eq": -95.9,
+ "secs": 289.8
+}

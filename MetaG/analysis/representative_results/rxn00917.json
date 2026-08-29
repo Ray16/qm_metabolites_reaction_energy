@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00917",
+ "note": "rxn00917 Xanthosine-5'-phosphate:L-glutamine amido-ligase (AMP-forming) | EC=6.3.5.2",
+ "max_heavy": 31,
+ "gc": -23.1,
+ "eq": -76.8,
+ "delta_gc_eq": 53.7,
+ "dG": 0.0,
+ "dG_raw": 0.0,
+ "ci95": [
+  -34.8,
+  34.9
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": 23.1,
+ "d_to_eq": 76.8,
+ "secs": 538.3
+}

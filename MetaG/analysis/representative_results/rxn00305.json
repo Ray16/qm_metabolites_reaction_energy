@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00305",
+ "note": "rxn00305 GTP:oxaloacetate carboxy-lyase (adding GTP;phosphoenolpyruvate-forming) | EC=4.1.1.32",
+ "max_heavy": 32,
+ "gc": -9.8,
+ "eq": 3.2,
+ "delta_gc_eq": -13.0,
+ "dG": -25.6,
+ "dG_raw": -25.6,
+ "ci95": [
+  -60.4,
+  9.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -15.8,
+ "d_to_eq": -28.8,
+ "secs": 996.0
+}
