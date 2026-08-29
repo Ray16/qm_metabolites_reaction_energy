@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn01834",
+ "note": "TECRDB rxn01834 lactoylglutathione lyase | flags=anion-count-change,huge/floppy",
+ "ec": "4.4.1.5",
+ "dG": 18.6,
+ "dG_raw": 18.6,
+ "exp": 23.48,
+ "err": -4.88,
+ "class": "other/clean",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 362.4
+}

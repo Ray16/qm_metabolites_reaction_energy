@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00423",
+ "note": "TECRDB rxn00423 serine acetyltransferase | flags=huge/floppy",
+ "ec": "2.3.1.30",
+ "dG": -27.9,
+ "dG_raw": -27.9,
+ "exp": -6.71,
+ "err": -21.19,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.5,
+ "secs": 55.0
+}

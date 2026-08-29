@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn03249",
+ "note": "TECRDB rxn03249 3-hydroxyacyl-CoA dehydrogenase | flags=huge/floppy",
+ "ec": "1.1.1.35",
+ "dG": 12.3,
+ "dG_raw": 12.3,
+ "exp": 12.0,
+ "err": 0.3,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.5,
+ "secs": 174.9
+}

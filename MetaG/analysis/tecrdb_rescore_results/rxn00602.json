@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00602",
+ "note": "TECRDB rxn00602 methylmalonyl-CoA mutase | flags=huge/floppy,isomerase",
+ "ec": "5.4.99.2",
+ "dG": 1.7,
+ "dG_raw": 1.7,
+ "exp": -7.58,
+ "err": 9.28,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 191.8
+}

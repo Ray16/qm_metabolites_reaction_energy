@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00290",
+ "note": "TECRDB rxn00290 3-oxoacid CoA-transferase | flags=huge/floppy",
+ "ec": "2.8.3.5",
+ "dG": -12.2,
+ "dG_raw": -12.2,
+ "exp": 13.41,
+ "err": -25.61,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.5,
+ "secs": 95.4
+}

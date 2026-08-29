@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn02168",
+ "note": "TECRDB rxn02168 enoyl-CoA hydratase | flags=huge/floppy",
+ "ec": "4.2.1.17",
+ "dG": 8.3,
+ "dG_raw": 8.3,
+ "exp": 4.25,
+ "err": 4.05,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 103.2
+}

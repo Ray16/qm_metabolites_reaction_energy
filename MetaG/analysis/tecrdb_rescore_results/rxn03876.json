@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn03876",
+ "note": "TECRDB rxn03876 cyclohexa-1,5-diene-1-carboxyl-CoA (dien | flags=huge/floppy",
+ "ec": "4.2.1.-",
+ "dG": -11.1,
+ "dG_raw": -11.1,
+ "exp": -0.0,
+ "err": -11.1,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 127.9
+}

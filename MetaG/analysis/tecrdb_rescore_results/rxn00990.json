@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00990",
+ "note": "TECRDB rxn00990 acetate CoA-transferase | flags=huge/floppy",
+ "ec": "2.8.3.8",
+ "dG": -6.9,
+ "dG_raw": -6.9,
+ "exp": -5.06,
+ "err": -1.84,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 43.4
+}

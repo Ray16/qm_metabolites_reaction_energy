@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00171",
+ "note": "TECRDB rxn00171 acetaldehyde dehydrogenase (acetylating) | flags=huge/floppy",
+ "ec": "1.2.1.10",
+ "dG": -3.8,
+ "dG_raw": -3.8,
+ "exp": -20.43,
+ "err": 16.63,
+ "class": "NAD(P)-redox(other)",
+ "anchor": null,
+ "sigma_pred": 16.2,
+ "secs": 0.1
+}

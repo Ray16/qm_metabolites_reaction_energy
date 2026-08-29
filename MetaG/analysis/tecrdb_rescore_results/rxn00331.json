@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00331",
+ "note": "TECRDB rxn00331 malyl-CoA lyase | flags=huge/floppy",
+ "ec": "4.1.3.24",
+ "dG": 6.2,
+ "dG_raw": 6.2,
+ "exp": 14.73,
+ "err": -8.53,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.5,
+ "secs": 84.8
+}

@@ -20,7 +20,15 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.pat
 DB = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/ModelSEEDDatabase/Biochemistry"
 
 exp = json.load(open(os.path.join(ROOT, "results", "benchmark", "tecrdb_full_scored.json")))["experiment_kJ"]
-uma_err = {r["rid"]: r["err"] for r in json.load(open(os.path.join(HERE, "..", "metag", "data", "sigma_class_calibrated.json")))["per_reaction"]}
+# prefer the CURRENT merged UMA errors (stale-for-untouched + fresh-re-score for the 29 affected);
+# fall back to the raw (stale) calibration if the merge hasn't been produced yet.
+_cur = os.path.join(HERE, "uma_tecrdb_current.json")
+if os.path.exists(_cur):
+    uma_err = json.load(open(_cur))
+    print("[using CURRENT merged UMA errors]")
+else:
+    uma_err = {r["rid"]: r["err"] for r in json.load(open(os.path.join(HERE, "..", "metag", "data", "sigma_class_calibrated.json")))["per_reaction"]}
+    print("[WARNING: using STALE calibration UMA errors -- run merge_current_uma.py]")
 dgp_orig = {r: v["dG_kJ"] for r, v in json.load(open(os.path.join(ROOT, "results", "eq", "dgpredictor_full.json"))).items() if v.get("dG_kJ") is not None}
 dgp_ho_err = {r: v["dgp_heldout"] for r, v in json.load(open(os.path.join(ROOT, "experiments", "qm_mlip_solvation", "artifacts", "heldout_dgp_vs_uma.json"))).items()}
 gc, eq = {}, {}

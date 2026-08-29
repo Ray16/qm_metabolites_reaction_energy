@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn00306",
+ "note": "TECRDB rxn00306 succinate-CoA ligase (GDP-forming) | flags=Mg-prone(NTP/PPi),huge/floppy",
+ "ec": "6.2.1.4",
+ "dG": 3.9,
+ "dG_raw": 33.9,
+ "exp": 0.71,
+ "err": 3.19,
+ "class": "CoA-thioester",
+ "anchor": {
+  "subclass": "thioester",
+  "offset": 30.0,
+  "sigma": 7.2
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00173",
+ "note": "TECRDB rxn00173 phosphate acetyltransferase | flags=huge/floppy",
+ "ec": "2.3.1.8",
+ "dG": 1.4,
+ "dG_raw": 1.4,
+ "exp": 12.21,
+ "err": -10.81,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 0.1
+}

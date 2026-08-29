@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn00175",
+ "note": "TECRDB rxn00175 acetate-CoA ligase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+ "ec": "6.2.1.1",
+ "dG": 10.1,
+ "dG_raw": 40.1,
+ "exp": -5.88,
+ "err": 15.98,
+ "class": "CoA-thioester",
+ "anchor": {
+  "subclass": "thioester",
+  "offset": 30.0,
+  "sigma": 7.2
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.2
+}

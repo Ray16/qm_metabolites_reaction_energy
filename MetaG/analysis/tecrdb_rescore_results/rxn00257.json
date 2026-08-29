@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn00257",
+ "note": "TECRDB rxn00257 ATP citrate(pro-3S)-lyase | flags=Mg-prone(NTP/PPi),huge/floppy",
+ "ec": "4.1.3.8",
+ "dG": -3.1,
+ "dG_raw": 26.9,
+ "exp": -0.45,
+ "err": -2.65,
+ "class": "CoA-thioester",
+ "anchor": {
+  "subclass": "thioester",
+  "offset": 30.0,
+  "sigma": 7.2
+ },
+ "sigma_pred": 16.5,
+ "secs": 63.9
+}

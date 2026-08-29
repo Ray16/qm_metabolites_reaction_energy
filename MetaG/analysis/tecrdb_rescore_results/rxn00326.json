@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00326",
+ "note": "TECRDB rxn00326 glyoxylate dehydrogenase (acylating) | flags=Mg-prone(NTP/PPi),huge/floppy",
+ "ec": "1.2.1.17",
+ "dG": 7.7,
+ "dG_raw": 7.7,
+ "exp": -9.42,
+ "err": 17.12,
+ "class": "NAD(P)-redox(other)",
+ "anchor": null,
+ "sigma_pred": 16.2,
+ "secs": 140.7
+}

@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn51768",
+ "note": "TECRDB rxn51768 propanoyl-CoA carboxylase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
+ "ec": "6.4.1.3",
+ "dG": 27.5,
+ "dG_raw": 27.5,
+ "exp": 4.03,
+ "err": 23.47,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.4,
+ "secs": 0.0
+}

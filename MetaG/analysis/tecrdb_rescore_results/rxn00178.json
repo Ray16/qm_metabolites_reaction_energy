@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00178",
+ "note": "TECRDB rxn00178 acetyl-CoA C-acetyltransferase | flags=anion-count-change,huge/floppy",
+ "ec": "2.3.1.9",
+ "dG": 30.2,
+ "dG_raw": 30.2,
+ "exp": 24.03,
+ "err": 6.17,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.6,
+ "secs": 84.2
+}

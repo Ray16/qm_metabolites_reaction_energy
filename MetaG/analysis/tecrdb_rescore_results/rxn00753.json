@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00753",
+ "note": "TECRDB rxn00753 choline O-acetyltransferase | flags=huge/floppy",
+ "ec": "2.3.1.6",
+ "dG": -27.0,
+ "dG_raw": -27.0,
+ "exp": -11.2,
+ "err": -15.8,
+ "class": "CoA-thioester",
+ "anchor": null,
+ "sigma_pred": 16.5,
+ "secs": 35.8
+}
