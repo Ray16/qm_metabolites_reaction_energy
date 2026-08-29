@@ -34,13 +34,28 @@ _s.loader.exec_module(unc)
 
 _DG = re.compile(r"ΔG = ([+-]?\d+\.\d+)")
 
+# The deployed pipeline applies aldehyde-hydration + anchor corrections on top of the raw logged ΔG, so
+# σ_class must be calibrated on the DEPLOYED residual, not the raw one (else the anchored classes --
+# phosphagen/phosphatase/thioester -- get a stale, too-large σ). We apply the same two corrections here.
+sys.path.insert(0, os.path.join(EXP, "tools"))
+sys.path.insert(0, os.path.join(EXP, "scripts"))
+import where_lacking as _wl          # ald_delta(rid) reads logs/ah367_on
+from route_anchor import anchor_correct as _anchor
 
-def read_dG(rid):
+
+def read_dG(rid, species=None):
     p = os.path.join(LOGDIR, f"{rid}.log")
     if not os.path.exists(p):
         return None
     m = _DG.search(open(p, errors="ignore").read())
-    return float(m.group(1)) if m else None
+    if not m:
+        return None
+    dG = float(m.group(1)) + _wl.ald_delta(rid)          # deployed: + aldehyde hydration
+    if species is not None:
+        ac = _anchor(dG, species)                        # deployed: + anchor correction
+        if ac is not None:
+            dG = ac[0]
+    return dG
 
 
 def main():
@@ -48,7 +63,7 @@ def main():
     rows = []          # (rid, cls, err)
     missing = 0
     for rid, rec in d.items():
-        u = read_dG(rid)
+        u = read_dG(rid, rec["species"])
         if u is None:
             missing += 1
             continue

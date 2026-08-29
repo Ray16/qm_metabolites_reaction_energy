@@ -22,6 +22,7 @@ Run (uma env), one reaction per GPU in parallel:
   # or omit --only to run all three sequentially on one GPU
 """
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -211,6 +212,14 @@ def explicit_G(pu, q, smi, seeds, log, name):
     """Cluster-continuum G_aq: first-shell waters + cluster solvation, but thermal on
     the BARE SOLUTE only. The n explicit waters are referenced to bulk liquid via
     water_ref_G (Bryantsev monomer cycle) so the count need NOT cancel across the reaction.
+
+    DEAD PATH IN THE DEFAULT CONFIG (2026-08): with PH0_AUTO + AUTO_TRUNCATE default-on, both branches
+    set explicit=False, and the per-species triage REFUSES explicit for a created/destroyed anion and it
+    is a no-op for a spectator (its G cancels with the partner regardless of method). This only runs as a
+    gated fallback when pH-0 refuses on mass-balance. Its water-thermal bookkeeping is self-consistent
+    ONLY because it is gated to spectators (waters cancel); do NOT repurpose it for a created/destroyed
+    anion without first revisiting water_ref_G (the monomer-cycle reference would otherwise bias the
+    unequal-water term). Kept for that fallback and for the explicit-water experiments, not the hot path.
     FIX 2: the floppy explicit-water librational modes make the full-cluster UMA
     finite-diff Hessian noisy and it does NOT cancel across the fixed-count reaction
     (this is what pinned the occupancy AND cost nucleotidyl ~20 kJ). So:
@@ -224,8 +233,13 @@ def explicit_G(pu, q, smi, seeds, log, name):
         return _cached[0], _cached[1]
     bsym, bcoord = bare_geom(pu, q, smi)
     n_water, sites = water_count(smi)
-    # generous cluster sampling (cheap: batched relax) — floppy water-decorated clusters
-    rng = np.random.default_rng(abs(hash((name, n_water))) % (2**32))
+    # generous cluster sampling (cheap: batched relax) — floppy water-decorated clusters.
+    # DETERMINISTIC seed: built-in hash() is salted per process (PYTHONHASHSEED) -> non-reproducible
+    # cluster geometries across runs. Seed from a stable content hash of everything that defines the
+    # cluster (smi, q, n_water), matching the content-addressed cache key so a cache hit and a fresh
+    # compute use the SAME seed.
+    _seed = int(hashlib.md5(f"{smi}|{q}|{n_water}".encode()).hexdigest()[:8], 16)
+    rng = np.random.default_rng(_seed)
     clusters = [Atoms(symbols=cs, positions=cc, info={"charge": int(q), "spin": 1})
                 for cs, cc in (gc.seed_waters(bsym, bcoord, n_water, rng) for _ in range(N_EXPLICIT_SEEDS))]
     rel, E, conv = batched_fire(pu, clusters, fmax=0.06, steps=350, stop_frac=0.8,
@@ -557,27 +571,46 @@ def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
     # It IS empirical (uses anchor reaction ΔrG'°) -- so anchors MUST be INDEPENDENT literature values,
     # NOT the scored benchmark, and results should report the pure-physics number alongside. Standard
     # per-class-calibration practice (Jinich/Alberty), physically justified, leave-anchors-out validated.
+    dG_raw = dG                                       # pure-physics ΔG (pre-anchor) -- ALWAYS reported
+    anchor_meta = None                                # so the empirical correction is transparent
     if _flag("ANCHOR_CORRECT", default=True) and suspect is None:
         try:
             from route_anchor import anchor_correct
             ac = anchor_correct(dG, REACTIONS[key]["species"])
             if ac is not None:
                 dG_corr, sig_anchor, sc = ac
-                log(f"  [anchor-correct: {sc} -> ΔG {dG:+.1f} -> {dG_corr:+.1f} (offset {dG-dG_corr:+.1f}), +σ {sig_anchor:.1f}]")
+                log(f"  [anchor-correct: {sc} -> ΔG {dG:+.1f} -> {dG_corr:+.1f} (offset {dG-dG_corr:+.1f})]")
                 dG = dG_corr
-                U_samp = float(np.sqrt(U_samp**2 + sig_anchor**2))
+                # NOTE: the intra-class residual (sig_anchor) is NOT folded into U_samp here -- it is the
+                # class-level predictive error, which sigma_pred below carries via the calibrated
+                # sigma_class (avoids double-counting). U_samp stays the conformer-sampling spread only.
+                anchor_meta = {"subclass": sc, "offset": round(dG_raw - dG_corr, 1), "sigma": sig_anchor}
         except Exception as e:
             log(f"  [anchor-correct error: {e}; uncorrected]")
+    # CALIBRATED prediction uncertainty for downstream flux / TFA. U_samp (conformer-sampling spread,
+    # ~1-3 kJ) is NOT the prediction interval -- the SYSTEMATIC method error (per mechanism class) dominates
+    # (~5-25 kJ). sigma_pred = sqrt(U_samp^2 + sigma_class^2), class-conditional and calibrated on the
+    # benchmark residual (tools/calibrate_uncertainty.py; 5-fold-CV coverage ~78%/94% at 1/2 sigma).
+    # Reporting +-U_samp alone would make a TFA solver ~10x overconfident on the hard classes.
+    try:
+        from uncertainty import reaction_sigma
+        sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], [s[2] for s in rx["species"].values()], U_samp)
+    except Exception as e:
+        sigma_pred, sigma_breakdown = None, {"error": str(e)}
     errs = [dG - e for e in rx["exp"]]
-    # RESOLUTION heuristic (general, no hard-coding): if the sampling uncertainty is
-    # comparable to |ΔG|, the sign/magnitude is not QM-resolvable -- flag it (regime-2
-    # isomerases, near-equilibrium). Such reactions are concentration-limited, not QM-fixable.
-    unresolved = abs(dG) < U_samp
-    flag = "  [UNRESOLVED: |ΔG|<U_samp -> concentration-limited]" if unresolved else ""
-    log(f"  ΔG = {dG:+.1f} ± {U_samp:.1f} kJ/mol   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}{flag}")
+    # RESOLUTION heuristic: if the CALIBRATED prediction interval is comparable to |ΔG|, the sign is not
+    # resolvable -- flag it (near-equilibrium isomerases are concentration-limited, not QM-fixable).
+    sig_for_flag = sigma_pred if sigma_pred is not None else U_samp
+    unresolved = abs(dG) < sig_for_flag
+    flag = "  [UNRESOLVED: |ΔG|<σ_pred]" if unresolved else ""
+    log(f"  ΔG = {dG:+.1f} (raw {dG_raw:+.1f}) ± {sigma_pred} kJ/mol  "
+        f"[σ_class {sigma_breakdown.get('sigma_class','?')} ({sigma_breakdown.get('class','?')}), U_samp {U_samp:.1f}]"
+        f"   vs exp {rx['exp']}   err {[round(e,1) for e in errs]}{flag}")
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
-    return dict(reaction=key, dG=round(dG, 1), U_samp=round(U_samp, 1), unresolved=unresolved,
-                exp=rx["exp"], err=[round(e, 1) for e in errs], explicit=exp_out, suspect=suspect)
+    return dict(reaction=key, dG=round(dG, 1), dG_raw=round(dG_raw, 1), anchor=anchor_meta,
+                sigma_pred=sigma_pred, sigma_breakdown=sigma_breakdown, U_samp=round(U_samp, 1),
+                unresolved=unresolved, exp=rx["exp"], err=[round(e, 1) for e in errs],
+                explicit=exp_out, suspect=suspect)
 
 
 def main():
@@ -594,11 +627,11 @@ def main():
     rows = [r for r in (run_reaction(pu, k, seeds, a.keep, a.pool, log) for k in keys) if r]
 
     log(f"\n==== UNIFIED PIPELINE — one scheme, three classes ====")
-    log(f"  {'reaction':14s} {'ΔG':>7s} {'±U':>6s} {'exp':>14s} {'err':>16s} {'note':>12s}")
+    log(f"  {'reaction':14s} {'ΔG':>7s} {'raw':>7s} {'±σpred':>7s} {'exp':>14s} {'err':>16s} {'note':>12s}")
     for r in rows:
         note = "UNRESOLVED" if r.get("unresolved") else ("explicit" if r["explicit"] else "implicit")
-        log(f"  {r['reaction']:14s} {r['dG']:7.1f} {r.get('U_samp',0):6.1f} {str(r['exp']):>14s} "
-            f"{str(r['err']):>16s} {note:>12s}")
+        log(f"  {r['reaction']:14s} {r['dG']:7.1f} {r.get('dG_raw', r['dG']):7.1f} "
+            f"{str(r.get('sigma_pred','?')):>7s} {str(r['exp']):>14s} {str(r['err']):>16s} {note:>12s}")
     tag = a.only or "all"
     json.dump(rows, open(os.path.join(OUT, f"unified_pipeline_{tag}.json"), "w"), indent=2)
     log(f"wrote artifacts/unified_pipeline_{tag}.json")
