@@ -66,7 +66,7 @@ def _forces_batched(pu, structs, chunk=None):
 
 
 def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
-                   geometry=None, symmetrynumber=None):
+                   geometry=None, symmetrynumber=None, spin=1):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
     Central-difference Hessian from UMA forces; all 6N displacements batched. Uses the same
@@ -86,7 +86,7 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
     if symmetrynumber is None:
         symmetrynumber = sigma_auto
     base = Atoms(symbols=symbols, positions=np.asarray(coords, float),
-                 info={"charge": int(q), "spin": 1})
+                 info={"charge": int(q), "spin": int(spin)})
     nat = len(base); ndof = 3 * nat
     pos0 = base.get_positions()
     # electronic energy at the (already UMA-relaxed) geometry
@@ -98,7 +98,7 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
             for sgn in (+1.0, -1.0):
                 p = pos0.copy(); p[i, c] += sgn * delta
                 structs.append(Atoms(symbols=symbols, positions=p,
-                                     info={"charge": int(q), "spin": 1}))
+                                     info={"charge": int(q), "spin": int(spin)}))
     F = _forces_batched(pu, structs, chunk=chunk)          # eV/Å, list of (nat,3)
     H = np.zeros((ndof, ndof))
     for d in range(ndof):
@@ -113,7 +113,8 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
     mags_real = np.sort(np.abs(en.real))[n_drop:]          # drop external trans/rot (pre-floor)
     mags = np.where(mags_real < 50 * CM2EV, 50 * CM2EV, mags_real)   # low-frequency floor
     th = IdealGasThermo(vib_energies=mags, potentialenergy=E_elec, atoms=base,
-                        geometry=geometry, symmetrynumber=symmetrynumber, spin=0)
+                        geometry=geometry, symmetrynumber=symmetrynumber,
+                        spin=(int(spin) - 1) / 2.0)          # total electronic S = (mult-1)/2
     G = th.get_gibbs_energy(temperature=T, pressure=101325.0, verbose=False)
     Gcorr = float((G - E_elec) * EV2KJ)
     if os.environ.get("QRRHO"):                             # Grimme quasi-RRHO entropy for low-freq modes

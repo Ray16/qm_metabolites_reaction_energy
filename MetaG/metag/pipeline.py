@@ -36,7 +36,7 @@ from rdkit.Chem import rdMolDescriptors
 
 from metag.backend import clusters as gc
 from metag.backend.uma import load_uma, batched_energies, batched_fire
-from metag.backend.sampling import pool_confs, boltz
+from metag.backend.sampling import pool_confs, boltz, spin_multiplicity
 from metag.backend.waters import bare_geom
 from metag.backend.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast
 from metag.solvation import water_count, needs_explicit
@@ -131,10 +131,16 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     Rigid species converge in ~2-3 batches; floppy sugar-phosphates draw as many as they need.
     Per-batch pool/keep still scale with rotatable bonds (bigger search for floppier molecules).
     Reports the seed count + the last increment so the sampling uncertainty is visible (UQ)."""
-    _cached = _sc.get(smi, q, "implicit", _IMPLICIT_SETTINGS)
+    mult = spin_multiplicity(smi, q)                      # ground-state spin (O2 triplet, radicals doublet)
+    # spin is deterministic in (smi,q); fork the cache key ONLY for open-shell species so every
+    # closed-shell singlet key is preserved (no cache bust) and pre-fix O2 singlet entries are ignored.
+    _settings = _IMPLICIT_SETTINGS if mult == 1 else dict(_IMPLICIT_SETTINGS, spin=mult)
+    _cached = _sc.get(smi, q, "implicit", _settings)
     if _cached is not None:
         log(f"    {name:9s} q{q:+d} [implicit CACHED]: {_cached[0]:.1f}")
         return _cached[0], _cached[1]
+    if mult != 1:
+        log(f"    {name:9s} q{q:+d} [open-shell: spin multiplicity {mult}]")
     _, keep, pool = sampling_budget(smi)                  # per-batch pool/keep sizing only
     all_G = []
     best = (1e18, None, None)
@@ -145,7 +151,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     gens_traj = []
     while seed < CONV_MAX:
         seed += 1
-        cands = pool_confs(smi, q, seed, pool)
+        cands = pool_confs(smi, q, seed, pool, spin=mult)
         order = np.argsort(batched_energies(pu, cands))[:keep]
         sel = [cands[i] for i in order]
         rel, E, conv = batched_fire(pu, sel, fmax=0.05, steps=300, stop_frac=0.9,
@@ -174,14 +180,14 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     if not all_G:
         return None, None
     Gens = boltz(all_G)
-    therm = uma_gibbs_corr(pu, best[1], best[2], q)
+    therm = uma_gibbs_corr(pu, best[1], best[2], q, spin=mult)
     # sampling uncertainty: spread of Gens over the last few batches (0 if never moved / capped-tight)
     tail = gens_traj[-3:]
     sigma = float(np.std(tail)) if len(tail) > 1 else (last_dG if np.isfinite(last_dG) else 3.0)
     tag = "conv" if seed < CONV_MAX else "CAPPED"
     log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} σ={sigma:.1f}]: "
         f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
-    _sc.put(smi, q, "implicit", _IMPLICIT_SETTINGS, Gens + therm, sigma)
+    _sc.put(smi, q, "implicit", _settings, Gens + therm, sigma)
     return Gens + therm, sigma
 
 
@@ -291,6 +297,11 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     """
     orig_species = {k: list(v) for k, v in reaction["species"].items()}   # pre-routing, for the anchor gate
     rx = dict(reaction)
+    rx.setdefault("explicit", False)                        # `explicit` is optional per the contract;
+    # routing paths (truncate/pH-0) set it, but a non-routing reaction (e.g. neutral oxygenase) must
+    # still default it -- line 449 reads rx["explicit"] unconditionally. (list -> set for triage below.)
+    if isinstance(rx["explicit"], list):
+        rx["explicit"] = set(rx["explicit"])
     truncated = False                                        # did AUTO_TRUNCATE actually fire?
     # COFACTOR RING-TRUNCATION (opt-in COFACTOR_RING=1): replace NAD(P)+/NAD(P)H with their
     # redox-active nicotinamide RING model. The identical ADP-ribose-phosphate tail cancels in

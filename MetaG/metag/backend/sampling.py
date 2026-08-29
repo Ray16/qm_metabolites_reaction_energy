@@ -55,7 +55,28 @@ def boltz(Gs):
     return float(ref - KT * np.log(np.exp(-(Gs - ref) / KT).sum()))
 
 
-def pool_confs(smiles, q, seed, pool):
+def spin_multiplicity(smiles, q):
+    """Ground-state spin multiplicity (2S+1) for the UMA `spin` field. Metabolites are
+    overwhelmingly closed-shell singlets (1), but a few open-shell species must be set
+    explicitly or UMA computes the wrong electronic state:
+      * O2 -- ground state is a TRIPLET (mult 3), not the singlet a bare `O=O` SMILES implies.
+        Computed as singlet it is ~115 kJ/mol too high (measured), driving every O2-consuming
+        oxygenase/oxidase reaction that-many-times too negative. (The common, high-impact case.)
+      * Any odd-electron species -> doublet (mult 2): NO, superoxide O2*-, organic radicals.
+    Deterministic in (smiles, q), so it needs no separate cache key for singlets."""
+    m = Chem.MolFromSmiles(smiles)
+    if m is None:
+        return 1
+    m = Chem.AddHs(m)
+    # O2: two oxygens, no H, neutral -> triplet ground state
+    zs = [a.GetAtomicNum() for a in m.GetAtoms()]
+    if int(q) == 0 and sorted(zs) == [8, 8]:
+        return 3
+    n_elec = sum(zs) - int(q)
+    return 2 if (n_elec % 2) else 1                       # odd electrons -> doublet, else singlet
+
+
+def pool_confs(smiles, q, seed, pool, spin=1):
     m = Chem.AddHs(Chem.MolFromSmiles(smiles))
     p = AllChem.ETKDGv3(); p.randomSeed = seed; p.pruneRmsThresh = 0.3
     cids = list(AllChem.EmbedMultipleConfs(m, numConfs=pool, params=p))
@@ -67,7 +88,7 @@ def pool_confs(smiles, q, seed, pool):
         pass
     syms = [a.GetSymbol() for a in m.GetAtoms()]
     return [Atoms(symbols=syms, positions=m.GetConformer(c).GetPositions(),
-                  info={"charge": int(q), "spin": 1}) for c in cids]
+                  info={"charge": int(q), "spin": int(spin)}) for c in cids]
 
 
 # DIRECT xtb binary — NEVER `conda run` in a loop (~30 s overhead/call vs 0.57 s).

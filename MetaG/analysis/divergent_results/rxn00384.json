@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00384",
+ "note": "rxn00384 D-Glucose 6-sulfate sulfohydrolase",
+ "max_heavy": 16,
+ "gc": -16.3,
+ "eq": 39.9,
+ "delta_gc_eq": -56.2,
+ "dG": -58.0,
+ "dG_raw": -58.0,
+ "ci95": [
+  -92.8,
+  -23.2
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -41.7,
+ "d_to_eq": -97.9,
+ "secs": 58.3
+}

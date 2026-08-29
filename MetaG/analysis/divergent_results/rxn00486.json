@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00486",
+ "note": "rxn00486 ATP:L-phenylalanine adenylyltransferase",
+ "max_heavy": 34,
+ "gc": -21.2,
+ "eq": 191.6,
+ "delta_gc_eq": -212.8,
+ "dG": -142.9,
+ "dG_raw": -85.6,
+ "ci95": [
+  -183.1,
+  -102.7
+ ],
+ "sigma_pred": 18.8,
+ "anchor": {
+  "subclass": "phosphagen",
+  "offset": 57.3,
+  "sigma": 9.5
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "kinase/phosphotransfer",
+ "d_to_gc": -121.7,
+ "d_to_eq": -334.5,
+ "secs": 207.5
+}

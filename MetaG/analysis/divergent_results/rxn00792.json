@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00792",
+ "note": "rxn00792 biotin:CoA ligase (AMP-forming)",
+ "max_heavy": 38,
+ "gc": -11.1,
+ "eq": 278.7,
+ "delta_gc_eq": -289.8,
+ "dG": 23.1,
+ "dG_raw": 23.1,
+ "ci95": [
+  -12.0,
+  58.1
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "CoA-thioester",
+ "d_to_gc": 34.2,
+ "d_to_eq": -255.6,
+ "secs": 556.4
+}

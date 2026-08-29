@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00418",
+ "note": "rxn00418 ENTF-RXN.c",
+ "max_heavy": 31,
+ "gc": -11.1,
+ "eq": 278.5,
+ "delta_gc_eq": -289.6,
+ "dG": 49.8,
+ "dG_raw": 49.8,
+ "ci95": [
+  15.0,
+  84.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 60.9,
+ "d_to_eq": -228.7,
+ "secs": 461.0
+}

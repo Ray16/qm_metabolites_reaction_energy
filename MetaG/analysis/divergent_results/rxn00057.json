@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00057",
+ "note": "rxn00057 Catechol:oxygen oxidoreductase (dimerizing)",
+ "max_heavy": 16,
+ "gc": -264.9,
+ "eq": -161.9,
+ "delta_gc_eq": -103.0,
+ "dG": -1232.4,
+ "dG_raw": -1232.4,
+ "ci95": [
+  -1266.8,
+  -1198.0
+ ],
+ "sigma_pred": 17.8,
+ "anchor": null,
+ "suspect": "|\u0394G|=1232 > 500 kJ (unphysical: proton leak / unbound anion / loader failure)",
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -967.5,
+ "d_to_eq": -1070.5,
+ "secs": 35.7
+}

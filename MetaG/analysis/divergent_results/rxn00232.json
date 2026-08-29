@@ -1,0 +1,26 @@
+{
+ "reaction": "rxn00232",
+ "note": "rxn00232 5'-acetylphosphoadenosine acetylhydrolase",
+ "max_heavy": 26,
+ "gc": -17.7,
+ "eq": -289.9,
+ "delta_gc_eq": 272.2,
+ "dG": -64.4,
+ "dG_raw": -44.1,
+ "ci95": [
+  -99.2,
+  -29.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": {
+  "subclass": "phosphatase_monoester",
+  "offset": 20.3,
+  "sigma": 5.0
+ },
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -46.7,
+ "d_to_eq": 225.5,
+ "secs": 51.4
+}
