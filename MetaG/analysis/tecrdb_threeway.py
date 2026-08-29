@@ -60,15 +60,15 @@ for i, (name, P) in enumerate(preds.items()):
     ax.text(0.04, 0.96, f"MAE {err.mean():.1f}\nmedian {np.median(err):.1f}\nn={len(K)}",
             transform=ax.transAxes, va="top", ha="left", fontsize=15,
             bbox=dict(boxstyle="round", fc="white", ec="0.7"))
-    # top marginal = experiment (same everywhere -> grey); right marginal = predicted (method colour)
-    axtop.hist(E, bins=bins, color="0.6", edgecolor="white", linewidth=0.3)
+    # both marginals in the method colour: top = experiment (x), right = predicted (y)
+    axtop.hist(E, bins=bins, color=COL[name], edgecolor="white", linewidth=0.3)
     axright.hist(P, bins=bins, orientation="horizontal", color=COL[name], edgecolor="white", linewidth=0.3)
     axtop.set_title(name, fontsize=17)
     for a in (axtop, axright):                          # marginals show SHAPE only; drop ticks (keeps 18pt rule clean)
         a.axis("off")
-    # dashed guides on the marginals so the reader sees experiment-vs-predicted spread mismatch
-    axtop.axvline(np.median(E), color="0.3", ls=":", lw=1)
-    axright.axhline(np.median(P), color=COL[name], ls=":", lw=1.2)
+    # dashed median guides so the reader sees the experiment-vs-predicted spread mismatch
+    axtop.axvline(np.median(E), color="0.25", ls=":", lw=1)
+    axright.axhline(np.median(P), color="0.25", ls=":", lw=1.2)
 out = os.path.join(HERE, "..", "figures", "tecrdb_threeway.png")
 fig.savefig(out, bbox_inches="tight")
 print(f"n={len(K)}  MAE: UMA {np.abs(preds[list(preds)[0]]-E).mean():.1f}  "
