@@ -593,10 +593,15 @@ def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
     # benchmark residual (tools/calibrate_uncertainty.py; 5-fold-CV coverage ~78%/94% at 1/2 sigma).
     # Reporting +-U_samp alone would make a TFA solver ~10x overconfident on the hard classes.
     try:
-        from uncertainty import reaction_sigma
-        sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], [s[2] for s in rx["species"].values()], U_samp)
+        from uncertainty import reaction_sigma, prediction_interval
+        _smis = [s[2] for s in rx["species"].values()]
+        sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], _smis, U_samp)
+        # DE-BIASED asymmetric 95% interval for the TRUE ΔrG'° (for TFA: a symmetric ±σ is mis-centered
+        # on a biased class). exp lies in [ci_lo, ci_hi]; ci_center is the bias-removed point estimate.
+        ci_lo, ci_hi, ci_center, ci_info = prediction_interval(rx["note"], _smis, dG, level=95)
     except Exception as e:
         sigma_pred, sigma_breakdown = None, {"error": str(e)}
+        ci_lo = ci_hi = ci_center = None; ci_info = {}
     errs = [dG - e for e in rx["exp"]]
     # RESOLUTION heuristic: if the CALIBRATED prediction interval is comparable to |ΔG|, the sign is not
     # resolvable -- flag it (near-equilibrium isomerases are concentration-limited, not QM-fixable).
@@ -609,6 +614,7 @@ def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
     return dict(reaction=key, dG=round(dG, 1), dG_raw=round(dG_raw, 1), anchor=anchor_meta,
                 sigma_pred=sigma_pred, sigma_breakdown=sigma_breakdown, U_samp=round(U_samp, 1),
+                ci95=[ci_lo, ci_hi], ci_center=ci_center, ci_info=ci_info,
                 unresolved=unresolved, exp=rx["exp"], err=[round(e, 1) for e in errs],
                 explicit=exp_out, suspect=suspect)
 

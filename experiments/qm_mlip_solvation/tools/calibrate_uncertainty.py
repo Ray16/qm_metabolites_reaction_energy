@@ -108,10 +108,22 @@ def main():
         aes = np.abs(es)
         q68 = float(np.quantile(aes, 0.68))
         q95 = float(np.quantile(aes, 0.95))
+        # SIGNED residual quantiles -> a DE-BIASED, ASYMMETRIC, tail-aware prediction interval:
+        # exp lies in [dG - q_hi, dG - q_lo]. Corrects the mis-centering a symmetric sigma has on a
+        # biased class (hydratase +16, glycosyl -13) WITHOUT a physical anchor -- purely empirical
+        # calibration, reported alongside the pure-physics dG_raw. Bias is SHRUNK toward 0 for small n
+        # (n/(n+k)) so a 2-reaction class doesn't get a spurious point-correction.
+        bias_shrunk = float(bias * n / (n + k))
         classes[cls] = {"n": n, "sigma": sigma, "rms": round(rms, 1), "mae": round(mae, 1),
-                        "bias": round(bias, 1), "medAE": round(med, 1),
-                        "sigma_raw_rms": round(rms, 1),
-                        "emp_q68": round(q68, 1), "emp_q95": round(q95, 1)}
+                        "bias": round(bias, 1), "bias_shrunk": round(bias_shrunk, 1),
+                        "medAE": round(med, 1), "sigma_raw_rms": round(rms, 1),
+                        "emp_q68": round(q68, 1), "emp_q95": round(q95, 1),
+                        # signed residual (pred-exp) quantiles for the asymmetric interval
+                        "resid_q025": round(float(np.quantile(es, 0.025)), 1),
+                        "resid_q16":  round(float(np.quantile(es, 0.16)), 1),
+                        "resid_q50":  round(float(np.quantile(es, 0.50)), 1),
+                        "resid_q84":  round(float(np.quantile(es, 0.84)), 1),
+                        "resid_q975": round(float(np.quantile(es, 0.975)), 1)}
 
     default_sigma = round(overall_rms, 1)
 

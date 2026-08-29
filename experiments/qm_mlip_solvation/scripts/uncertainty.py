@@ -129,6 +129,45 @@ def mech_class(note, species_smiles):
     return "other/clean"
 
 
+def _load_class_stats():
+    """Full per-class stats (bias_shrunk + signed residual quantiles) for the de-biased asymmetric
+    prediction interval. Empty if the calibrated artifact is missing (then prediction_interval falls
+    back to the symmetric sigma)."""
+    try:
+        with open(_CALIB_PATH) as fh:
+            return json.load(fh).get("classes", {})
+    except (OSError, ValueError):
+        return {}
+
+
+CLASS_STATS = _load_class_stats()
+
+
+def prediction_interval(note, species_smiles, dG, level=95):
+    """DE-BIASED, ASYMMETRIC, tail-aware interval for the TRUE ΔrG'° given the pipeline's dG.
+
+    The class residuals (pred - exp) are generally biased (hydratase pred ~ +16 high; glycosyl ~ -14 low),
+    so a symmetric dG ± sigma is MIS-CENTERED -- for TFA that is a directional feasibility error. Instead we
+    invert the empirical SIGNED residual distribution: exp lies in [dG - q_hi, dG - q_lo] with the empirical
+    quantiles, which centers on dG - median_residual (de-biased) and is asymmetric (captures the heavier
+    tail). Returns (lo, hi, center, breakdown). Falls back to the symmetric class sigma if uncalibrated.
+    """
+    cls = mech_class(note, species_smiles)
+    st = CLASS_STATS.get(cls)
+    if st and "resid_q025" in st:
+        qlo, qhi = ("resid_q025", "resid_q975") if level == 95 else ("resid_q16", "resid_q84")
+        lo = dG - st[qhi]                       # exp = dG - residual; high residual -> low exp bound
+        hi = dG - st[qlo]
+        center = dG - st.get("resid_q50", 0.0)  # de-biased point estimate (median residual removed)
+        return round(lo, 1), round(hi, 1), round(center, 1), {"class": cls, "level": level,
+                "resid_q_lo": st[qlo], "resid_q_hi": st[qhi], "resid_med": st.get("resid_q50")}
+    # fallback: symmetric sigma
+    s = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
+    k = 2.0 if level == 95 else 1.0
+    return round(dG - k * s, 1), round(dG + k * s, 1), round(dG, 1), {"class": cls, "level": level,
+            "sigma": s, "note": "symmetric fallback (uncalibrated)"}
+
+
 def reaction_sigma(note, species_smiles, U_samp=0.0):
     """Return (sigma_total_kJ, breakdown_dict). Independent error sources added in quadrature:
       sigma_total = sqrt(U_samp^2 + sigma_class^2)

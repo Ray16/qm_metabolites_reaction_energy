@@ -18,10 +18,16 @@
    "rms": 16.2,
    "mae": 10.3,
    "bias": -0.6,
+   "bias_shrunk": -0.6,
    "medAE": 5.2,
    "sigma_raw_rms": 16.2,
    "emp_q68": 9.6,
-   "emp_q95": 32.4
+   "emp_q95": 32.4,
+   "resid_q025": -26.9,
+   "resid_q16": -11.8,
+   "resid_q50": -2.0,
+   "resid_q84": 7.5,
+   "resid_q975": 40.8
   },
   "hydratase": {
    "n": 12,
@@ -29,10 +35,16 @@
    "rms": 20.6,
    "mae": 19.1,
    "bias": 18.4,
+   "bias_shrunk": 13.8,
    "medAE": 21.9,
    "sigma_raw_rms": 20.6,
    "emp_q68": 23.2,
-   "emp_q95": 27.9
+   "emp_q95": 27.9,
+   "resid_q025": -1.6,
+   "resid_q16": 12.1,
+   "resid_q50": 21.9,
+   "resid_q84": 24.5,
+   "resid_q975": 29.5
   },
   "kinase/phosphotransfer": {
    "n": 29,
@@ -40,10 +52,16 @@
    "rms": 18.7,
    "mae": 12.2,
    "bias": -1.0,
+   "bias_shrunk": -0.9,
    "medAE": 7.7,
    "sigma_raw_rms": 18.7,
    "emp_q68": 13.0,
-   "emp_q95": 31.6
+   "emp_q95": 31.6,
+   "resid_q025": -40.0,
+   "resid_q16": -13.8,
+   "resid_q50": 0.4,
+   "resid_q84": 10.5,
+   "resid_q975": 29.7
   },
   "CoA-thioester": {
    "n": 30,
@@ -51,10 +69,16 @@
    "rms": 16.3,
    "mae": 12.9,
    "bias": -1.1,
+   "bias_shrunk": -1.0,
    "medAE": 11.0,
    "sigma_raw_rms": 16.3,
    "emp_q68": 15.7,
-   "emp_q95": 29.0
+   "emp_q95": 29.0,
+   "resid_q025": -27.7,
+   "resid_q16": -16.3,
+   "resid_q50": -2.0,
+   "resid_q84": 12.3,
+   "resid_q975": 29.3
   },
   "reductive-amination-DH": {
    "n": 11,
@@ -62,10 +86,16 @@
    "rms": 21.4,
    "mae": 13.7,
    "bias": -0.6,
+   "bias_shrunk": -0.5,
    "medAE": 8.9,
    "sigma_raw_rms": 21.4,
    "emp_q68": 9.5,
-   "emp_q95": 47.6
+   "emp_q95": 47.6,
+   "resid_q025": -40.1,
+   "resid_q16": -9.2,
+   "resid_q50": -1.1,
+   "resid_q84": 10.7,
+   "resid_q975": 36.8
   },
   "NAD(P)-redox(other)": {
    "n": 74,
@@ -73,10 +103,16 @@
    "rms": 16.0,
    "mae": 12.0,
    "bias": 1.7,
+   "bias_shrunk": 1.6,
    "medAE": 9.9,
    "sigma_raw_rms": 16.0,
    "emp_q68": 12.8,
-   "emp_q95": 32.9
+   "emp_q95": 32.9,
+   "resid_q025": -33.7,
+   "resid_q16": -11.7,
+   "resid_q50": 0.1,
+   "resid_q84": 13.4,
+   "resid_q975": 27.3
   },
   "isomerase/mutase": {
    "n": 58,
@@ -84,10 +120,16 @@
    "rms": 14.0,
    "mae": 9.8,
    "bias": -1.1,
+   "bias_shrunk": -1.0,
    "medAE": 7.6,
    "sigma_raw_rms": 14.0,
    "emp_q68": 10.5,
-   "emp_q95": 29.2
+   "emp_q95": 29.2,
+   "resid_q025": -19.2,
+   "resid_q16": -11.7,
+   "resid_q50": -2.6,
+   "resid_q84": 8.5,
+   "resid_q975": 35.9
   },
   "phosphatase": {
    "n": 12,
@@ -95,10 +137,16 @@
    "rms": 8.8,
    "mae": 6.7,
    "bias": -6.7,
+   "bias_shrunk": -5.0,
    "medAE": 4.5,
    "sigma_raw_rms": 8.8,
    "emp_q68": 5.7,
-   "emp_q95": 18.0
+   "emp_q95": 18.0,
+   "resid_q025": -19.5,
+   "resid_q16": -11.4,
+   "resid_q50": -4.5,
+   "resid_q84": -2.8,
+   "resid_q975": -1.6
   },
   "phosphagen(P-N/Mg)": {
    "n": 4,
@@ -106,10 +154,16 @@
    "rms": 8.8,
    "mae": 8.0,
    "bias": 2.3,
+   "bias_shrunk": 1.2,
    "medAE": 9.4,
    "sigma_raw_rms": 8.8,
    "emp_q68": 9.5,
-   "emp_q95": 11.1
+   "emp_q95": 11.1,
+   "resid_q025": -10.4,
+   "resid_q16": -5.0,
+   "resid_q50": 5.6,
+   "resid_q84": 9.4,
+   "resid_q975": 9.4
   },
   "amide/amidine-hydrolysis": {
    "n": 9,
@@ -117,10 +171,16 @@
    "rms": 16.4,
    "mae": 14.4,
    "bias": -14.0,
+   "bias_shrunk": -9.7,
    "medAE": 13.2,
    "sigma_raw_rms": 16.4,
    "emp_q68": 16.5,
-   "emp_q95": 27.0
+   "emp_q95": 27.0,
+   "resid_q025": -28.6,
+   "resid_q16": -21.0,
+   "resid_q50": -13.2,
+   "resid_q84": -7.9,
+   "resid_q975": -0.1
   },
   "glycosyl/PRT/nucleoside": {
    "n": 14,
@@ -128,10 +188,16 @@
    "rms": 24.6,
    "mae": 19.3,
    "bias": -13.8,
+   "bias_shrunk": -10.7,
    "medAE": 18.2,
    "sigma_raw_rms": 24.6,
    "emp_q68": 26.1,
-   "emp_q95": 44.1
+   "emp_q95": 44.1,
+   "resid_q025": -46.8,
+   "resid_q16": -35.8,
+   "resid_q50": -16.2,
+   "resid_q84": 1.8,
+   "resid_q975": 20.8
   },
   "transaminase": {
    "n": 16,
@@ -139,10 +205,16 @@
    "rms": 9.4,
    "mae": 6.4,
    "bias": 3.2,
+   "bias_shrunk": 2.5,
    "medAE": 4.6,
    "sigma_raw_rms": 9.4,
    "emp_q68": 5.9,
-   "emp_q95": 21.8
+   "emp_q95": 21.8,
+   "resid_q025": -7.3,
+   "resid_q16": -3.3,
+   "resid_q50": -0.5,
+   "resid_q84": 11.1,
+   "resid_q975": 22.2
   },
   "aldolase": {
    "n": 11,
@@ -150,10 +222,16 @@
    "rms": 19.2,
    "mae": 15.3,
    "bias": -8.8,
+   "bias_shrunk": -6.5,
    "medAE": 12.0,
    "sigma_raw_rms": 19.2,
    "emp_q68": 20.8,
-   "emp_q95": 33.3
+   "emp_q95": 33.3,
+   "resid_q025": -30.8,
+   "resid_q16": -25.3,
+   "resid_q50": -8.7,
+   "resid_q84": -1.4,
+   "resid_q975": 26.4
   },
   "ammonia-lyase": {
    "n": 9,
@@ -161,10 +239,16 @@
    "rms": 14.7,
    "mae": 10.3,
    "bias": -5.7,
+   "bias_shrunk": -3.9,
    "medAE": 7.1,
    "sigma_raw_rms": 14.7,
    "emp_q68": 8.6,
-   "emp_q95": 29.4
+   "emp_q95": 29.4,
+   "resid_q025": -29.7,
+   "resid_q16": -22.9,
+   "resid_q50": 0.5,
+   "resid_q84": 5.9,
+   "resid_q975": 8.6
   },
   "flavin/FAD-redox": {
    "n": 5,
@@ -172,10 +256,16 @@
    "rms": 14.2,
    "mae": 10.9,
    "bias": 6.7,
+   "bias_shrunk": 3.7,
    "medAE": 8.5,
    "sigma_raw_rms": 14.2,
    "emp_q68": 12.7,
-   "emp_q95": 24.4
+   "emp_q95": 24.4,
+   "resid_q025": -7.9,
+   "resid_q16": -4.3,
+   "resid_q50": 2.8,
+   "resid_q84": 18.8,
+   "resid_q975": 25.7
   },
   "carbamoyltransfer": {
    "n": 2,
@@ -183,10 +273,16 @@
    "rms": 11.6,
    "mae": 11.3,
    "bias": 11.3,
+   "bias_shrunk": 3.8,
    "medAE": 11.3,
    "sigma_raw_rms": 11.6,
    "emp_q68": 12.2,
-   "emp_q95": 13.5
+   "emp_q95": 13.5,
+   "resid_q025": 8.9,
+   "resid_q16": 9.6,
+   "resid_q50": 11.3,
+   "resid_q84": 13.0,
+   "resid_q975": 13.7
   }
  },
  "per_reaction": [
