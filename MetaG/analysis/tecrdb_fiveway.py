@@ -33,39 +33,45 @@ for f in glob.glob(f"{DB}/reaction_*.json"):
 K = [k for k in uma_err if k in exp and k in dgp_orig and k in dgp_ho_err and k in gc and k in eq
      and abs(gc[k]) < 1e6 and abs(eq[k]) < 1e6]
 E = np.array([exp[k] for k in K])
-# (title, mode, predictions, colour) ordered best->worst MAE
-PANELS = [
-    ("dGPredictor (original)", "IN-SAMPLE", np.array([dgp_orig[k] for k in K]), "#CC79A7"),
-    ("dGPredictor (retrained)", "HELD-OUT", np.array([dgp_ho_err[k] + exp[k] for k in K]), "#56B4E9"),
-    ("eQuilibrator", "IN-SAMPLE", np.array([eq[k] for k in K]), "#D55E00"),
-    ("Group Contribution", "IN-SAMPLE", np.array([gc[k] for k in K]), "#0072B2"),
-    ("UMA (MetaG)", "HELD-OUT", np.array([uma_err[k] + exp[k] for k in K]), "#009E73"),
+# ROW 1 = IN-SAMPLE (fit to TECRDB); ROW 2 = HELD-OUT (fair). Within a row, best->worst MAE.
+ROWS = [
+    ("IN-SAMPLE  (fit to TECRDB)", [
+        ("dGPredictor (original)", np.array([dgp_orig[k] for k in K]), "#CC79A7"),
+        ("eQuilibrator", np.array([eq[k] for k in K]), "#D55E00"),
+        ("Group Contribution", np.array([gc[k] for k in K]), "#0072B2")]),
+    ("HELD-OUT  (fair)", [
+        ("dGPredictor (retrained)", np.array([dgp_ho_err[k] + exp[k] for k in K]), "#56B4E9"),
+        ("UMA (MetaG) — first-principles", np.array([uma_err[k] + exp[k] for k in K]), "#009E73")]),
 ]
-allv = np.concatenate([E] + [P for _, _, P, _ in PANELS])
+ncol = max(len(r[1]) for r in ROWS)
+allv = np.concatenate([E] + [P for _, ps in ROWS for _, P, _ in ps])
 lim = [np.percentile(allv, 1) - 20, np.percentile(allv, 99) + 20]
 bins = np.linspace(lim[0], lim[1], 30)
 
-fig = plt.figure(figsize=(30, 6.6))
-outer = fig.add_gridspec(1, 5, wspace=0.30)
-for i, (name, mode, P, col) in enumerate(PANELS):
-    inner = outer[i].subgridspec(2, 2, width_ratios=[4, 1], height_ratios=[1, 4], wspace=0.04, hspace=0.04)
-    ax = fig.add_subplot(inner[1, 0]); axtop = fig.add_subplot(inner[0, 0], sharex=ax); axr = fig.add_subplot(inner[1, 1], sharey=ax)
-    err = np.abs(P - E)
-    ax.fill_between(lim, [lim[0]-20, lim[1]-20], [lim[0]+20, lim[1]+20], color="0.88", zorder=0)
-    ax.plot(lim, lim, "--", color="black", lw=1.1, zorder=1)
-    ax.scatter(E, P, s=26, color=col, edgecolor="black", linewidth=0.25, alpha=0.75, zorder=3)
-    ax.set_xlim(lim); ax.set_ylim(lim)
-    ax.set_xlabel("experiment ΔrG′°  (kJ/mol)")
-    if i == 0: ax.set_ylabel("predicted ΔrG′°  (kJ/mol)")
-    ax.text(0.05, 0.95, f"MAE {err.mean():.1f}\nmed {np.median(err):.1f}", transform=ax.transAxes,
-            va="top", ha="left", fontsize=15, bbox=dict(boxstyle="round", fc="white", ec="0.7"))
-    axtop.hist(E, bins=bins, color=col, edgecolor="white", linewidth=0.3)
-    axr.hist(P, bins=bins, orientation="horizontal", color=col, edgecolor="white", linewidth=0.3)
-    tag = "  [in-sample]" if mode == "IN-SAMPLE" else "  [held-out]"
-    axtop.set_title(name + "\n" + mode + (" · fit to TECRDB" if mode == "IN-SAMPLE" else " · fair"), fontsize=15)
-    for a in (axtop, axr): a.axis("off")
-fig.suptitle(f"TECRDB — five methods vs experiment (n={len(K)})", fontsize=18, y=1.02)
+fig = plt.figure(figsize=(6.4 * ncol, 13))
+outer = fig.add_gridspec(2, ncol, wspace=0.32, hspace=0.32)
+for ri, (row_label, panels) in enumerate(ROWS):
+    for ci, (name, P, col) in enumerate(panels):
+        inner = outer[ri, ci].subgridspec(2, 2, width_ratios=[4, 1], height_ratios=[1, 4], wspace=0.04, hspace=0.04)
+        ax = fig.add_subplot(inner[1, 0]); axtop = fig.add_subplot(inner[0, 0], sharex=ax); axr = fig.add_subplot(inner[1, 1], sharey=ax)
+        err = np.abs(P - E)
+        ax.fill_between(lim, [lim[0]-20, lim[1]-20], [lim[0]+20, lim[1]+20], color="0.88", zorder=0)
+        ax.plot(lim, lim, "--", color="black", lw=1.1, zorder=1)
+        ax.scatter(E, P, s=26, color=col, edgecolor="black", linewidth=0.25, alpha=0.75, zorder=3)
+        ax.set_xlim(lim); ax.set_ylim(lim)
+        ax.set_xlabel("experiment ΔrG′°  (kJ/mol)")
+        if ci == 0: ax.set_ylabel("predicted ΔrG′°  (kJ/mol)")
+        ax.text(0.05, 0.95, f"MAE {err.mean():.1f}\nmed {np.median(err):.1f}", transform=ax.transAxes,
+                va="top", ha="left", fontsize=15, bbox=dict(boxstyle="round", fc="white", ec="0.7"))
+        axtop.hist(E, bins=bins, color=col, edgecolor="white", linewidth=0.3)
+        axr.hist(P, bins=bins, orientation="horizontal", color=col, edgecolor="white", linewidth=0.3)
+        axtop.set_title(name, fontsize=15)
+        for a in (axtop, axr): a.axis("off")
+    # row label on the far left
+    y = 0.74 if ri == 0 else 0.30
+    fig.text(0.015, y, row_label, rotation=90, va="center", ha="center", fontsize=17, fontweight="bold")
+fig.suptitle(f"TECRDB — five methods vs experiment (n={len(K)})", fontsize=19, y=0.98)
 out = os.path.join(HERE, "..", "figures", "tecrdb_fiveway.png")
 fig.savefig(out, bbox_inches="tight")
-print("n=%d  MAE: " % len(K) + "  ".join(f"{n.split(' (')[0]} {np.abs(P-E).mean():.1f}" for n, _, P, _ in PANELS))
+print("n=%d  MAE: " % len(K) + "  ".join(f"{n.split(' (')[0].split(' —')[0]} {np.abs(P-E).mean():.1f}" for _, ps in ROWS for n, P, _ in ps))
 print(f"wrote {os.path.abspath(out)}")
