@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn40000",
+ "note": "rxn40000 N2-citryl-N6-acetyl-N6-hydroxy-L-lysine:N6-acetyl-N6-hydroxy-L-lysine ligase (AMP-forming) | EC=6.3.2.39",
+ "max_heavy": 39,
+ "gc": -26.8,
+ "eq": -9.5,
+ "delta_gc_eq": -17.3,
+ "dG": -161.0,
+ "dG_raw": -161.0,
+ "ci95": [
+  -195.8,
+  -126.2
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -134.2,
+ "d_to_eq": -151.5,
+ "secs": 463.2
+}

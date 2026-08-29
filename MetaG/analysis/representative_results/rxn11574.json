@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn11574",
+ "note": "rxn11574 carotenoid beta-end group lyase (decyclizing) | EC=5.5.1.19",
+ "max_heavy": 40,
+ "gc": -20.1,
+ "eq": -34.5,
+ "delta_gc_eq": 14.4,
+ "dG": -55.0,
+ "dG_raw": -55.0,
+ "ci95": [
+  -89.8,
+  -20.2
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -34.9,
+ "d_to_eq": -20.5,
+ "secs": 72.1
+}

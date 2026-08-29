@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn37183",
+ "note": "rxn37183 paromamine glucosyltransferase | EC=2.4.1.-",
+ "max_heavy": 36,
+ "gc": -1.7,
+ "eq": -3.9,
+ "delta_gc_eq": 2.2,
+ "dG": -39.1,
+ "dG_raw": -39.1,
+ "ci95": [
+  -73.9,
+  -4.3
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -37.4,
+ "d_to_eq": -35.2,
+ "secs": 1961.4
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00215",
+ "note": "rxn00215 UDP-glucose 4,6-hydro-lyase (UDP-4-dehydro-6-deoxy-D-glucose-forming) | EC=4.2.1.76",
+ "max_heavy": 36,
+ "gc": -13.9,
+ "eq": -15.7,
+ "delta_gc_eq": 1.8,
+ "dG": -34.6,
+ "dG_raw": -34.6,
+ "ci95": [
+  -78.9,
+  9.7
+ ],
+ "sigma_pred": 20.7,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "hydratase",
+ "d_to_gc": -20.7,
+ "d_to_eq": -18.9,
+ "secs": 712.0
+}

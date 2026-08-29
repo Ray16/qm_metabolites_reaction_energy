@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn07341",
+ "note": "rxn07341 rxn07341 | EC=1.14.99.-",
+ "max_heavy": 40,
+ "gc": 33.9,
+ "eq": 45.4,
+ "delta_gc_eq": -11.5,
+ "dG": 91.4,
+ "dG_raw": 91.4,
+ "ci95": [
+  56.5,
+  126.2
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 57.5,
+ "d_to_eq": 46.0,
+ "secs": 1697.1
+}

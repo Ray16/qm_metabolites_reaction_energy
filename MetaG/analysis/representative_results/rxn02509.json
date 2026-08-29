@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn02509",
+ "note": "rxn02509 2-methyl-3-phytyl-1,4-naphthoquinone:oxidized-dithiothreitol oxidoreductase | EC=1.1.4.1",
+ "max_heavy": 34,
+ "gc": 0.8,
+ "eq": 32.5,
+ "delta_gc_eq": -31.7,
+ "dG": 118.4,
+ "dG_raw": 118.4,
+ "ci95": [
+  84.0,
+  152.8
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": 117.6,
+ "d_to_eq": 85.9,
+ "secs": 1097.7
+}

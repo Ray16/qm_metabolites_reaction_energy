@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00295",
+ "note": "rxn00295 UDP-N-acetyl-D-glucosamine 4-epimerase | EC=5.1.3.2",
+ "max_heavy": 39,
+ "gc": 0.0,
+ "eq": -0.2,
+ "delta_gc_eq": 0.2,
+ "dG": 11.5,
+ "dG_raw": 11.5,
+ "ci95": [
+  -18.8,
+  41.8
+ ],
+ "sigma_pred": 14.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "isomerase/mutase",
+ "d_to_gc": 11.5,
+ "d_to_eq": 11.7,
+ "secs": 1135.9
+}
