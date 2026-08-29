@@ -71,13 +71,39 @@ def _load_sigma():
 
 
 SIGMA_CLASS, _DEFAULT_SIGMA = _load_sigma()
+# adenylyl-transfer is a NEW structural class not yet in the calibration artifact; use the anchor's
+# LOO+reference-inflated residual (metag.routing.anchor ANCHORS["adenylylate"]["sigma"] = 11.0) until a
+# full sweep recalibrates it. setdefault so a future artifact value wins.
+SIGMA_CLASS.setdefault("adenylylate", 11.0)
 
 
-def mech_class(note, species_smiles):
-    """Assign the mechanism/uncertainty class from the reaction note (enzyme name / EC) plus the
-    species SMILES. Deployment-safe (no reaction-id). Mirrors tools/fix_map.mech ordering —
-    most-specific class first. `species_smiles` = iterable of SMILES strings (or one joined string).
+# Structural anchor sub-classes (SMARTS-detected in metag.routing.anchor) -> the calibrated σ-class name.
+# When a reaction STRUCTURALLY matches an anchor class, the class MUST come from structure, not the note:
+# the note mis-labels (adenylyltransferase -> "kinase") or is cryptic ("ENTF-RXN.c" -> "other/clean"),
+# which gave the SAME chemistry two different σ. This keeps the σ-class coherent with the anchor and
+# note-independent (works on the poorly-annotated GC-silent ModelSEED target).
+_ANCHOR_TO_CLASS = {
+    "phosphagen":            "phosphagen(P-N/Mg)",
+    "thioester":             "CoA-thioester",
+    "phosphatase_monoester": "phosphatase",
+    "adenylylate":           "adenylylate",
+}
+
+
+def mech_class(note, species_smiles, species=None):
+    """Assign the mechanism/uncertainty class. STRUCTURAL FIRST: if `species` (the full
+    {name:[coeff,charge,smi]} dict) is given and structurally matches an anchor sub-class, that wins
+    (note-independent, coherent with the anchor). Otherwise fall back to the NOTE (enzyme name / EC) +
+    SMILES keyword taxonomy. Deployment-safe (no reaction-id). `species_smiles` = iterable of SMILES.
     """
+    if species:
+        try:
+            from metag.routing.anchor import subclass as _anchor_subclass
+            sc = _anchor_subclass(species)
+            if sc in _ANCHOR_TO_CLASS:
+                return _ANCHOR_TO_CLASS[sc]
+        except Exception:
+            pass                                            # structural detection is best-effort; fall back
     n = (note or "").lower()
     smis = species_smiles if isinstance(species_smiles, str) else " ".join(species_smiles)
     has_coa = "coa" in n or _COA_SMI_TAG in smis.lower()
@@ -151,7 +177,7 @@ except (OSError, ValueError):
     pass
 
 
-def prediction_interval(note, species_smiles, dG, level=95):
+def prediction_interval(note, species_smiles, dG, level=95, species=None):
     """DE-BIASED, ASYMMETRIC, tail-aware interval for the TRUE ΔrG'° given the pipeline's dG.
 
     The class residuals (pred - exp) are generally biased (hydratase pred ~ +16 high; glycosyl ~ -14 low),
@@ -159,8 +185,9 @@ def prediction_interval(note, species_smiles, dG, level=95):
     invert the empirical SIGNED residual distribution: exp lies in [dG - q_hi, dG - q_lo] with the empirical
     quantiles, which centers on dG - median_residual (de-biased) and is asymmetric (captures the heavier
     tail). Returns (lo, hi, center, breakdown). Falls back to the symmetric class sigma if uncalibrated.
+    `species` (full {name:[coeff,charge,smi]} dict) enables structural class detection; recommended.
     """
-    cls = mech_class(note, species_smiles)
+    cls = mech_class(note, species_smiles, species)
     st = CLASS_STATS.get(cls, {})
     s = st.get("sigma", SIGMA_CLASS.get(cls, _DEFAULT_SIGMA))
     q95abs = st.get("q95abs", 0.0)
@@ -179,13 +206,14 @@ def prediction_interval(note, species_smiles, dG, level=95):
             "interval already covers -- optional recenter dG-point_bias, do NOT also widen"}
 
 
-def reaction_sigma(note, species_smiles, U_samp=0.0):
+def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
     """Return (sigma_total_kJ, breakdown_dict). Independent error sources added in quadrature:
       sigma_total = sqrt(U_samp^2 + sigma_class^2)
     `species_smiles` = final (possibly truncated/neutralised) species SMILES. `U_samp` = the
     pipeline's conformer-sampling spread for this reaction (kJ/mol; 0 if unknown).
+    `species` (full {name:[coeff,charge,smi]} dict) enables structural class detection; recommended.
     """
-    cls = mech_class(note, species_smiles)
+    cls = mech_class(note, species_smiles, species)
     s_class = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
     terms = {"U_samp": float(U_samp), "sigma_class": float(s_class)}
     sigma = math.sqrt(sum(v * v for v in terms.values()))

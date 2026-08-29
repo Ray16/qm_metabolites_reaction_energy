@@ -15,6 +15,25 @@ def test_mech_class_examples():
     assert u.mech_class("some novel enzyme", ["CCO"]) == "other/clean"
 
 
+def test_structural_class_overrides_note():
+    # STRUCTURAL detection wins over the note: two adenylyl-transfers (same chemistry) must get the SAME
+    # class regardless of note ("adenylyltransferase" mis-maps to kinase; a cryptic note -> other/clean).
+    ATP = "Nc1ncnc2c1ncn2C3OC(COP(=O)(O)OP(=O)(O)OP(=O)(O)O)C(O)C3O"
+    AMP = "OCC3OC(n1cnc2c(N)ncnc12)C(O)C3O"
+    PPi = "OP(=O)(O)OP(=O)(O)O"
+    adyl = {"ATP": [-1, -3, ATP], "acetate": [-1, -1, "CC(=O)O"],
+            "PPi": [1, -3, PPi], "acAMP": [1, -1, "CC(=O)OP(=O)(O)" + AMP[1:]]}
+    smis = [v[2] for v in adyl.values()]
+    # note says "adenylyltransferase" (note-only -> kinase) and a cryptic note; structural must override both
+    assert u.mech_class("ATP:acetate adenylyltransferase", smis) == "kinase/phosphotransfer"   # note-only
+    assert u.mech_class("ATP:acetate adenylyltransferase", smis, species=adyl) == "adenylylate"
+    assert u.mech_class("ENTF-RXN.c", smis, species=adyl) == "adenylylate"                      # note-independent
+    # -> same sigma for the same chemistry, whatever the note
+    s1, _ = u.reaction_sigma("ATP:acetate adenylyltransferase", smis, 2.0, species=adyl)
+    s2, _ = u.reaction_sigma("ENTF-RXN.c", smis, 2.0, species=adyl)
+    assert s1 == s2
+
+
 def test_reaction_sigma_dominated_by_class():
     # the predictive sigma must be the class-level error (~10-25 kJ), NOT the ~1-3 kJ sampling spread
     sig, br = u.reaction_sigma("malate dehydrogenase (NAD)", ["CC(=O)C(=O)[O-]"], U_samp=2.0)

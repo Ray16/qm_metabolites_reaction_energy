@@ -615,10 +615,14 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     try:
         from metag.uncertainty import reaction_sigma, prediction_interval
         _smis = [s[2] for s in rx["species"].values()]
-        sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], _smis, U_samp)
+        # Pass orig_species (pre-routing) so the σ-class is assigned STRUCTURALLY, coherent with the
+        # anchor (which also gates on orig_species) and independent of the note. Falls back to the note
+        # taxonomy for reactions that match no structural anchor class.
+        sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], _smis, U_samp, species=orig_species)
         # DE-BIASED asymmetric 95% interval for the TRUE ΔrG'° (for TFA: a symmetric ±σ is mis-centered
         # on a biased class). exp lies in [ci_lo, ci_hi]; ci_center is the bias-removed point estimate.
-        ci_lo, ci_hi, ci_center, ci_info = prediction_interval(rx["note"], _smis, dG, level=95)
+        ci_lo, ci_hi, ci_center, ci_info = prediction_interval(rx["note"], _smis, dG, level=95,
+                                                               species=orig_species)
     except Exception as e:
         sigma_pred, sigma_breakdown = None, {"error": str(e)}
         ci_lo = ci_hi = ci_center = None; ci_info = {}
