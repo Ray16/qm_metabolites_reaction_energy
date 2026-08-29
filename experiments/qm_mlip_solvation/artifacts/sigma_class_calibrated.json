@@ -10,7 +10,8 @@
  },
  "cv_coverage_1sigma": 0.779,
  "cv_coverage_2sigma": 0.932,
- "cv_coverage_interval95": 0.918,
+ "interval_sigma_mult": 2.15,
+ "cv_coverage_interval95": 0.953,
  "default_sigma": 16.3,
  "classes": {
   "other/clean": {
@@ -20,11 +21,8 @@
    "mae": 10.3,
    "bias": -0.6,
    "medAE": 5.2,
-   "center": -1.8,
-   "reg_q025": -25.3,
-   "reg_q16": -9.9,
-   "reg_q84": 9.7,
-   "reg_q975": 42.3
+   "center": -2.0,
+   "q95abs": 32.6
   },
   "hydratase": {
    "n": 12,
@@ -33,11 +31,8 @@
    "mae": 19.1,
    "bias": 18.4,
    "medAE": 21.9,
-   "center": 13.1,
-   "reg_q025": -25.7,
-   "reg_q16": -10.3,
-   "reg_q84": 6.2,
-   "reg_q975": 19.7
+   "center": 21.9,
+   "q95abs": 30.3
   },
   "kinase/phosphotransfer": {
    "n": 29,
@@ -46,11 +41,8 @@
    "mae": 12.2,
    "bias": -1.0,
    "medAE": 7.7,
-   "center": 0.3,
-   "reg_q025": -37.9,
-   "reg_q16": -13.5,
-   "reg_q84": 10.4,
-   "reg_q975": 31.2
+   "center": 0.4,
+   "q95abs": 32.1
   },
   "CoA-thioester": {
    "n": 30,
@@ -59,11 +51,8 @@
    "mae": 12.9,
    "bias": -1.1,
    "medAE": 11.0,
-   "center": -1.6,
-   "reg_q025": -26.4,
-   "reg_q16": -13.6,
-   "reg_q84": 13.8,
-   "reg_q975": 32.7
+   "center": -2.0,
+   "q95abs": 30.0
   },
   "reductive-amination-DH": {
    "n": 11,
@@ -72,11 +61,8 @@
    "mae": 13.7,
    "bias": -0.6,
    "medAE": 8.9,
-   "center": -0.6,
-   "reg_q025": -34.8,
-   "reg_q16": -9.4,
-   "reg_q84": 11.7,
-   "reg_q975": 37.9
+   "center": -1.1,
+   "q95abs": 41.8
   },
   "NAD(P)-redox(other)": {
    "n": 74,
@@ -86,10 +72,7 @@
    "bias": 1.7,
    "medAE": 9.9,
    "center": 0.1,
-   "reg_q025": -33.4,
-   "reg_q16": -11.8,
-   "reg_q84": 13.1,
-   "reg_q975": 28.2
+   "q95abs": 33.0
   },
   "isomerase/mutase": {
    "n": 58,
@@ -98,11 +81,8 @@
    "mae": 9.8,
    "bias": -1.1,
    "medAE": 7.6,
-   "center": -2.3,
-   "reg_q025": -18.1,
-   "reg_q16": -9.4,
-   "reg_q84": 11.2,
-   "reg_q975": 38.4
+   "center": -2.6,
+   "q95abs": 29.8
   },
   "phosphatase": {
    "n": 12,
@@ -111,11 +91,8 @@
    "mae": 6.7,
    "bias": -6.7,
    "medAE": 4.5,
-   "center": -2.7,
-   "reg_q025": -20.6,
-   "reg_q16": -8.5,
-   "reg_q84": 5.7,
-   "reg_q975": 16.9
+   "center": -4.5,
+   "q95abs": 24.4
   },
   "phosphagen(P-N/Mg)": {
    "n": 4,
@@ -124,11 +101,8 @@
    "mae": 8.0,
    "bias": 2.3,
    "medAE": 9.4,
-   "center": 1.9,
-   "reg_q025": -24.7,
-   "reg_q16": -11.0,
-   "reg_q84": 9.0,
-   "reg_q975": 26.5
+   "center": 5.6,
+   "q95abs": 26.3
   },
   "amide/amidine-hydrolysis": {
    "n": 9,
@@ -137,11 +111,8 @@
    "mae": 14.4,
    "bias": -14.0,
    "medAE": 13.2,
-   "center": -7.0,
-   "reg_q025": -21.8,
-   "reg_q16": -9.4,
-   "reg_q84": 8.3,
-   "reg_q975": 24.7
+   "center": -13.2,
+   "q95abs": 30.3
   },
   "glycosyl/PRT/nucleoside": {
    "n": 14,
@@ -150,11 +121,8 @@
    "mae": 19.3,
    "bias": -13.8,
    "medAE": 18.2,
-   "center": -10.3,
-   "reg_q025": -30.1,
-   "reg_q16": -16.5,
-   "reg_q84": 15.7,
-   "reg_q975": 37.2
+   "center": -16.2,
+   "q95abs": 40.4
   },
   "transaminase": {
    "n": 16,
@@ -163,11 +131,8 @@
    "mae": 6.4,
    "bias": 3.2,
    "medAE": 4.6,
-   "center": -0.3,
-   "reg_q025": -14.2,
-   "reg_q16": -5.6,
-   "reg_q84": 11.6,
-   "reg_q975": 27.7
+   "center": -0.5,
+   "q95abs": 25.8
   },
   "aldolase": {
    "n": 11,
@@ -176,11 +141,8 @@
    "mae": 15.3,
    "bias": -8.8,
    "medAE": 12.0,
-   "center": -5.0,
-   "reg_q025": -25.1,
-   "reg_q16": -14.3,
-   "reg_q84": 9.1,
-   "reg_q975": 36.2
+   "center": -8.7,
+   "q95abs": 33.5
   },
   "ammonia-lyase": {
    "n": 9,
@@ -189,11 +151,8 @@
    "mae": 10.3,
    "bias": -5.7,
    "medAE": 7.1,
-   "center": 0.3,
-   "reg_q025": -29.7,
-   "reg_q16": -17.6,
-   "reg_q84": 8.3,
-   "reg_q975": 22.1
+   "center": 0.5,
+   "q95abs": 31.5
   },
   "flavin/FAD-redox": {
    "n": 5,
@@ -202,11 +161,8 @@
    "mae": 10.9,
    "bias": 6.7,
    "medAE": 8.5,
-   "center": 1.1,
-   "reg_q025": -22.0,
-   "reg_q16": -9.6,
-   "reg_q84": 13.3,
-   "reg_q975": 32.1
+   "center": 2.8,
+   "q95abs": 30.3
   },
   "carbamoyltransfer": {
    "n": 2,
@@ -215,11 +171,8 @@
    "mae": 11.3,
    "bias": 11.3,
    "medAE": 11.3,
-   "center": 2.3,
-   "reg_q025": -23.7,
-   "reg_q16": -9.2,
-   "reg_q84": 9.6,
-   "reg_q975": 30.7
+   "center": 11.3,
+   "q95abs": 29.8
   }
  },
  "per_reaction": [

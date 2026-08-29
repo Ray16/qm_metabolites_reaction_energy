@@ -142,6 +142,14 @@ def _load_class_stats():
 
 CLASS_STATS = _load_class_stats()
 
+# sigma multiplier for the (symmetric) 95% interval, calibrated so held-out coverage >= 95% (~2.1).
+_INTERVAL_MULT = 2.1
+try:
+    with open(_CALIB_PATH) as _fh:
+        _INTERVAL_MULT = float(json.load(_fh).get("interval_sigma_mult", 2.1))
+except (OSError, ValueError):
+    pass
+
 
 def prediction_interval(note, species_smiles, dG, level=95):
     """DE-BIASED, ASYMMETRIC, tail-aware interval for the TRUE ΔrG'° given the pipeline's dG.
@@ -153,26 +161,22 @@ def prediction_interval(note, species_smiles, dG, level=95):
     tail). Returns (lo, hi, center, breakdown). Falls back to the symmetric class sigma if uncalibrated.
     """
     cls = mech_class(note, species_smiles)
-    st = CLASS_STATS.get(cls)
-    if st and "reg_q975" in st:
-        # residual = pred - exp.  exp = dG - residual, residual ~ center + within(q_lo .. q_hi).
-        # center + within-quantiles are SHRUNK/POOLED toward the global shape for small n (calibrate_
-        # uncertainty), and the held-out coverage of THIS interval is cv_coverage_interval95 in the
-        # artifact. IN-DISTRIBUTION ONLY: the de-biased center is a first-moment benchmark fit, more OOD-
-        # fragile than the width -- do not trust it on reactions unlike the TECRDB calibration set until the
-        # structural-class + OOD gate (review #3) is in place.
-        c = st["center"]
-        qlo, qhi = ("reg_q025", "reg_q975") if level == 95 else ("reg_q16", "reg_q84")
-        lo = dG - c - st[qhi]
-        hi = dG - c - st[qlo]
-        center = dG - c
-        return round(lo, 1), round(hi, 1), round(center, 1), {"class": cls, "level": level,
-                "center_shift": c, "n": st.get("n"), "in_distribution_only": True}
-    # fallback: symmetric sigma
-    s = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
-    k = 2.0 if level == 95 else 1.0
-    return round(dG - k * s, 1), round(dG + k * s, 1), round(dG, 1), {"class": cls, "level": level,
-            "sigma": s, "note": "symmetric fallback (uncalibrated)"}
+    st = CLASS_STATS.get(cls, {})
+    s = st.get("sigma", SIGMA_CLASS.get(cls, _DEFAULT_SIGMA))
+    q95abs = st.get("q95abs", 0.0)
+    # SYMMETRIC, NESTED-CV-validated interval centred on the (physics+anchor) prediction. Half-width =
+    # max(m*sigma, q95abs): m is the multiplier (nested-CV to >=95% held-out), q95abs is a per-class
+    # heavy-tail floor for classes (e.g. reductive-amination-DH) that k*sigma under-covers. An asymmetric
+    # de-biased interval was tried and CV-REJECTED (92.4% < symmetric 95%; a first-moment fit, OOD-fragile).
+    m = _INTERVAL_MULT if level == 95 else _INTERVAL_MULT / 2.0
+    hw = max(m * s, q95abs) if level == 95 else m * s
+    # class_bias is POINT-ESTIMATE metadata, NOT a coverage correction: the symmetric interval already
+    # covers biased classes (wide sigma). It says the POINT is off (hydratase ~ +18 high) so a consumer who
+    # wants a sharper estimate MAY recenter dG - class_bias; do not also widen for it (double-applying).
+    return round(dG - hw, 1), round(dG + hw, 1), round(dG, 1), {"class": cls, "level": level,
+            "sigma": s, "sigma_mult": m, "half_width": round(hw, 1),
+            "point_bias": st.get("bias"), "point_bias_note": "point-estimate metadata (in-distribution); "
+            "interval already covers -- optional recenter dG-point_bias, do NOT also widen"}
 
 
 def reaction_sigma(note, species_smiles, U_samp=0.0):

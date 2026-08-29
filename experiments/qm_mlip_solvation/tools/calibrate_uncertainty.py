@@ -94,6 +94,7 @@ def main():
         _es = np.array(_es); within_all.extend(list(_es - np.median(_es)))
     within_all = np.array(within_all)
     GQ = {q: float(np.quantile(within_all, q)) for q in (0.025, 0.16, 0.84, 0.975)}
+    GQ95ABS = float(np.quantile(np.abs(allerr), 0.95))   # global 95th pct of |residual| (heavy-tail floor)
     KQ = 8.0     # quantile pooling strength (pseudo-counts): small n -> mostly the global shape
 
     classes = {}
@@ -111,60 +112,68 @@ def main():
         # quantiles POOLED toward the global shape GQ by n/(n+KQ) -> a 2-reaction class inherits ~the global
         # width, not a 2-point artefact. exp ~ dG - center - within(reg_q_lo .. reg_q_hi). These intervals
         # are what the pipeline ships, and _cv_coverage below validates THEM held-out (not just sigma).
+        # centre = RAW median residual (NOT shrunk). Shrinking the centre toward 0 while measuring the width
+        # quantiles around the raw median miscentres a biased class by M*(1-alpha) -> held-out points fall
+        # out the near side (under-coverage). The small-n hedge lives in the WIDTH (pooled wide toward the
+        # global shape) and in the in_distribution_only flag, NOT in a centre shift that breaks coverage.
         med_signed = float(np.median(es))
-        center = round(med_signed * n / (n + KQ), 1)
-        ew = es - med_signed
-        reg = {tag: round((n * float(np.quantile(ew, q)) + KQ * GQ[q]) / (n + KQ), 1)
-               for tag, q in (("reg_q025", 0.025), ("reg_q16", 0.16), ("reg_q84", 0.84), ("reg_q975", 0.975))}
+        center = round(med_signed, 1)
+        # HEAVY-TAIL floor: 95th percentile of |residual|, pooled toward the global for small n. For a
+        # heavy-tailed class (reductive-amination-DH: bias~0 but under-covered by k*sigma) this exceeds
+        # m*sigma and inflates the interval; for a normal class m*sigma dominates -> no change.
+        cq95 = float(np.quantile(np.abs(es), 0.95))
+        q95abs = round((n * cq95 + KQ * GQ95ABS) / (n + KQ), 1)
         classes[cls] = {"n": n, "sigma": sigma, "rms": round(rms, 1), "mae": round(mae, 1),
                         "bias": round(bias, 1), "medAE": round(medAE, 1),
-                        "center": center, **reg}
+                        "center": center, "q95abs": q95abs}
 
     default_sigma = round(overall_rms, 1)
 
-    # ---- HONEST calibration: k-fold CV coverage. sigma_class fit on TRAIN folds only, coverage
-    # measured on held-out folds -> not circular. Deterministic fold assignment (hash of rid), no RNG.
+    # ---- HONEST calibration: NESTED k-fold CV. Everything the interval uses (sigma, the heavy-tail floor
+    # q95abs, AND the multiplier m) is fit on TRAIN folds only and scored on held-out -> no in-sample
+    # optimism, including for the scalar m (the colleague's point). Shipped half-width = max(m*sigma, q95abs).
+    def _sigma(cls, tr, tr_rms):
+        v = tr.get(cls, []); n = len(v); crms = tr_rms.get(cls, overall_rms)
+        shrunk = np.sqrt((n * crms ** 2 + 4 * overall_rms ** 2) / (n + 4)) if n else overall_rms
+        return max(shrunk, crms, 6.0)
+
+    def _q95(cls, tr, gq95):
+        v = np.abs(tr.get(cls, [])); n = len(v)
+        cq = float(np.quantile(v, 0.95)) if n else gq95
+        return (n * cq + 8.0 * gq95) / (n + 8.0)
+
+    def _fit_mult(pairs, target=0.965):        # smallest m with coverage>=target of max(m*sigma, q95abs)
+        for m in np.arange(1.8, 3.01, 0.05):
+            if np.mean([ae <= max(m * s, q) for ae, s, q in pairs]) >= target:
+                return round(float(m), 2)
+        return 3.0
+
     def _cv_coverage(n_folds=5):
         import hashlib
-        fold = {rid: int(hashlib.md5(rid.encode()).hexdigest(), 16) % n_folds
-                for rid, _, _ in rows}
-        got1 = got2 = gotI = 0                        # sigma-1, sigma-2, and the ASYMMETRIC INTERVAL
+        fold = {rid: int(hashlib.md5(rid.encode()).hexdigest(), 16) % n_folds for rid, _, _ in rows}
+        got1 = got2 = 0; ho_covs = []
         for f in range(n_folds):
             tr = {}
             for rid, cls, e in rows:
                 if fold[rid] != f:
                     tr.setdefault(cls, []).append(e)
             tr_rms = {c: float(np.sqrt(np.mean(np.square(v)))) for c, v in tr.items()}
-            tw = []
-            for c, v in tr.items():
-                tw.extend(list(np.array(v) - np.median(v)))    # train within-class residuals -> global shape
-            tw = np.array(tw)
-            gq = ({q: float(np.quantile(tw, q)) for q in (0.025, 0.975)} if len(tw)
-                  else {0.025: -2 * overall_rms, 0.975: 2 * overall_rms})
+            tr_abs = np.abs([e for v in tr.values() for e in v])
+            gq95 = float(np.quantile(tr_abs, 0.95)) if len(tr_abs) else 2 * overall_rms
+            tr_pairs, ho_pairs = [], []
             for rid, cls, e in rows:
-                if fold[rid] != f:
-                    continue
-                v = tr.get(cls, [])
-                n = len(v)
-                # symmetric sigma (existing)
-                crms = tr_rms.get(cls, overall_rms)
-                shrunk = np.sqrt((n * crms ** 2 + 4 * overall_rms ** 2) / (n + 4)) if n else overall_rms
-                s = max(shrunk, crms, 6.0)
-                got1 += abs(e) <= s
-                got2 += abs(e) <= 2 * s
-                # ASYMMETRIC INTERVAL fit on TRAIN, coverage on held-out e (residual = pred - exp; exp in
-                # [dG-center-q_hi, dG-center-q_lo]  <=>  e in [center+q_lo, center+q_hi]).
-                if n:
-                    med = float(np.median(v)); c = med * n / (n + 8.0)
-                    ewv = np.array(v) - med
-                    qlo = (n * float(np.quantile(ewv, 0.025)) + 8.0 * gq[0.025]) / (n + 8.0)
-                    qhi = (n * float(np.quantile(ewv, 0.975)) + 8.0 * gq[0.975]) / (n + 8.0)
+                s = _sigma(cls, tr, tr_rms); q = _q95(cls, tr, gq95)
+                if fold[rid] == f:
+                    ho_pairs.append((abs(e), s, q)); got1 += abs(e) <= s; got2 += abs(e) <= 2 * s
                 else:
-                    c, qlo, qhi = 0.0, gq[0.025], gq[0.975]
-                gotI += (c + qlo) <= e <= (c + qhi)
-        return got1 / len(rows), got2 / len(rows), gotI / len(rows)
+                    tr_pairs.append((abs(e), s, q))
+            m_tr = _fit_mult(tr_pairs)                                 # multiplier fit on TRAIN only
+            ho_covs.append(np.mean([ae <= max(m_tr * s, q) for ae, s, q in ho_pairs]))  # scored held-out
+        # deployed multiplier: fit on ALL data (with the deployed per-class sigma + q95abs)
+        all_pairs = [(abs(e), classes[cls]["sigma"], classes[cls]["q95abs"]) for _, cls, e in rows]
+        return got1 / len(rows), got2 / len(rows), _fit_mult(all_pairs), float(np.mean(ho_covs))
 
-    cv1, cv2, cvI = _cv_coverage()
+    cv1, cv2, m95, cov95 = _cv_coverage()
 
     out = {
         "source": os.path.relpath(LOGDIR, EXP),
@@ -175,7 +184,8 @@ def main():
                     "medAE": round(float(np.median(np.abs(allerr))), 2)},
         "cv_coverage_1sigma": round(cv1, 3),
         "cv_coverage_2sigma": round(cv2, 3),
-        "cv_coverage_interval95": round(cvI, 3),   # held-out coverage of the ASYMMETRIC interval we ship
+        "interval_sigma_mult": m95,                # SHIPPED: symmetric max(m*sigma, q95abs), nested-CV to >=95%
+        "cv_coverage_interval95": round(cov95, 3),  # NESTED held-out coverage of the shipped interval
         "default_sigma": default_sigma,
         "classes": classes,
         "per_reaction": [{"rid": rid, "class": cls, "err": round(float(e), 2),
@@ -202,7 +212,11 @@ def main():
         print(f"  in-sample within {m:.0f} sigma: {cov*100:5.1f}%   (ideal {'68' if m==1 else '95'}%)")
     print(f"  5-fold CV  within 1 sigma: {cv1*100:5.1f}%   (ideal 68%)")
     print(f"  5-fold CV  within 2 sigma: {cv2*100:5.1f}%   (ideal 95%)")
-    print(f"  5-fold CV  ASYMMETRIC 95% interval: {cvI*100:5.1f}%   (ideal 95%)   <- the shipped intervals")
+    print(f"  NESTED-CV  shipped interval max({m95}*sigma, q95abs): {cov95*100:5.1f}%   (ideal 95%)   <- held-out")
+    # heavy-tailed classes the global multiplier under-covers even after the q95abs floor (documented)
+    for c, st in sorted(classes.items(), key=lambda kv: kv[1]["q95abs"] / max(kv[1]["sigma"], 1), reverse=True)[:3]:
+        print(f"    heavy-tail watch: {c:24s} n={st['n']:2d} sigma={st['sigma']:.1f} q95abs={st['q95abs']:.1f} "
+              f"(ratio {st['q95abs']/max(st['sigma'],1):.2f})")
 
     # does a continuous structural feature carry residual-magnitude signal BEYOND the class label?
     # (if strong, a within-class refinement term would help; if weak, class-only sigma is justified.)
