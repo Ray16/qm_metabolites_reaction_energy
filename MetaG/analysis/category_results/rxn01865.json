@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn01865",
+ "note": "rxn01865 CDPethanolamine:L-serine ethanolaminephosphotransferase | EC=2.7.8.4",
+ "max_heavy": 28,
+ "gc": -14.0,
+ "eq": 51.4,
+ "delta_gc_eq": -65.4,
+ "dG": -14.3,
+ "dG_raw": -14.3,
+ "ci95": [
+  -49.2,
+  20.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": true,
+ "class": "other/clean",
+ "d_to_gc": -0.3,
+ "d_to_eq": -65.7,
+ "secs": 1043.5
+}

@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00916",
+ "note": "rxn00916 Xanthosine-5'-phosphate:ammonia ligase (AMP-forming) | EC=6.3.4.1",
+ "max_heavy": 31,
+ "gc": -18.4,
+ "eq": -74.0,
+ "delta_gc_eq": 55.6,
+ "dG": -86.4,
+ "dG_raw": -86.4,
+ "ci95": [
+  -121.2,
+  -51.5
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -68.0,
+ "d_to_eq": -12.4,
+ "secs": 94.4
+}

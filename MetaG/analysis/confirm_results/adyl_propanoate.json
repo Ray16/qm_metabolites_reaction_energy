@@ -1,0 +1,22 @@
+{
+ "reaction": "adyl_propanoate",
+ "note": "propanoate adenylylation ATP+propanoate->propanoyl-AMP+PPi",
+ "max_heavy": 31,
+ "gc": 25.0,
+ "eq": 25.0,
+ "delta_gc_eq": 0.0,
+ "dG": 39.7,
+ "dG_raw": 39.7,
+ "ci95": [
+  4.9,
+  74.5
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 14.7,
+ "d_to_eq": 14.7,
+ "secs": 82.7
+}

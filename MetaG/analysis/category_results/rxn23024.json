@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn23024",
+ "note": "rxn23024 pyridoxal 5'-phosphate synthase (glutamine hydrolyzing) | EC=4.3.3.6",
+ "max_heavy": 16,
+ "gc": -38.0,
+ "eq": -68.3,
+ "delta_gc_eq": 30.3,
+ "dG": -257.3,
+ "dG_raw": -257.3,
+ "ci95": [
+  -292.1,
+  -222.5
+ ],
+ "sigma_pred": 16.9,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -219.3,
+ "d_to_eq": -189.0,
+ "secs": 208.9
+}

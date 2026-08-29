@@ -1,0 +1,22 @@
+{
+ "reaction": "adyl_Ile",
+ "note": "isoleucine adenylylation ATP+Ile->Ile-AMP+PPi",
+ "max_heavy": 31,
+ "gc": 25.0,
+ "eq": 25.0,
+ "delta_gc_eq": 0.0,
+ "dG": 53.8,
+ "dG_raw": 53.8,
+ "ci95": [
+  18.9,
+  88.6
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 28.8,
+ "d_to_eq": 28.8,
+ "secs": 160.3
+}

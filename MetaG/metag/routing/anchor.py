@@ -37,7 +37,15 @@ _PHOSPHORAMIDATE = Chem.MolFromSmarts("[#7]-[PX4](=O)")     # N-P(=O): phosphage
 _PYRO = Chem.MolFromSmarts("[PX4]-O-[PX4]")                 # P-O-P: pyrophosphate / NTP anhydride
 _MONOESTER = Chem.MolFromSmarts("[#6]-[OX2]-[PX4](=O)")     # C-O-P: phosphate monoester
 _THIOESTER = Chem.MolFromSmarts("[#6X3](=O)[SX2]")          # C(=O)-S: thioester (acyl-CoA)
+_MIXEDANHYDRIDE = Chem.MolFromSmarts("[#6X3](=O)[OX2][PX4]")  # C(=O)-O-P: acyl/aminoacyl-adenylate anhydride
 _WATER = {"O", "[OH2]"}
+
+
+def _is_ppi(m):
+    """True if the molecule is pyrophosphate (any protonation state): all heavy atoms P or O, exactly 2 P.
+    Distinguishes free PPi (adenylyl-transfer product) from a nucleotide's internal P-O-P (ATP/ADP)."""
+    zs = [a.GetAtomicNum() for a in m.GetAtoms()]
+    return zs.count(15) == 2 and all(z in (8, 15) for z in zs)
 
 # Calibrated + leave-anchors-out-validated (see module docstring). offset in kJ/mol subtracted from ΔG_UMA.
 ANCHORS = {
@@ -54,6 +62,18 @@ ANCHORS = {
     # redox-acylating glyoxylate DH, a different mechanism, gated OUT by requiring a phosphoanhydride change).
     "thioester":             {"offset": 30.0, "sigma": 7.2,
                               "anchor_rids": ["rxn00306", "rxn00172", "rxn00175"]},  # low-exp_sd acyl-CoA ligases
+    # adenylyl-transfer (acyl/aminoacyl-adenylate synthetases): ATP + carboxylate -> acyl-AMP + PPi.
+    # A bond-type reference error on the acyl-adenylate MIXED ANHYDRIDE (C(=O)-O-P), NOT solvation
+    # (pH-0 already neutralises the phosphates) nor sampling (U_samp ~2). UMA overestimates the
+    # adenylylation endergonicity by a class-constant ~+20 kJ (acetate +41.5, seryl +49.8, + confirm
+    # set), vs a literature reference of ~+25 kJ derived from SIX measured parent ligases (acetate/
+    # propanoate-CoA, Ser/Phe/Ile/Tyr-tRNA) that are ALL near-equilibrium, minus the ~-30 kJ
+    # acyl-transfer step. OFFSET/SIGMA finalised from analysis/confirm_results (5-point calibration).
+    # 5-point calibration (acetate/seryl/Tyr/propanoate/Ile adenylylation): raw 41.5/49.8/48.1/39.7/53.8
+    # vs literature ref +25 -> offset +21.6, intra-class std 5.9. LEAVE-ONE-OUT: MAE 21.6 -> 6.0 kJ
+    # (RMSE 6.6), sign-consistent (offsets +14.7..+28.8) = physics not fit. See analysis/confirm_results.
+    "adenylylate":           {"offset": 21.6, "sigma": 6.0,
+                              "anchor_rids": ["rxn00226", "rxn00418", "adyl_Tyr", "adyl_propanoate", "adyl_Ile"]},
 }
 
 
@@ -71,13 +91,28 @@ def _net_count(ms, patt):
     return sum(c * len(m.GetSubstructMatches(patt)) for c, _, m in ms)
 
 
+def _produces_ppi(ms):
+    """Net free pyrophosphate produced (coeff>0) minus consumed -- pins adenylyl-transfer direction."""
+    return sum(c for c, _, m in ms if _is_ppi(m))
+
+
 def subclass(species):
     """Structural detection of a systematic anion sub-class, or None. Anion-pattern based (not by error)."""
     ms = _mols(species)
     if ms is None:
         return None
-    # phosphagen: a P-N phosphoramidate is created/destroyed
-    if _net_count(ms, _PHOSPHORAMIDATE) != 0:
+    ppi = _produces_ppi(ms)
+    # adenylyl-transfer (acyl/aminoacyl-adenylate synthetases): free PPi is PRODUCED and a mixed
+    # anhydride C(=O)-O-P is FORMED (ATP + carboxylate -> acyl-AMP + PPi). CHECKED BEFORE phosphagen:
+    # an N-adenylate's P-N would otherwise be mis-caught by the phosphagen SMARTS and given the
+    # creatine-kinase offset (wrong). Bond-type reference error on the mixed anhydride, ~+20 kJ,
+    # sign-consistent across the class (acetate/seryl/propanoate/Ile/Tyr); literature via the six
+    # measured parent ligases (all near-equilibrium) -> adenylylation ~+25 kJ. See build_category_set.
+    if ppi > 0 and _net_count(ms, _MIXEDANHYDRIDE) > 0:
+        return "adenylylate"
+    # phosphagen: a P-N phosphoramidate is created/destroyed -- but NOT an adenylyl-transfer (which
+    # produces PPi, not ADP). The PPi guard stops N-adenylates being mis-corrected as creatine kinase.
+    if _net_count(ms, _PHOSPHORAMIDATE) != 0 and ppi <= 0:
         return "phosphagen"
     # thioester (acyl-CoA ligation): a C(=O)-S thioester is created/destroyed AND a phosphoanhydride (NTP)
     # is consumed -> an ATP-driven acyl-CoA ligase/transferase. The P-O-P requirement excludes the

@@ -1,0 +1,22 @@
+{
+ "reaction": "adyl_Tyr",
+ "note": "tyrosine adenylylation ATP+Tyr->Tyr-AMP+PPi",
+ "max_heavy": 34,
+ "gc": 25.0,
+ "eq": 25.0,
+ "delta_gc_eq": 0.0,
+ "dG": 48.1,
+ "dG_raw": 48.1,
+ "ci95": [
+  13.3,
+  82.9
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 23.1,
+ "d_to_eq": 23.1,
+ "secs": 104.4
+}

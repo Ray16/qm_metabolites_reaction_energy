@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00024",
+ "note": "rxn00024 1,2-Benzenediol:oxygen oxidoreductase | EC=1.10.3.1",
+ "max_heavy": 14,
+ "gc": -82.9,
+ "eq": -126.0,
+ "delta_gc_eq": 43.1,
+ "dG": -323.6,
+ "dG_raw": -323.6,
+ "ci95": [
+  -358.0,
+  -289.2
+ ],
+ "sigma_pred": 16.2,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "NAD(P)-redox(other)",
+ "d_to_gc": -240.7,
+ "d_to_eq": -197.6,
+ "secs": 0.0
+}

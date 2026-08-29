@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn05070",
+ "note": "rxn05070 squalene mutase (cyclizing) | EC=5.4.99.17",
+ "max_heavy": 30,
+ "gc": -119.2,
+ "eq": -247.6,
+ "delta_gc_eq": 128.4,
+ "dG": -200.7,
+ "dG_raw": -200.7,
+ "ci95": [
+  -231.1,
+  -170.4
+ ],
+ "sigma_pred": 14.1,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "isomerase/mutase",
+ "d_to_gc": -81.5,
+ "d_to_eq": 46.9,
+ "secs": 765.0
+}

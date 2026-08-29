@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn03846",
+ "note": "rxn03846 N-Isopropylammelide isopropylaminohydrolase | EC=3.5.4.42",
+ "max_heavy": 12,
+ "gc": 8.0,
+ "eq": 68.9,
+ "delta_gc_eq": -60.9,
+ "dG": 61.0,
+ "dG_raw": 61.0,
+ "ci95": [
+  26.2,
+  95.9
+ ],
+ "sigma_pred": 16.3,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": 53.0,
+ "d_to_eq": -7.9,
+ "secs": 63.4
+}

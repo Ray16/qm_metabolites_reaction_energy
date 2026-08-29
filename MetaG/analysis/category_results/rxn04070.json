@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn04070",
+ "note": "rxn04070 pyridoxine 5'-phosphate synthase | EC=2.6.99.2",
+ "max_heavy": 16,
+ "gc": -22.1,
+ "eq": -52.6,
+ "delta_gc_eq": 30.5,
+ "dG": -78.3,
+ "dG_raw": -78.3,
+ "ci95": [
+  -113.1,
+  -43.4
+ ],
+ "sigma_pred": 16.4,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "other/clean",
+ "d_to_gc": -56.2,
+ "d_to_eq": -25.7,
+ "secs": 348.2
+}

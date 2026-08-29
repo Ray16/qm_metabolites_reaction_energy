@@ -1,0 +1,22 @@
+{
+ "reaction": "rxn00226",
+ "note": "rxn00226 ATP:acetate adenylyltransferase | EC=6.2.1.1",
+ "max_heavy": 31,
+ "gc": -9.6,
+ "eq": 281.5,
+ "delta_gc_eq": -291.1,
+ "dG": 41.5,
+ "dG_raw": 41.5,
+ "ci95": [
+  1.3,
+  81.7
+ ],
+ "sigma_pred": 18.8,
+ "anchor": null,
+ "suspect": null,
+ "unresolved": false,
+ "class": "kinase/phosphotransfer",
+ "d_to_gc": 51.1,
+ "d_to_eq": -240.0,
+ "secs": 0.0
+}
