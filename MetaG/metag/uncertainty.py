@@ -212,6 +212,7 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None):
             "sigma": s, "sigma_mult": m, "half_width": round(hw, 1),
             "ood": bool(ood_info and ood_info["ood"]),
             "ood_reasons": (ood_info["reasons"] if ood_info else []),
+            "ood_flags": (ood_info["flags"] if ood_info else []),
             "point_bias": st.get("bias"), "point_bias_note": "point-estimate metadata (in-distribution); "
             "interval already covers -- optional recenter dG-point_bias, do NOT also widen"}
 
@@ -234,6 +235,8 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
             from metag.routing.ood import ood_assessment
             oa = ood_assessment(species)
             br["ood"] = oa["ood"]; br["ood_reasons"] = oa["reasons"]
+            if oa["flags"]:
+                br["ood_flags"] = oa["flags"]           # informational only -- do NOT affect sigma
             if oa["sigma_floor"] > sigma:
                 br["sigma_floored_from"] = round(sigma, 1)
                 sigma = oa["sigma_floor"]

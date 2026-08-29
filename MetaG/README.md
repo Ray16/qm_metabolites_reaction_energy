@@ -108,10 +108,13 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
   a structural anchor sub-class (SMARTS) get that class regardless of the enzyme note — so the same
   chemistry always gets the same σ, and it works on cryptic/absent notes (the GC-silent deployment
   target). The subtler mechanism classes still use the note taxonomy (structure alone would misclassify
-  them). An **OOD gate** (`routing/ood.py`) floors σ when a reaction is structurally unlike the TECRDB
-  calibration set — metals/uncommon elements, de-novo aromatic N-heterocycle condensations, very large
-  molecules — and flags it with reasons. Conservative guardrail (floors are heuristic, not error-fit),
-  and it never narrows σ.
+  them). An **OOD gate** (`routing/ood.py`) separates two kinds of signal, because a blunt "unlike the
+  training set → widen" would fire on every frontier reaction and defeat the coverage claim: **physics-limit
+  signals FLOOR σ** (metals/uncommon elements, very large molecules — real approximation limits a
+  first-principles method should own), while **empirical signals are flag-only** (de-novo aromatic
+  N-heterocycle condensation — surfaced but *no* σ effect until the mechanism is diagnosed). The floors are
+  conservative heuristics, not error-fit, and never narrow σ. The generalizable uncertainty fix is a
+  *computed* physics σ (ensemble disagreement / cycle-consistency), not this gate.
 - **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
   not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
   ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate

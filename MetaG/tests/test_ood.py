@@ -22,15 +22,18 @@ def test_metal_flagged_strong():
     assert any("element" in r for r in oa["reasons"])
 
 
-def test_condensation_flagged():
+def test_condensation_flag_only_no_floor():
+    # aromatic-heterocycle condensation is FLAG-ONLY: surfaced, but must NOT floor sigma (demoted --
+    # mechanism undiagnosed; silently widening it would defeat the coverage claim)
     oa = ood_assessment(CONDENSATION)
-    assert oa["ood"] and oa["sigma_floor"] >= 20.0
-    assert any("heterocycle" in r for r in oa["reasons"])
+    assert oa["sigma_floor"] == 0.0                       # no sigma effect
+    assert not oa["ood"]                                  # not counted as physics-limit OOD
+    assert any("heterocycle" in f for f in oa["flags"])   # but surfaced as an informational flag
 
 
 def test_clean_not_flagged():
     oa = ood_assessment(CLEAN)
-    assert not oa["ood"] and oa["sigma_floor"] == 0.0
+    assert not oa["ood"] and oa["sigma_floor"] == 0.0 and not oa["flags"]
 
 
 def test_sigma_floored_when_ood_never_narrowed():
