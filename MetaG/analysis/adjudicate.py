@@ -20,7 +20,7 @@ def main():
     reactions = json.load(open(INPUTS))
     wanted = sys.argv[1].split(",") if len(sys.argv) > 1 else list(reactions)
 
-    from metag.backend.uma import load_uma
+    from metag.energetics.uma import load_uma
     from metag.pipeline import score_reaction
     pu = load_uma(os.environ.get("METAG_MODEL", "uma-s-1p2p1"))
 

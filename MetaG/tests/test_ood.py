@@ -1,8 +1,8 @@
-"""Out-of-distribution FLAG layer (metag.routing.ood): surfaces notable structural features for
+"""Out-of-distribution FLAG layer (metag.routing.applicability): surfaces notable structural features for
 transparency but NEVER changes sigma -- a "unlike the training set -> widen" floor would fire on the
 frontier reactions the method exists to score, defeating coverage. UMA generalizes (universal potential);
 the honest uncertainty is a COMPUTED physics sigma, not a structural floor."""
-from metag.routing.ood import ood_assessment
+from metag.routing.applicability import ood_assessment
 from metag import uncertainty as u
 
 _ATP = "Nc1ncnc2c1ncn2C3OC(COP(=O)(O)OP(=O)(O)OP(=O)(O)O)C(O)C3O"

@@ -34,7 +34,7 @@ from ase import Atoms
 from ase.thermochemistry import IdealGasThermo
 from ase.vibrations import VibrationsData
 
-from metag.backend.uma import _predict
+from metag.energetics.uma import _predict
 
 EV2KJ = 96.485
 CM2EV = 1.23984e-4

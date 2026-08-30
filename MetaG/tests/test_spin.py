@@ -1,11 +1,11 @@
-"""Ground-state spin multiplicity for the UMA `spin` field (metag.backend.sampling.spin_multiplicity).
+"""Ground-state spin multiplicity for the UMA `spin` field (metag.energetics.conformers.spin_multiplicity).
 
 Regression guard for a real bug: O2 is a TRIPLET ground state, but a bare `O=O` SMILES implies a
 singlet. Computed as singlet, UMA puts O2 ~115 kJ/mol too high, driving every O2-consuming
 oxygenase/oxidase reaction that-many-times too negative (error scaled linearly with O2 stoichiometry
 on ModelSEED rxn00024/00054/00057). Pure logic, no GPU. Run: PYTHONPATH=. python tests/test_spin.py
 """
-from metag.backend.sampling import spin_multiplicity as sm
+from metag.energetics.conformers import spin_multiplicity as sm
 
 
 def test_spin_multiplicity():

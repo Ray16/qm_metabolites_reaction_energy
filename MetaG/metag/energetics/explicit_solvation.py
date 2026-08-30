@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Step 7b: charge-balanced explicit-water cluster-continuum (UMA), no mu_water.
+"""Charge-balanced explicit-water cluster-continuum solvation (UMA), no mu_water term.
 
 Fixes the grand-canonical pinning (mu_water mis-calibration made every added water
 favorable -> filled to the cap). Instead, REASON the water count from charge:
@@ -31,9 +31,9 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from ase import Atoms
 
-from metag.backend import clusters as gc
-from metag.backend.uma import load_uma, batched_energies, batched_fire
-from metag.backend.sampling import pool_confs
+from metag.energetics import water_clusters as gc
+from metag.energetics.uma import load_uma, batched_energies, batched_fire
+from metag.energetics.conformers import pool_confs
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "artifacts")

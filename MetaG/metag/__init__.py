@@ -7,7 +7,7 @@ Public API
 ----------
 Pure-logic (no GPU) -- routing, corrections, uncertainty:
     from metag import symmetry, solvation, uncertainty
-    from metag.routing import anchor, aldehyde, ph0, cofactor, truncate
+    from metag.routing import anchor, aldehyde_hydration, pka_transform, cofactor_cores, truncate
 
 QM pipeline (needs the `uma` runtime: torch + fairchem + xtb) is imported lazily:
     from metag.pipeline import score_reaction        # raises a clear error if the backend is missing

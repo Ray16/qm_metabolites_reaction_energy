@@ -8,7 +8,7 @@ reactions = json.load(open(os.path.join(HERE, "divergent_inputs.json")))
 rid = sys.argv[1]
 rx = reactions[rid]
 rxin = dict(rx, species={k: tuple(v) for k, v in rx["species"].items()})
-from metag.backend.uma import load_uma
+from metag.energetics.uma import load_uma
 from metag.pipeline import score_reaction
 pu = load_uma(os.environ.get("METAG_MODEL", "uma-s-1p2p1"))
 print(f"### {rid}  {rx['note']}  n_H+={rx['n_Hplus']}  gc={rx['gc']} eq={rx['eq']}")

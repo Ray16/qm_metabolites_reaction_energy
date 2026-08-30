@@ -54,7 +54,7 @@ def pyscf_E(sym, crd, q):
 
 
 def main():
-    from metag.backend.uma import load_uma, batched_fire
+    from metag.energetics.uma import load_uma, batched_fire
     pu = load_uma("uma-s-1p2p1")
 
     def species_E(smi, q):

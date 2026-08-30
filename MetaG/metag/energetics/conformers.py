@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Step 4e: ENERGY-TARGETED batched Boltzmann ΔG for rxn00579.
+"""Conformer sampling: energy-targeted batched Boltzmann free energy over an ETKDG pool.
 
 Answers "which conformers?" and "how many?": instead of a random ETKDG set, we
   1. generate a large ETKDG pool (--pool, default 128), MMFF pre-tidy,
@@ -30,7 +30,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from ase import Atoms
 
-from metag.backend.uma import load_uma, batched_fire, batched_energies
+from metag.energetics.uma import load_uma, batched_fire, batched_energies
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "artifacts")

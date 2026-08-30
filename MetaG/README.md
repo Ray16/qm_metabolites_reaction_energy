@@ -17,25 +17,28 @@ decomposition — where a first-principles method is the only option.
 
 ```
 metag/
-  symmetry.py          rotational symmetry number + linearity (RRHO thermal term)
-  solvation.py         first-shell water counting / explicit-solvation triage
-  routing/
-    ph0.py             pH-0 / Alberty pKa transform (neutral microspecies + analytic pKa)
-    cofactor.py        isodesmic NAD(P)/GSH ring cores
-    truncate.py        spectator truncation (Δq=0, mass-balance guarded)
-    aldehyde.py        carbonyl⇌gem-diol mixture, α-EWG gated
-    anchor.py          per-class empirical anchors (4 sub-classes; the only calibrated pieces)
-    ood.py             out-of-distribution gate (floors σ when unlike the calibration set)
-    route_full.py      full-vs-truncated routing
-  backend/             QM engine (needs the `uma` runtime: torch + fairchem + xtb)
-    uma.py             batched UMA electronics
-    thermal.py         UMA-Hessian RRHO + xtb solvation
-    sampling.py        conformer pool + Boltzmann
-    waters.py          explicit-water clusters
-    clusters.py        cluster seeding
-    cache.py           content-addressed species cache
-  uncertainty.py       class-conditional σ + CV-validated prediction interval
-  pipeline.py          orchestrator: score_reaction(model, reaction)
+  symmetry.py            rotational symmetry number + linearity (RRHO thermal term)
+  water_count.py         first-shell water counting / explicit-solvation triage
+  routing/               structure-based reaction transforms + physics corrections
+    pka_transform.py     pH-0 / Alberty pKa transform (neutral microspecies + analytic pKa)
+    cofactor_cores.py    isodesmic NAD(P)/GSH ring cores
+    coa_core.py          CoA thioester core reduction
+    ntp_core.py          nucleoside-polyphosphate core reduction
+    truncate.py          spectator truncation (Δq=0, mass-balance + thioester guarded)
+    truncate_global.py   global-MCS truncation (multi-coeff / unequal-side reactions)
+    truncation_gate.py   full-vs-truncated routing decision
+    aldehyde_hydration.py  carbonyl⇌gem-diol mixture, α-EWG gated
+    anchor.py            per-class empirical anchors (4 sub-classes; the only calibrated pieces)
+    applicability.py     out-of-distribution flags (transparency; does not change σ)
+  energetics/            QM engine — species free energies (needs the `uma` runtime: torch + fairchem + xtb)
+    uma.py               batched UMA electronics
+    thermal.py           UMA-Hessian RRHO + xtb solvation
+    conformers.py        conformer pool + Boltzmann
+    explicit_solvation.py  explicit-water cluster-continuum
+    water_clusters.py    water-cluster seeding
+    species_cache.py     content-addressed per-species cache
+  uncertainty.py         class-conditional σ + CV-validated prediction interval
+  pipeline.py            orchestrator: score_reaction(model, reaction)
   data/
     sigma_class_calibrated.json   shipped uncertainty calibration
 ```

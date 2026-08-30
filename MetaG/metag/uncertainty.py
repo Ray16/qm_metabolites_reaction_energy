@@ -194,7 +194,7 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None):
     ood_info = None
     if species:                                              # OOD gate floors the interval sigma too
         try:
-            from metag.routing.ood import ood_assessment
+            from metag.routing.applicability import ood_assessment
             ood_info = ood_assessment(species)
             s = max(s, ood_info["sigma_floor"])
         except Exception:
@@ -232,7 +232,7 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
     # OOD gate: if the reaction is structurally unlike the calibration set, FLOOR sigma (never narrow).
     if species:
         try:
-            from metag.routing.ood import ood_assessment
+            from metag.routing.applicability import ood_assessment
             oa = ood_assessment(species)
             br["ood"] = oa["ood"]; br["ood_reasons"] = oa["reasons"]
             if oa["flags"]:

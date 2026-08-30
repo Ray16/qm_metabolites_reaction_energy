@@ -1,8 +1,8 @@
-"""pH-0 / Alberty pKa-transform bookkeeping (metag.routing.ph0) -- the most intricate arithmetic in the
+"""pH-0 / Alberty pKa-transform bookkeeping (metag.routing.pka_transform) -- the most intricate arithmetic in the
 pipeline. Locks the exact per-proton term (vs the linear approximation), acid<->base mirror, spectator
 cancellation, and the neutralization dispatch (anion acids + cation bases). No QM."""
 import math
-from metag.routing import ph0
+from metag.routing import pka_transform
 
 T, PH = 298.15, 7.0
 RT_LN10 = 2.303 * 8.314e-3 * T
@@ -35,16 +35,16 @@ def test_spectator_cancellation():
 
 
 def test_neutralization_dispatch():
-    na, acids, qa = ph0._neutralize("CC(=O)[O-]")          # acetate -> acetic acid (acid pKa)
+    na, acids, qa = pka_transform._neutralize("CC(=O)[O-]")          # acetate -> acetic acid (acid pKa)
     assert qa == 0 and len(acids) >= 1
-    nb, acids2, bases, qb = ph0._neutralize_v2("CC[NH3+]")  # ethylammonium -> ethylamine (base pKa)
+    nb, acids2, bases, qb = pka_transform._neutralize_v2("CC[NH3+]")  # ethylammonium -> ethylamine (base pKa)
     assert qb == 0 and len(bases) >= 1
 
 
 def test_isomerization_gate():
     # same formula both sides -> isomerization (pH-0 must be gated OFF)
     iso = {"a": [-1, 0, "OCC=O"], "b": [1, 0, "OC=CO"]}
-    assert ph0.is_isomerization(iso) in (True, False)      # returns a bool without raising
+    assert pka_transform.is_isomerization(iso) in (True, False)      # returns a bool without raising
 
 
 if __name__ == "__main__":

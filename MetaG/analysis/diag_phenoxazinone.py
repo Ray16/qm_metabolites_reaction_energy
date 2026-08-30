@@ -7,8 +7,8 @@ import numpy as np
 from ase import Atoms
 from rdkit import Chem; from rdkit.Chem import AllChem
 from rdkit import RDLogger; RDLogger.DisableLog("rdApp.*")
-from metag.backend.uma import load_uma, batched_fire, batched_energies
-from metag.backend.sampling import spin_multiplicity
+from metag.energetics.uma import load_uma, batched_fire, batched_energies
+from metag.energetics.conformers import spin_multiplicity
 EV=96.48533212; HA=2625.499639
 XTB=f"{os.environ['HOME']}/miniforge3/envs/xtb/bin/xtb"; SCR=os.environ.get("QM_SCRATCH","/tmp/qmscr")
 AP="Nc1ccccc1O"; O2="O=O"; PXO="Nc1cc2nc3ccccc3oc-2cc1=O"; W="O"

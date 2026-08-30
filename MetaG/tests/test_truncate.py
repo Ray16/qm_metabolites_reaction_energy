@@ -3,7 +3,7 @@ truncation must never drop the thioester reaction centre or collapse both sides 
 (which gave a spurious ΔG=0 on 3-oxoacid CoA-transferase rxn00290). Legitimate cuts (no thioester,
 real spectator) must still truncate. Pure logic, no GPU."""
 from metag.routing.truncate import build_truncated_reaction, _count_thioesters, _truncation_invalid, TESTS
-from metag.routing import truncate_v2 as V2
+from metag.routing import truncate_global as V2
 
 # rxn00290: succinyl-CoA + acetoacetate -> succinate + acetoacetyl-CoA (a thioester TRANSFER)
 _SUCCINYL_COA = "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"

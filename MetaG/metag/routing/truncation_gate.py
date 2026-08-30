@@ -15,9 +15,9 @@ truncation logic. Validated: +1.05 kJ MAE vs current-pipeline baseline on the ri
 with every large regression (disaccharides, bisphosphate, SAH, G6P) correctly kept at baseline.
 """
 from rdkit import Chem
-from metag.routing import ph0 as pfa
+from metag.routing import pka_transform as pfa
 from metag.routing import truncate as T
-from metag.routing.cofactor import cofactor_ring
+from metag.routing.cofactor_cores import cofactor_ring
 
 _MIN_FRAG = 5           # heavy atoms; two fragments this size on a rotatable tether -> non-cancelling motion
 _MIN_SUB = 12          # ignore small cofactor cores / water when scanning for the linker / ring center

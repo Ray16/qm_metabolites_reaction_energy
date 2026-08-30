@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Unified pipeline test — ONE scheme across all three solved reaction classes.
+"""MetaG scoring pipeline: score_reaction() — ONE scheme across all reaction classes.
 
 Instead of three bespoke scripts (step3b redox / step5c glycosyl / step7b nucleotidyl),
 run a SINGLE pipeline with automatic triage and NO per-class hand-tuning, and check it
@@ -34,12 +34,12 @@ from ase import Atoms
 from rdkit import Chem
 from rdkit.Chem import rdMolDescriptors
 
-from metag.backend import clusters as gc
-from metag.backend.uma import load_uma, batched_energies, batched_fire
-from metag.backend.sampling import pool_confs, boltz, spin_multiplicity
-from metag.backend.waters import bare_geom
-from metag.backend.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast
-from metag.solvation import water_count, needs_explicit
+from metag.energetics import water_clusters as gc
+from metag.energetics.uma import load_uma, batched_energies, batched_fire
+from metag.energetics.conformers import pool_confs, boltz, spin_multiplicity
+from metag.energetics.explicit_solvation import bare_geom
+from metag.energetics.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast
+from metag.water_count import water_count, needs_explicit
 
 N_EXPLICIT_SEEDS = int(os.environ.get("N_EXPLICIT_SEEDS", "16"))  # cluster seeds (cheap: batched relax)
 EXPLICIT_KEEP = int(os.environ.get("EXPLICIT_KEEP", "8"))         # lowest-E clusters kept for Boltzmann
@@ -112,7 +112,7 @@ CONV_HITS  = int(os.environ.get("CONV_HITS", "2"))       # for this many consecu
 CONV_MAX   = int(os.environ.get("CONV_MAX", "8"))        # cap on seed-batches (budget guard)
 
 # per-species QM cache: key must carry everything that changes the number (see species_cache.py).
-from metag.backend import cache as _sc
+from metag.energetics import species_cache as _sc
 _MODEL = os.environ.get("UMA_MODEL", "uma-s-1p2p1")   # patch model (batched_relax._ensure_registered); in the cache key. UMA_MODEL overrides for A/B (e.g. uma-s-1p2)
 _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
 _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "budget": "nrot-tiered-v1",
@@ -292,7 +292,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
 
     `reaction` = {"species": {name: [coeff, charge, smiles]}, "note": str, "n_Hplus": int,
     and optionally "exp": [float] (experiment, for err reporting), "explicit": bool|list, "pka_sites"}.
-    `pu` is a loaded UMA model (metag.backend.uma.load_uma). Returns the result dict:
+    `pu` is a loaded UMA model (metag.energetics.uma.load_uma). Returns the result dict:
     dG (physics+anchor), dG_raw (pure physics), anchor, sigma_pred, ci95, ci_center, U_samp, ...
     """
     orig_species = {k: list(v) for k, v in reaction["species"].items()}   # pre-routing, for the anchor gate
@@ -312,7 +312,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # ox/red couple (never mis-fires on NAD biosynthesis). n_H+ preserved (Δq,ΔH of the couple kept).
     if _flag("COFACTOR_RING", default=True):
         try:
-            from metag.routing.cofactor import cofactor_ring
+            from metag.routing.cofactor_cores import cofactor_ring
             new = cofactor_ring(rx["species"])
             if new is not rx["species"]:
                 # Coring changes species CHARGES; n_H+ must move by the negative of the charge change
@@ -375,7 +375,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     _prefer_full = False
     if allow_truncate and _flag("AUTO_TRUNCATE", default=True) and _flag("ROUTE_FULL", default=True):
         try:
-            from metag.routing.route_full import prefer_full
+            from metag.routing.truncation_gate import prefer_full
             _prefer_full = prefer_full(rx["species"])
         except Exception:
             _prefer_full = False
@@ -387,7 +387,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             _rad = int(os.environ.get("TRUNC_RADIUS", "2"))
             tr = build_truncated_reaction(rx["species"], radius=_rad)
             if tr is None and os.environ.get("TRUNC_V2"):   # v2: global-map truncation for the
-                from metag.routing.truncate_v2 import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
+                from metag.routing.truncate_global import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
                 tr = build_truncated_reaction_v2(rx["species"], radius=_rad)
                 if tr is not None:
                     log("  [v2 global-map truncation engaged]")
@@ -437,7 +437,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # (thioester/glycosyl-anomeric neutral classes) or on any parse failure. Not fitted to the DB.
     if _flag("PH0_AUTO", default=True) and not rx.get("pka_sites"):
         try:
-            from metag.routing.ph0 import build_ph0_reaction, is_isomerization
+            from metag.routing.pka_transform import build_ph0_reaction, is_isomerization
             if is_isomerization(rx["species"]):
                 # ISOMERASE GATE: pH-0 hurts isomerizations (no anion-solvation change to
                 # fix; neutralising spectator anions only injects sampling noise). Skip.
@@ -519,7 +519,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # No water is added to the stoichiometry (unit water activity, like H+ for protonation). See
     # scripts/aldehyde_hydration.py + memory aldehyde-hydration-signal.
     if _flag("ALDEHYDE_HYDRATION", default=True):
-        from metag.routing import aldehyde as _ah
+        from metag.routing import aldehyde_hydration as _ah
         _gw = None
         for name, (coeff, q, smi) in list(rx["species"].items()):
             if G.get(name) is None:
