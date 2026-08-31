@@ -82,11 +82,22 @@ SIGMA_CLASS.setdefault("adenylylate", 11.0)
 # the note mis-labels (adenylyltransferase -> "kinase") or is cryptic ("ENTF-RXN.c" -> "other/clean"),
 # which gave the SAME chemistry two different σ. This keeps the σ-class coherent with the anchor and
 # note-independent (works on the poorly-annotated GC-silent ModelSEED target).
+# 2026-08-30: anchor.subclass() now returns finer names (thioester_ppi/_pi, adenylylate_aliphatic/
+# _aminoacid) after the mechanism-mixing/staleness audit -- both map to the SAME coarse σ-class bucket
+# here, since the uncertainty artifact (sigma_class_calibrated.json) is calibrated at the coarse
+# taxonomy level, not per anchor sub-class. phosphatase_monoester_cationic is DELIBERATELY left out: it
+# now falls through to the note-based classifier below (still lands on "phosphatase" for any reaction
+# whose note mentions it), which is an approximation -- its point estimate is dG_raw (uncorrected), not
+# the same distribution the "phosphatase" σ was calibrated against. Needs a real recalibration sweep to
+# get this right; flagged, not silently trusted.
 _ANCHOR_TO_CLASS = {
     "phosphagen":            "phosphagen(P-N/Mg)",
-    "thioester":             "CoA-thioester",
+    "thioester_ppi":         "CoA-thioester",
+    "thioester_pi":          "CoA-thioester",
     "phosphatase_monoester": "phosphatase",
-    "adenylylate":           "adenylylate",
+    "adenylylate_aliphatic": "adenylylate",
+    "adenylylate_aminoacid": "adenylylate",
+    "carboxyP":              "adenylylate",   # same mixed-anhydride Mg/NTP solvation family; nearest calibrated bucket (n=2, no own class)
 }
 
 

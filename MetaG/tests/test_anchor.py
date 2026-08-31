@@ -23,18 +23,55 @@ N_ADENYLATE = {"ATP": [-1, -3, _ATP], "anth": [-1, -1, "Nc1ccccc1C(=O)O"],
                "PPi": [1, -3, _PPI], "Nadyl": [1, -2, "COP(=O)(O)Nc1ccccc1C(=O)O"]}
 
 
+CATIONIC_PHOSPHATASE = {"ester": [-1, 1, "C[N+](C)(C)CCOP(=O)(O)O"], "water": [-1, 0, "O"],
+                        "choline": [1, 1, "C[N+](C)(C)CCO"], "Pi": [1, -1, "OP(=O)(O)O"]}
+ADENYLYLATE_AMINOACID = {"ATP": [-1, -3, _ATP], "ser": [-1, 0, "NC(CO)C(=O)O"],
+                         "PPi": [1, -3, _PPI], "serAMP": [1, -1, "NC(CO)C(=O)OP(=O)(O)" + _AMP[1:]]}
+# carboxy-phosphate (pyruvate carboxylase, real rxn00250 species): HCO3- + ATP + pyruvate ->
+# oxaloacetate + ADP + Pi. Carboxyl created on the C4 skeleton; the consumed bicarbonate (O=C([O-])O,
+# itself a carboxyl match) must NOT cancel it -> the >4-heavy skeleton gate. Releases Pi not PPi.
+CARBOXYP = {
+    "ATP": [-1, -4, "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"],
+    "Pyruvate": [-1, -1, "CC(=O)C(=O)[O-]"], "H2CO3": [-1, -1, "O=C([O-])O"],
+    "ADP": [1, -3, "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"],
+    "Phosphate": [1, -2, "O=P([O-])([O-])O"], "Oxaloacetate": [1, -2, "O=C([O-])CC(=O)C(=O)[O-]"]}
+
+
 def test_subclass_detection():
     assert anchor.subclass(PHOSPHAGEN) == "phosphagen"
-    assert anchor.subclass(THIOESTER) == "thioester"
+    assert anchor.subclass(THIOESTER) == "thioester_pi"
     assert anchor.subclass(PHOSPHATASE) == "phosphatase_monoester"
 
 
+def test_phosphatase_cationic_excluded():
+    # a monoester bearing its own adjacent permanent cation (phosphocholine) is DETECTED but has no
+    # validated offset -> anchor_correct returns None (dG_raw reported), not a mis-applied majority offset
+    assert anchor.subclass(CATIONIC_PHOSPHATASE) == "phosphatase_monoester_cationic"
+    assert anchor.anchor_correct(10.0, CATIONIC_PHOSPHATASE) is None
+
+
 def test_adenylylate_detection():
-    # ATP-driven acyl-adenylate formation (PPi produced + mixed anhydride) -> adenylylate class
-    assert anchor.subclass(ADENYLYLATE) == "adenylylate"
+    # ATP-driven acyl-adenylate formation (PPi produced + mixed anhydride) -> adenylylate, split by
+    # whether the activated acid is a plain aliphatic carboxylate or carries its own alpha-amino group
+    assert anchor.subclass(ADENYLYLATE) == "adenylylate_aliphatic"
     out = anchor.anchor_correct(45.0, ADENYLYLATE)
-    assert out is not None and out[2] == "adenylylate"
-    assert abs(out[0] - (45.0 - anchor.ANCHORS["adenylylate"]["offset"])) < 1e-6
+    assert out is not None and out[2] == "adenylylate_aliphatic"
+    assert abs(out[0] - (45.0 - anchor.ANCHORS["adenylylate_aliphatic"]["offset"])) < 1e-6
+
+
+def test_carboxyphosphate_detection():
+    # biotin/ATP carboxylase (pyruvate carboxylase) -> carboxyP; bicarbonate consumed must not cancel
+    # the carboxyl created on the C-skeleton (heavy>4 gate); releases Pi not PPi so NOT adenylylate
+    assert anchor.subclass(CARBOXYP) == "carboxyP"
+    out = anchor.anchor_correct(27.8, CARBOXYP)
+    assert out is not None and out[2] == "carboxyP"
+    assert abs(out[0] - (27.8 - anchor.ANCHORS["carboxyP"]["offset"])) < 1e-6
+
+
+def test_adenylylate_aminoacid_split():
+    assert anchor.subclass(ADENYLYLATE_AMINOACID) == "adenylylate_aminoacid"
+    out = anchor.anchor_correct(45.0, ADENYLYLATE_AMINOACID)
+    assert out is not None and out[2] == "adenylylate_aminoacid"
 
 
 def test_n_adenylate_not_phosphagen():
@@ -58,9 +95,9 @@ def test_anchor_correct_subtracts_offset():
     assert sigma > 0
 
 
-def test_all_three_offsets_positive():
+def test_all_anchors_offsets_positive():
     # all systematic classes carry a positive reference/solvation offset (sign-consistent)
-    for sc in ("phosphagen", "phosphatase_monoester", "thioester", "adenylylate"):
+    for sc in anchor.ANCHORS:
         assert anchor.ANCHORS[sc]["offset"] > 0
 
 
