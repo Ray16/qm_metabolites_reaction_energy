@@ -120,11 +120,13 @@ ANCHORS = {
     # +25 is solvation, not an MLIP bond mis-rank). Both TECRDB members used (n=2, NO leave-one-out
     # possible -- treat like thioester_ppi). 100% sign-consistent (raw +27.8/+22.5). offset = mean raw err;
     # sigma = sqrt(intra_std^2 + mean_exp_sd^2) = 7.8 -- DIRECT TECRDB references (not the adenylylate
-    # indirect cycle), but n=2 + one member's large exp_sd (11.9) dominate the uncertainty. NOTE: the
-    # sibling acyl-phosphate class (GAPDH/kinase C(=O)-O-P) was DELIBERATELY NOT anchored -- its n=8 pool
-    # is scatter (bias -0.5, std 18.2, 75% sign: redox-DH/kinase/carbamoyltransfer lumped by one SMARTS),
-    # so it is flagged, not corrected (candidate_anchor_scan.py).
-    "carboxyP":              {"offset": 25.1, "sigma": 7.8,
+    # indirect cycle), but n=2 + one member's large exp_sd (11.9) dominate the uncertainty. offset
+    # recalibrated on the CURRENT (post-hydratase-H+-fix, MAE 10.9) pipeline dG_raw: rxn00250 +28.9,
+    # rxn51768 +23.5 -> mean 26.2 (the stale 11.60-baseline gave +25.1; ~1 kJ conformer/era drift). NOTE:
+    # the sibling acyl-phosphate class (GAPDH/kinase C(=O)-O-P) was DELIBERATELY NOT anchored -- its n=8
+    # pool is scatter (bias -0.5, std 18.2, 75% sign: redox-DH/kinase/carbamoyltransfer lumped by one
+    # SMARTS), so it is flagged, not corrected (candidate_anchor_scan.py).
+    "carboxyP":              {"offset": 26.2, "sigma": 7.8,
                              "anchor_rids": ["rxn00250", "rxn51768"]},  # pyruvate / propanoyl-CoA carboxylase
 }
 
