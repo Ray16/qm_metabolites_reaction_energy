@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn00189",
+ "note": "TECRDB rxn00189 glutaminase | flags=anion-count-change",
+ "ec": "3.5.1.2",
+ "dG": -14.9,
+ "dG_raw": -25.8,
+ "exp": -16.79,
+ "err": 1.89,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

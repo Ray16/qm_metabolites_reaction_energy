@@ -95,10 +95,22 @@ def test_anchor_correct_subtracts_offset():
     assert sigma > 0
 
 
-def test_all_anchors_offsets_positive():
-    # all systematic classes carry a positive reference/solvation offset (sign-consistent)
+def test_all_anchors_offsets_signed_consistently():
+    # each systematic class carries a nonzero, sign-consistent reference/solvation offset. Most are
+    # POSITIVE (pipeline too high: anion-solvation wall). amide_hydrolysis is NEGATIVE (pipeline scores
+    # hydrolysis too favorable -> too low), corrected upward -- a physically valid negative offset.
     for sc in anchor.ANCHORS:
+        assert anchor.ANCHORS[sc]["offset"] != 0
+    assert anchor.ANCHORS["amide_hydrolysis"]["offset"] < 0
+    for sc in ("phosphagen", "phosphatase_monoester", "thioester_ppi", "carboxyP"):
         assert anchor.ANCHORS[sc]["offset"] > 0
+
+
+def test_amide_hydrolysis_detection():
+    # acyclic amide + water -> acid + amine fires; a bare carboxylate hydrolysis (no amide) does not
+    amide = {"sub": [-1, -1, "CC(=O)NCCC(=O)[O-]"], "w": [-1, 0, "O"],
+             "acid": [1, -1, "CC(=O)[O-]"], "amine": [1, 1, "[NH3+]CCC(=O)O"]}
+    assert anchor.subclass(amide) == "amide_hydrolysis"
 
 
 if __name__ == "__main__":

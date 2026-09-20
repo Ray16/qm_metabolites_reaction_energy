@@ -98,6 +98,7 @@ _ANCHOR_TO_CLASS = {
     "adenylylate_aliphatic": "adenylylate",
     "adenylylate_aminoacid": "adenylylate",
     "carboxyP":              "adenylylate",   # same mixed-anhydride Mg/NTP solvation family; nearest calibrated bucket (n=2, no own class)
+    "amide_hydrolysis":      "amide/amidine-hydrolysis",
 }
 
 

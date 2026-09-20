@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn36656",
+ "note": "TECRDB rxn36656 aminoacylase | flags=anion-count-change",
+ "ec": "3.5.1.14",
+ "dG": 0.3,
+ "dG_raw": -10.6,
+ "exp": -3.18,
+ "err": 3.48,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn16378",
+ "note": "TECRDB rxn16378 anandamide amidohydrolase | flags=anion-count-change,huge/floppy",
+ "ec": "3.5.1.a",
+ "dG": 1.0,
+ "dG_raw": -9.9,
+ "exp": 12.45,
+ "err": -11.45,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

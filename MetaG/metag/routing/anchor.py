@@ -64,6 +64,7 @@ _PYRO = Chem.MolFromSmarts("[PX4]-O-[PX4]")                 # P-O-P: pyrophospha
 _MONOESTER = Chem.MolFromSmarts("[#6]-[OX2]-[PX4](=O)")     # C-O-P: phosphate monoester
 _THIOESTER = Chem.MolFromSmarts("[#6X3](=O)[SX2]")          # C(=O)-S: thioester (acyl-CoA)
 _MIXEDANHYDRIDE = Chem.MolFromSmarts("[#6X3](=O)[OX2][PX4]")  # C(=O)-O-P: acyl/aminoacyl-adenylate anhydride
+_ACYCLIC_AMIDE = Chem.MolFromSmarts("[CX3;!R](=[OX1])[NX3]")  # acyl/carbamoyl amide, carbonyl NOT in a ring
 _CATION = Chem.MolFromSmarts("[N+]")                         # permanent/protonated cationic nitrogen
 _ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+][CX4][CX3](=O)[OX1-,OX2H1]")  # alpha-amino acid backbone
 _CARBOXYL = Chem.MolFromSmarts("[CX3](=O)[OX2H1,OX1-]")     # carboxylic acid / carboxylate
@@ -128,6 +129,21 @@ ANCHORS = {
     # SMARTS), so it is flagged, not corrected (candidate_anchor_scan.py).
     "carboxyP":              {"offset": 26.2, "sigma": 7.8,
                              "anchor_rids": ["rxn00250", "rxn51768"]},  # pyruvate / propanoyl-CoA carboxylase
+    # amide hydrolysis (ACYCLIC acyl/carbamoyl amide + H2O -> carboxylic acid + amine) ADDED 2026-09-20.
+    # A SOLVATION offset on the CREATED carboxylic-acid + amine groups -- PHYSICS VERIFIED
+    # (analysis/verify_class_physics.py --class amide: UMA-DFT +2.9 kJ, electronic FINE -> the ~-11 error is
+    # SOLVATION, same KIND as the phosphatase/thioester anchors, NOT an MLIP bond mis-rank). 100%
+    # sign-consistent (all 7 TECRDB acyclic-amide members negative). offset = mean dG_raw err over the 5
+    # MECHANISM-HOMOGENEOUS non-huge members (LOO residual MAE 3.6, tight like phosphatase). NEGATIVE offset:
+    # the pipeline is too NEGATIVE (amide hydrolysis scored too favorable) -> dG_corr = dG - (-10.9) = dG+10.9.
+    # DISCIPLINE (docstring items 2-4): the class is SPLIT to stay homogeneous --
+    #   * cyclic-amide hydrolysis (hydantoinase/dihydropyrimidinase, carbonyl IN a ring) is a SEPARATE
+    #     near-zero-error population (raw -0.1/-2.9); a [CX3;!R] gate excludes it so it is NOT over-corrected;
+    #   * aromatic-ring amidine DEAMINASES (cytidine/adenosine, raw -3.2/+1.8) don't match [CX3;!R] at all;
+    #   * the 2 huge/floppy anandamide-amidohydrolase members (raw -22/-30) DO get the offset (improves them
+    #     to -11/-19, never over-corrected) but carry their large conformer residual via U_samp.
+    "amide_hydrolysis":      {"offset": -10.9, "sigma": 4.5,
+                             "anchor_rids": ["rxn01792", "rxn39443", "rxn45677", "rxn00189", "rxn36656"]},
 }
 
 
@@ -202,6 +218,14 @@ def subclass(species):
     if (any(c < 0 and _is_co2_like(m) for c, _, m in ms) and _net_count(ms, _PYRO) < 0
             and _net_skeleton_carboxyl(ms) > 0):
         return "carboxyP"
+    # amide hydrolysis (acyclic acyl/carbamoyl amide + H2O -> carboxylic acid + amine): a SOLVATION offset
+    # on the created COOH + amine (PHYSICS VERIFIED UMA-DFT +2.9). Only ACYCLIC amides ([CX3;!R]): cyclic
+    # hydantoinases are a separate near-zero population and aromatic-ring deaminases don't match. Checked
+    # AFTER the phosphate/thioester/carboxyP classes (all require a phosphate this class lacks) so those win
+    # any overlap; the _PYRO guard is belt-and-suspenders. Water-consuming + net acyclic amide destroyed.
+    if (any(c < 0 and smi in _WATER for c, smi, _ in ms) and _net_count(ms, _ACYCLIC_AMIDE) < 0
+            and not any(m.HasSubstructMatch(_PYRO) for _, _, m in ms)):
+        return "amide_hydrolysis"
     # phosphatase monoester: hydrolysis (water consumed) that DESTROYS a C-O-P monoester, NO P-O-P present.
     # A monoester bearing its own adjacent permanent/protonated cation (phosphocholine, phosphoserine)
     # is a DIFFERENT, unresolved sub-case -- detected but excluded from ANCHORS (see docstring item 2):

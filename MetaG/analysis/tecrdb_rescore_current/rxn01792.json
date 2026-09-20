@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn01792",
+ "note": "TECRDB rxn01792 pantothenase | flags=anion-count-change",
+ "ec": "3.5.1.22",
+ "dG": -0.0,
+ "dG_raw": -10.9,
+ "exp": 6.65,
+ "err": -6.65,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

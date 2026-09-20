@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn45677",
+ "note": "TECRDB rxn45677 urease | flags=CLEAN(tractable)",
+ "ec": "3.5.1.5",
+ "dG": -16.2,
+ "dG_raw": -27.1,
+ "exp": -17.89,
+ "err": 1.69,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.5,
+ "secs": 0.0
+}

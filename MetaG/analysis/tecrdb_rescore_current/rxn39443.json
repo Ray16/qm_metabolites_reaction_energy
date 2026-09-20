@@ -1,0 +1,17 @@
+{
+ "reaction": "rxn39443",
+ "note": "TECRDB rxn39443 penicillin amidase | flags=anion-count-change",
+ "ec": "3.5.1.11",
+ "dG": 1.0,
+ "dG_raw": -9.9,
+ "exp": 1.54,
+ "err": -0.54,
+ "class": "amide/amidine-hydrolysis",
+ "anchor": {
+  "subclass": "amide_hydrolysis",
+  "offset": -10.9,
+  "sigma": 4.5
+ },
+ "sigma_pred": 16.6,
+ "secs": 0.0
+}
