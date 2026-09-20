@@ -1,0 +1,13 @@
+{
+ "reaction": "rxn00379",
+ "note": "TECRDB rxn00379 sulfate adenylyltransferase | flags=Mg-prone(NTP/PPi),huge/floppy",
+ "ec": "2.7.7.4",
+ "dG": 60.4,
+ "dG_raw": 60.4,
+ "exp": 47.45,
+ "err": 12.95,
+ "class": "kinase/phosphotransfer",
+ "anchor": null,
+ "sigma_pred": 18.8,
+ "secs": 8.5
+}

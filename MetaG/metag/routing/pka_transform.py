@@ -62,13 +62,25 @@ def is_isomerization(species):
 P_LADDER = {0: [2.15, 7.20, 12.35], 1: [1.50, 6.50], 2: [1.50], 3: [1.50]}
 CARBOXYL_PKA = 4.75
 SULFONATE_PKA = -1.5
-SULFATE_PKA = -3.0
+# Sulfate proton ladders (experimental strong-acid pKa's; NOT fitted to any dG). Like phosphate we
+# assign the k most-acidic entries where k = #deprotonated O on that S. FREE sulfate (H2SO4, both O
+# terminal) gets the full 2-proton ladder; a sulfate MONOESTER (R-O-SO3(-), one bridging O) has one
+# ionisable proton. Both pKa's sit far below pH 7, so the exact-Alberty form recovers the SO4(2-)
+# free energy at pH 7 exactly from the neutral H2(SO4) reference used for the QM step.
+SULFATE_LADDER = [-3.0, 1.99]        # H2SO4 pKa1, pKa2
 
 # SMARTS for a deprotonated (anionic) oxygen of each class, matched on the [O-] atom (first atom).
 _ANION_SMARTS = [
     ("carboxyl",  "[$([OX1-][CX3]=O)]"),                 # carboxylate O-
-    ("sulfonate", "[$([OX1-][SX4](=O)(=O)[#6])]"),        # R-SO3-
-    ("sulfate",   "[$([OX1-][SX4](=O)(=O)[OX2])]"),       # R-O-SO3-
+    ("sulfonate", "[$([OX1-][SX4](=O)(=O)[#6])]"),        # R-SO3-  (S bears a carbon)
+    ("sulfate",   "[$([OX1-][SX4](=O)(=O)[#8])]"),        # sulfate ester R-O-SO3- AND free SO4(2-):
+    #                                                       S bears a 4th OXYGEN (ester OX2 or terminal
+    #                                                       O-). Free sulfate O=S(=O)([O-])[O-] was
+    #                                                       previously UNMATCHED (needed a bridging
+    #                                                       OX2) -> never neutralised -> H-imbalance ->
+    #                                                       pH-0 REFUSED -> charged-COSMO anion
+    #                                                       catastrophe (rxn00379 sulfate
+    #                                                       adenylyltransferase -70).
     ("phosphate", "[$([OX1-][P])]"),                      # any P-O-  (sub-classified below)
 ]
 
@@ -93,13 +105,16 @@ def _classify_species(smi):
             sites.append((o, cls))
     resolved = []
     p_groups = {}                                   # P atom idx -> list of its anionic O idx
+    s_groups = {}                                   # S atom idx -> list of its anionic O idx (sulfate)
     for o, cls in sites:
         if cls == "carboxyl":
             resolved.append((o, CARBOXYL_PKA)); continue
         if cls == "sulfonate":
             resolved.append((o, SULFONATE_PKA)); continue
-        if cls == "sulfate":
-            resolved.append((o, SULFATE_PKA)); continue
+        if cls == "sulfate":                         # group per S, ladder assigned below
+            oa = mol.GetAtomWithIdx(o)
+            s = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "S"), None)
+            s_groups.setdefault(s, []).append(o); continue
         oa = mol.GetAtomWithIdx(o)                   # phosphate: group per P
         p = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "P"), None)
         p_groups.setdefault(p, []).append(o)
@@ -111,6 +126,12 @@ def _classify_species(smi):
         k = len(os)
         # assign the k most-acidic entries of the ladder to the k deprotonated O on this P
         pkas = sorted(ladder)[:k] if k <= len(ladder) else sorted(ladder) + [1.50] * (k - len(ladder))
+        for o, pka in zip(sorted(os), pkas):
+            resolved.append((o, pka))
+    for s, os in s_groups.items():                  # sulfate: k most-acidic ladder entries (k = #O-)
+        k = len(os)
+        pkas = SULFATE_LADDER[:k] if k <= len(SULFATE_LADDER) \
+            else SULFATE_LADDER + [SULFATE_LADDER[-1]] * (k - len(SULFATE_LADDER))
         for o, pka in zip(sorted(os), pkas):
             resolved.append((o, pka))
     return mol, resolved
@@ -355,6 +376,14 @@ def _base_gate(species):
     # PHYSICS exclusion 1: an amide/carbamoyl/urea N is created/destroyed. That N is neutral at pH 7
     # (pKa~0), NOT a basic cation -> the base premise fails. Covers carbamoyltransfer, amide
     # hydrolysis / amidohydrolase, aminoacylase, arginosuccinate synthase.
+    # NOTE (2026-09-19): an attempt to fire the base path on amide HYDROLYSIS (amide_ch<0), on the
+    # theory that a liberated free amine's pH-7 protonation is an unmatched contribution, was TESTED
+    # and REVERTED -- it regressed EVERY amide-hydrolysis reaction (penicillin amidase -11->-29,
+    # anandamide -30->-40, aminoacylase -7->-16, pantothenase -17->-23; 0 improvements). Root cause:
+    # the anion-only path already scores the PROTONATED amine ([NH3+]) directly in QM (the pH-7 form),
+    # so the base transform double-shifts ADD a spurious ~-14 kJ; and these floppy fatty-acid amides
+    # already carry a large same-signed error (exp is POSITIVE, QM strongly negative). The amide
+    # exclusion is correct as a blanket rule.
     if _count_change(species, _AMIDE):                        # None or nonzero -> don't fire
         return False
     # PHYSICS exclusion 2: an NAD(P)-driven in-place imine reduction (C=N -> C-N on the same skeleton,
