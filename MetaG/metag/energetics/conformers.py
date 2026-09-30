@@ -162,6 +162,9 @@ def same_connectivity(atoms, ref_graph):
     return perceived_graph(atoms) == ref_graph
 
 
+TRANSITION_METALS = set(range(21, 31)) | set(range(39, 49)) | set(range(57, 81))
+
+
 def spin_multiplicity(smiles, q):
     """Ground-state spin multiplicity (2S+1) for the UMA `spin` field. Metabolites are
     overwhelmingly closed-shell singlets (1), but a few open-shell species must be set
@@ -177,8 +180,14 @@ def spin_multiplicity(smiles, q):
     m = Chem.AddHs(m)
     # O2: two oxygens, no H, neutral -> triplet ground state
     zs = [a.GetAtomicNum() for a in m.GetAtoms()]
+    if any(z in TRANSITION_METALS for z in zs):
+        raise ValueError(f"{smiles}: transition-metal species -- spin state cannot be inferred from the SMILES "
+                         "and UMA/xtb states are not validated here; not supported")
     if int(q) == 0 and sorted(zs) == [8, 8]:
         return 3
+    n_rad = sum(a.GetNumRadicalElectrons() for a in m.GetAtoms())
+    if n_rad:                                             # SMILES-specified radicals ([CH2], [O][O], ...):
+        return n_rad + 1                                  # high-spin (all unpaired electrons parallel)
     n_elec = sum(zs) - int(q)
     return 2 if (n_elec % 2) else 1                       # odd electrons -> doublet, else singlet
 

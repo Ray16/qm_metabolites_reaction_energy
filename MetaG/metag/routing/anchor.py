@@ -255,20 +255,44 @@ def _detect(ms):
     return None
 
 
+def _extent(sc, ms):
+    """Number of times the class's defining transformation occurs in the (canonical-direction) reaction:
+    the anchor offset is per transformation, so a reaction written with doubled coefficients (or hydrolysing
+    two monoesters) gets twice the correction -- the anchored ΔG stays EXTENSIVE."""
+    if sc.startswith("adenylylate"):
+        return _net_count(ms, _MIXEDANHYDRIDE)
+    if sc == "phosphagen":
+        return _net_count(ms, _PHOSPHORAMIDATE)
+    if sc.startswith("thioester"):
+        return _net_count(ms, _THIOESTER)
+    if sc == "carboxyP":
+        return _net_skeleton_carboxyl(ms)
+    if sc == "amide_hydrolysis":
+        return -_net_count(ms, _ACYCLIC_AMIDE)
+    return -_net_count(ms, _MONOESTER)                   # phosphatase monoester (both sub-cases)
+
+
 def subclass_dir(species):
     """(sub-class, direction) for a reaction, or (None, 0). direction = +1 if the reaction is written in
     the class's canonical direction (see _detect), -1 if it is the reverse. The forward reading wins if
     both readings match (never observed on TECRDB)."""
+    sc, direction, _ = subclass_extent(species)
+    return sc, direction
+
+
+def subclass_extent(species):
+    """(sub-class, direction, extent) -- extent = times the defining transformation occurs (see _extent)."""
     ms = _mols(species)
     if ms is None:
-        return None, 0
+        return None, 0, 0.0
     sc = _detect(ms)
     if sc is not None:
-        return sc, +1
-    sc = _detect([(-c, smi, m) for c, smi, m in ms])
+        return sc, +1, float(_extent(sc, ms))
+    rev = [(-c, smi, m) for c, smi, m in ms]
+    sc = _detect(rev)
     if sc is not None:
-        return sc, -1
-    return None, 0
+        return sc, -1, float(_extent(sc, rev))
+    return None, 0, 0.0
 
 
 def subclass(species):
@@ -286,8 +310,8 @@ def anchor_correct(dG, species):
     antisymmetric: anchor(-ΔG, reversed) == -anchor(ΔG, forward). A subclass name detected but absent from
     ANCHORS -- e.g. phosphatase_monoester_cationic -- deliberately falls through to None: it is a
     recognized, structurally distinct case whose correction is not yet trustworthy enough to apply."""
-    sc, direction = subclass_dir(species)
+    sc, direction, extent = subclass_extent(species)
     if sc is None or sc not in ANCHORS:
         return None
     a = ANCHORS[sc]
-    return dG - direction * a["offset"], a["sigma"], sc, direction
+    return dG - direction * extent * a["offset"], a["sigma"], sc, direction

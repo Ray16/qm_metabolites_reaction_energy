@@ -33,8 +33,8 @@ ARTIFACT = os.path.join(_DATA, "sigma_class_calibrated.json")
 KQ = 8.0            # quantile pooling strength (small n -> global shape)
 K_SIG = 4.0         # sigma shrinkage pseudo-count toward the overall RMS
 SIGMA_MIN = 6.0     # sigma floor (kJ): experimental noise + method floor
-MAX_ABS_ERR = 200.0 # rows beyond this are pipeline failures, not residuals (reported, excluded)
 N_FOLDS = 5
+GROUP_SIM = 0.7     # reactions with difference-fingerprint Tanimoto >= this share a CV group (near-twins)
 
 
 def _fit_mult(pairs, target=0.965):
@@ -71,11 +71,11 @@ def _normalize(records):
                         # "offset" = the SIGNED correction applied (dG_raw - dG); "direction" = +1 if the
                         # reaction is written in its class's canonical direction, -1 if reversed
                         "sc": a.get("subclass"), "off": float(a.get("offset") or 0.0),
-                        "dir": int(a.get("direction", 1))})
+                        "dir": int(a.get("direction", 1)), "ext": float(a.get("extent", 1.0))})
         else:
             rid, c, e = r
             out.append({"rid": rid, "class": c, "dG": float(e), "dG_raw": float(e), "exp": 0.0,
-                        "U": 0.0, "sc": None, "off": 0.0, "dir": 1})
+                        "U": 0.0, "sc": None, "off": 0.0, "dir": 1, "ext": 1.0})
     return out
 
 
@@ -85,8 +85,8 @@ def _fold_offsets(rows, train_idx, refs):
     for sc, (ref, pool) in refs.items():
         if ref != "tecrdb":
             continue
-        v = [rows[i]["dir"] * (rows[i]["dG_raw"] - rows[i]["exp"]) for i in train_idx   # canonical direction
-             if rows[i]["sc"] == sc and rows[i]["rid"] in pool]
+        v = [rows[i]["dir"] * (rows[i]["dG_raw"] - rows[i]["exp"]) / rows[i]["ext"]   # per canonical
+             for i in train_idx if rows[i]["sc"] == sc and rows[i]["rid"] in pool]     # transformation
         off[sc] = float(np.mean(v)) if v else None
     return off
 
@@ -97,7 +97,7 @@ def _residual(r, fold_off, refs):
     if sc is None or sc not in refs or refs[sc][0] != "tecrdb":
         return r["dG"] - r["exp"]                          # un-anchored or externally referenced: fixed
     o = fold_off.get(sc)
-    dg = r["dG"] + r["off"] - r["dir"] * (o if o is not None else 0.0)   # no pool member in training -> dG_raw
+    dg = r["dG"] + r["off"] - r["dir"] * r["ext"] * (o if o is not None else 0.0)   # no pool member -> dG_raw
     return dg - r["exp"]
 
 
@@ -112,12 +112,49 @@ def _class_fit(res_by_class, orms, gq):
     return sig, q95
 
 
-def calibrate(records, n_folds=N_FOLDS):
+def reaction_groups(reactions, threshold=GROUP_SIM):
+    """{rid: group id} clustering near-duplicate reactions (single linkage on difference-fingerprint
+    Tanimoto >= threshold), so CV folds never split near-twins between training and test -- random folds
+    over TECRDB leak same-family reactions and overstate held-out coverage.
+
+    `reactions` = {rid: {"species": {name: [coeff, q, smi]}}}. The reaction fingerprint is the signed
+    count-Morgan difference Σν·fp (water excluded); similarity is Tanimoto on its positive and negative parts."""
+    from rdkit import Chem, DataStructs
+    from rdkit.Chem import rdFingerprintGenerator
+    from metag.chem import is_water
+    gen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+    rids = sorted(reactions)
+    fps = []
+    for rid in rids:
+        v = np.zeros(2048)
+        for c, q, smi in reactions[rid]["species"].values():
+            m = Chem.MolFromSmiles(smi)
+            if m is None or is_water(smi, q):
+                continue
+            v += c * gen.GetCountFingerprintAsNumPy(m).astype(float)
+        fps.append(np.concatenate([np.clip(v, 0, None), np.clip(-v, 0, None)]))
+    F = np.array(fps)
+    parent = list(range(len(rids)))
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]; i = parent[i]
+        return i
+    for i in range(len(rids)):
+        mn = np.minimum(F[i], F[i + 1:]).sum(1); mx = np.maximum(F[i], F[i + 1:]).sum(1)
+        for j in np.nonzero(mn >= threshold * np.maximum(mx, 1e-12))[0] + i + 1:
+            parent[find(i)] = find(j)
+    return {rid: rids[find(i)] for i, rid in enumerate(rids)}
+
+
+def calibrate(records, n_folds=N_FOLDS, groups=None):
+    """`groups` = {rid: group} (see reaction_groups): folds are assigned per group, so near-duplicate
+    reactions are always held out together. Without it folds are per reaction (leaky; reported as such)."""
     """Full calibration dict (artifact format) + fully nested CV of the complete deployed estimator."""
     refs = _anchor_refs()
-    rows_all = _normalize(records)
-    rows = [r for r in rows_all if abs(r["dG"] - r["exp"]) <= MAX_ABS_ERR]
-    excluded = sorted(r["rid"] for r in rows_all if abs(r["dG"] - r["exp"]) > MAX_ABS_ERR)
+    # NO outcome-based exclusion: every record with an estimate is a residual, however large (a large
+    # chemically valid failure belongs in the tail the interval must cover). Records are excluded upstream
+    # only by prediction-time validity (suspect -> no estimate; see load_sweep).
+    rows = _normalize(records)
     n = len(rows)
 
     # ---- deployed (full-data) calibration: residuals of the shipped estimator
@@ -138,8 +175,8 @@ def calibrate(records, n_folds=N_FOLDS):
     m95 = _fit_mult([(abs(e), np.hypot(sig[r["class"]], r["U"]), q95[r["class"]]) for r, e in zip(rows, err)])
 
     # ---- fully nested CV: anchors + sigma + q95 + m all refit on the training folds
-    fold = [int(hashlib.md5((r["rid"] or str(i)).encode()).hexdigest(), 16) % n_folds
-            for i, r in enumerate(rows)]
+    gkey = [(groups or {}).get(r["rid"], r["rid"]) or str(i) for i, r in enumerate(rows)]
+    fold = [int(hashlib.md5(g.encode()).hexdigest(), 16) % n_folds for g in gkey]
     ho_cover, ho_c1, ho_c2, ho_abs = [], 0, 0, []
     for f in range(n_folds):
         tr = [i for i in range(n) if fold[i] != f]
@@ -169,11 +206,14 @@ def calibrate(records, n_folds=N_FOLDS):
 
     return {"overall": {"MAE": round(float(np.abs(err).mean()), 2), "RMS": round(orms, 2),
                         "bias": round(float(err.mean()), 2), "medAE": round(float(np.median(np.abs(err))), 2)},
-            "n_reactions": n, "excluded_abs_err_gt_200": excluded,
+            "n_reactions": n, "n_abs_err_gt_200": int(np.sum(np.abs(err) > 200)),   # kept, not excluded
+            "cv_grouping": (f"near-duplicate clusters (difference-fingerprint Tanimoto >= {GROUP_SIM}), "
+                            f"{len(set(gkey))} groups" if groups else "per reaction (NOT grouped: leaky)"),
             "default_sigma": round(orms, 1), "global_q95abs": round(gq, 1), "classes": classes,
             "interval_sigma_mult": m95,
             "interval_form": "half_width = max(m * sqrt(sigma_class^2 + U_samp^2), q95abs)",
             "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
+            "cv_coverage_note": "unconditional over every record with an estimate; no outcome-based exclusion",
             "cv_heldout_MAE": round(float(np.mean(ho_abs)), 2) if ho_abs else None,
             "cv_coverage_interval95": round(float(np.mean(ho_cover)), 3) if ho_cover else None,
             "cv_coverage_1sigma": round(ho_c1 / max(len(ho_abs), 1), 3),
@@ -194,7 +234,7 @@ def refit_anchor_offsets(records):
     for sc, (ref, pool) in refs.items():
         if ref != "tecrdb":
             continue
-        v = [r["dir"] * (r["dG_raw"] - r["exp"]) for r in rows if r["sc"] == sc and r["rid"] in pool]
+        v = [r["dir"] * (r["dG_raw"] - r["exp"]) / r["ext"] for r in rows if r["sc"] == sc and r["rid"] in pool]
         if v:
             out[sc] = {"offset": round(float(np.mean(v)), 1), "n": len(v),
                        "std": round(float(np.std(v, ddof=1)), 1) if len(v) > 1 else None}
@@ -227,7 +267,7 @@ def load_sweep(sweep_dir):
     return usable, excluded
 
 
-def build_artifact(sweep_dir, path=ARTIFACT):
+def build_artifact(sweep_dir, path=ARTIFACT, reactions_file=None):
     """Regenerate the shipped calibration from ONE sweep of the deployed pipeline, with provenance.
     Refuses a sweep whose records disagree on (or lack) the pipeline configuration fingerprint -- the
     artifact must describe exactly one estimator, and metag.uncertainty checks it at run time."""
@@ -238,7 +278,11 @@ def build_artifact(sweep_dir, path=ARTIFACT):
     if len(cfgs) != 1 or "null" in cfgs:
         raise ValueError(f"sweep {sweep_dir} has {len(cfgs)} distinct configuration fingerprints "
                          f"(or records without one): re-run the sweep with one configuration")
-    calib = calibrate(recs)
+    groups = None
+    if reactions_file:
+        with open(reactions_file) as fh:
+            groups = reaction_groups(json.load(fh))
+    calib = calibrate(recs, groups=groups)
     try:
         sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=os.path.dirname(os.path.abspath(__file__)),
                              capture_output=True, text=True, timeout=10).stdout.strip() or None
@@ -264,9 +308,11 @@ if __name__ == "__main__":
                                              "or print refreshed anchor offsets (--refit-anchors).")
     ap.add_argument("sweep_dir")
     ap.add_argument("--out", default=ARTIFACT)
+    ap.add_argument("--reactions", help="input reactions JSON of the sweep: enables near-duplicate-grouped CV "
+                                        "folds (strongly recommended)")
     ap.add_argument("--refit-anchors", action="store_true")
     a = ap.parse_args()
     if a.refit_anchors:
         print(json.dumps(refit_anchor_offsets(load_sweep(a.sweep_dir)[0]), indent=2))
     else:
-        print("wrote", build_artifact(a.sweep_dir, a.out))
+        print("wrote", build_artifact(a.sweep_dir, a.out, reactions_file=a.reactions))

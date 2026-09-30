@@ -120,13 +120,10 @@ def mech_class(note, species_smiles, species=None):
     SMILES keyword taxonomy. Deployment-safe (no reaction-id). `species_smiles` = iterable of SMILES.
     """
     if species:
-        try:
-            from metag.routing.anchor import subclass as _anchor_subclass
-            sc = _anchor_subclass(species)
-            if sc in _ANCHOR_TO_CLASS:
-                return _ANCHOR_TO_CLASS[sc]
-        except Exception:
-            pass                                            # structural detection is best-effort; fall back
+        from metag.routing.anchor import subclass as _anchor_subclass
+        sc = _anchor_subclass(species)
+        if sc in _ANCHOR_TO_CLASS:
+            return _ANCHOR_TO_CLASS[sc]
     n = (note or "").lower()
     smis = species_smiles if isinstance(species_smiles, str) else " ".join(species_smiles)
     has_coa = bool(_COA_WORD.search(n)) or _COA_SMI_TAG in smis.lower()   # whole word: not "glucoamylase"
@@ -258,11 +255,8 @@ except (OSError, ValueError):
 def _ood(species):
     if not species:
         return None
-    try:
-        from metag.routing.applicability import ood_assessment
-        return ood_assessment(species)
-    except Exception:
-        return None
+    from metag.routing.applicability import ood_assessment
+    return ood_assessment(species)
 
 
 def _scope(calibrated, ood_info, mismatch=()):
@@ -336,17 +330,14 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None, config=None):
     br = {"class": cls, **terms}
     # OOD gate: if the reaction is structurally unlike the calibration set, FLOOR sigma (never narrow).
     if species:
-        try:
-            from metag.routing.applicability import ood_assessment
-            oa = ood_assessment(species)
-            br["ood"] = oa["ood"]; br["ood_reasons"] = oa["reasons"]
-            if oa["flags"]:
-                br["ood_flags"] = oa["flags"]           # informational only -- do NOT affect sigma
-            if oa["sigma_floor"] > sigma:
-                br["sigma_floored_from"] = round(sigma, 1)
-                sigma = oa["sigma_floor"]
-        except Exception:
-            oa = None
+        from metag.routing.applicability import ood_assessment
+        oa = ood_assessment(species)
+        br["ood"] = oa["ood"]; br["ood_reasons"] = oa["reasons"]
+        if oa["flags"]:
+            br["ood_flags"] = oa["flags"]               # informational only -- do NOT affect sigma
+        if oa["sigma_floor"] > sigma:
+            br["sigma_floored_from"] = round(sigma, 1)
+            sigma = oa["sigma_floor"]
     else:
         oa = None
     br["class_calibrated"] = calibrated

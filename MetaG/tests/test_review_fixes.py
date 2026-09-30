@@ -110,7 +110,7 @@ def test_balance_guard_reverts_unbalanced_rewrite(monkeypatch):
     monkeypatch.setattr(CC, "cofactor_ring", lambda sp: {"A": [-1, 0, "CCCO"], "B": [1, 0, "CC=O"], "H2": [1, 0, "[HH]"]})
     new, routes, _ = P.route_reaction(rx, log=lambda *_: None)
     assert new["species"] == rx["species"] and routes["cofactor_ring"] is False
-    assert any("cofactor_ring" in e and "reverted" in e for e in routes["errors"])
+    assert any("cofactor_ring" in e and "reverted" in e for e in routes["reverted"]) and not routes["errors"]
 
 
 # ---------------------------------------------------------------- calibration fingerprint
@@ -242,3 +242,82 @@ def test_cycle_closure_keeps_fractional_coefficients():
     S = np.array([[1.0, -2.0], [-0.5, 1.0]])                       # col0 = 0.5 * ... -> one cycle
     b = cycle_basis(S)
     assert b and len(b[0]) == 2
+
+
+def test_gate_audit_accepts_historical_calibration_schemas():
+    from analysis.gate_audit import class_map
+    assert class_map([["rxn1", "hydratase", 1.2]]) == {"rxn1": "hydratase"}
+    assert class_map([{"rid": "rxn2", "class": "redox"}]) == {"rxn2": "redox"}
+    assert class_map({"rxn3": {"class": "transferase"}}) == {"rxn3": "transferase"}
+    assert class_map({"row": {"reaction": "rxn4", "class": "lyase"}}) == {"rxn4": "lyase"}
+
+
+def test_float32_precision_audit_propagates_stoichiometry():
+    from analysis.electronic_precision_audit import reaction_precision
+    species = {
+        ("CCO", 0): {"ulp_kj": 0.5},
+        ("CC=O", 0): {"ulp_kj": 1.0},
+    }
+    rec = {"species_scored": {
+        "a": [-2, 0, "CCO"],
+        "b": [1, 0, "CC=O"],
+        "water": [1, 0, "O"],
+    }}
+    out = reaction_precision(rec, species)
+    assert out["worst_bound_kj"] == pytest.approx(1.0)
+    assert out["rms_scale_kj"] == pytest.approx(np.sqrt(2) / np.sqrt(12))
+    assert out["n_cached_species"] == 2
+
+
+def test_float32_precision_audit_reports_missing_species():
+    from analysis.electronic_precision_audit import reaction_precision
+    out = reaction_precision(
+        {"species_scored": {"a": [-1, 0, "CCO"]}},
+        {},
+    )
+    assert out == {"missing_species": ["a"]}
+
+
+def test_pka_validation_excludes_cationic_zwitterions():
+    from rdkit import Chem
+    from analysis.review_fixes.pka_table_validation import acid_only
+    assert acid_only(Chem.MolFromSmiles("CC(=O)[O-]"))
+    assert not acid_only(Chem.MolFromSmiles("NC(=[NH2+])NCCS(=O)(=O)[O-]"))
+
+
+def test_routing_consistency_audit_detects_context_dependent_species():
+    from analysis.routing_consistency_audit import audit
+    original = {
+        "r1": {"species": {"A": [-1, -1, "CC(=O)[O-]"]}},
+        "r2": {"species": {"A": [1, -1, "CC(=O)[O-]"]}},
+    }
+    results = {
+        "r1": {"species_scored": {"A": [-1, 0, "CC(=O)O"]}, "routes": {"ph0": True}},
+        "r2": {"species_scored": {"A_t": [1, 0, "CC"]}, "routes": {"truncated": True}},
+    }
+    report = audit(original, results)
+    assert report["n_context_dependent_species"] == 1
+    assert report["conflicts"][0]["n_representations"] == 2
+
+
+def test_reassembler_cache_settings_require_exact_solvation_provenance():
+    from analysis.review_fixes.reassemble import matching_settings
+    required = {"model": "uma", "solv": "cpcmx", "physics": "v2"}
+    assert matching_settings(required, required, "primary")
+    assert not matching_settings(dict(required, via="solv_also"), required, "primary")
+    assert matching_settings(dict(required, via="solv_also"), required, "solv_also")
+    assert not matching_settings(dict(required, via="other"), required, "solv_also")
+    assert not matching_settings(dict(required, physics="v1"), required, "primary")
+
+
+def test_reassembler_metrics_exclude_suspect_and_missing_predictions():
+    from analysis.review_fixes.reassemble import metrics
+    rows = {
+        "a": {"err": 2.0, "suspect": None},
+        "b": {"err": -4.0, "suspect": None},
+        "c": {"err": 1000.0, "suspect": "unbalanced"},
+        "d": {"err": None, "suspect": None},
+    }
+    assert metrics(rows) == {
+        "n": 2, "mae": 3.0, "median_ae": 3.0, "rmse": 3.162, "bias": -1.0
+    }

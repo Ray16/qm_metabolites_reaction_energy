@@ -65,8 +65,43 @@ def _forces_batched(pu, structs, chunk=None):
     return out
 
 
+# |imaginary| frequencies up to this are finite-difference / loose-optimisation noise on soft modes and are
+# floored like any other soft mode; above it the structure is not a minimum (reported, caller retries).
+IMAG_TOL_CM = 50.0
+
+
+def internal_vib_energies(atoms, H, geometry):
+    """Vibrational analysis with translations and rotations PROJECTED OUT (Eckart), not dropped by size.
+
+    H = Cartesian Hessian (eV/Å², 3N x 3N). Returns (vib_energies_eV, imag_cm): the real vibrational
+    quanta of the 3N - n_ext internal modes, and the |frequencies| (cm^-1) of internal modes with negative
+    curvature. The old treatment took |Re(E)| of all 3N modes and dropped the n_ext smallest, so a purely
+    imaginary mode (Re = 0) became a 'rotation' or a floored 50 cm^-1 mode and a saddle point received
+    ordinary minimum thermochemistry."""
+    from ase import units
+    m = atoms.get_masses()
+    x = atoms.get_positions() - atoms.get_center_of_mass()
+    n = len(m)
+    sm = np.repeat(np.sqrt(m), 3)
+    Hmw = H / np.outer(sm, sm)                                  # eV / (Å² amu)
+    ext = []
+    for a in range(3):                                          # translations
+        v = np.zeros((n, 3)); v[:, a] = 1.0
+        ext.append((v * np.sqrt(m)[:, None]).ravel())
+    for a in range(3):                                          # rotations about the centre of mass
+        e = np.zeros(3); e[a] = 1.0
+        ext.append((np.cross(e, x) * np.sqrt(m)[:, None]).ravel())
+    n_ext = {"monatomic": 3, "linear": 5, "nonlinear": 6}[geometry]
+    U, sv, _ = np.linalg.svd(np.array(ext).T, full_matrices=True)
+    B = U[:, n_ext:]                                            # orthonormal basis of the internal space
+    lam = np.linalg.eigvalsh(B.T @ Hmw @ B)
+    s = units._hbar * 1e10 / np.sqrt(units._e * units._amu)     # sqrt(eV/Å²/amu) -> eV (as ASE)
+    e = s * np.sqrt(np.abs(lam))
+    return e[lam >= 0], e[lam < 0] / CM2EV
+
+
 def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
-                   geometry=None, symmetrynumber=None, spin=1):
+                   geometry=None, symmetrynumber=None, spin=1, return_info=False):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
     Central-difference Hessian from UMA forces; all 6N displacements batched. Uses the same
@@ -105,16 +140,15 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
         Fp = F[2 * d].reshape(-1); Fm = F[2 * d + 1].reshape(-1)
         H[d] = -(Fp - Fm) / (2.0 * delta)                  # eV/Å²
     H = 0.5 * (H + H.T)
-    vd = VibrationsData.from_2d(base, H)
-    en = vd.get_energies()                                  # eV, complex for imaginary
-    # drop the external (trans+rot) modes: 3 monatomic / 5 linear / 6 nonlinear (keep consistent with
-    # the resolved `geometry`, in case it was overridden).
-    n_drop = {"monatomic": 3, "linear": 5, "nonlinear": 6}[geometry]
-    mags_real = np.sort(np.abs(en.real))[n_drop:]          # drop external trans/rot (pre-floor)
+    vib, imag_cm = internal_vib_energies(base, H, geometry)
+    n_imag = int(np.sum(imag_cm > IMAG_TOL_CM))              # genuine negative curvature: not a minimum
+    # soft imaginary modes (<= IMAG_TOL_CM) are numerical noise on floppy torsions: floored like soft modes
+    mags_real = np.sort(np.concatenate([vib, imag_cm[imag_cm <= IMAG_TOL_CM] * CM2EV]))
     mags = np.where(mags_real < 50 * CM2EV, 50 * CM2EV, mags_real)   # low-frequency floor
     th = IdealGasThermo(vib_energies=mags, potentialenergy=E_elec, atoms=base,
                         geometry=geometry, symmetrynumber=symmetrynumber,
-                        spin=(int(spin) - 1) / 2.0)          # total electronic S = (mult-1)/2
+                        spin=(int(spin) - 1) / 2.0,          # total electronic S = (mult-1)/2
+                        vib_selection="all")                 # external modes were projected out above
     G = th.get_gibbs_energy(temperature=T, pressure=101325.0, verbose=False)
     Gcorr = float((G - E_elec) * EV2KJ)
     if qrrho_enabled():                                     # Grimme quasi-RRHO entropy for low-freq modes
@@ -122,6 +156,8 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
         # ZPE/enthalpy stay harmonic). Uses the REAL frequency for each mode vs the floored one the
         # harmonic G above used, so it RESTORES the entropy the 50 cm^-1 floor suppresses on floppy modes.
         Gcorr += _qrrho_S_correction(mags_real / CM2EV, mags / CM2EV, T)
+    if return_info:
+        return Gcorr, {"n_imag": n_imag, "max_imag_cm": round(float(imag_cm.max()), 1) if imag_cm.size else 0.0}
     return Gcorr
 
 

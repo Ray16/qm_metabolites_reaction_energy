@@ -37,17 +37,14 @@ def _rc_in_ring(species):
     subs = [(c, q, s) for _, (c, q, s) in sp.items()]
     R = [s for c, q, s in subs if c < 0]
     P = [s for c, q, s in subs if c > 0]
-    try:
-        for rs in R:
-            for ps in P:
-                a = Chem.MolFromSmiles(rs); b = Chem.MolFromSmiles(ps)
-                if a is None or b is None or a.GetNumHeavyAtoms() < 8:
-                    continue
-                amap, _ = T.mcs_atom_map(a, b)
-                if amap and any(a.GetAtomWithIdx(i).IsInRing() for i in T.reaction_center(a, amap, b)):
-                    return True
-    except Exception:
-        return False
+    for rs in R:
+        for ps in P:
+            a = Chem.MolFromSmiles(rs); b = Chem.MolFromSmiles(ps)
+            if a is None or b is None or a.GetNumHeavyAtoms() < 8:
+                continue
+            amap, _ = T.mcs_atom_map(a, b)
+            if amap and any(a.GetAtomWithIdx(i).IsInRing() for i in T.reaction_center(a, amap, b)):
+                return True
     return False
 
 
@@ -82,13 +79,10 @@ def prefer_full(species):
     Mutually exclusive with ANCHOR_CORRECT: an anion sub-class handled by per-class anchor referencing
     (route_anchor) must be scored the SAME way its anchors were (baseline truncation), so we do NOT
     route it to full -- else the calibrated anchor offset would be applied to a differently-scored ΔG."""
-    try:
-        from metag.routing import anchor as route_anchor
-        if route_anchor.subclass(species) is not None:
-            return False
-        return (_n_ion_change(species) == 0
-                and not pfa.is_isomerization(species)
-                and _rc_in_ring(species)
-                and not _any_floppy_linker(species))
-    except Exception:
+    from metag.routing import anchor as route_anchor
+    if route_anchor.subclass(species) is not None:
         return False
+    return (_n_ion_change(species) == 0
+            and not pfa.is_isomerization(species)
+            and _rc_in_ring(species)
+            and not _any_floppy_linker(species))

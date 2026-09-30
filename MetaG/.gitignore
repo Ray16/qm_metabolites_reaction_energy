@@ -10,3 +10,5 @@ slides/*.nav
 slides/*.out
 slides/*.snm
 slides/*.toc
+.smoke_tmp/
+.ab_runs/*/cache/

@@ -149,11 +149,15 @@ def truncate_species(smiles, keep):
     yields a methyl cap automatically). Returns (capped_smiles, removed_frag_set)."""
     m = Chem.MolFromSmiles(smiles)
     keep = {i for i in keep if 0 <= i < m.GetNumAtoms()}
+    if not keep:                                      # empty reaction centre on this species:
+        return None, set()                            # not truncatable (was a ValueError crash)
     capped = Chem.MolFragmentToSmiles(m, atomsToUse=sorted(keep))
-    # round-trip to canonicalise + validate
+    # round-trip to canonicalise + validate: a core that does not re-parse (e.g. a cut aromatic ring that
+    # cannot be kekulized) is not a valid molecule -> not truncatable (was a crash downstream)
     cm = Chem.MolFromSmiles(capped)
-    capped = Chem.MolToSmiles(cm) if cm is not None else capped
-    return capped, _removed_frags(smiles, keep)
+    if cm is None:
+        return None, set()
+    return Chem.MolToSmiles(cm), _removed_frags(smiles, keep)
 
 
 # --------------------------------------------------------------------- guards
@@ -258,6 +262,8 @@ def build_truncated_reaction(species_dict, radius=2):
     if len(R) != len(P):                              # unequal sides -> pairing ill-posed
         return None
     res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius)
+    if res.get("invalid"):
+        return None
     # GUARDS A+B (computed by truncate_reaction, previously never enforced): the removed spectator must be
     # the SAME fragment multiset on both sides (else it does not cancel -- e.g. fragments differing in
     # stereochemistry), and the cores must balance in heavy atoms. H and charge are closed by n_H+, which
@@ -332,6 +338,9 @@ def truncate_reaction(reactants, products, radius=2, cap="C"):
             keep_r, keep_p = new_r, new_p
         cr, rem_r = truncate_species(r_smi, keep_r)
         cp, rem_p = truncate_species(p_smi, keep_p)
+        if cr is None or cp is None:                  # "not applicable": caller keeps full molecules
+            out["invalid"] = f"no valid core for pair {r_smi} / {p_smi}"
+            return out
         out["species"].append(dict(side="reactant", orig=r_smi, capped=cr,
                                     n_center=len(c_r), rot_core=rotatable_in_core(cr)))
         out["species"].append(dict(side="product", orig=p_smi, capped=cp,

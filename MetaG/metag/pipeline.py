@@ -17,6 +17,7 @@ CLI harness (reactions from RXN_FILE; launch through gpu_reserve, never set CUDA
   gpu_reserve run <idx> -- python -m metag.pipeline --only <key>
 """
 import argparse
+import functools
 import hashlib
 import json
 import math
@@ -47,6 +48,11 @@ T = 298.15
 # CHE aqueous proton free energy at pH 7 (step3b/step6 convention)
 G_HPLUS = -26.3 - 1104.5 - 2.303 * 8.314e-3 * T * 7.0    # ~ -1170.8 kJ/mol
 PH = 7.0
+# The thermodynamic conditions every MetaG number refers to (returned with each result and part of the
+# configuration fingerprint). Anything compared against MetaG -- experiment or another estimator -- must be
+# transformed to these conditions first; pMg=None = no Mg2+ binding (no Mg-complex microspecies).
+CONDITIONS = {"T_K": 298.15, "pH": PH, "ionic_strength_M": 0.0, "pMg": None, "water_activity": 1.0,
+              "standard_state": "solutes 1 M; pure liquid water; H+ at the stated pH (transformed ΔrG'°)"}
 RT_LN10 = 2.303 * 8.314e-3 * T                            # ~5.71 kJ/mol per pKa unit
 # STANDARD STATE (package-wide convention: every solute at 1 M, liquid water at 55.34 M, H+ at pH 7).
 # Species G = G_gas(RRHO, ASE IdealGasThermo at 1 atm) + ΔG_solv(xtb). xtb --cosmo reports ΔG_solv with
@@ -134,9 +140,10 @@ SOLV_ALSO = list(dict.fromkeys(
 # PHYSICS_VERSION: bump whenever species-level physics changes in a way the settings below do not
 # capture (sampling, relaxation, thermal, solvation code). It is part of every species-cache key, so a
 # bump forces a clean recompute instead of silently serving numbers from older code.
-#   2026-09-30: float64 energies + dedup e_tol 1.5 kJ, post-relaxation connectivity check, xtb-failure
-#               guard, RRHO symmetry/linearity detection (was never keyed).
-PHYSICS_VERSION = "2026-09-30"
+#   2026-09-30b: float64 energies + dedup e_tol 1.5 kJ, post-relaxation connectivity check, xtb-failure
+#                guard, projected external Hessian modes, imaginary-mode rejection, and RRHO
+#                symmetry/linearity detection.
+PHYSICS_VERSION = "2026-09-30b"
 _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiered-v1",
                       "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
                       "sample_scale": _SAMPLE_SCALE, "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled()}
@@ -155,6 +162,24 @@ _EXPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
 # its G is considered degraded: a degraded G is still used for this reaction but NOT cached, so a
 # transient overload during a sweep cannot poison every later reaction that reuses the species.
 MAX_XTB_FAIL_FRAC = 0.25
+# SOLVATION SUPPORT: every relaxed conformer within this gas-phase energy window of the lowest one must have a
+# solvation value. Failures are not random (compact / highly charged conformers time out more), so an ensemble
+# that silently drops low-energy members is biased; such a species FAILS instead (not cached). 30 kJ (~12 RT)
+# also covers conformers whose solvation differs strongly from the gas-phase ordering.
+SOLV_SUPPORT_KJ = 30.0
+# thermal term: lowest-G unique minima tried in order until one is a true minimum (no imaginary mode above
+# thermal.IMAG_TOL_CM, after one tighter re-optimisation); none -> the species fails.
+N_THERMAL_CANDIDATES = 3
+
+
+class SpeciesRearranged(Exception):
+    """Every relaxed conformer of a species changed covalent connectivity (e.g. zwitterion proton transfer):
+    the requested species is not a gas-phase minimum. Never scored or cached under its SMILES; score_reaction
+    re-routes the reaction through the neutral-microspecies path (the transfer is then accounted for by pKa
+    terms) or fails it."""
+    def __init__(self, name, smi, n):
+        super().__init__(f"{name} ({smi}): bonding changed during relaxation in all {n} conformers")
+        self.smi = smi
 
 
 def _model_name(pu):
@@ -211,10 +236,11 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     all_G = uniq.G
     # CONNECTIVITY GUARD: a conformer whose bonding changed during gas-phase relaxation (a zwitterion's
     # N-H proton moving to its O-, an acid proton hopping) is a different species from the SMILES being
-    # scored. Such conformers are set aside; only if EVERY conformer rearranged are they used (the old
-    # behaviour) and the species is flagged, because then the SMILES itself is not a gas-phase minimum.
+    # scored. Such conformers are set aside; if EVERY conformer rearranged the species is not a gas-phase
+    # minimum and SpeciesRearranged is raised (never scored or cached under this SMILES).
     rearranged = []                                       # (atoms, e, solv-dict) set aside
     n_relaxed = n_xtb_fail = 0
+    failed_E = []                                         # gas energies of conformers whose solvation failed
     # secondary solvation models on the same unique minima: {model: [G per unique minimum]}
     also = {m: [] for m in SOLV_ALSO}
     best = (1e18, None, None)
@@ -236,11 +262,16 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
             solv = list(ex.map(lambda am: dgsolv(am[0].get_chemical_symbols(), am[0].get_positions(), q,
                                                  am[1], mult), [(a, m) for a in sel for m in models]))
         solv = [dict(zip(models, solv[i * len(models):(i + 1) * len(models)])) for i in range(len(sel))]
+        for a, sd in zip(sel, solv):                      # one retry: most xtb failures are transient
+            if sd[SOLV_MODEL] is None:
+                sd[SOLV_MODEL] = dgsolv(a.get_chemical_symbols(), a.get_positions(), q, SOLV_MODEL, mult)
         for a, e, sd in zip(sel, Eg, solv):
             n_relaxed += 1
             s = sd[SOLV_MODEL]
             if s is None:
                 n_xtb_fail += 1
+                if np.isfinite(e):
+                    failed_E.append(float(e))
             if not np.isfinite(e) or s is None:
                 continue
             if not same_connectivity(a, ref_graph):
@@ -262,19 +293,27 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                 hits = 0
         prev_Gens, prev_best = Gens, best[0]
     sp_warn = []
-    if not all_G and rearranged:                          # EVERY conformer changed bonding: SMILES is not
-        for a, e, sd in rearranged:                       # a gas-phase minimum -> old behaviour, flagged
-            _add_minimum(uniq, also, a, e, sd)
-            if e < best[0]:
-                best = (e, a.get_chemical_symbols(), a.get_positions())
-        sp_warn.append(f"{name} ({smi}): bonding changed during relaxation in all {len(rearranged)} "
-                       f"conformers -- scored structure is not the input species (e.g. zwitterion proton transfer)")
-    elif rearranged:
-        log(f"    {name}: {len(rearranged)} conformer(s) changed bonding during relaxation -> excluded")
     if not all_G:
+        if rearranged:
+            raise SpeciesRearranged(name, smi, len(rearranged))
+        return None, None
+    if rearranged:
+        log(f"    {name}: {len(rearranged)} conformer(s) changed bonding during relaxation -> excluded")
+    missing = [e for e in failed_E if e - min(uniq.E) < SOLV_SUPPORT_KJ]
+    if missing:
+        sp_warn.append(f"{name} ({smi}): solvation failed for {len(missing)} conformer(s) within "
+                       f"{SOLV_SUPPORT_KJ:.0f} kJ of the minimum -> ensemble incomplete, species failed")
+        log(f"    !! {sp_warn[-1]}")
+        warnings.extend(sp_warn)
         return None, None
     Gens = boltz(all_G)
-    therm = uma_gibbs_corr(pu, best[1], best[2], q, spin=mult)
+    therm, t_info = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
+    if therm is None:
+        sp_warn.append(f"{name} ({smi}): no true minimum among the lowest {N_THERMAL_CANDIDATES} "
+                       f"(imaginary modes {t_info}) -> species failed")
+        log(f"    !! {sp_warn[-1]}")
+        warnings.extend(sp_warn)
+        return None, None
     # sampling uncertainty: spread of Gens over the last few batches (0 if never moved / capped-tight)
     tail = gens_traj[-3:]
     sigma = float(np.std(tail)) if len(tail) > 1 else (last_dG if np.isfinite(last_dG) else 3.0)
@@ -297,7 +336,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         log(f"    !! {sp_warn[-1]}")
     else:
         meta = {"warnings": sp_warn, "n_minima": len(uniq), "n_seen": uniq.n_seen,
-                "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed}
+                "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed, "thermal": t_info}
         _sc.put(smi, q, "implicit", _settings, Gens + therm, sigma, meta=meta)
         for m in SOLV_ALSO:                               # other models on the same conformers + thermal; a
             vals = _complete_auxiliary_values(also[m])    # separate key ("via") -- NOT the value a primary
@@ -306,6 +345,36 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                         boltz(vals) + therm, sigma, meta=meta)
     warnings.extend(sp_warn)
     return Gens + therm, sigma
+
+
+def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log):
+    """RRHO correction at the lowest-G unique minimum that is a TRUE minimum. Candidates are the unique
+    minima in order of G (the Boltzmann-dominant states, not the lowest gas-phase energy); one with an
+    imaginary mode above thermal.IMAG_TOL_CM is re-optimised once more tightly (fmax 0.01 eV/Å) and, if
+    still not a minimum, the next candidate is tried. Returns (Gcorr, info) or (None, per-candidate info)."""
+    syms = [a.GetSymbol() for a in template.GetAtoms()]
+    if uniq.template is not None and uniq.ref:
+        order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])[:N_THERMAL_CANDIDATES]
+        cands = [uniq.ref[j].GetConformer().GetPositions() for j in order]
+    else:                                                 # legacy never-merge / moments mode
+        cands = [best[2]]
+    tried = []
+    for pos in cands:
+        for attempt in (0, 1):
+            g, info = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True)
+            if info["n_imag"] == 0:
+                info["retightened"] = bool(attempt)
+                return g, info
+            tried.append(info["max_imag_cm"])
+            if attempt == 0:                              # re-optimise tightly once, keep only if unrearranged
+                at = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
+                (at,), _, conv = batched_fire(pu, [at], fmax=0.01, steps=400, return_converged=True,
+                                              label=f"{name}-tight")
+                if not conv[0] or not same_connectivity(at, ref_graph):
+                    break
+                pos = at.get_positions()
+        log(f"    {name}: minimum candidate has an imaginary mode ({tried[-1]} cm-1) -> next candidate")
+    return None, tried
 
 
 def _add_minimum(uniq, also, atoms, e, sd):
@@ -485,7 +554,31 @@ def effective_config():
            "pka_table": _pk.PKA_TABLE_VERSION, "ph0_redox_proton": _pk._redox_proton_enabled(),
            "anchors": hashlib.sha256(anchors.encode()).hexdigest()[:12]}
     cfg.update({k.lower(): _flag(k) for k in sorted(FLAG_DEFAULTS)})
+    cfg["conditions"] = json.dumps(CONDITIONS, sort_keys=True)
+    cfg["software"] = _software_versions()
     return cfg
+
+
+@functools.lru_cache(maxsize=1)
+def _software_versions():
+    """Versions of the external codes whose numerics enter the result (fairchem/torch for UMA, RDKit for
+    conformers + SMILES handling, xtb for solvation); part of the configuration fingerprint."""
+    import importlib.metadata as md
+    import subprocess
+    out = {}
+    for pkg in ("fairchem-core", "torch", "rdkit", "ase", "numpy"):
+        try:
+            out[pkg] = md.version(pkg)
+        except md.PackageNotFoundError:
+            out[pkg] = None
+    try:
+        from metag.energetics.thermal import XTB
+        r = subprocess.run([XTB, "--version"], capture_output=True, text=True, timeout=30)
+        m = [ln for ln in (r.stdout + r.stderr).splitlines() if "xtb version" in ln]
+        out["xtb"] = m[0].split("version")[1].split()[0] if m else None
+    except Exception:
+        out["xtb"] = None
+    return json.dumps(out, sort_keys=True)
 
 
 def validate_reaction(reaction):
@@ -520,7 +613,7 @@ def validate_reaction(reaction):
                              f"{Chem.GetFormalCharge(m)} ({smi})")
 
 
-def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
+def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, force_neutral=False):
     """Structural routing -- pure logic, no QM: cofactor ring cores -> CoA / NTP cores -> full-vs-truncate
     gate -> spectator truncation -> pH-0 transform (-> optional zwitterion / neutral-QM invariant).
 
@@ -542,7 +635,7 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
     truncated = False                                        # did AUTO_TRUNCATE actually fire?
     routes = {"cofactor_ring": False, "coa_core": False, "ntp_core": False, "prefer_full": False,
               "truncated": False, "trunc_radius": None, "ph0": False, "zwitterion_ph0": False,
-              "errors": [], "warnings": [], "input_balanced": True}
+              "errors": [], "warnings": [], "reverted": [], "input_balanced": True}
     if not is_balanced(rx["species"], rx["n_Hplus"]):
         res, dq = reaction_residual(rx["species"], rx["n_Hplus"])
         routes["input_balanced"] = False
@@ -646,6 +739,23 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
                 tr = build_truncated_reaction_v2(rx["species"], radius=_rad)
                 if tr is not None:
                     log("  [v2 global-map truncation engaged]")
+            if tr is None:
+                # PROTONATION-CONSISTENT RETRY: the removed spectator must be identical on both sides, but sources
+                # draw the same moiety with different protons (ModelSEED: ATP's AMP part as [O-], ADP's as O), which
+                # fails the removed-fragment consistency guard. Retry on the max-anion (fully deprotonated) forms --
+                # only when pH-0 will re-neutralize the cores afterwards, so the scored microspecies is unchanged in
+                # kind; the core's n_H+ comes from its own H/charge and the balance guard checks the result.
+                from metag.routing.pka_transform import _canonicalize_maxanion, is_isomerization
+                if _flag("PH0_AUTO") and not rx.get("pka_sites") and not is_isomerization(rx["species"]):
+                    canon = {}
+                    for nm, (c, q, s_) in rx["species"].items():
+                        cs = _canonicalize_maxanion(s_)
+                        canon[nm] = [c, Chem.GetFormalCharge(Chem.MolFromSmiles(cs)), cs]
+                    if canon != {k: list(v) for k, v in rx["species"].items()}:
+                        tr = build_truncated_reaction(canon, radius=_rad)
+                        if tr is not None:
+                            routes["truncated_maxanion"] = True
+                            log("  [truncation on max-anion forms (protonation-consistent spectators)]")
             # VALIDITY GUARD (general): a truncation removes CONSERVED spectator parts and caps cut C-C
             # bonds FAR from functional groups. It must NEVER cut a bond ON a CATIONIC center: capping a
             # quaternary ammonium [N+](C)(C)(C) with H yields a PRIMARY ammonium CH2-NH3+ -- a different
@@ -667,7 +777,10 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
                     if onm not in orig:
                         continue
                     dc, do = cation_deg(s), cation_deg(orig[onm][2])
-                    if do and (not dc or max(dc) < max(do)):    # a retained cation LOST coordination -> mangled
+                    # mangled = a RETAINED cation lost coordination. A cation absent from the core (dc empty) was
+                    # removed WITH the spectator -- identical on both sides, so it cancels: not a mangle (this
+                    # branch used to reject ~89% of the truncations the guard blocked, e.g. SAM/SAH, carnitine)
+                    if do and dc and max(dc) < max(do):
                         return nm
                 return None
             if tr is not None:
@@ -740,7 +853,7 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
     # tail 54 -> 56 (glutamine synthetase +74 -> +26, but cyclic imino-acid reductases +9 -> +43): NOT adopted
     # -> default-off; re-test on the parametrized-solvation baseline (the neutral species it creates are
     # exactly where xtb-COSMO is weakest: FreeSolv polar R=0.38).
-    _neutral_all = _flag("NEUTRAL_QM")
+    _neutral_all = _flag("NEUTRAL_QM") or force_neutral     # force_neutral: re-route after a rearranged species
     _pre = rx
     if _flag("ZWITTERION_PH0") or _neutral_all:
         try:
@@ -765,6 +878,17 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):
     return rx, routes, truncated
 
 
+def _no_estimate(key, reaction, routes, reason, log):
+    """Fail-closed result with no number, used before any QM when the estimator cannot be applied."""
+    log(f"  ΔG = NONE ({reason})")
+    return dict(reaction=key, dG=None, dG_raw=None, dG_raw_unreliable=None, suspect=reason, routes=routes,
+                anchor=None, smd=None, water_ref=None, stages={}, conditions=CONDITIONS, config=effective_config(),
+                U_samp=None, sigma_pred=None, sigma_breakdown={}, ci95=[None, None], ci_center=None,
+                ci_info={"externally_calibrated": False, "calibration_scope": f"no estimate: {reason}"},
+                unresolved=None, exp=reaction.get("exp"), err=[], note=reaction.get("note", ""),
+                explicit=reaction.get("explicit", False), std_state_kJ=None, species_scored=None)
+
+
 def _balance_guard(step, before, after, routes, log, reset=None):
     """Keep `after` if it is balanced (or if `before` already was not); otherwise revert to `before`,
     record the error, and reset the step's route flags."""
@@ -775,15 +899,48 @@ def _balance_guard(step, before, after, routes, log, reset=None):
     res, dq = reaction_residual(after["species"], after["n_Hplus"])
     msg = (f"{step}: rewritten reaction not balanced (residual {res}, charge "
            f"{fmt_num(dq) if dq is not None else '?'}) -> step reverted")
-    routes["errors"].append(msg)
+    routes["reverted"].append(msg)                        # designed "not applicable" outcome, not an error
     log(f"  !! {msg}")
     for k, v in (reset or {}).items():
         routes[k] = v
     return before
 
 
+def _species_free_energies(pu, rx, routes, G, sig, std, seeds, keep, pool, log, requested_explicit,
+                           is_spectator_anion):
+    """Fill G/sig (kJ/mol, 1 M standard state) for every species of the routed reaction; stops at the first
+    species that fails (G[name] = None). Raises SpeciesRearranged (see implicit_G)."""
+    for name, (coeff, q, smi) in rx["species"].items():
+        if is_water(smi, q):                             # liquid water (hydrolysis / hydration)
+            G[name] = water_ref_G(pu, log); sig[name] = 0.0     # deterministic reference: no sampling σ
+            log(f"    {name:9s} q+0 [water ref liquid]: {G[name]:.1f}")
+        elif requested_explicit(name):
+            if is_spectator_anion(name):
+                G[name], sig[name] = explicit_G(pu, q, smi, seeds, log, name)
+            else:                                        # GUARD: explicit invalid here
+                log(f"    !! {name}: explicit REFUSED (created/destroyed anion, no "
+                    f"cancellation partner) -> implicit. Use pH-0 (pka_sites) for accuracy.")
+                G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name, routes["warnings"])
+        else:
+            G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name, routes["warnings"])
+        if G[name] is None:
+            log(f"    {name}: FAILED")
+            return                                           # caller sees the None and retries / fails
+        # 1 atm -> 1 M standard state, applied OUTSIDE the species cache (cached G stays on 1 atm). An
+        # explicit cluster is ONE solute minus n liquid waters: Gcl + c - n(Gw + c) -> extra -n·c.
+        G[name] += std
+        if requested_explicit(name) and is_spectator_anion(name) and not is_water(smi, q):
+            G[name] -= water_count(smi)[0] * std
+        try:                                                 # release per-species GPU memory so a
+            import torch                                      # later big species doesn't OOM from
+            if torch.cuda.is_available():                     # fragmentation left by earlier ones
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
+
+
 def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allow_truncate=True, key="rxn",
-                   trunc_radius=None, _validating=False):
+                   trunc_radius=None, _validating=False, _force_neutral=False):
     """Public entry point: score one reaction's standard transformed Gibbs energy (ΔrG'°) from structure.
 
     `reaction` = {"species": {name: [coeff, charge, smiles]}, "note": str, "n_Hplus": int,
@@ -803,7 +960,13 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     validate_reaction(reaction)
     orig_species = {k: list(v) for k, v in reaction["species"].items()}   # pre-routing, for the anchor gate
     rx, routes, truncated = route_reaction(reaction, allow_truncate=allow_truncate, trunc_radius=trunc_radius,
-                                           log=log)
+                                           log=log, force_neutral=_force_neutral)
+    routes["rearrangement_reroute"] = bool(_force_neutral)
+    if routes["errors"]:
+        # an UNEXPECTED exception inside a routing transform (expected misses return "not applicable" or
+        # are reverted by the balance guard): the reaction would silently be scored by a different
+        # estimator than the configured one -> fail closed, before spending any QM.
+        return _no_estimate(key, reaction, routes, "routing error: " + "; ".join(routes["errors"]), log)
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
     # `explicit` may be True/False (whole reaction) OR a list/set of species names
     # that need explicit first-shell waters (per-species triage: only the anion that
@@ -840,37 +1003,26 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # 10.94 -> 11.26 (Δn=+1 bias -2.8 -> +4.2, Δn=-1 +0.4 -> -6.4); that residual is reported as a known
     # limitation (a missing opposite-signed per-molecule solvation term), not hidden by dropping the term.
     std = STD_STATE_KJ if _flag("STD_STATE_1M") else 0.0
-    for name, (coeff, q, smi) in rx["species"].items():
-        if is_water(smi, q):                             # liquid water (hydrolysis / hydration)
-            G[name] = water_ref_G(pu, log); sig[name] = 0.0     # deterministic reference: no sampling σ
-            log(f"    {name:9s} q+0 [water ref liquid]: {G[name]:.1f}")
-        elif requested_explicit(name):
-            if is_spectator_anion(name):
-                G[name], sig[name] = explicit_G(pu, q, smi, seeds, log, name)
-            else:                                        # GUARD: explicit invalid here
-                log(f"    !! {name}: explicit REFUSED (created/destroyed anion, no "
-                    f"cancellation partner) -> implicit. Use pH-0 (pka_sites) for accuracy.")
-                G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name, routes["warnings"])
-        else:
-            G[name], sig[name] = implicit_G(pu, q, smi, seeds, keep, pool, log, name, routes["warnings"])
-        if G[name] is None:
-            log(f"    {name}: FAILED")
-            if truncated:                                    # a truncated core failed -> retry FULL molecules
-                log(f"  [retry {key} with truncation OFF (full molecules)]")
-                # re-score the ORIGINAL input dict (not a registry lookup: dict-API callers are not in REACTIONS)
-                return score_reaction(pu, reaction, seeds, keep, pool, log, allow_truncate=False, key=key)
+    try:
+        _species_free_energies(pu, rx, routes, G, sig, std, seeds, keep, pool, log, requested_explicit,
+                               is_spectator_anion)
+    except SpeciesRearranged as e:
+        # the input microspecies is not a gas-phase minimum (all conformers transferred a proton): score the
+        # reaction through the NEUTRAL-microspecies path instead, where that proton is accounted for by pKa
+        # terms. If it happens again there is no valid species to score -> no estimate.
+        if _force_neutral:
+            log(f"  !! {e} (already on the neutral-microspecies path) -> no estimate")
             return None
-        # 1 atm -> 1 M standard state, applied OUTSIDE the species cache (cached G stays on 1 atm). An
-        # explicit cluster is ONE solute minus n liquid waters: Gcl + c - n(Gw + c) -> extra -n·c.
-        G[name] += std
-        if requested_explicit(name) and is_spectator_anion(name) and not is_water(smi, q):
-            G[name] -= water_count(smi)[0] * std
-        try:                                                 # release per-species GPU memory so a
-            import torch                                      # later big species doesn't OOM from
-            if torch.cuda.is_available():                     # fragmentation left by earlier ones
-                torch.cuda.empty_cache()
-        except Exception:
-            pass
+        log(f"  [{e} -> re-route through the neutral-microspecies path]")
+        return score_reaction(pu, reaction, seeds, keep, pool, log, allow_truncate=allow_truncate, key=key,
+                              trunc_radius=trunc_radius, _validating=_validating, _force_neutral=True)
+    if any(v is None for v in G.values()) or len(G) < len(rx["species"]):
+        if truncated:                                        # a truncated core failed -> retry FULL molecules
+            log(f"  [retry {key} with truncation OFF (full molecules)]")
+            # re-score the ORIGINAL input dict (not a registry lookup: dict-API callers are not in REACTIONS)
+            return score_reaction(pu, reaction, seeds, keep, pool, log, allow_truncate=False, key=key,
+                                  _force_neutral=_force_neutral)
+        return None
     # ALDEHYDE HYDRATION (ALDEHYDE_HYDRATION, default-on, SELF-GATING): fold each hydratable aldehyde's
     # aqueous carbonyl<->gem-diol equilibrium into its effective G. The gem-diol is a +1-water microspecies
     # (parallel to protonation): G_eff = -RT ln[exp(-G_ald/RT)+exp(-(G_diol-G_water)/RT)]. Strongly hydrated
@@ -888,7 +1040,11 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                 continue
             if _gw is None:
                 _gw = water_ref_G(pu)
-            Gd, _sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)", routes["warnings"])
+            try:
+                Gd, _sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)", routes["warnings"])
+            except SpeciesRearranged as e:
+                routes["warnings"].append(f"hydration skipped: {e}")
+                continue
             if Gd is None:
                 continue
             Gd += std                                     # G[name] already carries std; put diol + water on 1 M too
@@ -899,6 +1055,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             sig[name] = float(np.hypot(sig.get(name, 0.0), _sd or 0.0))
 
     dG = sum(coeff * G[name] for name, (coeff, q, smi) in rx["species"].items())
+    stages = {"species_sum": dG, "proton": rx["n_Hplus"] * G_HPLUS}
     dG += rx["n_Hplus"] * G_HPLUS
     # propagate per-species sampling σ to a reaction sampling-uncertainty (quadrature).
     U_samp = float(np.sqrt(sum((coeff * sig[name])**2
@@ -906,7 +1063,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # pH-0 route: analytic pKa transform replaces the anion-solvation + explicit-proton terms.
     # EXACT Alberty form -RT*ln(1+10^(pH-pKa)) per proton (correct near AND above pH~pKa; the
     # linear RT*ln10*(pH-pKa) form wrongly makes a high-pKa site e.g. Pi's 12.35 count -5 kJ).
-    pka_total = 0.0
+    pka_total = 0.0                                      # stages["pka_transform"] after the loop
     for site in rx.get("pka_sites", []):
         side, pka = site[0], site[1]
         kind = site[2] if len(site) > 2 else "acid"
@@ -934,13 +1091,21 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     if not routes["input_balanced"]:
         m = "input reaction not element/charge balanced"
         suspect = m if suspect is None else f"{suspect}; {m}"
-    #  (2) magnitude sanity: |ΔrG'°| beyond a physical ceiling => unbound multi-anion, proton leak, or
-    #      a loader/QM failure (we have seen -3.6e6 kJ from a stale loader). Bound is generous.
-    _sanity = float(os.environ.get("DG_SANITY_KJ", "500"))
-    if abs(dG) > _sanity:
-        m = f"|ΔG|={abs(dG):.0f} > {_sanity:.0f} kJ (unphysical: proton leak / unbound anion / loader failure)"
+    #  (2) finiteness: a NaN/inf (failed species leaking through) is never a result.
+    if not math.isfinite(dG):
+        m = "non-finite ΔG"
         suspect = m if suspect is None else f"{suspect}; {m}"
-        log(f"  !! SUSPECT: {m} -> flagged; exclude from statistics.")
+    #  (3) magnitude diagnostic -- a WARNING, not a rejection. ΔG is extensive (a reaction written with
+    #      doubled coefficients has twice the ΔG; 4 aminophenol + 3 O2 -> 2 phenoxazinone + 6 H2O is ~ -900
+    #      kJ and physically right), so a fixed ceiling rejected valid reactions. The bound scales with the
+    #      reaction extent (largest non-water |coefficient|); the leaks it used to catch (unbalanced protons,
+    #      stale loaders) are now caught by the balance guard and charge closure.
+    extent = max([abs(c) for (c, q, s_) in rx["species"].values() if not is_water(s_, q)] or [1.0])
+    _sanity = float(os.environ.get("DG_SANITY_KJ", "500"))
+    if math.isfinite(dG) and abs(dG) > _sanity * extent:
+        m = f"|ΔG|={abs(dG):.0f} kJ > {_sanity:.0f} kJ x extent {fmt_num(extent)}: check (not rejected)"
+        routes["warnings"].append(m)
+        log(f"  !! {m}")
     # ANCHOR CORRECTION (ANCHOR_CORRECT, default-on): the SYSTEMATIC bond-type / anion-pattern sub-classes
     # (phosphagen P-N; phosphatase monoester, PPi excluded; thioester acyl-CoA ligase) carry a class-wide,
     # SIGN-CONSISTENT offset -- a bond-type reference error / shared anion-solvation error -- that CANCELS
@@ -955,12 +1120,19 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # It IS empirical (uses anchor reaction ΔrG'°) -- so anchors MUST be INDEPENDENT literature values,
     # NOT the scored benchmark, and results should report the pure-physics number alongside. Standard
     # per-class-calibration practice (Jinich/Alberty), physically justified, leave-anchors-out validated.
-    dG_raw = dG                                       # pure-physics ΔG (pre-anchor) -- ALWAYS reported
+    stages["pka_transform"] = pka_total
+    # dG_raw = the UNANCHORED estimate of the ROUTED reaction: Σν·G (incl. microspecies mixtures such as
+    # aldehyde hydration) + n_H+·G(H+) + pKa-transform terms. It contains no parameter fitted to reaction free
+    # energies, but it is not "raw QM of the input": routing (cores, truncation, neutral microspecies) has
+    # already been applied. The empirical terms after it (hydro-lyase water constant, anchors) are reported
+    # separately in `stages`.
+    dG_raw = dG
+    stages["unanchored"] = dG_raw
     anchor_meta = None                                # so the empirical correction is transparent
     if _flag("ANCHOR_CORRECT") and suspect is None:
         # NOT wrapped in a broad except: an anchor failure must not silently return the uncorrected dG_raw
         # as if the reaction were simply un-anchored (a caller/return-shape mismatch did exactly that).
-        from metag.routing.anchor import anchor_correct
+        from metag.routing.anchor import anchor_correct, subclass_extent
         ac = anchor_correct(dG, orig_species)
         if ac is not None:
             dG_corr, sig_anchor, sc, direction = ac
@@ -971,7 +1143,9 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             # class-level predictive error, which sigma_pred below carries via the calibrated
             # sigma_class (avoids double-counting). U_samp stays the conformer-sampling spread only.
             # "offset" is the signed correction actually applied (dG_raw - dG): +offset forward, -offset reverse.
+            stages["anchor"] = dG_corr - dG_raw
             anchor_meta = {"subclass": sc, "offset": round(dG_raw - dG_corr, 1), "direction": direction,
+                           "extent": subclass_extent(orig_species)[2],
                            "sigma": sig_anchor}
     # SMD SOLUTE-SOLVATION CORRECTION (SMD_SOLV, default-on): xtb-COSMO systematically UNDER-SOLVATES a
     # CREATED/DESTROYED compact polar/charged group (the solvation wall -- measured: a hydratase -OH is
@@ -999,6 +1173,8 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                 for name, (coeff, q, smi) in rx["species"].items():
                     if is_water(smi, q):                  # water stays on water_ref_G
                         continue
+                    if spin_multiplicity(smi, q) != 1:    # the SMD path is closed-shell RKS only
+                        corr = None; break
                     sym, crd = bare_geom(pu, q, smi)      # representative UMA-relaxed geometry
                     gc = xtb_dgsolv(sym, crd, q, "cosmo"); gs = smd_dgsolv(sym, crd, q)
                     if gc is None or gs is None:
@@ -1012,7 +1188,8 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                 elif corr is not None:
                     log(f"  [smd-solv: gate fired, |Δ|={abs(corr):.1f} < {thr} kJ -> not applied (cancels)]")
         except Exception as e:
-            log(f"  [smd-solv error: {e}; uncorrected]"); routes["errors"].append(f"smd_solv: {e}")
+            log(f"  [smd-solv error: {e}]"); routes["errors"].append(f"smd_solv: {e}")
+            suspect = f"smd_solv error: {e}" if suspect is None else suspect
     # WATER-REFERENCE CORRECTION for HYDRO-LYASES (WATER_REF_HYDROLYASE, default-on). ROOT CAUSE of the
     # hydratase wall: water_ref_G uses xtb-COSMO for the water molecule's ΔGsolv (-3.2 kJ) but experiment
     # is -26.4 (xtb-ALPB independently -25.4), so G_liq(water) is ~+23 kJ too high -> every net-water
@@ -1029,18 +1206,16 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # model (alpb/cpcmx) solvates water correctly (ALPB -25.4 vs exp -26.4), so it is not applied there.
     if (_flag("WATER_REF_HYDROLYASE") and suspect is None and SOLV_MODEL == "cosmo"
             and not _flag("WATER_REF_EXP")):
-        try:
-            from metag.routing.solv_gate import is_hydrolyase
-            if is_hydrolyase(orig_species):
-                dwref = float(os.environ.get("WATER_REF_DELTA", "-23.2"))   # exp(-26.4) - cosmo(-3.2)
-                nwat = sum(c for n, (c, q, s) in rx["species"].items() if is_water(s, q))
-                corr = nwat * dwref
-                if corr != 0:
-                    log(f"  [water-ref hydro-lyase: net_water={nwat} -> {corr:+.1f} kJ; ΔG {dG:+.1f} -> {dG+corr:+.1f}]")
-                    dG += corr
-                    water_meta = {"correction": round(corr, 1), "net_water": nwat}
-        except Exception as e:
-            log(f"  [water-ref error: {e}; uncorrected]"); routes["errors"].append(f"water_ref: {e}")
+        from metag.routing.solv_gate import is_hydrolyase
+        if is_hydrolyase(orig_species):
+            dwref = float(os.environ.get("WATER_REF_DELTA", "-23.2"))   # exp(-26.4) - cosmo(-3.2)
+            nwat = sum(c for n, (c, q, s) in rx["species"].items() if is_water(s, q))
+            corr = nwat * dwref
+            if corr != 0:
+                log(f"  [water-ref hydro-lyase: net_water={nwat} -> {corr:+.1f} kJ; ΔG {dG:+.1f} -> {dG+corr:+.1f}]")
+                dG += corr
+                water_meta = {"correction": round(corr, 1), "net_water": nwat}
+                stages["water_ref"] = corr
     # CALIBRATED prediction uncertainty for downstream flux / TFA. U_samp (conformer-sampling spread,
     # ~1-3 kJ) is NOT the prediction interval -- the SYSTEMATIC method error (per mechanism class) dominates
     # (~5-25 kJ). sigma_pred = sqrt(U_samp^2 + sigma_class^2), class-conditional and calibrated on the
@@ -1062,7 +1237,10 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     ci_lo, ci_hi, ci_center, ci_info = prediction_interval(_note, _smis, dG, level=95, species=orig_species,
                                                            U_samp=U_samp, config=cfg)
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
-    common = dict(reaction=key, anchor=anchor_meta, smd=smd_meta, water_ref=water_meta,
+    stages.update(reported=dG)
+    stages = {k: round(v, 2) for k, v in stages.items()}
+    common = dict(reaction=key, anchor=anchor_meta, smd=smd_meta, water_ref=water_meta, stages=stages,
+                  conditions=CONDITIONS,
                   U_samp=round(U_samp, 1), exp=rx.get("exp"), explicit=exp_out, suspect=suspect,
                   note=rx["note"], routes=routes, std_state_kJ=round(std, 2), config=cfg,
                   species_scored={k: list(v) for k, v in rx["species"].items()})
@@ -1079,8 +1257,9 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     errs = [dG - e for e in rx.get("exp", [])]              # exp is optional (deployment has no experiment)
     # RESOLUTION heuristic: if the CALIBRATED prediction interval is comparable to |ΔG|, the sign is not
     # resolvable -- flag it (near-equilibrium isomerases are concentration-limited, not QM-fixable).
-    unresolved = abs(dG) < sigma_pred
-    flag = "  [UNRESOLVED: |ΔG|<σ_pred]" if unresolved else ""
+    # sign unresolved at the REPORTED confidence level exactly when the 95% interval contains zero
+    unresolved = ci_lo <= 0.0 <= ci_hi
+    flag = "  [UNRESOLVED: ci95 contains 0]" if unresolved else ""
     log(f"  ΔG = {dG:+.1f} (raw {dG_raw:+.1f}) ± {sigma_pred} kJ/mol  "
         f"[σ_class {sigma_breakdown.get('sigma_class','?')} ({sigma_breakdown.get('class','?')}), U_samp {U_samp:.1f}]"
         f"   vs exp {rx.get('exp')}   err {[round(e,1) for e in errs]}{flag}")
