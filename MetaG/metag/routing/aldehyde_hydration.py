@@ -56,10 +56,16 @@ def gem_diol(smi):
     m = Chem.MolFromSmiles(smi)
     if m is None or not m.HasSubstructMatch(_ALDE) or not is_strongly_hydrated(smi):
         return None
-    prods = _RXN.RunReactants((m,))
-    if not prods:
-        return None
-    p = prods[0][0]
+    # hydrate the ACTIVATED aldehyde carbon (first atom of each _ACTIVATED pattern), not whichever CHO
+    # RunReactants happens to list first: in O=CCCC(=O)C=O that was the alkyl CHO, leaving the alpha-keto
+    # CHO -- the one the gate fired on -- unhydrated. Lowest index = deterministic.
+    c = min(match[0] for p in _ACTIVATED for match in m.GetSubstructMatches(p))
+    o = next(n.GetIdx() for n in m.GetAtomWithIdx(c).GetNeighbors()
+             if n.GetSymbol() == "O" and m.GetBondBetweenAtoms(c, n.GetIdx()).GetBondTypeAsDouble() == 2)
+    rw = Chem.RWMol(m)
+    rw.GetBondBetweenAtoms(c, o).SetBondType(Chem.BondType.SINGLE)
+    rw.AddBond(c, rw.AddAtom(Chem.Atom(8)), Chem.BondType.SINGLE)
+    p = rw.GetMol()
     try:
         Chem.SanitizeMol(p)
     except Exception:

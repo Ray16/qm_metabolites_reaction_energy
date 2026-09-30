@@ -133,6 +133,17 @@ Terse DECISIONS only (not an experiment log — results/status live in
   CALIBRATED method; the proven-clean method IS the deliverable; next value = ModelSEED GENERALIZATION, not
   more TECRDB squeezing.** See experiments/.../RUNNING_TASKS.md.
 
+- **MetaG code-review decisions (2026-09-30, pre-paper freeze):**
+  STD_STATE_1M default ON (xtb ΔG_solv is 1 M gas/1 M aq, RRHO is 1 atm -> the +7.93 kJ/species term is
+  required; its residual Δn bias is a disclosed limitation, not a reason to drop it). PH0_REDOX_PROTON
+  default ON (net-proton reactions carry n_H+ instead of being refused -> same metabolite routed the same
+  way everywhere; the old +/-1170 leaks were element-imbalanced rewrites, now reverted by
+  route_reaction's balance guard). pKa ladders for P-N (2.7/4.58), acyl-P (1.5/4.95), free carbonic acid
+  (3.6/10.33); flat 4.75 carboxyl KEPT (PKA_ENV partial table breaks cancellation). Anchors are
+  DIRECTION-AWARE (canonical = TECRDB anchor direction; reverse gets -offset). Invalid results FAIL CLOSED
+  (dG=None). Intervals are externally_calibrated only if effective_config() == artifact["config"].
+  Headline/network numbers use dG_raw (anchors break cycle closure). Final sweep: FRESH METAG_CACHE.
+
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
 branch `master`, SSH). Commit + push after each meaningful step; the daily cron

@@ -101,11 +101,16 @@ _ANCHOR_TO_CLASS = {
     "thioester_ppi":         "CoA-thioester",
     "thioester_pi":          "CoA-thioester",
     "phosphatase_monoester": "phosphatase",
-    "adenylylate_aliphatic": "adenylylate",
-    "adenylylate_aminoacid": "adenylylate",
-    "carboxyP":              "adenylylate",   # same mixed-anhydride Mg/NTP solvation family; nearest calibrated bucket (n=2, no own class)
+    # adenylylate offsets are referenced to an EXTERNAL indirect cycle and no member is in the TECRDB
+    # calibration set, so this bucket is never calibrated -> class_calibrated=False and the wide
+    # uncalibrated width (>= overall σ, >= the other/clean class). It used to share a bucket with carboxyP,
+    # whose two TECRDB rows then made "adenylylate" look calibrated on data containing no adenylylate.
+    "adenylylate_aliphatic": "adenylylate(external-ref)",
+    "adenylylate_aminoacid": "adenylylate(external-ref)",
+    "carboxyP":              "carboxyP",
     "amide_hydrolysis":      "amide/amidine-hydrolysis",
 }
+_DECARBOXYLASE = re.compile(r"(?<!de)carboxylase")   # "carboxylase" but not "decarboxylase"
 
 
 def mech_class(note, species_smiles, species=None):
@@ -139,7 +144,7 @@ def mech_class(note, species_smiles, species=None):
                             "phosphagen"]):
         return "phosphagen(P-N/Mg)"
     if ("ammonia-lyase" in n or "aspartase" in n or "tryptophanase" in n
-            or ("lyase" in n and "arginosucc" in n) or "adenylosuccinate lyase" in n
+            or ("lyase" in n and ("argininosucc" in n or "arginosucc" in n)) or "adenylosuccinate lyase" in n
             or ("cyclase" in n and "glutamate" in n)):
         return "ammonia-lyase"
     if (("dehydrogenase" in n and any(k in n for k in [
@@ -150,12 +155,13 @@ def mech_class(note, species_smiles, species=None):
     if "carbamoyltransfer" in n or "carbamoyl-transfer" in n:
         return "carbamoyltransfer"
     if any(k in n for k in ["amidohydrolase", "amidase", "aminoacylase", "urease", "deaminase",
-                            "pantothenase", "allantoicase"]):
+                            "pantothenase", "allantoicase", "asparaginase", "glutaminase"]):
         return "amide/amidine-hydrolysis"
     if any(k in n for k in ["flavin", "dihydroorotate dehydrogenase", "methylenetetrahydrofolat",
                             "dihydrolipoamide"]):
         return "flavin/FAD-redox"
-    if "hydratase" in n or "dehydratase" in n or "hydro-lyase" in n:
+    if ("hydratase" in n or "dehydratase" in n or "hydro-lyase" in n
+            or any(k in n for k in ["fumarase", "fumarate hydratase", "enolase", "aconitase"])):
         return "hydratase"
     if "aldolase" in n or "aldol" in n:
         return "aldolase"
@@ -165,8 +171,8 @@ def mech_class(note, species_smiles, species=None):
         return "phosphatase"
     if any(k in n for k in ["isomerase", "epimerase", "mutase", "cycloisomerase", "racemase"]):
         return "isomerase/mutase"
-    if any(k in n for k in ["kinase", "dikinase", "adenylyltransferase", "pyrophospho", "diphospho",
-                            "carboxylase"]):
+    if (any(k in n for k in ["kinase", "dikinase", "adenylyltransferase", "pyrophospho", "diphospho"])
+            or _DECARBOXYLASE.search(n)):          # ATP-dependent carboxylases; decarboxylases are NOT kinases
         return "kinase/phosphotransfer"
     if "dehydrogenase" in n or "oxidase" in n or "reductase" in n:
         return "NAD(P)-redox(other)"
@@ -199,6 +205,31 @@ def _load_global_q95():
 
 
 _GLOBAL_Q95 = _load_global_q95()
+
+
+def _load_calib_config():
+    try:
+        with open(_CALIB_PATH) as fh:
+            return json.load(fh).get("config")
+    except (OSError, ValueError):
+        return None
+
+
+CALIB_CONFIG = _load_calib_config()
+
+
+def calibration_mismatch(config):
+    """List of reasons the runtime pipeline configuration differs from the one the artifact was calibrated
+    on (empty = same estimator). `config` = metag.pipeline.effective_config(). No config supplied, or an
+    artifact without a fingerprint, counts as a mismatch: coverage is only validated for the exact
+    estimator that was calibrated, so an unverifiable configuration must not be reported as calibrated."""
+    if config is None:
+        return ["runtime configuration not supplied (pass config=metag.pipeline.effective_config())"]
+    if not CALIB_CONFIG:
+        return ["calibration artifact records no configuration fingerprint (re-run metag.tools.calibrate)"]
+    keys = sorted(set(config) | set(CALIB_CONFIG))
+    return [f"{k}: runtime {config.get(k)!r} != calibrated {CALIB_CONFIG.get(k)!r}"
+            for k in keys if config.get(k) != CALIB_CONFIG.get(k)]
 
 
 def _class_width(cls):
@@ -234,12 +265,15 @@ def _ood(species):
         return None
 
 
-def _scope(calibrated, ood_info):
+def _scope(calibrated, ood_info, mismatch=()):
     """Is the interval externally calibrated (validated coverage) or nominal?"""
     flags = (ood_info or {}).get("flags") or []
-    ext = bool(calibrated and not flags)
+    ext = bool(calibrated and not flags and not mismatch)
     if ext:
         note = "in-distribution: nested-CV coverage on TECRDB applies"
+    elif mismatch:
+        note = ("interval not externally calibrated: runtime configuration differs from the calibrated one ("
+                + "; ".join(mismatch) + ")")
     elif not calibrated:
         note = "interval not externally calibrated: class absent from calibration set (nominal width)"
     else:
@@ -247,7 +281,7 @@ def _scope(calibrated, ood_info):
     return ext, note
 
 
-def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp=0.0):
+def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp=0.0, config=None):
     """Symmetric prediction interval for the TRUE ΔrG'° given the pipeline's dG. Returns
     (lo, hi, center, breakdown); center == dG (no de-biasing).
 
@@ -257,6 +291,7 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp
     is CV-calibrated; other levels scale m and q95abs by the Gaussian z-ratio and are reported with
     level_calibrated=False. An asymmetric de-biased interval was tried and CV-rejected (OOD-fragile).
     `species` (full {name:[coeff,charge,smi]} dict) enables structural class detection; recommended.
+    `config` = metag.pipeline.effective_config(); externally_calibrated requires it to match the artifact.
     """
     cls = mech_class(note, species_smiles, species)
     st = CLASS_STATS.get(cls, {})
@@ -271,12 +306,14 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp
         zr = NormalDist().inv_cdf(0.5 + level / 200.0) / NormalDist().inv_cdf(0.975)
         m, q = _INTERVAL_MULT * zr, q95abs * zr
     hw = max(m * s, q)
-    ext, scope = _scope(calibrated, ood_info)
+    mismatch = calibration_mismatch(config)
+    ext, scope = _scope(calibrated, ood_info, mismatch)
     return round(dG - hw, 1), round(dG + hw, 1), round(dG, 1), {"class": cls, "level": level,
             "level_calibrated": level == 95,
             "sigma": round(s, 1), "sigma_class": s_cls, "U_samp": float(U_samp or 0.0),
             "sigma_mult": round(m, 3), "half_width": round(hw, 1), "q95abs": round(q, 1),
             "class_calibrated": calibrated, "externally_calibrated": ext, "calibration_scope": scope,
+            "config_mismatch": mismatch,
             "ood": bool(ood_info and ood_info["ood"]),
             "ood_reasons": (ood_info["reasons"] if ood_info else []),
             "ood_flags": (ood_info["flags"] if ood_info else []),
@@ -285,7 +322,7 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp
             "do NOT also widen"}
 
 
-def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
+def reaction_sigma(note, species_smiles, U_samp=0.0, species=None, config=None):
     """Return (sigma_total_kJ, breakdown_dict). Independent error sources added in quadrature:
       sigma_total = sqrt(U_samp^2 + sigma_class^2)
     `species_smiles` = final (possibly truncated/neutralised) species SMILES. `U_samp` = the
@@ -313,7 +350,7 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
     else:
         oa = None
     br["class_calibrated"] = calibrated
-    br["externally_calibrated"], br["calibration_scope"] = _scope(calibrated, oa)
+    br["externally_calibrated"], br["calibration_scope"] = _scope(calibrated, oa, calibration_mismatch(config))
     return round(sigma, 1), br
 
 

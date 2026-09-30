@@ -206,7 +206,7 @@ def _count_thioesters(species):
     for _, (c, q, s) in species.items():
         m = Chem.MolFromSmiles(s)
         if m is not None:
-            n += abs(int(c)) * len(m.GetSubstructMatches(_THIOESTER_SM))
+            n += abs(c) * len(m.GetSubstructMatches(_THIOESTER_SM))
     return n
 
 
@@ -258,6 +258,15 @@ def build_truncated_reaction(species_dict, radius=2):
     if len(R) != len(P):                              # unequal sides -> pairing ill-posed
         return None
     res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius)
+    # GUARDS A+B (computed by truncate_reaction, previously never enforced): the removed spectator must be
+    # the SAME fragment multiset on both sides (else it does not cancel -- e.g. fragments differing in
+    # stereochemistry), and the cores must balance in heavy atoms. H and charge are closed by n_H+, which
+    # is checked below (check_balance's own atom/charge flags ignore the proton, so they are not used).
+    if not res["consistent"]:
+        return None
+    heavy = lambda side: {k: v for k, v in res["balance"][side].items() if k != "H"}
+    if heavy("left") != heavy("right"):
+        return None
     caps = res["species"]
     if (sum(d["side"] == "reactant" for d in caps) != len(R)
             or sum(d["side"] == "product" for d in caps) != len(P)):

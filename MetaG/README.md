@@ -87,12 +87,25 @@ print(r["dG"], r["dG_raw"], r["ci95"], r["sigma_pred"])
 The result carries both the **anchored** `dG` and the **pure-physics** `dG_raw`, the calibrated
 `sigma_pred`, a symmetric 95% interval `ci95` built on the same σ (class σ ⊕ conformer-sampling
 `U_samp`), `ci_info["externally_calibrated"]` / `calibration_scope` (see *Honesty*), and `routes`
-(which structural transforms fired: cofactor ring, truncation, pH-0, and any routing errors).
+(which structural transforms fired: cofactor ring, truncation, pH-0, and any routing errors/warnings),
+plus `config`, the fingerprint of the configuration that produced the number.
+
+**Invalid input is refused; invalid results fail closed.** `score_reaction` raises `ValueError` if a SMILES
+does not parse or a declared charge differs from the SMILES formal charge. Every routing rewrite (cofactor
+cores, truncation, pH-0) must keep the reaction element- and charge-balanced with its proton count in
+`n_H+`; a step that breaks balance is reverted and recorded in `routes["errors"]`. A reaction that is
+still suspect (unbalanced input, charge leak, |ΔG| > 500 kJ) returns `dG = dG_raw = None`,
+`ci95 = [None, None]` and `externally_calibrated = False`; the raw number is kept only as
+`dG_raw_unreliable` for diagnosis.
 
 **Thermodynamic conventions.** Solutes at 1 M, liquid water at 55.34 M, H⁺ at pH 7 (ionic strength 0).
-Gas-phase RRHO free energies are at 1 atm, so every species gets the 1 atm → 1 M term RT ln 24.46 =
-7.93 kJ/mol (`STD_STATE_KJ`; applied outside the species cache; `STD_STATE_1M=0` disables it for A/B).
-The proton free energy uses the Tissandier 1 atm → 1 M value, so it is on the same convention.
+Gas-phase RRHO free energies are at 1 atm while xtb reports ΔG_solv on the 1 M(gas) → 1 M(aq) reference,
+so every species gets the 1 atm → 1 M term RT ln 24.46 = 7.93 kJ/mol (`STD_STATE_KJ`; **on by default**,
+applied outside the species cache; `STD_STATE_1M=0` disables it for A/B only). The proton free energy uses
+the Tissandier 1 atm → 1 M value, so it is on the same convention. Known limitation: with the term on,
+reactions that change the number of molecules show a residual bias of a few kJ per molecule in both
+directions, the signature of a missing opposite-signed per-molecule solvation term; it is reported, not
+removed by dropping the required term.
 
 **Optional validation gates.** `TRUNC_VALIDATE=1` scores each truncated reaction at cut radius R and R+1
 and keeps the truncation only if ΔG is radius-invariant (otherwise full molecules); off by default
@@ -105,6 +118,9 @@ The pure-logic layer is usable with no GPU:
 from metag import uncertainty
 lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["OC(=O)CC(O)C(=O)O"], 5.0)
 ```
+
+Without `config=metag.pipeline.effective_config()` the interval is reported with
+`externally_calibrated = False`: coverage is validated only for the exact configuration that was calibrated.
 
 ## Honesty
 
@@ -141,13 +157,32 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
   lower bounds on the real uncertainty. OOD flags do not inflate σ (a structural "widen if unusual"
   floor would fire on exactly the frontier reactions the method exists to score). Classes absent from
   the calibration set get at least the overall σ and the global heavy-tail floor, never a narrower interval.
-- **Interval form.** Symmetric: half-width = max(m·√(σ_class² + U_samp²), q95abs), with m chosen by
-  nested CV so held-out coverage is at least 95%. Only `level=95` is CV-calibrated; other levels are
+- **Interval form.** Symmetric: half-width = max(m·√(σ_class² + U_samp²), q95abs). m is fitted on the
+  calibration set (smallest m with ≥ 96.5% in-sample coverage); nested 5-fold CV, refitting m, σ, q95abs
+  and the TECRDB-referenced anchor offsets in every fold, then measures held-out coverage. Report that
+  number with its binomial interval (n ≈ 360 → about ±2%), not as "≥ 95%". Class splits and pool exclusions
+  were chosen with sight of the full TECRDB residuals, which the CV cannot account for. Only `level=95` is CV-calibrated; other levels are
   Gaussian-scaled and flagged `level_calibrated = False`. The class bias is reported as point-estimate
   metadata (`point_bias`), not baked into a de-biased center (an asymmetric de-bias was CV-rejected).
-- **The shipped calibration must match the deployed pipeline.** Any change to physics, routing or anchors
-  requires a TECRDB re-sweep and `calibrate()`; `data/sigma_class_calibrated.json` records the
-  pipeline configuration it was computed from.
+- **The shipped calibration must match the deployed pipeline, and this is enforced.** Every result carries
+  `config` (`metag.pipeline.effective_config()`: model, physics version, solvation, sampling, every
+  routing/correction switch, pKa table, a hash of the anchor offsets). The artifact stores the fingerprint
+  it was calibrated on; any difference (or a missing fingerprint) sets `externally_calibrated = False` and
+  lists the differences in `ci_info["config_mismatch"]`. Rebuild after any change:
+
+  ```bash
+  # 1. sweep TECRDB with ONE configuration and a FRESH species cache (METAG_CACHE=<new dir>)
+  # 2. refresh the TECRDB-referenced anchor offsets, update ANCHORS, re-assemble (cache hits, no new QM)
+  python -m metag.tools.calibrate <sweep_dir> --refit-anchors
+  # 3. rebuild the artifact (refuses a sweep that mixes configurations)
+  python -m metag.tools.calibrate <sweep_dir>
+  ```
+- **Anchors are direction-aware.** Each sub-class is defined in one direction (the one its TECRDB anchor
+  reactions are written in: P–N created, thioester created, monoester/amide hydrolysed, …); the reverse
+  reaction gets the opposite-signed offset, so the anchored ΔG is antisymmetric under reversal.
+  Anchors are still per-reaction corrections, so `dG` does **not** close around cycles through anchored
+  and un-anchored reactions (e.g. hexokinase + glucose-6-phosphatase − ATP hydrolysis). For network use
+  (TFA/MDF, cycle closure) prefer `dG_raw`.
 
 ## Tests
 

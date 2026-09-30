@@ -59,16 +59,20 @@ DISCIPLINE:
 """
 from rdkit import Chem
 
+from metag.chem import is_water
+
 _PHOSPHORAMIDATE = Chem.MolFromSmarts("[#7]-[PX4](=O)")     # N-P(=O): phosphagen P-N bond
 _PYRO = Chem.MolFromSmarts("[PX4]-O-[PX4]")                 # P-O-P: pyrophosphate / NTP anhydride
-_MONOESTER = Chem.MolFromSmarts("[#6]-[OX2]-[PX4](=O)")     # C-O-P: phosphate monoester
+# C-O-P phosphate MONOESTER: the P carries exactly one ester O plus two terminal OH/O-. The looser
+# "[#6]-[OX2]-[PX4](=O)" also matched both C-O-P links of a DIESTER (cAMP, glycerophosphoinositol), so
+# phosphodiesterases (diester -> monoester, net monoester +1 per link) were mis-detected as phosphatases.
+_MONOESTER = Chem.MolFromSmarts("[#6]-[OX2]-[PX4](=[OX1])(-[OX1-,OX2H1])-[OX1-,OX2H1]")
 _THIOESTER = Chem.MolFromSmarts("[#6X3](=O)[SX2]")          # C(=O)-S: thioester (acyl-CoA)
 _MIXEDANHYDRIDE = Chem.MolFromSmarts("[#6X3](=O)[OX2][PX4]")  # C(=O)-O-P: acyl/aminoacyl-adenylate anhydride
 _ACYCLIC_AMIDE = Chem.MolFromSmarts("[CX3;!R](=[OX1])[NX3]")  # acyl/carbamoyl amide, carbonyl NOT in a ring
 _CATION = Chem.MolFromSmarts("[N+]")                         # permanent/protonated cationic nitrogen
 _ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+][CX4][CX3](=O)[OX1-,OX2H1]")  # alpha-amino acid backbone
 _CARBOXYL = Chem.MolFromSmarts("[CX3](=O)[OX2H1,OX1-]")     # carboxylic acid / carboxylate
-_WATER = {"O", "[OH2]"}
 
 
 def _is_ppi(m):
@@ -162,7 +166,7 @@ def _mols(species):
         m = Chem.MolFromSmiles(smi)
         if m is None:
             return None
-        ms.append((int(coeff), smi, m))
+        ms.append((float(coeff), smi, m))            # fractional coefficients (ModelSEED 0.5 O2) kept
     return ms
 
 
@@ -189,14 +193,15 @@ def _net_skeleton_carboxyl(ms):
     return sum(c * len(m.GetSubstructMatches(_CARBOXYL)) for c, _, m in ms if m.GetNumHeavyAtoms() > 4)
 
 
-def subclass(species):
-    """Structural detection of a systematic anion sub-class, or None. Anion-pattern based (not by error).
-    Returns a name that may or may not be a key in ANCHORS -- a detected-but-excluded case (e.g. a
-    cationic-adjacent phosphatase monoester) returns its own name so callers/diagnostics can see it was
-    recognized, but anchor_correct() will not apply a correction unless the name is in ANCHORS."""
-    ms = _mols(species)
-    if ms is None:
-        return None
+def _detect(ms):
+    """Sub-class of a reaction written in the class's CANONICAL direction, or None.
+
+    Every class is defined in ONE direction -- the direction all its TECRDB anchor members are written
+    in (P-N created, thioester created, P-O-P consumed, monoester / amide hydrolysed, PPi released) -- so
+    the offset has one sign. The reverse reaction is handled by subclass_dir(), which flips the sign.
+    (Detecting on "net change != 0" fired in BOTH directions with the same-signed offset: reversed
+    creatine kinase got -56 kJ instead of +56, a 112 kJ error, and the one-directional classes left
+    reversed reactions uncorrected, so ΔG(reverse) != -ΔG(forward).)"""
     ppi = _produces_ppi(ms)
     # adenylyl-transfer (acyl/aminoacyl-adenylate synthetases): free PPi is PRODUCED and a mixed
     # anhydride C(=O)-O-P is FORMED (ATP + carboxylate -> acyl-AMP + PPi). CHECKED BEFORE phosphagen:
@@ -206,16 +211,17 @@ def subclass(species):
     if ppi > 0 and _net_count(ms, _MIXEDANHYDRIDE) > 0:
         is_aminoacid = any(c < 0 and m.HasSubstructMatch(_ALPHA_AMINO_ACID) for c, _, m in ms)
         return "adenylylate_aminoacid" if is_aminoacid else "adenylylate_aliphatic"
-    # phosphagen: a P-N phosphoramidate is created/destroyed -- but NOT an adenylyl-transfer (which
-    # produces PPi, not ADP). The PPi guard stops N-adenylates being mis-corrected as creatine kinase.
-    if _net_count(ms, _PHOSPHORAMIDATE) != 0 and ppi <= 0:
+    # phosphagen: a P-N phosphoramidate is CREATED (ATP + guanidine -> ADP + phosphagen) -- but NOT an
+    # adenylyl-transfer (which produces PPi, not ADP). The PPi guard stops N-adenylates being
+    # mis-corrected as creatine kinase.
+    if _net_count(ms, _PHOSPHORAMIDATE) > 0 and ppi <= 0:
         return "phosphagen"
-    # thioester (acyl-CoA ligation): a C(=O)-S thioester is created/destroyed AND a phosphoanhydride (NTP)
-    # is consumed -> an ATP-driven acyl-CoA ligase/transferase. The P-O-P requirement excludes the
-    # redox-acylating dehydrogenase (no NTP), whose error is a different (redox) mechanism. SPLIT by
-    # whether free PPi is released (acyl-adenylate intermediate) or ADP/GDP+Pi (direct acyl-phosphate) --
-    # see ANCHORS docstring, item 3.
-    if _net_count(ms, _THIOESTER) != 0 and _net_count(ms, _PYRO) != 0:
+    # thioester (acyl-CoA ligation): a C(=O)-S thioester is CREATED AND a phosphoanhydride (NTP) is
+    # consumed -> an ATP-driven acyl-CoA ligase. The P-O-P requirement excludes the redox-acylating
+    # dehydrogenase (no NTP), whose error is a different (redox) mechanism. SPLIT by whether free PPi is
+    # released (acyl-adenylate intermediate) or ADP/GDP+Pi (direct acyl-phosphate) -- see ANCHORS
+    # docstring, item 3.
+    if _net_count(ms, _THIOESTER) > 0 and _net_count(ms, _PYRO) < 0:
         return "thioester_ppi" if ppi > 0 else "thioester_pi"
     # carboxy-phosphate (biotin/ATP carboxylase): CO2/bicarbonate consumed + ATP P-O-P consumed + a
     # carboxyl CREATED on a carbon skeleton. The mixed anhydride is an intermediate (not in the net eqn)
@@ -232,30 +238,56 @@ def subclass(species):
     # hydantoinases are a separate near-zero population and aromatic-ring deaminases don't match. Checked
     # AFTER the phosphate/thioester/carboxyP classes (all require a phosphate this class lacks) so those win
     # any overlap; the _PYRO guard is belt-and-suspenders. Water-consuming + net acyclic amide destroyed.
-    if (any(c < 0 and smi in _WATER for c, smi, _ in ms) and _net_count(ms, _ACYCLIC_AMIDE) < 0
-            and not any(m.HasSubstructMatch(_PYRO) for _, _, m in ms)):
+    # NOTE: the pool includes carbamate hydrolysis (rxn45677, carbamate -> bicarbonate + NH4+), i.e.
+    # "carbamoyl amide" is in scope by design, not by accident.
+    water_consumed = any(c < 0 and is_water(smi) for c, smi, _ in ms)
+    has_pop = any(m.HasSubstructMatch(_PYRO) for _, _, m in ms)
+    if water_consumed and _net_count(ms, _ACYCLIC_AMIDE) < 0 and not has_pop:
         return "amide_hydrolysis"
     # phosphatase monoester: hydrolysis (water consumed) that DESTROYS a C-O-P monoester, NO P-O-P present.
     # A monoester bearing its own adjacent permanent/protonated cation (phosphocholine, phosphoserine)
     # is a DIFFERENT, unresolved sub-case -- detected but excluded from ANCHORS (see docstring item 2):
     # its raw pipeline output is already near-correct, and the majority offset makes it worse.
-    has_water_react = any(c < 0 and smi in _WATER for c, smi, _ in ms)
-    has_pop = any(m.HasSubstructMatch(_PYRO) for _, _, m in ms)
-    net_monoester = _net_count(ms, _MONOESTER)          # <0 = a monoester destroyed (hydrolysed)
-    if has_water_react and not has_pop and net_monoester < 0:
+    if water_consumed and not has_pop and _net_count(ms, _MONOESTER) < 0:
         cationic = any(c < 0 and m.HasSubstructMatch(_MONOESTER) and m.HasSubstructMatch(_CATION)
                        for c, _, m in ms)
         return "phosphatase_monoester_cationic" if cationic else "phosphatase_monoester"
     return None
 
 
+def subclass_dir(species):
+    """(sub-class, direction) for a reaction, or (None, 0). direction = +1 if the reaction is written in
+    the class's canonical direction (see _detect), -1 if it is the reverse. The forward reading wins if
+    both readings match (never observed on TECRDB)."""
+    ms = _mols(species)
+    if ms is None:
+        return None, 0
+    sc = _detect(ms)
+    if sc is not None:
+        return sc, +1
+    sc = _detect([(-c, smi, m) for c, smi, m in ms])
+    if sc is not None:
+        return sc, -1
+    return None, 0
+
+
+def subclass(species):
+    """Structural detection of a systematic anion sub-class (either direction), or None. Anion-pattern
+    based (not by error). Returns a name that may or may not be a key in ANCHORS -- a detected-but-excluded
+    case (e.g. a cationic-adjacent phosphatase monoester) returns its own name so callers/diagnostics can
+    see it was recognized, but anchor_correct() will not apply a correction unless the name is in ANCHORS."""
+    return subclass_dir(species)[0]
+
+
 def anchor_correct(dG, species):
-    """Return (dG_corrected, sigma, subclass_name) if a systematic sub-class is detected AND has a
-    validated offset, else None (caller reports dG_raw). A subclass name detected but absent from
+    """Return (dG_corrected, sigma, subclass_name, direction) if a systematic sub-class is detected AND has
+    a validated offset, else None (caller reports dG_raw). The offset is defined for the canonical
+    direction; a reversed reaction gets the opposite-signed correction, so the anchored ΔG stays
+    antisymmetric: anchor(-ΔG, reversed) == -anchor(ΔG, forward). A subclass name detected but absent from
     ANCHORS -- e.g. phosphatase_monoester_cationic -- deliberately falls through to None: it is a
     recognized, structurally distinct case whose correction is not yet trustworthy enough to apply."""
-    sc = subclass(species)
+    sc, direction = subclass_dir(species)
     if sc is None or sc not in ANCHORS:
         return None
     a = ANCHORS[sc]
-    return dG - a["offset"], a["sigma"], sc
+    return dG - direction * a["offset"], a["sigma"], sc, direction

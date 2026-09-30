@@ -8,7 +8,8 @@ version = "0.1.0"
 description = "First-principles (UMA MLIP) reaction free energies for metabolism, with calibrated uncertainty"
 readme = "README.md"
 requires-python = ">=3.10"
-# Pure-logic layer (routing, corrections, uncertainty) needs only these:
+# Pure-logic layer (routing, corrections, uncertainty) needs only these. metag.pipeline itself imports the
+# QM backend (ase/torch/fairchem) at module load, so it needs the [qm] extra even for route_reaction().
 dependencies = [
     "numpy",
     "rdkit",
@@ -23,6 +24,8 @@ qm = [
 ]
 test = [
     "pytest",
+    "ase",       # the pipeline module (and its mocked CPU tests) imports ase
+    "sympy",     # metag.tools.cycle_closure exact cycle basis
 ]
 
 [tool.setuptools.packages.find]

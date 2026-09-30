@@ -85,14 +85,45 @@ def test_isomerization_not_anchored():
     assert anchor.anchor_correct(5.0, ISOMERIZATION) is None
 
 
-def test_anchor_correct_subtracts_offset():
+def test_anchor_correct_applies_signed_offset():
     dG = 60.0
     out = anchor.anchor_correct(dG, PHOSPHAGEN)
     assert out is not None
-    dG_corr, sigma, sc = out
-    assert sc == "phosphagen"
-    assert abs(dG_corr - (dG - anchor.ANCHORS["phosphagen"]["offset"])) < 1e-6
+    dG_corr, sigma, sc, direction = out
+    # the PHOSPHAGEN fixture DESTROYS the P-N bond (phosphagen hydrolysis); the class's canonical direction
+    # (all TECRDB anchors: kinases) CREATES it -> reverse reading, offset applied with the opposite sign
+    assert sc == "phosphagen" and direction == -1
+    assert abs(dG_corr - (dG + anchor.ANCHORS["phosphagen"]["offset"])) < 1e-6
     assert sigma > 0
+
+
+def _reverse(sp):
+    return {k: [-v[0], v[1], v[2]] for k, v in sp.items()}
+
+
+def test_anchor_antisymmetric_under_reversal():
+    # writing a reaction backwards must flip the anchored ΔG exactly: anchor(-ΔG, rev) == -anchor(ΔG, fwd).
+    # (Detection used to fire on "net change != 0" with a fixed-sign offset: reversed creatine kinase got
+    # -56 kJ instead of +56; one-directional classes left reversed reactions uncorrected.)
+    for sp in (PHOSPHAGEN, THIOESTER, PHOSPHATASE, ADENYLYLATE, ADENYLYLATE_AMINOACID, CARBOXYP):
+        fwd = anchor.anchor_correct(30.0, sp)
+        rev = anchor.anchor_correct(-30.0, _reverse(sp))
+        assert fwd is not None and rev is not None, sp
+        assert fwd[2] == rev[2] and fwd[3] == -rev[3]
+        assert abs(fwd[0] + rev[0]) < 1e-9
+
+
+def test_diester_hydrolysis_not_phosphatase():
+    # cAMP phosphodiesterase (diester -> monoester) must not get the phosphatase-monoester offset
+    pde = {"cAMP": [-1, -1, "Nc1ncnc2c1ncn2[C@@H]1O[C@@H]3COP(=O)([O-])O[C@H]3[C@H]1O"], "H2O": [-1, 0, "O"],
+           "AMP": [1, -2, "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"]}
+    assert anchor.subclass(pde) is None
+
+
+def test_water_spelling_irrelevant():
+    # explicit-H water must be recognised as water by the hydrolysis classes
+    sp = {k: ([v[0], v[1], "[H]O[H]"] if v[2] == "O" else v) for k, v in PHOSPHATASE.items()}
+    assert anchor.subclass(sp) == anchor.subclass(PHOSPHATASE) == "phosphatase_monoester"
 
 
 def test_all_anchors_offsets_signed_consistently():

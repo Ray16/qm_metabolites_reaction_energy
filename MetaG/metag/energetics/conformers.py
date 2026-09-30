@@ -34,10 +34,15 @@ from metag.energetics.uma import load_uma, batched_fire, batched_energies
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "artifacts")
-CACHE = os.path.join(OUT, "cache_conf")
-os.makedirs(CACHE, exist_ok=True)
+CACHE = os.path.join(OUT, "cache_conf")        # legacy step4e script only (created in main())
 EV2KJ = 96.485
 HARTREE2KJ = 2625.4996
+# Energy half of the unique-minimum test (kJ). UMA total energies are float32, whose step at |E| ~ 1e5 eV
+# (ATP / NAD / CoA) is 0.0078 eV = 0.75 kJ: the old 0.5 kJ tolerance was BELOW the resolution, so two
+# relaxations into the same basin merged only if their energies rounded identically, and every unmerged
+# copy added a spurious -RT ln N. The tolerance is now max(DEDUP_E_TOL, 2 float32 steps of E); the RMSD
+# test remains the real identity criterion.
+DEDUP_E_TOL = 1.5
 KT = 2.4789
 THERMAL_FIXED = -0.8
 EXP = -4.2
@@ -85,11 +90,18 @@ class UniqueMinima:
     Chem.AddHs(MolFromSmiles(smi))). Without a template (explicit water clusters) it falls back to
     energy + principal moments (can merge mirror images; that path is off by default)."""
 
-    def __init__(self, e_tol=0.5, rmsd_tol=0.25, template=None, rot_tol=0.01, max_matches=20000):
+    def __init__(self, e_tol=DEDUP_E_TOL, rmsd_tol=0.25, template=None, rot_tol=0.01, max_matches=20000):
         self.e_tol, self.rmsd_tol, self.rot_tol = e_tol, rmsd_tol, rot_tol
         self.template, self.max_matches = template, max_matches
         self.E, self.G, self.ref = [], [], []
         self.n_seen = 0
+
+    def _e_tol(self, e):
+        """Energy tolerance at energy e (kJ): never below 2 float32 steps of the UMA energy in eV.
+        A negative e_tol (legacy A/B: never merge) is returned unchanged."""
+        if self.e_tol < 0:
+            return self.e_tol
+        return max(self.e_tol, 2.0 * float(np.spacing(np.float32(abs(e) / EV2KJ))) * EV2KJ)
 
     def _mol_at(self, atoms):
         from rdkit import Chem as _C
@@ -103,7 +115,7 @@ class UniqueMinima:
         return m
 
     def _same(self, e, rep, j):
-        if abs(e - self.E[j]) >= self.e_tol:
+        if abs(e - self.E[j]) >= self._e_tol(e):
             return False
         if self.template is None:
             ref = np.maximum(np.maximum(np.abs(rep), np.abs(self.ref[j])), 1e-3)
@@ -126,6 +138,28 @@ class UniqueMinima:
 
     def __len__(self):
         return len(self.G)
+
+
+def bond_graph(template):
+    """Set of bonded atom-index pairs of an RDKit molecule WITH explicit H (atom order = pool_confs)."""
+    return {tuple(sorted((b.GetBeginAtomIdx(), b.GetEndAtomIdx()))) for b in template.GetBonds()}
+
+
+def perceived_graph(atoms, scale=1.25):
+    """Bonded pairs perceived from 3D geometry: d_ij < scale * (r_cov,i + r_cov,j). With scale 1.25 an
+    O-H covalent bond (0.97 A) is < 1.21 A but a hydrogen bond (>= 1.5 A) is not; P-O (1.6 A) < 2.16 A."""
+    pt = Chem.GetPeriodicTable()
+    r = np.array([pt.GetRcovalent(int(z)) for z in atoms.get_atomic_numbers()])
+    x = atoms.get_positions()
+    d = np.linalg.norm(x[:, None, :] - x[None, :, :], axis=-1)
+    i, j = np.where(np.triu(d < scale * (r[:, None] + r[None, :]), k=1))
+    return set(zip(i.tolist(), j.tolist()))
+
+
+def same_connectivity(atoms, ref_graph):
+    """False if relaxation changed the bonding (e.g. a zwitterion's N-H proton moved to its O-, or a
+    phosphate proton hopped): the relaxed structure is then a DIFFERENT species from the SMILES scored."""
+    return perceived_graph(atoms) == ref_graph
 
 
 def spin_multiplicity(smiles, q):
@@ -254,6 +288,7 @@ def main():
     ap.add_argument("--keep", type=int, default=24)
     a = ap.parse_args()
     seeds = [int(s) for s in a.seeds.split(",")]
+    os.makedirs(CACHE, exist_ok=True)
 
     def log(m): print(m, flush=True)
     log(f"loading UMA...  seeds={seeds} pool={a.pool} keep={a.keep}")

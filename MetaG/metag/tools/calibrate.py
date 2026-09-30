@@ -65,14 +65,17 @@ def _normalize(records):
             if exp is None or r.get("dG") is None:
                 continue
             a = r.get("anchor") or {}
-            out.append({"rid": r["rid"], "class": r["class"], "dG": float(r["dG"]),
+            out.append({"rid": r.get("rid", r.get("reaction")), "class": r["class"], "dG": float(r["dG"]),
                         "dG_raw": float(r.get("dG_raw", r["dG"])), "exp": float(exp),
                         "U": float(r.get("U_samp") or 0.0),
-                        "sc": a.get("subclass"), "off": float(a.get("offset") or 0.0)})
+                        # "offset" = the SIGNED correction applied (dG_raw - dG); "direction" = +1 if the
+                        # reaction is written in its class's canonical direction, -1 if reversed
+                        "sc": a.get("subclass"), "off": float(a.get("offset") or 0.0),
+                        "dir": int(a.get("direction", 1))})
         else:
             rid, c, e = r
             out.append({"rid": rid, "class": c, "dG": float(e), "dG_raw": float(e), "exp": 0.0,
-                        "U": 0.0, "sc": None, "off": 0.0})
+                        "U": 0.0, "sc": None, "off": 0.0, "dir": 1})
     return out
 
 
@@ -82,7 +85,7 @@ def _fold_offsets(rows, train_idx, refs):
     for sc, (ref, pool) in refs.items():
         if ref != "tecrdb":
             continue
-        v = [rows[i]["dG_raw"] - rows[i]["exp"] for i in train_idx
+        v = [rows[i]["dir"] * (rows[i]["dG_raw"] - rows[i]["exp"]) for i in train_idx   # canonical direction
              if rows[i]["sc"] == sc and rows[i]["rid"] in pool]
         off[sc] = float(np.mean(v)) if v else None
     return off
@@ -94,7 +97,7 @@ def _residual(r, fold_off, refs):
     if sc is None or sc not in refs or refs[sc][0] != "tecrdb":
         return r["dG"] - r["exp"]                          # un-anchored or externally referenced: fixed
     o = fold_off.get(sc)
-    dg = r["dG"] + r["off"] - (o if o is not None else 0.0)   # no pool member in training -> dG_raw path
+    dg = r["dG"] + r["off"] - r["dir"] * (o if o is not None else 0.0)   # no pool member in training -> dG_raw
     return dg - r["exp"]
 
 
@@ -191,7 +194,7 @@ def refit_anchor_offsets(records):
     for sc, (ref, pool) in refs.items():
         if ref != "tecrdb":
             continue
-        v = [r["dG_raw"] - r["exp"] for r in rows if r["sc"] == sc and r["rid"] in pool]
+        v = [r["dir"] * (r["dG_raw"] - r["exp"]) for r in rows if r["sc"] == sc and r["rid"] in pool]
         if v:
             out[sc] = {"offset": round(float(np.mean(v)), 1), "n": len(v),
                        "std": round(float(np.std(v, ddof=1)), 1) if len(v) > 1 else None}
@@ -202,3 +205,68 @@ def write_artifact(calib, path=ARTIFACT):
     with open(path, "w") as fh:
         json.dump(calib, fh, indent=2)
     return path
+
+
+def load_sweep(sweep_dir):
+    """Per-reaction records written by analysis/tecrdb_rescore.py. Returns (usable, excluded) where
+    excluded = {rid: reason} for errored / suspect (no-estimate) / experiment-less records."""
+    import glob
+    usable, excluded = [], {}
+    for f in sorted(glob.glob(os.path.join(sweep_dir, "*.json"))):
+        with open(f) as fh:
+            r = json.load(fh)
+        rid = r.get("reaction") or os.path.basename(f)[:-5]
+        if "error" in r:
+            excluded[rid] = f"error: {r['error'][:120]}"
+        elif r.get("dG") is None:
+            excluded[rid] = f"no estimate (suspect: {r.get('suspect')})"
+        elif r.get("exp") is None:
+            excluded[rid] = "no experiment"
+        else:
+            usable.append(dict(r, rid=rid))
+    return usable, excluded
+
+
+def build_artifact(sweep_dir, path=ARTIFACT):
+    """Regenerate the shipped calibration from ONE sweep of the deployed pipeline, with provenance.
+    Refuses a sweep whose records disagree on (or lack) the pipeline configuration fingerprint -- the
+    artifact must describe exactly one estimator, and metag.uncertainty checks it at run time."""
+    import datetime
+    import subprocess
+    recs, excluded = load_sweep(sweep_dir)
+    cfgs = {json.dumps(r.get("config"), sort_keys=True) for r in recs}
+    if len(cfgs) != 1 or "null" in cfgs:
+        raise ValueError(f"sweep {sweep_dir} has {len(cfgs)} distinct configuration fingerprints "
+                         f"(or records without one): re-run the sweep with one configuration")
+    calib = calibrate(recs)
+    try:
+        sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=os.path.dirname(os.path.abspath(__file__)),
+                             capture_output=True, text=True, timeout=10).stdout.strip() or None
+    except Exception:
+        sha = None
+    from metag.routing.anchor import ANCHORS
+    calib.update({
+        "config": json.loads(cfgs.pop()),
+        "source": {"sweep_dir": os.path.abspath(sweep_dir), "n_records": len(recs),
+                   "excluded": excluded, "git_sha": sha,
+                   "built": datetime.datetime.now().isoformat(timespec="seconds")},
+        "anchors": {k: {"offset": v["offset"], "sigma": v["sigma"], "ref": v.get("ref", "tecrdb")}
+                    for k, v in ANCHORS.items()},
+        "per_reaction": [{k: r.get(k) for k in ("rid", "class", "dG", "dG_raw", "exp", "U_samp", "anchor")}
+                         for r in recs],
+    })
+    return write_artifact(calib, path)
+
+
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser(description="Rebuild metag/data/sigma_class_calibrated.json from a sweep, "
+                                             "or print refreshed anchor offsets (--refit-anchors).")
+    ap.add_argument("sweep_dir")
+    ap.add_argument("--out", default=ARTIFACT)
+    ap.add_argument("--refit-anchors", action="store_true")
+    a = ap.parse_args()
+    if a.refit_anchors:
+        print(json.dumps(refit_anchor_offsets(load_sweep(a.sweep_dir)[0]), indent=2))
+    else:
+        print("wrote", build_artifact(a.sweep_dir, a.out))

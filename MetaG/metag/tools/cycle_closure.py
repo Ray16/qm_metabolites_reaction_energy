@@ -90,7 +90,8 @@ def cycle_basis(S, max_reactions=150):
     import sympy
     sub = S[:, support]
     sub = sub[np.any(sub != 0, axis=1)]
-    M = sympy.Matrix(sub.astype(int).tolist())
+    # exact rationals: astype(int) truncated fractional coefficients (ModelSEED 0.5 O2) to 0
+    M = sympy.Matrix([[sympy.nsimplify(float(x), rational=True) for x in row] for row in sub.tolist()])
     out = []
     for v in M.nullspace():
         den = sympy.ilcm(*[x.q for x in v]) if len(v) else 1
@@ -114,7 +115,16 @@ def closure_report(records, sigma_key="sigma", sigma_floor=1.0, max_cycles_liste
     rank = int(np.linalg.matrix_rank(S)) if S.size else 0
     dof = len(recs) - rank
     chi2 = float(np.sum((resid / sig) ** 2))
-    in_cycle = np.abs(resid) > 1e-6
+    # a reaction lies in a cycle iff its ΔG is constrained by the others, i.e. its leverage in the weighted
+    # fit is < 1 (leverage = row norm² of the left singular vectors of A). The old |resid| > 1e-6 test
+    # missed reactions whose cycles happen to close exactly.
+    if A.size:
+        U, sv, _ = np.linalg.svd(A, full_matrices=False)
+        r = int(np.sum(sv > sv.max() * max(A.shape) * np.finfo(float).eps)) if sv.size else 0
+        leverage = np.sum(U[:, :r] ** 2, axis=1)
+    else:
+        leverage = np.ones(len(recs))
+    in_cycle = leverage < 1.0 - 1e-8
     per = sorted(({"rid": recs[j]["rid"], "residual": round(float(resid[j]), 2),
                    "z": round(float(resid[j] / sig[j]), 2)} for j in range(len(recs)) if in_cycle[j]),
                  key=lambda d: -abs(d["z"]))

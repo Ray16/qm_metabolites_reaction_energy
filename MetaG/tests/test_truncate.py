@@ -2,7 +2,8 @@
 truncation must never drop the thioester reaction centre or collapse both sides to the same cores
 (which gave a spurious ΔG=0 on 3-oxoacid CoA-transferase rxn00290). Legitimate cuts (no thioester,
 real spectator) must still truncate. Pure logic, no GPU."""
-from metag.routing.truncate import build_truncated_reaction, _count_thioesters, _truncation_invalid, TESTS
+from metag.routing.truncate import (build_truncated_reaction, truncate_reaction, _count_thioesters,
+                                    _truncation_invalid, TESTS)
 from metag.routing import truncate_global as V2
 
 # rxn00290: succinyl-CoA + acetoacetate -> succinate + acetoacetyl-CoA (a thioester TRANSFER)
@@ -29,14 +30,25 @@ def test_thioester_preservation_flag():
 
 
 def test_legitimate_truncation_still_works():
-    # nucleotidyl transfer (no thioester) must still truncate
+    # a real spectator (the octyl chain) is removed identically from both sides -> truncates
+    sp = {"ester": [-1, 0, "CCCCCCCCOC(C)=O"], "w": [-1, 0, "O"],
+          "oct": [1, 0, "CCCCCCCCO"], "ac": [1, 0, "CC(=O)O"]}
+    new, nh = build_truncated_reaction(sp)
+    assert nh == 0 and new["ester_t"][2] == "CCOC(C)=O" and new["oct_t"][2] == "CCO"
+
+
+def test_inconsistent_removed_fragments_rejected():
+    # nucleotidyl transfer: the fragments dropped from reactants and products differ (stereochemistry),
+    # so they would not cancel -- truncate_reaction reports consistent=False and the builder must refuse
+    # (it used to compute the guard and accept the cut anyway)
     t = TESTS["nucleotidyl_2.7.7.9"]
+    assert truncate_reaction(t["reactants"], t["products"])["consistent"] is False
     sp = {}
     for i, s in enumerate(t["reactants"]):
         sp[f"R{i}"] = [-1, 0, s]
     for i, s in enumerate(t["products"]):
         sp[f"P{i}"] = [1, 0, s]
-    assert build_truncated_reaction(sp) is not None
+    assert build_truncated_reaction(sp) is None
 
 
 if __name__ == "__main__":

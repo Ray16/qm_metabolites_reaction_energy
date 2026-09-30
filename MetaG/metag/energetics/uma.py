@@ -42,7 +42,9 @@ def _ensure_registered(model):
 
 def load_uma(model="uma-s-1p2p1"):
     _ensure_registered(model)
-    return pretrained_mlip.get_predict_unit(model, device=DEV)
+    pu = pretrained_mlip.get_predict_unit(model, device=DEV)
+    pu.metag_model = model                  # provenance: the pipeline keys its species cache on this
+    return pu
 
 
 def _predict(pu, atoms_list):
@@ -58,7 +60,11 @@ def _predict(pu, atoms_list):
         datas.append(d)
     batch = atomicdata_list_to_batch(datas).to(DEV)
     pred = pu.predict(batch)
-    E = pred["energy"].detach().float().view(-1)          # (N,)
+    # float64 from here on: UMA's total energy is float32 (the ~1e5 eV element references are added in the
+    # model's precision), so it resolves only ~0.4-1.5 kJ for ATP/NAD/CoA-size species. Keeping it float32
+    # through eV->kJ and the E+ΔGsolv sums would round again; conformers.UniqueMinima widens its energy
+    # tolerance to >= 2 float32 steps of the species' own energy for the same reason.
+    E = pred["energy"].detach().double().view(-1)         # (N,)
     F = pred["forces"].detach().float()                    # (total,3)
     return E, F, batch.batch.to(F.device).long()
 

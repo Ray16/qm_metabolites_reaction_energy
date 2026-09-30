@@ -117,7 +117,7 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
                         spin=(int(spin) - 1) / 2.0)          # total electronic S = (mult-1)/2
     G = th.get_gibbs_energy(temperature=T, pressure=101325.0, verbose=False)
     Gcorr = float((G - E_elec) * EV2KJ)
-    if os.environ.get("QRRHO"):                             # Grimme quasi-RRHO entropy for low-freq modes
+    if qrrho_enabled():                                     # Grimme quasi-RRHO entropy for low-freq modes
         # replace the floored-harmonic vibrational entropy with the free-rotor-interpolated one (S only;
         # ZPE/enthalpy stay harmonic). Uses the REAL frequency for each mode vs the floored one the
         # harmonic G above used, so it RESTORES the entropy the 50 cm^-1 floor suppresses on floppy modes.
@@ -126,6 +126,13 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
 
 
 # ------------------------------------------------------------------ quasi-RRHO (Grimme 2012)
+def qrrho_enabled():
+    """QRRHO env flag (default OFF). Parsed like every other flag: QRRHO=0/off/false/no disables it
+    (a bare truthiness test made QRRHO=0 switch it ON). Part of the species-cache key."""
+    v = os.environ.get("QRRHO")
+    return v is not None and v.strip().lower() not in ("", "0", "off", "false", "no")
+
+
 _H = 6.62607015e-34; _C = 2.99792458e10; _KB = 1.380649e-23; _R = 8.314462618e-3  # kJ/mol/K
 _BAV = 1e-44                                                # limiting moment of inertia (kg m^2)
 

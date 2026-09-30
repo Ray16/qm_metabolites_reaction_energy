@@ -54,8 +54,8 @@ def _path(smi, q, method, settings):
     return os.path.join(CACHE_DIR, h + ".json"), cs
 
 
-def get(smi, q, method, settings):
-    """Return cached (G, sigma) or None. Never raises."""
+def get(smi, q, method, settings, with_meta=False):
+    """Return cached (G, sigma) -- or (G, sigma, meta) with with_meta=True -- or None. Never raises."""
     global _hits, _misses
     if not _ENABLED:
         return None
@@ -65,30 +65,38 @@ def get(smi, q, method, settings):
             with open(p) as f:
                 d = json.load(f)
             _hits += 1
-            return d["G"], d["sigma"]
+            return (d["G"], d["sigma"], d.get("meta") or {}) if with_meta else (d["G"], d["sigma"])
     except Exception:
         pass
     _misses += 1
     return None
 
 
-def put(smi, q, method, settings, G, sigma):
-    """Store (G, sigma) for a species. Atomic; never raises. No-op on G is None."""
-    global _writes
+def put(smi, q, method, settings, G, sigma, meta=None):
+    """Store (G, sigma) for a species, plus optional provenance `meta` (warnings, minima count, ...).
+    Atomic; never raises (a failed write is reported once on stderr). No-op on G is None."""
+    global _writes, _write_error_reported
     if not _ENABLED or G is None:
         return
     try:
         os.makedirs(CACHE_DIR, exist_ok=True)
         p, cs = _path(smi, q, method, settings)
         rec = {"smi": cs, "q": int(q), "method": method, "settings": settings,
-               "G": float(G), "sigma": None if sigma is None else float(sigma), "ver": CACHE_VERSION}
+               "G": float(G), "sigma": None if sigma is None else float(sigma), "ver": CACHE_VERSION,
+               "meta": meta or {}}
         fd, tmp = tempfile.mkstemp(dir=CACHE_DIR, suffix=".tmp")
         with os.fdopen(fd, "w") as f:
             json.dump(rec, f)
         os.replace(tmp, p)                                    # atomic on POSIX
         _writes += 1
-    except Exception:
-        pass
+    except Exception as e:
+        if not _write_error_reported:
+            import sys
+            print(f"[species_cache] write failed ({e}); continuing without caching", file=sys.stderr)
+            _write_error_reported = True
+
+
+_write_error_reported = False
 
 
 def stats():

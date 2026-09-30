@@ -26,8 +26,8 @@ def test_structural_class_overrides_note():
     smis = [v[2] for v in adyl.values()]
     # note says "adenylyltransferase" (note-only -> kinase) and a cryptic note; structural must override both
     assert u.mech_class("ATP:acetate adenylyltransferase", smis) == "kinase/phosphotransfer"   # note-only
-    assert u.mech_class("ATP:acetate adenylyltransferase", smis, species=adyl) == "adenylylate"
-    assert u.mech_class("ENTF-RXN.c", smis, species=adyl) == "adenylylate"                      # note-independent
+    assert u.mech_class("ATP:acetate adenylyltransferase", smis, species=adyl) == "adenylylate(external-ref)"
+    assert u.mech_class("ENTF-RXN.c", smis, species=adyl) == "adenylylate(external-ref)"                    # note-independent
     # -> same sigma for the same chemistry, whatever the note
     s1, _ = u.reaction_sigma("ATP:acetate adenylyltransferase", smis, 2.0, species=adyl)
     s2, _ = u.reaction_sigma("ENTF-RXN.c", smis, 2.0, species=adyl)

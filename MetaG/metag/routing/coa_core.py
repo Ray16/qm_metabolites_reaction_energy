@@ -73,8 +73,8 @@ def _reaction_balance(species):
         if ac is None:
             return None, None
         for k, v in ac.items():
-            net[k] += int(coeff) * v
-        q += int(coeff) * aq
+            net[k] += coeff * v
+        q += coeff * aq
     return {k: v for k, v in net.items() if v}, q
 
 

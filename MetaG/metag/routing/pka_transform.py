@@ -39,13 +39,20 @@ def is_isomerization(species):
         if os.environ.get("PH0_AUTO") and not is_isomerization(rx["species"]) and not rx.get("pka_sites"):
     """
     def formula(s):
+        # formula INCLUDING the charge on purpose: only a CHARGE-CONSERVING rearrangement has no anion-
+        # solvation change for pH-0 to fix. Isomers drawn in different charge states (PEP -3 ->
+        # phosphonopyruvate -2, or a truncated core that differs only by protonation) DO change it and
+        # need pH-0 (comparing max-anion formulas instead gated 8 such TECRDB reactions off -- tested).
         m = Chem.MolFromSmiles(s)
         return _rdMD.CalcMolFormula(m) if m else None
-    R = [formula(s) for c, q, s in species.values() if c < 0 for _ in range(abs(int(c)))]
-    P = [formula(s) for c, q, s in species.values() if c > 0 for _ in range(abs(int(c)))]
-    if None in R or None in P:
-        return False
-    return sorted(R) == sorted(P)
+    from collections import Counter
+    net = Counter()                                  # Σ coeff per molecular formula (fractional-safe)
+    for c, q, s in species.values():
+        f = formula(s)
+        if f is None:
+            return False
+        net[f] += c
+    return all(abs(v) < 1e-9 for v in net.values())
 
 # ---- textbook functional-group pKa's (experimental; NOT fitted to any dG) ---------------------
 # Each entry: the pKa of REMOVING one proton from the neutral acid at that site.
@@ -61,6 +68,22 @@ def is_isomerization(species):
 #   1 bridge = terminal monoester/anhydride:   ROPO3H2 pKa ~1.5, ~6.5   (the 6.5 straddles pH7)
 #   2 bridge = internal diester/anhydride:     one acidic proton ~1.5
 P_LADDER = {0: [2.15, 7.20, 12.35], 1: [1.50, 6.50], 2: [1.50], 3: [1.50]}
+# Phosphoryl groups whose P is NOT a plain (O-only) phosphate are distinct acids and get their own ladder
+# (the bridging-O count alone put them on the wrong ladder; these sit exactly in the anchored classes):
+#   P-N phosphoramidate (phosphocreatine / phosphoarginine, phosphagens): second pKa ~4.5-4.6, not the free-
+#       Pi 7.20 the 0-bridge rule gave (phosphocreatine lit. pKa ~2.7, 4.58)             -> ~9.5 kJ per site
+#   acyl phosphate R-C(=O)-O-PO3 (acetyl-P, carbamoyl-P, 1,3-BPG): second pKa ~4.9-5.0, not the monoester
+#       6.5 (acetyl phosphate lit. 4.95; carbamoyl phosphate ~4.9)                        -> ~8 kJ per site
+# [literature values; confirm the exact citations before publication]
+P_N_LADDER = [2.70, 4.58]
+ACYL_P_LADDER = [1.50, 4.95]
+# Free carbonic acid (bicarbonate / carbonate, C bearing three O): the QM neutral microspecies is TRUE
+# H2CO3, whose ladder is pKa1 ~3.6 (true H2CO3, not the apparent 6.35 that lumps in dissolved CO2) and
+# pKa2 10.33 -- not two carboxyl 4.75 sites (~6 kJ per bicarbonate). The CO2(aq) hydration branch is
+# omitted: at pH 7 it holds ~18% of the pool, a ~0.5 kJ term.
+CARBONATE_LADDER = [3.60, 10.33]
+# Bump when any pKa value/ladder assignment changes: part of pipeline.effective_config() (calibration key).
+PKA_TABLE_VERSION = "2026-09-30"
 # FREE pyrophosphate H4P2O7 (all heavy atoms P/O, 2 P): its own macroscopic ladder (I->0), NOT two
 # terminal-phosphate ladders ({1.5,1.5,6.5,6.5} over-counts the transform by ~4.4 kJ per free PPi).
 PPI_LADDER = [0.91, 2.10, 6.70, 9.32]
@@ -216,6 +239,27 @@ def _classify_species_site(mol, amine_neutralized):
     return [(f["o"], round(float(p), 3)) for f, p in zip(feats, eff)]
 
 
+def _is_free_carbonate_c(c):
+    """Carbon of free carbonic acid / bicarbonate / carbonate: bonded to exactly three O, all terminal."""
+    nbs = list(c.GetNeighbors())
+    return len(nbs) == 3 and all(n.GetSymbol() == "O" and n.GetDegree() == 1 for n in nbs)
+
+
+def _phosphoryl_ladder(mol, pa):
+    """pKa ladder for the phosphoryl P atom `pa`: P-N phosphoramidate and acyl phosphate get their own
+    ladders; otherwise the plain phosphate ladder by number of bridging O (ester/anhydride links)."""
+    if any(n.GetSymbol() == "N" for n in pa.GetNeighbors()):
+        return P_N_LADDER
+    bridges = [n for n in pa.GetNeighbors() if n.GetSymbol() == "O" and n.GetDegree() >= 2]
+    for o in bridges:
+        for c in o.GetNeighbors():
+            if c.GetSymbol() == "C" and any(
+                    x.GetSymbol() == "O" and mol.GetBondBetweenAtoms(c.GetIdx(), x.GetIdx()).GetBondTypeAsDouble() == 2
+                    for x in c.GetNeighbors()):
+                return ACYL_P_LADDER                 # R-C(=O)-O-P: acyl phosphate
+    return P_LADDER.get(min(len(bridges), 3), [1.50])
+
+
 def _classify_species(smi, amine_neutralized=False):
     """Return (mol, list_of_(atom_idx, pKa_value)) for every anionic O in the (max-anion) molecule.
     Each phosphate P gets its group's FULL pKa ladder chosen by #bridging-O (free/terminal/internal);
@@ -239,8 +283,12 @@ def _classify_species(smi, amine_neutralized=False):
     resolved = []
     p_groups = {}                                   # P atom idx -> list of its anionic O idx
     s_groups = {}                                   # S atom idx -> list of its anionic O idx (sulfate)
+    c_groups = {}                                   # carbonate C atom idx -> its anionic O idx
     for o, cls in sites:
         if cls == "carboxyl":
+            c = next(n for n in mol.GetAtomWithIdx(o).GetNeighbors() if n.GetSymbol() == "C")
+            if _is_free_carbonate_c(c):
+                c_groups.setdefault(c.GetIdx(), []).append(o); continue
             resolved.append((o, carboxyl_pka(mol, o, amine_neutralized))); continue
         if cls == "sulfonate":
             resolved.append((o, SULFONATE_PKA)); continue
@@ -256,11 +304,12 @@ def _classify_species(smi, amine_neutralized=False):
         for o, pka in zip(all_o, PPI_LADDER + [PPI_LADDER[-1]] * max(0, len(all_o) - 4)):
             resolved.append((o, pka))
         p_groups = {}
+    for c, os in c_groups.items():                  # free carbonic acid: k most-acidic ladder entries
+        for o, pka in zip(sorted(os), sorted(CARBONATE_LADDER)[:len(os)]):
+            resolved.append((o, pka))
     for p, os in p_groups.items():
         pa = mol.GetAtomWithIdx(p)
-        n_bridge = sum(1 for n in pa.GetNeighbors()
-                       if n.GetSymbol() == "O" and n.GetDegree() >= 2)   # ester/anhydride links
-        ladder = list(P_LADDER.get(min(n_bridge, 3), [1.50]))
+        ladder = list(_phosphoryl_ladder(mol, pa))
         k = len(os)
         # assign the k most-acidic entries of the ladder to the k deprotonated O on this P
         pkas = sorted(ladder)[:k] if k <= len(ladder) else sorted(ladder) + [1.50] * (k - len(ladder))
@@ -446,7 +495,7 @@ def _amine_cn_change(species):
         if m is None:
             return 0
         cnt = len(m.GetSubstructMatches(_AMINE_ON_C)) + len(m.GetSubstructMatches(_AMMONIUM_ON_C))
-        net += int(coeff) * cnt
+        net += coeff * cnt
     return net
 
 
@@ -479,7 +528,7 @@ def _count_change(species, pat):
         m = Chem.MolFromSmiles(smi)
         if m is None:
             return None
-        net += int(coeff) * len(m.GetSubstructMatches(pat))
+        net += coeff * len(m.GetSubstructMatches(pat))
     return net
 
 def _has_free_ammonia(species):
@@ -569,11 +618,16 @@ def has_ionized(species):
 
 
 def _redox_proton_enabled():
+    """PH0_REDOX_PROTON (default ON since 2026-09-30): carry a net (redox) proton as n_H+ = -h_residual
+    instead of refusing pH-0. The refusal made the SAME metabolites route differently by context (LDH
+    refused -> lactate/pyruvate as COSMO anions; lactate oxidase H-balanced -> neutral + pKa), breaking
+    cycle closure. The +/-1170 kJ leaks the refusal guarded against came from ELEMENT-imbalanced rewritten
+    reactions, which pipeline.route_reaction's balance guard now rejects at the step that causes them."""
     v = os.environ.get("PH0_REDOX_PROTON")
-    return v is not None and v.strip().lower() not in ("", "0", "off", "false", "no")
+    return True if v is None else v.strip().lower() not in ("", "0", "off", "false", "no")
 
 
-def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False):
+def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False, why=None):
     """species: {name: [coeff, q, smi]}, n_Hplus of the CHARGED reaction  ->
     (new_species, pka_sites, n_Hplus_neutral) or None.
 
@@ -593,7 +647,10 @@ def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False):
         net (redox) proton is carried by n_H+ = -h_residual instead of the mass-balance refusal.
 
     base=False reproduces the pure anion-only path (ablation). Returns None if no ionisable site is
-    present, on any parse failure, or on the anion mass-balance refusal (caller keeps the charged path)."""
+    present, on any parse failure, or on the anion mass-balance refusal (caller keeps the charged path);
+    the reason is appended to `why` (a list) when given. Fractional coefficients are kept: each pKa site
+    carries its multiplicity |coeff| as a 4th element [side, pKa, kind, mult]."""
+    why = why if why is not None else []
     # force_base: the reaction contains a ZWITTERION, which must not enter gas-phase QM (see
     # is_zwitterion). The full neutral-microspecies (base) path is the Alberty-consistent treatment: both
     # the acid and the amine are neutralized and the zwitterion-dominated aqueous macro-state is
@@ -612,23 +669,25 @@ def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False):
             neutral, acids, netq = _neutralize(smi)             # anions only
             bases = []
         if neutral is None:
+            why.append(f"neutralization failed for {name}")
             return None                              # bail safely on any parse failure
         nH = _hcount(neutral)
         if nH is None:
+            why.append(f"neutralization failed for {name}")
             return None
-        h_residual += int(coeff) * nH
-        q_residual += int(coeff) * int(netq)
+        h_residual += coeff * nH
+        q_residual += coeff * int(netq)
         if acids or bases:
             any_ionizable = True
         side = "react" if coeff < 0 else "prod"
+        mult = abs(coeff)
         for pka in acids:
-            for _ in range(abs(int(coeff))):
-                pka_sites.append([side, pka, "acid"])
+            pka_sites.append([side, pka, "acid", mult])
         for pka in bases:
-            for _ in range(abs(int(coeff))):
-                pka_sites.append([side, pka, "base"])
+            pka_sites.append([side, pka, "base", mult])
         new_species[name] = [coeff, netq, neutral]
     if not any_ionizable:
+        why.append("no ionizable site")
         return None
     if use_base:
         return new_species, pka_sites, -h_residual   # n_H+ carries the net (redox) proton
@@ -641,14 +700,16 @@ def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False):
     # carbamoyltransferase. The charge/H consistency check does NOT separate the leaks (they pass it).
     # The conservative refusal stays. rxn01211's correct value (-7, base path) is a documented known
     # outlier; a narrow, separately-validated iminium-aware base gate is the future fix, not this.
-    if h_residual != 0:
+    if abs(h_residual) > 1e-9:
         # REDOX PROTON (PH0_REDOX_PROTON): a net-proton reaction (e.g. NAD(P)+ + 2e- + H+ -> NAD(P)H with the
         # substrate's anions neutralized) is H-imbalanced by the proton exchanged with the pH-7 bath. Alberty-
         # consistent bookkeeping carries it explicitly as n_H+ = -h_residual (G_HPLUS includes the pH term),
         # exactly as the base path does -- PROVIDED it also closes the charge (q_residual == h_residual), so the
         # count is a real proton and not a mis-neutralized species. Otherwise refuse (the +/-1170 kJ leak guard).
-        if _redox_proton_enabled() and q_residual == h_residual:
+        if _redox_proton_enabled() and abs(q_residual - h_residual) < 1e-9:
             return new_species, pka_sites, -h_residual
+        why.append(f"refused: neutralized reaction H-imbalanced by {h_residual:+g} "
+                   + ("(charge does not close)" if _redox_proton_enabled() else "(PH0_REDOX_PROTON off)"))
         return None
     return new_species, pka_sites, 0                 # n_H+=0: transforms carry all proton exchange
 

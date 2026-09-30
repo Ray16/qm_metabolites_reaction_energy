@@ -12,7 +12,8 @@ import pytest
 P = pytest.importorskip("metag.pipeline")
 
 G_FAKE = {"CCO": -100.0, "CC=O": -50.0, "[HH]": -5.0, "CC(=O)O": -300.0, "CCCC": -400.0, "CC": -190.0,
-          "CO": -80.0, "C": -30.0}
+          "CO": -80.0, "C": -30.0, "O=C=O": -350.0, "CCOC(C)=O": -350.0, "CCCCCC": -600.0}
+# every fixture reaction is element- and charge-balanced: an unbalanced one now (correctly) returns no estimate
 G_WATER = -200.0
 
 
@@ -23,7 +24,7 @@ def _mock_qm(monkeypatch):
     for f in ("COFACTOR_RING", "AUTO_TRUNCATE", "PH0_AUTO", "ANCHOR_CORRECT", "ALDEHYDE_HYDRATION",
               "WATER_REF_HYDROLYASE", "TRUNC_VALIDATE", "ZWITTERION_PH0", "NEUTRAL_QM"):
         monkeypatch.setenv(f, "0")
-    monkeypatch.setenv("STD_STATE_1M", "1")       # exercise the std-state bookkeeping (default is off)
+    monkeypatch.setenv("STD_STATE_1M", "1")       # the production default, set explicitly
 
 
 def _rx(species, n_h=0):
@@ -39,28 +40,30 @@ def test_std_state_constant():
 
 
 def test_std_state_shifts_by_delta_n(monkeypatch):
-    # butane -> ethane + ethane-ish (Δn = +1): dehydrogenation stand-in, 1 reactant -> 2 products
-    lyase = _rx({"A": [-1, 0, "CCCC"], "B": [1, 0, "CC"], "C": [1, 0, "CC"]})
-    iso = _rx({"A": [-1, 0, "CCO"], "B": [1, 0, "CC=O"], "H2": [1, 0, "[HH]"], "W": [-1, 0, "O"]})  # Δn = 0
+    # acetic acid -> methane + CO2 (Δn = +1, 1 reactant -> 2 products)
+    lyase = _rx({"A": [-1, 0, "CC(=O)O"], "B": [1, 0, "C"], "C": [1, 0, "O=C=O"]})
+    # esterification acid + ethanol -> ester + water (Δn = 0 only if liquid water is counted too)
+    iso = _rx({"A": [-1, 0, "CC(=O)O"], "B": [-1, 0, "CCO"], "E": [1, 0, "CCOC(C)=O"], "W": [1, 0, "O"]})
     on_l, on_i = _score(lyase)["dG_raw"], _score(iso)["dG_raw"]
     monkeypatch.setenv("STD_STATE_1M", "0")
     off_l, off_i = _score(lyase)["dG_raw"], _score(iso)["dG_raw"]
     assert abs((on_l - off_l) - P.STD_STATE_KJ) < 0.06      # Δn = +1
     assert abs(on_i - off_i) < 1e-9                          # Δn = 0 (water counted) -> unchanged
-    assert abs(off_l - (-190 - 190 + 400)) < 0.06
+    assert abs(off_l - (-30 - 350 + 300)) < 0.06
 
 
 def test_truncation_failure_retries_full_molecules(monkeypatch):
     import metag.routing.truncate as T
     monkeypatch.setenv("AUTO_TRUNCATE", "1"); monkeypatch.setenv("ROUTE_FULL", "0")
-    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2: ({"X_t": [-1, 0, "BAD"],
-                                                                              "Y_t": [1, 0, "BAD"]}, 0))
-    fail_on_bad = lambda pu, q, smi, *a, **k: (None, None) if smi == "BAD" else (G_FAKE[smi], 0.5)
-    monkeypatch.setattr(P, "implicit_G", fail_on_bad)
-    r = _score(_rx({"A": [-1, 0, "CCO"], "B": [1, 0, "CO"], "C": [1, 0, "C"]}))
+    # a (balanced) truncated core whose species QM fails -> the ORIGINAL reaction is re-scored in full
+    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2: ({"X_t": [-1, 0, "CCCCCC"],
+                                                                              "Y_t": [1, 0, "CCCCCC"]}, 0))
+    fail_on_core = lambda pu, q, smi, *a, **k: (None, None) if smi == "CCCCCC" else (G_FAKE[smi], 0.5)
+    monkeypatch.setattr(P, "implicit_G", fail_on_core)
+    r = _score(_rx({"A": [-1, 0, "CCO"], "H": [-1, 0, "[HH]"], "B": [1, 0, "CO"], "C": [1, 0, "C"]}))
     assert r is not None                                     # was: KeyError('rxn') via run_reaction
     assert r["routes"]["truncated"] is False
-    assert abs(r["dG_raw"] - (-80 - 30 + 100 + P.STD_STATE_KJ)) < 0.06
+    assert abs(r["dG_raw"] - (-80 - 30 + 100 + 5)) < 0.06    # Δn = 0
 
 
 def test_ci95_consistent_with_sigma_pred(monkeypatch):
@@ -86,10 +89,10 @@ def test_trunc_validate_rejects_radius_sensitive(monkeypatch):
     import metag.routing.truncate as T
     monkeypatch.setenv("AUTO_TRUNCATE", "1"); monkeypatch.setenv("ROUTE_FULL", "0")
     monkeypatch.setenv("TRUNC_VALIDATE", "1")
-    cores = {2: ({"A_t": [-1, 0, "CO"], "B_t": [1, 0, "C"], "C_t": [1, 0, "CC"]}, 0),   # dG ~ -140
-             3: ({"A_t": [-1, 0, "CCO"], "B_t": [1, 0, "CC=O"], "C_t": [1, 0, "[HH]"]}, 0)}  # dG ~ +45
+    cores = {2: ({"A_t": [-1, 0, "CCO"], "H_t": [-1, 0, "[HH]"], "B_t": [1, 0, "CO"], "C_t": [1, 0, "C"]}, 0),  # ~ -5
+             3: ({"A_t": [-1, 0, "CCO"], "B_t": [1, 0, "CC=O"], "C_t": [1, 0, "[HH]"]}, 0)}              # ~ +53
     monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2: cores[radius])
-    full = {"A": [-1, 0, "CCCC"], "B": [1, 0, "CC"], "C": [1, 0, "CC"]}
+    full = {"A": [-2, 0, "CC"], "B": [1, 0, "CCCC"], "C": [1, 0, "[HH]"]}
     r = _score(_rx(full))
     assert r["trunc_validation"]["verdict"].startswith("rejected")
     assert r["routes"]["truncated"] is False                 # fell back to full molecules
