@@ -148,3 +148,10 @@ Terse DECISIONS only (not an experiment log — results/status live in
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
 branch `master`, SSH). Commit + push after each meaningful step; the daily cron
 (`daily_commit.sh`, 23:47) now also pushes.
+
+- **Pi/PPi "correction" REJECTED (2026-09-30, do not retry):** the apparent free-Pi/PPi error (produced
+  bias +11, consumed −23, looked antisymmetric) is a CONFOUND, not a per-species solvation offset. The
+  consumed-Pi set (bias −23) is 10/19 glycosyl/PRT/nucleoside — it IS the glycosyl class's own −17 bias;
+  the produced-Pi set (+11) has zero glycosyl. A single per-Pi offset would fit the glycosyl error into a
+  phosphate term. Real levers instead: TRUNC_FG_CUTS (faithful cores; helped PPDK +43.6→+26.9) and the
+  glycosyl/sugar class (sampling + ring forms).

@@ -113,6 +113,11 @@ def sampling_budget(smi):
     if sc != 1:
         seeds = list(range(1, max(2, int(round(len(seeds) * sc))) + 1))
         pool = int(round(pool * sc))
+    # KEEP_SCALE (A/B, default 1): the physics review found `keep` too small for floppy sugars/cofactors, so
+    # the Boltzmann ensemble under-counts conformational entropy (G too high). SAMPLE_SCALE scaled seeds+pool
+    # but NOT keep; this scales how many low-E conformers are relaxed + solvated. Part of the cache key.
+    if _KEEP_SCALE != 1:
+        keep = int(round(keep * _KEEP_SCALE)); pool = max(pool, keep * 8)
     return seeds, keep, pool
 
 
@@ -130,6 +135,7 @@ from metag.energetics.thermal import qrrho_enabled
 from metag.energetics.conformers import DEDUP_E_TOL
 _MODEL = os.environ.get("UMA_MODEL", "uma-s-1p2p1")   # patch model (batched_relax._ensure_registered); in the cache key. UMA_MODEL overrides for A/B (e.g. uma-s-1p2)
 _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
+_KEEP_SCALE = float(os.environ.get("KEEP_SCALE", "1"))   # A/B: scale `keep` (conformers relaxed+solvated)
 # SOLV_MODEL: implicit solvation for species G (cosmo | alpb | cpcmx). SOLV_ALSO: extra models computed on
 # the SAME conformers and cached alongside (for A/B without re-sampling), e.g. SOLV_ALSO=alpb,cpcmx.
 SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo").strip().lower()
@@ -146,7 +152,8 @@ SOLV_ALSO = list(dict.fromkeys(
 PHYSICS_VERSION = "2026-09-30b"
 _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiered-v1",
                       "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
-                      "sample_scale": _SAMPLE_SCALE, "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled()}
+                      "sample_scale": _SAMPLE_SCALE, "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
+                      **({"keep_scale": _KEEP_SCALE} if _KEEP_SCALE != 1 else {})}
 # CONF_DEDUP (default-on): Boltzmann over unique minima. CONF_DEDUP=0 reproduces the legacy cumulative sum
 # (every relaxed copy counted as a state) for A/B against old caches; the cache key tracks the choice.
 _DEDUP = os.environ.get("CONF_DEDUP", "1").strip().lower() not in ("", "0", "off", "false", "no")
@@ -583,6 +590,7 @@ def effective_config():
                          sort_keys=True)
     cfg = {"model": _MODEL, "physics": PHYSICS_VERSION, "solv_model": SOLV_MODEL, "dedup": _DEDUP,
            "conv": [CONV_TOL, CONV_HITS, CONV_MAX], "sample_scale": _SAMPLE_SCALE, "qrrho": qrrho_enabled(),
+           "keep_scale": _KEEP_SCALE,
            "explicit_sampling": [N_EXPLICIT_SEEDS, EXPLICIT_KEEP],
            "trunc_radius": int(os.environ.get("TRUNC_RADIUS", "2")),
            "trunc_validate_tol": float(os.environ.get("TRUNC_VALIDATE_TOL", "5")),
