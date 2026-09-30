@@ -566,7 +566,11 @@ FLAG_DEFAULTS = {
     # UNDER A/B (default = the validated old behaviour; flip only after the subset A/B shows an improvement):
     "TRUNC_SPECTATOR_CATIONS": False,   # a cation removed WITH the spectator is not a "mangled" cation
     "TRUNC_MAXANION_RETRY": False,      # retry truncation on max-anion forms (protonation-consistent spectators)
-    "TRUNC_FG_CUTS": False,             # cut only single C-C bonds at an sp3 kept carbon (never cap O/N/P with H)
+    # ADOPTED 2026-09-30 (correctness): the old rule cut C-O/P-O bonds and H-capped them, producing invalid
+    # cores (aspartate->isopropylamine, phosphoester->free H3PO4, P(III)); this cuts only single C-C bonds at
+    # an sp3 kept carbon. A/B on its affected set: dG_raw MAE 13.1->12.5, RMS 17.1->15.3; where it looks worse
+    # it exposes a real error the broken core had cancelled by luck. Set 0 only to reproduce the old cores.
+    "TRUNC_FG_CUTS": True,
 }
 
 

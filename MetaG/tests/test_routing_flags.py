@@ -12,8 +12,9 @@ PPDK = {"H2O": [-1, 0, "O"], "ATP": [-1, -3, _ATP], "Pyr": [-1, -1, "CC(=O)C(=O)
 
 
 def test_ab_flags_default_off():
-    for f in ("TRUNC_SPECTATOR_CATIONS", "TRUNC_MAXANION_RETRY", "TRUNC_FG_CUTS"):
+    for f in ("TRUNC_SPECTATOR_CATIONS", "TRUNC_MAXANION_RETRY"):
         assert P.FLAG_DEFAULTS[f] is False
+    assert P.FLAG_DEFAULTS["TRUNC_FG_CUTS"] is True    # adopted: faithful C-C-only cuts (correctness)
 
 
 def test_fg_cuts_never_cap_a_phosphoester_oxygen():
