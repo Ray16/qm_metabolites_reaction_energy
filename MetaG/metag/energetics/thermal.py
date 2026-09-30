@@ -70,7 +70,7 @@ def _forces_batched(pu, structs, chunk=None):
 IMAG_TOL_CM = 50.0
 
 
-def internal_vib_energies(atoms, H, geometry):
+def internal_vib_energies(atoms, H, geometry, return_modes=False):
     """Vibrational analysis with translations and rotations PROJECTED OUT (Eckart), not dropped by size.
 
     H = Cartesian Hessian (eV/Å², 3N x 3N). Returns (vib_energies_eV, imag_cm): the real vibrational
@@ -94,14 +94,18 @@ def internal_vib_energies(atoms, H, geometry):
     n_ext = {"monatomic": 3, "linear": 5, "nonlinear": 6}[geometry]
     U, sv, _ = np.linalg.svd(np.array(ext).T, full_matrices=True)
     B = U[:, n_ext:]                                            # orthonormal basis of the internal space
-    lam = np.linalg.eigvalsh(B.T @ Hmw @ B)
+    lam, vec = np.linalg.eigh(B.T @ Hmw @ B)
     s = units._hbar * 1e10 / np.sqrt(units._e * units._amu)     # sqrt(eV/Å²/amu) -> eV (as ASE)
     e = s * np.sqrt(np.abs(lam))
+    if return_modes:                                            # Cartesian displacement of each negative mode
+        cart = [((B @ vec[:, k]) / sm).reshape(n, 3) for k in np.nonzero(lam < 0)[0]]
+        cart = [c / np.linalg.norm(c) for c in cart]
+        return e[lam >= 0], e[lam < 0] / CM2EV, cart
     return e[lam >= 0], e[lam < 0] / CM2EV
 
 
 def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
-                   geometry=None, symmetrynumber=None, spin=1, return_info=False):
+                   geometry=None, symmetrynumber=None, spin=1, return_info=False, imag_as_soft=False):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
     Central-difference Hessian from UMA forces; all 6N displacements batched. Uses the same
@@ -140,10 +144,12 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
         Fp = F[2 * d].reshape(-1); Fm = F[2 * d + 1].reshape(-1)
         H[d] = -(Fp - Fm) / (2.0 * delta)                  # eV/Å²
     H = 0.5 * (H + H.T)
-    vib, imag_cm = internal_vib_energies(base, H, geometry)
-    n_imag = int(np.sum(imag_cm > IMAG_TOL_CM))              # genuine negative curvature: not a minimum
-    # soft imaginary modes (<= IMAG_TOL_CM) are numerical noise on floppy torsions: floored like soft modes
-    mags_real = np.sort(np.concatenate([vib, imag_cm[imag_cm <= IMAG_TOL_CM] * CM2EV]))
+    vib, imag_cm, imag_vecs = internal_vib_energies(base, H, geometry, return_modes=True)
+    # soft imaginary modes (<= IMAG_TOL_CM) are numerical noise on floppy torsions: floored like soft modes.
+    # imag_as_soft: the caller has shown by mode following that the larger ones are artefacts too.
+    soft = imag_cm if imag_as_soft else imag_cm[imag_cm <= IMAG_TOL_CM]
+    n_imag = 0 if imag_as_soft else int(np.sum(imag_cm > IMAG_TOL_CM))   # genuine negative curvature
+    mags_real = np.sort(np.concatenate([vib, soft * CM2EV]))
     mags = np.where(mags_real < 50 * CM2EV, 50 * CM2EV, mags_real)   # low-frequency floor
     th = IdealGasThermo(vib_energies=mags, potentialenergy=E_elec, atoms=base,
                         geometry=geometry, symmetrynumber=symmetrynumber,
@@ -157,7 +163,9 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
         # harmonic G above used, so it RESTORES the entropy the 50 cm^-1 floor suppresses on floppy modes.
         Gcorr += _qrrho_S_correction(mags_real / CM2EV, mags / CM2EV, T)
     if return_info:
-        return Gcorr, {"n_imag": n_imag, "max_imag_cm": round(float(imag_cm.max()), 1) if imag_cm.size else 0.0}
+        order = np.argsort(-imag_cm) if imag_cm.size else []
+        return Gcorr, {"n_imag": n_imag, "max_imag_cm": round(float(imag_cm.max()), 1) if imag_cm.size else 0.0,
+                       "_imag_vecs": [imag_vecs[k] for k in order if imag_cm[k] > IMAG_TOL_CM]}
     return Gcorr
 
 

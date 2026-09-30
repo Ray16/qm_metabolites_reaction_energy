@@ -362,9 +362,29 @@ def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
     for pos in cands:
         for attempt in (0, 1):
             g, info = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True)
+            vecs = info.pop("_imag_vecs")
             if info["n_imag"] == 0:
                 info["retightened"] = bool(attempt)
                 return g, info
+            if attempt == 1:
+                # MODE FOLLOWING: displace +-0.1 Å along the strongest imaginary mode and re-relax. A real
+                # saddle relaxes DOWN (>1 kJ, above UMA's float32 resolution) -> continue from the lower
+                # structure; if both sides come back to the same energy the mode is a numerical artefact of a
+                # very flat torsion (seen on a 10-atom thioester core: 66-74 cm-1 on every minimum even after
+                # tight re-optimisation) -> keep the structure, treat that mode as soft (floored), record it.
+                verdict, new_pos = _follow_imaginary_mode(pu, syms, pos, vecs[0], q, mult, ref_graph, name)
+                if verdict == "artefact":
+                    g_soft, info_soft = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True,
+                                                       imag_as_soft=True)
+                    info_soft.pop("_imag_vecs")
+                    info_soft.update(retightened=True, imag_artefact_cm=info["max_imag_cm"])
+                    return g_soft, info_soft
+                if verdict == "saddle":
+                    g2, info2 = uma_gibbs_corr(pu, syms, new_pos, q, spin=mult, return_info=True)
+                    info2.pop("_imag_vecs")
+                    if info2["n_imag"] == 0:
+                        info2.update(retightened=True, mode_followed=True)
+                        return g2, info2
             tried.append(info["max_imag_cm"])
             if attempt == 0:                              # re-optimise tightly once, keep only if unrearranged
                 at = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
@@ -375,6 +395,22 @@ def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
                 pos = at.get_positions()
         log(f"    {name}: minimum candidate has an imaginary mode ({tried[-1]} cm-1) -> next candidate")
     return None, tried
+
+
+def _follow_imaginary_mode(pu, syms, pos, mode, q, mult, ref_graph, name, step=0.1, drop_kJ=1.0):
+    """('saddle', lower_pos) if relaxing from pos +- step·mode reaches an energy > drop_kJ below pos (same
+    connectivity), else ('artefact', None)."""
+    at0 = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
+    e0 = float(batched_energies(pu, [at0])[0]) * EV2KJ
+    disp = [Atoms(symbols=syms, positions=pos + sgn * step * mode, info={"charge": int(q), "spin": int(mult)})
+            for sgn in (+1.0, -1.0)]
+    rel, E, conv = batched_fire(pu, disp, fmax=0.01, steps=400, return_converged=True, label=f"{name}-mode")
+    best = None
+    for a, e, c in zip(rel, E, conv):
+        e = float(e) * EV2KJ
+        if c and same_connectivity(a, ref_graph) and e < e0 - drop_kJ and (best is None or e < best[0]):
+            best = (e, a.get_positions())
+    return ("saddle", best[1]) if best else ("artefact", None)
 
 
 def _add_minimum(uniq, also, atoms, e, sd):
