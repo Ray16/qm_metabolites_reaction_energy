@@ -120,7 +120,7 @@ Terse DECISIONS only (not an experiment log — results/status live in
 - **WHERE THE RESIDUAL LIVES (physics root-cause, 2026-08-21, all validated vs INDEPENDENT references —
   never TECRDB):** UMA ELECTRONIC = gold-standard for every class (gas ΔE vs DLPNO-CCSD(T) within ~2 kJ,
   incl. the P-N phosphoramidate); THERMAL (RRHO) fine; solvation FUNCTIONAL error CANCELS in balanced
-  reactions (COSMO vs FreeSolv); ionic strength = no gap (exp are standard ΔrG'° at I=0, pipeline too).
+  reactions (COSMO vs FreeSolv); ionic strength: CORRECTED 2026-09-30 -- the old `exp` were NOT at I=0 (median of -RT ln K' at native measurement conditions: median pH 7.5, I~0.25, Mg in 55 rxns); benchmark now Legendre-transformed per measurement (reactions_tecrdb_std.json), which exposes a ~-5 kJ/released-proton bias.
   => the residual is the aqueous free energy of REAL solutes = SOLVATION. BUT (2026-08-21) NO CHEAP fix
   survives validation: (1) CHARGED-solute (phosphagen +60, phosphate scatter) — explicit small-cluster
   FAILED (its −55 was min-over-seeds SELECTION BIAS -> −91.7; does not converge; does not reproduce exp
