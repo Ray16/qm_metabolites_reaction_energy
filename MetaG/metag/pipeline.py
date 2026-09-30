@@ -127,8 +127,10 @@ _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
 # SOLV_MODEL: implicit solvation for species G (cosmo | alpb | cpcmx). SOLV_ALSO: extra models computed on
 # the SAME conformers and cached alongside (for A/B without re-sampling), e.g. SOLV_ALSO=alpb,cpcmx.
 SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo").strip().lower()
-SOLV_ALSO = [m.strip().lower() for m in os.environ.get("SOLV_ALSO", "").split(",")
-             if m.strip() and m.strip().lower() != SOLV_MODEL]
+SOLV_ALSO = list(dict.fromkeys(
+    m.strip().lower() for m in os.environ.get("SOLV_ALSO", "").split(",")
+    if m.strip() and m.strip().lower() != SOLV_MODEL
+))
 # PHYSICS_VERSION: bump whenever species-level physics changes in a way the settings below do not
 # capture (sampling, relaxation, thermal, solvation code). It is part of every species-cache key, so a
 # bump forces a clean recompute instead of silently serving numbers from older code.
@@ -280,6 +282,15 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} minima={len(uniq)}/{uniq.n_seen} σ={sigma:.1f}]: "
         f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
     fail_frac = n_xtb_fail / max(n_relaxed, 1)
+    incomplete_also = {
+        m: sum(v is None for v in vals)
+        for m, vals in also.items()
+        if vals and any(v is None for v in vals)
+    }
+    for m, n_failed in incomplete_also.items():
+        sp_warn.append(f"{name} ({smi}): auxiliary {m} solvation failed on "
+                       f"{n_failed}/{len(also[m])} accepted minima -> auxiliary G not cached")
+        log(f"    !! {sp_warn[-1]}")
     if fail_frac > MAX_XTB_FAIL_FRAC:                     # degraded ensemble: use it, but never cache it
         sp_warn.append(f"{name} ({smi}): xtb solvation failed on {n_xtb_fail}/{n_relaxed} conformers "
                        f"-> G not cached")
@@ -289,8 +300,8 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                 "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed}
         _sc.put(smi, q, "implicit", _settings, Gens + therm, sigma, meta=meta)
         for m in SOLV_ALSO:                               # other models on the same conformers + thermal; a
-            vals = [g for g in also[m] if g is not None]  # separate key ("via") -- NOT the value a primary
-            if vals:                                      # SOLV_MODEL=m run would compute
+            vals = _complete_auxiliary_values(also[m])    # separate key ("via") -- NOT the value a primary
+            if vals is not None:                          # run would compute; never renormalize a partial
                 _sc.put(smi, q, "implicit", dict(_settings, solv=m, via="solv_also"),
                         boltz(vals) + therm, sigma, meta=meta)
     warnings.extend(sp_warn)
@@ -311,6 +322,11 @@ def _add_minimum(uniq, also, atoms, e, sd):
     for m in also:
         if sd[m] is not None:
             also[m][j] = e + sd[m] if also[m][j] is None else min(also[m][j], e + sd[m])
+
+
+def _complete_auxiliary_values(values):
+    """Return a complete auxiliary conformer ensemble, or None if any accepted minimum is missing."""
+    return values if values and all(v is not None for v in values) else None
 
 
 _WATER_REF = {}
@@ -458,7 +474,11 @@ def effective_config():
                          sort_keys=True)
     cfg = {"model": _MODEL, "physics": PHYSICS_VERSION, "solv_model": SOLV_MODEL, "dedup": _DEDUP,
            "conv": [CONV_TOL, CONV_HITS, CONV_MAX], "sample_scale": _SAMPLE_SCALE, "qrrho": qrrho_enabled(),
+           "explicit_sampling": [N_EXPLICIT_SEEDS, EXPLICIT_KEEP],
            "trunc_radius": int(os.environ.get("TRUNC_RADIUS", "2")),
+           "trunc_validate_tol": float(os.environ.get("TRUNC_VALIDATE_TOL", "5")),
+           "dg_sanity_kj": float(os.environ.get("DG_SANITY_KJ", "500")),
+           "smd_threshold": float(os.environ.get("SMD_THRESHOLD", "5")),
            "water_ref_delta": float(os.environ.get("WATER_REF_DELTA", "-23.2")),
            "water_dgsolv_kj": float(os.environ.get("WATER_DGSOLV_KJ", "-26.4")),
            "pka_env": _pk._pka_env_enabled(), "pka_model": os.environ.get("PKA_MODEL", "table").strip().lower(),
@@ -473,19 +493,31 @@ def validate_reaction(reaction):
     charge must equal the SMILES formal charge. The declared charge drives UMA/xtb and keys the species
     cache while the graph comes from the SMILES, so e.g. [-1, "CCO"] would compute -- and cache -- an
     electronic state inconsistent with the structure."""
+    if not isinstance(reaction, dict):
+        raise ValueError("reaction must be a mapping")
     sp = reaction.get("species")
-    if not sp:
+    if not isinstance(sp, dict) or not sp:
         raise ValueError("reaction has no species")
+    n_hplus = reaction.get("n_Hplus", 0)
+    if not isinstance(n_hplus, (int, float)) or isinstance(n_hplus, bool) or not math.isfinite(n_hplus):
+        raise ValueError(f"reaction n_Hplus must be a finite number, got {n_hplus!r}")
     for name, v in sp.items():
+        if not isinstance(v, (list, tuple)) or len(v) != 3:
+            raise ValueError(f"species {name!r}: expected [coefficient, charge, SMILES], got {v!r}")
         coeff, q, smi = v
+        if (not isinstance(coeff, (int, float)) or isinstance(coeff, bool)
+                or not math.isfinite(coeff) or coeff == 0):
+            raise ValueError(f"species {name!r}: coefficient must be a finite nonzero number, got {coeff!r}")
+        if not isinstance(q, (int, float)) or isinstance(q, bool) or not math.isfinite(q) or not float(q).is_integer():
+            raise ValueError(f"species {name!r}: charge must be a finite integer, got {q!r}")
+        if not isinstance(smi, str) or not smi:
+            raise ValueError(f"species {name!r}: SMILES must be a nonempty string, got {smi!r}")
         m = Chem.MolFromSmiles(smi)
         if m is None:
             raise ValueError(f"species {name!r}: unparseable SMILES {smi!r}")
-        if int(q) != q or int(q) != Chem.GetFormalCharge(m):
+        if int(q) != Chem.GetFormalCharge(m):
             raise ValueError(f"species {name!r}: declared charge {q} != SMILES formal charge "
                              f"{Chem.GetFormalCharge(m)} ({smi})")
-        if coeff == 0:
-            raise ValueError(f"species {name!r}: zero stoichiometric coefficient")
 
 
 def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print):

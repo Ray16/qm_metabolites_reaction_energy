@@ -45,6 +45,32 @@ def test_validate_reaction_rejects_charge_mismatch():
     P.validate_reaction({"species": {"a": [-1, -1, "CC(=O)[O-]"]}})   # consistent -> no error
 
 
+@pytest.mark.parametrize("record", [
+    [-1, 0],
+    [0, 0, "CCO"],
+    [float("nan"), 0, "CCO"],
+    [-1, 0.5, "CCO"],
+    [-1, 0, ""],
+])
+def test_validate_reaction_rejects_malformed_species_records(record):
+    with pytest.raises(ValueError):
+        P.validate_reaction({"species": {"a": record}})
+    with pytest.raises(ValueError):
+        P.validate_reaction({"n_Hplus": float("inf"), "species": {"a": [-1, 0, "CCO"]}})
+
+
+def test_auxiliary_solvation_failure_does_not_remove_primary_minimum():
+    # SOLV_ALSO is diagnostic: a failed ALPB value must leave the COSMO minimum intact. Conversely, a
+    # partial ALPB list must never be filtered/renormalized into a biased auxiliary Boltzmann ensemble.
+    from metag.energetics.conformers import UniqueMinima
+    atoms = P.Atoms("H2", positions=[[0, 0, 0], [0, 0, 0.74]])
+    uniq, also = UniqueMinima(), {"alpb": []}
+    P._add_minimum(uniq, also, atoms, -10.0, {"cosmo": -2.0, "alpb": None})
+    assert uniq.G == [-12.0] and also["alpb"] == [None]
+    assert P._complete_auxiliary_values(also["alpb"]) is None
+    assert P._complete_auxiliary_values([-13.0, -12.5]) == [-13.0, -12.5]
+
+
 @pytest.fixture
 def mocked(monkeypatch):
     G = {"CCO": -100.0, "CC=O": -50.0, "[HH]": -5.0, "CC(=O)O": -300.0, "CCOC(C)=O": -350.0}
@@ -106,6 +132,20 @@ def test_flag_defaults_single_source():
     assert not re.search(r'_flag\("[A-Z0-9_]+", default=', src)          # defaults live in FLAG_DEFAULTS
     for name in re.findall(r'_flag\("([A-Z0-9_]+)"\)', src):
         assert name in P.FLAG_DEFAULTS, name
+
+
+def test_config_fingerprints_numeric_acceptance_controls(monkeypatch):
+    base = P.effective_config()
+    for env, key, value in (
+        ("DG_SANITY_KJ", "dg_sanity_kj", "321"),
+        ("TRUNC_VALIDATE_TOL", "trunc_validate_tol", "7"),
+        ("SMD_THRESHOLD", "smd_threshold", "9"),
+    ):
+        monkeypatch.setenv(env, value)
+        changed = P.effective_config()
+        assert changed[key] != base[key]
+        monkeypatch.delenv(env)
+    assert base["explicit_sampling"] == [P.N_EXPLICIT_SEEDS, P.EXPLICIT_KEEP]
 
 
 # ---------------------------------------------------------------- pKa ladders
