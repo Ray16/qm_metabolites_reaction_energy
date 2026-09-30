@@ -1,25 +1,20 @@
 #!/usr/bin/env python
-"""MetaG scoring pipeline: score_reaction() — ONE scheme across all reaction classes.
+"""MetaG scoring pipeline: score_reaction() -- one scheme across all reaction classes.
 
-Instead of three bespoke scripts (step3b redox / step5c glycosyl / step7b nucleotidyl),
-run a SINGLE pipeline with automatic triage and NO per-class hand-tuning, and check it
-reproduces all three at once. If one regresses, that pinpoints where the bespoke tuning
-was load-bearing -> dive into that one.
+Per reaction (each step self-gating; flags in parentheses, default-on unless noted):
+  1. structural routing on the input species: cofactor ring cores (COFACTOR_RING), CoA / NTP cores
+     (COA_CORE, NTP_CORE; off), spectator truncation (AUTO_TRUNCATE, ROUTE_FULL; TRUNC_VALIDATE opt-in
+     radius-sensitivity guard), pH-0 neutral microspecies + exact Alberty pKa transform (PH0_AUTO, PH0_BASES).
+  2. per species (content-addressed cache): ETKDG pool -> batched UMA rank -> relax top-k -> Boltzmann
+     over UNIQUE minima of (E_elec[UMA] + ΔG_solv[xtb-COSMO]) + UMA-Hessian RRHO on the min-E conformer;
+     adaptive seed batches until the unique-minima ensemble stops moving (CONV_*).
+     + 1 atm -> 1 M standard state (STD_STATE_1M); liquid water on the 55.34 M reference.
+  3. ΔG = Σ ν·G + n_H+·G(H+, pH 7) + Σ pKa-transform terms; aldehyde hydration mixture (ALDEHYDE_HYDRATION).
+  4. guards (charge closure, |ΔG| sanity) -> anchor offsets (ANCHOR_CORRECT, reported with dG_raw) ->
+     hydro-lyase water-reference constant (WATER_REF_HYDROLYASE) -> calibrated σ and 95% interval.
 
-The one scheme (per species):
-  ETKDG pool -> batched UMA rank -> relax top-k -> Boltzmann ensemble of
-  (E_elec[UMA] + ΔGsolv)  + UMA-Hessian thermal on the min-E conformer.
-Triage picks the solvation treatment PER REACTION:
-  - IMPLICIT (xtb --sp --cosmo)         when no compact anion is created/destroyed
-  - EXPLICIT (water_count first-shell waters, cluster-continuum via corr_fast)
-    when a compact high-charge-density anion IS created/destroyed (e.g. PPi).
-ΔG = Σ_prod ν G - Σ_react ν G + n_H+ · G(H+,aq,pH7).
-
-Run (uma env), one reaction per GPU in parallel:
-  CUDA_VISIBLE_DEVICES=0 python scripts/unified_pipeline.py --only redox      &
-  CUDA_VISIBLE_DEVICES=1 python scripts/unified_pipeline.py --only glycosyl   &
-  CUDA_VISIBLE_DEVICES=2 python scripts/unified_pipeline.py --only nucleotidyl&
-  # or omit --only to run all three sequentially on one GPU
+CLI harness (reactions from RXN_FILE; launch through gpu_reserve, never set CUDA_VISIBLE_DEVICES by hand):
+  gpu_reserve run <idx> -- python -m metag.pipeline --only <key>
 """
 import argparse
 import hashlib
@@ -36,9 +31,9 @@ from rdkit.Chem import rdMolDescriptors
 
 from metag.energetics import water_clusters as gc
 from metag.energetics.uma import load_uma, batched_energies, batched_fire
-from metag.energetics.conformers import pool_confs, boltz, spin_multiplicity
+from metag.energetics.conformers import pool_confs, boltz, spin_multiplicity, UniqueMinima
 from metag.energetics.explicit_solvation import bare_geom
-from metag.energetics.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast
+from metag.energetics.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast, dgsolv
 from metag.water_count import water_count, needs_explicit
 
 N_EXPLICIT_SEEDS = int(os.environ.get("N_EXPLICIT_SEEDS", "16"))  # cluster seeds (cheap: batched relax)
@@ -51,6 +46,15 @@ T = 298.15
 G_HPLUS = -26.3 - 1104.5 - 2.303 * 8.314e-3 * T * 7.0    # ~ -1170.8 kJ/mol
 PH = 7.0
 RT_LN10 = 2.303 * 8.314e-3 * T                            # ~5.71 kJ/mol per pKa unit
+# STANDARD STATE (package-wide convention: every solute at 1 M, liquid water at 55.34 M, H+ at pH 7).
+# Species G = G_gas(RRHO, ASE IdealGasThermo at 1 atm) + ΔG_solv(xtb). xtb --cosmo reports ΔG_solv with
+# NO reference-state shift (Gshift = 0; the `bar1M` keyword is a no-op for --cosmo -- verified), i.e. the
+# 1 M(gas) -> 1 M(aq) Ben-Naim convention. The gas term is at 1 atm, so each solute needs
+# +RT ln(RT/P°V°) = +RT ln 24.46 = +7.93 kJ to reach 1 M. Without it a reaction inherits -7.93·Δn
+# (Δn = net number of solute+water molecules). G_HPLUS already includes it: -1104.5 kJ = -264.0 kcal/mol
+# is the Tissandier 1 atm(gas) -> 1 M(aq) proton solvation. Same constant as
+# water_clusters.GAS_1ATM_TO_1M_KJ. STD_STATE_1M=0 restores the old (inconsistent) bookkeeping for A/B.
+STD_STATE_KJ = 8.314e-3 * T * math.log(0.082057 * T)     # RT ln(24.46 L/mol) = 7.93 kJ/mol
 # pH-0 route (Jinich/Alberty): compute the NEUTRAL protonated microspecies (well-solvated
 # by continuum -> no created/destroyed-anion pathology, no huge G(H+) term), then bridge
 # to pH 7 analytically with the EXPERIMENTAL pKa. `pka_sites` = list of (side, pKa) for
@@ -115,11 +119,30 @@ CONV_MAX   = int(os.environ.get("CONV_MAX", "8"))        # cap on seed-batches (
 from metag.energetics import species_cache as _sc
 _MODEL = os.environ.get("UMA_MODEL", "uma-s-1p2p1")   # patch model (batched_relax._ensure_registered); in the cache key. UMA_MODEL overrides for A/B (e.g. uma-s-1p2)
 _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
-_IMPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "budget": "nrot-tiered-v1",
+# SOLV_MODEL: implicit solvation for species G (cosmo | alpb | cpcmx). SOLV_ALSO: extra models computed on
+# the SAME conformers and cached alongside (for A/B without re-sampling), e.g. SOLV_ALSO=alpb,cpcmx.
+SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo").strip().lower()
+SOLV_ALSO = [m.strip().lower() for m in os.environ.get("SOLV_ALSO", "").split(",")
+             if m.strip() and m.strip().lower() != SOLV_MODEL]
+_IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiered-v1",
                       "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
                       "sample_scale": _SAMPLE_SCALE}
+# CONF_DEDUP (default-on): Boltzmann over unique minima. CONF_DEDUP=0 reproduces the legacy cumulative sum
+# (every relaxed copy counted as a state) for A/B against old caches; the cache key tracks the choice.
+_DEDUP = os.environ.get("CONF_DEDUP", "1").strip().lower() not in ("", "0", "off", "false", "no")
+if _DEDUP:
+    _IMPLICIT_SETTINGS["dedup"] = "rmsd-v1"
 _EXPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
-                      "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP}
+                      "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP, "dedup": "erot-v1"}   # clusters: moments fallback
+
+
+def _last_match(uniq, atoms, E_kJ):
+    """Index of the unique minimum that `atoms` duplicates (same test UniqueMinima.add used), or None."""
+    rep = uniq._mol_at(atoms) if uniq.template is not None else None
+    for j in range(len(uniq.E)):
+        if rep is not None and uniq._same(E_kJ, rep, j):
+            return j
+    return None
 
 
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
@@ -142,7 +165,11 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     if mult != 1:
         log(f"    {name:9s} q{q:+d} [open-shell: spin multiplicity {mult}]")
     _, keep, pool = sampling_budget(smi)                  # per-batch pool/keep sizing only
-    all_G = []
+    uniq = (UniqueMinima(template=Chem.AddHs(Chem.MolFromSmiles(smi))) if _DEDUP
+            else UniqueMinima(e_tol=-1.0))                 # e_tol<0: never merge (legacy A/B)
+    all_G = uniq.G
+    # secondary solvation models on the same unique minima: {model: [G per unique minimum]}
+    also = {m: [] for m in SOLV_ALSO}
     best = (1e18, None, None)
     prev_Gens = prev_best = None
     hits = 0
@@ -157,12 +184,22 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
         rel, E, conv = batched_fire(pu, sel, fmax=0.05, steps=300, stop_frac=0.9,
                                     return_converged=True, label=f"{name}s{seed}")
         sel = [a for a, c in zip(rel, conv) if c]; Eg = E[conv] * EV2KJ
+        models = [SOLV_MODEL] + SOLV_ALSO
         with ThreadPoolExecutor(max_workers=8) as ex:
-            solv = list(ex.map(lambda a: xtb_dgsolv(a.get_chemical_symbols(),
-                                                    a.get_positions(), q, "cosmo"), sel))
-        for a, e, s in zip(sel, Eg, solv):
-            if np.isfinite(e) and s is not None:
-                all_G.append(e + s)
+            solv = list(ex.map(lambda am: dgsolv(am[0].get_chemical_symbols(), am[0].get_positions(), q,
+                                                 am[1], mult), [(a, m) for a in sel for m in models]))
+        solv = [dict(zip(models, solv[i * len(models):(i + 1) * len(models)])) for i in range(len(sel))]
+        for a, e, sd in zip(sel, Eg, solv):
+            s = sd[SOLV_MODEL]
+            if np.isfinite(e) and s is not None and all(sd[m] is not None for m in SOLV_ALSO):
+                if uniq.add(a, e, e + s):                 # duplicates of a known basin do not add a state
+                    for m in SOLV_ALSO:
+                        also[m].append(e + sd[m])
+                else:                                     # duplicate: keep the lower G per model too
+                    for m in SOLV_ALSO:
+                        j = _last_match(uniq, a, e)
+                        if j is not None:
+                            also[m][j] = min(also[m][j], e + sd[m])
                 if e < best[0]:
                     best = (float(e), a.get_chemical_symbols(), a.get_positions())
         if not all_G:
@@ -185,9 +222,12 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name):
     tail = gens_traj[-3:]
     sigma = float(np.std(tail)) if len(tail) > 1 else (last_dG if np.isfinite(last_dG) else 3.0)
     tag = "conv" if seed < CONV_MAX else "CAPPED"
-    log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} σ={sigma:.1f}]: "
+    log(f"    {name:9s} q{q:+d} [implicit {tag} seeds={seed} minima={len(uniq)}/{uniq.n_seen} σ={sigma:.1f}]: "
         f"Gens {Gens:.1f} + thermal {therm:.1f} = {Gens+therm:.1f}")
     _sc.put(smi, q, "implicit", _settings, Gens + therm, sigma)
+    for m in SOLV_ALSO:                                   # cache the other models (same conformers + thermal)
+        if also[m]:
+            _sc.put(smi, q, "implicit", dict(_settings, solv=m), boltz(also[m]) + therm, sigma)
     return Gens + therm, sigma
 
 
@@ -198,17 +238,37 @@ def water_ref_G(pu, log=None):
     explicit waters reference bulk liquid, so they cancel for a SPECTATOR anion (equal n
     both sides) AND stay correct for a CREATED/DESTROYED anion (unequal n). Without it,
     explicit_G leaks n*G(water) (~ -2e5 kJ each) into any reaction that changes anion count.
-      G*_liq(H2O) = E_UMA(H2O) + thermal(H2O) + dGsolv(H2O) + RT ln(55.34)   [gas->liquid std state]"""
-    if "G" in _WATER_REF:
-        return _WATER_REF["G"]
+      G*_liq(H2O) = E_UMA(H2O) + thermal(H2O, 1 atm) + dGsolv(H2O) + RT ln(55.34)
+    NOTE: this value (like every cached species G) is on the 1 atm gas standard state; score_reaction adds
+    the 1 atm -> 1 M term (STD_STATE_KJ) uniformly to every species incl. water, so the RT ln 55.34
+    (1 M -> 55.34 M pure liquid) term below is then correct."""
+    if SOLV_MODEL in _WATER_REF:
+        return _WATER_REF[SOLV_MODEL]
     sym, coord = bare_geom(pu, 0, "O")
     atoms = Atoms(symbols=list(sym), positions=coord, info={"charge": 0, "spin": 1})
     E = float(batched_energies(pu, [atoms])[0]) * EV2KJ
-    solv = xtb_dgsolv(list(sym), coord, 0, "cosmo")
+    # WATER-REFERENCE FIX (WATER_REF_EXP, default-on): xtb-COSMO badly under-solvates a WATER molecule
+    # (-3.2 kJ vs experiment -26.4; xtb-ALPB independently gives -25.4). Because water_ref_G sets the
+    # standard G of every liquid water in the stoichiometry, this ~+23 kJ/water error is a SYSTEMATIC bias
+    # on EVERY net-water reaction -- and its sign matches the data exactly: hydratase (PRODUCES water)
+    # biased +23 (observed +18..24), hydrolases (CONSUME water) biased -23 (amide -14, ...). This is THE
+    # cause of the "solvation wall" on those classes -- not solute-solvation (the SMD solute correction was
+    # DISPROVEN end-to-end, rxn00799 24->37.5). Fix = use the experimental water solvation free energy
+    # (a single well-known number), deterministic and physics-based, no per-reaction fitting. Set
+    # WATER_REF_EXP=0 to restore the (buggy) COSMO water reference for A/B.
+    # DEFAULT-OFF pending coordinated recalibration: the fix is CORRECT physics (rxn00799 hydratase
+    # err +24.3 -> +0.7) but the anchors + sigma_class were CALIBRATED ON the buggy cosmo-water baseline
+    # and have silently ABSORBED this error, so flipping it alone REGRESSES the anchored net-water classes
+    # (phosphatase 2.0 -> 23.3: its +15.7 offset compensated the water error; consumes 1 water -> raw shifts
+    # +23.2 -> anchor now under-corrects). Overall analytic projection 11.4 -> 12.95 WITHOUT recalibration.
+    # The correct rollout = enable this AND re-derive the anchor offsets + recalibrate sigma on the
+    # water-fixed baseline (each anchor offset shifts by its pool's net-water * -23.2). See memory.
+    _WSOLV_EXP = float(os.environ.get("WATER_DGSOLV_KJ", "-26.4"))    # exp ΔGhyd(H2O), -6.3 kcal/mol
+    solv = _WSOLV_EXP if _flag("WATER_REF_EXP", default=False) else dgsolv(list(sym), coord, 0, SOLV_MODEL)
     thermal = uma_gibbs_corr(pu, list(sym), coord, 0)
-    conc = 8.314e-3 * 298.15 * float(np.log(55.34))          # +9.96 kJ/mol, gas 1M -> liquid 55.3M
+    conc = 8.314e-3 * 298.15 * float(np.log(55.34))          # +9.96 kJ/mol, 1 M -> liquid 55.34 M
     G = E + solv + thermal + conc
-    _WATER_REF["G"] = G
+    _WATER_REF[SOLV_MODEL] = G
     if log:
         log(f"    [water ref] G*_liq(H2O) = E {E:.1f} + solv {solv:.1f} + thermal {thermal:.1f} "
             f"+ conc {conc:.1f} = {G:.1f}")
@@ -262,7 +322,11 @@ def explicit_G(pu, q, smi, seeds, log, name):
     with ThreadPoolExecutor(max_workers=8) as ex:
         solv = list(ex.map(lambda a: xtb_dgsolv_relaxed(a.get_chemical_symbols(),
                                                         a.get_positions(), q, "cosmo"), sel))
-    Gt = [e + s for e, s in zip(Eu, solv) if s is not None]
+    _uq = UniqueMinima()                                  # merge seeds that relaxed to the same cluster
+    for a, e, s in zip(sel, Eu, solv):
+        if s is not None:
+            _uq.add(a, e, e + s)
+    Gt = _uq.G
     if not Gt:
         return None, None
     Gens = boltz(Gt)
@@ -287,14 +351,24 @@ def _flag(name, default=False):
     return v.strip().lower() not in ("", "0", "off", "false", "no")
 
 
-def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allow_truncate=True, key="rxn"):
+def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allow_truncate=True, key="rxn",
+                   trunc_radius=None, _validating=False):
     """Public entry point: score one reaction's standard transformed Gibbs energy (ΔrG'°) from structure.
 
     `reaction` = {"species": {name: [coeff, charge, smiles]}, "note": str, "n_Hplus": int,
     and optionally "exp": [float] (experiment, for err reporting), "explicit": bool|list, "pka_sites"}.
     `pu` is a loaded UMA model (metag.energetics.uma.load_uma). Returns the result dict:
-    dG (physics+anchor), dG_raw (pure physics), anchor, sigma_pred, ci95, ci_center, U_samp, ...
+    dG (physics+anchor), dG_raw (pure physics), anchor, sigma_pred, ci95, ci_center, U_samp, routes, ...
+    `seeds`/`keep`/`pool` are accepted for backward compatibility; the sampling budget is set per species
+    by sampling_budget() + the adaptive convergence loop (CONV_*), not by these arguments.
+
+    TRUNC_VALIDATE=1 (opt-in): radius-sensitivity guard for spectator truncation. A true spectator cut
+    leaves ΔG invariant to the cut radius, so the reaction is scored at radius R and R+1; the truncation
+    is kept only if |ΔG_raw(R) - ΔG_raw(R+1)| <= max(TRUNC_VALIDATE_TOL, 2·sqrt(U_R² + U_R+1²)),
+    otherwise the reaction is re-scored with full molecules. Recorded in result["trunc_validation"].
     """
+    if _flag("TRUNC_VALIDATE", default=False) and not _validating and allow_truncate:
+        return _score_trunc_validated(pu, reaction, seeds, keep, pool, log, key, trunc_radius)
     orig_species = {k: list(v) for k, v in reaction["species"].items()}   # pre-routing, for the anchor gate
     rx = dict(reaction)
     rx.setdefault("explicit", False)                        # `explicit` is optional per the contract;
@@ -303,6 +377,9 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     if isinstance(rx["explicit"], list):
         rx["explicit"] = set(rx["explicit"])
     truncated = False                                        # did AUTO_TRUNCATE actually fire?
+    routes = {"cofactor_ring": False, "coa_core": False, "ntp_core": False, "prefer_full": False,
+              "truncated": False, "trunc_radius": None, "ph0": False, "zwitterion_ph0": False,
+              "errors": [], "warnings": []}
     # COFACTOR RING-TRUNCATION (opt-in COFACTOR_RING=1): replace NAD(P)+/NAD(P)H with their
     # redox-active nicotinamide RING model. The identical ADP-ribose-phosphate tail cancels in
     # ΔG but its floppy-conformer error does NOT in full-molecule QM -- which is why NAD (floppy)
@@ -324,10 +401,11 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                       - sum(c * q for (c, q, s) in rx["species"].values()))
                 rx = dict(rx, species=new, n_Hplus=rx["n_Hplus"] - dq,
                           note=rx.get("note", "") + " [RINGCOFACTOR]")
+                routes["cofactor_ring"] = True
                 log(f"  [cofactor-ring: NAD(P) -> nicotinamide ring model"
                     + (f"; n_H+ {rx['n_Hplus']+dq:+d}->{rx['n_Hplus']:+d} (charge closure)]" if dq else "]"))
         except Exception as e:
-            log(f"  [cofactor-ring error: {e}; unchanged]")
+            log(f"  [cofactor-ring error: {e}; unchanged]"); routes["errors"].append(f"cofactor_ring: {e}")
     # CoA CORE-REDUCTION (opt-in COA_CORE=1): DEFAULT-OFF -- proven a no-op on the benchmark.
     # HYPOTHESIS (rejected): the floppy pantetheine-ADP tail's conformer noise doesn't cancel in ΔG,
     # so capping S-CoA -> S-CH3 would denoise it. VERDICT: all 28 TECRDB CoA reactions are SYMMETRIC
@@ -341,7 +419,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             from metag.routing.coa_core import coa_core
             new = coa_core(rx["species"])
             if new is not rx["species"]:
-                rx = dict(rx, species=new, note=rx.get("note", "") + " [COA-CORE]")
+                rx = dict(rx, species=new, note=rx.get("note", "") + " [COA-CORE]"); routes["coa_core"] = True
                 log("  [coa-core: acyl-S-CoA -> acyl-S-CH3 (pantetheine-ADP scaffold capped)]")
         except Exception as e:
             log(f"  [coa-core error: {e}; unchanged]")
@@ -360,7 +438,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             from metag.routing.ntp_core import ntp_core
             new = ntp_core(rx["species"])
             if new is not rx["species"]:
-                rx = dict(rx, species=new, note=rx.get("note", "") + " [NTP-CORE]")
+                rx = dict(rx, species=new, note=rx.get("note", "") + " [NTP-CORE]"); routes["ntp_core"] = True
                 log("  [ntp-core: nucleoside-5'-phosphate -> methyl polyphosphate (adenosine capped)]")
         except Exception as e:
             log(f"  [ntp-core error: {e}; unchanged]")
@@ -369,7 +447,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # + its conformer noise). Falls back to full molecules if no clean balanced truncation.
     # PHYSICS ROUTING GATE (ROUTE_FULL, default-on): prefer the FULL molecule over truncation when the
     # reaction is compact/ring-embedded, charge-conserved, and has no floppy large-fragment linker
-    # (route_full.prefer_full). Validated +1.05 kJ MAE vs baseline on the ring-fix candidate set; every
+    # (truncation_gate.prefer_full). Validated +1.05 kJ MAE vs baseline on the ring-fix candidate set; every
     # large truncation-regression (disaccharide/bisphosphate/SAH/G6P) is kept out of full by the
     # floppy-linker term. Set ROUTE_FULL=0 to ablate.
     _prefer_full = False
@@ -377,14 +455,15 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         try:
             from metag.routing.truncation_gate import prefer_full
             _prefer_full = prefer_full(rx["species"])
-        except Exception:
-            _prefer_full = False
+        except Exception as e:
+            _prefer_full = False; routes["errors"].append(f"prefer_full: {e}")
+        routes["prefer_full"] = bool(_prefer_full)
         if _prefer_full:
             log("  [route: prefer FULL molecule (compact ring, charge-conserved, no floppy linker) -> skip truncation]")
     if allow_truncate and _flag("AUTO_TRUNCATE", default=True) and not _prefer_full:
         try:
             from metag.routing.truncate import build_truncated_reaction
-            _rad = int(os.environ.get("TRUNC_RADIUS", "2"))
+            _rad = int(trunc_radius if trunc_radius is not None else os.environ.get("TRUNC_RADIUS", "2"))
             tr = build_truncated_reaction(rx["species"], radius=_rad)
             if tr is None and os.environ.get("TRUNC_V2"):   # v2: global-map truncation for the
                 from metag.routing.truncate_global import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
@@ -424,11 +503,12 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                 rx = dict(rx, species=tr[0], n_Hplus=tr[1], explicit=False,
                           note=rx.get("note", "") + " [AUTO-TRUNCATED]")
                 truncated = True
+                routes.update(truncated=True, trunc_radius=_rad)
                 log(f"  [auto-truncated -> {len(tr[0])} core species, n_H+={tr[1]}]")
             else:
                 log(f"  [auto-truncation fallback: full molecules]")
         except Exception as e:
-            log(f"  [auto-truncation error: {e}; full molecules]")
+            log(f"  [auto-truncation error: {e}; full molecules]"); routes["errors"].append(f"truncation: {e}")
     # pH-0 / pKa AUTO-ROUTING (general heuristic, opt-in PH0_AUTO=1): for the charged-anion class
     # (phosphoryl/NTP/PPi/carboxylate) protonate every anionic site to its NEUTRAL microspecies
     # -- UMA's comfortable regime (no formal charge to delocalise, no diffuse-anion basis ceiling,
@@ -452,11 +532,50 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                     ns, pks, nh = out
                     rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks, explicit=False,
                               note=rx.get("note", "") + " [pH0]")
+                    routes["ph0"] = True
                     log(f"  [pH0 -> {len(pks)} pKa sites, n_H+={nh}]")
                 else:
                     log(f"  [pH0: no ionizable site -> unchanged]")
         except Exception as e:
-            log(f"  [pH0-auto error: {e}; unchanged]")
+            log(f"  [pH0-auto error: {e}; unchanged]"); routes["errors"].append(f"ph0: {e}")
+    # ZWITTERION INVARIANT (ZWITTERION_PH0, default-on): NO zwitterion may reach gas-phase QM, whatever
+    # route produced the species list. A zwitterion (protonated N + O- in one molecule) is not a gas-phase
+    # minimum: UMA relaxation transfers the N-H proton to the O- in every conformer (verified Gly/Ala/Ser/
+    # Glu/Asp/phosphoserine/ethanolamine-P), so the scored species silently becomes the neutral tautomer
+    # (~30 kJ above the aqueous zwitterion for glycine). If one is still present here (pH-0 gated off for an
+    # isomerization, refused on mass balance, or disabled), take the full neutral-microspecies path: acids
+    # AND amines neutralized, the aqueous zwitterion rebuilt analytically by the acid + base pKa terms.
+    # TECRDB: 23 reactions reached QM with a zwitterion, MAE 16.0 vs 10.9 for the rest.
+    # NEUTRAL-QM INVARIANT (NEUTRAL_QM, generalizes the zwitterion rule): ANY ionizable charge left in a
+    # QM species (anionic O, or protonated N-H) -- whether pH-0 was gated off (isomerization), refused (net
+    # redox proton), or never applied -- is routed through the full neutral-microspecies path: the implicit-
+    # continuum anion/zwitterion solvation failure is the largest measured error source (TECRDB: reactions
+    # with bare anions in QM MAE 14.8, zwitterions 16.0, vs ~8-11 otherwise). Only permanent cations stay
+    # charged. The base path carries any net (redox) proton as n_H+ with the charge-closure guard below.
+    # STATUS (2026-09-26, TECRDB A/B on the COSMO baseline): zwitterion-only rerouting MAE 11.01 -> 11.01,
+    # tail 54 -> 56 (glutamine synthetase +74 -> +26, but cyclic imino-acid reductases +9 -> +43): NOT adopted
+    # -> default-off; re-test on the parametrized-solvation baseline (the neutral species it creates are
+    # exactly where xtb-COSMO is weakest: FreeSolv polar R=0.38).
+    _neutral_all = _flag("NEUTRAL_QM", default=False)
+    if _flag("ZWITTERION_PH0", default=False) or _neutral_all:
+        try:
+            from metag.routing.pka_transform import build_ph0_reaction, has_zwitterion, has_ionized
+            _needs = (lambda sp: has_ionized(sp)) if _neutral_all else (lambda sp: has_zwitterion(sp))
+            if _needs(rx["species"]) and rx.get("pka_sites"):
+                routes["warnings"].append("charged species reaches QM (user-supplied pka_sites; not re-routed)")
+            elif _needs(rx["species"]):
+                out = build_ph0_reaction(rx["species"], rx["n_Hplus"], base=True, force_base=True)
+                if out is not None and not _needs(out[0]):
+                    ns, pks, nh = out
+                    rx = dict(rx, species=ns, n_Hplus=nh, pka_sites=pks,
+                              explicit=False, note=rx.get("note", "") + " [pH0-zwitterion]")
+                    routes["ph0"] = True; routes["zwitterion_ph0"] = True
+                    log(f"  [zwitterion invariant -> neutral-microspecies path, {len(pks)} pKa sites, n_H+={nh}]")
+                else:
+                    routes["warnings"].append("zwitterion reaches QM (neutral-microspecies build refused)")
+                    log("  !! zwitterion reaches QM: neutral-microspecies build refused")
+        except Exception as e:
+            routes["errors"].append(f"zwitterion_ph0: {e}")
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
     # `explicit` may be True/False (whole reaction) OR a list/set of species names
     # that need explicit first-shell waters (per-species triage: only the anion that
@@ -487,6 +606,11 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
 
     G = {}
     sig = {}
+    # STD_STATE_1M default OFF (2026-09-26 TECRDB sweep, dedup pipeline): thermodynamically required, but it
+    # OVERSHOOTS BOTH WAYS (Δn=+1 bias -2.8 -> +4.2, Δn=-1 +0.4 -> -6.4; MAE 10.94 -> 11.26), the signature of
+    # an opposite-signed per-molecule term still missing (gas-phase translational/rotational entropy over-
+    # counted in solution, Wertz-type). Enable only together with that term once it is validated.
+    std = STD_STATE_KJ if _flag("STD_STATE_1M", default=False) else 0.0
     for name, (coeff, q, smi) in rx["species"].items():
         if smi == "O" and q == 0:                        # liquid-water reactant (hydrolysis)
             G[name] = water_ref_G(pu, log); sig[name] = 1.0
@@ -504,8 +628,14 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             log(f"    {name}: FAILED")
             if truncated:                                    # a truncated core failed -> retry FULL molecules
                 log(f"  [retry {key} with truncation OFF (full molecules)]")
-                return run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=False)
+                # re-score the ORIGINAL input dict (not a registry lookup: dict-API callers are not in REACTIONS)
+                return score_reaction(pu, reaction, seeds, keep, pool, log, allow_truncate=False, key=key)
             return None
+        # 1 atm -> 1 M standard state, applied OUTSIDE the species cache (cached G stays on 1 atm). An
+        # explicit cluster is ONE solute minus n liquid waters: Gcl + c - n(Gw + c) -> extra -n·c.
+        G[name] += std
+        if requested_explicit(name) and is_spectator_anion(name) and not (smi == "O" and q == 0):
+            G[name] -= water_count(smi)[0] * std
         try:                                                 # release per-species GPU memory so a
             import torch                                      # later big species doesn't OOM from
             if torch.cuda.is_available():                     # fragmentation left by earlier ones
@@ -532,9 +662,10 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             Gd, _sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)")
             if Gd is None:
                 continue
-            Geff = _ah.mixture_G(G[name], Gd, _gw)
+            Gd += std                                     # G[name] already carries std; put diol + water on 1 M too
+            Geff = _ah.mixture_G(G[name], Gd, _gw + std)
             log(f"    [hydration: {name} carbonyl {G[name]:.1f} + gem-diol {Gd:.1f} "
-                f"(ΔG_hyd {Gd - _gw - G[name]:+.1f}) -> mixture {Geff:.1f}  shift {Geff - G[name]:+.1f}]")
+                f"(ΔG_hyd {Gd - (_gw + std) - G[name]:+.1f}) -> mixture {Geff:.1f}  shift {Geff - G[name]:+.1f}]")
             G[name] = Geff
             sig[name] = float(np.hypot(sig.get(name, 0.0), _sd or 0.0))
 
@@ -607,10 +738,78 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
                 anchor_meta = {"subclass": sc, "offset": round(dG_raw - dG_corr, 1), "sigma": sig_anchor}
         except Exception as e:
             log(f"  [anchor-correct error: {e}; uncorrected]")
+    # SMD SOLUTE-SOLVATION CORRECTION (SMD_SOLV, default-on): xtb-COSMO systematically UNDER-SOLVATES a
+    # CREATED/DESTROYED compact polar/charged group (the solvation wall -- measured: a hydratase -OH is
+    # -3 kJ in COSMO vs -17 in SMD≈exp). Where the structural gate detects such a NON-CANCELLING solvation
+    # change, recompute the SOLUTES' solvation with SMD (calibrated neutral continuum, gpu4pyscf via the
+    # redox env) and apply the SOLUTE-ONLY correction Σν(ΔGsolv_SMD − ΔGsolv_COSMO). Water is NOT corrected
+    # (it stays on the calibrated water_ref_G -- correcting it re-introduces a ~-31 kJ/water screening
+    # artifact). GATED (skips group-conserving isomerase/transaminase, where SMD only adds scatter) and
+    # MAGNITUDE-FLOORED. Physics, not a fitted offset. Not applied when an anchor already fired (no double
+    # correction) or when the result is suspect. Validated full-367 solute-only (analysis/smd_measure.py).
+    # DEFAULT-OFF (2026): the solute-only form was DISPROVEN -- excluding water (which is load-bearing for
+    # net-water reactions: xtb-COSMO under-solvates water -3 vs exp -26) makes hydratase WORSE (rxn00799
+    # 24->37.5). Kept behind the flag while the correct water-consistent form is designed. Do NOT re-enable
+    # solute-only. See analysis/smd_measure.py + memory red-wall-is-solvation-not-electronic.
+    smd_meta = None
+    if _flag("SMD_SOLV", default=False) and suspect is None and anchor_meta is None:
+        try:
+            from metag.routing.solv_gate import needs_smd
+            fires, changed = needs_smd(orig_species)      # detect on the ORIGINAL reaction (pre-routing)
+            if fires:
+                from metag.energetics.smd_solv import smd_dgsolv
+                from metag.energetics.thermal import xtb_dgsolv
+                from metag.energetics.explicit_solvation import bare_geom
+                corr = 0.0
+                for name, (coeff, q, smi) in rx["species"].items():
+                    if smi in ("O", "[OH2]"):             # water stays on water_ref_G
+                        continue
+                    sym, crd = bare_geom(pu, q, smi)      # representative UMA-relaxed geometry
+                    gc = xtb_dgsolv(sym, crd, q, "cosmo"); gs = smd_dgsolv(sym, crd, q)
+                    if gc is None or gs is None:
+                        corr = None; break
+                    corr += coeff * (gs - gc)
+                thr = float(os.environ.get("SMD_THRESHOLD", "5"))
+                if corr is not None and abs(corr) >= thr:
+                    log(f"  [smd-solv: gate {changed} -> correction {corr:+.1f} kJ; ΔG {dG:+.1f} -> {dG+corr:+.1f}]")
+                    dG += corr
+                    smd_meta = {"correction": round(corr, 1), "groups": changed}
+                elif corr is not None:
+                    log(f"  [smd-solv: gate fired, |Δ|={abs(corr):.1f} < {thr} kJ -> not applied (cancels)]")
+        except Exception as e:
+            log(f"  [smd-solv error: {e}; uncorrected]")
+    # WATER-REFERENCE CORRECTION for HYDRO-LYASES (WATER_REF_HYDROLYASE, default-on). ROOT CAUSE of the
+    # hydratase wall: water_ref_G uses xtb-COSMO for the water molecule's ΔGsolv (-3.2 kJ) but experiment
+    # is -26.4 (xtb-ALPB independently -25.4), so G_liq(water) is ~+23 kJ too high -> every net-water
+    # reaction is biased net_water*(-23.2). A GLOBAL fix (WATER_REF_EXP) regresses because the anchors +
+    # sigma were calibrated ON the buggy baseline and absorbed it (phosphatase 2->23) and un-anchored
+    # net-water classes hide a competing ~23 kJ solute-under-solvation error that currently cancels it.
+    # HYDRO-LYASES (neutral C=C+H2O<->C-OH, no anion/phosphate, un-anchored) are the ONE class where the
+    # water error is the sole solvation error -> apply the deterministic correction only there. Physics (a
+    # known constant), class-gated as a SAFE staged rollout (global fix + full recalibration is the eventual
+    # correct state). Validated end-to-end: rxn00799 err +24.3 -> +0.7; hydratase class MAE 19.1 -> 4.8;
+    # zero leakage into other classes. Skipped if WATER_REF_EXP already fixed water globally (no double).
+    water_meta = None
+    # The constant (-23.2 = exp - COSMO water ΔGsolv) corrects the xtb-COSMO water only; a parametrized
+    # model (alpb/cpcmx) solvates water correctly (ALPB -25.4 vs exp -26.4), so it is not applied there.
+    if (_flag("WATER_REF_HYDROLYASE", default=True) and suspect is None and SOLV_MODEL == "cosmo"
+            and not _flag("WATER_REF_EXP", default=False)):
+        try:
+            from metag.routing.solv_gate import is_hydrolyase
+            if is_hydrolyase(orig_species):
+                dwref = float(os.environ.get("WATER_REF_DELTA", "-23.2"))   # exp(-26.4) - cosmo(-3.2)
+                nwat = sum(c for n, (c, q, s) in rx["species"].items() if s in ("O", "[OH2]") and q == 0)
+                corr = nwat * dwref
+                if corr != 0:
+                    log(f"  [water-ref hydro-lyase: net_water={nwat} -> {corr:+.1f} kJ; ΔG {dG:+.1f} -> {dG+corr:+.1f}]")
+                    dG += corr
+                    water_meta = {"correction": round(corr, 1), "net_water": nwat}
+        except Exception as e:
+            log(f"  [water-ref error: {e}; uncorrected]")
     # CALIBRATED prediction uncertainty for downstream flux / TFA. U_samp (conformer-sampling spread,
     # ~1-3 kJ) is NOT the prediction interval -- the SYSTEMATIC method error (per mechanism class) dominates
     # (~5-25 kJ). sigma_pred = sqrt(U_samp^2 + sigma_class^2), class-conditional and calibrated on the
-    # benchmark residual (tools/calibrate_uncertainty.py; 5-fold-CV coverage ~78%/94% at 1/2 sigma).
+    # benchmark residual (metag/tools/calibrate.py; fully nested 5-fold CV, see the artifact).
     # Reporting +-U_samp alone would make a TFA solver ~10x overconfident on the hard classes.
     try:
         from metag.uncertainty import reaction_sigma, prediction_interval
@@ -619,10 +818,11 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         # anchor (which also gates on orig_species) and independent of the note. Falls back to the note
         # taxonomy for reactions that match no structural anchor class.
         sigma_pred, sigma_breakdown = reaction_sigma(rx["note"], _smis, U_samp, species=orig_species)
-        # DE-BIASED asymmetric 95% interval for the TRUE ΔrG'° (for TFA: a symmetric ±σ is mis-centered
-        # on a biased class). exp lies in [ci_lo, ci_hi]; ci_center is the bias-removed point estimate.
+        # Symmetric nested-CV 95% interval on the SAME σ_total as sigma_pred (class σ ⊕ U_samp), centred
+        # on dG. ci_info carries externally_calibrated / calibration_scope (False for OOD-flagged or
+        # uncalibrated-class reactions: nominal width, not validated coverage).
         ci_lo, ci_hi, ci_center, ci_info = prediction_interval(rx["note"], _smis, dG, level=95,
-                                                               species=orig_species)
+                                                               species=orig_species, U_samp=U_samp)
     except Exception as e:
         sigma_pred, sigma_breakdown = None, {"error": str(e)}
         ci_lo = ci_hi = ci_center = None; ci_info = {}
@@ -636,11 +836,42 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         f"[σ_class {sigma_breakdown.get('sigma_class','?')} ({sigma_breakdown.get('class','?')}), U_samp {U_samp:.1f}]"
         f"   vs exp {rx.get('exp')}   err {[round(e,1) for e in errs]}{flag}")
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
-    return dict(reaction=key, dG=round(dG, 1), dG_raw=round(dG_raw, 1), anchor=anchor_meta,
+    return dict(reaction=key, dG=round(dG, 1), dG_raw=round(dG_raw, 1), anchor=anchor_meta, smd=smd_meta,
+                water_ref=water_meta,
                 sigma_pred=sigma_pred, sigma_breakdown=sigma_breakdown, U_samp=round(U_samp, 1),
                 ci95=[ci_lo, ci_hi], ci_center=ci_center, ci_info=ci_info,
                 unresolved=unresolved, exp=rx.get("exp"), err=[round(e, 1) for e in errs],
-                explicit=exp_out, suspect=suspect)
+                explicit=exp_out, suspect=suspect, note=rx["note"], routes=routes,
+                std_state_kJ=round(std, 2),
+                species_scored={k: list(v) for k, v in rx["species"].items()})
+
+
+def _score_trunc_validated(pu, reaction, seeds, keep, pool, log, key, trunc_radius):
+    """TRUNC_VALIDATE guard (see score_reaction): accept a truncation only if ΔG is radius-invariant."""
+    R = int(trunc_radius if trunc_radius is not None else os.environ.get("TRUNC_RADIUS", "2"))
+    tol = float(os.environ.get("TRUNC_VALIDATE_TOL", "5"))
+    kw = dict(seeds=seeds, keep=keep, pool=pool, log=log, key=key, _validating=True)
+    rR = score_reaction(pu, reaction, trunc_radius=R, **kw)
+    if rR is None or not rR["routes"]["truncated"]:
+        return rR                                            # no truncation fired: nothing to validate
+    rR1 = score_reaction(pu, reaction, trunc_radius=R + 1, **kw)
+    info = {"radius": R, "dG_raw_R": rR["dG_raw"], "tol": tol}
+    if rR1 is not None and rR1["routes"]["truncated"] and rR1["suspect"] is None and rR["suspect"] is None:
+        d = abs(rR["dG_raw"] - rR1["dG_raw"])
+        thr = max(tol, 2.0 * math.hypot(rR["U_samp"], rR1["U_samp"]))
+        info.update(dG_raw_R1=rR1["dG_raw"], delta=round(d, 1), threshold=round(thr, 1))
+        if d <= thr:
+            log(f"  [trunc-validate: radius {R} vs {R+1} agree (|Δ|={d:.1f} <= {thr:.1f}) -> keep truncation]")
+            rR["trunc_validation"] = dict(info, verdict="accepted")
+            return rR
+        verdict = "rejected: radius-sensitive"
+    else:
+        verdict = "rejected: radius R+1 truncation unavailable"
+    log(f"  [trunc-validate: {verdict} -> full molecules]")
+    rF = score_reaction(pu, reaction, allow_truncate=False, **kw)
+    if rF is not None:
+        rF["trunc_validation"] = dict(info, verdict=verdict)
+    return rF
 
 
 def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
@@ -668,8 +899,9 @@ def main():
         log(f"  {r['reaction']:14s} {r['dG']:7.1f} {r.get('dG_raw', r['dG']):7.1f} "
             f"{str(r.get('sigma_pred','?')):>7s} {str(r['exp']):>14s} {str(r['err']):>16s} {note:>12s}")
     tag = a.only or "all"
+    os.makedirs(OUT, exist_ok=True)
     json.dump(rows, open(os.path.join(OUT, f"unified_pipeline_{tag}.json"), "w"), indent=2)
-    log(f"wrote artifacts/unified_pipeline_{tag}.json")
+    log(f"wrote {os.path.join(OUT, f'unified_pipeline_{tag}.json')}")
 
 
 if __name__ == "__main__":

@@ -51,8 +51,81 @@ SPECIES = {
 
 
 def boltz(Gs):
+    """-RT ln Σ exp(-G_i/RT). Each entry is ONE thermodynamic state, so Gs must be UNIQUE minima
+    (see UniqueMinima): N copies of the same basin lower the result by RT ln N (6.9 kJ at N=16)."""
     Gs = np.asarray(Gs); ref = Gs.min()
     return float(ref - KT * np.log(np.exp(-(Gs - ref) / KT).sum()))
+
+
+def principal_moments(atoms):
+    """Sorted principal moments of inertia (amu Å²). Invariant to rotation, translation AND atom
+    permutation, so it identifies symmetry-equivalent copies of a minimum without an atom mapping."""
+    m = atoms.get_masses()
+    x = atoms.get_positions() - atoms.get_center_of_mass()
+    I = (np.eye(3) * (m[:, None] * x * x).sum() - np.einsum("i,ij,ik->jk", m, x, x))
+    return np.sort(np.linalg.eigvalsh(I))
+
+
+class UniqueMinima:
+    """Relaxed conformers deduplicated to UNIQUE minima before Boltzmann weighting.
+
+    Different ETKDG seeds (and conformers within one pool) routinely relax into the SAME basin; counting
+    each copy as a separate state adds a spurious degeneracy -RT ln(N_copies) that depends on how many
+    samples were drawn, so it does not cancel across a reaction whose species stop at different sample
+    counts.
+
+    Criterion: same minimum iff |ΔE_UMA| < e_tol AND the all-atom, symmetry-aware RMSD after optimal
+    PROPER rotation is < rmsd_tol (RDKit GetBestRMS over graph automorphisms: permuted methyl / phosphate
+    / carboxylate atoms and rotated copies merge). Proper rotations only: mirror-image conformers of an
+    achiral molecule (gauche+/gauche-) are distinct states and stay separate -- the rotational-constant
+    shortcut used first merged them (34 pairs for citric acid), undercounting conformational entropy for
+    achiral species only, a bias that does not cancel against chiral partners.
+
+    `template` = the RDKit molecule (with H) whose atom order matches the Atoms (pool_confs builds from
+    Chem.AddHs(MolFromSmiles(smi))). Without a template (explicit water clusters) it falls back to
+    energy + principal moments (can merge mirror images; that path is off by default)."""
+
+    def __init__(self, e_tol=0.5, rmsd_tol=0.25, template=None, rot_tol=0.01, max_matches=20000):
+        self.e_tol, self.rmsd_tol, self.rot_tol = e_tol, rmsd_tol, rot_tol
+        self.template, self.max_matches = template, max_matches
+        self.E, self.G, self.ref = [], [], []
+        self.n_seen = 0
+
+    def _mol_at(self, atoms):
+        from rdkit import Chem as _C
+        from rdkit.Geometry import Point3D
+        m = _C.Mol(self.template)
+        m.RemoveAllConformers()
+        conf = _C.Conformer(m.GetNumAtoms())
+        for i, (x, y, z) in enumerate(atoms.get_positions()):
+            conf.SetAtomPosition(i, Point3D(float(x), float(y), float(z)))
+        m.AddConformer(conf, assignId=True)
+        return m
+
+    def _same(self, e, rep, j):
+        if abs(e - self.E[j]) >= self.e_tol:
+            return False
+        if self.template is None:
+            ref = np.maximum(np.maximum(np.abs(rep), np.abs(self.ref[j])), 1e-3)
+            return bool(np.all(np.abs(rep - self.ref[j]) / ref < self.rot_tol))
+        from rdkit.Chem import rdMolAlign
+        return rdMolAlign.GetBestRMS(rep, self.ref[j], maxMatches=self.max_matches) < self.rmsd_tol
+
+    def add(self, atoms, E_kJ, G_kJ):
+        """Register a relaxed conformer; returns True if it is a NEW minimum. A duplicate keeps the
+        representative with the lower G (its solvation may differ slightly by geometry noise)."""
+        self.n_seen += 1
+        rep = principal_moments(atoms) if self.template is None else self._mol_at(atoms)
+        for j in range(len(self.E)):
+            if self._same(E_kJ, rep, j):
+                if G_kJ < self.G[j]:
+                    self.G[j] = float(G_kJ)
+                return False
+        self.E.append(float(E_kJ)); self.G.append(float(G_kJ)); self.ref.append(rep)
+        return True
+
+    def __len__(self):
+        return len(self.G)
 
 
 def spin_multiplicity(smiles, q):

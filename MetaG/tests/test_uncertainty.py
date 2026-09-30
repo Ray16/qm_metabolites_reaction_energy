@@ -52,8 +52,52 @@ def test_prediction_interval_symmetric_and_covers():
 
 def test_interval_not_overconfident_small_n():
     # a small-n class must NOT get a spuriously tight interval (the pooled/floored width protects it)
-    lo, hi, _, _ = u.prediction_interval("carbamoyl-phosphate synthase", ["O"], 0.0, level=95)
+    note = "ornithine carbamoyltransferase"                    # actually lands in the small-n class
+    assert u.mech_class(note, ["O"]) == "carbamoyltransfer"
+    lo, hi, _, _ = u.prediction_interval(note, ["O"], 0.0, level=95)
     assert (hi - lo) > 15.0
+
+
+def test_ci95_includes_U_samp():
+    s0, _ = u.reaction_sigma("some novel enzyme", ["CCO"], 0.0)
+    s30, _ = u.reaction_sigma("some novel enzyme", ["CCO"], 30.0)
+    _, hi0, _, i0 = u.prediction_interval("some novel enzyme", ["CCO"], 0.0, U_samp=0.0)
+    _, hi30, _, i30 = u.prediction_interval("some novel enzyme", ["CCO"], 0.0, U_samp=30.0)
+    assert s30 > s0 + 15
+    assert hi30 > hi0 + 15                                   # was: identical half-width
+    assert abs(i30["sigma"] - s30) < 0.11                    # same sigma_total as reaction_sigma
+
+
+def test_levels_monotone_and_flagged():
+    hw = {L: u.prediction_interval("some novel enzyme", ["CCO"], 0.0, level=L)[3]["half_width"]
+          for L in (68, 90, 95, 99)}
+    assert hw[68] < hw[90] < hw[95] < hw[99]                 # was: 68/90/99 all ~half of 95
+    assert u.prediction_interval("x", ["CCO"], 0.0, level=90)[3]["level_calibrated"] is False
+
+
+def test_uncalibrated_class_not_narrower_than_calibrated(monkeypatch):
+    monkeypatch.setattr(u, "mech_class", lambda *a, **k: "brand-new-class")
+    _, hi, _, info = u.prediction_interval("x", ["CCO"], 0.0)
+    assert info["class_calibrated"] is False and info["externally_calibrated"] is False
+    assert "not externally calibrated" in info["calibration_scope"]
+    monkeypatch.undo()
+    _, hi_clean, _, _ = u.prediction_interval("some novel enzyme", ["CCO"], 0.0)
+    assert hi >= hi_clean - 1e-6
+
+
+def test_ood_flagged_interval_labelled_not_calibrated():
+    # a rare element is an informational OOD flag -> interval explicitly not externally calibrated
+    sp = {"a": [-1, 0, "CCO"], "m": [-1, 0, "[Se]"], "b": [1, 0, "CC=O"]}
+    _, _, _, info = u.prediction_interval("x", [v[2] for v in sp.values()], 0.0, species=sp)
+    assert info["ood_flags"] and info["externally_calibrated"] is False
+    _, br = u.reaction_sigma("x", [v[2] for v in sp.values()], 0.0, species=sp)
+    assert br["externally_calibrated"] is False
+
+
+def test_coa_keyword_is_whole_word():
+    assert u.mech_class("glucoamylase", ["CCO"]) != "CoA-thioester"
+    assert u.mech_class("coagulation factor", ["CCO"]) != "CoA-thioester"
+    assert u.mech_class("acetyl-CoA synthetase", ["CCO"]) == "CoA-thioester"
 
 
 if __name__ == "__main__":

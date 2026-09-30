@@ -19,8 +19,12 @@ def _gpu_available():
 
 def test_score_several_reactions():
     if not _gpu_available():
-        print("SKIP: no GPU / uma runtime")
-        return
+        try:
+            import pytest
+            pytest.skip("no GPU / uma runtime")           # report SKIPPED, not a vacuous PASS
+        except ImportError:
+            print("SKIP: no GPU / uma runtime")
+            return
     from metag.energetics.uma import load_uma
     from metag.pipeline import score_reaction
     pu = load_uma(os.environ.get("METAG_MODEL", "uma-s-1p2p1"))

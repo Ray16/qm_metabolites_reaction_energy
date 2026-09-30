@@ -2,16 +2,17 @@
 
 **First-principles reaction free energies for metabolism.** A self-routing QM (UMA machine-learning
 interatomic potential) pipeline that scores standard transformed Gibbs energies of reaction (ΔrG′°) from
-structure alone, with **calibrated, cross-validated uncertainty** for downstream thermodynamic flux
-analysis (TFA/MDF).
+the reaction's structures, with **calibrated, cross-validated uncertainty** for downstream thermodynamic
+flux analysis (TFA/MDF).
 
-MetaG is first-principles at its core. The only departures are a **small set of transparent per-class
-empirical anchors** (currently **four** — see *Honesty*), each calibrated to an independent reference ΔG
-and reported *alongside* the pure-physics number (`dG_raw`), so a user can always take the unanchored
-value. Every anchor added is an erosion of the first-principles claim, so each must clear a high bar; one
-of the four (adenylylate) is currently **provisional** and does not yet meet it (see *Honesty*). Its value
-is **coverage**: it scores reactions that group-contribution methods cannot — novel structures, no group
-decomposition — where a first-principles method is the only option.
+MetaG is first-principles at its core and **calibrated (not fitted) on TECRDB**: the physics has no
+trainable parameters. The calibrated pieces are (i) a **small set of transparent per-class anchor
+offsets** — **8 sub-classes in 6 chemical families**, see *Honesty* — each reported *alongside* the
+pure-physics number (`dG_raw`), so a user can always take the unanchored value, and (ii) the
+uncertainty layer (class σ, heavy-tail floor, interval multiplier). Every anchor erodes the
+first-principles claim, so each must clear a high bar. The method's value is **coverage**: it scores
+reactions that group-contribution methods cannot (novel structures, no group decomposition), where a
+first-principles method is the only option.
 
 ## Layout
 
@@ -28,17 +29,21 @@ metag/
     truncate_global.py   global-MCS truncation (multi-coeff / unequal-side reactions)
     truncation_gate.py   full-vs-truncated routing decision
     aldehyde_hydration.py  carbonyl⇌gem-diol mixture, α-EWG gated
-    anchor.py            per-class empirical anchors (4 sub-classes; the only calibrated pieces)
-    applicability.py     out-of-distribution flags (transparency; does not change σ)
+    anchor.py            per-class anchor offsets (8 sub-classes; the only calibrated ΔG pieces)
+    applicability.py     out-of-distribution flags (transparency; labels the interval, does not change σ)
+    solv_gate.py         structural gates (hydro-lyase water-reference constant, SMD gate)
   energetics/            QM engine — species free energies (needs the `uma` runtime: torch + fairchem + xtb)
     uma.py               batched UMA electronics
     thermal.py           UMA-Hessian RRHO + xtb solvation
-    conformers.py        conformer pool + Boltzmann
+    conformers.py        conformer pool + Boltzmann over UNIQUE minima (energy + rotational-constant dedup)
     explicit_solvation.py  explicit-water cluster-continuum
     water_clusters.py    water-cluster seeding
     species_cache.py     content-addressed per-species cache
   uncertainty.py         class-conditional σ + CV-validated prediction interval
   pipeline.py            orchestrator: score_reaction(model, reaction)
+  tools/
+    calibrate.py         regenerate the uncertainty artifact; fully nested CV (anchor offsets refit per fold)
+    cycle_closure.py     ground-truth-free state-function check across reactions sharing compounds
   data/
     sigma_class_calibrated.json   shipped uncertainty calibration
 ```
@@ -61,7 +66,7 @@ pip install -e ".[qm]"
 ## Use
 
 ```python
-from metag.backend.uma import load_uma
+from metag.energetics.uma import load_uma
 from metag.pipeline import score_reaction
 
 pu = load_uma("uma-s-1p2p1")
@@ -80,7 +85,19 @@ print(r["dG"], r["dG_raw"], r["ci95"], r["sigma_pred"])
 ```
 
 The result carries both the **anchored** `dG` and the **pure-physics** `dG_raw`, the calibrated
-`sigma_pred`, and a symmetric CV-validated 95% interval `ci95`.
+`sigma_pred`, a symmetric 95% interval `ci95` built on the same σ (class σ ⊕ conformer-sampling
+`U_samp`), `ci_info["externally_calibrated"]` / `calibration_scope` (see *Honesty*), and `routes`
+(which structural transforms fired: cofactor ring, truncation, pH-0, and any routing errors).
+
+**Thermodynamic conventions.** Solutes at 1 M, liquid water at 55.34 M, H⁺ at pH 7 (ionic strength 0).
+Gas-phase RRHO free energies are at 1 atm, so every species gets the 1 atm → 1 M term RT ln 24.46 =
+7.93 kJ/mol (`STD_STATE_KJ`; applied outside the species cache; `STD_STATE_1M=0` disables it for A/B).
+The proton free energy uses the Tissandier 1 atm → 1 M value, so it is on the same convention.
+
+**Optional validation gates.** `TRUNC_VALIDATE=1` scores each truncated reaction at cut radius R and R+1
+and keeps the truncation only if ΔG is radius-invariant (otherwise full molecules); off by default
+(it doubles the cost of truncated reactions). `metag.tools.cycle_closure.closure_report` checks
+state-function closure over any set of scored reactions.
 
 The pure-logic layer is usable with no GPU:
 
@@ -91,40 +108,46 @@ lo, hi, center, info = uncertainty.prediction_interval("fumarate hydratase", ["O
 
 ## Honesty
 
-- **Nothing is fit to the ΔG database except the 4 anchor sub-classes**, all reported *alongside* the
-  pure-physics number (`dG_raw`) so the unanchored value is always available. They are **not** all equally
-  earned:
-  - **Three are solid** (phosphagen, phosphatase, thioester): systematic charged-group *solvation* offsets,
-    **verified UMA≈DFT** (electronic error ruled out — the offset is solvation, not a model error),
-    LOO-validated against Alberty literature ΔrG′°.
-  - **One is half-earned** (adenylylate, added 2026-08 — ATP + X → X-AMP + PPi): a solvation offset on the
-    acyl-adenylate mixed-anhydride class. **Physics VERIFIED** (`analysis/verify_adenylylate_physics.py`):
-    UMA≈DFT (PBE0/def2-TZVP) to **+1.1 kJ** on the neutral mixed-anhydride bond-swap, so the ~+20 error is
-    **solvation**, the same physical basis as the three above — *not* an electronic bond error, and
-    UMA-being-right is ruled out. **Remaining weakness (the reason it's not fully earned):** its magnitude
-    reference (~+25 kJ) is an **indirect thermodynamic cycle** over six measured parent ligases (no direct
-    adenylylation Keq), carrying **~±8–10 kJ**, which the LOO result (MAE 21.6→6.0) does **not** test — LOO
-    measures *consistency across substrates, not the accuracy* of the +25 target. Its σ is therefore
-    inflated to **~11** (the three direct-reference anchors keep intra-class-only σ). Direction robust,
-    magnitude soft. TODO to fully earn it: a direct ATP–PPi-exchange activation Keq to pin the reference.
-- **The σ-class is assigned structurally where it can be, and note-based otherwise.** Reactions matching
-  a structural anchor sub-class (SMARTS) get that class regardless of the enzyme note — so the same
-  chemistry always gets the same σ, and it works on cryptic/absent notes (the GC-silent deployment
-  target). The subtler mechanism classes still use the note taxonomy (structure alone would misclassify
-  them). An **OOD layer** (`routing/ood.py`) is **flag-only transparency — it never changes σ.** Inflating
-  σ for structurally-unusual reactions is a "unlike the training set → widen" crutch that would fire on
-  exactly the frontier reactions the method exists to score, defeating coverage. The ΔG is first-principles
-  and generalizes (UMA is a universal potential; matched experiment to <10 kJ on O₂/aromatic oxidation far
-  outside TECRDB — metals included, it generalizes electronically). So the layer surfaces notable features
-  as informational flags (divalent-cation coordination-speciation gaps, rare elements, de-novo aromatic
-  N-heterocycle condensations, very large molecules) without touching σ. The **generalizable uncertainty is
-  a *computed* physics σ** (ensemble UMA-vs-MACE disagreement / cycle-consistency), naturally larger where
-  UMA is less sure — that is the real fix, not a structural floor.
-- **Uncertainty is honest, not decorative.** `sigma_pred` is the class-level predictive error (~5–25 kJ),
-  not the ~1–3 kJ conformer spread. The 95% interval is symmetric ±m·σ (m nested-CV'd so held-out coverage
-  ≥ 95%) with a per-class heavy-tail floor; the class *bias* is reported as separate point-estimate
-  metadata, deliberately **not** baked into a de-biased center (an asymmetric de-bias was CV-rejected and
-  is OOD-fragile). The de-bias metadata is in-distribution-only.
+- **Calibrated on TECRDB, in two places only: anchor offsets and the uncertainty layer.** Both are
+  reported transparently (`dG_raw` is always returned). The 8 anchor sub-classes
+  (`metag/routing/anchor.py`, `ANCHORS`):
+
+  | family | sub-classes | reference | status |
+  |---|---|---|---|
+  | phosphagen (P–N) | `phosphagen` | TECRDB members | UMA≈DFT verified; solvation |
+  | phosphatase monoester | `phosphatase_monoester` | TECRDB members | electronic gap +7.9 kJ, weaker |
+  | acyl-CoA ligase | `thioester_ppi`, `thioester_pi` | TECRDB members | UMA≈DFT verified |
+  | acyl-adenylate | `adenylylate_aliphatic`, `adenylylate_aminoacid` | **external** indirect +25 kJ cycle | provisional: reference ±8–10 kJ |
+  | carboxy-phosphate | `carboxyP` | TECRDB members (n=2) | UMA≈DFT verified; no LOO possible |
+  | acyclic amide hydrolysis | `amide_hydrolysis` | TECRDB members | UMA≈DFT verified |
+
+  Seven sub-classes are referenced to TECRDB members, so the uncertainty calibration
+  (`metag/tools/calibrate.py`) **re-fits those offsets inside each CV fold**: held-out reactions are
+  scored with offsets fitted without them, together with σ, the heavy-tail floor and the multiplier.
+  The reported coverage is therefore for the complete deployed estimator, not only the interval widths.
+  The adenylylate offsets use no TECRDB experiment and stay fixed.
+  In addition, hydro-lyases get a fixed physical constant (experimental minus xtb-COSMO water solvation,
+  −23.2 kJ per net water; `WATER_REF_HYDROLYASE`), reported as `water_ref` in the result.
+- **The σ-class is structural where it can be, note-based otherwise.** Reactions matching an anchor
+  sub-class get that class from structure (SMARTS), whatever the enzyme note says. All other classes
+  come from **enzyme-note keywords** (`uncertainty.mech_class`), so the uncertainty (not the ΔG) depends
+  on the annotation; a cryptic or absent note falls to `other/clean`.
+- **The interval is calibrated in-distribution only.** There is no computed physics uncertainty yet
+  (UMA-vs-MACE ensemble, cycle consistency). A reaction with OOD flags (`routing/applicability.py`:
+  divalent-cation coordination with phosphate/carboxylate, rare elements, de-novo aromatic N-heterocycle,
+  very large molecules), or in a class absent from the calibration set, gets
+  `externally_calibrated = False` and a `calibration_scope` string saying why. Its width is nominal,
+  **not a validated coverage**. For TFA/MDF on frontier ModelSEED chemistry, treat those intervals as
+  lower bounds on the real uncertainty. OOD flags do not inflate σ (a structural "widen if unusual"
+  floor would fire on exactly the frontier reactions the method exists to score). Classes absent from
+  the calibration set get at least the overall σ and the global heavy-tail floor, never a narrower interval.
+- **Interval form.** Symmetric: half-width = max(m·√(σ_class² + U_samp²), q95abs), with m chosen by
+  nested CV so held-out coverage is at least 95%. Only `level=95` is CV-calibrated; other levels are
+  Gaussian-scaled and flagged `level_calibrated = False`. The class bias is reported as point-estimate
+  metadata (`point_bias`), not baked into a de-biased center (an asymmetric de-bias was CV-rejected).
+- **The shipped calibration must match the deployed pipeline.** Any change to physics, routing or anchors
+  requires a TECRDB re-sweep and `calibrate()`; `data/sigma_class_calibrated.json` records the
+  pipeline configuration it was computed from.
 
 ## Tests
 

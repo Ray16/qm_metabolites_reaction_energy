@@ -148,5 +148,6 @@ def build_truncated_reaction_v2(species_dict, radius=2):
     # RIGOROUS, reaction-agnostic validity test is RADIUS-SENSITIVITY: a true spectator removal
     # leaves ΔG invariant to the cut radius, so the caller should score at radius R and R+1 and
     # trust the truncation only when |ΔΔG| < tol (truncate.py guard C). Implemented in the pipeline
-    # via TRUNC_VALIDATE, not as a tuned structural threshold here.
+    # as the OPT-IN TRUNC_VALIDATE=1 gate (pipeline._score_trunc_validated; off by default -- it costs a
+    # second scoring of every truncated reaction), not as a tuned structural threshold here.
     return new, int(nHplus_H)

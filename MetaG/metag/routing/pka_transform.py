@@ -25,6 +25,7 @@ SCOPE: only the CHARGED (ionisable-anion) subclass. Thioester (neutral C(=O)-S r
 glycosyl anomeric (neutral stereoelectronic) have no ionisable proton -> untouched (returns the
 species unchanged for those; those stay on the DFT-electronics frontier).
 """
+import os
 from rdkit import Chem
 from rdkit.Chem import rdMolDescriptors as _rdMD
 
@@ -60,7 +61,88 @@ def is_isomerization(species):
 #   1 bridge = terminal monoester/anhydride:   ROPO3H2 pKa ~1.5, ~6.5   (the 6.5 straddles pH7)
 #   2 bridge = internal diester/anhydride:     one acidic proton ~1.5
 P_LADDER = {0: [2.15, 7.20, 12.35], 1: [1.50, 6.50], 2: [1.50], 3: [1.50]}
+# FREE pyrophosphate H4P2O7 (all heavy atoms P/O, 2 P): its own macroscopic ladder (I->0), NOT two
+# terminal-phosphate ladders ({1.5,1.5,6.5,6.5} over-counts the transform by ~4.4 kJ per free PPi).
+PPI_LADDER = [0.91, 2.10, 6.70, 9.32]
 CARBOXYL_PKA = 4.75
+# Carboxyl pKa by alpha-environment (textbook macroscopic values, I->0; NOT fitted to any dG). An
+# electron-withdrawing alpha substituent acidifies the carboxyl by 1-2.5 units, which is up to ~14 kJ
+# per created/destroyed site in the Alberty transform -- the flat 4.75 was systematically wrong for
+# alpha-keto (pyruvate 2.49, 2-oxoglutarate 2.47, oxaloacetate 2.22) and alpha-amino acids.
+#   alpha-ammonium (N stays PROTONATED in the QM microspecies): glycine/alanine pKa1 2.34 -> 2.3
+#   alpha-amine NEUTRALIZED too (base path): the MICROSCOPIC pKa of COOH next to a neutral NH2,
+#       pk(COOH|NH2) = pKa2 - log K_taut = 9.78 - 5.35 = 4.4 (glycine microconstants); with the amine's
+#       9.6 base term the independent-site product then reproduces the zwitterion-dominated binding
+#       polynomial (the coupled microstate sum) to < 0.1 pKa unit.
+#   alpha-oxo (C=O on the alpha C: alpha-keto acids / glyoxylate): 2.5
+#   alpha-oxygen (hydroxy / ester / phosphate on an sp3 alpha C: lactate 3.86, glycolate 3.83,
+#       glycerate 3.52, malate pKa1 3.40): 3.8
+#   formate (carboxyl C bears no carbon): 3.75;  aromatic alpha C (benzoate 4.20): 4.2
+CARBOXYL_PKA_ALPHA = {"ammonium": 2.3, "amine_neutralized": 4.4, "oxo": 2.5, "oxygen": 3.8,
+                      "formate": 3.75, "aromatic": 4.2}
+_BASIC_N = Chem.MolFromSmarts("[NX4+;H1,H2,H3,H0;!$(N~[#6]=[#7,#8])]")   # ammonium (not amidinium)
+_AMINE_N = Chem.MolFromSmarts("[NX3;H1,H2;!$(N[#6]=[#7,#8,#16]);!$(N-a)]")  # basic sp3 amine (not amide/aniline)
+
+
+def _carboxyl_env(mol, o_idx):
+    """Classify the alpha environment of the carboxylate whose O- is o_idx (see CARBOXYL_PKA_ALPHA)."""
+    o = mol.GetAtomWithIdx(o_idx)
+    c = next((n for n in o.GetNeighbors() if n.GetSymbol() == "C"), None)
+    if c is None:
+        return None
+    alpha = [n for n in c.GetNeighbors() if n.GetSymbol() == "C"]
+    if not alpha:
+        return "formate"
+    a = alpha[0]
+    if a.GetIsAromatic():
+        return "aromatic"
+    for nb in a.GetNeighbors():
+        if nb.GetIdx() == c.GetIdx():
+            continue
+        bond = mol.GetBondBetweenAtoms(a.GetIdx(), nb.GetIdx())
+        if nb.GetSymbol() == "O" and bond.GetBondTypeAsDouble() == 2:
+            return "oxo"                                   # alpha-keto acid
+    if a.GetHybridization() == Chem.HybridizationType.SP3:
+        for nb in a.GetNeighbors():
+            if nb.GetSymbol() == "N" and nb.GetFormalCharge() == 1 and nb.GetTotalNumHs() >= 1:
+                return "ammonium"
+        for nb in a.GetNeighbors():
+            if nb.GetSymbol() == "N" and nb.GetFormalCharge() == 0 and nb.GetIdx() in _amine_ns(mol):
+                return "amine_neutral"                     # neutral NH2 in the QM species: microscopic pKa
+        if any(nb.GetSymbol() == "O" and nb.GetIdx() != c.GetIdx() for nb in a.GetNeighbors()):
+            return "oxygen"
+    return None
+
+
+def _amine_ns(mol):
+    return {m[0] for m in mol.GetSubstructMatches(_AMINE_N)}
+
+
+def _pka_env_enabled():
+    """PKA_ENV (default OFF). The environment-specific carboxyl pKa's and the free-PPi ladder are each
+    textbook-correct, but applied as a PARTIAL table they break the error cancellation between reaction
+    partners: e.g. fumarase -- malate's alpha-hydroxy carboxyl is corrected (4.75 -> 3.8) while fumarate's
+    alpha,beta-unsaturated carboxyls (exp 3.03/4.44) have no rule and stay at 4.75, so every hydratase
+    moved +5.4 kJ (TECRDB A/B 2026-09-26: MAE 11.25 -> 11.91, 47 worse / 16 better). pKa corrections must
+    be applied as a COMPLETE, uniformly-validated set (per-compound macroscopic pKa's validated against an
+    independent pKa reference), not piecemeal. Kept for that work; not deployed."""
+    v = os.environ.get("PKA_ENV")
+    return v is not None and v.strip().lower() not in ("", "0", "off", "false", "no")
+
+
+def carboxyl_pka(mol, o_idx, amine_neutralized=False):
+    """Environment-specific carboxyl pKa for the carboxylate O- at o_idx (textbook; see table).
+    Returns the flat CARBOXYL_PKA unless PKA_ENV is enabled (see _pka_env_enabled)."""
+    if not _pka_env_enabled():
+        return CARBOXYL_PKA
+    env = _carboxyl_env(mol, o_idx)
+    # the relevant constant depends on the alpha-N's state IN THE QM MICROSPECIES: still protonated ->
+    # macroscopic pKa1 (2.3); neutral (drawn neutral, or neutralized by the base path) -> microscopic 4.4
+    if env == "ammonium":
+        return CARBOXYL_PKA_ALPHA["amine_neutralized" if amine_neutralized else "ammonium"]
+    if env == "amine_neutral":
+        return CARBOXYL_PKA_ALPHA["amine_neutralized"]
+    return CARBOXYL_PKA_ALPHA.get(env, CARBOXYL_PKA)
 SULFONATE_PKA = -1.5
 # Sulfate proton ladders (experimental strong-acid pKa's; NOT fitted to any dG). Like phosphate we
 # assign the k most-acidic entries where k = #deprotonated O on that S. FREE sulfate (H2SO4, both O
@@ -85,7 +167,56 @@ _ANION_SMARTS = [
 ]
 
 
-def _classify_species(smi):
+def _anion_sites(mol):
+    """[(o_idx, group)] for every anionic O, group in {carboxyl, sulfonate, sulfate, phosphate}."""
+    claimed, sites = set(), []
+    for cls, sm in _ANION_SMARTS:
+        for match in mol.GetSubstructMatches(Chem.MolFromSmarts(sm)):
+            o = match[0]
+            if o not in claimed:
+                claimed.add(o); sites.append((o, cls))
+    return sites
+
+
+def _is_free_ppi(mol):
+    zs = [a.GetAtomicNum() for a in mol.GetAtoms()]
+    return zs.count(15) == 2 and all(z in (8, 15) for z in zs)
+
+
+_SITE_MODEL = None
+
+
+def _site_model():
+    """Fitted generic site-pKa model (metag/tools/fit_site_pka.py -> data/site_pka_model.json), or None."""
+    global _SITE_MODEL
+    if _SITE_MODEL is None:
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data",
+                            "site_pka_model.json")
+        try:
+            import json as _json
+            _SITE_MODEL = _json.load(open(path))["params"]
+        except Exception:
+            _SITE_MODEL = {}
+    return _SITE_MODEL or None
+
+
+def _pka_model_site():
+    v = os.environ.get("PKA_MODEL", "table").strip().lower()
+    return v == "site"
+
+
+def _classify_species_site(mol, amine_neutralized):
+    """PKA_MODEL=site: per-site microscopic pKa's from the generic inductive + electrostatic model."""
+    from metag.tools.fit_site_pka import site_features, effective_pkas
+    params = dict(_site_model())
+    if amine_neutralized:
+        params["carb_ammonium"] = params.get("carb_amine", 4.4)
+    feats = site_features(mol, _anion_sites(mol))
+    eff = effective_pkas(mol, feats, params)
+    return [(f["o"], round(float(p), 3)) for f, p in zip(feats, eff)]
+
+
+def _classify_species(smi, amine_neutralized=False):
     """Return (mol, list_of_(atom_idx, pKa_value)) for every anionic O in the (max-anion) molecule.
     Each phosphate P gets its group's FULL pKa ladder chosen by #bridging-O (free/terminal/internal);
     carboxyl/sulfonate/sulfate get their single pKa. Assumes the SMILES is already max-anion so the
@@ -93,6 +224,8 @@ def _classify_species(smi):
     mol = Chem.MolFromSmiles(smi)
     if mol is None:
         return None, []
+    if _pka_model_site() and _site_model():
+        return mol, _classify_species_site(mol, amine_neutralized)
     claimed = set()
     sites = []
     for cls, sm in _ANION_SMARTS:
@@ -108,7 +241,7 @@ def _classify_species(smi):
     s_groups = {}                                   # S atom idx -> list of its anionic O idx (sulfate)
     for o, cls in sites:
         if cls == "carboxyl":
-            resolved.append((o, CARBOXYL_PKA)); continue
+            resolved.append((o, carboxyl_pka(mol, o, amine_neutralized))); continue
         if cls == "sulfonate":
             resolved.append((o, SULFONATE_PKA)); continue
         if cls == "sulfate":                         # group per S, ladder assigned below
@@ -118,6 +251,11 @@ def _classify_species(smi):
         oa = mol.GetAtomWithIdx(o)                   # phosphate: group per P
         p = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "P"), None)
         p_groups.setdefault(p, []).append(o)
+    if _pka_env_enabled() and _is_free_ppi(mol) and p_groups:   # free PPi ladder (PKA_ENV; see above)
+        all_o = sorted(o for os in p_groups.values() for o in os)
+        for o, pka in zip(all_o, PPI_LADDER + [PPI_LADDER[-1]] * max(0, len(all_o) - 4)):
+            resolved.append((o, pka))
+        p_groups = {}
     for p, os in p_groups.items():
         pa = mol.GetAtomWithIdx(p)
         n_bridge = sum(1 for n in pa.GetNeighbors()
@@ -225,6 +363,7 @@ PRIMARY_AMINE_PKA = 10.6    # plain primary aliphatic amine
 IMIDAZOLE_PKA = 6.5         # histidine imidazolium (straddles pH 7)
 GUANIDINIUM_PKA = 12.5      # arginine/creatine guanidinium
 _ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+;H1,H2,H3][CX4][CX3](=O)[OX1,OX2]")  # N-C-COOH
+_GUAN_C = Chem.MolFromSmarts("[#7][CX3](=[#7,#7+])")                                  # amidinium/guanidinium C
 
 def _amine_pka(mol, n_idx):
     """Per-environment base pKa for a protonated amine N. alpha-amino-acid amine (N on a C bearing a
@@ -238,13 +377,14 @@ def _classify_cations(mol):
     no H (e.g. NAD+ N-ribosyl pyridinium) is NOT deprotonatable -> skipped (stays charged; the redox
     couple is validated as-is)."""
     sites = []
-    guan_c = {m[1] for m in mol.GetSubstructMatches(Chem.MolFromSmarts("[NX3][CX3]=[NX3+,NX2+]"))}
+    # carbons of a guanidinium/amidinium (C bonded to >=2 N, one of them double-bonded). An N is a
+    # guanidinium N only if IT is bonded to such a carbon (per atom -- the old whole-molecule test gave
+    # arginine's alpha-ammonium the guanidinium pKa 12.5 instead of 9.6).
+    guan_c = {m[1] for m in mol.GetSubstructMatches(_GUAN_C)}
     for a in mol.GetAtoms():
         if a.GetSymbol() != "N" or a.GetFormalCharge() != 1 or a.GetTotalNumHs() < 1:
             continue
-        # is this N part of a protonated guanidinium?
-        in_guan = any(nb.GetIdx() in guan_c for nb in a.GetNeighbors()) or \
-                  mol.GetSubstructMatch(Chem.MolFromSmarts("[NX3,NX3+;H1,H2][CX3]=[NX2,NX3+]"))
+        in_guan = any(nb.GetIdx() in guan_c for nb in a.GetNeighbors())
         heavy = [nb for nb in a.GetNeighbors() if nb.GetSymbol() != "H"]
         if any(nb.GetSymbol() == "C" and nb.GetIsAromatic() and nb.GetDegree() >= 3 for nb in heavy) \
            and a.GetTotalNumHs() == 0:
@@ -264,7 +404,7 @@ def _neutralize_v2(smi):
     """Neutralize BOTH anions (protonate O-) AND cations (deprotonate protonated N) to the fully
     neutral microspecies; return (neutral_smiles, acid_pkas, base_pkas, net_charge)."""
     smi = _canonicalize_maxanion(smi)
-    mol, anion_sites = _classify_species(smi)
+    mol, anion_sites = _classify_species(smi, amine_neutralized=True)
     if mol is None:
         return None, [], [], None
     cation_sites = _classify_cations(mol)
@@ -397,7 +537,43 @@ def _base_gate(species):
     return True
 
 
-def build_ph0_reaction(species, n_Hplus=0, base=True):
+_ZW_CATION = Chem.MolFromSmarts("[N+;!H0]")     # protonated (deprotonatable) N
+_ZW_ANION = Chem.MolFromSmarts("[O-]")
+
+
+def is_zwitterion(smi):
+    """True if the species carries BOTH a protonated N and an anionic O. Such a species is NOT a minimum
+    in the gas phase: UMA relaxation transfers the N-H proton to the O- in every conformer (verified for
+    Gly/Ala/Ser/Glu/Asp/phosphoserine/ethanolamine-P), so the scored species silently becomes the
+    neutral tautomer (~30 kJ above the aqueous zwitterion for glycine)."""
+    m = Chem.MolFromSmiles(smi)
+    return m is not None and m.HasSubstructMatch(_ZW_CATION) and m.HasSubstructMatch(_ZW_ANION)
+
+
+def has_zwitterion(species):
+    return any(is_zwitterion(s) for _, _, s in species.values())
+
+
+def is_ionized(smi):
+    """True if the species carries an ANIONIC O (includes zwitterions). Scope is EVIDENCE-BASED: on TECRDB
+    (2026-09-26), reactions whose QM species include an anion have MAE 15.1 (n=48) / 14.3 with a cation too
+    (n=29), while cation-only reactions have MAE 8.2 (n=35) -- better than neutral-only (10.6). Protonated
+    cations are therefore left charged (continuum solvation handles them), consistent with the earlier
+    decomposition (anion error ~31 kJ vs cation ~4)."""
+    m = Chem.MolFromSmiles(smi)
+    return m is not None and m.HasSubstructMatch(_ZW_ANION)
+
+
+def has_ionized(species):
+    return any(is_ionized(s) for _, _, s in species.values())
+
+
+def _redox_proton_enabled():
+    v = os.environ.get("PH0_REDOX_PROTON")
+    return v is not None and v.strip().lower() not in ("", "0", "off", "false", "no")
+
+
+def build_ph0_reaction(species, n_Hplus=0, base=True, force_base=False):
     """species: {name: [coeff, q, smi]}, n_Hplus of the CHARGED reaction  ->
     (new_species, pka_sites, n_Hplus_neutral) or None.
 
@@ -418,7 +594,12 @@ def build_ph0_reaction(species, n_Hplus=0, base=True):
 
     base=False reproduces the pure anion-only path (ablation). Returns None if no ionisable site is
     present, on any parse failure, or on the anion mass-balance refusal (caller keeps the charged path)."""
-    use_base = base and _base_gate(species)
+    # force_base: the reaction contains a ZWITTERION, which must not enter gas-phase QM (see
+    # is_zwitterion). The full neutral-microspecies (base) path is the Alberty-consistent treatment: both
+    # the acid and the amine are neutralized and the zwitterion-dominated aqueous macro-state is
+    # reconstructed analytically by the acid + base pKa terms (independent-site product with the
+    # microscopic carboxyl pKa reproduces the tautomer constant; see CARBOXYL_PKA_ALPHA notes).
+    use_base = (base and _base_gate(species)) or force_base
     new_species = {}
     pka_sites = []
     any_ionizable = False
@@ -461,6 +642,13 @@ def build_ph0_reaction(species, n_Hplus=0, base=True):
     # The conservative refusal stays. rxn01211's correct value (-7, base path) is a documented known
     # outlier; a narrow, separately-validated iminium-aware base gate is the future fix, not this.
     if h_residual != 0:
+        # REDOX PROTON (PH0_REDOX_PROTON): a net-proton reaction (e.g. NAD(P)+ + 2e- + H+ -> NAD(P)H with the
+        # substrate's anions neutralized) is H-imbalanced by the proton exchanged with the pH-7 bath. Alberty-
+        # consistent bookkeeping carries it explicitly as n_H+ = -h_residual (G_HPLUS includes the pH term),
+        # exactly as the base path does -- PROVIDED it also closes the charge (q_residual == h_residual), so the
+        # count is a real proton and not a mis-neutralized species. Otherwise refuse (the +/-1170 kJ leak guard).
+        if _redox_proton_enabled() and q_residual == h_residual:
+            return new_species, pka_sites, -h_residual
         return None
     return new_species, pka_sites, 0                 # n_H+=0: transforms carry all proton exchange
 

@@ -12,20 +12,29 @@ exactly the hard classes (phosphagen, CoA, glycosyl) — flagging them "confiden
 |predicted − experiment| for the reaction's MECHANISM class.
 
 DESIGN
-- The class is assigned from the reaction NOTE (enzyme name / EC) + species SMILES — no reaction-id
-  lookup — so it works on novel ModelSEED reactions, not just TECRDB. Taxonomy = the mechanism
-  classes used in the six-method benchmark (fix_map.mech), which track the physics failure modes.
-- σ_class is the residual RMS per class, CALIBRATED ONCE from the clean full-367 `logs/production`
-  sweep by `tools/calibrate_uncertainty.py`, which writes `artifacts/sigma_class_calibrated.json`.
-  Recalibration = re-run that script after a new sweep; NO edit to this file is needed.
-- σ_total = sqrt(U_samp^2 + σ_class^2)   [independent sources in quadrature]
+- The class is assigned STRUCTURALLY when the reaction matches an anchor sub-class (SMARTS, via
+  metag.routing.anchor), otherwise from the reaction NOTE (enzyme name / EC keywords) + species SMILES.
+  No reaction-id lookup. Note-based classes are only as good as the note: a cryptic/absent note falls to
+  "other/clean".
+- σ_class is the shrunk residual RMS per class of the DEPLOYED pipeline on TECRDB, written by
+  `metag/tools/calibrate.py` to `metag/data/sigma_class_calibrated.json` (fully nested CV: anchor
+  offsets, σ, q95 and the multiplier refit per fold). Recalibrate after every pipeline change.
+- σ_total = sqrt(U_samp^2 + σ_class^2)   [independent sources in quadrature]; the 95% interval uses
+  the same σ_total: half-width = max(m·σ_total, q95abs).
+
+SCOPE (read before using intervals for TFA/MDF): the calibration is EMPIRICAL and IN-DISTRIBUTION —
+it measures the error on TECRDB-like chemistry. There is no computed (ensemble / cycle-consistency)
+uncertainty yet, so for reactions carrying OOD flags or in a class absent from the calibration set, the
+interval is reported with `externally_calibrated = False`: a nominal width, not a validated coverage.
 
 COST: FREE per prediction — σ_class is a lookup, the class is a keyword+SMARTS match, U_samp is
 already computed by the pipeline. No extra QM.
 """
 import os
+import re
 import json
 import math
+from statistics import NormalDist
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _CALIB_PATH = os.path.join(_HERE, "data", "sigma_class_calibrated.json")
@@ -54,6 +63,7 @@ _FALLBACK_SIGMA = {
 DEFAULT_SIGMA = 30.0    # class not in the table -> conservative
 
 _COA_SMI_TAG = "SCCNC(=O)CCNC(=O)".lower()   # pantetheine arm — CoA fingerprint in SMILES
+_COA_WORD = re.compile(r"(?<![a-z])coa(?![a-z])")    # "acetyl-CoA", "CoA ligase"; not "glucoamylase"
 
 
 def _load_sigma():
@@ -71,10 +81,6 @@ def _load_sigma():
 
 
 SIGMA_CLASS, _DEFAULT_SIGMA = _load_sigma()
-# adenylyl-transfer is a NEW structural class not yet in the calibration artifact; use the anchor's
-# LOO+reference-inflated residual (metag.routing.anchor ANCHORS["adenylylate"]["sigma"] = 11.0) until a
-# full sweep recalibrates it. setdefault so a future artifact value wins.
-SIGMA_CLASS.setdefault("adenylylate", 11.0)
 
 
 # Structural anchor sub-classes (SMARTS-detected in metag.routing.anchor) -> the calibrated σ-class name.
@@ -118,7 +124,7 @@ def mech_class(note, species_smiles, species=None):
             pass                                            # structural detection is best-effort; fall back
     n = (note or "").lower()
     smis = species_smiles if isinstance(species_smiles, str) else " ".join(species_smiles)
-    has_coa = "coa" in n or _COA_SMI_TAG in smis.lower()
+    has_coa = bool(_COA_WORD.search(n)) or _COA_SMI_TAG in smis.lower()   # whole word: not "glucoamylase"
 
     if ("phosphoribosyl" in n or "nucleosidase" in n
             or ("phosphorylase" in n and any(k in n for k in ("uridine", "purine", "nucleoside")))):
@@ -180,6 +186,35 @@ def _load_class_stats():
 
 CLASS_STATS = _load_class_stats()
 
+
+def _load_global_q95():
+    try:
+        with open(_CALIB_PATH) as fh:
+            c = json.load(fh)
+        if "global_q95abs" in c:
+            return float(c["global_q95abs"])
+        return max((v.get("q95abs", 0.0) for v in c.get("classes", {}).values()), default=0.0)
+    except (OSError, ValueError):
+        return 0.0
+
+
+_GLOBAL_Q95 = _load_global_q95()
+
+
+def _class_width(cls):
+    """(sigma_class, q95abs, calibrated). A class absent from the calibration set (e.g. a new anchor
+    bucket before the next sweep) gets at least the overall σ and the global heavy-tail floor -- never a
+    narrower interval than the calibrated classes (previously adenylylate got σ=11, q95=0: the tightest
+    interval of all, on its least-validated class)."""
+    st = CLASS_STATS.get(cls)
+    if st is not None:
+        return float(st.get("sigma", SIGMA_CLASS.get(cls, _DEFAULT_SIGMA))), float(st.get("q95abs", 0.0)), True
+    # never narrower than the global statistics OR the "other/clean" fallback class (where un-annotated
+    # novel reactions land anyway), whichever is wider
+    oc = CLASS_STATS.get("other/clean", {})
+    s = max(float(SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)), float(_DEFAULT_SIGMA), float(oc.get("sigma", 0.0)))
+    return s, max(_GLOBAL_Q95, float(oc.get("q95abs", 0.0))), False
+
 # sigma multiplier for the (symmetric) 95% interval, calibrated so held-out coverage >= 95% (~2.1).
 _INTERVAL_MULT = 2.1
 try:
@@ -189,44 +224,65 @@ except (OSError, ValueError):
     pass
 
 
-def prediction_interval(note, species_smiles, dG, level=95, species=None):
-    """DE-BIASED, ASYMMETRIC, tail-aware interval for the TRUE ΔrG'° given the pipeline's dG.
+def _ood(species):
+    if not species:
+        return None
+    try:
+        from metag.routing.applicability import ood_assessment
+        return ood_assessment(species)
+    except Exception:
+        return None
 
-    The class residuals (pred - exp) are generally biased (hydratase pred ~ +16 high; glycosyl ~ -14 low),
-    so a symmetric dG ± sigma is MIS-CENTERED -- for TFA that is a directional feasibility error. Instead we
-    invert the empirical SIGNED residual distribution: exp lies in [dG - q_hi, dG - q_lo] with the empirical
-    quantiles, which centers on dG - median_residual (de-biased) and is asymmetric (captures the heavier
-    tail). Returns (lo, hi, center, breakdown). Falls back to the symmetric class sigma if uncalibrated.
+
+def _scope(calibrated, ood_info):
+    """Is the interval externally calibrated (validated coverage) or nominal?"""
+    flags = (ood_info or {}).get("flags") or []
+    ext = bool(calibrated and not flags)
+    if ext:
+        note = "in-distribution: nested-CV coverage on TECRDB applies"
+    elif not calibrated:
+        note = "interval not externally calibrated: class absent from calibration set (nominal width)"
+    else:
+        note = "interval not externally calibrated: OOD features " + "; ".join(flags)
+    return ext, note
+
+
+def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp=0.0):
+    """Symmetric prediction interval for the TRUE ΔrG'° given the pipeline's dG. Returns
+    (lo, hi, center, breakdown); center == dG (no de-biasing).
+
+    half-width = max(m · sqrt(σ_class² + U_samp²), q95abs): the SAME σ_total as reaction_sigma(), so
+    ci95 and sigma_pred are consistent (a floppy species with large U_samp widens both). m is the
+    nested-CV multiplier (held-out coverage >= 95%), q95abs a per-class heavy-tail floor. Only level=95
+    is CV-calibrated; other levels scale m and q95abs by the Gaussian z-ratio and are reported with
+    level_calibrated=False. An asymmetric de-biased interval was tried and CV-rejected (OOD-fragile).
     `species` (full {name:[coeff,charge,smi]} dict) enables structural class detection; recommended.
     """
     cls = mech_class(note, species_smiles, species)
     st = CLASS_STATS.get(cls, {})
-    s = st.get("sigma", SIGMA_CLASS.get(cls, _DEFAULT_SIGMA))
-    q95abs = st.get("q95abs", 0.0)
-    ood_info = None
-    if species:                                              # OOD gate floors the interval sigma too
-        try:
-            from metag.routing.applicability import ood_assessment
-            ood_info = ood_assessment(species)
-            s = max(s, ood_info["sigma_floor"])
-        except Exception:
-            ood_info = None
-    # SYMMETRIC, NESTED-CV-validated interval centred on the (physics+anchor) prediction. Half-width =
-    # max(m*sigma, q95abs): m is the multiplier (nested-CV to >=95% held-out), q95abs is a per-class
-    # heavy-tail floor for classes (e.g. reductive-amination-DH) that k*sigma under-covers. An asymmetric
-    # de-biased interval was tried and CV-REJECTED (92.4% < symmetric 95%; a first-moment fit, OOD-fragile).
-    m = _INTERVAL_MULT if level == 95 else _INTERVAL_MULT / 2.0
-    hw = max(m * s, q95abs) if level == 95 else m * s
-    # class_bias is POINT-ESTIMATE metadata, NOT a coverage correction: the symmetric interval already
-    # covers biased classes (wide sigma). It says the POINT is off (hydratase ~ +18 high) so a consumer who
-    # wants a sharper estimate MAY recenter dG - class_bias; do not also widen for it (double-applying).
+    s_cls, q95abs, calibrated = _class_width(cls)
+    ood_info = _ood(species)
+    s = math.hypot(s_cls, float(U_samp or 0.0))
+    if ood_info:                                             # flag-only today (sigma_floor = 0)
+        s = max(s, ood_info.get("sigma_floor", 0.0))
+    if level == 95:
+        m, q = _INTERVAL_MULT, q95abs
+    else:
+        zr = NormalDist().inv_cdf(0.5 + level / 200.0) / NormalDist().inv_cdf(0.975)
+        m, q = _INTERVAL_MULT * zr, q95abs * zr
+    hw = max(m * s, q)
+    ext, scope = _scope(calibrated, ood_info)
     return round(dG - hw, 1), round(dG + hw, 1), round(dG, 1), {"class": cls, "level": level,
-            "sigma": s, "sigma_mult": m, "half_width": round(hw, 1),
+            "level_calibrated": level == 95,
+            "sigma": round(s, 1), "sigma_class": s_cls, "U_samp": float(U_samp or 0.0),
+            "sigma_mult": round(m, 3), "half_width": round(hw, 1), "q95abs": round(q, 1),
+            "class_calibrated": calibrated, "externally_calibrated": ext, "calibration_scope": scope,
             "ood": bool(ood_info and ood_info["ood"]),
             "ood_reasons": (ood_info["reasons"] if ood_info else []),
             "ood_flags": (ood_info["flags"] if ood_info else []),
-            "point_bias": st.get("bias"), "point_bias_note": "point-estimate metadata (in-distribution); "
-            "interval already covers -- optional recenter dG-point_bias, do NOT also widen"}
+            "point_bias": st.get("bias"), "point_bias_note": "mean residual of the DEPLOYED (post-anchor) "
+            "estimator on the calibration set, in-distribution only; the interval already covers it -- "
+            "do NOT also widen"}
 
 
 def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
@@ -237,7 +293,7 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
     `species` (full {name:[coeff,charge,smi]} dict) enables structural class detection; recommended.
     """
     cls = mech_class(note, species_smiles, species)
-    s_class = SIGMA_CLASS.get(cls, _DEFAULT_SIGMA)
+    s_class, _q, calibrated = _class_width(cls)
     terms = {"U_samp": float(U_samp), "sigma_class": float(s_class)}
     sigma = math.sqrt(sum(v * v for v in terms.values()))
     br = {"class": cls, **terms}
@@ -253,7 +309,11 @@ def reaction_sigma(note, species_smiles, U_samp=0.0, species=None):
                 br["sigma_floored_from"] = round(sigma, 1)
                 sigma = oa["sigma_floor"]
         except Exception:
-            pass
+            oa = None
+    else:
+        oa = None
+    br["class_calibrated"] = calibrated
+    br["externally_calibrated"], br["calibration_scope"] = _scope(calibrated, oa)
     return round(sigma, 1), br
 
 

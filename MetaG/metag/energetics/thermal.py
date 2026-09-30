@@ -162,11 +162,21 @@ def _write_xyz(path, symbols, coords):
             f.write(f"{s} {x:.6f} {y:.6f} {z:.6f}\n")
 
 
-def _xtb_sp_E(xyz, q, d, flag):
-    cmd = [XTB, xyz, "--gfn", "2", "--chrg", str(int(q)), "--sp"] + flag
-    r = subprocess.run(cmd, cwd=d, env=ENV, capture_output=True, text=True, timeout=180)
+def _run_xtb(cmd, d, timeout):
+    """Run xtb; a timeout or non-zero exit returns None (the caller drops that conformer) instead of
+    raising through ThreadPoolExecutor.map and aborting the whole species/reaction."""
+    try:
+        r = subprocess.run(cmd, cwd=d, env=ENV, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return None
+    if r.returncode != 0:
+        return None
     m = re.search(r"TOTAL ENERGY\s+(-?\d+\.\d+)\s+Eh", r.stdout)
     return float(m.group(1)) * HARTREE2KJ if m else None
+
+
+def _xtb_sp_E(xyz, q, d, flag):
+    return _run_xtb([XTB, xyz, "--gfn", "2", "--chrg", str(int(q)), "--sp"] + flag, d, 180)
 
 
 def xtb_dgsolv(symbols, coords, q, model="cosmo"):
@@ -182,6 +192,39 @@ def xtb_dgsolv(symbols, coords, q, model="cosmo"):
         return (es - eg) if (es is not None and eg is not None) else None
 
 
+XTBCPX = os.environ.get("XTBCPX_BIN", f"{os.environ['HOME']}/miniforge3/envs/xtbcpx/bin/xtb")
+
+
+def dgsolv(symbols, coords, q, model="cosmo", mult=1):
+    """Implicit ΔG_solv (kJ/mol, 1 M gas -> 1 M solution) for one geometry, any supported model:
+      cosmo / alpb / gbsa : E_xtb(--sp <model> water) - E_xtb(--sp gas)   (GFN2, single points)
+      cpcmx               : xtb CPCM-X (xtbcpx build), dG_solv read from fort.6
+    FreeSolv (642 neutral molecules, 2026-09-26): MAE cosmo 9.1 / alpb 6.7 / cpcmx 5.5 kJ; on the polar,
+    metabolite-like subset cosmo R=0.38 (slope 0.28, bias +8.6) vs alpb R=0.73, cpcmx R=0.75.
+    `mult` sets --uhf (open-shell species, e.g. O2 triplet). Returns None on any xtb failure/timeout."""
+    uhf = ["--uhf", str(int(mult) - 1)]
+    with tempfile.TemporaryDirectory() as d:
+        xyz = os.path.join(d, "m.xyz")
+        _write_xyz(xyz, symbols, coords)
+        if model == "cpcmx":
+            try:
+                subprocess.run([XTBCPX, "m.xyz", "--gfn", "2", "--chrg", str(int(q)), *uhf, "--cpcmx", "water"],
+                               cwd=d, env=ENV, capture_output=True, text=True, timeout=600)
+            except subprocess.TimeoutExpired:
+                return None
+            f6 = os.path.join(d, "fort.6")
+            if not os.path.isfile(f6):
+                return None
+            m = re.search(r"solvation free energy \(dG_solv\):\s+(-?\d+\.\d+E[+-]\d+)",
+                          open(f6, errors="replace").read())
+            return float(m.group(1)) * HARTREE2KJ if m else None
+        base = [XTB, xyz, "--gfn", "2", "--chrg", str(int(q)), *uhf, "--sp"]
+        eg = _run_xtb(base, d, 180)
+        flag = ["--gbsa", "water"] if model == "gbsa" else [f"--{model}", "water"]
+        es = _run_xtb(base + flag, d, 180)
+        return (es - eg) if (es is not None and eg is not None) else None
+
+
 def xtb_dgsolv_relaxed(symbols, coords, q, model="cosmo"):
     """RELAXED ΔG_solv (kJ) = E_xtb(--opt <model> water) - E_xtb(--sp gas). Optimizes
     the geometry IN the continuum (captures solute + explicit-water reorganization that
@@ -193,10 +236,7 @@ def xtb_dgsolv_relaxed(symbols, coords, q, model="cosmo"):
         _write_xyz(xyz, symbols, coords)
         eg = _xtb_sp_E(xyz, q, d, [])
         flag = ["--gbsa", "water"] if model == "gbsa" else [f"--{model}", "water"]
-        r = subprocess.run([XTB, "m.xyz", "--gfn", "2", "--chrg", str(int(q)), "--opt"] + flag,
-                           cwd=d, env=ENV, capture_output=True, text=True, timeout=600)
-        m = re.search(r"TOTAL ENERGY\s+(-?\d+\.\d+)\s+Eh", r.stdout)
-        es = float(m.group(1)) * HARTREE2KJ if m else None
+        es = _run_xtb([XTB, "m.xyz", "--gfn", "2", "--chrg", str(int(q)), "--opt"] + flag, d, 600)
         return (es - eg) if (es is not None and eg is not None) else None
 
 

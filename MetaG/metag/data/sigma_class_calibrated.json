@@ -1,2382 +1,2039 @@
 {
- "source": "logs/production",
- "n_reactions": 367,
- "n_missing_log": 0,
- "overall": {
-  "MAE": 11.6,
-  "RMS": 16.35,
-  "bias": -0.72,
-  "medAE": 8.31
- },
- "cv_coverage_1sigma": 0.779,
- "cv_coverage_2sigma": 0.932,
- "interval_sigma_mult": 2.15,
- "cv_coverage_interval95": 0.953,
- "default_sigma": 16.3,
- "classes": {
-  "other/clean": {
-   "n": 71,
-   "sigma": 16.2,
-   "rms": 16.2,
-   "mae": 10.3,
-   "bias": -0.6,
-   "medAE": 5.2,
-   "center": -2.0,
-   "q95abs": 32.6
-  },
-  "hydratase": {
-   "n": 12,
-   "sigma": 20.6,
-   "rms": 20.6,
-   "mae": 19.1,
-   "bias": 18.4,
-   "medAE": 21.9,
-   "center": 21.9,
-   "q95abs": 30.3
-  },
-  "kinase/phosphotransfer": {
-   "n": 29,
-   "sigma": 18.7,
-   "rms": 18.7,
-   "mae": 12.2,
-   "bias": -1.0,
-   "medAE": 7.7,
-   "center": 0.4,
-   "q95abs": 32.1
-  },
-  "CoA-thioester": {
-   "n": 30,
-   "sigma": 16.3,
-   "rms": 16.3,
-   "mae": 12.9,
-   "bias": -1.1,
-   "medAE": 11.0,
-   "center": -2.0,
-   "q95abs": 30.0
-  },
-  "reductive-amination-DH": {
-   "n": 11,
-   "sigma": 21.4,
-   "rms": 21.4,
-   "mae": 13.7,
-   "bias": -0.6,
-   "medAE": 8.9,
-   "center": -1.1,
-   "q95abs": 41.8
-  },
-  "NAD(P)-redox(other)": {
-   "n": 74,
-   "sigma": 16.0,
-   "rms": 16.0,
-   "mae": 12.0,
-   "bias": 1.7,
-   "medAE": 9.9,
-   "center": 0.1,
-   "q95abs": 33.0
-  },
-  "isomerase/mutase": {
-   "n": 58,
-   "sigma": 14.1,
-   "rms": 14.0,
-   "mae": 9.8,
-   "bias": -1.1,
-   "medAE": 7.6,
-   "center": -2.6,
-   "q95abs": 29.8
-  },
-  "phosphatase": {
-   "n": 12,
-   "sigma": 11.2,
-   "rms": 8.8,
-   "mae": 6.7,
-   "bias": -6.7,
-   "medAE": 4.5,
-   "center": -4.5,
-   "q95abs": 24.4
-  },
-  "phosphagen(P-N/Mg)": {
-   "n": 4,
-   "sigma": 13.1,
-   "rms": 8.8,
-   "mae": 8.0,
-   "bias": 2.3,
-   "medAE": 9.4,
-   "center": 5.6,
-   "q95abs": 26.3
-  },
-  "amide/amidine-hydrolysis": {
-   "n": 9,
-   "sigma": 16.4,
-   "rms": 16.4,
-   "mae": 14.4,
-   "bias": -14.0,
-   "medAE": 13.2,
-   "center": -13.2,
-   "q95abs": 30.3
-  },
-  "glycosyl/PRT/nucleoside": {
-   "n": 14,
-   "sigma": 24.6,
-   "rms": 24.6,
-   "mae": 19.3,
-   "bias": -13.8,
-   "medAE": 18.2,
-   "center": -16.2,
-   "q95abs": 40.4
-  },
-  "transaminase": {
-   "n": 16,
-   "sigma": 11.1,
-   "rms": 9.4,
-   "mae": 6.4,
-   "bias": 3.2,
-   "medAE": 4.6,
-   "center": -0.5,
-   "q95abs": 25.8
-  },
-  "aldolase": {
-   "n": 11,
-   "sigma": 19.2,
-   "rms": 19.2,
-   "mae": 15.3,
-   "bias": -8.8,
-   "medAE": 12.0,
-   "center": -8.7,
-   "q95abs": 33.5
-  },
-  "ammonia-lyase": {
-   "n": 9,
-   "sigma": 15.2,
-   "rms": 14.7,
-   "mae": 10.3,
-   "bias": -5.7,
-   "medAE": 7.1,
-   "center": 0.5,
-   "q95abs": 31.5
-  },
-  "flavin/FAD-redox": {
-   "n": 5,
-   "sigma": 15.2,
-   "rms": 14.2,
-   "mae": 10.9,
-   "bias": 6.7,
-   "medAE": 8.5,
-   "center": 2.8,
-   "q95abs": 30.3
-  },
-  "carbamoyltransfer": {
-   "n": 2,
-   "sigma": 14.9,
-   "rms": 11.6,
-   "mae": 11.3,
-   "bias": 11.3,
-   "medAE": 11.3,
-   "center": 11.3,
-   "q95abs": 29.8
-  }
- },
- "per_reaction": [
-  {
-   "rid": "rxn01211",
-   "class": "other/clean",
-   "err": -8.61,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00973",
-   "class": "hydratase",
-   "err": -4.21,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn00216",
-   "class": "kinase/phosphotransfer",
-   "err": -11.33,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00695",
-   "class": "kinase/phosphotransfer",
-   "err": 0.25,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00290",
-   "class": "CoA-thioester",
-   "err": -11.69,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn10427",
-   "class": "kinase/phosphotransfer",
-   "err": 5.52,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn03643",
-   "class": "other/clean",
-   "err": 5.7,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00184",
-   "class": "reductive-amination-DH",
-   "err": -9.58,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00499",
-   "class": "NAD(P)-redox(other)",
-   "err": 13.31,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00070",
-   "class": "NAD(P)-redox(other)",
-   "err": 3.81,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01008",
-   "class": "isomerase/mutase",
-   "err": -6.52,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00173",
-   "class": "CoA-thioester",
-   "err": -8.11,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01530",
-   "class": "NAD(P)-redox(other)",
-   "err": 8.54,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00132",
-   "class": "phosphatase",
-   "err": -3.13,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn00421",
-   "class": "other/clean",
-   "err": 9.32,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00086",
-   "class": "NAD(P)-redox(other)",
-   "err": 9.92,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00545",
-   "class": "kinase/phosphotransfer",
-   "err": -27.72,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn04082",
-   "class": "isomerase/mutase",
-   "err": -12.33,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01740",
-   "class": "NAD(P)-redox(other)",
-   "err": 1.32,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00634",
-   "class": "NAD(P)-redox(other)",
-   "err": -10.7,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02132",
-   "class": "NAD(P)-redox(other)",
-   "err": 22.1,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01371",
-   "class": "phosphagen(P-N/Mg)",
-   "err": -11.37,
-   "sigma": 13.1
-  },
-  {
-   "rid": "rxn00543",
-   "class": "NAD(P)-redox(other)",
-   "err": -3.06,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00558",
-   "class": "isomerase/mutase",
-   "err": -7.37,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00097",
-   "class": "kinase/phosphotransfer",
-   "err": -14.68,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00765",
-   "class": "NAD(P)-redox(other)",
-   "err": -3.8,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01746",
-   "class": "amide/amidine-hydrolysis",
-   "err": -13.23,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn01385",
-   "class": "NAD(P)-redox(other)",
-   "err": -5.03,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01101",
-   "class": "NAD(P)-redox(other)",
-   "err": 9.27,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01358",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -14.25,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00602",
-   "class": "CoA-thioester",
-   "err": 9.38,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00549",
-   "class": "phosphatase",
-   "err": -4.86,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn03249",
-   "class": "CoA-thioester",
-   "err": -17.3,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01451",
-   "class": "CoA-thioester",
-   "err": -15.51,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01100",
-   "class": "kinase/phosphotransfer",
-   "err": -12.89,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01362",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -31.37,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn01761",
-   "class": "isomerase/mutase",
-   "err": 11.33,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00747",
-   "class": "isomerase/mutase",
-   "err": -10.5,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01016",
-   "class": "kinase/phosphotransfer",
-   "err": 6.07,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00151",
-   "class": "kinase/phosphotransfer",
-   "err": 25.0,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01106",
-   "class": "isomerase/mutase",
-   "err": -6.59,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01044",
-   "class": "isomerase/mutase",
-   "err": -2.29,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01201",
-   "class": "NAD(P)-redox(other)",
-   "err": 22.38,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00187",
-   "class": "other/clean",
-   "err": 68.39,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00559",
-   "class": "isomerase/mutase",
-   "err": -3.65,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02451",
-   "class": "other/clean",
-   "err": 0.28,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00065",
-   "class": "other/clean",
-   "err": 16.42,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00293",
-   "class": "kinase/phosphotransfer",
-   "err": 1.71,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00577",
-   "class": "other/clean",
-   "err": -7.25,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn51768",
-   "class": "CoA-thioester",
-   "err": 22.47,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00191",
-   "class": "transaminase",
-   "err": -0.56,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00636",
-   "class": "isomerase/mutase",
-   "err": -1.59,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00396",
-   "class": "phosphagen(P-N/Mg)",
-   "err": 9.37,
-   "sigma": 13.1
-  },
-  {
-   "rid": "rxn01548",
-   "class": "other/clean",
-   "err": -7.37,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00992",
-   "class": "NAD(P)-redox(other)",
-   "err": -14.09,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00280",
-   "class": "reductive-amination-DH",
-   "err": -2.89,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00629",
-   "class": "NAD(P)-redox(other)",
-   "err": -11.69,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00402",
-   "class": "reductive-amination-DH",
-   "err": 1.46,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00283",
-   "class": "isomerase/mutase",
-   "err": 0.1,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00077",
-   "class": "kinase/phosphotransfer",
-   "err": -20.09,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01620",
-   "class": "aldolase",
-   "err": -13.02,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00336",
-   "class": "other/clean",
-   "err": -1.65,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00799",
-   "class": "hydratase",
-   "err": 24.24,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01646",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -49.54,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00141",
-   "class": "other/clean",
-   "err": -0.88,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00223",
-   "class": "isomerase/mutase",
-   "err": -4.19,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01204",
-   "class": "transaminase",
-   "err": -2.09,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn31240",
-   "class": "isomerase/mutase",
-   "err": -1.18,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00182",
-   "class": "reductive-amination-DH",
-   "err": -8.87,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn01407",
-   "class": "NAD(P)-redox(other)",
-   "err": 26.46,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02320",
-   "class": "transaminase",
-   "err": 5.9,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00552",
-   "class": "isomerase/mutase",
-   "err": -9.05,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00800",
-   "class": "ammonia-lyase",
-   "err": 1.64,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn00117",
-   "class": "kinase/phosphotransfer",
-   "err": -10.31,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01157",
-   "class": "ammonia-lyase",
-   "err": -8.3,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn08430",
-   "class": "phosphatase",
-   "err": -2.32,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn04945",
-   "class": "NAD(P)-redox(other)",
-   "err": -35.83,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00686",
-   "class": "NAD(P)-redox(other)",
-   "err": -22.14,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00415",
-   "class": "transaminase",
-   "err": 14.63,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn02914",
-   "class": "transaminase",
-   "err": -5.85,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00278",
-   "class": "reductive-amination-DH",
-   "err": -1.06,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00927",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": 6.92,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00213",
-   "class": "other/clean",
-   "err": -2.94,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01249",
-   "class": "NAD(P)-redox(other)",
-   "err": -7.47,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01322",
-   "class": "other/clean",
-   "err": -3.89,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn02459",
-   "class": "NAD(P)-redox(other)",
-   "err": 9.96,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00260",
-   "class": "transaminase",
-   "err": -1.24,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn02756",
-   "class": "isomerase/mutase",
-   "err": -2.45,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01423",
-   "class": "transaminase",
-   "err": -0.88,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00704",
-   "class": "isomerase/mutase",
-   "err": 3.97,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn39443",
-   "class": "amide/amidine-hydrolysis",
-   "err": -15.66,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn01043",
-   "class": "NAD(P)-redox(other)",
-   "err": -1.81,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00171",
-   "class": "CoA-thioester",
-   "err": 16.73,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00770",
-   "class": "kinase/phosphotransfer",
-   "err": 3.32,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00248",
-   "class": "NAD(P)-redox(other)",
-   "err": 10.9,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00546",
-   "class": "NAD(P)-redox(other)",
-   "err": -0.08,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00347",
-   "class": "ammonia-lyase",
-   "err": 9.01,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn00802",
-   "class": "ammonia-lyase",
-   "err": 7.15,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn00131",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": 1.02,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00604",
-   "class": "NAD(P)-redox(other)",
-   "err": -33.28,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01368",
-   "class": "amide/amidine-hydrolysis",
-   "err": -12.11,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn02975",
-   "class": "isomerase/mutase",
-   "err": 11.48,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00692",
-   "class": "other/clean",
-   "err": 1.41,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01333",
-   "class": "aldolase",
-   "err": -8.68,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00810",
-   "class": "NAD(P)-redox(other)",
-   "err": -3.55,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00579",
-   "class": "other/clean",
-   "err": 12.95,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00806",
-   "class": "other/clean",
-   "err": 1.82,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn02749",
-   "class": "hydratase",
-   "err": 31.01,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01277",
-   "class": "NAD(P)-redox(other)",
-   "err": 31.03,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00083",
-   "class": "other/clean",
-   "err": 2.04,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01479",
-   "class": "other/clean",
-   "err": -2.0,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn02842",
-   "class": "NAD(P)-redox(other)",
-   "err": -12.66,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00786",
-   "class": "aldolase",
-   "err": 35.09,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn01506",
-   "class": "isomerase/mutase",
-   "err": -19.38,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00328",
-   "class": "aldolase",
-   "err": -6.88,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn02202",
-   "class": "hydratase",
-   "err": 21.66,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01465",
-   "class": "other/clean",
-   "err": -12.24,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00364",
-   "class": "kinase/phosphotransfer",
-   "err": -16.6,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn02930",
-   "class": "reductive-amination-DH",
-   "err": -50.28,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00816",
-   "class": "other/clean",
-   "err": 5.68,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00824",
-   "class": "CoA-thioester",
-   "err": 47.15,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01366",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -18.92,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00990",
-   "class": "CoA-thioester",
-   "err": -1.84,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00778",
-   "class": "isomerase/mutase",
-   "err": 5.23,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01491",
-   "class": "phosphatase",
-   "err": -10.02,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn00906",
-   "class": "flavin/FAD-redox",
-   "err": -8.51,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn00974",
-   "class": "hydratase",
-   "err": 22.09,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn00836",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -41.2,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn02263",
-   "class": "isomerase/mutase",
-   "err": 9.83,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00753",
-   "class": "CoA-thioester",
-   "err": -15.8,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00331",
-   "class": "CoA-thioester",
-   "err": -6.83,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00777",
-   "class": "isomerase/mutase",
-   "err": -2.61,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01790",
-   "class": "NAD(P)-redox(other)",
-   "err": 14.65,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00214",
-   "class": "isomerase/mutase",
-   "err": -15.97,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00831",
-   "class": "phosphatase",
-   "err": -3.57,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn00220",
-   "class": "phosphatase",
-   "err": -4.73,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn00459",
-   "class": "hydratase",
-   "err": 5.27,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn00907",
-   "class": "flavin/FAD-redox",
-   "err": -1.97,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn15964",
-   "class": "other/clean",
-   "err": -25.75,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00746",
-   "class": "aldolase",
-   "err": -2.49,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn01116",
-   "class": "isomerase/mutase",
-   "err": -11.29,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00175",
-   "class": "CoA-thioester",
-   "err": 11.58,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn02625",
-   "class": "ammonia-lyase",
-   "err": 0.51,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn01626",
-   "class": "other/clean",
-   "err": -0.08,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01675",
-   "class": "other/clean",
-   "err": -0.99,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00265",
-   "class": "other/clean",
-   "err": -4.61,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01745",
-   "class": "hydratase",
-   "err": 19.54,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01383",
-   "class": "NAD(P)-redox(other)",
-   "err": -11.86,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00007",
-   "class": "other/clean",
-   "err": -9.87,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01870",
-   "class": "aldolase",
-   "err": -6.17,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn15750",
-   "class": "aldolase",
-   "err": -31.42,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn01617",
-   "class": "NAD(P)-redox(other)",
-   "err": 11.37,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01075",
-   "class": "isomerase/mutase",
-   "err": -9.0,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01388",
-   "class": "hydratase",
-   "err": 24.14,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01011",
-   "class": "NAD(P)-redox(other)",
-   "err": 11.27,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00250",
-   "class": "kinase/phosphotransfer",
-   "err": 27.79,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00909",
-   "class": "flavin/FAD-redox",
-   "err": 26.95,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn01280",
-   "class": "NAD(P)-redox(other)",
-   "err": 0.21,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01265",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": 27.42,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00838",
-   "class": "other/clean",
-   "err": -24.35,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00754",
-   "class": "other/clean",
-   "err": -5.14,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00379",
-   "class": "kinase/phosphotransfer",
-   "err": -68.51,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01638",
-   "class": "other/clean",
-   "err": -2.94,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00915",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -36.18,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00139",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -18.09,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00321",
-   "class": "isomerase/mutase",
-   "err": -2.55,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00178",
-   "class": "CoA-thioester",
-   "err": 6.17,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn53944",
-   "class": "other/clean",
-   "err": 5.25,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01259",
-   "class": "other/clean",
-   "err": -4.58,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03876",
-   "class": "CoA-thioester",
-   "err": -11.12,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01847",
-   "class": "NAD(P)-redox(other)",
-   "err": 13.31,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01005",
-   "class": "other/clean",
-   "err": -2.72,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00784",
-   "class": "aldolase",
-   "err": -11.96,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00189",
-   "class": "other/clean",
-   "err": -9.07,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn45677",
-   "class": "amide/amidine-hydrolysis",
-   "err": -9.19,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn02591",
-   "class": "isomerase/mutase",
-   "err": -9.97,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01532",
-   "class": "isomerase/mutase",
-   "err": 9.1,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00422",
-   "class": "transaminase",
-   "err": 0.9,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00148",
-   "class": "kinase/phosphotransfer",
-   "err": 3.02,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn02782",
-   "class": "isomerase/mutase",
-   "err": 36.57,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01138",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -3.83,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn03250",
-   "class": "CoA-thioester",
-   "err": 8.39,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn02168",
-   "class": "CoA-thioester",
-   "err": 4.07,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn40442",
-   "class": "NAD(P)-redox(other)",
-   "err": -7.17,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02167",
-   "class": "CoA-thioester",
-   "err": 5.46,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00849",
-   "class": "transaminase",
-   "err": -3.86,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn04943",
-   "class": "NAD(P)-redox(other)",
-   "err": -8.14,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01447",
-   "class": "NAD(P)-redox(other)",
-   "err": 56.72,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01505",
-   "class": "isomerase/mutase",
-   "err": -2.52,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01258",
-   "class": "isomerase/mutase",
-   "err": -10.43,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01117",
-   "class": "isomerase/mutase",
-   "err": -18.97,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00867",
-   "class": "ammonia-lyase",
-   "err": -28.53,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn02066",
-   "class": "NAD(P)-redox(other)",
-   "err": -0.19,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn19090",
-   "class": "NAD(P)-redox(other)",
-   "err": -1.24,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01726",
-   "class": "CoA-thioester",
-   "err": -22.62,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01253",
-   "class": "transaminase",
-   "err": -2.53,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn01386",
-   "class": "isomerase/mutase",
-   "err": 3.91,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00781",
-   "class": "NAD(P)-redox(other)",
-   "err": -44.44,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00500",
-   "class": "NAD(P)-redox(other)",
-   "err": 12.81,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00741",
-   "class": "NAD(P)-redox(other)",
-   "err": 19.98,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn44278",
-   "class": "isomerase/mutase",
-   "err": -8.37,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02204",
-   "class": "isomerase/mutase",
-   "err": -1.15,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01130",
-   "class": "NAD(P)-redox(other)",
-   "err": 11.53,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01392",
-   "class": "NAD(P)-redox(other)",
-   "err": -6.53,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01302",
-   "class": "NAD(P)-redox(other)",
-   "err": 9.93,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00022",
-   "class": "other/clean",
-   "err": -0.31,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00510",
-   "class": "reductive-amination-DH",
-   "err": -6.0,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00512",
-   "class": "NAD(P)-redox(other)",
-   "err": 0.7,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00473",
-   "class": "ammonia-lyase",
-   "err": -30.03,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn01306",
-   "class": "aldolase",
-   "err": -29.09,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00817",
-   "class": "other/clean",
-   "err": 4.28,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03886",
-   "class": "NAD(P)-redox(other)",
-   "err": 5.25,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00762",
-   "class": "NAD(P)-redox(other)",
-   "err": -6.66,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01682",
-   "class": "other/clean",
-   "err": -10.29,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00562",
-   "class": "other/clean",
-   "err": -21.24,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01054",
-   "class": "other/clean",
-   "err": 3.34,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn08948",
-   "class": "phosphatase",
-   "err": -6.64,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn01329",
-   "class": "isomerase/mutase",
-   "err": -2.19,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00172",
-   "class": "CoA-thioester",
-   "err": -10.98,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00930",
-   "class": "reductive-amination-DH",
-   "err": 9.35,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00699",
-   "class": "other/clean",
-   "err": -2.7,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn39373",
-   "class": "NAD(P)-redox(other)",
-   "err": -4.53,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00462",
-   "class": "isomerase/mutase",
-   "err": 28.22,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01485",
-   "class": "isomerase/mutase",
-   "err": 53.81,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00225",
-   "class": "kinase/phosphotransfer",
-   "err": 7.7,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00495",
-   "class": "ammonia-lyase",
-   "err": -5.29,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn01241",
-   "class": "flavin/FAD-redox",
-   "err": 14.27,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn01099",
-   "class": "phosphatase",
-   "err": -1.38,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn05026",
-   "class": "other/clean",
-   "err": -3.19,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03840",
-   "class": "other/clean",
-   "err": 13.82,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00302",
-   "class": "other/clean",
-   "err": 19.98,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00239",
-   "class": "kinase/phosphotransfer",
-   "err": -0.58,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00611",
-   "class": "NAD(P)-redox(other)",
-   "err": -12.78,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn12158",
-   "class": "other/clean",
-   "err": 35.83,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00702",
-   "class": "other/clean",
-   "err": -0.72,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn14063",
-   "class": "NAD(P)-redox(other)",
-   "err": -0.99,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02651",
-   "class": "NAD(P)-redox(other)",
-   "err": -1.27,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01597",
-   "class": "NAD(P)-redox(other)",
-   "err": 7.86,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01293",
-   "class": "NAD(P)-redox(other)",
-   "err": 0.06,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01513",
-   "class": "kinase/phosphotransfer",
-   "err": 0.37,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01410",
-   "class": "hydratase",
-   "err": 15.47,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn01996",
-   "class": "CoA-thioester",
-   "err": 0.5,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00285",
-   "class": "CoA-thioester",
-   "err": -2.71,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00423",
-   "class": "CoA-thioester",
-   "err": -21.19,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn15726",
-   "class": "NAD(P)-redox(other)",
-   "err": 7.09,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00697",
-   "class": "other/clean",
-   "err": -12.17,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01361",
-   "class": "flavin/FAD-redox",
-   "err": 2.82,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn00234",
-   "class": "other/clean",
-   "err": -2.88,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03884",
-   "class": "aldolase",
-   "err": -22.72,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00798",
-   "class": "isomerase/mutase",
-   "err": -12.86,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01702",
-   "class": "other/clean",
-   "err": -30.28,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01137",
-   "class": "amide/amidine-hydrolysis",
-   "err": 1.73,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn00237",
-   "class": "kinase/phosphotransfer",
-   "err": -0.7,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00001",
-   "class": "phosphatase",
-   "err": -2.94,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn01380",
-   "class": "other/clean",
-   "err": -4.15,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00217",
-   "class": "NAD(P)-redox(other)",
-   "err": -32.7,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02322",
-   "class": "kinase/phosphotransfer",
-   "err": -2.63,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00062",
-   "class": "other/clean",
-   "err": 0.38,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00193",
-   "class": "isomerase/mutase",
-   "err": 0.4,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn36656",
-   "class": "amide/amidine-hydrolysis",
-   "err": -7.44,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn01846",
-   "class": "NAD(P)-redox(other)",
-   "err": 24.9,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00515",
-   "class": "kinase/phosphotransfer",
-   "err": -4.2,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01292",
-   "class": "isomerase/mutase",
-   "err": -7.93,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00147",
-   "class": "kinase/phosphotransfer",
-   "err": 34.2,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00337",
-   "class": "kinase/phosphotransfer",
-   "err": 9.14,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn15055",
-   "class": "transaminase",
-   "err": 5.41,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00690",
-   "class": "other/clean",
-   "err": 6.16,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00987",
-   "class": "other/clean",
-   "err": -1.32,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01336",
-   "class": "NAD(P)-redox(other)",
-   "err": -5.4,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02360",
-   "class": "isomerase/mutase",
-   "err": 3.48,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn11139",
-   "class": "other/clean",
-   "err": -5.39,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn02685",
-   "class": "phosphagen(P-N/Mg)",
-   "err": 9.41,
-   "sigma": 13.1
-  },
-  {
-   "rid": "rxn04785",
-   "class": "phosphagen(P-N/Mg)",
-   "err": 1.88,
-   "sigma": 13.1
-  },
-  {
-   "rid": "rxn16378",
-   "class": "amide/amidine-hydrolysis",
-   "err": -22.37,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn52014",
-   "class": "amide/amidine-hydrolysis",
-   "err": -30.1,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn00698",
-   "class": "other/clean",
-   "err": -1.69,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00306",
-   "class": "CoA-thioester",
-   "err": -2.23,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00105",
-   "class": "other/clean",
-   "err": -2.37,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn14104",
-   "class": "other/clean",
-   "err": 29.09,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00551",
-   "class": "other/clean",
-   "err": -34.58,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03087",
-   "class": "transaminase",
-   "err": -0.47,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn01004",
-   "class": "isomerase/mutase",
-   "err": -5.71,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00195",
-   "class": "isomerase/mutase",
-   "err": 27.77,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01409",
-   "class": "CoA-thioester",
-   "err": -26.39,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn02527",
-   "class": "NAD(P)-redox(other)",
-   "err": -1.03,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00631",
-   "class": "NAD(P)-redox(other)",
-   "err": 22.2,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00785",
-   "class": "other/clean",
-   "err": 7.88,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01985",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": -18.39,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn01200",
-   "class": "other/clean",
-   "err": -16.78,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00656",
-   "class": "transaminase",
-   "err": -8.12,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn04684",
-   "class": "phosphatase",
-   "err": -15.59,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn01834",
-   "class": "other/clean",
-   "err": -3.18,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01174",
-   "class": "NAD(P)-redox(other)",
-   "err": 5.02,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn12188",
-   "class": "phosphatase",
-   "err": -4.36,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn01974",
-   "class": "isomerase/mutase",
-   "err": -21.34,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00100",
-   "class": "CoA-thioester",
-   "err": -31.09,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00326",
-   "class": "NAD(P)-redox(other)",
-   "err": 15.42,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00420",
-   "class": "phosphatase",
-   "err": -21.02,
-   "sigma": 11.2
-  },
-  {
-   "rid": "rxn01434",
-   "class": "other/clean",
-   "err": 55.7,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00783",
-   "class": "other/clean",
-   "err": -19.28,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03644",
-   "class": "isomerase/mutase",
-   "err": -2.4,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02085",
-   "class": "hydratase",
-   "err": 22.41,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn53440",
-   "class": "isomerase/mutase",
-   "err": -11.77,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01713",
-   "class": "other/clean",
-   "err": 24.87,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00295",
-   "class": "isomerase/mutase",
-   "err": 9.0,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00257",
-   "class": "CoA-thioester",
-   "err": -5.35,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01152",
-   "class": "isomerase/mutase",
-   "err": -7.59,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01999",
-   "class": "other/clean",
-   "err": -8.81,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn01018",
-   "class": "carbamoyltransfer",
-   "err": 8.79,
-   "sigma": 14.9
-  },
-  {
-   "rid": "rxn01219",
-   "class": "kinase/phosphotransfer",
-   "err": 6.21,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01636",
-   "class": "CoA-thioester",
-   "err": 7.45,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01725",
-   "class": "NAD(P)-redox(other)",
-   "err": 24.35,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01457",
-   "class": "isomerase/mutase",
-   "err": -15.15,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01080",
-   "class": "isomerase/mutase",
-   "err": -13.31,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01643",
-   "class": "NAD(P)-redox(other)",
-   "err": 8.07,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00541",
-   "class": "other/clean",
-   "err": -24.18,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn02902",
-   "class": "isomerase/mutase",
-   "err": 35.03,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02305",
-   "class": "kinase/phosphotransfer",
-   "err": 11.72,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn01780",
-   "class": "isomerase/mutase",
-   "err": -7.27,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02213",
-   "class": "hydratase",
-   "err": 14.21,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn00527",
-   "class": "transaminase",
-   "err": 22.58,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00493",
-   "class": "transaminase",
-   "err": 21.51,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn02900",
-   "class": "other/clean",
-   "err": -0.02,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn08066",
-   "class": "kinase/phosphotransfer",
-   "err": -0.49,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00320",
-   "class": "isomerase/mutase",
-   "err": -2.3,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00514",
-   "class": "kinase/phosphotransfer",
-   "err": 19.56,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00643",
-   "class": "isomerase/mutase",
-   "err": -7.69,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn02622",
-   "class": "hydratase",
-   "err": 25.43,
-   "sigma": 20.6
-  },
-  {
-   "rid": "rxn49067",
-   "class": "NAD(P)-redox(other)",
-   "err": -6.27,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01363",
-   "class": "NAD(P)-redox(other)",
-   "err": -11.95,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02095",
-   "class": "NAD(P)-redox(other)",
-   "err": -14.77,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01299",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": 1.31,
-   "sigma": 24.6
-  },
-  {
-   "rid": "rxn00256",
-   "class": "CoA-thioester",
-   "err": 13.64,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn00897",
-   "class": "isomerase/mutase",
-   "err": 0.97,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01621",
-   "class": "aldolase",
-   "err": 0.28,
-   "sigma": 19.2
-  },
-  {
-   "rid": "rxn00830",
-   "class": "isomerase/mutase",
-   "err": 3.51,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01792",
-   "class": "amide/amidine-hydrolysis",
-   "err": -17.57,
-   "sigma": 16.4
-  },
-  {
-   "rid": "rxn01509",
-   "class": "kinase/phosphotransfer",
-   "err": 0.72,
-   "sigma": 18.7
-  },
-  {
-   "rid": "rxn00266",
-   "class": "isomerase/mutase",
-   "err": -5.71,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00404",
-   "class": "other/clean",
-   "err": 0.25,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00931",
-   "class": "reductive-amination-DH",
-   "err": 3.38,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn01887",
-   "class": "NAD(P)-redox(other)",
-   "err": 8.19,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn03136",
-   "class": "ammonia-lyase",
-   "err": 2.55,
-   "sigma": 15.2
-  },
-  {
-   "rid": "rxn02887",
-   "class": "NAD(P)-redox(other)",
-   "err": 6.48,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00603",
-   "class": "NAD(P)-redox(other)",
-   "err": -5.06,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01480",
-   "class": "NAD(P)-redox(other)",
-   "err": 11.76,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00804",
-   "class": "reductive-amination-DH",
-   "err": 12.78,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn00157",
-   "class": "CoA-thioester",
-   "err": 19.49,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01301",
-   "class": "NAD(P)-redox(other)",
-   "err": 13.27,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn01692",
-   "class": "NAD(P)-redox(other)",
-   "err": -2.69,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00911",
-   "class": "other/clean",
-   "err": -4.56,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00700",
-   "class": "other/clean",
-   "err": -3.49,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00641",
-   "class": "other/clean",
-   "err": 2.36,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn16141",
-   "class": "NAD(P)-redox(other)",
-   "err": 13.46,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn54659",
-   "class": "isomerase/mutase",
-   "err": 0.1,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn01022",
-   "class": "other/clean",
-   "err": -19.53,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn00630",
-   "class": "NAD(P)-redox(other)",
-   "err": -11.06,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn00674",
-   "class": "CoA-thioester",
-   "err": 5.06,
-   "sigma": 16.3
-  },
-  {
-   "rid": "rxn01019",
-   "class": "carbamoyltransfer",
-   "err": 13.79,
-   "sigma": 14.9
-  },
-  {
-   "rid": "rxn01579",
-   "class": "reductive-amination-DH",
-   "err": 44.87,
-   "sigma": 21.4
-  },
-  {
-   "rid": "rxn03281",
-   "class": "isomerase/mutase",
-   "err": -13.21,
-   "sigma": 14.1
-  },
-  {
-   "rid": "rxn00276",
-   "class": "transaminase",
-   "err": 5.25,
-   "sigma": 11.1
-  },
-  {
-   "rid": "rxn00605",
-   "class": "other/clean",
-   "err": 8.31,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn04932",
-   "class": "NAD(P)-redox(other)",
-   "err": -19.48,
-   "sigma": 16.0
-  },
-  {
-   "rid": "rxn02403",
-   "class": "other/clean",
-   "err": -15.99,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn12217",
-   "class": "other/clean",
-   "err": -0.78,
-   "sigma": 16.2
-  },
-  {
-   "rid": "rxn03137",
-   "class": "glycosyl/PRT/nucleoside",
-   "err": 1.85,
-   "sigma": 24.6
-  }
- ]
+  "overall": {
+    "MAE": 10.81,
+    "RMS": 16.01,
+    "bias": -0.32,
+    "medAE": 7.1
+  },
+  "n_reactions": 367,
+  "excluded_abs_err_gt_200": [],
+  "default_sigma": 16.0,
+  "global_q95abs": 34.7,
+  "classes": {
+    "other/clean": {
+      "n": 70,
+      "sigma": 16.3,
+      "rms": 16.3,
+      "mae": 10.7,
+      "bias": 0.7,
+      "medAE": 5.7,
+      "center": -0.3,
+      "q95abs": 40.2
+    },
+    "hydratase": {
+      "n": 12,
+      "sigma": 11.0,
+      "rms": 8.7,
+      "mae": 6.3,
+      "bias": -0.1,
+      "medAE": 4.9,
+      "center": 0.1,
+      "q95abs": 23.8
+    },
+    "kinase/phosphotransfer": {
+      "n": 28,
+      "sigma": 14.5,
+      "rms": 14.3,
+      "mae": 10.2,
+      "bias": 1.5,
+      "medAE": 7.2,
+      "center": 0.1,
+      "q95abs": 28.6
+    },
+    "CoA-thioester": {
+      "n": 28,
+      "sigma": 24.1,
+      "rms": 24.1,
+      "mae": 14.9,
+      "bias": -0.8,
+      "medAE": 7.9,
+      "center": -0.5,
+      "q95abs": 35.5
+    },
+    "reductive-amination-DH": {
+      "n": 11,
+      "sigma": 20.4,
+      "rms": 20.4,
+      "mae": 12.2,
+      "bias": 0.8,
+      "medAE": 6.2,
+      "center": 1.6,
+      "q95abs": 41.2
+    },
+    "NAD(P)-redox(other)": {
+      "n": 75,
+      "sigma": 14.7,
+      "rms": 14.6,
+      "mae": 10.6,
+      "bias": 3.0,
+      "medAE": 9.9,
+      "center": 0.7,
+      "q95abs": 26.8
+    },
+    "isomerase/mutase": {
+      "n": 58,
+      "sigma": 14.5,
+      "rms": 14.4,
+      "mae": 10.6,
+      "bias": -1.6,
+      "medAE": 8.0,
+      "center": -5.5,
+      "q95abs": 29.0
+    },
+    "phosphatase": {
+      "n": 12,
+      "sigma": 8.9,
+      "rms": 4.4,
+      "mae": 3.5,
+      "bias": 1.6,
+      "medAE": 2.7,
+      "center": 2.0,
+      "q95abs": 18.6
+    },
+    "phosphagen(P-N/Mg)": {
+      "n": 4,
+      "sigma": 13.1,
+      "rms": 9.3,
+      "mae": 8.5,
+      "bias": 2.5,
+      "medAE": 9.8,
+      "center": 6.0,
+      "q95abs": 27.0
+    },
+    "amide/amidine-hydrolysis": {
+      "n": 10,
+      "sigma": 11.1,
+      "rms": 8.4,
+      "mae": 5.9,
+      "bias": -3.8,
+      "medAE": 4.0,
+      "center": -0.3,
+      "q95abs": 24.3
+    },
+    "glycosyl/PRT/nucleoside": {
+      "n": 14,
+      "sigma": 27.3,
+      "rms": 27.3,
+      "mae": 21.6,
+      "bias": -17.2,
+      "medAE": 22.8,
+      "center": -18.9,
+      "q95abs": 43.2
+    },
+    "adenylylate": {
+      "n": 2,
+      "sigma": 13.4,
+      "rms": 4.8,
+      "mae": 4.8,
+      "bias": -0.0,
+      "medAE": 4.8,
+      "center": -0.0,
+      "q95abs": 28.7
+    },
+    "transaminase": {
+      "n": 16,
+      "sigma": 10.4,
+      "rms": 8.4,
+      "mae": 6.2,
+      "bias": 2.0,
+      "medAE": 3.7,
+      "center": -0.2,
+      "q95abs": 22.1
+    },
+    "aldolase": {
+      "n": 11,
+      "sigma": 18.2,
+      "rms": 18.2,
+      "mae": 14.9,
+      "bias": -7.8,
+      "medAE": 11.6,
+      "center": -9.7,
+      "q95abs": 33.2
+    },
+    "ammonia-lyase": {
+      "n": 9,
+      "sigma": 15.0,
+      "rms": 14.5,
+      "mae": 10.7,
+      "bias": -6.5,
+      "medAE": 7.2,
+      "center": -1.2,
+      "q95abs": 31.3
+    },
+    "flavin/FAD-redox": {
+      "n": 5,
+      "sigma": 16.8,
+      "rms": 16.8,
+      "mae": 14.1,
+      "bias": 4.1,
+      "medAE": 15.6,
+      "center": -0.3,
+      "q95abs": 31.3
+    },
+    "carbamoyltransfer": {
+      "n": 2,
+      "sigma": 13.9,
+      "rms": 8.2,
+      "mae": 8.1,
+      "bias": 8.1,
+      "medAE": 8.1,
+      "center": 8.1,
+      "q95abs": 29.5
+    }
+  },
+  "interval_sigma_mult": 2.2,
+  "interval_form": "half_width = max(m * sqrt(sigma_class^2 + U_samp^2), q95abs)",
+  "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
+  "cv_heldout_MAE": 10.92,
+  "cv_coverage_interval95": 0.959,
+  "cv_coverage_1sigma": 0.777,
+  "cv_coverage_2sigma": 0.946,
+  "source": "analysis/tecrdb_sweep_v2 species cache, reassembled with the deployed configuration",
+  "pipeline": {
+    "conformer_dedup": "rmsd-v1 (unique minima)",
+    "std_state_1M": false,
+    "solvation": "xtb-cosmo",
+    "zwitterion_ph0": false,
+    "neutral_qm": false,
+    "pka": "flat table",
+    "anchors": "refit 2026-09-26 on dedup pipeline",
+    "date": "2026-09-26"
+  },
+  "per_reaction": [
+    [
+      "rxn00001",
+      "phosphatase",
+      2.78
+    ],
+    [
+      "rxn00007",
+      "other/clean",
+      -5.15
+    ],
+    [
+      "rxn00022",
+      "other/clean",
+      4.21
+    ],
+    [
+      "rxn00062",
+      "other/clean",
+      4.9
+    ],
+    [
+      "rxn00065",
+      "other/clean",
+      21.32
+    ],
+    [
+      "rxn00070",
+      "NAD(P)-redox(other)",
+      3.21
+    ],
+    [
+      "rxn00077",
+      "kinase/phosphotransfer",
+      -22.49
+    ],
+    [
+      "rxn00083",
+      "other/clean",
+      2.04
+    ],
+    [
+      "rxn00086",
+      "NAD(P)-redox(other)",
+      9.32
+    ],
+    [
+      "rxn00097",
+      "kinase/phosphotransfer",
+      -13.78
+    ],
+    [
+      "rxn00100",
+      "CoA-thioester",
+      -38.29
+    ],
+    [
+      "rxn00105",
+      "other/clean",
+      -2.37
+    ],
+    [
+      "rxn00117",
+      "kinase/phosphotransfer",
+      -8.41
+    ],
+    [
+      "rxn00131",
+      "glycosyl/PRT/nucleoside",
+      0.44
+    ],
+    [
+      "rxn00132",
+      "phosphatase",
+      2.69
+    ],
+    [
+      "rxn00139",
+      "glycosyl/PRT/nucleoside",
+      -23.59
+    ],
+    [
+      "rxn00141",
+      "other/clean",
+      4.24
+    ],
+    [
+      "rxn00147",
+      "kinase/phosphotransfer",
+      41.12
+    ],
+    [
+      "rxn00148",
+      "kinase/phosphotransfer",
+      4.02
+    ],
+    [
+      "rxn00151",
+      "kinase/phosphotransfer",
+      26.3
+    ],
+    [
+      "rxn00157",
+      "CoA-thioester",
+      16.81
+    ],
+    [
+      "rxn00171",
+      "NAD(P)-redox(other)",
+      17.83
+    ],
+    [
+      "rxn00172",
+      "CoA-thioester",
+      -6.88
+    ],
+    [
+      "rxn00173",
+      "CoA-thioester",
+      -14.81
+    ],
+    [
+      "rxn00175",
+      "CoA-thioester",
+      3.28
+    ],
+    [
+      "rxn00178",
+      "CoA-thioester",
+      1.67
+    ],
+    [
+      "rxn00182",
+      "reductive-amination-DH",
+      -6.21
+    ],
+    [
+      "rxn00184",
+      "reductive-amination-DH",
+      -6.92
+    ],
+    [
+      "rxn00187",
+      "other/clean",
+      43.15
+    ],
+    [
+      "rxn00189",
+      "amide/amidine-hydrolysis",
+      4.89
+    ],
+    [
+      "rxn00191",
+      "transaminase",
+      -2.66
+    ],
+    [
+      "rxn00193",
+      "isomerase/mutase",
+      0.4
+    ],
+    [
+      "rxn00195",
+      "isomerase/mutase",
+      26.17
+    ],
+    [
+      "rxn00213",
+      "other/clean",
+      -2.94
+    ],
+    [
+      "rxn00214",
+      "isomerase/mutase",
+      -17.27
+    ],
+    [
+      "rxn00216",
+      "kinase/phosphotransfer",
+      -11.33
+    ],
+    [
+      "rxn00217",
+      "NAD(P)-redox(other)",
+      -17.5
+    ],
+    [
+      "rxn00220",
+      "phosphatase",
+      -2.11
+    ],
+    [
+      "rxn00223",
+      "isomerase/mutase",
+      -5.99
+    ],
+    [
+      "rxn00225",
+      "kinase/phosphotransfer",
+      7.2
+    ],
+    [
+      "rxn00234",
+      "other/clean",
+      1.12
+    ],
+    [
+      "rxn00237",
+      "kinase/phosphotransfer",
+      -1.8
+    ],
+    [
+      "rxn00239",
+      "kinase/phosphotransfer",
+      0.02
+    ],
+    [
+      "rxn00248",
+      "NAD(P)-redox(other)",
+      10.4
+    ],
+    [
+      "rxn00250",
+      "adenylylate",
+      4.79
+    ],
+    [
+      "rxn00256",
+      "CoA-thioester",
+      21.22
+    ],
+    [
+      "rxn00257",
+      "CoA-thioester",
+      5.85
+    ],
+    [
+      "rxn00260",
+      "transaminase",
+      -0.14
+    ],
+    [
+      "rxn00265",
+      "other/clean",
+      2.59
+    ],
+    [
+      "rxn00266",
+      "isomerase/mutase",
+      -5.71
+    ],
+    [
+      "rxn00276",
+      "transaminase",
+      0.95
+    ],
+    [
+      "rxn00278",
+      "reductive-amination-DH",
+      1.6
+    ],
+    [
+      "rxn00280",
+      "reductive-amination-DH",
+      1.25
+    ],
+    [
+      "rxn00283",
+      "isomerase/mutase",
+      0.0
+    ],
+    [
+      "rxn00285",
+      "CoA-thioester",
+      -2.89
+    ],
+    [
+      "rxn00290",
+      "CoA-thioester",
+      -26.11
+    ],
+    [
+      "rxn00293",
+      "kinase/phosphotransfer",
+      1.61
+    ],
+    [
+      "rxn00295",
+      "isomerase/mutase",
+      9.2
+    ],
+    [
+      "rxn00302",
+      "other/clean",
+      19.9
+    ],
+    [
+      "rxn00306",
+      "CoA-thioester",
+      3.89
+    ],
+    [
+      "rxn00320",
+      "isomerase/mutase",
+      -0.6
+    ],
+    [
+      "rxn00321",
+      "isomerase/mutase",
+      -1.85
+    ],
+    [
+      "rxn00326",
+      "NAD(P)-redox(other)",
+      16.42
+    ],
+    [
+      "rxn00328",
+      "aldolase",
+      -6.58
+    ],
+    [
+      "rxn00331",
+      "CoA-thioester",
+      -4.33
+    ],
+    [
+      "rxn00336",
+      "other/clean",
+      0.23
+    ],
+    [
+      "rxn00337",
+      "kinase/phosphotransfer",
+      11.64
+    ],
+    [
+      "rxn00347",
+      "ammonia-lyase",
+      7.23
+    ],
+    [
+      "rxn00364",
+      "kinase/phosphotransfer",
+      -15.8
+    ],
+    [
+      "rxn00379",
+      "kinase/phosphotransfer",
+      13.05
+    ],
+    [
+      "rxn00396",
+      "phosphagen(P-N/Mg)",
+      9.87
+    ],
+    [
+      "rxn00402",
+      "reductive-amination-DH",
+      2.38
+    ],
+    [
+      "rxn00404",
+      "other/clean",
+      0.55
+    ],
+    [
+      "rxn00415",
+      "transaminase",
+      16.73
+    ],
+    [
+      "rxn00420",
+      "phosphatase",
+      5.4
+    ],
+    [
+      "rxn00421",
+      "other/clean",
+      8.92
+    ],
+    [
+      "rxn00422",
+      "transaminase",
+      -0.2
+    ],
+    [
+      "rxn00423",
+      "CoA-thioester",
+      -24.69
+    ],
+    [
+      "rxn00459",
+      "hydratase",
+      8.05
+    ],
+    [
+      "rxn00462",
+      "isomerase/mutase",
+      27.32
+    ],
+    [
+      "rxn00473",
+      "ammonia-lyase",
+      -27.47
+    ],
+    [
+      "rxn00493",
+      "transaminase",
+      15.61
+    ],
+    [
+      "rxn00495",
+      "ammonia-lyase",
+      -8.55
+    ],
+    [
+      "rxn00499",
+      "NAD(P)-redox(other)",
+      12.31
+    ],
+    [
+      "rxn00500",
+      "NAD(P)-redox(other)",
+      11.71
+    ],
+    [
+      "rxn00510",
+      "reductive-amination-DH",
+      -1.58
+    ],
+    [
+      "rxn00512",
+      "NAD(P)-redox(other)",
+      -1.1
+    ],
+    [
+      "rxn00514",
+      "kinase/phosphotransfer",
+      24.28
+    ],
+    [
+      "rxn00515",
+      "kinase/phosphotransfer",
+      -4.6
+    ],
+    [
+      "rxn00527",
+      "transaminase",
+      15.18
+    ],
+    [
+      "rxn00541",
+      "other/clean",
+      -21.78
+    ],
+    [
+      "rxn00543",
+      "NAD(P)-redox(other)",
+      -0.56
+    ],
+    [
+      "rxn00545",
+      "kinase/phosphotransfer",
+      -27.12
+    ],
+    [
+      "rxn00546",
+      "NAD(P)-redox(other)",
+      1.02
+    ],
+    [
+      "rxn00549",
+      "phosphatase",
+      1.16
+    ],
+    [
+      "rxn00551",
+      "other/clean",
+      -37.88
+    ],
+    [
+      "rxn00552",
+      "isomerase/mutase",
+      -10.89
+    ],
+    [
+      "rxn00558",
+      "isomerase/mutase",
+      -9.17
+    ],
+    [
+      "rxn00559",
+      "isomerase/mutase",
+      -4.25
+    ],
+    [
+      "rxn00562",
+      "other/clean",
+      -18.76
+    ],
+    [
+      "rxn00577",
+      "other/clean",
+      -12.25
+    ],
+    [
+      "rxn00579",
+      "other/clean",
+      13.35
+    ],
+    [
+      "rxn00602",
+      "CoA-thioester",
+      12.08
+    ],
+    [
+      "rxn00603",
+      "NAD(P)-redox(other)",
+      -3.86
+    ],
+    [
+      "rxn00604",
+      "NAD(P)-redox(other)",
+      -18.08
+    ],
+    [
+      "rxn00605",
+      "other/clean",
+      14.41
+    ],
+    [
+      "rxn00611",
+      "NAD(P)-redox(other)",
+      -7.38
+    ],
+    [
+      "rxn00629",
+      "NAD(P)-redox(other)",
+      -12.59
+    ],
+    [
+      "rxn00630",
+      "NAD(P)-redox(other)",
+      -11.96
+    ],
+    [
+      "rxn00631",
+      "NAD(P)-redox(other)",
+      25.8
+    ],
+    [
+      "rxn00634",
+      "NAD(P)-redox(other)",
+      -10.3
+    ],
+    [
+      "rxn00636",
+      "isomerase/mutase",
+      -2.19
+    ],
+    [
+      "rxn00641",
+      "other/clean",
+      2.36
+    ],
+    [
+      "rxn00643",
+      "isomerase/mutase",
+      -6.09
+    ],
+    [
+      "rxn00656",
+      "transaminase",
+      -8.22
+    ],
+    [
+      "rxn00674",
+      "CoA-thioester",
+      -3.24
+    ],
+    [
+      "rxn00686",
+      "NAD(P)-redox(other)",
+      -19.24
+    ],
+    [
+      "rxn00690",
+      "other/clean",
+      11.28
+    ],
+    [
+      "rxn00692",
+      "other/clean",
+      2.03
+    ],
+    [
+      "rxn00695",
+      "kinase/phosphotransfer",
+      0.25
+    ],
+    [
+      "rxn00697",
+      "other/clean",
+      -6.65
+    ],
+    [
+      "rxn00698",
+      "other/clean",
+      -10.89
+    ],
+    [
+      "rxn00699",
+      "other/clean",
+      -2.2
+    ],
+    [
+      "rxn00700",
+      "other/clean",
+      -3.49
+    ],
+    [
+      "rxn00702",
+      "other/clean",
+      -0.72
+    ],
+    [
+      "rxn00704",
+      "isomerase/mutase",
+      19.47
+    ],
+    [
+      "rxn00741",
+      "NAD(P)-redox(other)",
+      19.48
+    ],
+    [
+      "rxn00746",
+      "aldolase",
+      -11.71
+    ],
+    [
+      "rxn00747",
+      "isomerase/mutase",
+      -7.1
+    ],
+    [
+      "rxn00753",
+      "CoA-thioester",
+      -21.5
+    ],
+    [
+      "rxn00754",
+      "other/clean",
+      0.08
+    ],
+    [
+      "rxn00762",
+      "NAD(P)-redox(other)",
+      -1.26
+    ],
+    [
+      "rxn00765",
+      "NAD(P)-redox(other)",
+      -2.5
+    ],
+    [
+      "rxn00770",
+      "kinase/phosphotransfer",
+      7.22
+    ],
+    [
+      "rxn00777",
+      "isomerase/mutase",
+      -3.01
+    ],
+    [
+      "rxn00778",
+      "isomerase/mutase",
+      4.23
+    ],
+    [
+      "rxn00781",
+      "NAD(P)-redox(other)",
+      -45.24
+    ],
+    [
+      "rxn00783",
+      "other/clean",
+      -15.38
+    ],
+    [
+      "rxn00784",
+      "aldolase",
+      -7.46
+    ],
+    [
+      "rxn00785",
+      "other/clean",
+      6.68
+    ],
+    [
+      "rxn00786",
+      "aldolase",
+      35.99
+    ],
+    [
+      "rxn00798",
+      "isomerase/mutase",
+      -12.96
+    ],
+    [
+      "rxn00799",
+      "hydratase",
+      -0.6
+    ],
+    [
+      "rxn00800",
+      "ammonia-lyase",
+      2.32
+    ],
+    [
+      "rxn00802",
+      "ammonia-lyase",
+      5.63
+    ],
+    [
+      "rxn00804",
+      "reductive-amination-DH",
+      13.94
+    ],
+    [
+      "rxn00806",
+      "other/clean",
+      12.72
+    ],
+    [
+      "rxn00810",
+      "NAD(P)-redox(other)",
+      -1.35
+    ],
+    [
+      "rxn00816",
+      "other/clean",
+      0.4
+    ],
+    [
+      "rxn00817",
+      "other/clean",
+      4.0
+    ],
+    [
+      "rxn00824",
+      "CoA-thioester",
+      97.65
+    ],
+    [
+      "rxn00830",
+      "isomerase/mutase",
+      4.81
+    ],
+    [
+      "rxn00831",
+      "phosphatase",
+      2.25
+    ],
+    [
+      "rxn00836",
+      "glycosyl/PRT/nucleoside",
+      -46.6
+    ],
+    [
+      "rxn00838",
+      "other/clean",
+      -33.45
+    ],
+    [
+      "rxn00849",
+      "transaminase",
+      -5.66
+    ],
+    [
+      "rxn00867",
+      "ammonia-lyase",
+      -28.79
+    ],
+    [
+      "rxn00897",
+      "isomerase/mutase",
+      1.97
+    ],
+    [
+      "rxn00906",
+      "flavin/FAD-redox",
+      -15.61
+    ],
+    [
+      "rxn00907",
+      "flavin/FAD-redox",
+      -9.07
+    ],
+    [
+      "rxn00909",
+      "flavin/FAD-redox",
+      28.25
+    ],
+    [
+      "rxn00911",
+      "other/clean",
+      -2.44
+    ],
+    [
+      "rxn00915",
+      "glycosyl/PRT/nucleoside",
+      -42.08
+    ],
+    [
+      "rxn00927",
+      "glycosyl/PRT/nucleoside",
+      2.24
+    ],
+    [
+      "rxn00930",
+      "reductive-amination-DH",
+      6.35
+    ],
+    [
+      "rxn00931",
+      "reductive-amination-DH",
+      2.08
+    ],
+    [
+      "rxn00973",
+      "hydratase",
+      -3.81
+    ],
+    [
+      "rxn00974",
+      "hydratase",
+      0.97
+    ],
+    [
+      "rxn00987",
+      "other/clean",
+      1.48
+    ],
+    [
+      "rxn00990",
+      "CoA-thioester",
+      -2.44
+    ],
+    [
+      "rxn00992",
+      "NAD(P)-redox(other)",
+      -9.99
+    ],
+    [
+      "rxn01004",
+      "isomerase/mutase",
+      -5.71
+    ],
+    [
+      "rxn01005",
+      "other/clean",
+      -2.72
+    ],
+    [
+      "rxn01008",
+      "isomerase/mutase",
+      -5.22
+    ],
+    [
+      "rxn01011",
+      "NAD(P)-redox(other)",
+      10.67
+    ],
+    [
+      "rxn01016",
+      "kinase/phosphotransfer",
+      7.19
+    ],
+    [
+      "rxn01018",
+      "carbamoyltransfer",
+      7.29
+    ],
+    [
+      "rxn01019",
+      "carbamoyltransfer",
+      8.99
+    ],
+    [
+      "rxn01022",
+      "other/clean",
+      -24.63
+    ],
+    [
+      "rxn01043",
+      "NAD(P)-redox(other)",
+      -1.21
+    ],
+    [
+      "rxn01044",
+      "isomerase/mutase",
+      -1.99
+    ],
+    [
+      "rxn01054",
+      "other/clean",
+      2.24
+    ],
+    [
+      "rxn01075",
+      "isomerase/mutase",
+      -8.2
+    ],
+    [
+      "rxn01080",
+      "isomerase/mutase",
+      -11.91
+    ],
+    [
+      "rxn01099",
+      "phosphatase",
+      -0.66
+    ],
+    [
+      "rxn01100",
+      "kinase/phosphotransfer",
+      -13.29
+    ],
+    [
+      "rxn01101",
+      "NAD(P)-redox(other)",
+      8.67
+    ],
+    [
+      "rxn01106",
+      "isomerase/mutase",
+      -6.59
+    ],
+    [
+      "rxn01116",
+      "isomerase/mutase",
+      -13.99
+    ],
+    [
+      "rxn01117",
+      "isomerase/mutase",
+      -20.17
+    ],
+    [
+      "rxn01130",
+      "NAD(P)-redox(other)",
+      10.85
+    ],
+    [
+      "rxn01137",
+      "amide/amidine-hydrolysis",
+      3.19
+    ],
+    [
+      "rxn01138",
+      "glycosyl/PRT/nucleoside",
+      -11.23
+    ],
+    [
+      "rxn01152",
+      "isomerase/mutase",
+      -7.09
+    ],
+    [
+      "rxn01157",
+      "ammonia-lyase",
+      -11.12
+    ],
+    [
+      "rxn01174",
+      "NAD(P)-redox(other)",
+      5.92
+    ],
+    [
+      "rxn01200",
+      "other/clean",
+      -15.28
+    ],
+    [
+      "rxn01201",
+      "NAD(P)-redox(other)",
+      23.28
+    ],
+    [
+      "rxn01204",
+      "transaminase",
+      -4.09
+    ],
+    [
+      "rxn01211",
+      "other/clean",
+      -5.29
+    ],
+    [
+      "rxn01219",
+      "kinase/phosphotransfer",
+      6.61
+    ],
+    [
+      "rxn01241",
+      "flavin/FAD-redox",
+      17.07
+    ],
+    [
+      "rxn01249",
+      "NAD(P)-redox(other)",
+      -0.47
+    ],
+    [
+      "rxn01253",
+      "transaminase",
+      -1.23
+    ],
+    [
+      "rxn01258",
+      "isomerase/mutase",
+      -9.33
+    ],
+    [
+      "rxn01259",
+      "other/clean",
+      -0.46
+    ],
+    [
+      "rxn01265",
+      "glycosyl/PRT/nucleoside",
+      25.62
+    ],
+    [
+      "rxn01277",
+      "NAD(P)-redox(other)",
+      30.23
+    ],
+    [
+      "rxn01280",
+      "NAD(P)-redox(other)",
+      2.51
+    ],
+    [
+      "rxn01292",
+      "isomerase/mutase",
+      -7.83
+    ],
+    [
+      "rxn01293",
+      "NAD(P)-redox(other)",
+      0.86
+    ],
+    [
+      "rxn01299",
+      "glycosyl/PRT/nucleoside",
+      2.63
+    ],
+    [
+      "rxn01301",
+      "NAD(P)-redox(other)",
+      16.97
+    ],
+    [
+      "rxn01302",
+      "NAD(P)-redox(other)",
+      13.63
+    ],
+    [
+      "rxn01306",
+      "aldolase",
+      -27.19
+    ],
+    [
+      "rxn01322",
+      "other/clean",
+      -1.79
+    ],
+    [
+      "rxn01329",
+      "isomerase/mutase",
+      -17.69
+    ],
+    [
+      "rxn01333",
+      "aldolase",
+      -9.68
+    ],
+    [
+      "rxn01336",
+      "NAD(P)-redox(other)",
+      0.7
+    ],
+    [
+      "rxn01358",
+      "glycosyl/PRT/nucleoside",
+      -15.65
+    ],
+    [
+      "rxn01361",
+      "flavin/FAD-redox",
+      -0.28
+    ],
+    [
+      "rxn01362",
+      "glycosyl/PRT/nucleoside",
+      -35.17
+    ],
+    [
+      "rxn01363",
+      "NAD(P)-redox(other)",
+      -1.35
+    ],
+    [
+      "rxn01366",
+      "glycosyl/PRT/nucleoside",
+      -24.32
+    ],
+    [
+      "rxn01368",
+      "amide/amidine-hydrolysis",
+      -0.45
+    ],
+    [
+      "rxn01371",
+      "phosphagen(P-N/Mg)",
+      -12.07
+    ],
+    [
+      "rxn01380",
+      "other/clean",
+      -4.15
+    ],
+    [
+      "rxn01383",
+      "NAD(P)-redox(other)",
+      -10.46
+    ],
+    [
+      "rxn01385",
+      "NAD(P)-redox(other)",
+      -4.13
+    ],
+    [
+      "rxn01386",
+      "isomerase/mutase",
+      3.51
+    ],
+    [
+      "rxn01388",
+      "hydratase",
+      1.02
+    ],
+    [
+      "rxn01392",
+      "NAD(P)-redox(other)",
+      -5.03
+    ],
+    [
+      "rxn01407",
+      "NAD(P)-redox(other)",
+      26.46
+    ],
+    [
+      "rxn01409",
+      "CoA-thioester",
+      -31.19
+    ],
+    [
+      "rxn01410",
+      "hydratase",
+      -11.95
+    ],
+    [
+      "rxn01423",
+      "transaminase",
+      -2.18
+    ],
+    [
+      "rxn01434",
+      "other/clean",
+      54.9
+    ],
+    [
+      "rxn01447",
+      "NAD(P)-redox(other)",
+      57.82
+    ],
+    [
+      "rxn01451",
+      "CoA-thioester",
+      0.79
+    ],
+    [
+      "rxn01457",
+      "isomerase/mutase",
+      -15.95
+    ],
+    [
+      "rxn01465",
+      "other/clean",
+      -13.12
+    ],
+    [
+      "rxn01479",
+      "other/clean",
+      -2.0
+    ],
+    [
+      "rxn01480",
+      "NAD(P)-redox(other)",
+      13.56
+    ],
+    [
+      "rxn01485",
+      "isomerase/mutase",
+      54.01
+    ],
+    [
+      "rxn01491",
+      "phosphatase",
+      -4.2
+    ],
+    [
+      "rxn01505",
+      "isomerase/mutase",
+      -17.02
+    ],
+    [
+      "rxn01506",
+      "isomerase/mutase",
+      -21.58
+    ],
+    [
+      "rxn01509",
+      "kinase/phosphotransfer",
+      -0.28
+    ],
+    [
+      "rxn01513",
+      "kinase/phosphotransfer",
+      -1.33
+    ],
+    [
+      "rxn01530",
+      "NAD(P)-redox(other)",
+      10.64
+    ],
+    [
+      "rxn01532",
+      "isomerase/mutase",
+      7.7
+    ],
+    [
+      "rxn01548",
+      "other/clean",
+      -5.87
+    ],
+    [
+      "rxn01579",
+      "reductive-amination-DH",
+      43.87
+    ],
+    [
+      "rxn01597",
+      "NAD(P)-redox(other)",
+      -4.42
+    ],
+    [
+      "rxn01617",
+      "NAD(P)-redox(other)",
+      12.67
+    ],
+    [
+      "rxn01620",
+      "aldolase",
+      -11.62
+    ],
+    [
+      "rxn01621",
+      "aldolase",
+      3.08
+    ],
+    [
+      "rxn01626",
+      "other/clean",
+      -0.66
+    ],
+    [
+      "rxn01636",
+      "CoA-thioester",
+      6.25
+    ],
+    [
+      "rxn01638",
+      "other/clean",
+      -5.62
+    ],
+    [
+      "rxn01643",
+      "NAD(P)-redox(other)",
+      7.77
+    ],
+    [
+      "rxn01646",
+      "glycosyl/PRT/nucleoside",
+      -51.04
+    ],
+    [
+      "rxn01675",
+      "other/clean",
+      -0.99
+    ],
+    [
+      "rxn01682",
+      "other/clean",
+      -5.79
+    ],
+    [
+      "rxn01692",
+      "NAD(P)-redox(other)",
+      4.91
+    ],
+    [
+      "rxn01702",
+      "other/clean",
+      -29.46
+    ],
+    [
+      "rxn01713",
+      "other/clean",
+      24.57
+    ],
+    [
+      "rxn01725",
+      "NAD(P)-redox(other)",
+      23.25
+    ],
+    [
+      "rxn01726",
+      "CoA-thioester",
+      -29.82
+    ],
+    [
+      "rxn01740",
+      "NAD(P)-redox(other)",
+      -12.68
+    ],
+    [
+      "rxn01745",
+      "hydratase",
+      -6.3
+    ],
+    [
+      "rxn01746",
+      "amide/amidine-hydrolysis",
+      -10.03
+    ],
+    [
+      "rxn01761",
+      "isomerase/mutase",
+      10.73
+    ],
+    [
+      "rxn01780",
+      "isomerase/mutase",
+      -7.27
+    ],
+    [
+      "rxn01790",
+      "NAD(P)-redox(other)",
+      12.25
+    ],
+    [
+      "rxn01792",
+      "amide/amidine-hydrolysis",
+      -6.75
+    ],
+    [
+      "rxn01834",
+      "other/clean",
+      5.02
+    ],
+    [
+      "rxn01846",
+      "NAD(P)-redox(other)",
+      23.5
+    ],
+    [
+      "rxn01847",
+      "NAD(P)-redox(other)",
+      11.91
+    ],
+    [
+      "rxn01870",
+      "aldolase",
+      -4.27
+    ],
+    [
+      "rxn01887",
+      "NAD(P)-redox(other)",
+      10.29
+    ],
+    [
+      "rxn01974",
+      "isomerase/mutase",
+      -20.54
+    ],
+    [
+      "rxn01985",
+      "glycosyl/PRT/nucleoside",
+      -22.09
+    ],
+    [
+      "rxn01996",
+      "CoA-thioester",
+      -1.8
+    ],
+    [
+      "rxn01999",
+      "other/clean",
+      -2.51
+    ],
+    [
+      "rxn02066",
+      "NAD(P)-redox(other)",
+      0.71
+    ],
+    [
+      "rxn02085",
+      "hydratase",
+      22.19
+    ],
+    [
+      "rxn02095",
+      "NAD(P)-redox(other)",
+      -12.57
+    ],
+    [
+      "rxn02132",
+      "NAD(P)-redox(other)",
+      -2.2
+    ],
+    [
+      "rxn02167",
+      "CoA-thioester",
+      8.94
+    ],
+    [
+      "rxn02168",
+      "CoA-thioester",
+      6.15
+    ],
+    [
+      "rxn02202",
+      "hydratase",
+      -5.68
+    ],
+    [
+      "rxn02204",
+      "isomerase/mutase",
+      -6.77
+    ],
+    [
+      "rxn02213",
+      "hydratase",
+      -9.91
+    ],
+    [
+      "rxn02263",
+      "isomerase/mutase",
+      8.23
+    ],
+    [
+      "rxn02305",
+      "kinase/phosphotransfer",
+      11.02
+    ],
+    [
+      "rxn02320",
+      "transaminase",
+      12.2
+    ],
+    [
+      "rxn02322",
+      "kinase/phosphotransfer",
+      -1.73
+    ],
+    [
+      "rxn02360",
+      "isomerase/mutase",
+      2.98
+    ],
+    [
+      "rxn02403",
+      "other/clean",
+      -12.93
+    ],
+    [
+      "rxn02451",
+      "other/clean",
+      6.18
+    ],
+    [
+      "rxn02459",
+      "NAD(P)-redox(other)",
+      8.26
+    ],
+    [
+      "rxn02527",
+      "NAD(P)-redox(other)",
+      -1.93
+    ],
+    [
+      "rxn02591",
+      "isomerase/mutase",
+      -9.67
+    ],
+    [
+      "rxn02622",
+      "hydratase",
+      0.81
+    ],
+    [
+      "rxn02625",
+      "ammonia-lyase",
+      -1.25
+    ],
+    [
+      "rxn02651",
+      "NAD(P)-redox(other)",
+      0.23
+    ],
+    [
+      "rxn02685",
+      "phosphagen(P-N/Mg)",
+      9.81
+    ],
+    [
+      "rxn02749",
+      "hydratase",
+      4.19
+    ],
+    [
+      "rxn02756",
+      "isomerase/mutase",
+      0.05
+    ],
+    [
+      "rxn02782",
+      "isomerase/mutase",
+      32.95
+    ],
+    [
+      "rxn02842",
+      "NAD(P)-redox(other)",
+      -9.86
+    ],
+    [
+      "rxn02887",
+      "NAD(P)-redox(other)",
+      6.58
+    ],
+    [
+      "rxn02900",
+      "other/clean",
+      -0.12
+    ],
+    [
+      "rxn02902",
+      "isomerase/mutase",
+      35.73
+    ],
+    [
+      "rxn02914",
+      "transaminase",
+      -9.05
+    ],
+    [
+      "rxn02930",
+      "reductive-amination-DH",
+      -47.92
+    ],
+    [
+      "rxn02975",
+      "isomerase/mutase",
+      9.98
+    ],
+    [
+      "rxn03087",
+      "transaminase",
+      1.03
+    ],
+    [
+      "rxn03136",
+      "ammonia-lyase",
+      3.53
+    ],
+    [
+      "rxn03137",
+      "glycosyl/PRT/nucleoside",
+      0.25
+    ],
+    [
+      "rxn03249",
+      "CoA-thioester",
+      2.5
+    ],
+    [
+      "rxn03250",
+      "CoA-thioester",
+      9.57
+    ],
+    [
+      "rxn03281",
+      "isomerase/mutase",
+      -12.61
+    ],
+    [
+      "rxn03643",
+      "other/clean",
+      14.12
+    ],
+    [
+      "rxn03644",
+      "isomerase/mutase",
+      -2.9
+    ],
+    [
+      "rxn03840",
+      "other/clean",
+      11.06
+    ],
+    [
+      "rxn03876",
+      "CoA-thioester",
+      -11.5
+    ],
+    [
+      "rxn03884",
+      "aldolase",
+      -18.22
+    ],
+    [
+      "rxn03886",
+      "NAD(P)-redox(other)",
+      5.55
+    ],
+    [
+      "rxn04082",
+      "isomerase/mutase",
+      -14.13
+    ],
+    [
+      "rxn04684",
+      "phosphatase",
+      11.13
+    ],
+    [
+      "rxn04785",
+      "phosphagen(P-N/Mg)",
+      2.28
+    ],
+    [
+      "rxn04932",
+      "NAD(P)-redox(other)",
+      -18.58
+    ],
+    [
+      "rxn04943",
+      "NAD(P)-redox(other)",
+      -6.94
+    ],
+    [
+      "rxn04945",
+      "NAD(P)-redox(other)",
+      -20.63
+    ],
+    [
+      "rxn05026",
+      "other/clean",
+      -8.69
+    ],
+    [
+      "rxn08066",
+      "kinase/phosphotransfer",
+      -0.49
+    ],
+    [
+      "rxn08430",
+      "phosphatase",
+      3.5
+    ],
+    [
+      "rxn08948",
+      "phosphatase",
+      -4.02
+    ],
+    [
+      "rxn10427",
+      "kinase/phosphotransfer",
+      2.92
+    ],
+    [
+      "rxn11139",
+      "other/clean",
+      -4.69
+    ],
+    [
+      "rxn12158",
+      "other/clean",
+      43.23
+    ],
+    [
+      "rxn12188",
+      "phosphatase",
+      1.66
+    ],
+    [
+      "rxn12217",
+      "other/clean",
+      8.22
+    ],
+    [
+      "rxn14063",
+      "NAD(P)-redox(other)",
+      0.51
+    ],
+    [
+      "rxn14104",
+      "other/clean",
+      44.09
+    ],
+    [
+      "rxn15055",
+      "transaminase",
+      3.29
+    ],
+    [
+      "rxn15726",
+      "NAD(P)-redox(other)",
+      6.59
+    ],
+    [
+      "rxn15750",
+      "aldolase",
+      -28.32
+    ],
+    [
+      "rxn15964",
+      "other/clean",
+      -26.57
+    ],
+    [
+      "rxn16141",
+      "NAD(P)-redox(other)",
+      14.36
+    ],
+    [
+      "rxn16378",
+      "amide/amidine-hydrolysis",
+      -11.75
+    ],
+    [
+      "rxn19090",
+      "NAD(P)-redox(other)",
+      -0.34
+    ],
+    [
+      "rxn31240",
+      "isomerase/mutase",
+      -0.98
+    ],
+    [
+      "rxn36656",
+      "amide/amidine-hydrolysis",
+      1.98
+    ],
+    [
+      "rxn39373",
+      "NAD(P)-redox(other)",
+      -3.53
+    ],
+    [
+      "rxn39443",
+      "amide/amidine-hydrolysis",
+      -0.14
+    ],
+    [
+      "rxn40442",
+      "NAD(P)-redox(other)",
+      -6.49
+    ],
+    [
+      "rxn44278",
+      "isomerase/mutase",
+      -9.57
+    ],
+    [
+      "rxn45677",
+      "amide/amidine-hydrolysis",
+      0.09
+    ],
+    [
+      "rxn49067",
+      "NAD(P)-redox(other)",
+      -2.27
+    ],
+    [
+      "rxn51768",
+      "adenylylate",
+      -4.83
+    ],
+    [
+      "rxn52014",
+      "amide/amidine-hydrolysis",
+      -19.48
+    ],
+    [
+      "rxn53440",
+      "isomerase/mutase",
+      -10.97
+    ],
+    [
+      "rxn53944",
+      "other/clean",
+      5.79
+    ],
+    [
+      "rxn54659",
+      "isomerase/mutase",
+      -0.1
+    ]
+  ]
 }
