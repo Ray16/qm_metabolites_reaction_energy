@@ -34,3 +34,6 @@ results/
 
 # --- daily_commit.sh bookkeeping ---
 .daily_commit.log
+
+# manuscript is its own git repo, synced with Overleaf (see MetaG/manuscript/README.md)
+MetaG/manuscript/
