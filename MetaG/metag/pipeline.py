@@ -520,6 +520,10 @@ FLAG_DEFAULTS = {
     "PH0_AUTO": True, "PH0_BASES": True, "ZWITTERION_PH0": False, "NEUTRAL_QM": False,
     "STD_STATE_1M": True, "ALDEHYDE_HYDRATION": True, "ANCHOR_CORRECT": True, "SMD_SOLV": False,
     "WATER_REF_HYDROLYASE": True, "WATER_REF_EXP": False,
+    # UNDER A/B (default = the validated old behaviour; flip only after the subset A/B shows an improvement):
+    "TRUNC_SPECTATOR_CATIONS": False,   # a cation removed WITH the spectator is not a "mangled" cation
+    "TRUNC_MAXANION_RETRY": False,      # retry truncation on max-anion forms (protonation-consistent spectators)
+    "TRUNC_FG_CUTS": False,             # cut only single C-C bonds at an sp3 kept carbon (never cap O/N/P with H)
 }
 
 
@@ -733,13 +737,13 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
         try:
             from metag.routing.truncate import build_truncated_reaction
             _rad = int(trunc_radius if trunc_radius is not None else os.environ.get("TRUNC_RADIUS", "2"))
-            tr = build_truncated_reaction(rx["species"], radius=_rad)
+            tr = build_truncated_reaction(rx["species"], radius=_rad, fg_cuts=_flag("TRUNC_FG_CUTS"))
             if tr is None and _flag("TRUNC_V2"):   # v2: global-map truncation for the
                 from metag.routing.truncate_global import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
                 tr = build_truncated_reaction_v2(rx["species"], radius=_rad)
                 if tr is not None:
                     log("  [v2 global-map truncation engaged]")
-            if tr is None:
+            if tr is None and _flag("TRUNC_MAXANION_RETRY"):
                 # PROTONATION-CONSISTENT RETRY: the removed spectator must be identical on both sides, but sources
                 # draw the same moiety with different protons (ModelSEED: ATP's AMP part as [O-], ADP's as O), which
                 # fails the removed-fragment consistency guard. Retry on the max-anion (fully deprotonated) forms --
@@ -752,7 +756,7 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
                         cs = _canonicalize_maxanion(s_)
                         canon[nm] = [c, Chem.GetFormalCharge(Chem.MolFromSmiles(cs)), cs]
                     if canon != {k: list(v) for k, v in rx["species"].items()}:
-                        tr = build_truncated_reaction(canon, radius=_rad)
+                        tr = build_truncated_reaction(canon, radius=_rad, fg_cuts=_flag("TRUNC_FG_CUTS"))
                         if tr is not None:
                             routes["truncated_maxanion"] = True
                             log("  [truncation on max-anion forms (protonation-consistent spectators)]")
@@ -780,7 +784,8 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
                     # mangled = a RETAINED cation lost coordination. A cation absent from the core (dc empty) was
                     # removed WITH the spectator -- identical on both sides, so it cancels: not a mangle (this
                     # branch used to reject ~89% of the truncations the guard blocked, e.g. SAM/SAH, carnitine)
-                    if do and dc and max(dc) < max(do):
+                    removed_with_spectator = not dc and _flag("TRUNC_SPECTATOR_CATIONS")
+                    if do and not removed_with_spectator and (not dc or max(dc) < max(do)):
                         return nm
                 return None
             if tr is not None:

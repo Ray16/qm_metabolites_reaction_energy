@@ -56,7 +56,7 @@ def test_truncation_failure_retries_full_molecules(monkeypatch):
     import metag.routing.truncate as T
     monkeypatch.setenv("AUTO_TRUNCATE", "1"); monkeypatch.setenv("ROUTE_FULL", "0")
     # a (balanced) truncated core whose species QM fails -> the ORIGINAL reaction is re-scored in full
-    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2: ({"X_t": [-1, 0, "CCCCCC"],
+    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2, **kw: ({"X_t": [-1, 0, "CCCCCC"],
                                                                               "Y_t": [1, 0, "CCCCCC"]}, 0))
     fail_on_core = lambda pu, q, smi, *a, **k: (None, None) if smi == "CCCCCC" else (G_FAKE[smi], 0.5)
     monkeypatch.setattr(P, "implicit_G", fail_on_core)
@@ -91,7 +91,7 @@ def test_trunc_validate_rejects_radius_sensitive(monkeypatch):
     monkeypatch.setenv("TRUNC_VALIDATE", "1")
     cores = {2: ({"A_t": [-1, 0, "CCO"], "H_t": [-1, 0, "[HH]"], "B_t": [1, 0, "CO"], "C_t": [1, 0, "C"]}, 0),  # ~ -5
              3: ({"A_t": [-1, 0, "CCO"], "B_t": [1, 0, "CC=O"], "C_t": [1, 0, "[HH]"]}, 0)}              # ~ +53
-    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2: cores[radius])
+    monkeypatch.setattr(T, "build_truncated_reaction", lambda sp, radius=2, **kw: cores[radius])
     full = {"A": [-2, 0, "CC"], "B": [1, 0, "CCCC"], "C": [1, 0, "[HH]"]}
     r = _score(_rx(full))
     assert r["trunc_validation"]["verdict"].startswith("rejected")

@@ -321,3 +321,18 @@ def test_reassembler_metrics_exclude_suspect_and_missing_predictions():
     assert metrics(rows) == {
         "n": 2, "mae": 3.0, "median_ae": 3.0, "rmse": 3.162, "bias": -1.0
     }
+
+
+def test_rescore_source_fingerprint_changes_with_scoring_source(tmp_path, monkeypatch):
+    from analysis import tecrdb_rescore
+    package = tmp_path / "MetaG/metag"
+    package.mkdir(parents=True)
+    scoring = package / "pipeline.py"
+    scoring.write_text("VERSION = 1\n")
+    runner = tmp_path / "runner.py"
+    runner.write_text("runner = 1\n")
+    monkeypatch.setattr(tecrdb_rescore, "ROOT", str(tmp_path))
+    monkeypatch.setattr(tecrdb_rescore, "__file__", str(runner))
+    before = tecrdb_rescore.source_fingerprint()
+    scoring.write_text("VERSION = 2\n")
+    assert tecrdb_rescore.source_fingerprint() != before

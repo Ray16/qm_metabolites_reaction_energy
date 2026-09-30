@@ -112,6 +112,40 @@ def grow(a, seed, radius, within=None):
     return keep
 
 
+def _cut_close(mol, keep):
+    """Expand `keep` until every bond crossing the cut is a single C-C bond whose KEPT carbon is sp3, so the
+    H cap only turns R-CH2- into R-CH3 and never changes a functional group. Cutting other bonds rewrote the
+    chemistry being scored: a C-O cut made a phosphoester a free H3PO4 (AMP -> H3PO4 in PPDK, adding a free-Pi
+    species) or stripped a sugar's OH groups (F6P -> bare tetrahydrofuran); a C-C cut on a carbonyl or aryl
+    carbon would turn a ketone into an aldehyde. Fixpoint, like _ring_close."""
+    keep = set(keep)
+    changed = True
+    while changed:
+        changed = False
+        for i in list(keep):
+            a = mol.GetAtomWithIdx(i)
+            for nb in a.GetNeighbors():
+                j = nb.GetIdx()
+                if j in keep:
+                    continue
+                b = mol.GetBondBetweenAtoms(i, j)
+                ok = (a.GetSymbol() == "C" and nb.GetSymbol() == "C"
+                      and b.GetBondType() == Chem.BondType.SINGLE and not b.GetIsAromatic()
+                      and a.GetHybridization() == Chem.HybridizationType.SP3)
+                if not ok:
+                    keep.add(j); changed = True
+    return keep
+
+
+def _close(mol, keep):
+    """Ring closure and functional-group-preserving cut closure, to a joint fixpoint."""
+    while True:
+        new = _ring_close(mol, _cut_close(mol, keep))
+        if new == keep:
+            return keep
+        keep = new
+
+
 def _ring_close(mol, keep):
     """Expand `keep` so NO ring is partially included: if any ring shares an atom with keep,
     add the whole ring (iterating to a fixpoint to absorb fused systems). This guarantees the
@@ -242,7 +276,7 @@ def _truncation_invalid(species_full, new):
     return False
 
 
-def build_truncated_reaction(species_dict, radius=2):
+def build_truncated_reaction(species_dict, radius=2, fg_cuts=False):
     """Convert a pipeline species dict {name:[coeff,charge,SMILES]} into its TRUNCATED
     reactive-core form for scoring. General preprocessing heuristic (no per-reaction tuning):
     removes the conserved spectator backbone so catastrophic cancellation + its conformer
@@ -261,7 +295,7 @@ def build_truncated_reaction(species_dict, radius=2):
     P = [(n, s) for n, (c, q, s) in items if c > 0]
     if len(R) != len(P):                              # unequal sides -> pairing ill-posed
         return None
-    res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius)
+    res = truncate_reaction([s for _, s in R], [s for _, s in P], radius=radius, fg_cuts=fg_cuts)
     if res.get("invalid"):
         return None
     # GUARDS A+B (computed by truncate_reaction, previously never enforced): the removed spectator must be
@@ -315,7 +349,7 @@ def build_truncated_reaction(species_dict, radius=2):
 
 
 # ------------------------------------------------------------ top-level driver
-def truncate_reaction(reactants, products, radius=2, cap="C"):
+def truncate_reaction(reactants, products, radius=2, cap="C", fg_cuts=False):
     """Truncate every species; return per-species caps + guard report."""
     pairs = pair_by_mcs(reactants, products)
     out = {"radius": radius, "species": [], "removed": []}
@@ -325,14 +359,15 @@ def truncate_reaction(reactants, products, radius=2, cap="C"):
         c_p = reaction_center(P, inv, R)
         # keep on each side = reaction center grown by `radius`, then RING-CLOSED so no cut
         # falls on a ring bond (a methyl cap can't represent a severed ring -> topology change).
-        keep_r = _ring_close(R, grow(R, c_r, radius))
-        keep_p = _ring_close(P, grow(P, c_p, radius))
+        close = _close if fg_cuts else _ring_close         # fg_cuts: functional-group-preserving cuts (A/B)
+        keep_r = close(R, grow(R, c_r, radius))
+        keep_p = close(P, grow(P, c_p, radius))
         # MIRROR the cut through the atom map so the removed spectator is IDENTICAL on both sides
         # (this is what makes it cancel in ΔG), then re-close, iterating to a fixpoint so the kept
         # core is both map-symmetric AND ring-complete on both sides.
         for _ in range(8):
-            new_r = _ring_close(R, keep_r | {inv[j] for j in keep_p if j in inv})
-            new_p = _ring_close(P, keep_p | {amap[i] for i in new_r if i in amap})
+            new_r = close(R, keep_r | {inv[j] for j in keep_p if j in inv})
+            new_p = close(P, keep_p | {amap[i] for i in new_r if i in amap})
             if new_r == keep_r and new_p == keep_p:
                 break
             keep_r, keep_p = new_r, new_p
