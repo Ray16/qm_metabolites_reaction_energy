@@ -19,7 +19,7 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 plt.rcParams.update({"font.size": 18, "axes.titlesize": 18, "axes.labelsize": 18,
-                     "xtick.labelsize": 14, "ytick.labelsize": 14, "figure.dpi": 300, "savefig.dpi": 300})
+                     "xtick.labelsize": 18, "ytick.labelsize": 18, "figure.dpi": 300, "savefig.dpi": 300})
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 DB = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/ModelSEEDDatabase/Biochemistry"
 

@@ -47,10 +47,12 @@ out = {"n": len(ok), "missing": [r["name"] for r in rows if r["alpb"] is None],
 sys.path.insert(0, os.path.dirname(os.path.dirname(D)))
 from metag.routing import aldehyde_hydration as ah
 def in_domain(row):
-    c = K[row["name"]][0]
-    m = Chem.MolFromSmiles(c)
-    return not m.HasSubstructMatch(ah._KETO_ACID)
+    """The pipeline's own POSITIVE eligibility predicate: the carbonyl is hydrated by the pipeline iff
+    aldehyde_hydration.hydration_sites() returns a site for it (_HYDRATABLE match, alpha-keto acids excluded)."""
+    return len(ah.hydration_sites(K[row["name"]][0])) > 0
 dom = [r for r in ok if in_domain(r)]
+for r in dom:                                              # every member is a genuine hydratable carbonyl
+    assert Chem.MolFromSmiles(K[r["name"]][0]).HasSubstructMatch(ah._HYDRATABLE), r["name"]
 yd = np.array([r["logK_exp"] for r in dom]); xd = np.array([r["alpb"] for r in dom])
 lood = []
 for i in range(len(yd)):

@@ -130,11 +130,19 @@ class UniqueMinima:
         rep = principal_moments(atoms) if self.template is None else self._mol_at(atoms)
         for j in range(len(self.E)):
             if self._same(E_kJ, rep, j):
-                if G_kJ < self.G[j]:
-                    self.G[j] = float(G_kJ)
+                if G_kJ < self.G[j]:                      # the representative IS the structure whose E/G is
+                    self.G[j] = float(G_kJ)               # used: geometry, E and G are replaced together
+                    self.E[j] = float(E_kJ)
+                    self.ref[j] = rep
                 return False
         self.E.append(float(E_kJ)); self.G.append(float(G_kJ)); self.ref.append(rep)
         return True
+
+    def drop(self, indices):
+        """Remove the minima at `indices` (e.g. saddle points found by the thermal validation)."""
+        keep = [j for j in range(len(self.G)) if j not in set(indices)]
+        self.E = [self.E[j] for j in keep]; self.G = [self.G[j] for j in keep]; self.ref = [self.ref[j] for j in keep]
+        return keep
 
     def __len__(self):
         return len(self.G)

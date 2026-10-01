@@ -18,7 +18,7 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 plt.rcParams.update({"font.size": 18, "axes.titlesize": 18, "axes.labelsize": 18,
-                     "xtick.labelsize": 15, "ytick.labelsize": 15, "figure.dpi": 300, "savefig.dpi": 300})
+                     "xtick.labelsize": 18, "ytick.labelsize": 18, "figure.dpi": 300, "savefig.dpi": 300})
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 from metag.routing import anchor as ra

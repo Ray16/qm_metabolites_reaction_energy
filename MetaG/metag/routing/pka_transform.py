@@ -87,7 +87,7 @@ ACYL_P_LADDER = [1.50, 4.95]
 # omitted: at pH 7 it holds ~18% of the pool, a ~0.5 kJ term.
 CARBONATE_LADDER = [3.60, 10.33]
 # Bump when any pKa value/ladder assignment changes: part of pipeline.effective_config() (calibration key).
-PKA_TABLE_VERSION = "2026-10-01b"   # 10-01: unsaturated class, POLYACID_PKA, alpha-oxo keto-form 1.8
+PKA_TABLE_VERSION = "2026-10-01c"   # 10-01: unsaturated class, POLYACID_PKA, alpha-oxo keto-form 1.8
 # FREE pyrophosphate H4P2O7 (all heavy atoms P/O, 2 P): its own macroscopic ladder (I->0), NOT two
 # terminal-phosphate ladders ({1.5,1.5,6.5,6.5} over-counts the transform by ~4.4 kJ per free PPi).
 PPI_LADDER = [0.91, 2.10, 6.70, 9.32]
@@ -117,6 +117,73 @@ CARBOXYL_PKA_ALPHA = {"ammonium": 2.3, "amine_neutralized": 4.4, "oxo": 1.8, "ox
                       # vs isolated (acrylic 4.25, crotonic 4.69, cinnamic 4.44 -> 4.35). Missing this class
                       # made the fumarate transform 11.6 kJ too small while malate's alpha-OH rule was right.
                       "unsat_dicarboxyl": 3.75, "unsat": 4.35}
+# CARBOXYL-PAIR RULES (optional, CARBOXYL_PAIRS=1; default OFF -- see _carboxyl_pairs_enabled): two otherwise UNSUBSTITUTED carboxyls interact
+# through their separation, so a pair gets a coupled macroscopic ladder by topology class instead of 2 x 4.75.
+# Values = the parent acid of each class (Martell & Smith, Critical Stability Constants, I = 0, 25 °C):
+#   bonded carboxyl carbons (oxalate type)            1.252 / 4.266
+#   one sp3 carbon between (malonate type)            2.847 / 5.696
+#   two sp3 carbons between (succinate type)          4.207 / 5.636
+#   C=C between, cis (maleate type)                   1.910 / 6.332
+#   C=C between, trans (fumarate type)                3.053 / 4.494
+# Longer separations behave as independent sites (statistical factors only; 4.75 each). Pairs where either
+# carboxyl carries an alpha substituent rule (alpha-OH, alpha-oxo, alpha-ammonium ...) keep those rules.
+# The rule replaces 2 x 4.75 errors of -22.7 (oxalate), -5.6 (malonate), +3.8 (maleate), +1.9 kJ (succinate)
+# and transfers to substituted analogs (methylmalonate, methylsuccinate, ...), unlike a compound lookup.
+CARBOXYL_PAIR_LADDER = {"bonded": [1.252, 4.266], "one_sp3": [2.847, 5.696], "two_sp3": [4.207, 5.636],
+                        "cis_alkene": [1.910, 6.332], "trans_alkene": [3.053, 4.494]}
+
+
+def _pair_class(mol, c1, c2):
+    """Topology class of two carboxyl carbons c1, c2 (atom indices), or None for >= 3 bonds between them."""
+    path = Chem.GetShortestPath(mol, c1, c2)
+    inner = path[1:-1]
+    if not inner:
+        return "bonded"
+    if len(inner) == 1 and mol.GetAtomWithIdx(inner[0]).GetHybridization() == Chem.HybridizationType.SP3:
+        return "one_sp3"
+    if len(inner) == 2:
+        b = mol.GetBondBetweenAtoms(inner[0], inner[1])
+        if b.GetBondType() == Chem.BondType.DOUBLE:
+            st = b.GetStereo()
+            if st in (Chem.BondStereo.STEREOZ, Chem.BondStereo.STEREOCIS):
+                return "cis_alkene"
+            if st in (Chem.BondStereo.STEREOE, Chem.BondStereo.STEREOTRANS):
+                return "trans_alkene"
+            return None                                   # unspecified geometry: keep the per-site rule
+        if all(mol.GetAtomWithIdx(i).GetHybridization() == Chem.HybridizationType.SP3 for i in inner):
+            return "two_sp3"
+    return None
+
+
+def _apply_carboxyl_pairs(mol, resolved):
+    """Replace per-site constants of interacting plain carboxyl pairs by the pair ladder (in place)."""
+    plain = {}
+    for i, (o, _) in enumerate(resolved):
+        oa = mol.GetAtomWithIdx(o)
+        c = next((n for n in oa.GetNeighbors() if n.GetSymbol() == "C"), None)
+        if c is None or not any(n.GetSymbol() == "O" and mol.GetBondBetweenAtoms(c.GetIdx(), n.GetIdx()).GetBondTypeAsDouble() == 2
+                                for n in c.GetNeighbors()):
+            continue
+        if _carboxyl_env(mol, o) in (None, "unsat", "unsat_dicarboxyl"):
+            plain[c.GetIdx()] = i
+    cs = sorted(plain)
+    pairs = []
+    for x in range(len(cs)):
+        for y in range(x + 1, len(cs)):
+            cls = _pair_class(mol, cs[x], cs[y])
+            if cls:
+                pairs.append((len(Chem.GetShortestPath(mol, cs[x], cs[y])), cs[x], cs[y], cls))
+    used = set()
+    for _, c1, c2, cls in sorted(pairs):
+        if c1 in used or c2 in used:
+            continue
+        used |= {c1, c2}
+        lo, hi = CARBOXYL_PAIR_LADDER[cls]
+        i1, i2 = plain[c1], plain[c2]
+        resolved[i1] = (resolved[i1][0], lo); resolved[i2] = (resolved[i2][0], hi)
+    return resolved
+
+
 # RECOGNIZED POLYPROTIC CARBOXYLIC ACIDS: compound-specific macroscopic pKa's (Martell & Smith, Critical
 # Stability Constants, 25 °C, I = 0; as tabulated in LibreTexts Reference Table E5). Used instead of the
 # environment rules when the whole (neutral) species is one of these acids. At pH 7 the independent-site
@@ -178,6 +245,8 @@ def _carboxyl_env(mol, o_idx):
     if not alpha:
         return "formate"
     a = alpha[0]
+    if _is_carboxyl_c(mol, a):
+        return None                                        # alpha atom is another carboxyl: carboxyl-pair rule
     if a.GetIsAromatic():
         return "aromatic"
     for nb in a.GetNeighbors():                             # alpha,beta-unsaturated: alpha C=C beta
@@ -226,6 +295,14 @@ def _pka_env_enabled():
     be applied as a COMPLETE, uniformly-validated set (per-compound macroscopic pKa's validated against an
     independent pKa reference), not piecemeal. Kept for that work; not deployed."""
     return _env_on("PKA_ENV", default=True)
+
+
+def _carboxyl_pairs_enabled():
+    """CARBOXYL_PAIRS (default OFF): topology-class ladders for interacting plain carboxyl pairs (see
+    CARBOXYL_PAIR_LADDER). Kept optional: five empirical constants from five parent acids; the planned general
+    fix is a site-pKa model for the QM microstate. Without it the rule-table value errors remain (parent acids
+    at pH 7: oxalate -22.7, malonate -5.6, maleate +3.8, succinate/adipate +1.9 kJ)."""
+    return _env_on("CARBOXYL_PAIRS", default=False)
 
 
 def _polyacid_pka_enabled():
@@ -423,6 +500,8 @@ def _classify_species(smi, amine_neutralized=False):
         oa = mol.GetAtomWithIdx(o)                   # phosphate: group per P
         p = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "P"), None)
         p_groups.setdefault(p, []).append(o)
+    if _pka_env_enabled() and _carboxyl_pairs_enabled():
+        resolved = _apply_carboxyl_pairs(mol, resolved)
     ladder = _polyacid_ladder(mol) if _polyacid_pka_enabled() else None
     carboxyl_sites = [i for i, (o, _) in enumerate(resolved)]
     if ladder is not None and not p_groups and not s_groups and not c_groups and len(resolved) == len(ladder):

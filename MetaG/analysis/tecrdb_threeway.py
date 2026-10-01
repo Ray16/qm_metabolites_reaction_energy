@@ -1,24 +1,24 @@
-"""Three-way UMA vs GC vs eQ on TECRDB -- the one dataset with REAL experimental ground truth (measured
-Keq -> ΔrG'°). Predicted vs experiment, per method, with MAE.
+"""Three-way MetaG vs group contribution vs eQuilibrator on TECRDB: predicted vs experiment, per method, MAE.
 
-HONEST FRAMING (put in the caption/slide, not baked on the figure): TECRDB is the incumbents' TRAINING
-set -- GC and eQ errors here are IN-SAMPLE, so their low MAE is expected. MetaG has no fitted parameters (its routing policy was selected on TECRDB: development, not held-out); all panels use the standardized reference. Previously: UMA is first-principles, NOT fit
-to TECRDB. The point is not "UMA wins" (it doesn't, on home turf) but that a from-scratch physics method
-lands within ~3 kJ of methods fitted to this exact data -- and (separately, see reference_scoreboard) it
-is the one that HOLDS on the ModelSEED frontier where the incumbents extrapolate and fail.
+Reference: the STANDARDIZED TECRDB reference (each measurement Legendre-transformed to pH 7, I = 0, no Mg2+;
+experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json). Inputs: MetaG ΔG from the production results
+directory (METAG_RESULTS, default analysis/sweep_20261001/final); eQuilibrator and group contribution evaluated
+at the same conditions (analysis/sweep_20261001/{eq,gc}_real_tecrdb_std.json). Common reaction set only.
 
-UMA (current pipeline): error from metag/data/sigma_class_calibrated.json per_reaction (logs/production).
-GC/eQ: ModelSEED thermodynamics. experiment: results/benchmark/tecrdb_full_scored.json.
+Regimes (state in the caption, not on the figure): GC and eQuilibrator are IN-SAMPLE (fitted to TECRDB).
+MetaG has no TECRDB-fitted parameters, but (i) its routing policy and rule choices were selected while
+looking at TECRDB -> a DEVELOPMENT result, not held-out, and (ii) its hydration term uses a calibration fitted to
+external hydration constants (HYDRATION_CAL). The standardized reference was built with eQuilibrator's species
+data, so eQuilibrator on it is partly circular. The printed MAEs are the only quantitative statement.
 """
 import json, glob, os
 import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 plt.rcParams.update({"font.size": 18, "axes.titlesize": 18, "axes.labelsize": 18,
-                     "xtick.labelsize": 15, "ytick.labelsize": 15, "figure.dpi": 300, "savefig.dpi": 300})
+                     "xtick.labelsize": 18, "ytick.labelsize": 18, "figure.dpi": 300, "savefig.dpi": 300})
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))                    # thermodynamic_calc
-DB = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/ModelSEEDDatabase/Biochemistry"
 
 # ONE reference for every panel: the STANDARDIZED TECRDB reference (pH 7, I = 0, no Mg2+), with MetaG's ΔG read
 # from the production results and eQuilibrator / group contribution evaluated at the same conditions.
@@ -30,7 +30,7 @@ exp = {k: statistics.median(v["exp"]) for k, v in std.items()}
 eq = {r: v["dG_kJ"] for r, v in json.load(open(os.path.join(HERE, "sweep_20261001", "eq_real_tecrdb_std.json")))["predictions"].items()}
 gc = {r: v["dG_kJ"] for r, v in json.load(open(os.path.join(HERE, "sweep_20261001", "gc_real_tecrdb_std.json")))["predictions"].items()}
 K = [k for k in metag if metag[k] is not None and k in exp and k in gc and k in eq and abs(gc[k]) < 1e6 and abs(eq[k]) < 1e6]
-M_LAB = "MetaG\n(development: no fitted parameters)"
+M_LAB = "MetaG\n(no TECRDB-fitted parameters; development)"
 preds = {M_LAB: np.array([metag[k] for k in K]),
          "Group Contribution\n(in-sample)": np.array([gc[k] for k in K]),
          "eQuilibrator\n(in-sample)": np.array([eq[k] for k in K])}
@@ -71,6 +71,6 @@ for i, (name, P) in enumerate(preds.items()):
     axright.axhline(np.median(P), color="0.25", ls=":", lw=1.2)
 out = os.path.join(HERE, "..", "figures", "tecrdb_threeway.png")
 fig.savefig(out, bbox_inches="tight")
-print(f"n={len(K)}  MAE: UMA {np.abs(preds[list(preds)[0]]-E).mean():.1f}  "
+print(f"n={len(K)}  MAE: MetaG {np.abs(preds[list(preds)[0]]-E).mean():.1f}  "
       f"GC {np.abs(preds[list(preds)[1]]-E).mean():.1f}  eQ {np.abs(preds[list(preds)[2]]-E).mean():.1f}")
 print(f"wrote {os.path.abspath(out)}")

@@ -24,7 +24,7 @@ def test_thiolate_and_phenolate_are_neutralised():
 def test_unsaturated_carboxyl_pka(monkeypatch):
     monkeypatch.setenv("PKA_ENV", "1")
     # class rule (compound not in POLYACID_PKA): mesaconate, acrylate; malate rule unchanged
-    assert pk._neutralize("C/C(=C\\C(=O)[O-])C(=O)[O-]")[1] == [3.75, 3.75]
+    assert pk._neutralize("C/C(=C\\C(=O)[O-])C(=O)[O-]")[1] == [3.75, 3.75]     # default: per-site class rule
     assert pk._neutralize("C=CC(=O)[O-]")[1] == [4.35]
     monkeypatch.setenv("POLYACID_PKA", "0")
     assert sorted(pk._neutralize("O=C([O-])C[C@H](O)C(=O)[O-]")[1]) == [3.8, 4.75]
@@ -133,7 +133,7 @@ def test_effective_config_tracks_every_estimator_switch(monkeypatch):
     import importlib, json as _json
     import metag.pipeline as P
     base = _json.dumps(P.effective_config(), sort_keys=True)
-    for var, val in (("POLYACID_PKA", "1"), ("ARYLAMINE_NONBASIC", "0"), ("PKA_ENV", "0"),
+    for var, val in (("POLYACID_PKA", "1"), ("CARBOXYL_PAIRS", "1"), ("ARYLAMINE_NONBASIC", "0"), ("PKA_ENV", "0"),
                      ("CARBONYL_HYDRATION_ALL", "0"), ("HYDRATION_CAL", "0"), ("PH0_ISOMERASE", "0"),
                      ("NTP_CORE", "0")):
         monkeypatch.setenv(var, val)
@@ -163,3 +163,73 @@ def test_deployed_hydration_calibration_matches_reproducible_fit():
     fit = json.load(open(path))["calibration_domain_fit"]
     a, b = ah.HYDRATION_CAL
     assert abs(a - fit["a"]) < 0.0015 and abs(b - fit["b_kJ_per_event"]) < 0.01
+
+
+def _ethanol_minima():
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+    from ase import Atoms
+    from metag.energetics.conformers import UniqueMinima
+    m = Chem.AddHs(Chem.MolFromSmiles("CCO"))
+    cids = AllChem.EmbedMultipleConfs(m, 6, randomSeed=3)
+    syms = [a.GetSymbol() for a in m.GetAtoms()]
+    ats = [Atoms(symbols=syms, positions=m.GetConformer(c).GetPositions()) for c in cids]
+    return UniqueMinima(template=Chem.Mol(m), e_tol=-1.0), ats   # e_tol < 0: never merge (distinct minima)
+
+
+def test_dedup_replaces_geometry_with_lower_g_duplicate():
+    import numpy as np
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+    from ase import Atoms
+    from metag.energetics.conformers import UniqueMinima
+    m = Chem.AddHs(Chem.MolFromSmiles("C"))
+    AllChem.EmbedMolecule(m, randomSeed=1)
+    syms = [a.GetSymbol() for a in m.GetAtoms()]
+    p = m.GetConformer().GetPositions()
+    u = UniqueMinima(template=Chem.Mol(m))
+    u.add(Atoms(symbols=syms, positions=p), -100.0, -110.0)
+    distorted = p.copy(); distorted[1] += [0.03, 0.0, 0.0]   # same basin (RMSD << 0.25 Å), lower G
+    assert u.add(Atoms(symbols=syms, positions=distorted), -100.5, -111.0) is False
+    assert u.G == [-111.0] and u.E == [-100.5]
+    # the stored representative is the NEW structure (RDKit aligns it rigidly onto the old frame, so compare
+    # interatomic distances, which are invariant to that alignment)
+    dist = lambda x: np.linalg.norm(x[:, None] - x[None], axis=-1)
+    stored = u.ref[0].GetConformer().GetPositions()
+    assert np.allclose(dist(stored), dist(distorted), atol=1e-6)
+    assert not np.allclose(dist(stored), dist(p), atol=1e-3)
+
+
+def test_thermal_track_applies_validated_correction_to_accepted_minimum(monkeypatch):
+    import metag.pipeline as P
+    u, ats = _ethanol_minima()
+    for i, a in enumerate(ats[:3]):
+        u.add(a, -100.0 + i, -110.0 + i)                 # minimum 0 lowest, then 1, 2 (all in the window)
+    monkeypatch.setattr(P, "uma_gibbs_corr", lambda *a, **k: (50.0, {}))
+    tr = P._ThermalTrack(None, u.template, 0, 1)
+    tot_valid_on_1 = tr.final(u, {}, therm_valid=40.0, j_valid=1)
+    # the validated value belongs to minimum 1 (not the lowest): lowest keeps its own tracked correction
+    _, c, order, _ = tr._totals(u, override=(1, 40.0))
+    assert c[1] == 40.0 and c[0] == 50.0 and order[0] == 0
+    assert tot_valid_on_1[2]["validated_index_is_lowest"] is False
+
+
+def test_unique_minima_drop():
+    u, ats = _ethanol_minima()
+    for i, a in enumerate(ats[:3]):
+        u.add(a, float(i), float(i))
+    keep = u.drop({1})
+    assert keep == [0, 2] and u.G == [0.0, 2.0] and len(u.ref) == 2
+
+
+def test_generic_carboxyl_pair_rules(monkeypatch):
+    # topology-based pair ladders reproduce the parent acids (Martell & Smith, I = 0) and transfer to analogs
+    monkeypatch.setenv("PKA_ENV", "1"); monkeypatch.setenv("POLYACID_PKA", "0"); monkeypatch.setenv("CARBOXYL_PAIRS", "1")
+    cases = {"O=C([O-])C(=O)[O-]": [1.252, 4.266], "O=C([O-])CC(=O)[O-]": [2.847, 5.696],
+             "O=C([O-])CCC(=O)[O-]": [4.207, 5.636], "O=C([O-])/C=C\\\\C(=O)[O-]": [1.910, 6.332],
+             "O=C([O-])/C=C/C(=O)[O-]": [3.053, 4.494],
+             "CC(C(=O)[O-])C(=O)[O-]": [2.847, 5.696]}             # methylmalonate: analog, not a named compound
+    for smi, ladder in cases.items():
+        assert sorted(pk._neutralize(smi)[1]) == ladder, smi
+    assert sorted(pk._neutralize("O=C([O-])CCCCC(=O)[O-]")[1]) == [4.75, 4.75]   # separated: independent sites
+    assert pk._neutralize("CC(=O)C(=O)[O-]")[1] == [1.8]                          # alpha-oxo rule untouched

@@ -155,7 +155,7 @@ SOLV_ALSO = list(dict.fromkeys(
 #   2026-09-30b: float64 energies + dedup e_tol 1.5 kJ, post-relaxation connectivity check, xtb-failure
 #                guard, projected external Hessian modes, imaginary-mode rejection, and RRHO
 #                symmetry/linearity detection.
-PHYSICS_VERSION = "2026-09-30b"
+PHYSICS_VERSION = "2026-10-01c"   # 10-01c: dedup representative = geometry of its E/G; thermal resolution applied to the ensemble
 _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiered-v1",
                       "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
                       "sample_scale": _SAMPLE_SCALE, "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
@@ -196,7 +196,7 @@ _THERMAL_ENSEMBLE = os.environ.get("THERMAL_ENSEMBLE", "1").strip().lower() not 
 THERMAL_ENS_WIN = float(os.environ.get("THERMAL_ENS_WIN", "15"))
 THERMAL_ENS_N = int(os.environ.get("THERMAL_ENS_N", "10"))
 if _THERMAL_ENSEMBLE:
-    _IMPLICIT_SETTINGS["thermal_ensemble"] = f"v2conv-w{THERMAL_ENS_WIN:g}-n{THERMAL_ENS_N}"   # v2: RRHO inside convergence + U_samp
+    _IMPLICIT_SETTINGS["thermal_ensemble"] = f"v3-w{THERMAL_ENS_WIN:g}-n{THERMAL_ENS_N}"   # v3: validated RRHO on the accepted minimum   # v2: RRHO inside convergence + U_samp
 _ACID_HB_KEY = f"v2-{ACID_HB_DIST:g}"   # v2: a P-O-P chain is one acid group                    # cache-key tag, added only where the filter can act
 def _explicit_settings():
     """Cache key of an explicit cluster. Built at CALL time from the EFFECTIVE values: the cached cluster G
@@ -391,9 +391,14 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                 f"({relax_info['n_relaxed']} minima)")
             Gens = boltz(G_aq)
             also = also_aq
-    therm, t_info = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
-    if therm is not None and thermal_track is not None and uniq.template is not None and uniq.ref:
-        Gens_th, also_th, ens_info = thermal_track.final(uniq, also, therm)
+    therm, t_info, t_res = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
+    ref_j = None
+    if therm is not None and uniq.template is not None and uniq.ref:
+        ref_j = _apply_thermal_resolution(pu, uniq, also, t_res, template, q, mult, name, log)
+        Gens = boltz(uniq.G)                              # ensemble after removing non-minima / updating geometry
+        t_info = dict(t_info, resolution=t_res["kind"], n_removed=len(t_res["rejected"]))
+    if therm is not None and thermal_track is not None and ref_j is not None:
+        Gens_th, also_th, ens_info = thermal_track.final(uniq, also, therm, ref_j)
         log(f"    {name}: thermal ensemble (Gens+thermal) {Gens + therm:.1f} -> {Gens_th:.1f} "
             f"({ens_info['n_hessians']} minima)")
         t_info = dict(t_info, ensemble=ens_info, single_minimum_G=round(Gens + therm, 3))
@@ -584,37 +589,40 @@ def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
 class _ThermalTrack:
     """Per-minimum RRHO bookkeeping DURING sampling (THERMAL_ENSEMBLE): after every seed batch the unique
     minima within THERMAL_ENS_WIN kJ of the lowest E+ΔGsolv (at most THERMAL_ENS_N) get a UMA-Hessian RRHO
-    correction (computed once per representative geometry; recomputed if a lower-G duplicate replaced it),
-    so the convergence test and the sampling-uncertainty trajectory see G = E + ΔGsolv + Gcorr, not
-    E + ΔGsolv alone. Minima outside the window carry the lowest window member's correction (negligible
-    Boltzmann weight). Imaginary modes are floored as soft here; the REFERENCE minimum is re-validated
-    afterwards by _thermal_at_minimum (true-minimum test with mode following) and its value replaces the
-    tracked one in final()."""
+    correction, so the convergence test and the sampling-uncertainty trajectory see G = E + ΔGsolv + Gcorr.
+    Corrections are keyed by the representative GEOMETRY (not the list index), so a representative replaced
+    by a lower-G duplicate (UniqueMinima.add updates E, G and geometry together) gets a new Hessian, and
+    removing / adding minima cannot misassign a correction. Minima outside the window carry the lowest
+    window member's correction (negligible Boltzmann weight). Imaginary modes are floored as soft here; the
+    VALIDATED correction from _thermal_at_minimum replaces the value of the minimum it belongs to in final()."""
 
     def __init__(self, pu, template, q, mult):
         self.pu, self.q, self.mult = pu, q, mult
         self.syms = [a.GetSymbol() for a in template.GetAtoms()]
-        self.corr = {}                                     # minimum index -> (geometry key, Gcorr)
+        self.corr = {}                                     # geometry key -> Gcorr
         self.n_hessians = 0
 
-    def _window(self, uniq):
-        order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
-        return order, [j for j in order if uniq.G[j] - uniq.G[order[0]] < THERMAL_ENS_WIN][:THERMAL_ENS_N]
+    @staticmethod
+    def _key(uniq, j):
+        return hash(np.round(uniq.ref[j].GetConformer().GetPositions(), 4).tobytes())
 
     def _ensure(self, uniq, j):
-        pos = uniq.ref[j].GetConformer().GetPositions()
-        key = hash(np.round(pos, 4).tobytes())
-        if j in self.corr and self.corr[j][0] == key:
-            return self.corr[j][1]
-        g, _ = uma_gibbs_corr(self.pu, self.syms, pos, self.q, spin=self.mult, return_info=True, imag_as_soft=True)
-        self.corr[j] = (key, g); self.n_hessians += 1
-        return g
+        k = self._key(uniq, j)
+        if k not in self.corr:
+            pos = uniq.ref[j].GetConformer().GetPositions()
+            g, _ = uma_gibbs_corr(self.pu, self.syms, pos, self.q, spin=self.mult, return_info=True,
+                                  imag_as_soft=True)
+            self.corr[k] = g; self.n_hessians += 1
+        return self.corr[k]
 
     def _totals(self, uniq, override=None):
-        order, win = self._window(uniq)
-        c = {j: self._ensure(uniq, j) for j in win}
-        if override is not None:
-            c[order[0]] = override
+        order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
+        win = [j for j in order if uniq.G[j] - uniq.G[order[0]] < THERMAL_ENS_WIN][:THERMAL_ENS_N]
+        if override is not None and override[0] not in win:
+            win.append(override[0])
+        c = {}
+        for j in win:
+            c[j] = override[1] if (override is not None and j == override[0]) else self._ensure(uniq, j)
         ref = c[order[0]]
         return [uniq.G[j] + c.get(j, ref) for j in range(len(uniq.G))], c, order, win
 
@@ -622,13 +630,15 @@ class _ThermalTrack:
         tot, _, _, _ = self._totals(uniq)
         return boltz(tot)
 
-    def final(self, uniq, also, therm_ref):
-        tot, c, order, win = self._totals(uniq, override=therm_ref)
+    def final(self, uniq, also, therm_valid, j_valid):
+        """therm_valid = validated correction of minimum j_valid (the structure _thermal_at_minimum accepted)."""
+        tot, c, order, win = self._totals(uniq, override=(j_valid, therm_valid))
         ref = c[order[0]]
         also_tot = {m: [None if v is None else v + c.get(j, ref) for j, v in enumerate(vals)]
                     for m, vals in also.items()}
         spread = [c[j] - c[order[0]] for j in win]
         info = {"n_window": len(win), "n_hessians": self.n_hessians, "tracked_in_convergence": True,
+                "validated_index_is_lowest": bool(j_valid == order[0]),
                 "gcorr_spread_kj": round(float(max(spread) - min(spread)), 2) if spread else 0.0}
         return boltz(tot), also_tot, info
 
@@ -658,42 +668,47 @@ def _thermal_ensemble(pu, uniq, also, therm_ref, q, mult, template, name, log):
 
 def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log):
     """RRHO correction at the lowest-G unique minimum that is a TRUE minimum. Candidates are the unique
-    minima in order of G (the Boltzmann-dominant states, not the lowest gas-phase energy); one with an
-    imaginary mode above thermal.IMAG_TOL_CM is re-optimised once more tightly (fmax 0.01 eV/Å) and, if
-    still not a minimum, the next candidate is tried. Returns (Gcorr, info) or (None, per-candidate info)."""
+    minima in order of G; one with an imaginary mode above thermal.IMAG_TOL_CM is re-optimised once more
+    tightly (fmax 0.01 eV/Å); if still not a minimum, the strongest imaginary mode is followed; else the next
+    candidate is tried. Returns (Gcorr, info, resolution) or (None, per-candidate info, resolution).
+
+    resolution = {"index": accepted minimum index or None, "kind": "as_is" | "artefact" | "retightened" |
+    "mode_followed" | None, "pos": geometry the correction belongs to, "rejected": [indices that are not
+    minima]}. The caller (_apply_thermal_resolution) makes E, ΔG_solv, geometry and Gcorr refer to the SAME
+    structure: retightened -> the minimum's representative is replaced by the tightened geometry;
+    mode_followed -> the saddle is removed and the lower structure enters the ensemble; rejected -> removed."""
     syms = [a.GetSymbol() for a in template.GetAtoms()]
     if uniq.template is not None and uniq.ref:
         order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])[:N_THERMAL_CANDIDATES]
-        cands = [uniq.ref[j].GetConformer().GetPositions() for j in order]
+        cands = [(j, uniq.ref[j].GetConformer().GetPositions()) for j in order]
     else:                                                 # legacy never-merge / moments mode
-        cands = [best[2]]
-    tried = []
-    for pos in cands:
+        cands = [(None, best[2])]
+    tried, rejected = [], []
+    for j, pos0 in cands:
+        pos = pos0
         for attempt in (0, 1):
             g, info = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True)
             vecs = info.pop("_imag_vecs")
             if info["n_imag"] == 0:
                 info["retightened"] = bool(attempt)
-                return g, info
+                return g, info, {"index": j, "kind": "retightened" if attempt else "as_is", "pos": pos,
+                                 "rejected": rejected}
             if attempt == 1:
-                # MODE FOLLOWING: displace +-0.1 Å along the strongest imaginary mode and re-relax. A real
-                # saddle relaxes DOWN (>1 kJ, above UMA's float32 resolution) -> continue from the lower
-                # structure; if both sides come back to the same energy the mode is a numerical artefact of a
-                # very flat torsion (seen on a 10-atom thioester core: 66-74 cm-1 on every minimum even after
-                # tight re-optimisation) -> keep the structure, treat that mode as soft (floored), record it.
                 verdict, new_pos = _follow_imaginary_mode(pu, syms, pos, vecs[0], q, mult, ref_graph, name)
                 if verdict == "artefact":
                     g_soft, info_soft = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True,
                                                        imag_as_soft=True)
                     info_soft.pop("_imag_vecs")
                     info_soft.update(retightened=True, imag_artefact_cm=info["max_imag_cm"])
-                    return g_soft, info_soft
+                    kind = "retightened" if pos is not pos0 else "artefact"
+                    return g_soft, info_soft, {"index": j, "kind": kind, "pos": pos, "rejected": rejected}
                 if verdict == "saddle":
                     g2, info2 = uma_gibbs_corr(pu, syms, new_pos, q, spin=mult, return_info=True)
                     info2.pop("_imag_vecs")
                     if info2["n_imag"] == 0:
                         info2.update(retightened=True, mode_followed=True)
-                        return g2, info2
+                        return g2, info2, {"index": j, "kind": "mode_followed", "pos": new_pos,
+                                           "rejected": rejected}
             tried.append(info["max_imag_cm"])
             if attempt == 0:                              # re-optimise tightly once, keep only if unrearranged
                 at = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
@@ -703,8 +718,43 @@ def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
                     break
                 if conv[0]:                               # an unconverged tight re-opt (flat torsions) still
                     pos = at.get_positions()              # gets the mode-following test from the original pos
+        if j is not None:
+            rejected.append(j)                            # not a minimum: excluded from the ensemble
         log(f"    {name}: minimum candidate has an imaginary mode ({tried[-1]} cm-1) -> next candidate")
-    return None, tried
+    return None, tried, {"index": None, "kind": None, "pos": None, "rejected": rejected}
+
+
+def _apply_thermal_resolution(pu, uniq, also, res, template, q, mult, name, log):
+    """Make the ensemble consistent with the thermal validation (see _thermal_at_minimum). Returns the index
+    (after the update) of the minimum the validated correction belongs to."""
+    syms = [a.GetSymbol() for a in template.GetAtoms()]
+    models = [SOLV_MODEL] + SOLV_ALSO
+    j, kind, pos = res["index"], res["kind"], res["pos"]
+    drop = set(res["rejected"])
+    if kind in ("retightened", "mode_followed"):
+        at = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
+        e = float(batched_energies(pu, [at])[0]) * EV2KJ
+        sd = {m: dgsolv(syms, pos, q, m, mult) for m in models}
+        if sd[SOLV_MODEL] is None:
+            raise RuntimeError(f"{name}: solvation failed on the validated thermal geometry")
+        if kind == "retightened":                         # same basin: the representative becomes this geometry
+            uniq.E[j] = e; uniq.G[j] = e + sd[SOLV_MODEL]; uniq.ref[j] = uniq._mol_at(at)
+            for m in also:
+                also[m][j] = None if sd[m] is None else e + sd[m]
+        else:                                             # saddle j removed; the lower structure enters
+            drop.add(j)
+            uniq.E.append(e); uniq.G.append(e + sd[SOLV_MODEL]); uniq.ref.append(uniq._mol_at(at))
+            for m in also:
+                also[m].append(None if sd[m] is None else e + sd[m])
+            j = len(uniq.G) - 1
+        log(f"    {name}: thermal validation -> {kind} geometry carries E, ΔGsolv and RRHO")
+    if drop:
+        keep = uniq.drop(drop)
+        for m in also:
+            also[m] = [also[m][k] for k in keep]
+        j = keep.index(j) if j in keep else None
+        log(f"    {name}: {len(drop)} non-minimum candidate(s) removed from the ensemble")
+    return j
 
 
 def _follow_imaginary_mode(pu, syms, pos, mode, q, mult, ref_graph, name, step=0.1, drop_kJ=1.0):
@@ -931,11 +981,12 @@ def effective_config():
            "pka_model": os.environ.get("PKA_MODEL", "table").strip().lower(),
            "pka_table": _pk.PKA_TABLE_VERSION, "ph0_redox_proton": _pk._redox_proton_enabled(),
            "polyacid_pka": _pk._polyacid_pka_enabled(), "arylamine_nonbasic": _pk._arylamine_nonbasic_enabled(),
+           "carboxyl_pairs": _pk._carboxyl_pairs_enabled(),
            # CONTENT hashes: any edit of a constant changes the fingerprint even without a version bump
            "pka_constants": _constants_hash(_pk, ("P_LADDER", "ANHYDRIDE_P_LADDER", "P_N_LADDER", "ACYL_P_LADDER",
                                                   "CARBONATE_LADDER", "PPI_LADDER", "SULFATE_LADDER",
                                                   "CARBOXYL_PKA", "CARBOXYL_PKA_ALPHA", "SULFONATE_PKA",
-                                                  "THIOL_PKA", "PHENOL_PKA", "POLYACID_PKA")),
+                                                  "THIOL_PKA", "PHENOL_PKA", "POLYACID_PKA", "CARBOXYL_PAIR_LADDER")),
            "hydration_constants": _constants_hash(_ah_mod(), ("HYDRATION_CAL", "MAX_HYDRATION_SITES")),
            # species-level estimator (thermal ensemble, solvent relaxation, dedup, sampling, model ...)
            "implicit_settings": json.dumps(_IMPLICIT_SETTINGS, sort_keys=True),
