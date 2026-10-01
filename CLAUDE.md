@@ -155,3 +155,15 @@ branch `master`, SSH). Commit + push after each meaningful step; the daily cron
   the produced-Pi set (+11) has zero glycosyl. A single per-Pi offset would fit the glycosyl error into a
   phosphate term. Real levers instead: TRUNC_FG_CUTS (faithful cores; helped PPDK +43.6→+26.9) and the
   glycosyl/sugar class (sampling + ring forms).
+
+- **MetaG physics revision (2026-10-01, commits 9fd178c, b96dd6b; MetaG/analysis/sweep_20261001/NOTES.md):**
+  SOLV_MODEL default **alpb** (xtb --cosmo has NO H-bond term: FreeSolv per-group error COSMO OH +17.8 / COOH
+  +18.8 vs ALPB +4.3 / -4.9; K_hyd log-MAE 3.6 vs 1.1). Liquid water from experiment (WATER_REF_EXP on).
+  **Anchors and the hydro-lyase water patch OFF** (they were absorbing COSMO's error). On by default: PKA_ENV
+  (+ alpha,beta-unsaturated carboxyl class), FREE_PPI_PKA, ZWITTERION_PH0, ARYLAMINE_NONBASIC, NTP_CORE,
+  CARBONYL_HYDRATION_ALL (K_hyd-calibrated, alpha-keto acids excluded), ACID_HB_FILTER v2, PH0_ISOMERASE.
+  Result (real pipeline, 364 std TECRDB): MAE 9.65, median 7.15, 364/364 scored, no TECRDB-fitted point
+  parameters. Rejected (tested): SOLV_RELAX, compound-level ChemAxon pKa ladders, enol tautomers, per-P
+  H-bond filter (v1). Open: phosphagen core +38 (UMA-DFT only +7.8 -> solvation/speciation), lipid-phase K'.
+  Fast A/B = CPU reassembly from the species cache; the harness must pass ZWITTERION_PH0=1 explicitly
+  (its 'baseline' policy forces it off) and must emulate SpeciesRearranged reroutes.

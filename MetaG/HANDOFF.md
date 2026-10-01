@@ -1,3 +1,16 @@
+# MetaG — session handoff (2026-10-01, physics revision)
+
+**Read first: `analysis/sweep_20261001/NOTES.md`** (every hypothesis tested this session, adopted or rejected,
+with numbers). Production defaults changed: ALPB solvation, experimental liquid water, NO anchors, carbonyl
+hydration, inter-acid H-bond conformer filter, pH-0 for isomerizations, NTP core. TECRDB-364 (standardized
+pH 7 / I 0): MAE 9.65, median 7.15, 364/364 scored (was 12.39 / 9.45 / 341). Results: `analysis/sweep_20261001/
+final/`; species cache (ALPB primary + COSMO/CPCM-X aux): `analysis/sweep_20261001/cache/` (gitignored, NFS).
+Open: phosphagen core (+38, solvation/speciation of the phosphoguanidinium cation), lipid-phase references,
+purine/pteridine lactim tautomers, NAD redox to alpha-keto/indole products. Figures regenerated
+(tecrdb_fiveway, diag_signed_bias_by_class, reference_scoreboard); others (where_lacking, rep_disagreement,
+slides) still show the pre-revision pipeline.
+
+---
 # MetaG — session handoff (2026-08-29)
 
 ## Where we are
