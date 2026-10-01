@@ -11,10 +11,10 @@
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.1,
- "sigma_pred": 14.5,
+ "sigma_pred": 12.5,
  "ci95": [
-  -34.5,
-  29.5
+  -31.1,
+  26.2
  ],
  "externally_calibrated": false,
  "routes": {
@@ -31,6 +31,7 @@
   "reverted": [],
   "input_balanced": true,
   "trunc_radius_reason": "anomeric_ring_reaction_center",
+  "ph0_skipped": "no ionizable site",
   "rearrangement_reroute": false
  },
  "suspect": null,
@@ -91,6 +92,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -119,7 +121,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

@@ -2,19 +2,19 @@
  "reaction": "rxn02360",
  "note": "TECRDB rxn02360 4-hydroxyproline epimerase | flags=isomerase",
  "ec": "5.1.1.8",
- "dG": -2.2,
- "dG_raw": -2.2,
+ "dG": 1.7,
+ "dG_raw": 1.7,
  "exp": 0.02,
  "dG_raw_unreliable": null,
- "err": -2.22,
+ "err": 1.68,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.0,
- "sigma_pred": 14.5,
+ "sigma_pred": 12.4,
  "ci95": [
-  -34.1,
-  29.7
+  -26.9,
+  30.2
  ],
  "externally_calibrated": false,
  "routes": {
@@ -25,7 +25,7 @@
   "truncated": false,
   "trunc_radius": null,
   "ph0": true,
-  "zwitterion_ph0": true,
+  "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
   "reverted": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -2.22,
+  "species_sum": 1.66,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -2.22,
-  "reported": -2.22
+  "unanchored": 1.66,
+  "reported": 1.66
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "trans-4-Hydroxy-L-proline": [
    -1,
-   0,
-   "O=C(O)[C@@H]1C[C@@H](O)CN1"
+   1,
+   "O=C(O)[C@@H]1C[C@@H](O)C[NH2+]1"
   ],
   "cis-4-Hydroxy-D-proline": [
    1,
-   0,
-   "O=C(O)[C@H]1C[C@@H](O)CN1"
+   1,
+   "O=C(O)[C@H]1C[C@@H](O)C[NH2+]1"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

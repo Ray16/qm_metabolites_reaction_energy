@@ -751,6 +751,10 @@ FLAG_DEFAULTS = {
     "NTP_CORE": True,
     "AUTO_TRUNCATE": True, "ROUTE_FULL": True, "TRUNC_V2": False, "TRUNC_VALIDATE": False,
     "PH0_AUTO": True, "PH0_BASES": True, "ZWITTERION_PH0": True, "NEUTRAL_QM": False,
+    # PH0_ISOMERASE ADOPTED 2026-10-01: isomerizations also take the pH-0 route. The gate dated from the
+    # COSMO baseline; under ALPB charged sugar-phosphate ring isomers do not cancel (G6P isomerase -25,
+    # mannose-6-P isomerase -34) while their neutral forms do: isomerase MAE 8.4 -> 5.6, TECRDB 10.08 -> 9.64.
+    "PH0_ISOMERASE": True,
     "CARBONYL_HYDRATION_ALL": True,    # every aldehyde/ketone except alpha-keto acids (validated vs K_hyd, ALPB)
     "HYDRATION_CAL": True,             # K_hyd-calibrated ΔG_hyd (independent data; only with CARBONYL_HYDRATION_ALL)
     # 2026-10-01 physics revision (analysis/sweep_20261001/NOTES.md): ALPB solvation + the experimental
@@ -1076,8 +1080,9 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
     if _flag("PH0_AUTO") and not rx.get("pka_sites"):
         try:
             from metag.routing.pka_transform import build_ph0_reaction, is_isomerization
-            if is_isomerization(rx["species"]):
-                # ISOMERASE GATE: pH-0 hurts isomerizations (no anion-solvation change to
+            if is_isomerization(rx["species"]) and not _flag("PH0_ISOMERASE"):
+                # ISOMERASE GATE (PH0_ISOMERASE=1 lifts it: A/B under ALPB, where the neutral species are the
+                # better-described ones -- the gate was set on the COSMO baseline): pH-0 hurts isomerizations (no anion-solvation change to
                 # fix; neutralising spectator anions only injects sampling noise). Skip.
                 log("  [pH0-auto: isomerization -> gated OFF (pH-0 would only add noise)]")
             else:

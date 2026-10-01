@@ -2,19 +2,19 @@
  "reaction": "rxn00321",
  "note": "TECRDB rxn00321 lysine 2,3-aminomutase | flags=isomerase",
  "ec": "5.4.3.2",
- "dG": -7.9,
- "dG_raw": -7.9,
+ "dG": -7.8,
+ "dG_raw": -7.8,
  "exp": -4.62,
  "dG_raw_unreliable": null,
- "err": -3.28,
+ "err": -3.18,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.5,
- "sigma_pred": 14.5,
+ "U_samp": 0.3,
+ "sigma_pred": 12.4,
  "ci95": [
-  -39.9,
-  24.0
+  -36.3,
+  20.8
  ],
  "externally_calibrated": false,
  "routes": {
@@ -25,7 +25,7 @@
   "truncated": true,
   "trunc_radius": 2,
   "ph0": true,
-  "zwitterion_ph0": true,
+  "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
   "reverted": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -4.23,
+  "species_sum": -21.74,
   "proton": -0.0,
-  "pka_transform": -3.71,
-  "unanchored": -7.94,
-  "reported": -7.94
+  "pka_transform": 13.97,
+  "unanchored": -7.77,
+  "reported": -7.77
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "L-Lysine_t": [
    -1,
-   0,
-   "CCC[C@H](N)C(=O)O"
+   1,
+   "CCC[C@H]([NH3+])C(=O)O"
   ],
   "L-beta-Lysine_t": [
    1,
-   0,
-   "CC[C@H](N)CC(=O)O"
+   1,
+   "CC[C@H]([NH3+])CC(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

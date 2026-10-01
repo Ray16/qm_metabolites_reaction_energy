@@ -2,19 +2,19 @@
  "reaction": "rxn00830",
  "note": "TECRDB rxn00830 isopentenyl-diphosphate-isomerase | flags=Mg-prone(NTP/PPi),isomerase",
  "ec": "5.3.3.2",
- "dG": -1.2,
- "dG_raw": -1.2,
+ "dG": 3.0,
+ "dG_raw": 3.0,
  "exp": -4.91,
  "dG_raw_unreliable": null,
- "err": 3.71,
+ "err": 7.91,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.7,
- "sigma_pred": 14.5,
+ "U_samp": 1.2,
+ "sigma_pred": 12.5,
  "ci95": [
-  -33.1,
-  30.8
+  -25.7,
+  31.6
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1.18,
+  "species_sum": 2.95,
   "proton": -0.0,
-  "pka_transform": 0.0,
-  "unanchored": -1.18,
-  "reported": -1.18
+  "pka_transform": -0.0,
+  "unanchored": 2.95,
+  "reported": 2.95
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "Isopentenyldiphosphate_t": [
    -1,
-   -2,
-   "C=C(C)CCOP(=O)([O-])OP(=O)([O-])O"
+   0,
+   "C=C(C)CCOP(=O)(O)OP(=O)(O)O"
   ],
   "DMAPP_t": [
    1,
-   -2,
-   "CC(C)=CCOP(=O)([O-])OP(=O)([O-])O"
+   0,
+   "CC(C)=CCOP(=O)(O)OP(=O)(O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

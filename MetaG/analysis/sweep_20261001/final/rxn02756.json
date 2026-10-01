@@ -2,19 +2,19 @@
  "reaction": "rxn02756",
  "note": "TECRDB rxn02756 2-methyleneglutarate mutase | flags=isomerase",
  "ec": "5.4.99.4",
- "dG": -8.2,
- "dG_raw": -8.2,
+ "dG": 4.0,
+ "dG_raw": 4.0,
  "exp": 3.75,
  "dG_raw_unreliable": null,
- "err": -11.95,
+ "err": 0.25,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.1,
- "sigma_pred": 14.5,
+ "U_samp": 0.9,
+ "sigma_pred": 12.4,
  "ci95": [
-  -40.1,
-  23.7
+  -24.6,
+  32.6
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -8.17,
+  "species_sum": 3.97,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -8.17,
-  "reported": -8.17
+  "unanchored": 3.97,
+  "reported": 3.97
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "2-Methyleneglutarate_t": [
    -1,
-   -2,
-   "C=C(CCC(=O)[O-])C(=O)[O-]"
+   0,
+   "C=C(CCC(=O)O)C(=O)O"
   ],
   "Methylitaconate_t": [
    1,
-   -2,
-   "C=C(C(=O)[O-])C(C)C(=O)[O-]"
+   0,
+   "C=C(C(=O)O)C(C)C(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

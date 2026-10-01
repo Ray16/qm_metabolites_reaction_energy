@@ -2,19 +2,19 @@
  "reaction": "rxn01258",
  "note": "TECRDB rxn01258 isochorismate synthase | flags=isomerase",
  "ec": "5.4.99.6",
- "dG": -0.9,
- "dG_raw": -0.9,
+ "dG": -7.4,
+ "dG_raw": -7.4,
  "exp": 1.03,
  "dG_raw_unreliable": null,
- "err": -1.93,
+ "err": -8.43,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.0,
- "sigma_pred": 14.5,
+ "U_samp": 1.0,
+ "sigma_pred": 12.4,
  "ci95": [
-  -32.8,
-  31.0
+  -36.0,
+  21.2
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -0.92,
+  "species_sum": -7.4,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -0.92,
-  "reported": -0.92
+  "unanchored": -7.4,
+  "reported": -7.4
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "Chorismate_t": [
    -1,
-   -2,
-   "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]"
+   0,
+   "C=C(O[C@@H]1C=C(C(=O)O)C=C[C@H]1O)C(=O)O"
   ],
   "Isochorismate_t": [
    1,
-   -2,
-   "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1O)C(=O)[O-]"
+   0,
+   "C=C(O[C@H]1C=CC=C(C(=O)O)[C@@H]1O)C(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

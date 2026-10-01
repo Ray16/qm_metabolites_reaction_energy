@@ -38,6 +38,12 @@ SCRATCH = os.environ.get("QM_SCRATCH", "/nfs/lambda_stor_01/homes/rzhu/qm_scratc
 # change, stripped of spectator anions/cofactors. `bias` = the observed class bias (kJ/mol) from the
 # full-367 sweep (sigma_class_calibrated.json), the number the electronic gap must explain (or not).
 PRESETS = {
+    # phosphagen kinase core exactly as scored by the 2026-10-01 pipeline (NTP core + truncation + pH-0):
+    # methylguanidinium + methyl triphosphate -> N-phospho-methylguanidinium + methyl diphosphate
+    # (arginine / taurocyamine / lombricine kinases all reduce to it; class bias +38).
+    "phosphagen_core": {"bias": 38.2, "elec_gap": None,
+                        "reac": [("CNC(N)=[NH2+]", 1), ("COP(=O)(O)OP(=O)(O)OP(=O)(O)O", 0)],
+                        "prod": [("CNC(N)=[NH+]P(=O)(O)O", 1), ("COP(=O)(O)OP(=O)(O)O", 0)]},
     # C=C + H2O -> C-OH : fumaric acid + water -> malic acid (rxn00799, full-pipeline err +24).
     "hydratase": {"bias": 18.4, "elec_gap": 3.6,
                   "reac": [("OC(=O)/C=C/C(=O)O", 0), ("O", 0)],

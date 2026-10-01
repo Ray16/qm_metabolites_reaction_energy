@@ -67,3 +67,25 @@ COSMO + anchors MAE 12.39 (median 9.45, n=340); COSMO no anchors 13.73. pH-0-rou
     another acid group's O (impossible at pH 7). Test species: list_hbtest.json -> cache_hb.
 14. NTP_CORE (nucleoside -> methyl cap) was never validated on kinases (only rejected on phosphagens); the
     nucleotide kinases (ATP+NMP/NDP, near-isodesmic) err -15..-26. A/B pending sweep.
+
+## Final state (2026-10-01, commit after 9fd178c)
+15. **PH0_ISOMERASE adopted**: the isomerase pH-0 gate dated from COSMO. Under ALPB charged sugar-phosphate ring
+    isomers do not cancel (mannose-6-P isomerase -34, G6P isomerase -25, GlcNAc-P mutase -28) while their
+    neutral forms do. Isomerase MAE 8.4 -> 5.6; TECRDB 10.08 -> 9.64; worst regression -1.6 kJ.
+16. **ACID_HB_FILTER v2 adopted** (a P-O-P chain is one acid group; v1 per-P filtering broke NMP kinases by
+    +21 because intra-chain P-OH...O=P contacts are intrinsic). TECRDB 10.12 -> 10.03.
+17. **Phosphagen class diagnosed, NOT fixed (n=4, bias +37)**: arginine/taurocyamine/lombricine kinases all
+    reduce to the identical core methylguanidinium + MeO-PPP -> N-phospho-methylguanidinium + MeO-PP
+    (pred +40.7; exp +1.1/-4.0/-8.8). UMA vs PBE0/def2-TZVP on that core: UMA-DFT = +7.8 kJ (20%) ->
+    the rest is solvation/speciation of the phosphoguanidinium cation (verify_class_physics phosphagen_core).
+
+**Production (real pipeline, analysis/sweep_20261001/final, 364/364 scored, 0 errors):**
+MAE 9.65, median 7.15, RMSE 13.67, bias +0.65, |err|>20: 39, >40: 9 (vs native-condition reference 9.56).
+No point-prediction parameter is fit to TECRDB (no anchors) -> nested-CV held-out MAE = 9.65; sigma
+recalibrated, 95% interval coverage 95.9%. Previous production: 341 scored, MAE 12.39, median 9.45, >20: 58.
+
+Remaining tail (39): phosphagens (4, above); lipid-phase references (4: retinyl-palmitate esterase,
+anandamide x2, carnitine palmitoyltransferase -- micellar K', not aqueous); NAD redox with alpha-keto/indole
+products (indolelactate DH +51, gluconate 2-DH +25); purine/pteridine tautomers drawn as lactims
+(tetrahydroxypteridine cycloisomerase +34, adenosine deaminase +34); PRT/nucleotidyl transfers
+(nicotinate PRT -39, thiamin-P pyrophosphorylase +47); a few CoA-thioester (citrate synthase +31).

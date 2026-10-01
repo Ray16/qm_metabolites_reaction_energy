@@ -2,19 +2,19 @@
  "reaction": "rxn00704",
  "note": "TECRDB rxn00704 phosphoglucomutase | flags=isomerase",
  "ec": "5.4.2.2",
- "dG": 2.0,
- "dG_raw": 2.0,
+ "dG": -6.0,
+ "dG_raw": -6.0,
  "exp": -7.19,
  "dG_raw_unreliable": null,
- "err": 9.19,
+ "err": 1.19,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.0,
- "sigma_pred": 14.5,
+ "U_samp": 0.3,
+ "sigma_pred": 12.4,
  "ci95": [
-  -29.9,
-  33.9
+  -34.5,
+  22.5
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 2.01,
+  "species_sum": -6.02,
   "proton": -0.0,
-  "pka_transform": 0.0,
-  "unanchored": 2.01,
-  "reported": 2.01
+  "pka_transform": -0.0,
+  "unanchored": -6.02,
+  "reported": -6.02
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "Glucose-1-phosphate_t": [
    -1,
-   -2,
-   "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   0,
+   "O=P(O)(O)O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
   ],
   "D-glucose-6-phosphate_t": [
    1,
-   -2,
-   "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   0,
+   "O=P(O)(O)OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

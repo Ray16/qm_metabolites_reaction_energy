@@ -47,7 +47,7 @@ def test_prediction_interval_symmetric_and_covers():
     assert center == 5.0                                  # symmetric: centred on dG, not de-biased
     assert abs((hi - center) - (center - lo)) < 1e-6      # symmetric half-widths
     assert "point_bias" in info                           # bias reported as SEPARATE metadata
-    assert info["half_width"] >= info["sigma_mult"] * info["sigma"] - 1e-6   # heavy-tail floor respected
+    assert info["half_width"] >= info["sigma_mult"] * info["sigma"] - 0.05   # floor respected (half_width rounded to 0.1)
 
 
 def test_interval_not_overconfident_small_n():

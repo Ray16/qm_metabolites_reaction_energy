@@ -2,19 +2,19 @@
  "reaction": "rxn54659",
  "note": "TECRDB rxn54659 amino-acid racemase | flags=isomerase",
  "ec": "5.1.1.10",
- "dG": 3.9,
- "dG_raw": 3.9,
+ "dG": -0.1,
+ "dG_raw": -0.1,
  "exp": 0.0,
  "dG_raw_unreliable": null,
- "err": 3.9,
+ "err": -0.1,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.8,
- "sigma_pred": 14.5,
+ "U_samp": 0.7,
+ "sigma_pred": 12.4,
  "ci95": [
-  -28.1,
-  35.8
+  -28.7,
+  28.5
  ],
  "externally_calibrated": false,
  "routes": {
@@ -25,7 +25,7 @@
   "truncated": false,
   "trunc_radius": null,
   "ph0": true,
-  "zwitterion_ph0": true,
+  "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
   "reverted": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 3.87,
+  "species_sum": -0.09,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": 3.87,
-  "reported": 3.87
+  "unanchored": -0.09,
+  "reported": -0.09
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "L-Leucine": [
    -1,
-   0,
-   "CC(C)C[C@H](N)C(=O)O"
+   1,
+   "CC(C)C[C@H]([NH3+])C(=O)O"
   ],
   "D-Leucine": [
    1,
-   0,
-   "CC(C)C[C@@H](N)C(=O)O"
+   1,
+   "CC(C)C[C@@H]([NH3+])C(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

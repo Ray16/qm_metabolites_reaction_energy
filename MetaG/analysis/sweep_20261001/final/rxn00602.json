@@ -2,19 +2,19 @@
  "reaction": "rxn00602",
  "note": "TECRDB rxn00602 methylmalonyl-CoA mutase | flags=huge/floppy,isomerase",
  "ec": "5.4.99.2",
- "dG": -10.3,
- "dG_raw": -10.3,
+ "dG": -15.8,
+ "dG_raw": -15.8,
  "exp": -7.58,
  "dG_raw_unreliable": null,
- "err": -2.72,
+ "err": -8.22,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.0,
- "sigma_pred": 24.1,
+ "U_samp": 0.1,
+ "sigma_pred": 14.1,
  "ci95": [
-  -63.4,
-  42.7
+  -48.3,
+  16.6
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -10.34,
+  "species_sum": -15.85,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -10.34,
-  "reported": -10.34
+  "unanchored": -15.85,
+  "reported": -15.85
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "L-methylmalonyl-CoA_t": [
    -1,
-   -1,
-   "CSC(=O)[C@H](C)C(=O)[O-]"
+   0,
+   "CSC(=O)[C@H](C)C(=O)O"
   ],
   "Succinyl-CoA_t": [
    1,
-   -1,
-   "CSC(=O)CCC(=O)[O-]"
+   0,
+   "CSC(=O)CCC(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

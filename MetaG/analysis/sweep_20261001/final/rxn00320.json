@@ -2,19 +2,19 @@
  "reaction": "rxn00320",
  "note": "TECRDB rxn00320 lysine racemase | flags=isomerase",
  "ec": "5.1.1.5",
- "dG": 0.4,
- "dG_raw": 0.4,
+ "dG": 2.4,
+ "dG_raw": 2.4,
  "exp": 0.0,
  "dG_raw_unreliable": null,
- "err": 0.4,
+ "err": 2.4,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 14.5,
+ "U_samp": 0.6,
+ "sigma_pred": 12.4,
  "ci95": [
-  -31.6,
-  32.4
+  -26.2,
+  30.9
  ],
  "externally_calibrated": false,
  "routes": {
@@ -25,7 +25,7 @@
   "truncated": false,
   "trunc_radius": null,
   "ph0": true,
-  "zwitterion_ph0": true,
+  "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
   "reverted": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 0.38,
+  "species_sum": 2.38,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": 0.38,
-  "reported": 0.38
+  "unanchored": 2.38,
+  "reported": 2.38
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "L-Lysine": [
    -1,
-   0,
-   "NCCCC[C@H](N)C(=O)O"
+   2,
+   "[NH3+]CCCC[C@H]([NH3+])C(=O)O"
   ],
   "D-Lysine": [
    1,
-   0,
-   "NCCCC[C@@H](N)C(=O)O"
+   2,
+   "[NH3+]CCCC[C@@H]([NH3+])C(=O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

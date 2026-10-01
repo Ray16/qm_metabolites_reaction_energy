@@ -2,19 +2,19 @@
  "reaction": "rxn00656",
  "note": "TECRDB rxn00656 _-alanine-pyruvate transaminase | flags=CLEAN(tractable)",
  "ec": "2.6.1.18",
- "dG": -10.6,
- "dG_raw": -10.6,
+ "dG": -4.8,
+ "dG_raw": -4.8,
  "exp": 3.87,
  "dG_raw_unreliable": null,
- "err": -14.47,
+ "err": -8.67,
  "class": "transaminase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 10.5,
+ "U_samp": 0.6,
+ "sigma_pred": 10.3,
  "ci95": [
-  -33.6,
-  12.4
+  -28.5,
+  19.0
  ],
  "externally_calibrated": false,
  "routes": {
@@ -25,7 +25,7 @@
   "truncated": true,
   "trunc_radius": 2,
   "ph0": true,
-  "zwitterion_ph0": true,
+  "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
   "reverted": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 5.98,
+  "species_sum": -5.92,
   "proton": -0.0,
-  "pka_transform": -16.54,
-  "unanchored": -10.56,
-  "reported": -10.56
+  "pka_transform": 1.14,
+  "unanchored": -4.78,
+  "reported": -4.78
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -113,13 +114,13 @@
   ],
   "beta-Alanine_t": [
    1,
-   0,
-   "NCCC(=O)O"
+   1,
+   "[NH3+]CCC(=O)O"
   ],
   "L-Alanine_t": [
    -1,
-   0,
-   "C[C@H](N)C(=O)O"
+   1,
+   "C[C@H]([NH3+])C(=O)O"
   ],
   "Pyruvate_t": [
    1,
@@ -128,7 +129,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

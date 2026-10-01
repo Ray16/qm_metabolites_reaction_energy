@@ -2,19 +2,19 @@
  "reaction": "rxn00747",
  "note": "TECRDB rxn00747 triose-phosphate isomerase | flags=isomerase",
  "ec": "5.3.1.1",
- "dG": -15.3,
- "dG_raw": -15.3,
+ "dG": -9.5,
+ "dG_raw": -9.5,
  "exp": -7.82,
  "dG_raw_unreliable": null,
- "err": -7.48,
+ "err": -1.68,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.2,
- "sigma_pred": 14.5,
+ "U_samp": 1.0,
+ "sigma_pred": 12.4,
  "ci95": [
-  -47.2,
-  16.6
+  -38.1,
+  19.1
  ],
  "externally_calibrated": false,
  "routes": {
@@ -24,7 +24,7 @@
   "prefer_full": false,
   "truncated": true,
   "trunc_radius": 2,
-  "ph0": false,
+  "ph0": true,
   "zwitterion_ph0": false,
   "errors": [],
   "warnings": [],
@@ -35,11 +35,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -15.26,
+  "species_sum": -9.51,
   "proton": -0.0,
-  "pka_transform": 0.0,
-  "unanchored": -15.26,
-  "reported": -15.26
+  "pka_transform": -0.0,
+  "unanchored": -9.51,
+  "reported": -9.51
  },
  "conditions": {
   "T_K": 298.15,
@@ -90,6 +90,7 @@
   "ntp_core": true,
   "ph0_auto": true,
   "ph0_bases": true,
+  "ph0_isomerase": true,
   "route_full": true,
   "smd_solv": false,
   "std_state_1m": true,
@@ -108,17 +109,17 @@
  "species_scored": {
   "Glyceraldehyde3-phosphate_t": [
    -1,
-   -2,
-   "O=C[C@H](O)COP(=O)([O-])[O-]"
+   0,
+   "O=C[C@H](O)COP(=O)(O)O"
   ],
   "Glycerone-phosphate_t": [
    1,
-   -2,
-   "O=C(CO)COP(=O)([O-])[O-]"
+   0,
+   "O=C(CO)COP(=O)(O)O"
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "e9c9641822dc681bae109e2f8792dafd180edd7877717d7349ccb187d0da20a4",
+ "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
  "host": "lambda4",
  "secs": 0.0
 }

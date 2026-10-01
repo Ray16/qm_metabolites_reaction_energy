@@ -1,25 +1,25 @@
 {
   "overall": {
-    "MAE": 10.08,
-    "RMS": 14.14,
-    "bias": 0.31,
-    "medAE": 7.61
+    "MAE": 9.65,
+    "RMS": 13.67,
+    "bias": 0.65,
+    "medAE": 7.16
   },
   "n_reactions": 364,
   "n_abs_err_gt_200": 0,
   "cv_grouping": "near-duplicate clusters (difference-fingerprint Tanimoto >= 0.7), 245 groups",
-  "default_sigma": 14.1,
-  "global_q95abs": 31.0,
+  "default_sigma": 13.7,
+  "global_q95abs": 30.6,
   "classes": {
     "phosphatase": {
       "n": 12,
-      "sigma": 8.5,
+      "sigma": 8.3,
       "rms": 5.5,
       "mae": 4.7,
       "bias": 2.4,
       "medAE": 3.7,
       "center": 2.1,
-      "q95abs": 18.0
+      "q95abs": 17.9
     },
     "other/clean": {
       "n": 69,
@@ -29,11 +29,11 @@
       "bias": -1.6,
       "medAE": 8.1,
       "center": -0.9,
-      "q95abs": 38.4
+      "q95abs": 38.3
     },
     "NAD(P)-redox(other)": {
       "n": 74,
-      "sigma": 13.8,
+      "sigma": 13.7,
       "rms": 13.7,
       "mae": 10.1,
       "bias": -0.3,
@@ -49,16 +49,16 @@
       "bias": 1.0,
       "medAE": 3.5,
       "center": 1.7,
-      "q95abs": 27.8
+      "q95abs": 27.7
     },
     "CoA-thioester": {
       "n": 29,
-      "sigma": 14.1,
-      "rms": 14.1,
-      "mae": 10.4,
-      "bias": -0.7,
-      "medAE": 6.0,
-      "center": -1.1,
+      "sigma": 14.2,
+      "rms": 14.2,
+      "mae": 10.7,
+      "bias": -0.8,
+      "medAE": 7.2,
+      "center": -0.9,
       "q95abs": 30.9
     },
     "glycosyl/PRT/nucleoside": {
@@ -69,7 +69,7 @@
       "bias": 2.9,
       "medAE": 9.2,
       "center": 6.5,
-      "q95abs": 28.6
+      "q95abs": 28.5
     },
     "reductive-amination-DH": {
       "n": 11,
@@ -79,7 +79,7 @@
       "bias": -3.0,
       "medAE": 7.2,
       "center": -4.0,
-      "q95abs": 29.2
+      "q95abs": 29.1
     },
     "amide/amidine-hydrolysis": {
       "n": 10,
@@ -89,57 +89,57 @@
       "bias": 4.2,
       "medAE": 11.6,
       "center": -0.1,
-      "q95abs": 31.0
+      "q95abs": 30.8
     },
     "transaminase": {
       "n": 16,
-      "sigma": 10.3,
-      "rms": 9.0,
-      "mae": 7.8,
-      "bias": 3.8,
+      "sigma": 9.8,
+      "rms": 8.6,
+      "mae": 7.4,
+      "bias": 4.2,
       "medAE": 6.2,
       "center": 5.0,
-      "q95abs": 20.2
+      "q95abs": 20.1
     },
     "isomerase/mutase": {
       "n": 57,
-      "sigma": 12.4,
-      "rms": 12.3,
-      "mae": 8.4,
-      "bias": -1.8,
-      "medAE": 7.3,
-      "center": -0.3,
-      "q95abs": 26.0
+      "sigma": 8.7,
+      "rms": 8.3,
+      "mae": 5.6,
+      "bias": 0.2,
+      "medAE": 3.7,
+      "center": 0.2,
+      "q95abs": 15.0
     },
     "carboxyP": {
       "n": 2,
-      "sigma": 13.0,
+      "sigma": 12.7,
       "rms": 10.3,
       "mae": 9.5,
       "bias": -4.0,
       "medAE": 9.5,
       "center": -4.0,
-      "q95abs": 27.4
+      "q95abs": 27.1
     },
     "aldolase": {
       "n": 11,
-      "sigma": 11.5,
+      "sigma": 11.4,
       "rms": 10.4,
       "mae": 9.2,
       "bias": -0.9,
       "medAE": 8.9,
       "center": 0.9,
-      "q95abs": 22.2
+      "q95abs": 22.1
     },
     "ammonia-lyase": {
       "n": 8,
-      "sigma": 10.4,
+      "sigma": 10.2,
       "rms": 7.8,
       "mae": 5.4,
       "bias": -4.8,
       "medAE": 3.5,
       "center": -2.8,
-      "q95abs": 22.9
+      "q95abs": 22.7
     },
     "phosphagen(P-N/Mg)": {
       "n": 4,
@@ -149,27 +149,27 @@
       "bias": 38.2,
       "medAE": 42.1,
       "center": 42.1,
-      "q95abs": 36.9
+      "q95abs": 36.7
     },
     "hydratase": {
       "n": 12,
-      "sigma": 11.8,
+      "sigma": 11.6,
       "rms": 10.9,
-      "mae": 10.0,
-      "bias": 10.0,
+      "mae": 9.9,
+      "bias": 9.8,
       "medAE": 10.4,
       "center": 10.4,
-      "q95abs": 22.0
+      "q95abs": 21.8
     },
     "flavin/FAD-redox": {
       "n": 5,
-      "sigma": 12.0,
+      "sigma": 11.8,
       "rms": 10.0,
       "mae": 9.5,
       "bias": 2.2,
       "medAE": 10.1,
       "center": 7.7,
-      "q95abs": 24.0
+      "q95abs": 23.8
     },
     "carbamoyltransfer": {
       "n": 2,
@@ -179,17 +179,17 @@
       "bias": -12.7,
       "medAE": 12.7,
       "center": -12.7,
-      "q95abs": 29.0
+      "q95abs": 28.7
     }
   },
-  "interval_sigma_mult": 2.3,
+  "interval_sigma_mult": 2.2,
   "interval_form": "half_width = max(m * sqrt(sigma_class^2 + U_samp^2), q95abs)",
   "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
   "cv_coverage_note": "unconditional over every record with an estimate; no outcome-based exclusion",
-  "cv_heldout_MAE": 10.08,
-  "cv_coverage_interval95": 0.953,
-  "cv_coverage_1sigma": 0.766,
-  "cv_coverage_2sigma": 0.937,
+  "cv_heldout_MAE": 9.65,
+  "cv_coverage_interval95": 0.959,
+  "cv_coverage_1sigma": 0.775,
+  "cv_coverage_2sigma": 0.94,
   "config": {
     "aldehyde_hydration": true,
     "anchor_correct": false,
@@ -219,6 +219,7 @@
     "ntp_core": true,
     "ph0_auto": true,
     "ph0_bases": true,
+    "ph0_isomerase": true,
     "ph0_redox_proton": true,
     "physics": "2026-09-30b",
     "pka_env": true,
@@ -250,8 +251,8 @@
     "sweep_dir": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/final",
     "n_records": 364,
     "excluded": {},
-    "git_sha": "760669f2af59c310ff5a8629320d8327c6cf7f97",
-    "built": "2026-10-01T06:41:38"
+    "git_sha": "9fd178c6f293425614c9af97ed3fe5ac240822ad",
+    "built": "2026-10-01T07:02:12"
   },
   "anchors": {
     "phosphagen": {
@@ -578,19 +579,19 @@
     {
       "rid": "rxn00193",
       "class": "isomerase/mutase",
-      "dG": 0.9,
-      "dG_raw": 0.9,
+      "dG": 0.0,
+      "dG_raw": 0.0,
       "exp": -0.0,
-      "U_samp": 0.6,
+      "U_samp": 0.1,
       "anchor": null
     },
     {
       "rid": "rxn00195",
       "class": "isomerase/mutase",
-      "dG": -6.6,
-      "dG_raw": -6.6,
+      "dG": -8.2,
+      "dG_raw": -8.2,
       "exp": -5.81,
-      "U_samp": 0.9,
+      "U_samp": 0.1,
       "anchor": null
     },
     {
@@ -605,10 +606,10 @@
     {
       "rid": "rxn00214",
       "class": "isomerase/mutase",
-      "dG": 11.4,
-      "dG_raw": 11.4,
+      "dG": 7.3,
+      "dG_raw": 7.3,
       "exp": 2.98,
-      "U_samp": 0.6,
+      "U_samp": 0.2,
       "anchor": null
     },
     {
@@ -743,7 +744,7 @@
       "dG": 0.0,
       "dG_raw": 0.0,
       "exp": 5.71,
-      "U_samp": 0.0,
+      "U_samp": 0.1,
       "anchor": null
     },
     {
@@ -776,10 +777,10 @@
     {
       "rid": "rxn00283",
       "class": "isomerase/mutase",
-      "dG": 0.0,
-      "dG_raw": 0.0,
+      "dG": 5.9,
+      "dG_raw": 5.9,
       "exp": 0.0,
-      "U_samp": 0.9,
+      "U_samp": 0.0,
       "anchor": null
     },
     {
@@ -830,19 +831,19 @@
     {
       "rid": "rxn00320",
       "class": "isomerase/mutase",
-      "dG": 0.4,
-      "dG_raw": 0.4,
+      "dG": 2.4,
+      "dG_raw": 2.4,
       "exp": 0.0,
-      "U_samp": 1.1,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn00321",
       "class": "isomerase/mutase",
-      "dG": -7.9,
-      "dG_raw": -7.9,
+      "dG": -7.8,
+      "dG_raw": -7.8,
       "exp": -4.62,
-      "U_samp": 0.5,
+      "U_samp": 0.3,
       "anchor": null
     },
     {
@@ -1163,19 +1164,19 @@
     {
       "rid": "rxn00558",
       "class": "isomerase/mutase",
-      "dG": -21.2,
-      "dG_raw": -21.2,
+      "dG": 1.2,
+      "dG_raw": 1.2,
       "exp": 3.38,
-      "U_samp": 0.3,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00559",
       "class": "isomerase/mutase",
-      "dG": -34.4,
-      "dG_raw": -34.4,
+      "dG": 3.2,
+      "dG_raw": 3.2,
       "exp": -0.09,
-      "U_samp": 0.3,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
@@ -1208,10 +1209,10 @@
     {
       "rid": "rxn00602",
       "class": "CoA-thioester",
-      "dG": -10.3,
-      "dG_raw": -10.3,
+      "dG": -15.8,
+      "dG_raw": -15.8,
       "exp": -7.58,
-      "U_samp": 0.0,
+      "U_samp": 0.1,
       "anchor": null
     },
     {
@@ -1307,19 +1308,19 @@
     {
       "rid": "rxn00643",
       "class": "isomerase/mutase",
-      "dG": 6.1,
-      "dG_raw": 6.1,
+      "dG": -5.3,
+      "dG_raw": -5.3,
       "exp": 1.69,
-      "U_samp": 0.9,
+      "U_samp": 1.1,
       "anchor": null
     },
     {
       "rid": "rxn00656",
       "class": "transaminase",
-      "dG": -10.6,
-      "dG_raw": -10.6,
+      "dG": -4.8,
+      "dG_raw": -4.8,
       "exp": 3.87,
-      "U_samp": 1.1,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
@@ -1415,10 +1416,10 @@
     {
       "rid": "rxn00704",
       "class": "isomerase/mutase",
-      "dG": 2.0,
-      "dG_raw": 2.0,
+      "dG": -6.0,
+      "dG_raw": -6.0,
       "exp": -7.19,
-      "U_samp": 0.0,
+      "U_samp": 0.3,
       "anchor": null
     },
     {
@@ -1442,10 +1443,10 @@
     {
       "rid": "rxn00747",
       "class": "isomerase/mutase",
-      "dG": -15.3,
-      "dG_raw": -15.3,
+      "dG": -9.5,
+      "dG_raw": -9.5,
       "exp": -7.82,
-      "U_samp": 0.2,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
@@ -1649,10 +1650,10 @@
     {
       "rid": "rxn00830",
       "class": "isomerase/mutase",
-      "dG": -1.2,
-      "dG_raw": -1.2,
+      "dG": 3.0,
+      "dG_raw": 3.0,
       "exp": -4.91,
-      "U_samp": 0.7,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
@@ -1784,10 +1785,10 @@
     {
       "rid": "rxn00973",
       "class": "hydratase",
-      "dG": 7.0,
-      "dG_raw": 7.0,
+      "dG": 5.2,
+      "dG_raw": 5.2,
       "exp": 5.87,
-      "U_samp": 0.1,
+      "U_samp": 1.1,
       "anchor": null
     },
     {
@@ -1832,7 +1833,7 @@
       "dG": 0.0,
       "dG_raw": 0.0,
       "exp": 5.71,
-      "U_samp": 0.2,
+      "U_samp": 0.0,
       "anchor": null
     },
     {
@@ -1847,10 +1848,10 @@
     {
       "rid": "rxn01008",
       "class": "isomerase/mutase",
-      "dG": -10.2,
-      "dG_raw": -10.2,
+      "dG": 4.5,
+      "dG_raw": 4.5,
       "exp": -0.68,
-      "U_samp": 0.1,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
@@ -1931,16 +1932,16 @@
       "dG": -1.8,
       "dG_raw": -1.8,
       "exp": -0.0,
-      "U_samp": 0.1,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn01080",
       "class": "isomerase/mutase",
-      "dG": -10.0,
-      "dG_raw": -10.0,
+      "dG": -4.5,
+      "dG_raw": -4.5,
       "exp": 0.63,
-      "U_samp": 0.0,
+      "U_samp": 0.3,
       "anchor": null
     },
     {
@@ -1973,19 +1974,19 @@
     {
       "rid": "rxn01106",
       "class": "isomerase/mutase",
-      "dG": 4.8,
-      "dG_raw": 4.8,
+      "dG": -7.9,
+      "dG_raw": -7.9,
       "exp": -6.4,
-      "U_samp": 0.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01116",
       "class": "isomerase/mutase",
-      "dG": -8.9,
-      "dG_raw": -8.9,
+      "dG": -0.1,
+      "dG_raw": -0.1,
       "exp": -1.01,
-      "U_samp": 0.7,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
@@ -2126,10 +2127,10 @@
     {
       "rid": "rxn01258",
       "class": "isomerase/mutase",
-      "dG": -0.9,
-      "dG_raw": -0.9,
+      "dG": -7.4,
+      "dG_raw": -7.4,
       "exp": 1.03,
-      "U_samp": 0.0,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
@@ -2234,10 +2235,10 @@
     {
       "rid": "rxn01329",
       "class": "isomerase/mutase",
-      "dG": -9.3,
-      "dG_raw": -9.3,
+      "dG": 11.2,
+      "dG_raw": 11.2,
       "exp": 5.58,
-      "U_samp": 0.0,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
@@ -2441,10 +2442,10 @@
     {
       "rid": "rxn01457",
       "class": "isomerase/mutase",
-      "dG": -20.8,
-      "dG_raw": -20.8,
+      "dG": 5.0,
+      "dG_raw": 5.0,
       "exp": 1.34,
-      "U_samp": 0.4,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
@@ -2477,10 +2478,10 @@
     {
       "rid": "rxn01485",
       "class": "isomerase/mutase",
-      "dG": 0.5,
-      "dG_raw": 0.5,
+      "dG": -31.1,
+      "dG_raw": -31.1,
       "exp": -2.72,
-      "U_samp": 0.4,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
@@ -2495,19 +2496,19 @@
     {
       "rid": "rxn01505",
       "class": "isomerase/mutase",
-      "dG": -23.5,
-      "dG_raw": -23.5,
+      "dG": 10.8,
+      "dG_raw": 10.8,
       "exp": 4.72,
-      "U_samp": 0.3,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
       "rid": "rxn01506",
       "class": "isomerase/mutase",
-      "dG": -19.8,
-      "dG_raw": -19.8,
+      "dG": 5.7,
+      "dG_raw": 5.7,
       "exp": 1.96,
-      "U_samp": 0.3,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
@@ -2810,8 +2811,8 @@
     {
       "rid": "rxn01974",
       "class": "isomerase/mutase",
-      "dG": -1.7,
-      "dG_raw": -1.7,
+      "dG": -0.0,
+      "dG_raw": -0.0,
       "exp": -1.66,
       "U_samp": 0.8,
       "anchor": null
@@ -2828,10 +2829,10 @@
     {
       "rid": "rxn01996",
       "class": "CoA-thioester",
-      "dG": -1.1,
-      "dG_raw": -1.1,
+      "dG": 3.9,
+      "dG_raw": 3.9,
       "exp": -0.0,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
@@ -2909,8 +2910,8 @@
     {
       "rid": "rxn02204",
       "class": "isomerase/mutase",
-      "dG": 7.0,
-      "dG_raw": 7.0,
+      "dG": -4.9,
+      "dG_raw": -4.9,
       "exp": -3.28,
       "U_samp": 0.9,
       "anchor": null
@@ -2963,8 +2964,8 @@
     {
       "rid": "rxn02360",
       "class": "isomerase/mutase",
-      "dG": -2.2,
-      "dG_raw": -2.2,
+      "dG": 1.7,
+      "dG_raw": 1.7,
       "exp": 0.02,
       "U_samp": 0.0,
       "anchor": null
@@ -3062,10 +3063,10 @@
     {
       "rid": "rxn02756",
       "class": "isomerase/mutase",
-      "dG": -8.2,
-      "dG_raw": -8.2,
+      "dG": 4.0,
+      "dG_raw": 4.0,
       "exp": 3.75,
-      "U_samp": 0.1,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
@@ -3107,10 +3108,10 @@
     {
       "rid": "rxn02902",
       "class": "isomerase/mutase",
-      "dG": 39.2,
-      "dG_raw": 39.2,
+      "dG": 24.6,
+      "dG_raw": 24.6,
       "exp": -9.81,
-      "U_samp": 0.1,
+      "U_samp": 0.0,
       "anchor": null
     },
     {
@@ -3134,10 +3135,10 @@
     {
       "rid": "rxn02975",
       "class": "isomerase/mutase",
-      "dG": 0.0,
-      "dG_raw": 0.0,
+      "dG": -3.3,
+      "dG_raw": -3.3,
       "exp": -0.68,
-      "U_samp": 0.3,
+      "U_samp": 1.4,
       "anchor": null
     },
     {
@@ -3197,10 +3198,10 @@
     {
       "rid": "rxn03644",
       "class": "isomerase/mutase",
-      "dG": -5.3,
-      "dG_raw": -5.3,
+      "dG": -24.3,
+      "dG_raw": -24.3,
       "exp": -13.03,
-      "U_samp": 0.3,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
@@ -3242,10 +3243,10 @@
     {
       "rid": "rxn04082",
       "class": "isomerase/mutase",
-      "dG": -8.5,
-      "dG_raw": -8.5,
+      "dG": -1.3,
+      "dG_raw": -1.3,
       "exp": -0.47,
-      "U_samp": 0.4,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
@@ -3458,8 +3459,8 @@
     {
       "rid": "rxn31240",
       "class": "isomerase/mutase",
-      "dG": -7.5,
-      "dG_raw": -7.5,
+      "dG": 1.5,
+      "dG_raw": 1.5,
       "exp": -1.32,
       "U_samp": 0.3,
       "anchor": null
@@ -3566,10 +3567,10 @@
     {
       "rid": "rxn54659",
       "class": "isomerase/mutase",
-      "dG": 3.9,
-      "dG_raw": 3.9,
+      "dG": -0.1,
+      "dG_raw": -0.1,
       "exp": 0.0,
-      "U_samp": 0.8,
+      "U_samp": 0.7,
       "anchor": null
     }
   ]
