@@ -1,0 +1,8515 @@
+{
+ "rxn42042": {
+  "note": "rxn42042  | EC=1.1.3.48",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "KDO": [
+    -1,
+    -1,
+    "O=C([O-])C(=O)C[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "(2R,4R,5R,6S)-2,4,5-trihydroxy-6-[(1S)-1-hydroxy-2-oxoethyl]": [
+    1,
+    -1,
+    "O=C[C@@H](O)[C@H]1O[C@@](O)(C(=O)[O-])C[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "1.1.3.48",
+  "gc_kcal": -29.14,
+  "eq_kcal": -26.04
+ },
+ "rxn39432": {
+  "note": "rxn39432 N1-acetylspermine:oxygen oxidoreductase (3-acetamidopropanal-forming) | EC=1.5.3.17",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "N1-Acetylspermine": [
+    -1,
+    3,
+    "CC(=O)NCCC[NH2+]CCCC[NH2+]CCC[NH3+]"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Spermidine": [
+    1,
+    3,
+    "[NH3+]CCCC[NH2+]CCC[NH3+]"
+   ],
+   "3-Acetamidopropanal": [
+    1,
+    0,
+    "CC(=O)NCCC=O"
+   ]
+  },
+  "ec": "1.5.3.17",
+  "gc_kcal": -23.5,
+  "eq_kcal": -20.69
+ },
+ "rxn00262": {
+  "note": "rxn00262 L-Aspartic acid:oxygen oxidoreductase (deaminating) | EC=1.4.3.16",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Oxaloacetate": [
+    1,
+    -2,
+    "O=C([O-])CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "1.4.3.16",
+  "gc_kcal": -23.02,
+  "eq_kcal": -22.32
+ },
+ "rxn46326": {
+  "note": "rxn46326  | EC=1.8.3.M1",
+  "n_Hplus": -1,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "dithioholomycin": [
+    -1,
+    -1,
+    "CC(=O)NC1=C([S-])C(C=S)NC1=O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "6-acetamido-1,2-dithiolo[4,3-b]pyrrol-5(4H)-one": [
+    1,
+    0,
+    "CC(=O)Nc1c2sscc-2[nH]c1=O"
+   ]
+  },
+  "ec": "1.8.3.M1",
+  "gc_kcal": -51.7
+ },
+ "rxn15946": {
+  "note": "rxn15946 spermidine:oxygen oxidoreductase (3-aminopropanal-forming) | EC=1.5.3.17",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Spermidine": [
+    -1,
+    3,
+    "[NH3+]CCCC[NH2+]CCC[NH3+]"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Putrescine": [
+    1,
+    2,
+    "[NH3+]CCCC[NH3+]"
+   ],
+   "3-Aminopropanal": [
+    1,
+    1,
+    "[NH3+]CCC=O"
+   ]
+  },
+  "ec": "1.5.3.17",
+  "gc_kcal": -23.5,
+  "eq_kcal": -21.19
+ },
+ "rxn02279": {
+  "note": "rxn02279 L-gulono-1,4-lactone:oxygen 2-oxidoreductase | EC=1.1.3.8",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "L-Gulonolactone": [
+    -1,
+    0,
+    "O=C1O[C@H]([C@@H](O)CO)[C@H](O)[C@@H]1O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "L-xylo-Hexulonolactone": [
+    1,
+    0,
+    "O=C1O[C@H]([C@@H](O)CO)[C@H](O)C1=O"
+   ]
+  },
+  "ec": "1.1.3.8",
+  "gc_kcal": -26.95,
+  "eq_kcal": -32.0
+ },
+ "rxn16624": {
+  "note": "rxn16624 torulene:oxygen 4',5'-oxidoreductase (bond-cleaving) | EC=1.13.11.59",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Torulene": [
+    -1,
+    0,
+    "CC(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1(C)C"
+   ],
+   "3-Methylbut-2-enal": [
+    1,
+    0,
+    "CC(C)=CC=O"
+   ],
+   "4'-Apo-beta,psi-caroten-4'-al": [
+    1,
+    0,
+    "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C=C(\\C)C=O)C(C)(C)CCC1"
+   ]
+  },
+  "ec": "1.13.11.59",
+  "gc_kcal": -87.46,
+  "eq_kcal": -87.62
+ },
+ "rxn21218": {
+  "note": "rxn21218 RXN-10922.c | EC=1.4.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "L-Tryptophan": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "2-imino-3-(indol-3-yl)propanoate": [
+    1,
+    0,
+    "[NH2+]=C(Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ]
+  },
+  "ec": "1.4.3.-",
+  "gc_kcal": -44.72,
+  "eq_kcal": -27.5
+ },
+ "rxn40748": {
+  "note": "rxn40748 dihydrobenzophananthridine oxidase | EC=1.5.3.12",
+  "n_Hplus": -1,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "12,13-dihydrochelerythrine": [
+    -1,
+    0,
+    "COc1ccc2c(c1OC)CN(C)c1c-2ccc2cc3c(cc12)OCO3"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Chelerythrine": [
+    1,
+    1,
+    "COc1ccc2c(c[n+](C)c3c4cc5c(cc4ccc23)OCO5)c1OC"
+   ]
+  },
+  "ec": "1.5.3.12",
+  "gc_kcal": -31.71,
+  "eq_kcal": -34.18
+ },
+ "rxn06784": {
+  "note": "rxn06784 phytoene dehydrogenase, chloroplast / phytoene desaturase (PDS) | EC=1.14.99.-",
+  "n_Hplus": 0,
+  "species": {
+   "Phytoene": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/C=C/C=C(\\C)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C"
+   ],
+   "Phytofluene": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/C=C/C(C)=C/C=C/C=C(\\C)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C"
+   ],
+   "H2": [
+    1,
+    0,
+    "[H][H]"
+   ]
+  },
+  "ec": "1.14.99.-",
+  "gc_kcal": 16.93,
+  "eq_kcal": 22.7
+ },
+ "rxn21390": {
+  "note": "rxn21390 RXN-11085.c | EC=1.11.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O2": [
+    -1,
+    0,
+    "OO"
+   ],
+   "phenoxy radical VIII": [
+    -1,
+    0,
+    "O=C1c2ccc(O)cc2OC1C(O)c1ccc(O)cc1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "phenoxy radical VI": [
+    1,
+    0,
+    "O=C1c2ccc(O)cc2OC1C(OO)c1ccc(O)cc1"
+   ]
+  },
+  "ec": "1.11.2.-",
+  "gc_kcal": -47.84
+ },
+ "rxn02983": {
+  "note": "rxn02983 3-O-Methylgallate:oxygen 4,5-oxidoreductase (decyclizing) | EC=1.13.11.8",
+  "n_Hplus": 1,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "3-O-Methylgallate": [
+    -1,
+    -1,
+    "COc1cc(C(=O)[O-])cc(O)c1O"
+   ],
+   "Methanol": [
+    1,
+    0,
+    "CO"
+   ],
+   "2-Pyrone-4,6-dicarboxylate": [
+    1,
+    -2,
+    "O=C([O-])c1cc(C(=O)[O-])oc(=O)c1"
+   ]
+  },
+  "ec": "1.13.11.8",
+  "gc_kcal": -104.86,
+  "eq_kcal": -5.87
+ },
+ "rxn01327": {
+  "note": "rxn01327 Anthranilate,tetrahydrobiopterin:oxygen oxidoreductase (3-hydroxylating) | EC=1.14.16.3",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Anthranilate": [
+    -1,
+    -1,
+    "Nc1ccccc1C(=O)[O-]"
+   ],
+   "Tetrahydrobiopterin": [
+    -1,
+    0,
+    "C[C@H](O)[C@H](O)[C@H]1CNc2[nH]c(N)nc(=O)c2N1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Dihydrobiopterin": [
+    1,
+    0,
+    "C[C@H](O)[C@H](O)[C@H]1CNC2=NC(N)=NC(=O)C2=N1"
+   ],
+   "3-Hydroxyanthranilate": [
+    1,
+    -1,
+    "Nc1c(O)cccc1C(=O)[O-]"
+   ]
+  },
+  "ec": "1.14.16.3",
+  "gc_kcal": -91.28
+ },
+ "rxn02022": {
+  "note": "rxn02022 iodide:hydrogen-peroxide oxidoreductase | EC=1.11.1.8",
+  "n_Hplus": -2,
+  "species": {
+   "H2O2": [
+    -1,
+    0,
+    "OO"
+   ],
+   "I-": [
+    -2,
+    -1,
+    "[I-]"
+   ],
+   "H2O": [
+    2,
+    0,
+    "O"
+   ],
+   "I2": [
+    1,
+    0,
+    "II"
+   ]
+  },
+  "ec": "1.11.1.8"
+ },
+ "rxn02533": {
+  "note": "rxn02533 Gallate:oxygen 4,5-oxidoreductase (decyclizing) | EC=1.13.11.8",
+  "n_Hplus": 2,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Gallate": [
+    -1,
+    -1,
+    "O=C([O-])c1cc(O)c(O)c(O)c1"
+   ],
+   "4-Carboxy-2-hydroxyhexa-2,4-dienedioate": [
+    1,
+    -3,
+    "O=C([O-])/C=C(/CC(=O)C(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.8",
+  "gc_kcal": -94.76,
+  "eq_kcal": -74.56
+ },
+ "rxn02779": {
+  "note": "rxn02779 R03953 | EC=1.11.1.8",
+  "n_Hplus": 0,
+  "species": {
+   "H2O2": [
+    -1,
+    0,
+    "OO"
+   ],
+   "L-Diiodotyrosine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1cc(I)c(O)c(I)c1)C(=O)[O-]"
+   ],
+   "3-Iodo-L-tyrosine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccc(O)c(I)c1)C(=O)[O-]"
+   ],
+   "H2O": [
+    2,
+    0,
+    "O"
+   ],
+   "Dehydroalanine": [
+    1,
+    0,
+    "C=C([NH3+])C(=O)[O-]"
+   ],
+   "T3": [
+    1,
+    0,
+    "[NH3+][C@@H](Cc1cc(I)c(Oc2ccc(O)c(I)c2)c(I)c1)C(=O)[O-]"
+   ]
+  },
+  "ec": "1.11.1.8",
+  "gc_kcal": -48.71,
+  "eq_kcal": -61.34
+ },
+ "rxn04851": {
+  "note": "rxn04851 R07045 | EC=1.14.14.1",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "11H-14,15-EETA": [
+    -1,
+    -1,
+    "CCCCCC1OC1/C=C/C(O)C/C=C\\C/C=C\\CCCC(=O)[O-]"
+   ],
+   "11,14,15-THETA": [
+    1,
+    -1,
+    "CCCCCC(O)C(O)/C=C/C(O)C/C=C\\C/C=C\\CCCC(=O)[O-]"
+   ]
+  },
+  "ec": "1.14.14.1",
+  "gc_kcal": -3.63,
+  "eq_kcal": 6.48
+ },
+ "rxn24140": {
+  "note": "rxn24140 2',4,4',6'-tetrahydroxychalcone:oxygen oxidoreductase | EC=1.21.3.6",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Butein": [
+    -1,
+    0,
+    "O=C(/C=C/c1ccc(O)c(O)c1)c1ccc(O)cc1O"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Aureusidin": [
+    1,
+    0,
+    "O=C1/C(=C/c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21"
+   ]
+  },
+  "ec": "1.21.3.6",
+  "gc_kcal": -77.95,
+  "eq_kcal": -126.78
+ },
+ "rxn07349": {
+  "note": "rxn07349 rxn07349 | EC=1.14.99.-",
+  "n_Hplus": 0,
+  "species": {
+   "Lycopene": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C=C(\\C)CCC=C(C)C"
+   ],
+   "H2": [
+    1,
+    0,
+    "[H][H]"
+   ],
+   "3,4-Dehydrolycopene": [
+    1,
+    0,
+    "CC(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C=C(\\C)CCC=C(C)C"
+   ]
+  },
+  "ec": "1.14.99.-",
+  "gc_kcal": 16.93,
+  "eq_kcal": 22.7
+ },
+ "rxn02969": {
+  "note": "rxn02969 R04258 | EC=1.13.11.1",
+  "n_Hplus": 2,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "4-Chlorocatechol": [
+    -1,
+    0,
+    "Oc1ccc(Cl)cc1O"
+   ],
+   "3-Chloro-cis,cis-muconate": [
+    1,
+    -2,
+    "O=C([O-])/C=C\\C(Cl)=C/C(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.1",
+  "gc_kcal": -95.64,
+  "eq_kcal": -74.0
+ },
+ "rxn15134": {
+  "note": "rxn15134 D-Galactose:oxygen 6-oxidoreductase | EC=1.1.3.9",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "beta D-Galactose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "D-galacto-Hexodialdose": [
+    1,
+    0,
+    "O=C[C@@H](O)[C@H](O)[C@H](O)[C@@H](O)C=O"
+   ]
+  },
+  "ec": "1.1.3.9",
+  "gc_kcal": -26.49
+ },
+ "rxn12169": {
+  "note": "rxn12169 Arachidonate 5-lipoxygenase | EC=1.13.11.34",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Arachidonate": [
+    -1,
+    -1,
+    "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "LTA4": [
+    1,
+    -1,
+    "CCCCC/C=C\\C/C=C\\C=C\\C=C\\[C@@H]1O[C@H]1CCCC(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.34",
+  "gc_kcal": -86.01,
+  "eq_kcal": -86.99
+ },
+ "rxn40664": {
+  "note": "rxn40664  | EC=1.13.11.35",
+  "n_Hplus": 2,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Pyrogallol": [
+    -1,
+    0,
+    "Oc1cccc(O)c1O"
+   ],
+   "(2Z,4E)-2-hydroxyhexa-2,4-dienedioate": [
+    1,
+    -2,
+    "O=C([O-])CC=CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.35",
+  "gc_kcal": -95.64,
+  "eq_kcal": -74.83
+ },
+ "rxn36760": {
+  "note": "rxn36760 FAD-dependent malate dehydrogenase | EC=1.1.5.4",
+  "n_Hplus": 0,
+  "species": {
+   "L-Malate": [
+    -1,
+    -2,
+    "O=C([O-])C[C@H](O)C(=O)[O-]"
+   ],
+   "Demethylphylloquinone": [
+    -1,
+    0,
+    "C/C(=C\\CC1=CC(=O)c2ccccc2C1=O)CCC[C@H](C)CCC[C@H](C)CCCC(C)C"
+   ],
+   "Oxaloacetate": [
+    1,
+    -2,
+    "O=C([O-])CC(=O)C(=O)[O-]"
+   ],
+   "3-phytyl-1,4-naphtoquinol": [
+    1,
+    0,
+    "C/C(=C\\Cc1cc(O)c2ccccc2c1O)CCC[C@H](C)CCC[C@H](C)CCCC(C)C"
+   ]
+  },
+  "ec": "1.1.5.4",
+  "gc_kcal": -14.09,
+  "eq_kcal": -4.46
+ },
+ "rxn39761": {
+  "note": "rxn39761 tetracenomycin-F1:oxygen C5-monooxygenase | EC=1.13.12.21",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Tetracenomycin F1": [
+    -1,
+    -1,
+    "Cc1c(C(=O)[O-])c(O)cc2cc3c(c(O)c12)C(=O)c1c(O)cc(O)cc1C3"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Tetracenomycin D3": [
+    1,
+    -1,
+    "Cc1c(C(=O)[O-])c(O)cc2cc3c(c(O)c12)C(=O)c1c(O)cc(O)cc1C3=O"
+   ]
+  },
+  "ec": "1.13.12.21",
+  "gc_kcal": -96.99
+ },
+ "rxn13968": {
+  "note": "rxn13968 dopamine:oxygen oxidoreductase | EC=1.10.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Dopamine": [
+    -2,
+    1,
+    "[NH3+]CCc1ccc(O)c(O)c1"
+   ],
+   "H2O": [
+    2,
+    0,
+    "O"
+   ],
+   "Dopamine quinone": [
+    2,
+    1,
+    "[NH3+]CCC1=CC(=O)C(=O)C=C1"
+   ]
+  },
+  "ec": "1.10.3.-",
+  "gc_kcal": -79.74,
+  "eq_kcal": -82.42
+ },
+ "rxn00052": {
+  "note": "rxn00052 thiamine-aldehyde:oxygen 5-oxidoreductase | EC=1.1.3.23",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Thiamine aldehyde": [
+    -1,
+    1,
+    "Cc1ncc(C[n+]2csc(CC=O)c2C)c(N)n1"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Thiamin acetic acid": [
+    1,
+    0,
+    "Cc1ncc(C[n+]2csc(CC(=O)[O-])c2C)c(N)n1"
+   ]
+  },
+  "ec": "1.1.3.23",
+  "gc_kcal": -41.51,
+  "eq_kcal": -40.01
+ },
+ "rxn25593": {
+  "note": "rxn25593 RXN-947.c | EC=1.14.11.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "Gibberellin A12": [
+    -1,
+    -2,
+    "C=C1C[C@]23C[C@H]1CC[C@H]2[C@]1(C)CCC[C@@](C)(C(=O)[O-])[C@H]1[C@@H]3C(=O)[O-]"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ],
+   "GA110": [
+    1,
+    -2,
+    "C=C1C[C@]23C[C@H]1CC[C@H]2[C@]1(C)C[C@H](O)C[C@@](C)(C(=O)[O-])[C@H]1[C@@H]3C(=O)[O-]"
+   ]
+  },
+  "ec": "1.14.11.-"
+ },
+ "rxn02878": {
+  "note": "rxn02878 naphthalene-1,2-diol:oxygen oxidoreductase | EC=1.13.11.-",
+  "n_Hplus": 1,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "1,2-Naphthalenediol": [
+    -1,
+    0,
+    "Oc1ccc2ccccc2c1O"
+   ],
+   "2-Hydroxychromene-2-carboxylate": [
+    1,
+    -1,
+    "O=C([O-])C1(O)C=Cc2ccccc2O1"
+   ]
+  },
+  "ec": "1.13.11.-",
+  "gc_kcal": -82.55,
+  "eq_kcal": -86.23
+ },
+ "rxn02841": {
+  "note": "rxn02841 R04048 | EC=1.1.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Dehydro-D-glucose": [
+    -1,
+    0,
+    "O=C1[C@H](O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "2-Dehydro-D-glucono-1,5-lactone": [
+    1,
+    0,
+    "O=C1O[C@H](CO)[C@@H](O)[C@H](O)C1=O"
+   ]
+  },
+  "ec": "1.1.3.-",
+  "gc_kcal": -31.25,
+  "eq_kcal": -35.35
+ },
+ "rxn16239": {
+  "note": "rxn16239 codeine,2-oxoglutarate:oxygen oxidoreductase (3-O-demethylating) | EC=1.14.11.32",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "Codeine": [
+    -1,
+    1,
+    "COc1ccc2c3c1O[C@H]1[C@@H](O)C=C[C@H]4[C@@H](C2)[NH+](C)CC[C@@]341"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ],
+   "Formaldehyde": [
+    1,
+    0,
+    "C=O"
+   ],
+   "Morphine": [
+    1,
+    1,
+    "C[NH+]1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5"
+   ]
+  },
+  "ec": "1.14.11.32"
+ },
+ "rxn01949": {
+  "note": "rxn01949 5-hydroxy-L-tryptophan:oxygen 2,3-dioxygenase (indole-decyclizing) | EC=1.13.11.52",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "5-Hydroxy-L-tryptophan": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]c2ccc(O)cc12)C(=O)[O-]"
+   ],
+   "5-Hydroxy-N-formylkynurenine": [
+    1,
+    0,
+    "[NH3+][C@@H](CC(=O)c1cc(O)ccc1NC=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.52",
+  "gc_kcal": -92.1
+ },
+ "rxn23083": {
+  "note": "rxn23083 pentalenolactone E dioxygenase | EC=1.14.11.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "pentalenolactone E": [
+    -1,
+    -1,
+    "C=C1C(=O)OC[C@H]2C(C(=O)[O-])=C[C@@H]3CC(C)(C)C[C@@]132"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ],
+   "pentalenolactone F": [
+    1,
+    -1,
+    "CC1(C)C[C@H]2C=C(C(=O)[O-])[C@@H]3COC(=O)[C@]4(CO4)[C@]23C1"
+   ]
+  },
+  "ec": "1.14.11.-"
+ },
+ "rxn02592": {
+  "note": "rxn02592 melatonin:oxygen 2,3-dioxygenase (indole-decyclizing) | EC=1.13.11.52",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Melatonin": [
+    -1,
+    0,
+    "COc1ccc2[nH]cc(CCNC(C)=O)c2c1"
+   ],
+   "Formyl-N-acetyl-5-methoxykynurenamine": [
+    1,
+    0,
+    "COc1ccc(NC=O)c(C(=O)CCNC(C)=O)c1"
+   ]
+  },
+  "ec": "1.13.11.52",
+  "gc_kcal": -92.1,
+  "eq_kcal": -78.34
+ },
+ "rxn00207": {
+  "note": "rxn00207 Carbon-monoxide:oxygen oxidoreductase | EC=1.2.2.4",
+  "n_Hplus": -1,
+  "species": {
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "H2O2": [
+    -1,
+    0,
+    "OO"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "O2": [
+    1,
+    0,
+    "O=O"
+   ],
+   "CO": [
+    1,
+    1,
+    "C#[O+]"
+   ]
+  },
+  "ec": "1.2.2.4",
+  "gc_kcal": 52.41
+ },
+ "rxn00032": {
+  "note": "rxn00032 Choline:oxygen 1-oxidoreductase | EC=1.1.3.17",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Choline": [
+    -2,
+    1,
+    "C[N+](C)(C)CCO"
+   ],
+   "H2O": [
+    2,
+    0,
+    "O"
+   ],
+   "Betaine aldehyde": [
+    2,
+    1,
+    "C[N+](C)(C)CC=O"
+   ]
+  },
+  "ec": "1.1.3.17",
+  "gc_kcal": -98.34,
+  "eq_kcal": -101.23
+ },
+ "rxn15552": {
+  "note": "rxn15552 4-hydroxyphenylpyruvate:oxygen oxidoreductase (decarboxylating) | EC=1.13.11.46",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "p-hydroxyphenylpyruvate": [
+    -1,
+    -1,
+    "O=C([O-])C(=O)Cc1ccc(O)cc1"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "(R)-4-Hydroxymandelate": [
+    1,
+    -1,
+    "O=C([O-])[C@H](O)c1ccc(O)cc1"
+   ]
+  },
+  "ec": "1.13.11.46",
+  "gc_kcal": -108.28,
+  "eq_kcal": -120.27
+ },
+ "rxn25731": {
+  "note": "rxn25731 RXN-9641.c | EC=1.14.13.-",
+  "n_Hplus": 0,
+  "species": {
+   "(Z)-2-methylbutanal oxime": [
+    -1,
+    0,
+    "CC[C@H](C)/C=N\\O"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "2-methylbutyronitrile": [
+    1,
+    0,
+    "CC[C@H](C)C#N"
+   ]
+  },
+  "ec": "1.14.13.-",
+  "gc_kcal": -34.59
+ },
+ "rxn23088": {
+  "note": "rxn23088 pentalenolactone D dioxygenase | EC=1.14.11.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "pentalenolactone D": [
+    -1,
+    -1,
+    "C[C@@H]1C(=O)OC[C@H]2C(C(=O)[O-])=C[C@@H]3CC(C)(C)C[C@]312"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ],
+   "pentalenolactone E": [
+    1,
+    -1,
+    "C=C1C(=O)OC[C@H]2C(C(=O)[O-])=C[C@@H]3CC(C)(C)C[C@@]132"
+   ]
+  },
+  "ec": "1.14.11.-"
+ },
+ "rxn39737": {
+  "note": "rxn39737 (S)-4-hydroxymandelate:oxygen 1-oxidoreductase | EC=1.1.3.46",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "(S)-4-Hydroxymandelate": [
+    -1,
+    -1,
+    "O=C([O-])[C@@H](O)c1ccc(O)cc1"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "4-Hydroxybenzoylformate": [
+    1,
+    -1,
+    "O=C([O-])C(=O)c1ccc(O)cc1"
+   ]
+  },
+  "ec": "1.1.3.46",
+  "gc_kcal": -27.04,
+  "eq_kcal": -27.51
+ },
+ "rxn04844": {
+  "note": "rxn04844 Arachidonate: oxygen 12-oxidoreductase | EC=1.13.11.-",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Arachidonate": [
+    -1,
+    -1,
+    "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)[O-]"
+   ],
+   "12(R)-HPETE": [
+    1,
+    -1,
+    "CCCCC/C=C\\C[C@H](/C=C/C=C\\C/C=C\\CCCC(=O)[O-])OO"
+   ]
+  },
+  "ec": "1.13.11.-",
+  "gc_kcal": -69.98
+ },
+ "rxn11743": {
+  "note": "rxn11743 betaine aldehyde:oxygen oxidoreductase | EC=1.1.3.17",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Betaine aldehyde": [
+    -1,
+    1,
+    "C[N+](C)(C)CC=O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "BET": [
+    1,
+    0,
+    "C[N+](C)(C)CC(=O)[O-]"
+   ]
+  },
+  "ec": "1.1.3.17",
+  "gc_kcal": -41.51,
+  "eq_kcal": -40.01
+ },
+ "rxn02702": {
+  "note": "rxn02702 L-Hyoscyamine,2-oxoglytarate:oxygen oxidoreductase ((6S)-hydroxylating) | EC=1.14.11.11",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "Daturine": [
+    -1,
+    1,
+    "C[NH+]1[C@@H]2CC[C@H]1C[C@@H](OC(=O)[C@H](CO)c1ccccc1)C2"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ],
+   "(6S)-Hydroxyhyoscyamine": [
+    1,
+    1,
+    "C[NH+]1[C@H]2C[C@H](OC(=O)[C@H](CO)c3ccccc3)C[C@@H]1[C@@H](O)C2"
+   ]
+  },
+  "ec": "1.14.11.11",
+  "eq_kcal": -109.81
+ },
+ "rxn44541": {
+  "note": "rxn44541  | EC=1.2.3.15",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Glyoxal": [
+    -1,
+    0,
+    "O=CC=O"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Glyoxalate": [
+    1,
+    -1,
+    "O=CC(=O)[O-]"
+   ]
+  },
+  "ec": "1.2.3.15",
+  "gc_kcal": -41.51,
+  "eq_kcal": -39.57
+ },
+ "rxn01550": {
+  "note": "rxn01550 1H-Imidazole-4-ethanamine:oxygen oxidoreductase (deaminating) (copper-containing) | EC=1.4.3.22",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Histamine": [
+    -1,
+    1,
+    "[NH3+]CCc1c[nH]cn1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "H2O2": [
+    1,
+    0,
+    "OO"
+   ],
+   "Imidazole acetaldehyde": [
+    1,
+    0,
+    "O=CCc1c[nH]cn1"
+   ]
+  },
+  "ec": "1.4.3.22",
+  "gc_kcal": -24.02,
+  "eq_kcal": -22.49
+ },
+ "rxn16408": {
+  "note": "rxn16408 chloride:hydrogen-peroxide oxidoreductase (hypochlorite-forming) | EC=1.11.2.2",
+  "n_Hplus": -1,
+  "species": {
+   "H2O2": [
+    -1,
+    0,
+    "OO"
+   ],
+   "Cl-": [
+    -1,
+    -1,
+    "[Cl-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Hypochlorous acid": [
+    1,
+    0,
+    "OCl"
+   ]
+  },
+  "ec": "1.11.2.2"
+ },
+ "rxn00011": {
+  "note": "rxn00011 pyruvate:thiamin diphosphate acetaldehydetransferase (decarboxylating) | EC=1.2.4.1",
+  "n_Hplus": 1,
+  "species": {
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "2-Hydroxyethyl-ThPP": [
+    -1,
+    -1,
+    "Cc1ncc(C[n+]2c(C(C)O)sc(CCOP(=O)([O-])OP(=O)([O-])O)c2C)c(N)n1"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "TPP": [
+    1,
+    -1,
+    "Cc1ncc(C[n+]2csc(CCOP(=O)([O-])OP(=O)([O-])O)c2C)c(N)n1"
+   ]
+  },
+  "ec": "1.2.4.1",
+  "gc_kcal": 6.87,
+  "eq_kcal": 7.23
+ },
+ "rxn01785": {
+  "note": "rxn01785 Cysteamine:oxygen oxidoreductase | EC=1.13.11.19",
+  "n_Hplus": 1,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Cysteamine": [
+    -1,
+    1,
+    "[NH3+]CCS"
+   ],
+   "Hypotaurine": [
+    1,
+    0,
+    "[NH3+]CCS(=O)[O-]"
+   ]
+  },
+  "ec": "1.13.11.19",
+  "eq_kcal": -19.73
+ },
+ "rxn02082": {
+  "note": "rxn02082 5-hydroxytryptamine:oxygen 2,3-dioxygenase (indole-decyclizing) | EC=1.13.11.52",
+  "n_Hplus": 0,
+  "species": {
+   "O2": [
+    -1,
+    0,
+    "O=O"
+   ],
+   "Serotonin": [
+    -1,
+    1,
+    "[NH3+]CCc1c[nH]c2ccc(O)cc12"
+   ],
+   "Formyl-5-hydroxykynurenamine": [
+    1,
+    1,
+    "[NH3+]CCC(=O)c1cc(O)ccc1NC=O"
+   ]
+  },
+  "ec": "1.13.11.52",
+  "gc_kcal": -92.1,
+  "eq_kcal": -78.49
+ },
+ "rxn01244": {
+  "note": "rxn01244 3-methyl-2-oxobutanoate:[dihydrolipoyllysine-residue (2-methylpropanoyl)transferase] lipoyllysine 2-oxidoreductase (decarboxylating, acceptor-2-methylpropanoylating) | EC=1.2.4.4",
+  "n_Hplus": -1,
+  "species": {
+   "3-Methyl-2-oxobutanoate": [
+    -1,
+    -1,
+    "CC(C)C(=O)C(=O)[O-]"
+   ],
+   "Lipoamide": [
+    -1,
+    0,
+    "NC(=O)CCCC[C@@H]1CCSS1"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "S-(2-Methylpropionyl)-dihydrolipoamide": [
+    1,
+    0,
+    "CC(C)C(=O)SC(CCS)CCCCC(N)=O"
+   ]
+  },
+  "ec": "1.2.4.4",
+  "gc_kcal": -9.68
+ },
+ "rxn01908": {
+  "note": "rxn01908 3'-Phosphoadenylylsulfate:quercetin-3-sulfate 4'-sulfotransferase | EC=2.8.2.27",
+  "n_Hplus": 1,
+  "species": {
+   "3-phosphoadenylylsulfate": [
+    -1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "Quercetin 3-sulfate": [
+    -1,
+    -3,
+    "O=c1c(OS(=O)(=O)[O-])c(-c2ccc(O)c(O)c2)oc2cc([O-])cc([O-])c12"
+   ],
+   "Adenosine 3-5-bisphosphate": [
+    1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "Quercetin 3,4'-bissulfate": [
+    1,
+    -4,
+    "O=c1c(OS(=O)(=O)[O-])c(-c2ccc(OS(=O)(=O)[O-])c(O)c2)oc2cc([O-])cc([O-])c12"
+   ]
+  },
+  "ec": "2.8.2.27",
+  "gc_kcal": -14.03,
+  "eq_kcal": -68.26
+ },
+ "rxn04516": {
+  "note": "rxn04516 dTDP-beta-L-daunosamine:epsilon-rhodomycinone beta-L-daunosaminyltransferase | EC=2.4.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "epsilon-Rhodomycinone": [
+    -1,
+    0,
+    "CC[C@@]1(O)C[C@H](O)c2c(O)c3c(c(O)c2[C@H]1C(=O)OC)C(=O)c1cccc(O)c1C3=O"
+   ],
+   "dTDP-beta-L-daunosamine": [
+    -1,
+    -1,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@@H]3C[C@H]([NH3+])[C@H](O)[C@H](C)O3)O2)c(=O)[nH]c1=O"
+   ],
+   "dTDP": [
+    1,
+    -2,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O"
+   ],
+   "Rhodomycin D": [
+    1,
+    1,
+    "CC[C@@]1(O)C[C@H](O[C@H]2C[C@H]([NH3+])[C@H](O)[C@H](C)O2)c2c(O)c3c(c(O)c2[C@H]1C(=O)OC)C(=O)c1cccc(O)c1C3=O"
+   ]
+  },
+  "ec": "2.4.1.-",
+  "gc_kcal": -1.7,
+  "eq_kcal": -4.86
+ },
+ "rxn25327": {
+  "note": "rxn25327 RXN-9049.c | EC=2.1.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "desoxyhemigossypol": [
+    -1,
+    0,
+    "Cc1cc2c3c(c(O)c(O)c(C(C)C)c3c1)CO2"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "desoxyhemigossypol-6-methyl ether": [
+    1,
+    0,
+    "COc1c(O)c2c3c(cc(C)cc3c1C(C)C)OC2"
+   ]
+  },
+  "ec": "2.1.1.-",
+  "eq_kcal": -1.83
+ },
+ "rxn09888": {
+  "note": "rxn09888 cytosine 5-methyltransferase | EC=2.1.1.37",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "Cytosine": [
+    -1,
+    0,
+    "Nc1cc[nH]c(=O)n1"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "5-Methylcytosine": [
+    1,
+    0,
+    "Cc1c[nH]c(=O)nc1N"
+   ]
+  },
+  "ec": "2.1.1.37",
+  "gc_kcal": -19.42,
+  "eq_kcal": -5.5
+ },
+ "rxn40519": {
+  "note": "rxn40519  | EC=2.2.1.12",
+  "n_Hplus": -1,
+  "species": {
+   "Pyruvate": [
+    -1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Chalcone": [
+    -1,
+    0,
+    "O=C(/C=C/c1ccccc1)c1ccccc1"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "(R)-1,3-diphenyl-pentane-1,4-dione": [
+    1,
+    0,
+    "CC(=O)[C@H](CC(=O)c1ccccc1)c1ccccc1"
+   ]
+  },
+  "ec": "2.2.1.12",
+  "gc_kcal": -14.62,
+  "eq_kcal": -15.02
+ },
+ "rxn04909": {
+  "note": "rxn04909 UDP-glucuronate beta-D-glucuronosyltransferase | EC=2.4.1.17",
+  "n_Hplus": 0,
+  "species": {
+   "UDPglucuronate": [
+    -1,
+    -3,
+    "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Trichloroethanol": [
+    -1,
+    0,
+    "OCC(Cl)(Cl)Cl"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Urochloralic acid": [
+    1,
+    -1,
+    "O=C([O-])[C@H]1O[C@@H](OCC(Cl)(Cl)Cl)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.4.1.17",
+  "gc_kcal": -1.7,
+  "eq_kcal": -5.52
+ },
+ "rxn00275": {
+  "note": "rxn00275 Glycine:2-oxoglutarate aminotransferase | EC=2.6.1.4",
+  "n_Hplus": 0,
+  "species": {
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "Glycine": [
+    -1,
+    0,
+    "[NH3+]CC(=O)[O-]"
+   ],
+   "L-Glutamate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Glyoxalate": [
+    1,
+    -1,
+    "O=CC(=O)[O-]"
+   ]
+  },
+  "ec": "2.6.1.4",
+  "gc_kcal": 1.46,
+  "eq_kcal": 2.03
+ },
+ "rxn00887": {
+  "note": "rxn00887 myo-Inositol 6-O-methyltransferase | EC=2.1.1.129",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "L-Inositol": [
+    -1,
+    0,
+    "O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "6-O-Methyl-myo-inositol": [
+    1,
+    0,
+    "CO[C@H]1[C@H](O)[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.1.1.129",
+  "gc_kcal": -4.36,
+  "eq_kcal": 7.17
+ },
+ "rxn21108": {
+  "note": "rxn21108 RXN-10768.c | EC=2.1.1.141",
+  "n_Hplus": 0,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Methyl-Jasmonates": [
+    1,
+    0,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)OC"
+   ]
+  },
+  "ec": "2.1.1.141",
+  "gc_kcal": -5.33,
+  "eq_kcal": 10.59
+ },
+ "rxn15882": {
+  "note": "rxn15882 ATP:N-acetyl-D-glucosamine 1-phosphotransferase | EC=2.7.1.162",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "N-Acetyl-beta-D-glucosamine": [
+    -1,
+    0,
+    "CC(=O)N[C@@H]1[C@@H](O)[C@H](O)[C@@H](CO)O[C@H]1O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "N-Acetyl-alpha-D-glucosamine 1-phosphate": [
+    1,
+    -2,
+    "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.7.1.162",
+  "gc_kcal": -14.03,
+  "eq_kcal": -0.64
+ },
+ "rxn15175": {
+  "note": "rxn15175 ITP:D-mannose 6-phosphotransferase | EC=2.7.1.1",
+  "n_Hplus": 1,
+  "species": {
+   "ITP": [
+    -1,
+    -3,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "alpha-D-Mannose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](O)[C@@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "IDP": [
+    1,
+    -2,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "D-mannose-6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.7.1.1",
+  "gc_kcal": -14.03,
+  "eq_kcal": -3.67
+ },
+ "rxn15021": {
+  "note": "rxn15021 pyruvate:pyruvate acetaldehydetransferase (decarboxylating) | EC=2.2.1.6",
+  "n_Hplus": 1,
+  "species": {
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "(S)-2-Acetolactate": [
+    -1,
+    -1,
+    "CC(=O)[C@](C)(O)C(=O)[O-]"
+   ],
+   "Pyruvate": [
+    2,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "2.2.1.6",
+  "gc_kcal": 10.53,
+  "eq_kcal": 8.27
+ },
+ "rxn05014": {
+  "note": "rxn05014 fluoroacetaldehyde:L-threonine aldehydetransferase | EC=2.2.1.8",
+  "n_Hplus": 0,
+  "species": {
+   "L-Threonine": [
+    -1,
+    0,
+    "C[C@@H](O)[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Fluoroacetaldehyde": [
+    -1,
+    0,
+    "O=CCF"
+   ],
+   "Acetaldehyde": [
+    1,
+    0,
+    "CC=O"
+   ],
+   "4-Fluoro-L-threonine": [
+    1,
+    0,
+    "[NH3+][C@H](C(=O)[O-])[C@H](O)CF"
+   ]
+  },
+  "ec": "2.2.1.8",
+  "eq_kcal": 2.59
+ },
+ "rxn17707": {
+  "note": "rxn17707 GDP fucose pyrophosphorylase | EC=2.7.7.30",
+  "n_Hplus": 0,
+  "species": {
+   "GTP": [
+    -1,
+    -3,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "L-Fucose 1-phosphate": [
+    -1,
+    -2,
+    "C[C@@H]1O[C@H](OP(=O)([O-])[O-])[C@@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "GUANOSINE_DIPHOSPHATE_FUCOSE": [
+    1,
+    -2,
+    "C[C@@H]1OC(OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3cnc4c(=O)[nH]c(N)nc43)[C@H](O)[C@@H]2O)[C@@H](O)[C@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.7.7.30",
+  "gc_kcal": 1.07,
+  "eq_kcal": -1.09
+ },
+ "rxn24005": {
+  "note": "rxn24005 RXN-4737.c | EC=2.4.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "dihydrozeatin-9-N-glucoside": [
+    -1,
+    0,
+    "C[C@H](CO)CCNc1ncnc2c1ncn2[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ],
+   "UDP-GLUCOSE": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "dihydrozeatin-9-N-glucoside-O-glucoside": [
+    1,
+    0,
+    "C[C@@H](CCNc1ncnc2c1ncn2[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)CO[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.4.1.-",
+  "gc_kcal": -1.7
+ },
+ "rxn01399": {
+  "note": "rxn01399 UDP-glucose:pyridoxine 5'-O-beta-D-glucosyltransferase | EC=2.4.1.160",
+  "n_Hplus": 0,
+  "species": {
+   "UDP-glucose": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Pyridoxol": [
+    -1,
+    0,
+    "Cc1ncc(CO)c(CO)c1O"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "5'-O-beta-D-Glucosylpyridoxine": [
+    1,
+    0,
+    "Cc1ncc(CO[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)c(CO)c1O"
+   ]
+  },
+  "ec": "2.4.1.160",
+  "gc_kcal": -1.7,
+  "eq_kcal": -4.91
+ },
+ "rxn02153": {
+  "note": "rxn02153 D-Methionine:pyruvate aminotransferase | EC=2.6.1.41",
+  "n_Hplus": 0,
+  "species": {
+   "Pyruvate": [
+    -1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "D-Methionine": [
+    -1,
+    0,
+    "CSCC[C@@H]([NH3+])C(=O)[O-]"
+   ],
+   "L-Alanine": [
+    1,
+    0,
+    "C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "4-methylthio 2-oxobutyrate": [
+    1,
+    -1,
+    "CSCCC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "2.6.1.41",
+  "gc_kcal": -0.0,
+  "eq_kcal": -1.94
+ },
+ "rxn16484": {
+  "note": "rxn16484 ATP:1,6-anhydro-N-acetylmuramate 6-phosphotransferase | EC=2.7.1.170",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "1,6-Anhydro-N-acetyl-beta-muramate": [
+    -1,
+    -1,
+    "CC(=O)N[C@H]1[C@@H]2OC[C@@H](O2)[C@@H](O)[C@@H]1O[C@H](C)C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "N-Acetyl-beta-muramate 6-phosphate": [
+    1,
+    -3,
+    "CC(=O)N[C@@H]1[C@@H](O[C@H](C)C(=O)[O-])[C@H](O)[C@@H](COP(=O)([O-])[O-])O[C@H]1O"
+   ]
+  },
+  "ec": "2.7.1.170",
+  "eq_kcal": 86.57
+ },
+ "rxn02078": {
+  "note": "rxn02078 R02902 | EC=2.4.1.17",
+  "n_Hplus": -1,
+  "species": {
+   "UDPglucuronate": [
+    -1,
+    -3,
+    "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Tretin M": [
+    -1,
+    -1,
+    "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C(=O)[O-])C(C)(C)CCC1"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Retinoyl glucuronide": [
+    1,
+    -1,
+    "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C(=O)O[C@@H]2O[C@H](C(=O)[O-])[C@@H](O)[C@H](O)[C@H]2O)C(C)(C)CCC1"
+   ]
+  },
+  "ec": "2.4.1.17",
+  "gc_kcal": -2.67,
+  "eq_kcal": -0.29
+ },
+ "rxn43470": {
+  "note": "rxn43470  | EC=2.8.2.37",
+  "n_Hplus": 1,
+  "species": {
+   "3-phosphoadenylylsulfate": [
+    -1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "TRHL": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Adenosine 3-5-bisphosphate": [
+    1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "2-O-sulfo-alpha,alpha-trehalose": [
+    1,
+    -1,
+    "O=S(=O)([O-])O[C@H]1[C@@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.8.2.37",
+  "gc_kcal": -14.03,
+  "eq_kcal": -57.43
+ },
+ "rxn03372": {
+  "note": "rxn03372 ATP:adenylylsulfate 3'-phosphotransferase | EC=2.7.1.25",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Adenylylselenate": [
+    -1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])O[Se](=O)(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "3'-Phosphoadenylylselenate": [
+    1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])O[Se](=O)(=O)[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ]
+  },
+  "ec": "2.7.1.25"
+ },
+ "rxn45314": {
+  "note": "rxn45314  | EC=2.4.1.234",
+  "n_Hplus": 0,
+  "species": {
+   "Kaempferol": [
+    -1,
+    -2,
+    "O=c1c(O)c(-c2ccc(O)cc2)oc2cc([O-])cc([O-])c12"
+   ],
+   "UDP-D-galactopyranose": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Trifolin": [
+    1,
+    -2,
+    "O=c1c(O[C@@H]2O[C@H](CO)[C@H](O)[C@H](O)[C@H]2O)c(-c2ccc(O)cc2)oc2cc([O-])cc([O-])c12"
+   ]
+  },
+  "ec": "2.4.1.234",
+  "gc_kcal": -1.7,
+  "eq_kcal": 25.36
+ },
+ "rxn22339": {
+  "note": "rxn22339 RXN-12038.c | EC=2.4.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "3-Phosphoglycerate": [
+    -1,
+    -3,
+    "O=C([O-])[C@H](O)COP(=O)([O-])[O-]"
+   ],
+   "GDP-glucose": [
+    -1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "GDP": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "2-O-(alpha-D-Glucopyranosyl)-3-phospho-D-glycerate": [
+    1,
+    -3,
+    "O=C([O-])[C@@H](COP(=O)([O-])[O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.4.1.-",
+  "gc_kcal": -1.7,
+  "eq_kcal": -4.82
+ },
+ "rxn42390": {
+  "note": "rxn42390  | EC=2.1.1.263",
+  "n_Hplus": 2,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -2,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "C30 botryococcene": [
+    -1,
+    0,
+    "C=CC(C)(/C=C/C(C)CC/C=C(\\C)CCC=C(C)C)CC/C=C(\\C)CCC=C(C)C"
+   ],
+   "S-Adenosyl-homocysteine": [
+    2,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "dimethylbotryococcene": [
+    1,
+    0,
+    "C=CC(C)(/C=C/C(C)CC/C=C(\\C)CCC(C)C(=C)C)CC/C=C(\\C)CCC(C)C(=C)C"
+   ]
+  },
+  "ec": "2.1.1.263",
+  "gc_kcal": -39.72
+ },
+ "rxn24636": {
+  "note": "rxn24636 beta-ribofuranosylaminobenzene-5'-phosphate synthase | EC=2.4.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "PRPP": [
+    -1,
+    -4,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])O)[C@H](O)[C@@H]1O"
+   ],
+   "ABEE": [
+    -1,
+    -1,
+    "Nc1ccc(C(=O)[O-])cc1"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "4-(beta-D-ribofuranosyl)aminobenzene-5'-phosphate": [
+    1,
+    -2,
+    "Nc1ccc([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)cc1"
+   ]
+  },
+  "ec": "2.4.2.-",
+  "gc_kcal": -26.54,
+  "eq_kcal": -21.64
+ },
+ "rxn14362": {
+  "note": "rxn14362 3'-phosphoadenylyl-sulfate:4-methylthiobutyl-desulfoglucosinolate sulfotransferase | EC=2.8.2.-",
+  "n_Hplus": 1,
+  "species": {
+   "3-phosphoadenylylsulfate": [
+    -1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "4-Methylthiobutyl-desulfoglucosinolate": [
+    -1,
+    0,
+    "CSCCCC/C(=N/O)S[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ],
+   "Adenosine 3-5-bisphosphate": [
+    1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "Glucoerucin": [
+    1,
+    -1,
+    "CSCCCC/C(=N/OS(=O)(=O)[O-])S[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.8.2.-",
+  "gc_kcal": -14.03,
+  "eq_kcal": -95.48
+ },
+ "rxn40532": {
+  "note": "rxn40532  | EC=2.7.7.97",
+  "n_Hplus": 0,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "3-Hydroxy-4-methylanthranilate": [
+    -1,
+    -1,
+    "Cc1ccc(C(=O)[O-])c(N)c1O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "3-hydroxy-4-methylanthranilyl-adenylate": [
+    1,
+    -1,
+    "Cc1ccc(C(=O)OP(=O)([O-])OC[C@H]2O[C@@H](n3cnc4c(N)ncnc43)[C@H](O)[C@@H]2O)c(N)c1O"
+   ]
+  },
+  "ec": "2.7.7.97",
+  "gc_kcal": -11.13,
+  "eq_kcal": 278.69
+ },
+ "rxn00755": {
+  "note": "rxn00755 3'-phosphoadenylyl-sulfate:choline sulfotransferase | EC=2.8.2.6",
+  "n_Hplus": 1,
+  "species": {
+   "3-phosphoadenylylsulfate": [
+    -1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "Choline": [
+    -1,
+    1,
+    "C[N+](C)(C)CCO"
+   ],
+   "Adenosine 3-5-bisphosphate": [
+    1,
+    -4,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](OP(=O)([O-])[O-])[C@H]1O"
+   ],
+   "Choline sulfate": [
+    1,
+    0,
+    "C[N+](C)(C)CCOS(=O)(=O)[O-]"
+   ]
+  },
+  "ec": "2.8.2.6",
+  "gc_kcal": -14.03
+ },
+ "rxn40055": {
+  "note": "rxn40055 S-adenosyl-L-methionine:squalene C-methyltransferase | EC=2.1.1.262",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "Supraene": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "3-Methyl-1,2-didehydro-2,3-dihydrosqualene": [
+    1,
+    0,
+    "C=C(C)C(C)CC/C(C)=C/CC/C(C)=C/CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C"
+   ]
+  },
+  "ec": "2.1.1.262",
+  "gc_kcal": -19.86,
+  "eq_kcal": -2.87
+ },
+ "rxn47929": {
+  "note": "rxn47929  | EC=2.1.1.M8",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "3-hydroxy-D-kynurenine": [
+    -1,
+    0,
+    "Nc1c(O)cccc1C(=O)C[C@@H]([NH3+])C(=O)[O-]"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "3-hydroxy-4-methyl-D-kynurenine": [
+    1,
+    0,
+    "Cc1ccc(C(=O)C[C@@H]([NH3+])C(=O)[O-])c(N)c1O"
+   ]
+  },
+  "ec": "2.1.1.M8",
+  "gc_kcal": -20.64,
+  "eq_kcal": -5.5
+ },
+ "rxn40447": {
+  "note": "rxn40447 S-adenosyl-L-methionine:6-geranylgeranyl-2-methylbenzene-1,4-diol C3-methyltransferase | EC=2.1.1.295",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "2-methyl-6-geranylgeranyl-1,4-benzoquinol": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/Cc1cc(O)cc(C)c1O"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "6-Geranylgeranyl-2,3-dimethylbenzene-1,4-diol": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/Cc1cc(O)c(C)c(C)c1O"
+   ]
+  },
+  "ec": "2.1.1.295",
+  "gc_kcal": -20.64,
+  "eq_kcal": -5.5
+ },
+ "rxn37088": {
+  "note": "rxn37088 RXN-11660.c.metaexp.CPD-12575 | EC=2.4.1.-",
+  "n_Hplus": -1,
+  "species": {
+   "UDP-glucose": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Benzoate": [
+    -1,
+    -1,
+    "O=C([O-])c1ccccc1"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "benzenecarboxylic acid beta-D-glucose ester": [
+    1,
+    0,
+    "O=C(O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)c1ccccc1"
+   ]
+  },
+  "ec": "2.4.1.-",
+  "gc_kcal": -2.67,
+  "eq_kcal": -0.78
+ },
+ "rxn02944": {
+  "note": "rxn02944 N2-succinyl-L-ornithine:2-oxoglutarate 5-aminotransferase | EC=2.6.1.13",
+  "n_Hplus": 0,
+  "species": {
+   "2-Oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "N2-Succinyl-L-ornithine": [
+    -1,
+    -1,
+    "[NH3+]CCC[C@H](NC(=O)CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "L-Glutamate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "N-Succinyl-L-glutamate 5-semialdehyde": [
+    1,
+    -2,
+    "O=CCC[C@H](NC(=O)CCC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "2.6.1.13",
+  "gc_kcal": -1.0,
+  "eq_kcal": -0.32
+ },
+ "rxn06683": {
+  "note": "rxn06683 1-O-trans-Cinnamoyl-beta-D-glucopyranose:alcohol O-cinnamoyltransferase | EC=2.3.1.152",
+  "n_Hplus": 0,
+  "species": {
+   "Methanol": [
+    -1,
+    0,
+    "CO"
+   ],
+   "trans-Cinnamoyl beta-D-glucoside": [
+    -1,
+    0,
+    "O=C(/C=C/c1ccccc1)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ],
+   "D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Methyl cinnamate": [
+    1,
+    0,
+    "COC(=O)/C=C/c1ccccc1"
+   ]
+  },
+  "ec": "2.3.1.152",
+  "gc_kcal": -3.25,
+  "eq_kcal": -4.99
+ },
+ "rxn00808": {
+  "note": "rxn00808 ATP:D-galactose 1-phosphotransferase | EC=2.7.1.6",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Galactose": [
+    -1,
+    0,
+    "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "D-Galactose 1-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.7.1.6",
+  "gc_kcal": -14.03,
+  "eq_kcal": -1.3
+ },
+ "rxn15883": {
+  "note": "rxn15883 S-adenosyl-L-methionine:TRIBOA-glucoside 7-O-methyltransferase | EC=2.1.1.241",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "TRIBOA-glucoside": [
+    -1,
+    0,
+    "O=C1C(O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)Oc2cc(O)ccc2N1O"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "(2R)-2-beta-D-Glucopyranosyloxy-4-hydroxy-7-methoxy-(2H)-1,4": [
+    1,
+    0,
+    "COc1ccc2c(c1)O[C@H](O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)C(=O)N2O"
+   ]
+  },
+  "ec": "2.1.1.241",
+  "gc_kcal": -4.36,
+  "eq_kcal": -1.83
+ },
+ "rxn44831": {
+  "note": "rxn44831  | EC=2.7.1.221",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "N-Acetylmuramate": [
+    -1,
+    -1,
+    "CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O[C@H](C)C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "N-acetylmuramic acid-1-phosphate": [
+    1,
+    -3,
+    "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O[C@H](C)C(=O)[O-]"
+   ]
+  },
+  "ec": "2.7.1.221",
+  "gc_kcal": -14.03,
+  "eq_kcal": -1.41
+ },
+ "rxn21251": {
+  "note": "rxn21251 RXN-10948.c | EC=2.7.1.151",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "D-myo-Inositol 4,5-bisphosphate": [
+    -1,
+    -4,
+    "O=P([O-])([O-])O[C@@H]1[C@@H](O)[C@H](O)[C@H](O)[C@H](O)[C@H]1OP(=O)([O-])[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Ins(1,4,5)P3": [
+    1,
+    -6,
+    "O=P([O-])([O-])O[C@@H]1[C@H](O)[C@H](O)[C@@H](OP(=O)([O-])[O-])[C@H](OP(=O)([O-])[O-])[C@H]1O"
+   ]
+  },
+  "ec": "2.7.1.151",
+  "gc_kcal": -14.03,
+  "eq_kcal": -3.73
+ },
+ "rxn01486": {
+  "note": "rxn01486 trans,trans-Farnesyl-diphosphate:isopentenyl-diphosphate farnesyltranstransferase | EC=2.5.1.29",
+  "n_Hplus": 1,
+  "species": {
+   "Isopentenyldiphosphate": [
+    -1,
+    -2,
+    "C=C(C)CCOP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "Geranylgeranyl diphosphate": [
+    1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ]
+  },
+  "ec": "2.5.1.29",
+  "gc_kcal": -22.53,
+  "eq_kcal": -18.13
+ },
+ "rxn23783": {
+  "note": "rxn23783 RXN-2208.c | EC=2.4.1.195",
+  "n_Hplus": -1,
+  "species": {
+   "4-Methylthiobutylthiohydroximate": [
+    -1,
+    -1,
+    "CSCCC/C([S-])=N/O"
+   ],
+   "UDP-GLUCOSE": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "3-Methylthiopropyl-desulfoglucosinolate": [
+    1,
+    0,
+    "CSCCC/C(=N/O)S[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.4.1.195",
+  "gc_kcal": -14.4,
+  "eq_kcal": 4.03
+ },
+ "rxn14192": {
+  "note": "rxn14192 S-adenosyl-L-methionine:isoflavone 4'-O-methyltransferase | EC=2.1.1.212",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "2,7,4'-Trihydroxyisoflavanone": [
+    -1,
+    0,
+    "O=C1c2ccc(O)cc2O[C@@H](O)[C@@H]1c1ccc(O)cc1"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "2,7-Dihydroxy-4'-methoxyisoflavanone": [
+    1,
+    0,
+    "COc1ccc([C@@H]2C(=O)c3ccc(O)cc3O[C@H]2O)cc1"
+   ]
+  },
+  "ec": "2.1.1.212",
+  "gc_kcal": -4.36,
+  "eq_kcal": -1.83
+ },
+ "rxn40033": {
+  "note": "rxn40033 UDP-2-acetamido-3-amino-2,3-dideoxy-alpha-D-glucuronate:2-oxoglutarate aminotransferase | EC=2.6.1.98",
+  "n_Hplus": 0,
+  "species": {
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "UDP-2-acetamido-2-deoxy-alpha-D-ribo-hex-3-uluronate": [
+    -1,
+    -3,
+    "CC(=O)N[C@@H]1C(=O)[C@H](O)[C@@H](C(=O)[O-])O[C@@H]1OP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2ccc(=O)[nH]c2=O)[C@H](O)[C@@H]1O"
+   ],
+   "2-Oxoglutarate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ],
+   "UDP-2-acetamido-3-amino-2,3-dideoxy-alpha-D-glucuronate": [
+    1,
+    -2,
+    "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)O[C@H](C(=O)[O-])[C@@H](O)[C@@H]1[NH3+]"
+   ]
+  },
+  "ec": "2.6.1.98",
+  "gc_kcal": 3.92,
+  "eq_kcal": 8.28
+ },
+ "rxn16486": {
+  "note": "rxn16486 UDP-D-xylose:3-O-alpha-D-mannopyranosyl-alpha-D-mannopyranose xylosylphosphotransferase | EC=2.7.8.32",
+  "n_Hplus": 1,
+  "species": {
+   "UDP-xylose": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3OC[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "3-O-alpha-D-Mannopyranosyl-alpha-D-mannopyranose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](O[C@@H]2[C@H](O)[C@@H](O)O[C@H](CO)[C@H]2O)[C@@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "UMP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "3-O-(6-O-alpha-D-Xylosylphospho-alpha-D-mannopyranosyl)-alph": [
+    1,
+    -1,
+    "O=P([O-])(OC[C@H]1O[C@H](O[C@@H]2[C@H](O)[C@@H](O)O[C@H](CO)[C@H]2O)[C@@H](O)[C@@H](O)[C@@H]1O)O[C@H]1OC[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "2.7.8.32",
+  "gc_kcal": -14.03,
+  "eq_kcal": 53.0
+ },
+ "rxn14258": {
+  "note": "rxn14258 S-adenosyl-L-methionine:(S)-reticuline methyltransferase 7-O-methyltransferase | EC=2.1.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "(+)-Reticuline": [
+    -1,
+    1,
+    "COc1ccc(C[C@H]2c3cc(O)c(OC)cc3CC[NH+]2C)cc1O"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Laudanine": [
+    1,
+    1,
+    "COc1ccc(C[C@H]2c3cc(OC)c(OC)cc3CC[NH+]2C)cc1O"
+   ]
+  },
+  "ec": "2.1.1.-",
+  "gc_kcal": -4.36,
+  "eq_kcal": -1.8
+ },
+ "rxn43621": {
+  "note": "rxn43621  | EC=2.1.1.345",
+  "n_Hplus": 2,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -2,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "4-hydoxytryptamine 4-phosphate": [
+    -1,
+    -1,
+    "[NH3+]CCc1c[nH]c2cccc(OP(=O)([O-])[O-])c12"
+   ],
+   "S-Adenosyl-homocysteine": [
+    2,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Psilocybin": [
+    1,
+    -1,
+    "C[NH+](C)CCc1c[nH]c2cccc(OP(=O)([O-])[O-])c12"
+   ]
+  },
+  "ec": "2.1.1.345",
+  "gc_kcal": -23.57
+ },
+ "rxn16478": {
+  "note": "rxn16478 UDP-N-acetyl-D-glucosamine:1D-myo-inositol 3-phosphate alpha-D-glycosyltransferase | EC=2.4.1.250",
+  "n_Hplus": 0,
+  "species": {
+   "UDP-N-acetylglucosamine": [
+    -1,
+    -2,
+    "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+   ],
+   "Inositol 3-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])O[C@@H]1[C@@H](O)[C@H](O)[C@@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "UDP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "1-O-(2-Acetamido-2-deoxy-alpha-D-glucopyranosyl)-1D-myo-inos": [
+    1,
+    -2,
+    "CC(=O)N[C@H]1[C@@H](O[C@@H]2[C@H](O)[C@H](OP(=O)([O-])[O-])[C@@H](O)[C@H](O)[C@H]2O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "2.4.1.250",
+  "gc_kcal": -1.7,
+  "eq_kcal": -4.08
+ },
+ "rxn44182": {
+  "note": "rxn44182  | EC=2.7.1.217",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "3-dehydro-L-threonate": [
+    -1,
+    -1,
+    "O=C([O-])[C@H](O)C(=O)CO"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "(2R)-2-hydroxy-3-oxo-4-(phosphonatooxy)butanoate": [
+    1,
+    -3,
+    "O=C([O-])[C@H](O)C(=O)COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "2.7.1.217",
+  "gc_kcal": -14.03,
+  "eq_kcal": -3.47
+ },
+ "rxn05033": {
+  "note": "rxn05033 dimethylallyl-diphosphate:(6aS,11aS)-3,6a,9-trihydroxypterocarpan dimethylallyltransferase | EC=2.5.1.36",
+  "n_Hplus": 1,
+  "species": {
+   "DMAPP": [
+    -1,
+    -2,
+    "CC(C)=CCOP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "(-)-Glycinol": [
+    -1,
+    0,
+    "Oc1ccc2c(c1)OC[C@@]1(O)c3ccc(O)cc3O[C@@H]21"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "4-Dimethylallylglycinol": [
+    1,
+    0,
+    "CC(C)=CCc1c(O)ccc2c1OC[C@@]1(O)c3ccc(O)cc3O[C@@H]21"
+   ]
+  },
+  "ec": "2.5.1.36",
+  "gc_kcal": -26.44,
+  "eq_kcal": -18.46
+ },
+ "rxn04429": {
+  "note": "rxn04429 S-adenosyl-L-methionine:3,4-dihydroxy-trans-cinnamate 3-O-methyltransferase | EC=2.1.1.68",
+  "n_Hplus": 1,
+  "species": {
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "Caffeyl alcohol": [
+    -1,
+    0,
+    "OC/C=C/c1ccc(O)c(O)c1"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Coniferol": [
+    1,
+    0,
+    "COc1cc(/C=C/CO)ccc1O"
+   ]
+  },
+  "ec": "2.1.1.68",
+  "gc_kcal": -4.36,
+  "eq_kcal": -0.6
+ },
+ "rxn02133": {
+  "note": "rxn02133 ATP:sphinganine 1-phosphotransferase | EC=2.7.1.91",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Sphinganine": [
+    -1,
+    1,
+    "CCCCCCCCCCCCCCC[C@@H](O)[C@@H]([NH3+])CO"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Sphinganine 1-phosphate": [
+    1,
+    -1,
+    "CCCCCCCCCCCCCCC[C@@H](O)[C@@H]([NH3+])COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "2.7.1.91",
+  "gc_kcal": -14.03,
+  "eq_kcal": -2.1
+ },
+ "rxn02683": {
+  "note": "rxn02683 Nonane-4,6-dione acylhydrolase | EC=3.7.1.7",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Nonane-4,6-dione": [
+    -1,
+    0,
+    "CCCC(=O)C=C(O)CCC"
+   ],
+   "Butyrate": [
+    1,
+    -1,
+    "CCCC(=O)[O-]"
+   ],
+   "2-Pentanone": [
+    1,
+    0,
+    "CCCC(C)=O"
+   ]
+  },
+  "ec": "3.7.1.7",
+  "gc_kcal": -12.81,
+  "eq_kcal": -11.5
+ },
+ "rxn00513": {
+  "note": "rxn00513 ITP phosphohydrolase | EC=3.6.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ITP": [
+    -1,
+    -3,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "IDP": [
+    1,
+    -2,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "3.6.1.-",
+  "gc_kcal": -6.81,
+  "eq_kcal": -7.03
+ },
+ "rxn01632": {
+  "note": "rxn01632 5-Acetamidopentanoate amidohydrolase | EC=3.5.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "5-Acetamidopentanoate": [
+    -1,
+    -1,
+    "CC(=O)NCCCCC(=O)[O-]"
+   ],
+   "Acetate": [
+    1,
+    -1,
+    "CC(=O)[O-]"
+   ],
+   "5-Aminopentanoate": [
+    1,
+    0,
+    "[NH3+]CCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "3.5.1.-",
+  "gc_kcal": -2.0,
+  "eq_kcal": -1.87
+ },
+ "rxn10054": {
+  "note": "rxn10054 dCMP deaminase (CMP) | EC=3.5.4.12",
+  "n_Hplus": -1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "CMP": [
+    -1,
+    -2,
+    "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)n1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "UMP": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ]
+  },
+  "ec": "3.5.4.12",
+  "gc_kcal": -5.14,
+  "eq_kcal": -5.08
+ },
+ "rxn01858": {
+  "note": "rxn01858 Deoxyadenosine aminohydrolase | EC=3.5.4.4",
+  "n_Hplus": -1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Deoxyadenosine": [
+    -1,
+    0,
+    "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](CO)O1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Deoxyinosine": [
+    1,
+    0,
+    "O=c1[nH]cnc2c1ncn2[C@H]1C[C@H](O)[C@@H](CO)O1"
+   ]
+  },
+  "ec": "3.5.4.4",
+  "gc_kcal": -8.48,
+  "eq_kcal": -5.09
+ },
+ "rxn01107": {
+  "note": "rxn01107 D-Glucono-1,5-lactone lactonohydrolase | EC=3.1.1.17",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Gluconolactone": [
+    -1,
+    0,
+    "O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ],
+   "GLCN": [
+    1,
+    -1,
+    "O=C([O-])[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO"
+   ]
+  },
+  "ec": "3.1.1.17",
+  "gc_kcal": -5.48,
+  "eq_kcal": -6.8
+ },
+ "rxn22815": {
+  "note": "rxn22815 7,8-dihydro-D-neopterin 2',3'-cyclic phosphate phosphodiesterase | EC=3.1.4.56",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "7,8-dihydroneopterin 2',3'-cyclic phosphate": [
+    -1,
+    -1,
+    "Nc1nc(=O)c2c([nH]1)NCC(C(=O)[C@H]1COP(=O)([O-])O1)N2"
+   ],
+   "Dihydroneopterin phosphate": [
+    1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NCC(C(=O)[C@H](O)COP(=O)([O-])[O-])N2"
+   ]
+  },
+  "ec": "3.1.4.56",
+  "gc_kcal": -23.06,
+  "eq_kcal": -92.88
+ },
+ "rxn11749": {
+  "note": "rxn11749 5'-deoxy-5-fluorocytidine aminohydrolase | EC=3.5.4.5",
+  "n_Hplus": -1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "5'-Deoxy-5-fluorocytidine": [
+    -1,
+    0,
+    "C[C@H]1O[C@@H](n2cc(F)c(N)nc2=O)[C@H](O)[C@@H]1O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Doxifluridine": [
+    1,
+    0,
+    "C[C@H]1O[C@@H](n2cc(F)c(=O)[nH]c2=O)[C@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.5.4.5",
+  "eq_kcal": -5.0
+ },
+ "rxn40734": {
+  "note": "rxn40734  | EC=3.5.99.6",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "alpha-D-glucosamine 6-phosphate": [
+    -1,
+    -1,
+    "[NH3+][C@@H]1[C@@H](O)[C@H](O)[C@@H](COP(=O)([O-])[O-])O[C@@H]1O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "beta-D-Fructose 6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.5.99.6",
+  "gc_kcal": 1.58,
+  "eq_kcal": 1.26
+ },
+ "rxn00607": {
+  "note": "rxn00607 Maltose-6'-phosphate 6-phosphoglucohydrolase | EC=3.2.1.122",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "maltose-6-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O)[C@@H](O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-glucose-6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.122",
+  "gc_kcal": -3.11,
+  "eq_kcal": -4.65
+ },
+ "rxn41645": {
+  "note": "rxn41645  | EC=3.1.4.13",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "CPD-538": [
+    -1,
+    0,
+    "[NH3+]CCOP(=O)([O-])OCC([NH3+])C(=O)[O-]"
+   ],
+   "Phosphoethanolamine": [
+    1,
+    -1,
+    "[NH3+]CCOP(=O)([O-])[O-]"
+   ],
+   "Serines": [
+    1,
+    0,
+    "[NH3+]C(CO)C(=O)[O-]"
+   ]
+  },
+  "ec": "3.1.4.13",
+  "gc_kcal": -14.34,
+  "eq_kcal": -59.61
+ },
+ "rxn15036": {
+  "note": "rxn15036 6-Acetyl-D-glucose acetylhydrolase | EC=3.1.1.33",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "6-Acetyl-D-glucose": [
+    -1,
+    0,
+    "CC(=O)OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Acetate": [
+    1,
+    -1,
+    "CC(=O)[O-]"
+   ],
+   "beta-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.1.1.33",
+  "gc_kcal": -3.68,
+  "eq_kcal": -6.4
+ },
+ "rxn02004": {
+  "note": "rxn02004 Trehalose-6-phosphate phosphohydrolase | EC=3.1.3.12",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Trehalose 6-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "TRHL": [
+    1,
+    0,
+    "OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.1.3.12",
+  "gc_kcal": 7.22,
+  "eq_kcal": -1.67
+ },
+ "rxn00940": {
+  "note": "rxn00940 Nicotinamide D-ribonucleotide phosphoribohydrolase | EC=3.2.2.14",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Nicotinamide ribonucleotide": [
+    -1,
+    -1,
+    "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1"
+   ],
+   "ribose-5-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H]1O"
+   ],
+   "Nicotinamide": [
+    1,
+    0,
+    "NC(=O)c1cccnc1"
+   ]
+  },
+  "ec": "3.2.2.14",
+  "gc_kcal": -3.67,
+  "eq_kcal": -5.54
+ },
+ "rxn15038": {
+  "note": "rxn15038 GDP-glucose glucohydrolase | EC=3.2.1.42",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "GDP-glucose": [
+    -1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "GDP": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "beta-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.42",
+  "gc_kcal": -4.81,
+  "eq_kcal": -6.16
+ },
+ "rxn20768": {
+  "note": "rxn20768 R608-RXN.c | EC=3.7.1.8",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "2-Hydroxy-6-oxo-6-(2-hydroxyphenyl)-hexa-2,4-dienoate": [
+    -1,
+    -1,
+    "O=C([O-])C(=O)C=CCC(=O)c1ccccc1O"
+   ],
+   "SALC": [
+    1,
+    -1,
+    "O=C([O-])c1ccccc1O"
+   ],
+   "2-keto-4-pentenoate": [
+    1,
+    -1,
+    "C=CCC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "3.7.1.8",
+  "gc_kcal": -16.87,
+  "eq_kcal": -10.96
+ },
+ "rxn24244": {
+  "note": "rxn24244 DIMBOA glucoside beta-D-glucosidase | EC=3.2.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "(2R)-4-hydroxy-7-methoxy-3-oxo-3,4-dihydro-2H-1,4-benzoxazin": [
+    -1,
+    0,
+    "COc1ccc2c(c1)OC(O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)C(=O)N2O"
+   ],
+   "beta-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "DIMBOA": [
+    1,
+    0,
+    "COc1ccc2c(c1)OC(O)C(=O)N2O"
+   ]
+  },
+  "ec": "3.2.1.-",
+  "gc_kcal": -3.11,
+  "eq_kcal": -2.63
+ },
+ "rxn00606": {
+  "note": "rxn00606 alpha,alpha-Trehalose-6-phosphate phosphoglucohydrolase | EC=3.2.1.122",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Trehalose 6-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-glucose-6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.122",
+  "gc_kcal": -3.11,
+  "eq_kcal": -2.31
+ },
+ "rxn22472": {
+  "note": "rxn22472 toyocamycin phosphate phosphatase | EC=3.1.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "toyocamycin phosphate": [
+    -1,
+    -2,
+    "N#Cc1cn([C@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c2ncnc(N)c12"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "ahygroscopin-B": [
+    1,
+    0,
+    "N#Cc1cn([C@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c2ncnc(N)c12"
+   ]
+  },
+  "ec": "3.1.3.-",
+  "gc_kcal": 7.22
+ },
+ "rxn15068": {
+  "note": "rxn15068 sucrose glucohydrolase | EC=3.2.1.10",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Sucrose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-Fructose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+   ],
+   "alpha-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.10",
+  "gc_kcal": -3.11,
+  "eq_kcal": -5.31
+ },
+ "rxn40511": {
+  "note": "rxn40511  | EC=3.1.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "L-GAP": [
+    -1,
+    -2,
+    "O=C[C@@H](O)COP(=O)([O-])[O-]"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "L-Glycerose": [
+    1,
+    0,
+    "O=C[C@@H](O)CO"
+   ]
+  },
+  "ec": "3.1.3.-",
+  "gc_kcal": 7.22,
+  "eq_kcal": -3.34
+ },
+ "rxn23629": {
+  "note": "rxn23629 maleylpyruvate hydrolase | EC=3.7.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Maleylpyruvate": [
+    -1,
+    -2,
+    "O=C([O-])/C=C\\C(=O)CC(=O)C(=O)[O-]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Fumarate": [
+    1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ]
+  },
+  "ec": "3.7.1.-",
+  "gc_kcal": -12.81,
+  "eq_kcal": -10.11
+ },
+ "rxn15909": {
+  "note": "rxn15909 4-(beta-D-glucosyloxy)benzoate glucohydrolase | EC=3.2.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "4-(beta-D-Glucosyloxy)benzoate": [
+    -1,
+    -1,
+    "O=C([O-])c1ccc(O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc1"
+   ],
+   "4-Hydroxybenzoate": [
+    1,
+    -1,
+    "O=C([O-])c1ccc(O)cc1"
+   ],
+   "alpha-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.-",
+  "gc_kcal": -3.11,
+  "eq_kcal": 6.7
+ },
+ "rxn23628": {
+  "note": "rxn23628 2-oxo-3-(5-oxofuran-2-ylidene)propanoate lactonase | EC=3.1.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "2-oxo-3-(5-oxofuran-2-ylidene)propanoate": [
+    -1,
+    -1,
+    "O=C1C=C/C(=C/C(=O)C(=O)[O-])O1"
+   ],
+   "Maleylpyruvate": [
+    1,
+    -2,
+    "O=C([O-])/C=C\\C(=O)CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "3.1.1.-",
+  "gc_kcal": -23.12,
+  "eq_kcal": -0.9
+ },
+ "rxn13182": {
+  "note": "rxn13182 3-HYDROXY-KYNURENINASE-RXN.c | EC=3.7.1.3",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "3-Hydroxykynurenine": [
+    -1,
+    0,
+    "Nc1c(O)cccc1C(=O)C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "L-Alanine": [
+    1,
+    0,
+    "C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "3-Hydroxyanthranilate": [
+    1,
+    -1,
+    "Nc1c(O)cccc1C(=O)[O-]"
+   ]
+  },
+  "ec": "3.7.1.3",
+  "gc_kcal": -12.81,
+  "eq_kcal": -12.1
+ },
+ "rxn12058": {
+  "note": "rxn12058 geranyl-diphosphate diphosphohydrolase | EC=3.1.7.11",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Geranyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "Geraniol": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CO"
+   ]
+  },
+  "ec": "3.1.7.11",
+  "gc_kcal": -13.27,
+  "eq_kcal": -6.24
+ },
+ "rxn25680": {
+  "note": "rxn25680 RXN-9588.c | EC=3.2.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Dhurrin": [
+    -1,
+    0,
+    "N#C[C@@H](O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)c1ccc(O)cc1"
+   ],
+   "beta-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "(S)-4-Hydroxymandelonitrile": [
+    1,
+    0,
+    "N#C[C@@H](O)c1ccc(O)cc1"
+   ]
+  },
+  "ec": "3.2.1.-",
+  "gc_kcal": -3.11
+ },
+ "rxn06935": {
+  "note": "rxn06935 R05572 | EC=3.8.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Deisopropylatrazine": [
+    -1,
+    0,
+    "CCNc1nc(N)nc(Cl)n1"
+   ],
+   "Cl-": [
+    1,
+    -1,
+    "[Cl-]"
+   ],
+   "Deisopropylhydroxyatrazine": [
+    1,
+    0,
+    "CCNc1nc(=O)nc(N)[nH]1"
+   ]
+  },
+  "ec": "3.8.1.-"
+ },
+ "rxn02177": {
+  "note": "rxn02177 Isochorismate pyruvate-hydrolase | EC=3.3.2.1",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Isochorismate": [
+    -1,
+    -2,
+    "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1O)C(=O)[O-]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "2,3-Dihydroxy-2,3-dihydrobenzoate": [
+    1,
+    -1,
+    "O=C([O-])C1=CC=C[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "3.3.2.1",
+  "gc_kcal": -12.22,
+  "eq_kcal": -9.48
+ },
+ "rxn41127": {
+  "note": "rxn41127  | EC=3.2.1.26",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Sucrose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "beta-D-Fructose": [
+    1,
+    0,
+    "OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.26",
+  "gc_kcal": -3.11,
+  "eq_kcal": -5.72
+ },
+ "rxn01808": {
+  "note": "rxn01808 pyridoxamine-5'-phosphate phosphohydrolase | EC=3.1.3.74",
+  "n_Hplus": 0,
+  "species": {
+   "Phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "PM": [
+    -1,
+    1,
+    "Cc1ncc(CO)c(C[NH3+])c1O"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Pyridoxamine phosphate": [
+    1,
+    -1,
+    "Cc1ncc(COP(=O)([O-])[O-])c(C[NH3+])c1O"
+   ]
+  },
+  "ec": "3.1.3.74",
+  "gc_kcal": -7.22,
+  "eq_kcal": 3.21
+ },
+ "rxn15577": {
+  "note": "rxn15577 R06080 | EC=3.2.1.10",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Brachiose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](OC[C@H]2OC(O)[C@H](O)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "alpha-D-Glucose": [
+    2,
+    0,
+    "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.10",
+  "gc_kcal": -3.11,
+  "eq_kcal": -1.23
+ },
+ "rxn16379": {
+  "note": "rxn16379 fatty acylamide amidohydrolase | EC=3.5.1.99",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Oleamide": [
+    -1,
+    0,
+    "CCCCCCCC/C=C\\CCCCCCCC(N)=O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Oleate": [
+    1,
+    -1,
+    "CCCCCCCC/C=C\\CCCCCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "3.5.1.99",
+  "gc_kcal": -4.72,
+  "eq_kcal": -2.84
+ },
+ "rxn30584": {
+  "note": "rxn30584 3.2.1.26-RXN | EC=3.2.1.26",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "6-Phosphosucrose": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O"
+   ],
+   "D-Fructose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+   ],
+   "beta-D-Glucose 6-phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.26",
+  "gc_kcal": -3.11,
+  "eq_kcal": -5.35
+ },
+ "rxn35465": {
+  "note": "rxn35465 all-trans-retinyl ester isomerohydrolase (palmitate-utilizing) | EC=3.1.1.64",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Retinol palmitate": [
+    -1,
+    0,
+    "CCCCCCCCCCCCCCCC(=O)OC/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1(C)C"
+   ],
+   "Palmitate": [
+    1,
+    -1,
+    "CCCCCCCCCCCCCCCC(=O)[O-]"
+   ],
+   "11-cis-Retinol": [
+    1,
+    0,
+    "CC1=C(/C=C/C(C)=C/C=C\\C(C)=C\\CO)C(C)(C)CCC1"
+   ]
+  },
+  "ec": "3.1.1.64",
+  "gc_kcal": -2.14,
+  "eq_kcal": 1.85
+ },
+ "rxn01747": {
+  "note": "rxn01747 allantoate amidinohydrolase (decarboxylating) | EC=3.5.3.9",
+  "n_Hplus": -2,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Allantoate": [
+    -1,
+    -1,
+    "NC(=O)NC(NC(N)=O)C(=O)[O-]"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Ureidoglycine": [
+    1,
+    0,
+    "NC(=O)N[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "3.5.3.9",
+  "gc_kcal": 2.73,
+  "eq_kcal": 1.57
+ },
+ "rxn15586": {
+  "note": "rxn15586 R06105 | EC=3.2.1.74",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Cellotriose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)[C@H](O[C@H]3[C@H](O)[C@@H](O)C(O)O[C@@H]3CO)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "CELB": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "beta-D-Glucose": [
+    1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "3.2.1.74",
+  "gc_kcal": -3.11,
+  "eq_kcal": -2.53
+ },
+ "rxn12023": {
+  "note": "rxn12023 capecitabine hydrolase | EC=3.1.1.1",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Capecitabine": [
+    -1,
+    0,
+    "CCCCCOC(=O)Nc1nc(=O)n([C@@H]2O[C@H](C)[C@@H](O)[C@H]2O)cc1F"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "5'-Deoxy-5-fluorocytidine": [
+    1,
+    0,
+    "C[C@H]1O[C@@H](n2cc(F)c(N)nc2=O)[C@H](O)[C@@H]1O"
+   ],
+   "1-Pentanol": [
+    1,
+    0,
+    "CCCCCO"
+   ]
+  },
+  "ec": "3.1.1.1",
+  "eq_kcal": -85.83
+ },
+ "rxn16507": {
+  "note": "rxn16507 alpha-D-glucosyl-3-phospho-D-glycerate phosphohydrolase | EC=3.1.3.85",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "2-O-(alpha-D-Glucopyranosyl)-3-phospho-D-glycerate": [
+    -1,
+    -3,
+    "O=C([O-])[C@@H](COP(=O)([O-])[O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "2-O-(alpha-D-Glucopyranosyl)-D-glycerate": [
+    1,
+    -1,
+    "O=C([O-])[C@@H](CO)O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "3.1.3.85",
+  "gc_kcal": 7.22,
+  "eq_kcal": -2.6
+ },
+ "rxn00794": {
+  "note": "rxn00794 Biotin-amide amidohydrolase | EC=3.5.1.12",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Biotin amide": [
+    -1,
+    0,
+    "NC(=O)CCCC[C@@H]1SC[C@@H]2NC(=O)N[C@@H]21"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "BIOT": [
+    1,
+    -1,
+    "O=C([O-])CCCC[C@@H]1SC[C@@H]2NC(=O)N[C@@H]21"
+   ]
+  },
+  "ec": "3.5.1.12",
+  "gc_kcal": -4.72,
+  "eq_kcal": -2.84
+ },
+ "rxn17868": {
+  "note": "rxn17868 RXN-12060.c | EC=3.1.4.37",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "2',3'-Cyclic UMP": [
+    -1,
+    -1,
+    "O=c1ccn([C@@H]2O[C@H](CO)[C@H]3OP(=O)([O-])O[C@H]32)c(=O)[nH]1"
+   ],
+   "Uridine 2'-phosphate": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2OP(=O)([O-])[O-])c(=O)[nH]1"
+   ]
+  },
+  "ec": "3.1.4.37",
+  "gc_kcal": -17.26,
+  "eq_kcal": -7.84
+ },
+ "rxn02400": {
+  "note": "rxn02400 Nicotinate D-ribonucleotide phosphohydrolase | EC=3.1.3.5",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Nicotinate ribonucleotide": [
+    -1,
+    -2,
+    "O=C([O-])c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Nicotinate D-ribonucleoside": [
+    1,
+    0,
+    "O=C([O-])c1ccc[n+]([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c1"
+   ]
+  },
+  "ec": "3.1.3.5",
+  "gc_kcal": 7.22,
+  "eq_kcal": -6.31
+ },
+ "rxn02105": {
+  "note": "rxn02105 Pentanamide amidohydrolase | EC=3.5.1.50",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Valeramide": [
+    -1,
+    0,
+    "CCCCC(N)=O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Valerate": [
+    1,
+    -1,
+    "CCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "3.5.1.50",
+  "gc_kcal": -4.72,
+  "eq_kcal": -2.84
+ },
+ "rxn00993": {
+  "note": "rxn00993 4-fumarylacetoacetate fumarylhydrolase | EC=3.7.1.2",
+  "n_Hplus": -1,
+  "species": {
+   "Fumarate": [
+    -1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ],
+   "Acetoacetate": [
+    -1,
+    -1,
+    "CC(=O)CC(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Fumarylacetoacetate": [
+    1,
+    -2,
+    "O=C([O-])/C=C/C(=O)CC(=O)CC(=O)[O-]"
+   ]
+  },
+  "ec": "3.7.1.2",
+  "gc_kcal": 12.81,
+  "eq_kcal": 16.92
+ },
+ "rxn15153": {
+  "note": "rxn15153 R06093 | EC=3.2.1.22",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Galactinol": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](O[C@@H]2[C@@H](O)[C@H](O)[C@@H](O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Inositol": [
+    1,
+    0,
+    "O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "alpha-D-Galactose": [
+    1,
+    0,
+    "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "3.2.1.22",
+  "gc_kcal": -3.11,
+  "eq_kcal": -0.72
+ },
+ "rxn14080": {
+  "note": "rxn14080 trans,trans-Farnesyl-diphosphate diphosphohydrolase | EC=3.1.7.6",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "2-trans,6-trans-Farnesol": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CO"
+   ]
+  },
+  "ec": "3.1.7.6",
+  "gc_kcal": -13.27,
+  "eq_kcal": -6.24
+ },
+ "rxn00064": {
+  "note": "rxn00064 ATP aminohydrolase | EC=3.5.4.18",
+  "n_Hplus": -1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "ITP": [
+    1,
+    -3,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "3.5.4.18",
+  "gc_kcal": -8.48,
+  "eq_kcal": -13.75
+ },
+ "rxn20640": {
+  "note": "rxn20640 PYRAZIN-RXN.c | EC=3.5.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Pyrazinamide": [
+    -1,
+    0,
+    "NC(=O)c1cnccn1"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Pyrazinoic acid": [
+    1,
+    -1,
+    "O=C([O-])c1cnccn1"
+   ]
+  },
+  "ec": "3.5.1.-",
+  "gc_kcal": -6.19,
+  "eq_kcal": -2.82
+ },
+ "rxn03929": {
+  "note": "rxn03929 R05658 | EC=3.3.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Phenanthrene-9,10-oxide": [
+    -1,
+    0,
+    "c1ccc2c(c1)-c1ccccc1[C@@H]1O[C@H]21"
+   ],
+   "trans-9(S),10(S)-Dihydrodiolphenanthrene": [
+    1,
+    0,
+    "O[C@H]1c2ccccc2-c2ccccc2[C@@H]1O"
+   ]
+  },
+  "ec": "3.3.2.-",
+  "gc_kcal": 0.37
+ },
+ "rxn16280": {
+  "note": "rxn16280 microsomal epoxide hydrolase | EC=3.3.2.9",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "7,12-Dimethylbenz[a]anthracene 5,6-oxide": [
+    -1,
+    0,
+    "Cc1c2c(c(C)c3ccccc13)C1OC1c1ccccc1-2"
+   ],
+   "trans-5,6-Dihydro-5,6-dihydroxy-7,12-dimethylbenz[a]anthrace": [
+    1,
+    0,
+    "Cc1c2c(c(C)c3ccccc13)[C@H](O)[C@@H](O)c1ccccc1-2"
+   ]
+  },
+  "ec": "3.3.2.9",
+  "gc_kcal": 0.37
+ },
+ "rxn15113": {
+  "note": "rxn15113 uracil hydro-lyase (adding D-ribose 5-phosphate;pseudouridine-5'-phosphate-forming) | EC=4.2.1.70",
+  "n_Hplus": 0,
+  "species": {
+   "Uracil": [
+    -1,
+    0,
+    "O=C1CC=NC(=O)N1"
+   ],
+   "alpha-D-Ribose 5-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Pseudouridine 5'-phosphate": [
+    1,
+    -2,
+    "O=C1N=CC([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)C(=O)N1"
+   ]
+  },
+  "ec": "4.2.1.70",
+  "gc_kcal": -11.95,
+  "eq_kcal": -8.05
+ },
+ "rxn14339": {
+  "note": "rxn14339 S-(4-methylthiobutylthiohydroximoyl)-L-cysteine 4-methylthiobutylthiohydroximate-lyase (deaminating; pyruvate-forming) | EC=4.4.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "S-(4-Methylthiobutylthiohydroximoyl)-L-cysteine": [
+    -1,
+    0,
+    "CSCCC/C(=N/O)SC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "4-Methylthiobutylthiohydroximate": [
+    1,
+    -1,
+    "CSCCC/C([S-])=N/O"
+   ]
+  },
+  "ec": "4.4.1.-",
+  "gc_kcal": 2.08,
+  "eq_kcal": -15.39
+ },
+ "rxn00319": {
+  "note": "rxn00319 rxn00319 | EC=4.3.1.28",
+  "n_Hplus": 0,
+  "species": {
+   "L-Lysine": [
+    -1,
+    1,
+    "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "L-Pipecolate": [
+    1,
+    0,
+    "O=C([O-])[C@@H]1CCCC[NH2+]1"
+   ]
+  },
+  "ec": "4.3.1.28",
+  "gc_kcal": 5.71,
+  "eq_kcal": -9.82
+ },
+ "rxn16816": {
+  "note": "rxn16816 geranyl-diphosphate diphosphate-lyase (cyclizing, alpha-terpinene-forming) | EC=4.2.3.115",
+  "n_Hplus": 1,
+  "species": {
+   "Geranyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "alpha-Terpinene": [
+    1,
+    0,
+    "CC1=CC=C(C(C)C)CC1"
+   ]
+  },
+  "ec": "4.2.3.115",
+  "gc_kcal": -39.7,
+  "eq_kcal": -50.05
+ },
+ "rxn15044": {
+  "note": "rxn15044 D-4-Hydroxy-2-oxoglutarate glyoxylate-lyase | EC=4.1.1.3",
+  "n_Hplus": 0,
+  "species": {
+   "D-4-Hydroxy-2-oxoglutarate": [
+    -1,
+    -2,
+    "O=C([O-])C(=O)C[C@@H](O)C(=O)[O-]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Glyoxalate": [
+    1,
+    -1,
+    "O=CC(=O)[O-]"
+   ]
+  },
+  "ec": "4.1.1.3",
+  "gc_kcal": 3.21,
+  "eq_kcal": 4.17
+ },
+ "rxn15779": {
+  "note": "rxn15779 3-(4-hydroxyphenyl)lactate hydro-lyase (4-coumarate-forming) | EC=4.2.1.-",
+  "n_Hplus": 0,
+  "species": {
+   "(R)-3-(4-Hydroxyphenyl)lactate": [
+    -1,
+    -1,
+    "O=C([O-])[C@H](O)Cc1ccc(O)cc1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "4-Coumarate": [
+    1,
+    -1,
+    "O=C([O-])/C=C/c1ccc(O)cc1"
+   ]
+  },
+  "ec": "4.2.1.-",
+  "gc_kcal": -2.66,
+  "eq_kcal": -0.18
+ },
+ "rxn01964": {
+  "note": "rxn01964 L-serine hydro-lyase [adding 1-C-(indol-3-yl)glycerol 3-phosphate; L-tryptophan and glyceraldehyde-3-phosphate-forming] | EC=4.2.1.20",
+  "n_Hplus": 0,
+  "species": {
+   "L-Serine": [
+    -1,
+    0,
+    "[NH3+][C@@H](CO)C(=O)[O-]"
+   ],
+   "Indoleglycerol phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)c1c[nH]c2ccccc12"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "L-Tryptophan": [
+    1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ],
+   "Glyceraldehyde3-phosphate": [
+    1,
+    -2,
+    "O=C[C@H](O)COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "4.2.1.20",
+  "gc_kcal": -9.17,
+  "eq_kcal": -7.29
+ },
+ "rxn16542": {
+  "note": "rxn16542 1,5-anhydro-D-fructose hydro-lyase (microthecin-forming) | EC=4.2.1.110",
+  "n_Hplus": 0,
+  "species": {
+   "1,5-Anhydro-D-fructose": [
+    -1,
+    0,
+    "O=C1CO[C@H](CO)[C@@H](O)[C@@H]1O"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "2-Hydroxy-2-(hydroxymethyl)-2H-pyran-3(6H)-one": [
+    1,
+    0,
+    "O=C1C=CCOC1(O)CO"
+   ]
+  },
+  "ec": "4.2.1.110",
+  "gc_kcal": -7.17,
+  "eq_kcal": -7.02
+ },
+ "rxn01187": {
+  "note": "rxn01187 D-Xylulose 5-phosphate D-glyceraldehyde-3-phosphate-lyase (adding phosphate; acetyl-phosphate-forming) | EC=4.1.2.22",
+  "n_Hplus": 0,
+  "species": {
+   "Phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "D-Xylulose5-phosphate": [
+    -1,
+    -2,
+    "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Glyceraldehyde3-phosphate": [
+    1,
+    -2,
+    "O=C[C@H](O)COP(=O)([O-])[O-]"
+   ],
+   "Acetylphosphate": [
+    1,
+    -2,
+    "CC(=O)OP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "4.1.2.22",
+  "gc_kcal": -22.07,
+  "eq_kcal": -14.32
+ },
+ "rxn25000": {
+  "note": "rxn25000 beta-copaene synthase | EC=4.2.3.-",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "beta-copaene": [
+    1,
+    0,
+    "C=C1CC[C@H]2[C@H]3C1[C@@]2(C)CC[C@H]3C(C)C"
+   ]
+  },
+  "ec": "4.2.3.-"
+ },
+ "rxn15981": {
+  "note": "rxn15981 9alpha-Copalyl-diphosphate diphosphate-lyase [stemod-13(17)-ene-forming] | EC=4.2.3.34",
+  "n_Hplus": 1,
+  "species": {
+   "syn-Copalyl diphosphate": [
+    -1,
+    -2,
+    "C=C1CC[C@H]2C(C)(C)CCC[C@]2(C)[C@@H]1CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "Stemod-13(17)-ene": [
+    1,
+    0,
+    "C=C1CC[C@@]23C[C@@H]1C[C@@H]2CC[C@H]1C(C)(C)CCC[C@@]13C"
+   ]
+  },
+  "ec": "4.2.3.34"
+ },
+ "rxn03034": {
+  "note": "rxn03034 Homoisocitrate hydro-lyase | EC=4.2.1.114",
+  "n_Hplus": 0,
+  "species": {
+   "Homoisocitrate": [
+    -1,
+    -3,
+    "O=C([O-])CC[C@H](C(=O)[O-])[C@@H](O)C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "cis-Homoaconitate": [
+    1,
+    -3,
+    "O=C([O-])/C=C(/CCC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "4.2.1.114",
+  "gc_kcal": 0.05,
+  "eq_kcal": -1.18
+ },
+ "rxn07621": {
+  "note": "rxn07621 (2E,6E)-farnesyl-diphosphate diphosphate-lyase [(+)-epi-isozizaene-forming] | EC=4.2.3.37",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "epi-Isozizaene": [
+    1,
+    0,
+    "CC1=C2CC[C@H](C)[C@]23CC[C@@H](C3)C1(C)C"
+   ]
+  },
+  "ec": "4.2.3.37"
+ },
+ "rxn01644": {
+  "note": "rxn01644 L-Aspartate-4-semialdehyde hydro-lyase (adding pyruvate and cyclizing) | EC=4.2.1.52",
+  "n_Hplus": 1,
+  "species": {
+   "Pyruvate": [
+    -1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "L-Aspartate4-semialdehyde": [
+    -1,
+    0,
+    "[NH3+][C@@H](CC=O)C(=O)[O-]"
+   ],
+   "H2O": [
+    2,
+    0,
+    "O"
+   ],
+   "Dihydrodipicolinate": [
+    1,
+    -2,
+    "O=C([O-])C1=N[C@H](C(=O)[O-])CC=C1"
+   ]
+  },
+  "ec": "4.2.1.52",
+  "gc_kcal": -30.87,
+  "eq_kcal": -29.55
+ },
+ "rxn02173": {
+  "note": "rxn02173 D-Galactonate hydro-lyase | EC=4.2.1.6",
+  "n_Hplus": 0,
+  "species": {
+   "D-Galactonate": [
+    -1,
+    -1,
+    "O=C([O-])[C@H](O)[C@@H](O)[C@@H](O)[C@H](O)CO"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "2-Dehydro-3-deoxy-D-galactonate": [
+    1,
+    -1,
+    "O=C([O-])C(=O)C[C@@H](O)[C@H](O)CO"
+   ]
+  },
+  "ec": "4.2.1.6",
+  "gc_kcal": -8.17,
+  "eq_kcal": -10.01
+ },
+ "rxn04007": {
+  "note": "rxn04007 deacetylisoipecoside dopamine-lyase | EC=4.3.3.3",
+  "n_Hplus": 0,
+  "species": {
+   "Secologanin": [
+    -1,
+    0,
+    "C=C[C@H]1[C@H](O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)OC=C(C(=O)OC)[C@H]1CC=O"
+   ],
+   "Dopamine": [
+    -1,
+    1,
+    "[NH3+]CCc1ccc(O)c(O)c1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Deacetylisoipecoside": [
+    1,
+    1,
+    "C=C[C@H]1[C@H](O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)OC=C(C(=O)OC)[C@H]1C[C@@H]1[NH2+]CCc2cc(O)c(O)cc21"
+   ]
+  },
+  "ec": "4.3.3.3",
+  "gc_kcal": -4.24,
+  "eq_kcal": -17.73
+ },
+ "rxn01473": {
+  "note": "rxn01473 geranyl-diphosphate diphosphate-lyase [cyclizing; (4S)-limonene-forming] | EC=4.2.3.16",
+  "n_Hplus": 1,
+  "species": {
+   "Geranyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "Limonene": [
+    1,
+    0,
+    "C=C(C)[C@@H]1CC=C(C)CC1"
+   ]
+  },
+  "ec": "4.2.3.16",
+  "gc_kcal": -25.88,
+  "eq_kcal": -36.19
+ },
+ "rxn06908": {
+  "note": "rxn06908 5-Chloro-1,2,4-trihydroxybenzene chloride-lyase | EC=4.5.1.-",
+  "n_Hplus": 2,
+  "species": {
+   "5-Chloro-1,2,4-trihydroxybenzene": [
+    -1,
+    0,
+    "Oc1cc(O)c(Cl)cc1O"
+   ],
+   "Cl-": [
+    1,
+    -1,
+    "[Cl-]"
+   ],
+   "Hydroxybenzoquinone": [
+    1,
+    -1,
+    "O=C1C=CC(=O)C(=O)[CH-]1"
+   ]
+  },
+  "ec": "4.5.1.-"
+ },
+ "rxn24563": {
+  "note": "rxn24563 RXN-801.c | EC=4.1.1.-",
+  "n_Hplus": -1,
+  "species": {
+   "Ferulate": [
+    -1,
+    -1,
+    "COc1cc(/C=C/C(=O)[O-])ccc1O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "4-Vinylguaiacol": [
+    1,
+    0,
+    "C=Cc1ccc(O)c(OC)c1"
+   ]
+  },
+  "ec": "4.1.1.-",
+  "gc_kcal": -4.01,
+  "eq_kcal": -3.57
+ },
+ "rxn20285": {
+  "note": "rxn20285 3-cyanopyridine hydratase | EC=4.2.1.84",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "3-cyanopyridine": [
+    -1,
+    0,
+    "N#Cc1cccnc1"
+   ],
+   "Nicotinamide": [
+    1,
+    0,
+    "NC(=O)c1cccnc1"
+   ]
+  },
+  "ec": "4.2.1.84",
+  "gc_kcal": 4.98
+ },
+ "rxn03379": {
+  "note": "rxn03379 Selenocystathionine L-homocysteine-lyase (deaminating) | EC=4.4.1.8",
+  "n_Hplus": 0,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Selenocystathionine": [
+    -1,
+    0,
+    "[NH3+][C@@H](CC[Se]C[C@H]([NH3+])C(=O)[O-])C(=O)[O-]"
+   ],
+   "NH3": [
+    1,
+    1,
+    "[NH4+]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Selenohomocysteine": [
+    1,
+    0,
+    "[NH3+][C@@H](CC[SeH])C(=O)[O-]"
+   ]
+  },
+  "ec": "4.4.1.8"
+ },
+ "rxn01876": {
+  "note": "rxn01876 S,S-Dimethyl-beta-propiothetin dimethyl-sulfide-lyase | EC=4.4.1.3",
+  "n_Hplus": 1,
+  "species": {
+   "DMSP": [
+    -1,
+    0,
+    "C[S+](C)CCC(=O)[O-]"
+   ],
+   "Acrylate": [
+    1,
+    -1,
+    "C=CC(=O)[O-]"
+   ],
+   "Methyl sulfide": [
+    1,
+    0,
+    "CSC"
+   ]
+  },
+  "ec": "4.4.1.3",
+  "gc_kcal": -7.78,
+  "eq_kcal": 5.61
+ },
+ "rxn40698": {
+  "note": "rxn40698  | EC=4.2.3.177",
+  "n_Hplus": 1,
+  "species": {
+   "Geranyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "beta-thujene": [
+    1,
+    0,
+    "CC1C=CC2(C(C)C)CC12"
+   ]
+  },
+  "ec": "4.2.3.177",
+  "gc_kcal": -43.51
+ },
+ "rxn05062": {
+  "note": "rxn05062 D-dopachrome carboxy-lyase | EC=4.1.1.84",
+  "n_Hplus": -1,
+  "species": {
+   "D-Dopachrome": [
+    -1,
+    -1,
+    "O=C1C=C2C[C@H](C(=O)[O-])NC2=CC1=O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "DHI": [
+    1,
+    0,
+    "Oc1cc2cc[nH]c2cc1O"
+   ]
+  },
+  "ec": "4.1.1.84",
+  "gc_kcal": -23.04
+ },
+ "rxn02845": {
+  "note": "rxn02845 3-phosphonopyruvate carboxy-lyase | EC=4.1.1.82",
+  "n_Hplus": -1,
+  "species": {
+   "3-Phosphonopyruvate": [
+    -1,
+    -2,
+    "O=C([O-])C(=O)CP(=O)([O-])O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Phosphonoacetaldehyde": [
+    1,
+    -1,
+    "O=CCP(=O)([O-])O"
+   ]
+  },
+  "ec": "4.1.1.82",
+  "gc_kcal": -4.09,
+  "eq_kcal": -2.71
+ },
+ "rxn00289": {
+  "note": "rxn00289 (2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate pyruvate-lyase (succinate-forming) | EC=4.1.3.30",
+  "n_Hplus": 0,
+  "species": {
+   "Methylisocitrate": [
+    -1,
+    -3,
+    "C[C@](O)(C(=O)[O-])[C@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "Pyruvate": [
+    1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Succinate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)[O-]"
+   ]
+  },
+  "ec": "4.1.3.30",
+  "gc_kcal": 4.98,
+  "eq_kcal": 2.27
+ },
+ "rxn00769": {
+  "note": "rxn00769 Glycerol hydro-lyase | EC=4.2.1.30",
+  "n_Hplus": 0,
+  "species": {
+   "Glycerol": [
+    -1,
+    0,
+    "OCC(O)CO"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Lactaldehyde": [
+    1,
+    0,
+    "CC(O)C=O"
+   ]
+  },
+  "ec": "4.2.1.30",
+  "gc_kcal": -10.98,
+  "eq_kcal": -9.24
+ },
+ "rxn16730": {
+  "note": "rxn16730 (2E,6E)-farnesyl-diphosphate diphosphate-lyase [(+)-gamma-cadinene-forming] | EC=4.2.3.92",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "(+)-gamma-Cadinene": [
+    1,
+    0,
+    "C=C1CC[C@@H](C(C)C)[C@@H]2C=C(C)CC[C@@H]12"
+   ]
+  },
+  "ec": "4.2.3.92",
+  "gc_kcal": -27.76,
+  "eq_kcal": -148.78
+ },
+ "rxn01131": {
+  "note": "rxn01131 Acetone-cyanohydrin acetone-lyase (cyanide-forming) | EC=4.1.2.46",
+  "n_Hplus": 0,
+  "species": {
+   "Acetone cyanhydrin": [
+    -1,
+    0,
+    "CC(C)(O)C#N"
+   ],
+   "HCN": [
+    1,
+    0,
+    "C#N"
+   ],
+   "Acetone": [
+    1,
+    0,
+    "CC(C)=O"
+   ]
+  },
+  "ec": "4.1.2.46"
+ },
+ "rxn07657": {
+  "note": "rxn07657 (8E)-9-[(1E,3Z,6Z)-nona-1,3,6-trien-1-yloxy]non-8-enoate synthase | EC=4.2.1.121",
+  "n_Hplus": 0,
+  "species": {
+   "9(S)-HPOT": [
+    -1,
+    -1,
+    "CC/C=C\\C/C=C\\C=C\\[C@H](CCCCCCCC(=O)[O-])OO"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Colnelenic acid": [
+    1,
+    -1,
+    "CC/C=C\\C/C=C\\C=C\\O/C=C/CCCCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "4.2.1.121",
+  "gc_kcal": 3.71
+ },
+ "rxn16532": {
+  "note": "rxn16532 neryl-diphosphate diphosphate-lyase [cyclizing; beta-phellandrene-forming] | EC=4.2.3.51",
+  "n_Hplus": 1,
+  "species": {
+   "Neryl diphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C\\COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "(+)-beta-Phellandrene": [
+    1,
+    0,
+    "C=C1C=C[C@H](C(C)C)CC1"
+   ]
+  },
+  "ec": "4.2.3.51",
+  "gc_kcal": -15.64,
+  "eq_kcal": -39.25
+ },
+ "rxn05061": {
+  "note": "rxn05061 4-hydroxyphenylacetate carboxy-lyase | EC=4.1.1.83",
+  "n_Hplus": -1,
+  "species": {
+   "4-Hydroxyphenylacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1ccc(O)cc1"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "p-Cresol": [
+    1,
+    0,
+    "Cc1ccc(O)cc1"
+   ]
+  },
+  "ec": "4.1.1.83",
+  "gc_kcal": -4.9,
+  "eq_kcal": -4.16
+ },
+ "rxn22039": {
+  "note": "rxn22039 RXN-11669.c | EC=4.1.1.-",
+  "n_Hplus": -1,
+  "species": {
+   "3-oxo-myristate": [
+    -1,
+    -1,
+    "CCCCCCCCCCCC(=O)CC(=O)[O-]"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "2-tridecanone": [
+    1,
+    0,
+    "CCCCCCCCCCCC(C)=O"
+   ]
+  },
+  "ec": "4.1.1.-",
+  "gc_kcal": -4.9,
+  "eq_kcal": -4.17
+ },
+ "rxn47684": {
+  "note": "rxn47684  | EC=4.2.1.173",
+  "n_Hplus": 0,
+  "species": {
+   "ent-8alpha-hydroxylabd-13-en-15-yl diphosphate": [
+    -1,
+    -2,
+    "C/C(=C\\COP(=O)([O-])OP(=O)([O-])O)CC[C@@H]1[C@@](C)(O)CCC2C(C)(C)CCC[C@]21C"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Geranylgeranyl diphosphate": [
+    1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ]
+  },
+  "ec": "4.2.1.173",
+  "gc_kcal": 43.0,
+  "eq_kcal": 75.19
+ },
+ "rxn22471": {
+  "note": "rxn22471 succinylo-toyocamycin phosphate lyase | EC=4.3.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "2-({5-cyano-7-[(1S,2S,3R,4R)-2,3-dihydroxy-4-[(phosphonatoox": [
+    -1,
+    -4,
+    "N#Cc1cn([C@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c2ncnc(NC(CC(=O)[O-])C(=O)[O-])c12"
+   ],
+   "Fumarate": [
+    1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ],
+   "toyocamycin phosphate": [
+    1,
+    -2,
+    "N#Cc1cn([C@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c2ncnc(N)c12"
+   ]
+  },
+  "ec": "4.3.2.-",
+  "gc_kcal": 7.34
+ },
+ "rxn02507": {
+  "note": "rxn02507 1-(2-Carboxyphenylamino)-1-deoxy-D-ribulose-5-phosphate carboxy-lyase(cyclizing) | EC=4.1.1.48",
+  "n_Hplus": -1,
+  "species": {
+   "1-(2-carboxyphenylamino)-1-deoxyribulose 5-phosphate": [
+    -1,
+    -3,
+    "O=C([O-])c1ccccc1NCC(=O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Indoleglycerol phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@@H](O)[C@@H](O)c1c[nH]c2ccccc12"
+   ]
+  },
+  "ec": "4.1.1.48",
+  "gc_kcal": -14.46,
+  "eq_kcal": -18.48
+ },
+ "rxn20744": {
+  "note": "rxn20744 (Aceto)phenylmercury lyase | EC=4.99.1.2",
+  "n_Hplus": -1,
+  "species": {
+   "Phenylmercury acetate": [
+    -1,
+    0,
+    "CC(=O)O[Hg]c1ccccc1"
+   ],
+   "Acetate": [
+    1,
+    -1,
+    "CC(=O)[O-]"
+   ],
+   "Hg2+": [
+    1,
+    2,
+    "[Hg+2]"
+   ],
+   "Benzene": [
+    1,
+    0,
+    "c1ccccc1"
+   ]
+  },
+  "ec": "4.99.1.2"
+ },
+ "rxn02346": {
+  "note": "rxn02346 R03277 | EC=4.1.2.20",
+  "n_Hplus": 0,
+  "species": {
+   "Pyruvate": [
+    -1,
+    -1,
+    "CC(=O)C(=O)[O-]"
+   ],
+   "Tartronate semialdehyde": [
+    -1,
+    -1,
+    "O=CC(O)C(=O)[O-]"
+   ],
+   "2-Dehydro-3-deoxy-D-glucarate": [
+    1,
+    -2,
+    "O=C([O-])C(=O)C[C@H](O)[C@H](O)C(=O)[O-]"
+   ]
+  },
+  "ec": "4.1.2.20",
+  "gc_kcal": -0.75,
+  "eq_kcal": -6.03
+ },
+ "rxn25006": {
+  "note": "rxn25006 RXN-8560.c | EC=4.2.3.-",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "beta-Gurjunene": [
+    1,
+    0,
+    "C=C1CC[C@H]2[C@@H]1[C@H]1[C@@H](CC[C@H]2C)C1(C)C"
+   ]
+  },
+  "ec": "4.2.3.-",
+  "gc_kcal": -26.23,
+  "eq_kcal": -240.99
+ },
+ "rxn01499": {
+  "note": "rxn01499 3,4-Dihydroxy-L-phenylalanine carboxy-lyase | EC=4.1.1.25",
+  "n_Hplus": -1,
+  "species": {
+   "L-Dopa": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccc(O)c(O)c1)C(=O)[O-]"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "Dopamine": [
+    1,
+    1,
+    "[NH3+]CCc1ccc(O)c(O)c1"
+   ]
+  },
+  "ec": "4.1.1.25",
+  "gc_kcal": -3.09,
+  "eq_kcal": -5.08
+ },
+ "rxn21845": {
+  "note": "rxn21845 delta4,5-unsaturated trigalacturonate lyase | EC=4.2.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "delta4,5-unsaturated trigalacturonate": [
+    -1,
+    -3,
+    "O=C([O-])C1=C[C@H](O)[C@@H](O)C(O[C@@H]2[C@H](O)[C@@H](O)C(OC3[C@@H](C(=O)[O-])OC(O)[C@H](O)[C@H]3O)O[C@@H]2C(=O)[O-])O1"
+   ],
+   "4-(4-Deoxy-alpha-D-gluc-4-enuronosyl)-D-galacturonate": [
+    1,
+    -2,
+    "O=C([O-])C1=C[C@H](O)[C@@H](O)[C@@H](O[C@@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2C(=O)[O-])O1"
+   ],
+   "5-keto-4-deoxyuronate": [
+    1,
+    -1,
+    "O=C[C@H](O)[C@@H](O)CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "4.2.2.-",
+  "gc_kcal": -8.96,
+  "eq_kcal": -10.92
+ },
+ "rxn24910": {
+  "note": "rxn24910 alpha-copaene synthase | EC=4.2.3.-",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "Copaene": [
+    1,
+    0,
+    "CC1=CC[C@H]2[C@@H]3C(C(C)C)CC[C@@]2(C)C13"
+   ]
+  },
+  "ec": "4.2.3.-"
+ },
+ "rxn03687": {
+  "note": "rxn03687 gamma-hexachlorocyclohexane chloride-lyase | EC=4.5.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "Benzene hexachloride": [
+    -1,
+    0,
+    "Cl[C@H]1[C@H](Cl)[C@@H](Cl)[C@@H](Cl)[C@H](Cl)[C@H]1Cl"
+   ],
+   "Cl-": [
+    1,
+    -1,
+    "[Cl-]"
+   ],
+   "gamma-Pentachlorocyclohexene": [
+    1,
+    0,
+    "ClC1=C[C@@H](Cl)[C@H](Cl)[C@H](Cl)[C@H]1Cl"
+   ]
+  },
+  "ec": "4.5.1.-"
+ },
+ "rxn45829": {
+  "note": "rxn45829  | EC=4.2.3.156",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "Presqualene diphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/[C@H]1[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@]1(C)CC/C=C(\\C)CCC=C(C)C"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "hydroxysqualene": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/C[C@@H](O)/C=C(\\C)CC/C=C(\\C)CCC=C(C)C"
+   ]
+  },
+  "ec": "4.2.3.156",
+  "gc_kcal": -10.94
+ },
+ "rxn00245": {
+  "note": "rxn00245 (R,R)-tartrate hydro-lyase (oxaloacetate-forming) | EC=4.2.1.32",
+  "n_Hplus": 0,
+  "species": {
+   "Tartrate": [
+    -1,
+    -2,
+    "O=C([O-])[C@H](O)[C@@H](O)C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "Oxaloacetate": [
+    1,
+    -2,
+    "O=C([O-])CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "4.2.1.32",
+  "gc_kcal": -8.17,
+  "eq_kcal": -8.31
+ },
+ "rxn02748": {
+  "note": "rxn02748 (3S)-3-Methyl-2-oxopentanoate carboxy-lyase | EC=4.1.1.72",
+  "n_Hplus": -1,
+  "species": {
+   "3MOP": [
+    -1,
+    -1,
+    "CC[C@H](C)C(=O)C(=O)[O-]"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "2-Methylbutanal": [
+    1,
+    0,
+    "CCC(C)C=O"
+   ]
+  },
+  "ec": "4.1.1.72",
+  "gc_kcal": -4.09,
+  "eq_kcal": -2.78
+ },
+ "rxn46469": {
+  "note": "rxn46469  | EC=4.3.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "4-(beta-D-ribofuranosyl)-N-succinylaminobenzene 5'-phosphate": [
+    -1,
+    -4,
+    "O=C([O-])C[C@H](Nc1ccc([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)cc1)C(=O)[O-]"
+   ],
+   "Fumarate": [
+    1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ],
+   "4-(beta-D-ribofuranosyl)aminobenzene-5'-phosphate": [
+    1,
+    -2,
+    "Nc1ccc([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)cc1"
+   ]
+  },
+  "ec": "4.3.2.-",
+  "gc_kcal": 7.34,
+  "eq_kcal": 6.37
+ },
+ "rxn00413": {
+  "note": "rxn00413 CTP diphosphate-lyase (cyclizing; 3',5'-cyclic-CMP-forming) | EC=4.6.1.6",
+  "n_Hplus": 1,
+  "species": {
+   "CTP": [
+    -1,
+    -3,
+    "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "3',5'-Cyclic CMP": [
+    1,
+    -1,
+    "Nc1ccn([C@@H]2O[C@@H]3COP(=O)([O-])O[C@H]3[C@H]2O)c(=O)n1"
+   ]
+  },
+  "ec": "4.6.1.6",
+  "gc_kcal": -8.48,
+  "eq_kcal": 0.79
+ },
+ "rxn16727": {
+  "note": "rxn16727 (2E,6E)-farnesyl-diphosphate diphosphate-lyase [cyclizing, (+)-beta-caryophyllene-forming] | EC=4.2.3.89",
+  "n_Hplus": 1,
+  "species": {
+   "Farnesyldiphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "(+)-beta-Caryophyllene": [
+    1,
+    0,
+    "C=C1CC/C=C(\\C)CC[C@H]2[C@H]1CC2(C)C"
+   ]
+  },
+  "ec": "4.2.3.89",
+  "eq_kcal": -146.31
+ },
+ "rxn13774": {
+  "note": "rxn13774 Isoprene synthase | EC=4.2.3.27",
+  "n_Hplus": 0,
+  "species": {
+   "DMAP": [
+    -1,
+    -2,
+    "CC(C)=CCOP(=O)([O-])[O-]"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Isoprene": [
+    1,
+    0,
+    "C=CC(=C)C"
+   ]
+  },
+  "ec": "4.2.3.27",
+  "gc_kcal": 6.66,
+  "eq_kcal": -3.21
+ },
+ "rxn03125": {
+  "note": "rxn03125 (E)-2-(2-Furyl)-3-(5-nitro-2-furyl)acrylamide cis-trans-isomerase | EC=5.2.1.6",
+  "n_Hplus": 0,
+  "species": {
+   "(E)-2-(2-Furyl)-3-(5-nitro-2-furyl)acrylamide": [
+    -1,
+    0,
+    "NC(=O)/C(=C/c1ccc([N+](=O)[O-])o1)c1ccco1"
+   ],
+   "(Z)-2-(2-Furyl)-3-(5-nitro-2-furyl)acrylamide": [
+    1,
+    0,
+    "NC(=O)/C(=C\\c1ccc([N+](=O)[O-])o1)c1ccco1"
+   ]
+  },
+  "ec": "5.2.1.6",
+  "eq_kcal": 0.0
+ },
+ "rxn15114": {
+  "note": "rxn15114 D-ribose-5-phosphate aldose-ketose-isomerase | EC=5.3.1.6",
+  "n_Hplus": 0,
+  "species": {
+   "alpha-D-Ribose 5-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "D-Ribulose5-phosphate": [
+    1,
+    -2,
+    "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "5.3.1.6",
+  "gc_kcal": 0.62,
+  "eq_kcal": 1.04
+ },
+ "rxn27405": {
+  "note": "rxn27405 UDP-D-xylose 4-epimerase | EC=5.1.3.5",
+  "n_Hplus": 0,
+  "species": {
+   "UDP-L-ARABINOSE": [
+    -1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC3OC[C@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "UDP-xylose": [
+    1,
+    -2,
+    "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3OC[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ]
+  },
+  "ec": "5.1.3.5",
+  "gc_kcal": 0.0
+ },
+ "rxn01010": {
+  "note": "rxn01010 UDP-glucuronate 5'-epimerase | EC=5.1.3.12",
+  "n_Hplus": 0,
+  "species": {
+   "UDPglucuronate": [
+    -1,
+    -3,
+    "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "UDP-L-iduronate": [
+    1,
+    -3,
+    "O=C([O-])[C@@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.1.3.12",
+  "gc_kcal": 0.0,
+  "eq_kcal": -0.6
+ },
+ "rxn04772": {
+  "note": "rxn04772 carotenoid psi-end group lyase (decyclizing) | EC=5.5.1.18",
+  "n_Hplus": 0,
+  "species": {
+   "delta-Carotene": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/[C@H]1C(C)=CCCC1(C)C"
+   ],
+   "Lycopene": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C=C(\\C)CCC=C(C)C"
+   ]
+  },
+  "ec": "5.5.1.18",
+  "gc_kcal": 16.89
+ },
+ "rxn26079": {
+  "note": "rxn26079 D-sedoheptulose 7-phosphate isomerase | EC=5.3.1.28",
+  "n_Hplus": 0,
+  "species": {
+   "Sedoheptulose7-phosphate": [
+    -1,
+    -2,
+    "O=C(CO)[C@@H](O)[C@H](O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ],
+   "D-ALPHABETA-D-HEPTOSE-7-PHOSPHATE": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@@H](O)[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.3.1.28",
+  "gc_kcal": -0.86,
+  "eq_kcal": 0.31
+ },
+ "rxn08341": {
+  "note": "rxn08341 H2NTPEPIM-RXN.c | EC=5.-.-.-",
+  "n_Hplus": 0,
+  "species": {
+   "7,8-Dihydroneopterin 3'-triphosphate": [
+    -1,
+    -3,
+    "Nc1nc(=O)c2c([nH]1)NCC(C(=O)[C@H](O)COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)N2"
+   ],
+   "dihydromonapterin-triphosphate": [
+    1,
+    -3,
+    "Nc1nc(=O)c2c([nH]1)NCC(C(=O)[C@@H](O)COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)N2"
+   ]
+  },
+  "ec": "5.-.-.-",
+  "gc_kcal": 0.0,
+  "eq_kcal": 0.0
+ },
+ "rxn16555": {
+  "note": "rxn16555 (S)-2,3-epoxysqualene mutase (cyclizing, thalianol-forming) | EC=5.4.99.31",
+  "n_Hplus": 0,
+  "species": {
+   "Squalene 2,3-oxide": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C=C(\\C)CC/C=C(\\C)CC[C@@H]1OC1(C)C"
+   ],
+   "Thalianol": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC[C@@H](C)[C@@]1(C)CCC2=C1CC[C@H]1C(C)(C)[C@@H](O)CC[C@]21C"
+   ]
+  },
+  "ec": "5.4.99.31",
+  "gc_kcal": -51.08,
+  "eq_kcal": -182.55
+ },
+ "rxn02000": {
+  "note": "rxn02000 dTDP-4-dehydro-6-deoxy-D-glucose 3,5-epimerase | EC=5.1.3.13",
+  "n_Hplus": 0,
+  "species": {
+   "dTDP-4-oxo-6-deoxy-D-glucose": [
+    -1,
+    -2,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)C(=O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O"
+   ],
+   "dTDP-4-oxo-L-rhamnose": [
+    1,
+    -2,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@@H](C)C(=O)[C@@H](O)[C@H]3O)O2)c(=O)[nH]c1=O"
+   ]
+  },
+  "ec": "5.1.3.13",
+  "gc_kcal": 0.0,
+  "eq_kcal": -3.7
+ },
+ "rxn39374": {
+  "note": "rxn39374 (R)-Acetoin racemase | EC=5.1.2.4",
+  "n_Hplus": 0,
+  "species": {
+   "(R)-Acetoin": [
+    -1,
+    0,
+    "CC(=O)[C@@H](C)O"
+   ],
+   "ACTN": [
+    1,
+    0,
+    "CC(=O)[C@H](C)O"
+   ]
+  },
+  "ec": "5.1.2.4",
+  "gc_kcal": 0.0,
+  "eq_kcal": 0.4
+ },
+ "rxn40687": {
+  "note": "rxn40687  | EC=5.5.1.32",
+  "n_Hplus": 0,
+  "species": {
+   "3-geranyl-3-[(Z)-2-isocyanoethenyl]-1H-indole": [
+    -1,
+    1,
+    "C#[N+]/C=C\\C1(C/C=C(\\C)CCC=C(C)C)C=Nc2ccccc21"
+   ],
+   "12-epi-hapalindole U": [
+    1,
+    1,
+    "C#[N+][C@@H]1[C@@H]2c3c[nH]c4cccc(c34)C(C)(C)[C@H]2CC[C@@]1(C)C=C"
+   ]
+  },
+  "ec": "5.5.1.32"
+ },
+ "rxn40042": {
+  "note": "rxn40042 L-glutamate 2,3-aminomutase | EC=5.4.3.9",
+  "n_Hplus": 0,
+  "species": {
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Isoglutamate": [
+    1,
+    -1,
+    "[NH3+]C(CC(=O)[O-])CC(=O)[O-]"
+   ]
+  },
+  "ec": "5.4.3.9",
+  "gc_kcal": 0.0,
+  "eq_kcal": 1.67
+ },
+ "rxn15225": {
+  "note": "rxn15225 Maltose alpha-D-glucosylmutase | EC=5.4.99.16",
+  "n_Hplus": 0,
+  "species": {
+   "alpha-Maltose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O)[C@@H](O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O"
+   ],
+   "TRHL": [
+    1,
+    0,
+    "OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.4.99.16",
+  "gc_kcal": 0.0,
+  "eq_kcal": -0.69
+ },
+ "rxn10594": {
+  "note": "rxn10594 ribose 1,5-bisphosphate isomerase | EC=5.3.1.29",
+  "n_Hplus": 0,
+  "species": {
+   "Ribose 1,5-bisphosphate": [
+    -1,
+    -4,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H]1O"
+   ],
+   "D-Ribulose 1,5-bisphosphate": [
+    1,
+    -4,
+    "O=C(COP(=O)([O-])[O-])[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "5.3.1.29",
+  "gc_kcal": 0.62,
+  "eq_kcal": -2.28
+ },
+ "rxn03018": {
+  "note": "rxn03018 2,4-Dichloro-2,5-dihydro-5-oxofuran-2-acetate lyase (decyclizing) | EC=5.5.1.11",
+  "n_Hplus": 1,
+  "species": {
+   "3,5-Dichloro-2,5-dihydro-2-oxofuran-5-acetate": [
+    -1,
+    -1,
+    "O=C([O-])CC1(Cl)C=C(Cl)C(=O)O1"
+   ],
+   "2,4-Dichloro-cis,cis-muconate": [
+    1,
+    -2,
+    "O=C([O-])/C=C(Cl)\\C=C(\\Cl)C(=O)[O-]"
+   ]
+  },
+  "ec": "5.5.1.11",
+  "gc_kcal": 0.05,
+  "eq_kcal": 3.2
+ },
+ "rxn02818": {
+  "note": "rxn02818 Benzyl-thiocyanate isomerase | EC=5.99.1.1",
+  "n_Hplus": 0,
+  "species": {
+   "Benzyl thiocyanate": [
+    -1,
+    0,
+    "N#CSCc1ccccc1"
+   ],
+   "Benzyl isothiocyanate": [
+    1,
+    0,
+    "S=C=NCc1ccccc1"
+   ]
+  },
+  "ec": "5.99.1.1"
+ },
+ "rxn19951": {
+  "note": "rxn19951 isopiperitenone delta-isomerase | EC=5.3.3.11",
+  "n_Hplus": 0,
+  "species": {
+   "(-)-Isopiperitenone": [
+    -1,
+    0,
+    "C=C(C)[C@H]1CCC(C)=CC1=O"
+   ],
+   "Piperitenone": [
+    1,
+    0,
+    "CC1=CC(=O)C(=C(C)C)CC1"
+   ]
+  },
+  "ec": "5.3.3.11",
+  "gc_kcal": 15.19,
+  "eq_kcal": 0.0
+ },
+ "rxn16535": {
+  "note": "rxn16535 (S)-2,3-epoxysqualene mutase [cyclizing, (17Z)-protosta-17(20),24-dien-3beta-ol-forming] | EC=5.4.99.32",
+  "n_Hplus": 0,
+  "species": {
+   "Squalene 2,3-oxide": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C=C(\\C)CC/C=C(\\C)CC[C@@H]1OC1(C)C"
+   ],
+   "(17Z)-Protosta-17(20),24-dien-3beta-ol": [
+    1,
+    0,
+    "CC(C)=CCC/C(C)=C1\\CC[C@@]2(C)C1CC[C@H]1[C@@]3(C)CC[C@H](O)C(C)(C)[C@@H]3CC[C@@]12C"
+   ]
+  },
+  "ec": "5.4.99.32",
+  "gc_kcal": -76.89
+ },
+ "rxn19159": {
+  "note": "rxn19159 (2R,3R)-3-methylornithine synthase | EC=5.4.99.58",
+  "n_Hplus": 0,
+  "species": {
+   "L-Lysine": [
+    -1,
+    1,
+    "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "(2R,3R)-3-methylornithine": [
+    1,
+    1,
+    "C[C@H](CC[NH3+])[C@@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "5.4.99.58",
+  "gc_kcal": -1.81,
+  "eq_kcal": 0.03
+ },
+ "rxn02370": {
+  "note": "rxn02370 3-carboxy-2,5-dihydro-5-oxofuran-2-acetate lyase (decyclizing) | EC=5.5.1.5",
+  "n_Hplus": 1,
+  "species": {
+   "4-Carboxy-2,5-dihydro-2-oxofuran-5-acetate": [
+    -1,
+    -2,
+    "O=C([O-])CC1OC(=O)C=C1C(=O)[O-]"
+   ],
+   "3-Carboxy-cis,cis-muconate": [
+    1,
+    -3,
+    "O=C([O-])/C=C\\C(=C/C(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "5.5.1.5",
+  "gc_kcal": -0.52
+ },
+ "rxn23159": {
+  "note": "rxn23159 9,12-octadecadienoate 8-hydroperoxide 8S-isomerase | EC=5.4.4.6",
+  "n_Hplus": 0,
+  "species": {
+   "8(R)-HPODE": [
+    -1,
+    -1,
+    "CCCCC/C=C\\C/C=C\\[C@@H](CCCCCCC(=O)[O-])OO"
+   ],
+   "(7S,8S,9Z,12Z)-7,8-dihydroxy-9,12-octadecadienoate": [
+    1,
+    -1,
+    "CCCCC/C=C\\C/C=C\\[C@H](O)[C@@H](O)CCCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "5.4.4.6",
+  "gc_kcal": -14.84
+ },
+ "rxn15192": {
+  "note": "rxn15192 D-xylose aldose-ketose-isomerase | EC=5.3.1.5",
+  "n_Hplus": 0,
+  "species": {
+   "beta-D-Xylose": [
+    -1,
+    0,
+    "O[C@@H]1[C@@H](O)[C@H](O)OC[C@H]1O"
+   ],
+   "D-Lyxulose": [
+    1,
+    0,
+    "OCC1(O)OC[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.3.1.5",
+  "gc_kcal": -0.89,
+  "eq_kcal": 3.48
+ },
+ "rxn07487": {
+  "note": "rxn07487 R07672 | EC=5.1.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "GDP-mannose": [
+    -1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "GDP-L-gulose": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2C2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@@H](CO)[C@@H](O)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ]
+  },
+  "ec": "5.1.3.-",
+  "gc_kcal": 0.0,
+  "eq_kcal": 1.79
+ },
+ "rxn44163": {
+  "note": "rxn44163  | EC=5.5.1.29",
+  "n_Hplus": 0,
+  "species": {
+   "Geranylgeranyl diphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "(+)-kolavenyl diphosphate": [
+    1,
+    -2,
+    "CC1=CCC[C@H]2[C@](C)(CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O)[C@@H](C)CC[C@]12C"
+   ]
+  },
+  "ec": "5.5.1.29",
+  "gc_kcal": -48.38,
+  "eq_kcal": -86.65
+ },
+ "rxn03806": {
+  "note": "rxn03806 dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose:dTDP-3-dehydro-6-deoxy-alpha-D-glucopyranose isomerase | EC=5.3.2.4",
+  "n_Hplus": 0,
+  "species": {
+   "dTDP-4-oxo-6-deoxy-D-glucose": [
+    -1,
+    -2,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)C(=O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O"
+   ],
+   "dTDP-3-oxo-6-deoxy-alpha-D-glucose": [
+    1,
+    -2,
+    "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)[C@@H](O)C(=O)[C@H]3O)O2)c(=O)[nH]c1=O"
+   ]
+  },
+  "ec": "5.3.2.4",
+  "gc_kcal": 0.0,
+  "eq_kcal": -3.7
+ },
+ "rxn43449": {
+  "note": "rxn43449 D-fructose 3-epimerase | EC=5.1.3.30",
+  "n_Hplus": 0,
+  "species": {
+   "D-Psicose": [
+    -1,
+    0,
+    "OCC1(O)OC[C@@H](O)[C@@H](O)[C@H]1O"
+   ],
+   "D-Fructose": [
+    1,
+    0,
+    "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.1.3.30",
+  "gc_kcal": -1.56,
+  "eq_kcal": -0.24
+ },
+ "rxn16091": {
+  "note": "rxn16091 muconate cycloisomerase | EC=5.5.1.1",
+  "n_Hplus": -1,
+  "species": {
+   "3-Methyl-cis,cis-muconate": [
+    -1,
+    -2,
+    "CC(/C=C\\C(=O)[O-])=C/C(=O)[O-]"
+   ],
+   "3-Methylmuconolactone": [
+    1,
+    -1,
+    "CC1=CC(=O)OC1CC(=O)[O-]"
+   ]
+  },
+  "ec": "5.5.1.1",
+  "gc_kcal": 0.52,
+  "eq_kcal": -5.4
+ },
+ "rxn07662": {
+  "note": "rxn07662 R07872 | EC=5.3.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "12-Oxo-9(Z)-dodecenoic acid": [
+    -1,
+    -1,
+    "O=CC/C=C\\CCCCCCCC(=O)[O-]"
+   ],
+   "Traumatin": [
+    1,
+    -1,
+    "O=C/C=C/CCCCCCCCC(=O)[O-]"
+   ]
+  },
+  "ec": "5.3.3.-",
+  "gc_kcal": -1.55,
+  "eq_kcal": -0.0
+ },
+ "rxn15277": {
+  "note": "rxn15277 D-Lyxose aldose-ketose-isomerase | EC=5.3.1.15",
+  "n_Hplus": 0,
+  "species": {
+   "D-Lyxulose": [
+    -1,
+    0,
+    "OCC1(O)OC[C@@H](O)[C@@H]1O"
+   ],
+   "alpha-D-Lyxose": [
+    1,
+    0,
+    "O[C@@H]1[C@H](O)[C@@H](O)OC[C@H]1O"
+   ]
+  },
+  "ec": "5.3.1.15",
+  "gc_kcal": 0.89,
+  "eq_kcal": -3.48
+ },
+ "rxn30648": {
+  "note": "rxn30648 D-PPENTOMUT-RXN | EC=5.4.2.7",
+  "n_Hplus": 0,
+  "species": {
+   "DEOXY-RIBOSE-1P": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC1C[C@H](O)[C@@H](CO)O1"
+   ],
+   "DEOXY-RIBOSE-5P": [
+    1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1OC(O)C[C@@H]1O"
+   ]
+  },
+  "ec": "5.4.2.7",
+  "gc_kcal": 0.0,
+  "eq_kcal": -2.13
+ },
+ "rxn00531": {
+  "note": "rxn00531 L-Tyrosine 2,3-aminomutase | EC=5.4.3.6",
+  "n_Hplus": 0,
+  "species": {
+   "L-Tyrosine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccc(O)cc1)C(=O)[O-]"
+   ],
+   "beta-Tyrosine": [
+    1,
+    0,
+    "[NH3+]C(CC(=O)[O-])c1ccc(O)cc1"
+   ]
+  },
+  "ec": "5.4.3.6",
+  "gc_kcal": 0.0,
+  "eq_kcal": -11.79
+ },
+ "rxn16753": {
+  "note": "rxn16753 (3S)-2,3-epoxy-2,3-dihydrosqualene mutase (cyclizing, delta-amyrin-forming) | EC=5.4.99.55",
+  "n_Hplus": 0,
+  "species": {
+   "Squalene 2,3-oxide": [
+    -1,
+    0,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C=C(\\C)CC/C=C(\\C)CC[C@@H]1OC1(C)C"
+   ],
+   "delta-Amyrin": [
+    1,
+    0,
+    "CC1(C)CC[C@]2(C)CC[C@]3(C)C(=C2C1)CC[C@@H]1[C@@]2(C)CC[C@H](O)C(C)(C)[C@@H]2CC[C@]13C"
+   ]
+  },
+  "ec": "5.4.99.55",
+  "gc_kcal": -112.81,
+  "eq_kcal": -253.89
+ },
+ "rxn43526": {
+  "note": "rxn43526  | EC=5.4.99.66",
+  "n_Hplus": 0,
+  "species": {
+   "(21S)-21,22-epoxypolypoda-8(26)-13,17-trien-3beta-ol": [
+    -1,
+    0,
+    "C=C1CC[C@H]2C(C)(C)[C@@H](O)CC[C@]2(C)[C@H]1CC/C=C(\\C)CC/C=C(\\C)CC[C@@H]1OC1(C)C"
+   ],
+   "8,14-secogammacera-8(26),14(27)-diene-3beta,21alpha-diol": [
+    1,
+    0,
+    "C=C1CC[C@H]2C(C)(C)[C@@H](O)CC[C@]2(C)[C@H]1CC[C@H]1C(=C)CC[C@H]2C(C)(C)[C@@H](O)CC[C@]12C"
+   ]
+  },
+  "ec": "5.4.99.66",
+  "gc_kcal": -23.89
+ },
+ "rxn04185": {
+  "note": "rxn04185 9alpha-Copalyl-diphosphate lyase (decyclizing) | EC=5.5.1.14",
+  "n_Hplus": 0,
+  "species": {
+   "Geranylgeranyl diphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "syn-Copalyl diphosphate": [
+    1,
+    -2,
+    "C=C1CC[C@H]2C(C)(C)CCC[C@]2(C)[C@@H]1CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ]
+  },
+  "ec": "5.5.1.14",
+  "gc_kcal": -22.74,
+  "eq_kcal": -82.0
+ },
+ "rxn26135": {
+  "note": "rxn26135 Lysine 2,3-aminomutase | EC=5.4.3.-",
+  "n_Hplus": 0,
+  "species": {
+   "L-Lysine": [
+    -1,
+    1,
+    "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "(R)-beta-lysine": [
+    1,
+    1,
+    "[NH3+]CCC[C@@H]([NH3+])CC(=O)[O-]"
+   ]
+  },
+  "ec": "5.4.3.-",
+  "gc_kcal": 0.0,
+  "eq_kcal": -0.5
+ },
+ "rxn37019": {
+  "note": "rxn37019 D-ribose ketol-isomerase | EC=5.3.1.20",
+  "n_Hplus": 0,
+  "species": {
+   "beta-D-Ribofuranose": [
+    -1,
+    0,
+    "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "D-Ribulose": [
+    1,
+    0,
+    "OCC1(O)OC[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "5.3.1.20",
+  "gc_kcal": 0.67,
+  "eq_kcal": 4.27
+ },
+ "rxn27445": {
+  "note": "rxn27445 D-xylose isomerase | EC=5.3.1.5",
+  "n_Hplus": 0,
+  "species": {
+   "D-Xylose": [
+    -1,
+    0,
+    "O=C[C@H](O)[C@@H](O)[C@H](O)CO"
+   ],
+   "D-Lyxulose": [
+    1,
+    0,
+    "OCC1(O)OC[C@@H](O)[C@@H]1O"
+   ]
+  },
+  "ec": "5.3.1.5",
+  "gc_kcal": -1.41,
+  "eq_kcal": 0.87
+ },
+ "rxn44295": {
+  "note": "rxn44295  | EC=5.5.1.28",
+  "n_Hplus": 0,
+  "species": {
+   "Geranylgeranyl diphosphate": [
+    -1,
+    -2,
+    "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O"
+   ],
+   "(-)-kolavenyl diphosphate": [
+    1,
+    -2,
+    "CC1=CCC[C@@H]2[C@@](C)(CC/C(C)=C/COP(=O)([O-])OP(=O)([O-])O)[C@H](C)CC[C@@]12C"
+   ]
+  },
+  "ec": "5.5.1.28",
+  "gc_kcal": -48.38,
+  "eq_kcal": -86.65
+ },
+ "rxn23185": {
+  "note": "rxn23185 3-oxo-24-ethyl-cholest-5-ene isomerase | EC=5.3.3.1",
+  "n_Hplus": 0,
+  "species": {
+   "3-oxo-24-ethyl-cholest-5-ene": [
+    -1,
+    0,
+    "CC[C@H](CC[C@@H](C)[C@H]1CC[C@H]2[C@@H]3CC=C4CC(=O)CC[C@]4(C)[C@H]3CC[C@]12C)C(C)C"
+   ],
+   "3-oxo-24-ethyl-cholest-4-ene": [
+    1,
+    0,
+    "CC[C@H](CC[C@@H](C)[C@H]1CC[C@H]2[C@@H]3CCC4=CC(=O)CC[C@]4(C)[C@H]3CC[C@]12C)C(C)C"
+   ]
+  },
+  "ec": "5.3.3.1",
+  "gc_kcal": -1.55,
+  "eq_kcal": 0.0
+ },
+ "rxn02788": {
+  "note": "rxn02788 R03966 | EC=5.3.2.-",
+  "n_Hplus": 0,
+  "species": {
+   "2-Hydroxymuconate": [
+    -1,
+    -2,
+    "O=C([O-])CC=CC(=O)C(=O)[O-]"
+   ],
+   "4-Oxalocrotonate": [
+    1,
+    -2,
+    "O=C([O-])CC=CC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "5.3.2.-",
+  "gc_kcal": -4.95,
+  "eq_kcal": 0.0
+ },
+ "rxn02508": {
+  "note": "rxn02508 N-(5-Phospho-beta-D-ribosyl)anthranilate ketol-isomerase | EC=5.3.1.24",
+  "n_Hplus": 0,
+  "species": {
+   "N-5-phosphoribosyl-anthranilate": [
+    -1,
+    -3,
+    "O=C([O-])c1ccccc1N[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "1-(2-carboxyphenylamino)-1-deoxyribulose 5-phosphate": [
+    1,
+    -3,
+    "O=C([O-])c1ccccc1NCC(=O)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "5.3.1.24",
+  "gc_kcal": 0.62,
+  "eq_kcal": -2.28
+ },
+ "rxn16823": {
+  "note": "rxn16823 2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate isomerase | EC=5.3.99.10",
+  "n_Hplus": 0,
+  "species": {
+   "2-[(2R,5Z)-2-Carboxy-4-methylthiazol-5(2H)-ylidene]ethyl pho": [
+    -1,
+    -3,
+    "CC1=N[C@@H](C(=O)[O-])S/C1=C\\COP(=O)([O-])[O-]"
+   ],
+   "2-(2-Carboxy-4-methylthiazol-5-yl)ethyl phosphate": [
+    1,
+    -3,
+    "Cc1nc(C(=O)[O-])sc1CCOP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "5.3.99.10",
+  "gc_kcal": -24.4,
+  "eq_kcal": -4.06
+ },
+ "rxn44730": {
+  "note": "rxn44730  | EC=5.1.1.f",
+  "n_Hplus": 0,
+  "species": {
+   "L-Histidine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ],
+   "D-Histidine": [
+    1,
+    0,
+    "[NH3+][C@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ]
+  },
+  "ec": "5.1.1.f",
+  "gc_kcal": 0.0,
+  "eq_kcal": -1.76
+ },
+ "rxn00425": {
+  "note": "rxn00425 serine racemase | EC=5.1.1.10",
+  "n_Hplus": 0,
+  "species": {
+   "L-Serine": [
+    -1,
+    0,
+    "[NH3+][C@@H](CO)C(=O)[O-]"
+   ],
+   "D-Serine": [
+    1,
+    0,
+    "[NH3+][C@H](CO)C(=O)[O-]"
+   ]
+  },
+  "ec": "5.1.1.10",
+  "gc_kcal": 0.0,
+  "eq_kcal": -0.13
+ },
+ "rxn20847": {
+  "note": "rxn20847 RXN-10088.c | EC=5.5.1.-",
+  "n_Hplus": -1,
+  "species": {
+   "Cl-": [
+    -1,
+    -1,
+    "[Cl-]"
+   ],
+   "3-methyl-cis-dienelactone": [
+    -1,
+    -1,
+    "CC1=CC(=O)O/C1=C/C(=O)[O-]"
+   ],
+   "5-chloro-3-methyl-cis-dienelactone": [
+    1,
+    -1,
+    "CC1=CC(=O)OC1C(Cl)C(=O)[O-]"
+   ]
+  },
+  "ec": "5.5.1.-"
+ },
+ "rxn04411": {
+  "note": "rxn04411 flavanone lyase (decyclizing) | EC=5.5.1.6",
+  "n_Hplus": 0,
+  "species": {
+   "Isoliquiritigenin": [
+    -1,
+    0,
+    "O=C(/C=C/c1ccc(O)cc1)c1ccc(O)cc1O"
+   ],
+   "Liquiritigenin": [
+    1,
+    0,
+    "O=C1C[C@@H](c2ccc(O)cc2)Oc2cc(O)ccc21"
+   ]
+  },
+  "ec": "5.5.1.6",
+  "gc_kcal": -8.37,
+  "eq_kcal": -23.32
+ },
+ "rxn02688": {
+  "note": "rxn02688 mandelate racemase | EC=5.1.2.2",
+  "n_Hplus": 0,
+  "species": {
+   "(S)-Mandelate": [
+    -1,
+    -1,
+    "O=C([O-])[C@@H](O)c1ccccc1"
+   ],
+   "(R)-Mandelate": [
+    1,
+    -1,
+    "O=C([O-])[C@H](O)c1ccccc1"
+   ]
+  },
+  "ec": "5.1.2.2",
+  "gc_kcal": 0.0,
+  "eq_kcal": 0.0
+ },
+ "rxn02397": {
+  "note": "rxn02397 3-(4-Hydroxyphenyl)pyruvate keto-enol-isomerase | EC=5.3.2.1",
+  "n_Hplus": 0,
+  "species": {
+   "p-hydroxyphenylpyruvate": [
+    -1,
+    -1,
+    "O=C([O-])C(=O)Cc1ccc(O)cc1"
+   ],
+   "4-Hydroxy-enol-phenylpyruvate": [
+    1,
+    -1,
+    "O=C([O-])C(=O)Cc1ccc(O)cc1"
+   ]
+  },
+  "ec": "5.3.2.1",
+  "gc_kcal": 4.95,
+  "eq_kcal": -13.76
+ },
+ "rxn03684": {
+  "note": "rxn03684 (hydroxyamino)benzene hydroxymutase | EC=5.4.4.1",
+  "n_Hplus": 0,
+  "species": {
+   "o-Aminophenol": [
+    -1,
+    0,
+    "Nc1ccccc1O"
+   ],
+   "N-Hydroxyarylamine": [
+    1,
+    0,
+    "ONc1ccccc1"
+   ]
+  },
+  "ec": "5.4.4.1",
+  "gc_kcal": 6.44,
+  "eq_kcal": 51.63
+ },
+ "rxn02970": {
+  "note": "rxn02970 2-Chloro-2,5-dihydro-5-oxofuran-2-acetate lyase (decyclizing) | EC=5.5.1.7",
+  "n_Hplus": 1,
+  "species": {
+   "2-Chloro-5-oxo-2,5-dihydrofuran-2-acetate": [
+    -1,
+    -1,
+    "O=C([O-])C[C@@]1(Cl)C=CC(=O)O1"
+   ],
+   "3-Chloro-cis,cis-muconate": [
+    1,
+    -2,
+    "O=C([O-])/C=C\\C(Cl)=C/C(=O)[O-]"
+   ]
+  },
+  "ec": "5.5.1.7",
+  "gc_kcal": 0.39,
+  "eq_kcal": -3.4
+ },
+ "rxn40843": {
+  "note": "rxn40843  | EC=6.3.2.47",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Leucine": [
+    -1,
+    0,
+    "CC(C)C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "3-{[(2E)-4-amino-4-oxobut-2-enoyl]amino}-L-alanine": [
+    -1,
+    0,
+    "NC(=O)/C=C/C(=O)NC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "N-[(2S)-3-{[(2E)-4-amino-4-oxobut-2-enoyl]amino}-2-methylpro": [
+    1,
+    0,
+    "CC(C)C[C@H](NC(=O)[C@@H]([NH3+])CNC(=O)/C=C/C(N)=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.47",
+  "gc_kcal": -6.35
+ },
+ "rxn40655": {
+  "note": "rxn40655  | EC=6.3.2.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Citrate": [
+    -1,
+    -3,
+    "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]"
+   ],
+   "N3-oct-2-enoyl-N3-hydroxy-1,3-diaminopropane": [
+    -1,
+    1,
+    "CCCCC/C=C/C(=O)N(O)CCC[NH3+]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "N1-citryl-N3-oct-2-enoyl-N3-hydroxy-1,3-diaminopropane": [
+    1,
+    -2,
+    "CCCCC/C=C/C(=O)N(O)CCCNC(=O)CC(O)(CC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.-",
+  "gc_kcal": -26.84
+ },
+ "rxn00351": {
+  "note": "rxn00351 gamma-L-glutamyl-L-cysteine:glycine ligase (ADP-forming) | EC=6.3.2.3",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Glycine": [
+    -1,
+    0,
+    "[NH3+]CC(=O)[O-]"
+   ],
+   "gamma-Glutamylcysteine": [
+    -1,
+    -2,
+    "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)[O-])C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "GSH": [
+    1,
+    -2,
+    "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.3",
+  "gc_kcal": -6.35,
+  "eq_kcal": -6.23
+ },
+ "rxn20905": {
+  "note": "rxn20905 RXN-10431.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Methionine": [
+    -1,
+    0,
+    "CSCC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Indoleacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1c[nH]c2ccccc12"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "IAA-Met": [
+    1,
+    -1,
+    "CSCC[C@H](NC(=O)Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -9.88
+ },
+ "rxn20931": {
+  "note": "rxn20931 RXN-10457.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Valine": [
+    -1,
+    0,
+    "CC(C)[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-Valines": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)N[C@H](C(=O)[O-])C(C)C"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84
+ },
+ "rxn20932": {
+  "note": "rxn20932 RXN-10459.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Leucine": [
+    -1,
+    0,
+    "CC(C)C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-Leucines": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)N[C@@H](CC(C)C)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84
+ },
+ "rxn01653": {
+  "note": "rxn01653 5-Formyltetrahydrofolate cyclo-ligase (ADP-forming) | EC=6.3.3.2",
+  "n_Hplus": 0,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "5-Formyltetrahydrofolate": [
+    -1,
+    -2,
+    "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2C=O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "5-10-Methenyltetrahydrofolate": [
+    1,
+    -1,
+    "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21"
+   ]
+  },
+  "ec": "6.3.3.2",
+  "gc_kcal": -8.22,
+  "eq_kcal": -17.94
+ },
+ "rxn20922": {
+  "note": "rxn20922 RXN-10449.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Glutamine": [
+    -1,
+    0,
+    "NC(=O)CC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-Glutamines": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)N[C@@H](CCC(N)=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84
+ },
+ "rxn00916": {
+  "note": "rxn00916 Xanthosine-5'-phosphate:ammonia ligase (AMP-forming) | EC=6.3.4.1",
+  "n_Hplus": 3,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "XMP": [
+    -1,
+    -2,
+    "O=c1[nH]c(=O)c2ncn([C@@H]3O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]3O)c2[nH]1"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "GMP": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ]
+  },
+  "ec": "6.3.4.1",
+  "gc_kcal": -18.42,
+  "eq_kcal": -73.96
+ },
+ "rxn34002": {
+  "note": "rxn34002 Lumped Glutathione Synthesis | EC=6.3.2.2",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -2,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Glycine": [
+    -1,
+    0,
+    "[NH3+]CC(=O)[O-]"
+   ],
+   "Cysteine": [
+    -1,
+    -1,
+    "[NH3+]C(C[S-])C(=O)[O-]"
+   ],
+   "ADP": [
+    2,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    2,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "GSH": [
+    1,
+    -2,
+    "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.2",
+  "gc_kcal": -12.7,
+  "eq_kcal": -13.65
+ },
+ "rxn42311": {
+  "note": "rxn42311  | EC=6.4.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "2-undecylpyrrole": [
+    -1,
+    0,
+    "CCCCCCCCCCCc1ccc[nH]1"
+   ],
+   "4-methoxy-2,2'-bipyrrole-5-carbaldehyde": [
+    -1,
+    0,
+    "COc1cc(-c2ccc[nH]2)[nH]c1C=O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "undecylprodigiosin": [
+    1,
+    0,
+    "CCCCCCCCCCCc1ccc(/C=C2\\N=C(c3ccc[nH]3)C=C2OC)[nH]1"
+   ]
+  },
+  "ec": "6.4.1.-",
+  "gc_kcal": -15.39,
+  "eq_kcal": 3.41
+ },
+ "rxn05114": {
+  "note": "rxn05114 5-amino-1-(5-phospho-D-ribosyl)imidazole:carbon-dioxide ligase (ADP-forming) | EC=6.3.4.18",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "H2CO3": [
+    -1,
+    -1,
+    "O=C([O-])O"
+   ],
+   "AIR": [
+    -1,
+    -1,
+    "Nc1c[nH+]cn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "5-phosphoribosyl-5-carboxyaminoimidazole": [
+    1,
+    -3,
+    "O=C([O-])Nc1cncn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "6.3.4.18",
+  "gc_kcal": -21.91,
+  "eq_kcal": -13.69
+ },
+ "rxn48321": {
+  "note": "rxn48321  | EC=6.3.2.af",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Citrate": [
+    -1,
+    -3,
+    "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]"
+   ],
+   "3-[(2-aminopentan-5-oylcarbamoyl)methyl]-3-hydroxybutanoate": [
+    -1,
+    -2,
+    "[NH3+][C@H](CCCNC(=O)CC(O)(CC(=O)[O-])C(=O)[O-])C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "staphyloferrin A": [
+    1,
+    -5,
+    "O=C([O-])CC(O)(CC(=O)NCCC[C@@H](NC(=O)CC(O)(CC(=O)[O-])C(=O)[O-])C(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.af",
+  "gc_kcal": -26.84
+ },
+ "rxn00864": {
+  "note": "rxn00864 L-histidine:beta-alanine ligase (AMP-forming) | EC=6.3.2.11",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "beta-Alanine": [
+    -1,
+    0,
+    "[NH3+]CCC(=O)[O-]"
+   ],
+   "L-Histidine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Carnosine": [
+    1,
+    0,
+    "[NH3+]CCC(=O)N[C@@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.11",
+  "gc_kcal": -26.84,
+  "eq_kcal": -9.6
+ },
+ "rxn46045": {
+  "note": "rxn46045  | EC=6.3.2.46",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Fumarate": [
+    -1,
+    -2,
+    "O=C([O-])/C=C/C(=O)[O-]"
+   ],
+   "L-2,3-Diaminopropionate": [
+    -1,
+    0,
+    "N[C@@H](C[NH3+])C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "N3-fumaramoyl-L-2,3-diaminopropanoate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CNC(=O)/C=C/C(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.46",
+  "gc_kcal": -25.6,
+  "eq_kcal": -5.14
+ },
+ "rxn06661": {
+  "note": "rxn06661 citrate:N6-acetyl-N6-hydroxy-L-lysine ligase (ADP-forming) | EC=6.3.2.27",
+  "n_Hplus": 4,
+  "species": {
+   "H2O": [
+    -2,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -4,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "Citrate": [
+    -1,
+    -3,
+    "O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-]"
+   ],
+   "N6-Acetyl-N6-hydroxylysine": [
+    -2,
+    0,
+    "CC(=O)N(O)CCCC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "ADP": [
+    4,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    4,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Aerobactin": [
+    1,
+    -3,
+    "CC(=O)N(O)CCCC[C@H](NC(=O)CC(O)(CC(=O)N[C@@H](CCCCN(O)C(C)=O)C(=O)[O-])C(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.27",
+  "gc_kcal": -26.32,
+  "eq_kcal": -26.13
+ },
+ "rxn47516": {
+  "note": "rxn47516  | EC=6.3.4.24",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Tyramine": [
+    -1,
+    1,
+    "[NH3+]CCc1ccc(O)cc1"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "gamma-glutamyltyramine": [
+    1,
+    0,
+    "[NH3+][C@@H](CCC(=O)NCCc1ccc(O)cc1)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.4.24",
+  "gc_kcal": -6.35,
+  "eq_kcal": -5.0
+ },
+ "rxn16824": {
+  "note": "rxn16824 7-carboxy-7-carbaguanine:ammonia ligase (ADP-forming) | EC=6.3.4.20",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "7-Carboxy-7-carbaguanine": [
+    -1,
+    -1,
+    "Nc1nc2[nH]cc(C(=O)[O-])c2c(=O)[nH]1"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "7-Cyano-7-deazaguanine": [
+    1,
+    0,
+    "N#Cc1c[nH]c2nc(N)[nH]c(=O)c12"
+   ]
+  },
+  "ec": "6.3.4.20",
+  "gc_kcal": -7.07
+ },
+ "rxn12044": {
+  "note": "rxn12044 glutathione:aminopropylcadaverine ligase (ADP-forming) | EC=6.3.1.9",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "GSH": [
+    -1,
+    -2,
+    "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Aminopropylcadaverine": [
+    -1,
+    3,
+    "[NH3+]CCCCC[NH2+]CCC[NH3+]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Glutathionylaminopropylcadaverine": [
+    1,
+    1,
+    "[NH3+]CCCCC[NH2+]CCCNC(=O)CNC(=O)[C@H](C[S-])NC(=O)CC[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.1.9",
+  "gc_kcal": -6.35,
+  "eq_kcal": -5.45
+ },
+ "rxn20908": {
+  "note": "rxn20908 RXN-10434.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Proline": [
+    -1,
+    0,
+    "O=C([O-])[C@@H]1CCC[NH2+]1"
+   ],
+   "Indoleacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1c[nH]c2ccccc12"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "IAA-Pro": [
+    1,
+    -1,
+    "O=C([O-])[C@@H]1CCCN1C(=O)Cc1c[nH]c2ccccc12"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -27.67,
+  "eq_kcal": -2.65
+ },
+ "rxn16218": {
+  "note": "rxn16218 (R)-4-phosphopantoate:beta-alanine ligase (AMP-forming) | EC=6.3.2.36",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "beta-Alanine": [
+    -1,
+    0,
+    "[NH3+]CCC(=O)[O-]"
+   ],
+   "(R)-4-Phosphopantoate": [
+    -1,
+    -3,
+    "CC(C)(COP(=O)([O-])[O-])[C@@H](O)C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "4-phosphopantothenate": [
+    1,
+    -3,
+    "CC(C)(COP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.36",
+  "gc_kcal": -26.84,
+  "eq_kcal": -7.76
+ },
+ "rxn25361": {
+  "note": "rxn25361 RXN-9083.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Valine": [
+    -1,
+    0,
+    "CC(C)[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Indoleacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1c[nH]c2ccccc12"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "IAA-Val": [
+    1,
+    -1,
+    "CC(C)[C@H](NC(=O)Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84
+ },
+ "rxn01403": {
+  "note": "rxn01403 gamma-L-glutamyl-L-cysteinyl-glycine:spermidine ligase (ADP-forming) | EC=6.3.1.8",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "GSH": [
+    -1,
+    -2,
+    "[NH3+][C@@H](CCC(=O)N[C@@H](C[S-])C(=O)NCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Spermidine": [
+    -1,
+    3,
+    "[NH3+]CCCC[NH2+]CCC[NH3+]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Glutathionylspermidine": [
+    1,
+    1,
+    "[NH3+]CCCC[NH2+]CCCNC(=O)CNC(=O)[C@H](C[S-])NC(=O)CC[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.1.8",
+  "gc_kcal": -6.35
+ },
+ "rxn23821": {
+  "note": "rxn23821 RXN-2945.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Leucine": [
+    -1,
+    0,
+    "CC(C)C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Indoleacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1c[nH]c2ccccc12"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "IAA-Leu": [
+    1,
+    -1,
+    "CC(C)C[C@H](NC(=O)Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -7.56
+ },
+ "rxn03753": {
+  "note": "rxn03753 acetophenone:carbon-dioxide ligase (ADP-forming) | EC=6.4.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "Acetophenone": [
+    -1,
+    0,
+    "CC(=O)c1ccccc1"
+   ],
+   "Benzoyl acetate": [
+    1,
+    -1,
+    "O=C([O-])CC(=O)c1ccccc1"
+   ]
+  },
+  "ec": "6.4.1.-",
+  "gc_kcal": 4.9,
+  "eq_kcal": 4.17
+ },
+ "rxn34026": {
+  "note": "rxn34026 Carbamoyl Phosphate Synthetase | EC=6.3.5.5",
+  "n_Hplus": 3,
+  "species": {
+   "H2O": [
+    -2,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -2,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "Glutamine": [
+    -1,
+    0,
+    "NC(=O)CCC([NH3+])C(=O)[O-]"
+   ],
+   "ADP": [
+    2,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "L-Glutamate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "Carbamoylphosphate": [
+    1,
+    -2,
+    "NC(=O)OP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "6.3.5.5",
+  "gc_kcal": -21.62,
+  "eq_kcal": -2.68
+ },
+ "rxn34058": {
+  "note": "rxn34058 Phosphoribosylaminoimidazole-Succinocarboxamide Synthase | EC=6.3.2.6",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "5'-Phosphoribosyl-4-carboxy-5-aminoimidazole": [
+    -1,
+    -2,
+    "Nc1c(C(=O)[O-])[nH+]cn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Aspartate": [
+    -1,
+    -1,
+    "[NH3+]C(CC(=O)[O-])C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "SAICAR": [
+    1,
+    -4,
+    "Nc1c(C(=O)N[C@@H](CC(=O)[O-])C(=O)[O-])ncn1[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "6.3.2.6",
+  "gc_kcal": -16.08,
+  "eq_kcal": -15.5
+ },
+ "rxn03882": {
+  "note": "rxn03882 R05603 | EC=6.4.1.-",
+  "n_Hplus": 1,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "Phenylphosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])Oc1ccccc1"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "4-Hydroxybenzoate": [
+    1,
+    -1,
+    "O=C([O-])c1ccc(O)cc1"
+   ]
+  },
+  "ec": "6.4.1.-",
+  "gc_kcal": 7.32
+ },
+ "rxn02352": {
+  "note": "rxn02352 N(pai)-methyl-L-histidine:beta-alanine ligase (AMP-forming) | EC=6.3.2.11",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "beta-Alanine": [
+    -1,
+    0,
+    "[NH3+]CCC(=O)[O-]"
+   ],
+   "1-Methylhistidine": [
+    -1,
+    0,
+    "Cn1cncc1C[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Anserine": [
+    1,
+    0,
+    "Cn1cncc1C[C@H](NC(=O)CC[NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.11",
+  "gc_kcal": -26.84
+ },
+ "rxn20928": {
+  "note": "rxn20928 RXN-10455.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Isoleucine": [
+    -1,
+    0,
+    "CC[C@H](C)[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-Isoleucines": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)N[C@H](C(=O)[O-])[C@@H](C)CC"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -8.73
+ },
+ "rxn20930": {
+  "note": "rxn20930 RXN-10456.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Phenylalanine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccccc1)C(=O)[O-]"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-Phenylalanines": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)N[C@@H](Cc1ccccc1)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -10.89
+ },
+ "rxn20914": {
+  "note": "rxn20914 RXN-10439.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "1-Aminocyclopropane-1-carboxylate": [
+    -1,
+    0,
+    "[NH3+]C1(C(=O)[O-])CC1"
+   ],
+   "Jasmonic-Acids": [
+    -1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Jasmonoyl-ACCs": [
+    1,
+    -1,
+    "CC/C=C\\CC1C(=O)CCC1CC(=O)NC1(C(=O)[O-])CC1"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -9.24
+ },
+ "rxn23822": {
+  "note": "rxn23822 RXN-2946.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "Indoleacetate": [
+    -1,
+    -1,
+    "O=C([O-])Cc1c[nH]c2ccccc12"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "IAA-Asp": [
+    1,
+    -2,
+    "O=C([O-])C[C@H](NC(=O)Cc1c[nH]c2ccccc12)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -8.36
+ },
+ "rxn40280": {
+  "note": "rxn40280 S-adenosyl-L-methionine:anthranilate:L-phenylalanine ligase (cyclopeptine forming) | EC=6.3.2.40",
+  "n_Hplus": 4,
+  "species": {
+   "ATP": [
+    -2,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "S-Adenosyl-L-methionine": [
+    -1,
+    1,
+    "C[S+](CC[C@H]([NH3+])C(=O)[O-])C[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1O"
+   ],
+   "L-Phenylalanine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccccc1)C(=O)[O-]"
+   ],
+   "Anthranilate": [
+    -1,
+    -1,
+    "Nc1ccccc1C(=O)[O-]"
+   ],
+   "PPi": [
+    2,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    2,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "S-Adenosyl-homocysteine": [
+    1,
+    0,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H]([NH3+])C(=O)[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Cyclopeptine": [
+    1,
+    0,
+    "CN1C(=O)c2ccccc2NC(=O)[C@@H]1Cc1ccccc1"
+   ]
+  },
+  "ec": "6.3.2.40",
+  "gc_kcal": -71.82,
+  "eq_kcal": -13.54
+ },
+ "rxn00416": {
+  "note": "rxn00416 L-aspartate:L-glutamine amido-ligase (AMP-forming) | EC=6.3.5.4",
+  "n_Hplus": 2,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "L-Glutamine": [
+    -1,
+    0,
+    "NC(=O)CC[C@H]([NH3+])C(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "L-Glutamate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "L-Asparagine": [
+    1,
+    0,
+    "NC(=O)C[C@H]([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.5.4",
+  "gc_kcal": -27.3,
+  "eq_kcal": -7.24
+ },
+ "rxn01098": {
+  "note": "rxn01098 2,3-Dihydroxybenzoate:L-serine ligase | EC=6.3.2.14",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Serine": [
+    -1,
+    0,
+    "[NH3+][C@@H](CO)C(=O)[O-]"
+   ],
+   "2,3-Dihydroxybenzoate": [
+    -1,
+    -1,
+    "O=C([O-])c1cccc(O)c1O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "2,3-Dihydroxy-N-benzoyl-L-serine": [
+    1,
+    -1,
+    "O=C(N[C@@H](CO)C(=O)[O-])c1cccc(O)c1O"
+   ]
+  },
+  "ec": "6.3.2.14",
+  "gc_kcal": -26.84,
+  "eq_kcal": -9.93
+ },
+ "rxn16431": {
+  "note": "rxn16431 D-alanine:(R)-lactate ligase (ADP-forming) | EC=6.1.2.1",
+  "n_Hplus": 0,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "D-Alanine": [
+    -1,
+    0,
+    "C[C@@H]([NH3+])C(=O)[O-]"
+   ],
+   "D-Lactate": [
+    -1,
+    -1,
+    "C[C@@H](O)C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "D-Alanyl-(R)-lactate": [
+    1,
+    0,
+    "C[C@@H]([NH3+])C(=O)O[C@H](C)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.1.2.1",
+  "gc_kcal": -4.67,
+  "eq_kcal": -1.3
+ },
+ "rxn33952": {
+  "note": "rxn33952 Glutamate-Ammonia Lyase | EC=6.3.1.2",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Glutamine": [
+    1,
+    0,
+    "NC(=O)CCC([NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.1.2",
+  "gc_kcal": -2.09,
+  "eq_kcal": -3.34
+ },
+ "rxn34059": {
+  "note": "rxn34059 Adenylosuccinate Synthase | EC=6.3.4.4",
+  "n_Hplus": 2,
+  "species": {
+   "GTP": [
+    -1,
+    -3,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "IMP": [
+    -1,
+    -2,
+    "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Aspartate": [
+    -1,
+    -1,
+    "[NH3+]C(CC(=O)[O-])C(=O)[O-]"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "GDP": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "Adenylosuccinate": [
+    1,
+    -4,
+    "O=C([O-])C[C@H](Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.4.4",
+  "gc_kcal": -2.59,
+  "eq_kcal": 2.34
+ },
+ "rxn24940": {
+  "note": "rxn24940 CFI | EC=6.4.1.7",
+  "n_Hplus": -2,
+  "species": {
+   "ADP": [
+    -1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Oxalosuccinate": [
+    -1,
+    -3,
+    "O=C([O-])CC(C(=O)[O-])C(=O)C(=O)[O-]"
+   ],
+   "H2O": [
+    1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "CO2": [
+    1,
+    0,
+    "O=C=O"
+   ],
+   "2-Oxoglutarate": [
+    1,
+    -2,
+    "O=C([O-])CCC(=O)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.4.1.7",
+  "gc_kcal": 3.72,
+  "eq_kcal": 2.83
+ },
+ "rxn22470": {
+  "note": "rxn22470 succinylo-toyocamycin phosphate synthase | EC=6.3.4.-",
+  "n_Hplus": 2,
+  "species": {
+   "GTP": [
+    -1,
+    -3,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "L-Aspartate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "[(1R,2R,3S,4S)-4-{5-cyano-4-oxo-3H-pyrrolo[2,3-d]pyrimidin-7": [
+    -1,
+    -2,
+    "N#Cc1cn([C@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c2nc[nH]c(=O)c12"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "GDP": [
+    1,
+    -2,
+    "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
+   ],
+   "2-({5-cyano-7-[(1S,2S,3R,4R)-2,3-dihydroxy-4-[(phosphonatoox": [
+    1,
+    -4,
+    "N#Cc1cn([C@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c2ncnc(NC(CC(=O)[O-])C(=O)[O-])c12"
+   ]
+  },
+  "ec": "6.3.4.-",
+  "gc_kcal": -2.59
+ },
+ "rxn33973": {
+  "note": "rxn33973 Aminodeoxychorismate Synthase | EC=6.3.5.8",
+  "n_Hplus": 0,
+  "species": {
+   "Chorismate": [
+    -1,
+    -2,
+    "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1O)C(=O)[O-]"
+   ],
+   "Glutamine": [
+    -1,
+    0,
+    "NC(=O)CCC([NH3+])C(=O)[O-]"
+   ],
+   "L-Glutamate": [
+    1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "ADC": [
+    1,
+    -1,
+    "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1[NH3+])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.5.8",
+  "gc_kcal": -7.19,
+  "eq_kcal": -3.79
+ },
+ "rxn16437": {
+  "note": "rxn16437 D-alanine:D-serine ligase (ADP-forming) | EC=6.3.2.35",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "D-Alanine": [
+    -1,
+    0,
+    "C[C@@H]([NH3+])C(=O)[O-]"
+   ],
+   "D-Serine": [
+    -1,
+    0,
+    "[NH3+][C@H](CO)C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "D-Alanyl-D-serine": [
+    1,
+    0,
+    "C[C@@H]([NH3+])C(=O)N[C@H](CO)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.35",
+  "gc_kcal": -6.35,
+  "eq_kcal": -6.28
+ },
+ "rxn15112": {
+  "note": "rxn15112 Ribose-5-phosphate:ammonia ligase (ADP-forming) | EC=6.3.4.7",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "alpha-D-Ribose 5-phosphate": [
+    -1,
+    -2,
+    "O=P([O-])([O-])OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "5-Phosphoribosylamine": [
+    1,
+    -1,
+    "[NH3+][C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ]
+  },
+  "ec": "6.3.4.7",
+  "gc_kcal": -9.28,
+  "eq_kcal": -7.7
+ },
+ "rxn21501": {
+  "note": "rxn21501 RXN-11222.c | EC=6.3.2.11",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Histidine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ],
+   "GABA": [
+    -1,
+    0,
+    "[NH3+]CCCC(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Homocarnosine": [
+    1,
+    0,
+    "[NH3+]CCCC(=O)N[C@@H](Cc1c[nH]cn1)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.11",
+  "gc_kcal": -6.35
+ },
+ "rxn40247": {
+  "note": "rxn40247 3-dimethylallyl-4-hydroxybenzoate:3-amino-4,7-dihydroxycoumarin ligase (AMP-forming) | EC=6.3.1.15",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "3-Dimethylallyl-4-hydroxybenzoate": [
+    -1,
+    -1,
+    "CC(C)=CCc1cc(C(=O)[O-])ccc1O"
+   ],
+   "3-Amino-4,7-dihydroxycoumarin": [
+    -1,
+    -1,
+    "Nc1c([O-])c2ccc(O)cc2oc1=O"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "8-Demethylnovobiocic acid": [
+    1,
+    -1,
+    "CC(C)=CCc1cc(C(=O)Nc2c([O-])c3ccc(O)cc3oc2=O)ccc1O"
+   ]
+  },
+  "ec": "6.3.1.15",
+  "gc_kcal": -25.6,
+  "eq_kcal": -7.87
+ },
+ "rxn00113": {
+  "note": "rxn00113 Carbon-dioxide:ammonia ligase (ADP-forming,carbamate-phosphorylating) | EC=6.3.4.16",
+  "n_Hplus": 3,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -2,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "NH3": [
+    -1,
+    1,
+    "[NH4+]"
+   ],
+   "ADP": [
+    2,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Carbamoylphosphate": [
+    1,
+    -2,
+    "NC(=O)OP(=O)([O-])[O-]"
+   ]
+  },
+  "ec": "6.3.4.16",
+  "gc_kcal": -16.9,
+  "eq_kcal": 0.14
+ },
+ "rxn12897": {
+  "note": "rxn12897 urea carboxylase | EC=6.3.4.6",
+  "n_Hplus": 2,
+  "species": {
+   "H2O": [
+    -1,
+    0,
+    "O"
+   ],
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "CO2": [
+    -1,
+    0,
+    "O=C=O"
+   ],
+   "Urea": [
+    -1,
+    0,
+    "NC(N)=O"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "Allophanate": [
+    1,
+    -1,
+    "NC(=O)NC(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.4.6",
+  "gc_kcal": -2.94,
+  "eq_kcal": 6.87
+ },
+ "rxn20913": {
+  "note": "rxn20913 RXN-10438.c | EC=6.3.-.-",
+  "n_Hplus": 2,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Phenylalanine": [
+    -1,
+    0,
+    "[NH3+][C@@H](Cc1ccccc1)C(=O)[O-]"
+   ],
+   "Jasmonate": [
+    -1,
+    -1,
+    "CC/C=C\\C[C@H]1C(=O)CC[C@@H]1CC(=O)[O-]"
+   ],
+   "PPi": [
+    1,
+    -3,
+    "O=P([O-])([O-])OP(=O)([O-])O"
+   ],
+   "AMP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "(-) jasmonic acid L-phenylalanine": [
+    1,
+    -1,
+    "CC/C=C\\C[C@H]1C(=O)CC[C@@H]1CC(=O)N[C@@H](Cc1ccccc1)C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.-.-",
+  "gc_kcal": -26.84,
+  "eq_kcal": -10.89
+ },
+ "rxn40420": {
+  "note": "rxn40420 N-acetyl-L-aspartate:L-glutamate ligase (ADP, N-acetyl-L-aspartyl-L-glutamate-forming) | EC=6.3.2.41",
+  "n_Hplus": 1,
+  "species": {
+   "ATP": [
+    -1,
+    -3,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]1O"
+   ],
+   "L-Glutamate": [
+    -1,
+    -1,
+    "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ],
+   "N-Acetyl-L-aspartate": [
+    -1,
+    -2,
+    "CC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]"
+   ],
+   "ADP": [
+    1,
+    -2,
+    "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
+   ],
+   "Phosphate": [
+    1,
+    -2,
+    "O=P([O-])([O-])O"
+   ],
+   "NAAG": [
+    1,
+    -3,
+    "CC(=O)N[C@@H](CC(=O)[O-])C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]"
+   ]
+  },
+  "ec": "6.3.2.41",
+  "gc_kcal": -6.35,
+  "eq_kcal": -6.05
+ }
+}

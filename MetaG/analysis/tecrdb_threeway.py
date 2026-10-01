@@ -2,7 +2,7 @@
 Keq -> ΔrG'°). Predicted vs experiment, per method, with MAE.
 
 HONEST FRAMING (put in the caption/slide, not baked on the figure): TECRDB is the incumbents' TRAINING
-set -- GC and eQ errors here are IN-SAMPLE, so their low MAE is expected. UMA is first-principles, NOT fit
+set -- GC and eQ errors here are IN-SAMPLE, so their low MAE is expected. MetaG has no fitted parameters (its routing policy was selected on TECRDB: development, not held-out); all panels use the standardized reference. Previously: UMA is first-principles, NOT fit
 to TECRDB. The point is not "UMA wins" (it doesn't, on home turf) but that a from-scratch physics method
 lands within ~3 kJ of methods fitted to this exact data -- and (separately, see reference_scoreboard) it
 is the one that HOLDS on the ModelSEED frontier where the incumbents extrapolate and fail.
@@ -20,22 +20,22 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))                    # thermodynamic_calc
 DB = "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/ModelSEEDDatabase/Biochemistry"
 
-cal = json.load(open(os.path.join(HERE, "..", "metag", "data", "sigma_class_calibrated.json")))["per_reaction"]
-uma_err = {r["rid"]: r["err"] for r in cal}                      # UMA - experiment (current pipeline)
-exp = json.load(open(os.path.join(ROOT, "results", "benchmark", "tecrdb_full_scored.json")))["experiment_kJ"]
-gc, eq = {}, {}
-for f in glob.glob(f"{DB}/reaction_*.json"):
-    for r in json.load(open(f)):
-        if r["id"] in uma_err:
-            t = r.get("thermodynamics") or {}
-            if t.get("Group contribution"): gc[r["id"]] = t["Group contribution"][0]
-            if t.get("eQuilibrator"): eq[r["id"]] = t["eQuilibrator"][0]
-K = [k for k in uma_err if k in exp and k in gc and k in eq and abs(gc[k]) < 1e6 and abs(eq[k]) < 1e6]
-E = np.array([exp[k] for k in K])
-preds = {"UMA (MetaG)\nfirst-principles, NOT fit to TECRDB": np.array([uma_err[k] + exp[k] for k in K]),
+# ONE reference for every panel: the STANDARDIZED TECRDB reference (pH 7, I = 0, no Mg2+), with MetaG's ΔG read
+# from the production results and eQuilibrator / group contribution evaluated at the same conditions.
+import glob, statistics
+RES = os.environ.get("METAG_RESULTS", os.path.join(HERE, "sweep_20261001", "final"))
+metag = {json.load(open(f))["reaction"]: json.load(open(f))["dG"] for f in glob.glob(os.path.join(RES, "*.json"))}
+std = json.load(open(os.path.join(ROOT, "experiments", "qm_mlip_solvation", "scripts", "reactions_tecrdb_std.json")))
+exp = {k: statistics.median(v["exp"]) for k, v in std.items()}
+eq = {r: v["dG_kJ"] for r, v in json.load(open(os.path.join(HERE, "sweep_20261001", "eq_real_tecrdb_std.json")))["predictions"].items()}
+gc = {r: v["dG_kJ"] for r, v in json.load(open(os.path.join(HERE, "sweep_20261001", "gc_real_tecrdb_std.json")))["predictions"].items()}
+K = [k for k in metag if metag[k] is not None and k in exp and k in gc and k in eq and abs(gc[k]) < 1e6 and abs(eq[k]) < 1e6]
+M_LAB = "MetaG\n(development: no fitted parameters)"
+preds = {M_LAB: np.array([metag[k] for k in K]),
          "Group Contribution\n(in-sample)": np.array([gc[k] for k in K]),
          "eQuilibrator\n(in-sample)": np.array([eq[k] for k in K])}
-COL = {"UMA (MetaG)\nfirst-principles, NOT fit to TECRDB": "#009E73",
+E = np.array([exp[k] for k in K])
+COL = {M_LAB: "#009E73",
        "Group Contribution\n(in-sample)": "#0072B2", "eQuilibrator\n(in-sample)": "#D55E00"}
 
 lim = [np.percentile(np.concatenate([E]+list(preds.values())), 1) - 20,
@@ -58,12 +58,12 @@ for i, (name, P) in enumerate(preds.items()):
     if i == 0:
         ax.set_ylabel("predicted ΔrG′°  (kJ/mol)")
     ax.text(0.04, 0.96, f"MAE {err.mean():.1f}\nmedian {np.median(err):.1f}\nn={len(K)}",
-            transform=ax.transAxes, va="top", ha="left", fontsize=15,
+            transform=ax.transAxes, va="top", ha="left", fontsize=18,
             bbox=dict(boxstyle="round", fc="white", ec="0.7"))
     # both marginals in the method colour: top = experiment (x), right = predicted (y)
     axtop.hist(E, bins=bins, color=COL[name], edgecolor="white", linewidth=0.3)
     axright.hist(P, bins=bins, orientation="horizontal", color=COL[name], edgecolor="white", linewidth=0.3)
-    axtop.set_title(name, fontsize=17)
+    axtop.set_title(name, fontsize=18)
     for a in (axtop, axright):                          # marginals show SHAPE only; drop ticks (keeps 18pt rule clean)
         a.axis("off")
     # dashed median guides so the reader sees the experiment-vs-predicted spread mismatch

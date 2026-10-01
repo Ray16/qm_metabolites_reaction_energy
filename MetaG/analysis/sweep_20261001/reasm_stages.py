@@ -1,11 +1,11 @@
 """Reassemble from cache with stages + per-species G (CPU)."""
 import sys, json, os
-sys.path.insert(0,'/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG')
+sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),'provenance'))
 import reassemble as RA
 from pathlib import Path
-CACHE=os.environ.get('RS_CACHE','/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/physics_20260930b_20260930_162548/cache')
-REX='/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json'
+CACHE=os.environ.get('RS_CACHE',os.path.join(os.path.dirname(os.path.abspath(__file__)),'cache'))
+REX=os.environ.get('RS_REACTIONS',os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))),'experiments','qm_mlip_solvation','scripts','reactions_tecrdb_std.json'))
 out=sys.argv[1]; extra=sys.argv[2:]
 SOLV=os.environ.get('RS_SOLV','cosmo'); VIA=os.environ.get('RS_VIA') or ('primary' if SOLV=='cosmo' else 'solv_also'); ANC=os.environ.get('RS_ANCH','on')
 args=RA.parse_args(['--cache',CACHE,'--reactions',REX,'--anchors',ANC,'--solv-model',SOLV,'--cache-via',VIA,'--out',out]+sum([['--env',e] for e in extra],[]))
@@ -37,7 +37,7 @@ for _f in _gl.glob(os.path.join(os.path.dirname(CACHE),'done*','*.json')):
         if 'SpeciesRearranged' in _r.get('error',''): REARR.add(_r['item'])
     except Exception: pass
 P.implicit_G=cached
-wg=float(json.load(open(os.environ.get('RS_WATER') or '/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/review_fixes/'+('water_ref_G.json' if SOLV=='cosmo' else f'water_ref_G_{SOLV}.json')))['G'])
+wg=float(json.load(open(os.environ.get('RS_WATER') or os.path.join(os.path.dirname(os.path.abspath(__file__)),'provenance','')+('water_ref_G.json' if SOLV=='cosmo' else f'water_ref_G_{SOLV}.json')))['G'])
 P.water_ref_G=lambda pu,log=None: wg
 rx=json.load(open(REX)); res={}; miss={}
 for rid,r in rx.items():

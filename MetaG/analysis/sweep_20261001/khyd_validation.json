@@ -135,7 +135,20 @@
   }
  ],
  "calibration_domain_fit": {
-  "domain": "aldehydes, ketones and glyoxylic acid (the carbonyls the pipeline hydrates); alpha-keto acids excluded",
+  "domain": "carbonyls the pipeline hydrates (aldehydes, ketones, glyoxylic acid); alpha-keto acids excluded",
+  "members": [
+   "formaldehyde",
+   "acetaldehyde",
+   "propanal",
+   "butanal",
+   "pivaldehyde",
+   "glyoxal_1",
+   "methylglyoxal_1",
+   "glycolaldehyde",
+   "acetone",
+   "diacetyl",
+   "glyoxylic_acid"
+  ],
   "n": 11,
   "raw_MAE_logK": 1.25,
   "raw_bias": 1.15,
@@ -143,6 +156,10 @@
   "cal_LOO_MAE_kJ": 2.63,
   "a": 0.639,
   "b_logK": -0.411,
-  "b_kJ_per_event": 2.346
+  "b_kJ_per_event": 2.347,
+  "deployed_HYDRATION_CAL": [
+   0.639,
+   2.35
+  ]
  }
 }

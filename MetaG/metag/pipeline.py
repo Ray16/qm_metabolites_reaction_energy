@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 """MetaG scoring pipeline: score_reaction() -- one scheme across all reaction classes.
 
-Per reaction (each step self-gating; flags in parentheses, default-on unless noted):
-  1. structural routing on the input species: cofactor ring cores (COFACTOR_RING), CoA / NTP cores
-     (COA_CORE, NTP_CORE; off), spectator truncation (AUTO_TRUNCATE, ROUTE_FULL; TRUNC_VALIDATE opt-in
-     radius-sensitivity guard), pH-0 neutral microspecies + exact Alberty pKa transform (PH0_AUTO, PH0_BASES).
-  2. per species (content-addressed cache): ETKDG pool -> batched UMA rank -> relax top-k -> Boltzmann
-     over UNIQUE minima of (E_elec[UMA] + ΔG_solv[xtb-COSMO]) + UMA-Hessian RRHO on the min-E conformer;
-     adaptive seed batches until the unique-minima ensemble stops moving (CONV_*).
-     + 1 atm -> 1 M standard state (STD_STATE_1M); liquid water on the 55.34 M reference.
-  3. ΔG = Σ ν·G + n_H+·G(H+, pH 7) + Σ pKa-transform terms; aldehyde hydration mixture (ALDEHYDE_HYDRATION).
-  4. guards (charge closure, |ΔG| sanity) -> anchor offsets (ANCHOR_CORRECT, reported with dG_raw) ->
-     hydro-lyase water-reference constant (WATER_REF_HYDROLYASE) -> calibrated σ and 95% interval.
+Per reaction (each step self-gating; flags in parentheses; defaults as of 2026-10-01):
+  1. structural routing on the input species: cofactor ring cores (COFACTOR_RING), nucleoside cap (NTP_CORE),
+     CoA core (COA_CORE, off), spectator truncation (AUTO_TRUNCATE, ROUTE_FULL; C-C cuts only, TRUNC_FG_CUTS;
+     radius 3 at anomeric centres, TRUNC_ANOMERIC_RADIUS), pH-0 neutral microspecies + pKa transform
+     (PH0_AUTO, PH0_BASES; also for isomerizations, PH0_ISOMERASE), zwitterion guard (ZWITTERION_PH0).
+  2. per species (content-addressed cache): ETKDG pool -> batched UMA rank -> gas relaxation -> unique
+     minima; G = Boltzmann over minima of E_elec[UMA] + ΔG_solv[xtb-ALPB] + RRHO[UMA Hessian, per minimum]
+     (THERMAL_ENSEMBLE); adaptive seed batches (CONV_*); + 1 atm -> 1 M standard state (STD_STATE_1M);
+     liquid water from the experimental hydration free energy (WATER_REF_EXP).
+  3. ΔG = Σ ν·G + n_H+·G(H+, pH 7) + Σ pKa-transform terms (pH-7 effective constants) + carbonyl hydration
+     microstates (CARBONYL_HYDRATION_ALL, K_hyd-calibrated HYDRATION_CAL).
+  4. guards (charge closure, |ΔG| sanity; fail closed) -> σ and 95% interval (coverage-calibrated on TECRDB
+     nested CV, or nominal). No fitted anchors (ANCHOR_CORRECT off) and no water patches.
 
 CLI harness (reactions from RXN_FILE; launch through gpu_reserve, never set CUDA_VISIBLE_DEVICES by hand):
   gpu_reserve run <idx> -- python -m metag.pipeline --only <key>
@@ -194,7 +196,7 @@ _THERMAL_ENSEMBLE = os.environ.get("THERMAL_ENSEMBLE", "1").strip().lower() not 
 THERMAL_ENS_WIN = float(os.environ.get("THERMAL_ENS_WIN", "15"))
 THERMAL_ENS_N = int(os.environ.get("THERMAL_ENS_N", "10"))
 if _THERMAL_ENSEMBLE:
-    _IMPLICIT_SETTINGS["thermal_ensemble"] = f"v1-w{THERMAL_ENS_WIN:g}-n{THERMAL_ENS_N}"
+    _IMPLICIT_SETTINGS["thermal_ensemble"] = f"v2conv-w{THERMAL_ENS_WIN:g}-n{THERMAL_ENS_N}"   # v2: RRHO inside convergence + U_samp
 _ACID_HB_KEY = f"v2-{ACID_HB_DIST:g}"   # v2: a P-O-P chain is one acid group                    # cache-key tag, added only where the filter can act
 def _explicit_settings():
     """Cache key of an explicit cluster. Built at CALL time from the EFFECTIVE values: the cached cluster G
@@ -296,6 +298,8 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     # minimum and SpeciesRearranged is raised (never scored or cached under this SMILES).
     rearranged = []                                       # (atoms, e, solv-dict) set aside
     hb_set_aside = []                                     # (atoms, e, sd) with an inter-acid H-bond
+    thermal_track = (_ThermalTrack(pu, template, q, mult)
+                     if _THERMAL_ENSEMBLE and _DEDUP else None)
     n_relaxed = n_xtb_fail = 0
     failed_E = []                                         # gas energies of conformers whose solvation failed
     # secondary solvation models on the same unique minima: {model: [G per unique minimum]}
@@ -342,7 +346,10 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                 best = (float(e), a.get_chemical_symbols(), a.get_positions())
         if not all_G:
             continue
-        Gens = boltz(all_G); gens_traj.append(Gens)
+        Gens = boltz(all_G)
+        if thermal_track is not None:                      # convergence / U_samp on E + ΔGsolv + RRHO_i
+            Gens = thermal_track.update(uniq)
+        gens_traj.append(Gens)
         if prev_Gens is not None:
             last_dG = abs(Gens - prev_Gens)
             if last_dG < CONV_TOL and abs(best[0] - prev_best) < CONV_TOL:
@@ -385,8 +392,8 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
             Gens = boltz(G_aq)
             also = also_aq
     therm, t_info = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
-    if therm is not None and _THERMAL_ENSEMBLE and uniq.template is not None and uniq.ref:
-        Gens_th, also_th, ens_info = _thermal_ensemble(pu, uniq, also, therm, q, mult, template, name, log)
+    if therm is not None and thermal_track is not None and uniq.template is not None and uniq.ref:
+        Gens_th, also_th, ens_info = thermal_track.final(uniq, also, therm)
         log(f"    {name}: thermal ensemble (Gens+thermal) {Gens + therm:.1f} -> {Gens_th:.1f} "
             f"({ens_info['n_hessians']} minima)")
         t_info = dict(t_info, ensemble=ens_info, single_minimum_G=round(Gens + therm, 3))
@@ -447,6 +454,9 @@ def _hydrate_all_sites(pu, rx, name, q, smi, G, sig, std, seeds, keep, pool, log
     is removed again. HYDRATION_CAL maps each hydration event with the K_hyd calibration."""
     from metag.routing import aldehyde_hydration as _ah
     states = _ah.hydration_states(smi)
+    n_expected = 2 ** min(_ah.n_hydration_sites(smi), _ah.MAX_HYDRATION_SITES) - 1
+    if len(states) < n_expected:
+        routes["warnings"].append(f"{name}: {n_expected - len(states)} hydration state(s) not constructible")
     if not states:
         return
     if _ah.n_hydration_sites(smi) > _ah.MAX_HYDRATION_SITES:
@@ -460,9 +470,10 @@ def _hydrate_all_sites(pu, rx, name, q, smi, G, sig, std, seeds, keep, pool, log
         try:
             Gd, sd = implicit_G(pu, q, hyd, seeds, keep, pool, log, f"{name}(hydrate{n})", routes["warnings"])
         except SpeciesRearranged as e:
-            routes["warnings"].append(f"hydration state skipped: {e}")
+            routes["warnings"].append(f"hydration state omitted (not a minimum): {e}")
             continue
         if Gd is None:
+            routes["warnings"].append(f"hydration state omitted (QM failed): {name} {hyd}")
             continue
         dg = Gd + std - n * g_w - G[name]                 # hydration free energy of this state (neutral form)
         if _flag("HYDRATION_CAL"):
@@ -568,6 +579,58 @@ def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
     info = {"n_start": len(pick), "n_relaxed": len(uq.G), "n_unconverged": int((~np.asarray(conv)).sum()),
             "n_rearranged": n_bond, "n_failed": n_fail}
     return list(uq.G), also, info
+
+
+class _ThermalTrack:
+    """Per-minimum RRHO bookkeeping DURING sampling (THERMAL_ENSEMBLE): after every seed batch the unique
+    minima within THERMAL_ENS_WIN kJ of the lowest E+ΔGsolv (at most THERMAL_ENS_N) get a UMA-Hessian RRHO
+    correction (computed once per representative geometry; recomputed if a lower-G duplicate replaced it),
+    so the convergence test and the sampling-uncertainty trajectory see G = E + ΔGsolv + Gcorr, not
+    E + ΔGsolv alone. Minima outside the window carry the lowest window member's correction (negligible
+    Boltzmann weight). Imaginary modes are floored as soft here; the REFERENCE minimum is re-validated
+    afterwards by _thermal_at_minimum (true-minimum test with mode following) and its value replaces the
+    tracked one in final()."""
+
+    def __init__(self, pu, template, q, mult):
+        self.pu, self.q, self.mult = pu, q, mult
+        self.syms = [a.GetSymbol() for a in template.GetAtoms()]
+        self.corr = {}                                     # minimum index -> (geometry key, Gcorr)
+        self.n_hessians = 0
+
+    def _window(self, uniq):
+        order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
+        return order, [j for j in order if uniq.G[j] - uniq.G[order[0]] < THERMAL_ENS_WIN][:THERMAL_ENS_N]
+
+    def _ensure(self, uniq, j):
+        pos = uniq.ref[j].GetConformer().GetPositions()
+        key = hash(np.round(pos, 4).tobytes())
+        if j in self.corr and self.corr[j][0] == key:
+            return self.corr[j][1]
+        g, _ = uma_gibbs_corr(self.pu, self.syms, pos, self.q, spin=self.mult, return_info=True, imag_as_soft=True)
+        self.corr[j] = (key, g); self.n_hessians += 1
+        return g
+
+    def _totals(self, uniq, override=None):
+        order, win = self._window(uniq)
+        c = {j: self._ensure(uniq, j) for j in win}
+        if override is not None:
+            c[order[0]] = override
+        ref = c[order[0]]
+        return [uniq.G[j] + c.get(j, ref) for j in range(len(uniq.G))], c, order, win
+
+    def update(self, uniq):
+        tot, _, _, _ = self._totals(uniq)
+        return boltz(tot)
+
+    def final(self, uniq, also, therm_ref):
+        tot, c, order, win = self._totals(uniq, override=therm_ref)
+        ref = c[order[0]]
+        also_tot = {m: [None if v is None else v + c.get(j, ref) for j, v in enumerate(vals)]
+                    for m, vals in also.items()}
+        spread = [c[j] - c[order[0]] for j in win]
+        info = {"n_window": len(win), "n_hessians": self.n_hessians, "tracked_in_convergence": True,
+                "gcorr_spread_kj": round(float(max(spread) - min(spread)), 2) if spread else 0.0}
+        return boltz(tot), also_tot, info
 
 
 def _thermal_ensemble(pu, uniq, also, therm_ref, q, mult, template, name, log):
@@ -700,22 +763,10 @@ def water_ref_G(pu, log=None):
     sym, coord = bare_geom(pu, 0, "O")
     atoms = Atoms(symbols=list(sym), positions=coord, info={"charge": 0, "spin": 1})
     E = float(batched_energies(pu, [atoms])[0]) * EV2KJ
-    # WATER-REFERENCE FIX (WATER_REF_EXP, default-on): xtb-COSMO badly under-solvates a WATER molecule
-    # (-3.2 kJ vs experiment -26.4; xtb-ALPB independently gives -25.4). Because water_ref_G sets the
-    # standard G of every liquid water in the stoichiometry, this ~+23 kJ/water error is a SYSTEMATIC bias
-    # on EVERY net-water reaction -- and its sign matches the data exactly: hydratase (PRODUCES water)
-    # biased +23 (observed +18..24), hydrolases (CONSUME water) biased -23 (amide -14, ...). This is THE
-    # cause of the "solvation wall" on those classes -- not solute-solvation (the SMD solute correction was
-    # DISPROVEN end-to-end, rxn00799 24->37.5). Fix = use the experimental water solvation free energy
-    # (a single well-known number), deterministic and physics-based, no per-reaction fitting. Set
-    # WATER_REF_EXP=0 to restore the (buggy) COSMO water reference for A/B.
-    # DEFAULT-OFF pending coordinated recalibration: the fix is CORRECT physics (rxn00799 hydratase
-    # err +24.3 -> +0.7) but the anchors + sigma_class were CALIBRATED ON the buggy cosmo-water baseline
-    # and have silently ABSORBED this error, so flipping it alone REGRESSES the anchored net-water classes
-    # (phosphatase 2.0 -> 23.3: its +15.7 offset compensated the water error; consumes 1 water -> raw shifts
-    # +23.2 -> anchor now under-corrects). Overall analytic projection 11.4 -> 12.95 WITHOUT recalibration.
-    # The correct rollout = enable this AND re-derive the anchor offsets + recalibrate sigma on the
-    # water-fixed baseline (each anchor offset shifts by its pool's net-water * -23.2). See memory.
+    # WATER REFERENCE (WATER_REF_EXP, default ON since 2026-10-01): the chemical potential of liquid water is an
+    # experimental constant, so the water molecule's solvation is taken from experiment (ΔG_hyd = -26.4 kJ/mol)
+    # rather than from a continuum model of water in water (xtb-COSMO -2.8, xtb-ALPB -38). The class anchors
+    # that had absorbed the COSMO water error are no longer used. WATER_REF_EXP=0 restores the model value.
     solv = _WSOLV_EXP if use_exp else dgsolv(list(sym), coord, 0, SOLV_MODEL)
     thermal = uma_gibbs_corr(pu, list(sym), coord, 0)
     conc = 8.314e-3 * 298.15 * float(np.log(55.34))          # +9.96 kJ/mol, 1 M -> liquid 55.34 M
@@ -844,11 +895,23 @@ def _flag(name):
     return v.strip().lower() not in ("", "0", "off", "false", "no")
 
 
+def _ah_mod():
+    from metag.routing import aldehyde_hydration
+    return aldehyde_hydration
+
+
+def _constants_hash(module, names):
+    """sha256 (12 hex) of the named module-level constants (missing names recorded as None)."""
+    payload = json.dumps({n: getattr(module, n, None) for n in names}, sort_keys=True, default=str)
+    return hashlib.sha256(payload.encode()).hexdigest()[:12]
+
+
 def effective_config():
     """Normalized fingerprint of everything that changes a reported number: model, physics version,
     solvation, sampling, every routing/correction switch, pKa model and the deployed anchor offsets. Stored
-    in each result and in the calibration artifact; metag.uncertainty refuses `externally_calibrated` when
-    the runtime fingerprint differs from the calibrated one."""
+    in each result and in the calibration artifact; metag.uncertainty refuses `coverage_calibrated` when
+    the runtime fingerprint differs from the calibrated one. Includes content hashes of the pKa and hydration
+    constant tables and the full species-cache settings, so estimator or constant changes cannot pass silently."""
     from metag.routing import pka_transform as _pk
     from metag.routing.anchor import ANCHORS
     anchors = json.dumps({k: [v["offset"], v.get("ref", "tecrdb")] for k, v in sorted(ANCHORS.items())},
@@ -867,6 +930,18 @@ def effective_config():
            "anhydride_pka": _pk._anhydride_pka_enabled(),
            "pka_model": os.environ.get("PKA_MODEL", "table").strip().lower(),
            "pka_table": _pk.PKA_TABLE_VERSION, "ph0_redox_proton": _pk._redox_proton_enabled(),
+           "polyacid_pka": _pk._polyacid_pka_enabled(), "arylamine_nonbasic": _pk._arylamine_nonbasic_enabled(),
+           # CONTENT hashes: any edit of a constant changes the fingerprint even without a version bump
+           "pka_constants": _constants_hash(_pk, ("P_LADDER", "ANHYDRIDE_P_LADDER", "P_N_LADDER", "ACYL_P_LADDER",
+                                                  "CARBONATE_LADDER", "PPI_LADDER", "SULFATE_LADDER",
+                                                  "CARBOXYL_PKA", "CARBOXYL_PKA_ALPHA", "SULFONATE_PKA",
+                                                  "THIOL_PKA", "PHENOL_PKA", "POLYACID_PKA")),
+           "hydration_constants": _constants_hash(_ah_mod(), ("HYDRATION_CAL", "MAX_HYDRATION_SITES")),
+           # species-level estimator (thermal ensemble, solvent relaxation, dedup, sampling, model ...)
+           "implicit_settings": json.dumps(_IMPLICIT_SETTINGS, sort_keys=True),
+           "acid_hb_filter": [_ACID_HB_FILTER, ACID_HB_DIST],
+           "thermal_ensemble": [_THERMAL_ENSEMBLE, THERMAL_ENS_WIN, THERMAL_ENS_N],
+           "solv_relax": [_SOLV_RELAX, SOLV_RELAX_N, SOLV_RELAX_WIN, SOLV_RELAX_STEPS],
            "anchors": hashlib.sha256(anchors.encode()).hexdigest()[:12]}
     cfg.update({k.lower(): _flag(k) for k in sorted(FLAG_DEFAULTS)})
     cfg["conditions"] = json.dumps(CONDITIONS, sort_keys=True)
@@ -1011,9 +1086,8 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
     # REFUSES the phosphoryl->guanidinium cut). Cap the nucleoside-5'-O with methyl, keep the reactive
     # polyphosphate (isodesmic, experiment-free). SELF-GATING on mass+charge balance. Runs AFTER
     # COA_CORE (which strips CoA's own adenosine first) and BEFORE truncation so the small core survives.
-    # DEFAULT-OFF pending kinase validation: NTP-core was NO-GO on phosphagens (isolated the P-N
-    # error, didn't fix it -> it's electronic, goes to DLPNO; and the methyl-cap even lost fortuitous
-    # cancellation, +9 worse). Must prove it HELPS the kinase class before default-on.
+    # DEFAULT ON since 2026-10-01 (validated on the kinase class under ALPB: adenylate kinase -26 -> +4,
+    # nucleoside-diphosphate kinase exactly isodesmic; TECRDB ablation +0.21 kJ if removed).
     _pre = rx
     if _flag("NTP_CORE"):
         try:
@@ -1173,10 +1247,8 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
     # continuum anion/zwitterion solvation failure is the largest measured error source (TECRDB: reactions
     # with bare anions in QM MAE 14.8, zwitterions 16.0, vs ~8-11 otherwise). Only permanent cations stay
     # charged. The base path carries any net (redox) proton as n_H+ with the charge-closure guard below.
-    # STATUS (2026-09-26, TECRDB A/B on the COSMO baseline): zwitterion-only rerouting MAE 11.01 -> 11.01,
-    # tail 54 -> 56 (glutamine synthetase +74 -> +26, but cyclic imino-acid reductases +9 -> +43): NOT adopted
-    # -> default-off; re-test on the parametrized-solvation baseline (the neutral species it creates are
-    # exactly where xtb-COSMO is weakest: FreeSolv polar R=0.38).
+    # STATUS: default ON since 2026-10-01 (ALPB baseline). Physical invariant: a zwitterion is not a gas-phase
+    # minimum. With the current routing no TECRDB reaction depends on it (ablation 0.00 kJ); kept as a guard.
     _neutral_all = _flag("NEUTRAL_QM") or force_neutral     # force_neutral: re-route after a rearranged species
     _pre = rx
     if _flag("ZWITTERION_PH0") or _neutral_all:
@@ -1434,7 +1506,8 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         m = f"|ΔG|={abs(dG):.0f} kJ > {_sanity:.0f} kJ x extent {fmt_num(extent)}: check (not rejected)"
         routes["warnings"].append(m)
         log(f"  !! {m}")
-    # ANCHOR CORRECTION (ANCHOR_CORRECT, default-on): the SYSTEMATIC bond-type / anion-pattern sub-classes
+    # ANCHOR CORRECTION (ANCHOR_CORRECT, default OFF since 2026-10-01 -- the anchors absorbed xtb-COSMO's missing
+    # H-bond term; with ALPB + the experimental water reference no fitted offsets are used): the SYSTEMATIC bond-type / anion-pattern sub-classes
     # (phosphagen P-N; phosphatase monoester, PPi excluded; thioester acyl-CoA ligase) carry a class-wide,
     # SIGN-CONSISTENT offset -- a bond-type reference error / shared anion-solvation error -- that CANCELS
     # against a per-sub-class anchor pool (isodesmic referencing to measured members). Subtract the
@@ -1475,7 +1548,7 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
             anchor_meta = {"subclass": sc, "offset": round(dG_raw - dG_corr, 1), "direction": direction,
                            "extent": subclass_extent(orig_species)[2],
                            "sigma": sig_anchor}
-    # SMD SOLUTE-SOLVATION CORRECTION (SMD_SOLV, default-on): xtb-COSMO systematically UNDER-SOLVATES a
+    # SMD SOLUTE-SOLVATION CORRECTION (SMD_SOLV, default OFF -- tested and rejected): xtb-COSMO systematically UNDER-SOLVATES a
     # CREATED/DESTROYED compact polar/charged group (the solvation wall -- measured: a hydratase -OH is
     # -3 kJ in COSMO vs -17 in SMD≈exp). Where the structural gate detects such a NON-CANCELLING solvation
     # change, recompute the SOLUTES' solvation with SMD (calibrated neutral continuum, gpu4pyscf via the
@@ -1518,7 +1591,8 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         except Exception as e:
             log(f"  [smd-solv error: {e}]"); routes["errors"].append(f"smd_solv: {e}")
             suspect = f"smd_solv error: {e}" if suspect is None else suspect
-    # WATER-REFERENCE CORRECTION for HYDRO-LYASES (WATER_REF_HYDROLYASE, default-on). ROOT CAUSE of the
+    # WATER-REFERENCE CORRECTION for HYDRO-LYASES (WATER_REF_HYDROLYASE, default OFF since 2026-10-01: superseded
+    # by the global experimental water reference WATER_REF_EXP). ROOT CAUSE of the
     # hydratase wall: water_ref_G uses xtb-COSMO for the water molecule's ΔGsolv (-3.2 kJ) but experiment
     # is -26.4 (xtb-ALPB independently -25.4), so G_liq(water) is ~+23 kJ too high -> every net-water
     # reaction is biased net_water*(-23.2). A GLOBAL fix (WATER_REF_EXP) regresses because the anchors +

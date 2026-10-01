@@ -1,3 +1,4 @@
-2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260  provenance/FreeSolv_v0.52_database.txt
-a0e071b7e3298d7f5aa8611ccdedd6a1bc55d483802a61b0c57bc9bbd60d2759  khyd_verified.json
+# Paths relative to the thermodynamic_calc repository root. Verify with:  cd <repo root> && sha256sum -c MetaG/analysis/sweep_20261001/provenance/input_sha256.txt
+2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260  MetaG/analysis/sweep_20261001/provenance/FreeSolv_v0.52_database.txt
+a0e071b7e3298d7f5aa8611ccdedd6a1bc55d483802a61b0c57bc9bbd60d2759  MetaG/analysis/sweep_20261001/khyd_verified.json
 ac8590675654d56b737475d8a1ac36630b1c6a2d35526954c7e5c42636a4fa39  experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json

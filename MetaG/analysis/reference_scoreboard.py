@@ -49,7 +49,7 @@ for yi, (lbl, rt, eu, eg, ee) in zip(y, rows):
     if eg is not None:
         ax.plot([eu, max(eg, ee)], [yi, yi], "-", color="0.85", lw=2, zorder=1)
 ax.scatter([x[2] for x in rows], y, s=170, marker="D", color="#009E73", edgecolor="black",
-           linewidth=0.7, label="UMA (MetaG)", zorder=4)
+           linewidth=0.7, label="MetaG", zorder=4)
 ax.scatter([x[3] for x in rows if x[3] is not None], [yi for yi, x in zip(y, rows) if x[3] is not None],
            s=130, color="#0072B2", edgecolor="black", linewidth=0.4, label="Group Contribution", zorder=3)
 ax.scatter([x[4] for x in rows if x[4] is not None], [yi for yi, x in zip(y, rows) if x[4] is not None],
@@ -57,7 +57,7 @@ ax.scatter([x[4] for x in rows if x[4] is not None], [yi for yi, x in zip(y, row
 ax.set_yticks(y); ax.set_yticklabels([f"{lbl}  [{rt}]" for lbl, rt, *_ in rows])
 ax.set_xscale("log")
 ax.set_xlabel("|error vs real reference|  (kJ/mol)   — lower is better")
-ax.axvline(10, color="0.6", ls=":", lw=1.2); ax.text(10, len(rows)-0.4, " 10 kJ", color="0.5", fontsize=13)
+ax.axvline(10, color="0.6", ls=":", lw=1.2); ax.text(10, len(rows)-0.4, " 10 kJ", color="0.25", fontsize=18)
 ax.set_xlim(1, 1200)
 ax.legend(loc="center right", framealpha=0.96)     # upper/center-right is empty (top rows are UMA-only, left side)
 ax.margins(y=0.06)

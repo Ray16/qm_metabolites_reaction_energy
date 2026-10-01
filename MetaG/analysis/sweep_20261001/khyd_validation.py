@@ -41,6 +41,31 @@ out = {"n": len(ok), "missing": [r["name"] for r in rows if r["alpb"] is None],
        "r_alpb": round(float(np.corrcoef(x, y)[0, 1]), 3),
        "calibration": {"a": round(float(a), 3), "b_logK": round(float(b), 3), "b_kJ": round(float(-b * RT * LN10), 3)},
        "rows": [{k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()} for r in rows]}
+# DEPLOYED calibration = fit on the APPLICATION domain: the carbonyls the pipeline hydrates. alpha-KETO acids
+# (ketone carbon bonded to a carboxyl carbon) are not hydrated by the pipeline (aldehyde_hydration._KETO_ACID),
+# so they are excluded from the fit; the domain is decided by the same SMARTS the pipeline uses.
+sys.path.insert(0, os.path.dirname(os.path.dirname(D)))
+from metag.routing import aldehyde_hydration as ah
+def in_domain(row):
+    c = K[row["name"]][0]
+    m = Chem.MolFromSmiles(c)
+    return not m.HasSubstructMatch(ah._KETO_ACID)
+dom = [r for r in ok if in_domain(r)]
+yd = np.array([r["logK_exp"] for r in dom]); xd = np.array([r["alpb"] for r in dom])
+lood = []
+for i in range(len(yd)):
+    m = np.ones(len(yd), bool); m[i] = False
+    a_, b_ = np.polyfit(xd[m], yd[m], 1); lood.append(a_ * xd[i] + b_ - yd[i])
+ad, bd = np.polyfit(xd, yd, 1)
+out["calibration_domain_fit"] = {
+    "domain": "carbonyls the pipeline hydrates (aldehydes, ketones, glyoxylic acid); alpha-keto acids excluded",
+    "members": [r["name"] for r in dom], "n": len(dom),
+    "raw_MAE_logK": round(float(np.abs(xd - yd).mean()), 2), "raw_bias": round(float((xd - yd).mean()), 2),
+    "cal_LOO_MAE_logK": round(float(np.mean(np.abs(lood))), 2),
+    "cal_LOO_MAE_kJ": round(float(np.mean(np.abs(lood)) * RT * LN10), 2),
+    "a": round(float(ad), 3), "b_logK": round(float(bd), 3), "b_kJ_per_event": round(float(-bd * RT * LN10), 3),
+    "deployed_HYDRATION_CAL": list(ah.HYDRATION_CAL)}
 json.dump(out, open(os.path.join(D, "khyd_validation.json"), "w"), indent=1)
+print("DEPLOYED (application-domain) fit:", out["calibration_domain_fit"])
 print(json.dumps({k: v for k, v in out.items() if k != "rows"}, indent=1))
 for r in out["rows"]: print("  %-20s exp %6.2f  alpb %s  cosmo %s" % (r["name"], r["logK_exp"], r["alpb"], r["cosmo"]))

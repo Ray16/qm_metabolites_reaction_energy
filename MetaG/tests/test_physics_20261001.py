@@ -124,3 +124,42 @@ def test_explicit_cache_key_tracks_effective_water_reference(monkeypatch):
     explicit_on = P._explicit_settings()
     assert default["water_ref_exp"] is P.FLAG_DEFAULTS["WATER_REF_EXP"]
     assert default != ablation and default == explicit_on
+
+
+def test_effective_config_tracks_every_estimator_switch(monkeypatch):
+    # review: THERMAL_ENSEMBLE / POLYACID_PKA (and others) were absent from the fingerprint, so the calibration
+    # guard could not detect them. Each toggle must change the fingerprint. Module-level switches are read at
+    # import, so the module is reloaded per toggle.
+    import importlib, json as _json
+    import metag.pipeline as P
+    base = _json.dumps(P.effective_config(), sort_keys=True)
+    for var, val in (("POLYACID_PKA", "1"), ("ARYLAMINE_NONBASIC", "0"), ("PKA_ENV", "0"),
+                     ("CARBONYL_HYDRATION_ALL", "0"), ("HYDRATION_CAL", "0"), ("PH0_ISOMERASE", "0"),
+                     ("NTP_CORE", "0")):
+        monkeypatch.setenv(var, val)
+        assert _json.dumps(P.effective_config(), sort_keys=True) != base, var
+        monkeypatch.delenv(var)
+    for var, val in (("THERMAL_ENSEMBLE", "0"), ("ACID_HB_FILTER", "1"), ("SOLV_RELAX", "1")):
+        monkeypatch.setenv(var, val)
+        P2 = importlib.reload(P)
+        assert _json.dumps(P2.effective_config(), sort_keys=True) != base, var
+        monkeypatch.delenv(var)
+    importlib.reload(P)
+
+
+def test_constant_edit_changes_fingerprint(monkeypatch):
+    import metag.pipeline as P
+    from metag.routing import pka_transform as pk
+    base = P.effective_config()["pka_constants"]
+    monkeypatch.setitem(pk.CARBOXYL_PKA_ALPHA, "oxo", 2.5)
+    assert P.effective_config()["pka_constants"] != base
+
+
+def test_deployed_hydration_calibration_matches_reproducible_fit():
+    # review: the deployed HYDRATION_CAL must be what analysis/sweep_20261001/khyd_validation.py produces
+    import json, os
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "analysis", "sweep_20261001", "khyd_validation.json")
+    fit = json.load(open(path))["calibration_domain_fit"]
+    a, b = ah.HYDRATION_CAL
+    assert abs(a - fit["a"]) < 0.0015 and abs(b - fit["b_kJ_per_event"]) < 0.01

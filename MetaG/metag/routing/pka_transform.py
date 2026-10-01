@@ -87,7 +87,7 @@ ACYL_P_LADDER = [1.50, 4.95]
 # omitted: at pH 7 it holds ~18% of the pool, a ~0.5 kJ term.
 CARBONATE_LADDER = [3.60, 10.33]
 # Bump when any pKa value/ladder assignment changes: part of pipeline.effective_config() (calibration key).
-PKA_TABLE_VERSION = "2026-09-30"
+PKA_TABLE_VERSION = "2026-10-01b"   # 10-01: unsaturated class, POLYACID_PKA, alpha-oxo keto-form 1.8
 # FREE pyrophosphate H4P2O7 (all heavy atoms P/O, 2 P): its own macroscopic ladder (I->0), NOT two
 # terminal-phosphate ladders ({1.5,1.5,6.5,6.5} over-counts the transform by ~4.4 kJ per free PPi).
 PPI_LADDER = [0.91, 2.10, 6.70, 9.32]
@@ -229,8 +229,11 @@ def _pka_env_enabled():
 
 
 def _polyacid_pka_enabled():
-    """POLYACID_PKA (default on): compound-specific macroscopic ladders for recognized polyprotic acids."""
-    return _env_on("POLYACID_PKA", default=True)
+    """POLYACID_PKA (default OFF): compound-specific macroscopic ladders for 9 named polyprotic acids. Off by
+    default for transferability -- a lookup of named compounds does not apply to unseen chemistry, and its
+    TECRDB effect is ~0.02 kJ. The generic environment rules apply instead (known weak spots: oxalate- and
+    malonate-type adjacent carboxyls, -22.7 / -5.6 kJ for the parent acids)."""
+    return _env_on("POLYACID_PKA", default=False)
 
 
 def _free_ppi_pka_enabled():

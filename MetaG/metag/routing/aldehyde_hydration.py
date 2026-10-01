@@ -83,12 +83,12 @@ def mixture_G(g_carbonyl, g_diol, g_water):
 
 # ---------------------------------------------------------------------------------------------------------
 # GENERAL carbonyl hydration (CARBONYL_HYDRATION_ALL). The α-EWG gate above existed because the hydration
-# free energy computed with xtb-COSMO was unreliable. Validated against experimental hydration constants
-# (16 aldehydes/ketones, Guthrie/Bell; analysis/sweep_20261001/khyd_set.json, independent of TECRDB):
-# UMA + xtb-COSMO MAE 3.6 log K (bias -3.6, i.e. ~20 kJ under-hydration -- the gem-diol's two OH groups
-# carry COSMO's missing H-bond term twice) vs UMA + xtb-ALPB MAE 1.1 log K (r = 0.96; acetaldehyde 0.45 vs
-# 0.03, acetone -3.3 vs -2.9, glyceraldehyde 1.8 vs 1.3, dihydroxyacetone -0.6 vs -1.0). With ALPB every
-# aldehyde and ketone is hydrated through the same self-gating mixture; weakly hydrated ones contribute ~0.
+# free energy computed with xtb-COSMO was unreliable. Validation against CITED experimental hydration constants
+# (16 carbonyls, analysis/sweep_20261001/khyd_verified.json: recommended 298 K values of the acp-2021-58 review
+# supplement, Tables S3/S4; script khyd_validation.py): log K MAE xtb-COSMO 3.02 (bias -2.8: the gem-diol's two
+# OH groups carry COSMO's missing H-bond term twice) vs xtb-ALPB 1.70 raw (bias +1.6), 0.64 after calibration.
+# With ALPB every aldehyde and ketone (except alpha-keto acids, below) is hydrated through the same self-gating
+# mixture; weakly hydrated ones contribute ~0.
 _HYDRATABLE = Chem.MolFromSmarts("[CX3;$([CH2]=O),$([CH1](=O)[#6]),$(C(=O)([#6])[#6])]=[OX1]")
 # alpha-KETO ACIDS (ketone carbon bonded to a carboxyl carbon) are excluded: as pH-6/7 anions they are only
 # weakly hydrated (K_hyd pyruvate 0.08, oxaloacetate dianion 0.06, 2-oxoglutarate dianion 0.12; acp-2021-58
@@ -137,7 +137,7 @@ def _hydrate(m, pairs):
 
 def hydration_states(smi):
     """Every hydrated microspecies of `smi`: [(n_hydrated_sites, SMILES)] for all non-empty subsets of the
-    hydratable sites (exact enumeration; at most MAX_HYDRATION_SITES sites, chosen in canonical order --
+    hydratable sites (complete enumeration of at most MAX_HYDRATION_SITES sites, chosen in canonical order --
     a molecule with more sites is truncated to the first MAX_HYDRATION_SITES and reported by the caller)."""
     from itertools import combinations
     m = Chem.MolFromSmiles(smi)
@@ -168,7 +168,8 @@ def hydration_sites(smi):
 
 
 def mixture_G_states(g_carbonyl, states, g_water):
-    """Exact microspecies fold over the COMPUTED states only:
+    """Microspecies fold over the COMPUTED states only (exact over the successfully computed hydration states of at
+    most MAX_HYDRATION_SITES canonically selected sites; omitted / failed states are reported by the caller):
     G_eff = -RT ln[ exp(-G_c/RT) + Σ_S exp(-(G_S - n_S·G_water)/RT) ],  states = [(n_S, G_S)].
     No state enters whose energy was not computed (the earlier independent-site product implicitly
     included doubly hydrated states)."""
