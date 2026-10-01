@@ -30,6 +30,7 @@ Cap-length (methyl at radius R vs the extra bond at R+1) IS the Me/Et sensitivit
 """
 from __future__ import annotations
 from collections import Counter
+from functools import lru_cache
 from rdkit import Chem
 from rdkit.Chem import rdFMCS, Descriptors
 from rdkit.Chem import rdMolDescriptors as rdMD
@@ -55,24 +56,37 @@ def mcs_atom_map(a, b):
 
 
 # ------------------------------------------------------------- pairing species
-def pair_by_mcs(reactants, products):
-    """Greedy max-MCS bipartite pairing. Returns list of (ri, pj, amap)."""
+@lru_cache(maxsize=4096)
+def _pair_maps(reactants, products):
+    """Cached greedy pairing as immutable ``(reactant index, product index, map)`` records."""
     R = [Chem.MolFromSmiles(s) for s in reactants]
     P = [Chem.MolFromSmiles(s) for s in products]
     scores = []
     for i, r in enumerate(R):
         for j, p in enumerate(P):
-            _, n = mcs_atom_map(r, p)
-            scores.append((n, i, j))
-    scores.sort(reverse=True)
+            amap, n = mcs_atom_map(r, p)
+            scores.append((n, i, j, tuple(amap.items())))
+    scores.sort(key=lambda row: row[:3], reverse=True)
     used_r, used_p, pairs = set(), set(), []
-    for n, i, j in scores:
+    for _, i, j, amap in scores:
         if i in used_r or j in used_p:
             continue
         used_r.add(i); used_p.add(j)
-        amap, _ = mcs_atom_map(R[i], P[j])
-        pairs.append((reactants[i], products[j], R[i], P[j], amap))
-    return pairs
+        pairs.append((i, j, amap))
+    return tuple(pairs)
+
+
+def pair_by_mcs(reactants, products):
+    """Greedy max-MCS bipartite pairing. Returns list of (SMILES, mols, atom map).
+
+    MCS is the dominant CPU cost in routing.  Cache immutable atom maps by the
+    input SMILES and never recompute the winning maps after candidate scoring.
+    """
+    reactants, products = tuple(reactants), tuple(products)
+    R = [Chem.MolFromSmiles(s) for s in reactants]
+    P = [Chem.MolFromSmiles(s) for s in products]
+    return [(reactants[i], products[j], R[i], P[j], dict(amap))
+            for i, j, amap in _pair_maps(reactants, products)]
 
 
 # ---------------------------------------------------------- reaction center
@@ -93,6 +107,69 @@ def reaction_center(a, amap, b):
         if a_nb_mapped != (b_nb & set(rev.values())) or has_unmapped_nb:
             center.add(i)
     return center
+
+
+def has_anomeric_ring_reaction_center(species_dict):
+    """Return True when a changed bond is attached to an anomeric sugar carbon.
+
+    A two-bond shell around an N/O-glycosidic reaction center can end inside the
+    ribose substituents.  In particular, it can remove a conserved 5'-phosphate
+    even though that charged group remains conformationally and electrostatically
+    coupled to the reacting sugar.  Such a core is not locally converged.
+
+    This is deliberately a topology test, not a reaction-name or database-ID
+    rule: an anomeric center is a changed ring carbon adjacent to a ring oxygen.
+    """
+    items = list(species_dict.values())
+    if any(abs(c) != 1 for c, _, _ in items):
+        return False
+    # Cheap rejection before the MCS work: require a ring carbon next to a ring
+    # oxygen and an exocyclic N/O substituent, i.e. a possible hemiacetal/acetal
+    # center.  Most metabolic reactions have no such atom.
+    possible = False
+    for _, _, smiles in items:
+        mol = Chem.MolFromSmiles(smiles)
+        if mol is None:
+            return False
+        ring_atoms = {i for ring in mol.GetRingInfo().AtomRings() for i in ring}
+        for idx in ring_atoms:
+            atom = mol.GetAtomWithIdx(idx)
+            if atom.GetSymbol() != "C":
+                continue
+            neighbors = list(atom.GetNeighbors())
+            if (any(nb.GetSymbol() == "O" and nb.GetIdx() in ring_atoms for nb in neighbors)
+                    and any(nb.GetSymbol() in ("N", "O") and nb.GetIdx() not in ring_atoms
+                            for nb in neighbors)):
+                possible = True
+                break
+        if possible:
+            break
+    if not possible:
+        return False
+
+    reactants = [s for c, _, s in items if c < 0]
+    products = [s for c, _, s in items if c > 0]
+    if len(reactants) != len(products):
+        return False
+
+    for _, _, reactant, product, amap in pair_by_mcs(reactants, products):
+        for mol, atom_map, other in (
+                (reactant, amap, product),
+                (product, {v: k for k, v in amap.items()}, reactant)):
+            ring_atoms = {i for ring in mol.GetRingInfo().AtomRings() for i in ring}
+            for idx in reaction_center(mol, atom_map, other):
+                atom = mol.GetAtomWithIdx(idx)
+                if atom.GetSymbol() != "C" or idx not in ring_atoms:
+                    continue
+                if any(nb.GetSymbol() == "O" and nb.GetIdx() in ring_atoms
+                       for nb in atom.GetNeighbors()):
+                    return True
+    return False
+
+
+def truncation_radius(species_dict, default=2):
+    """Choose the smallest chemically adequate reactive-core radius."""
+    return max(int(default), 3) if has_anomeric_ring_reaction_center(species_dict) else int(default)
 
 
 def grow(a, seed, radius, within=None):

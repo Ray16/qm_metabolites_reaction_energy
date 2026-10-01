@@ -59,6 +59,28 @@ def test_free_sulfate_neutralizes():
     assert q_ester == 0 and len(acids_ester) == 1, f"sulfate ester: q={q_ester} acids={acids_ester}"
 
 
+def test_free_ppi_ladder_is_independently_switchable(monkeypatch):
+    ppi = "O=P([O-])([O-])OP(=O)([O-])O"
+    monkeypatch.setenv("PKA_ENV", "0")
+    monkeypatch.setenv("FREE_PPI_PKA", "0")
+    _, old, _ = pka_transform._neutralize(ppi)
+    monkeypatch.setenv("FREE_PPI_PKA", "1")
+    _, new, _ = pka_transform._neutralize(ppi)
+    assert sorted(old) == [1.5, 1.5, 6.5, 6.5]
+    assert sorted(new) == sorted(pka_transform.PPI_LADDER)
+
+
+def test_terminal_anhydride_ladder_is_distinct_from_monoester(monkeypatch):
+    monoester = "COP(=O)([O-])[O-]"
+    pyrophosphate_ester = "COP(=O)([O-])OP(=O)([O-])[O-]"
+    monkeypatch.setenv("PKA_ENV", "0")
+    monkeypatch.setenv("ANHYDRIDE_PKA", "1")
+    mono = sorted(p for _, p in pka_transform._classify_species(monoester)[1])
+    anhydride = sorted(p for _, p in pka_transform._classify_species(pyrophosphate_ester)[1])
+    assert mono == [1.5, 6.5]
+    assert anhydride == [1.0, 1.5, 7.2]
+
+
 def test_sulfotransfer_ph0_fires():
     # A1 end-to-end: a sulfate-transfer reaction (free SO4 <-> sulfate ester) must now FIRE pH-0 and be
     # H-balanced at n_H+=0, instead of refusing to the charged path. (rxn00379 sulfate adenylyltransferase.)

@@ -60,14 +60,15 @@ def test_validate_reaction_rejects_malformed_species_records(record):
 
 
 def test_auxiliary_solvation_failure_does_not_remove_primary_minimum():
-    # SOLV_ALSO is diagnostic: a failed ALPB value must leave the COSMO minimum intact. Conversely, a
-    # partial ALPB list must never be filtered/renormalized into a biased auxiliary Boltzmann ensemble.
+    # SOLV_ALSO is diagnostic: a failed auxiliary value must leave the primary minimum intact. Conversely, a
+    # partial auxiliary list must never be filtered/renormalized into a biased auxiliary Boltzmann ensemble.
     from metag.energetics.conformers import UniqueMinima
+    aux = "cosmo" if P.SOLV_MODEL != "cosmo" else "alpb"
     atoms = P.Atoms("H2", positions=[[0, 0, 0], [0, 0, 0.74]])
-    uniq, also = UniqueMinima(), {"alpb": []}
-    P._add_minimum(uniq, also, atoms, -10.0, {"cosmo": -2.0, "alpb": None})
-    assert uniq.G == [-12.0] and also["alpb"] == [None]
-    assert P._complete_auxiliary_values(also["alpb"]) is None
+    uniq, also = UniqueMinima(), {aux: []}
+    P._add_minimum(uniq, also, atoms, -10.0, {P.SOLV_MODEL: -2.0, aux: None})
+    assert uniq.G == [-12.0] and also[aux] == [None]
+    assert P._complete_auxiliary_values(also[aux]) is None
     assert P._complete_auxiliary_values([-13.0, -12.5]) == [-13.0, -12.5]
 
 
@@ -118,9 +119,9 @@ def test_config_mismatch_disables_calibration(monkeypatch):
     cfg = P.effective_config()
     monkeypatch.setattr(U, "CALIB_CONFIG", dict(cfg))
     assert U.calibration_mismatch(cfg) == []
-    assert U.calibration_mismatch(dict(cfg, solv_model="alpb"))            # any difference is reported
+    assert U.calibration_mismatch(dict(cfg, solv_model="gbsa"))            # any difference is reported
     assert U.calibration_mismatch(None)                                    # unverifiable -> mismatch
-    lo, hi, c, info = U.prediction_interval("fumarate hydratase", ["O"], 0.0, config=dict(cfg, solv_model="alpb"))
+    lo, hi, c, info = U.prediction_interval("fumarate hydratase", ["O"], 0.0, config=dict(cfg, solv_model="gbsa"))
     assert info["externally_calibrated"] is False and "solv_model" in info["calibration_scope"]
     monkeypatch.setattr(U, "CALIB_CONFIG", None)                           # artifact without fingerprint
     assert U.calibration_mismatch(cfg)

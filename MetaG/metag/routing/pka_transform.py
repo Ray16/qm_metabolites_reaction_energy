@@ -68,6 +68,10 @@ def is_isomerization(species):
 #   1 bridge = terminal monoester/anhydride:   ROPO3H2 pKa ~1.5, ~6.5   (the 6.5 straddles pH7)
 #   2 bridge = internal diester/anhydride:     one acidic proton ~1.5
 P_LADDER = {0: [2.15, 7.20, 12.35], 1: [1.50, 6.50], 2: [1.50], 3: [1.50]}
+# A terminal P-O-P group is more weakly acidic at its final deprotonation than a C-O-P
+# monoester (ADP pKa ~7.18, ATP pKa ~7.6 at I=0).  Kept behind an independent validation
+# switch because the legacy table treated both one-bridge environments as monoesters.
+ANHYDRIDE_P_LADDER = [1.00, 7.20]
 # Phosphoryl groups whose P is NOT a plain (O-only) phosphate are distinct acids and get their own ladder
 # (the bridging-O count alone put them on the wrong ladder; these sit exactly in the anchored classes):
 #   P-N phosphoramidate (phosphocreatine / phosphoarginine, phosphagens): second pKa ~4.5-4.6, not the free-
@@ -102,7 +106,12 @@ CARBOXYL_PKA = 4.75
 #       glycerate 3.52, malate pKa1 3.40): 3.8
 #   formate (carboxyl C bears no carbon): 3.75;  aromatic alpha C (benzoate 4.20): 4.2
 CARBOXYL_PKA_ALPHA = {"ammonium": 2.3, "amine_neutralized": 4.4, "oxo": 2.5, "oxygen": 3.8,
-                      "formate": 3.75, "aromatic": 4.2}
+                      "formate": 3.75, "aromatic": 4.2,
+                      # alpha,beta-unsaturated (alpha C double-bonded to C): conjugated to a second carboxyl
+                      # (fumaric 3.03/4.44, mesaconic 3.09/4.75, cis-aconitic 2.8/4.46 -> mean per site 3.75)
+                      # vs isolated (acrylic 4.25, crotonic 4.69, cinnamic 4.44 -> 4.35). Missing this class
+                      # made the fumarate transform 11.6 kJ too small while malate's alpha-OH rule was right.
+                      "unsat_dicarboxyl": 3.75, "unsat": 4.35}
 _BASIC_N = Chem.MolFromSmarts("[NX4+;H1,H2,H3,H0;!$(N~[#6]=[#7,#8])]")   # ammonium (not amidinium)
 _AMINE_N = Chem.MolFromSmarts("[NX3;H1,H2;!$(N[#6]=[#7,#8,#16]);!$(N-a)]")  # basic sp3 amine (not amide/aniline)
 
@@ -119,6 +128,12 @@ def _carboxyl_env(mol, o_idx):
     a = alpha[0]
     if a.GetIsAromatic():
         return "aromatic"
+    for nb in a.GetNeighbors():                             # alpha,beta-unsaturated: alpha C=C beta
+        if nb.GetIdx() != c.GetIdx() and nb.GetSymbol() == "C" and \
+                mol.GetBondBetweenAtoms(a.GetIdx(), nb.GetIdx()).GetBondTypeAsDouble() == 2:
+            conj = [x for x in (a, nb) for y in x.GetNeighbors()
+                    if y.GetIdx() != c.GetIdx() and y.GetSymbol() == "C" and _is_carboxyl_c(mol, y)]
+            return "unsat_dicarboxyl" if conj else "unsat"
     for nb in a.GetNeighbors():
         if nb.GetIdx() == c.GetIdx():
             continue
@@ -137,20 +152,52 @@ def _carboxyl_env(mol, o_idx):
     return None
 
 
+def _is_carboxyl_c(mol, c):
+    """True if carbon c is a carboxyl / carboxylate carbon (C(=O)O-H or C(=O)O-)."""
+    os_ = [n for n in c.GetNeighbors() if n.GetSymbol() == "O"]
+    dbl = any(mol.GetBondBetweenAtoms(c.GetIdx(), o.GetIdx()).GetBondTypeAsDouble() == 2 for o in os_)
+    sgl = any(mol.GetBondBetweenAtoms(c.GetIdx(), o.GetIdx()).GetBondTypeAsDouble() == 1 and o.GetDegree() == 1
+              for o in os_)
+    return dbl and sgl
+
+
 def _amine_ns(mol):
     return {m[0] for m in mol.GetSubstructMatches(_AMINE_N)}
 
 
 def _pka_env_enabled():
-    """PKA_ENV (default OFF). The environment-specific carboxyl pKa's and the free-PPi ladder are each
+    """PKA_ENV (default ON since 2026-10-01; was OFF). The environment-specific carboxyl pKa's and the free-PPi ladder are each
     textbook-correct, but applied as a PARTIAL table they break the error cancellation between reaction
     partners: e.g. fumarase -- malate's alpha-hydroxy carboxyl is corrected (4.75 -> 3.8) while fumarate's
     alpha,beta-unsaturated carboxyls (exp 3.03/4.44) have no rule and stay at 4.75, so every hydratase
     moved +5.4 kJ (TECRDB A/B 2026-09-26: MAE 11.25 -> 11.91, 47 worse / 16 better). pKa corrections must
     be applied as a COMPLETE, uniformly-validated set (per-compound macroscopic pKa's validated against an
     independent pKa reference), not piecemeal. Kept for that work; not deployed."""
-    v = os.environ.get("PKA_ENV")
+    return _env_on("PKA_ENV", default=True)
+
+
+def _free_ppi_pka_enabled():
+    """Use free pyrophosphate's measured macroscopic pKa ladder independently of PKA_ENV.
+
+    PKA_ENV also enables an incomplete set of carboxyl environment rules and was rejected
+    as a bundle.  Free PPi is an unambiguous molecular identity with a complete experimental
+    ladder, so it can be validated and deployed separately.
+    """
+    return _env_on("FREE_PPI_PKA", default=True)
+
+
+def _anhydride_pka_enabled():
+    """Distinguish terminal P-O-P groups from C-O-P monoesters in the pKa table."""
+    v = os.environ.get("ANHYDRIDE_PKA")
     return v is not None and v.strip().lower() not in ("", "0", "off", "false", "no")
+
+
+def _env_on(name, default):
+    """Environment switch: unset -> default; '', 0, off, false, no -> False; anything else True."""
+    v = os.environ.get(name)
+    if v is None:
+        return default
+    return v.strip().lower() not in ("", "0", "off", "false", "no")
 
 
 def carboxyl_pka(mol, o_idx, amine_neutralized=False):
@@ -173,6 +220,13 @@ SULFONATE_PKA = -1.5
 # ionisable proton. Both pKa's sit far below pH 7, so the exact-Alberty form recovers the SO4(2-)
 # free energy at pH 7 exactly from the neutral H2(SO4) reference used for the QM step.
 SULFATE_LADDER = [-3.0, 1.99]        # H2SO4 pKa1, pKa2
+# Weak O-H / S-H acids that a pH-7 source sometimes draws ionised (ModelSEED draws glutathione as the
+# thiolate). Their pKa lies ABOVE 7, so the dominant microspecies is the neutral acid and the transform
+# term is tiny (-RT ln(1+10^(7-pKa)) = -0.1 kJ for a thiol, -0.006 kJ for a phenol) and insensitive to the
+# exact value. Left unmatched, the anion survived neutralisation and the pH-0 species became an
+# unphysical thiolate/ammonium zwitterion (GSH: xtb solvation failures, rxn00824/rxn01834 unscored).
+THIOL_PKA = 8.7                      # glutathione SH 8.75, cysteine SH 8.3 (I = 0)
+PHENOL_PKA = 10.0                    # tyrosine OH 10.1, phenol 9.99
 
 # SMARTS for a deprotonated (anionic) oxygen of each class, matched on the [O-] atom (first atom).
 _ANION_SMARTS = [
@@ -187,6 +241,8 @@ _ANION_SMARTS = [
     #                                                       catastrophe (rxn00379 sulfate
     #                                                       adenylyltransferase -70).
     ("phosphate", "[$([OX1-][P])]"),                      # any P-O-  (sub-classified below)
+    ("thiolate",  "[$([SX1-][#6;!$(C=[O,S,N])])]"),       # alkyl/aryl thiolate R-S- (not thiocarboxylate)
+    ("phenolate", "[$([OX1-]c)]"),                        # aryl O- (phenolate / tyrosinate)
 ]
 
 
@@ -251,6 +307,10 @@ def _phosphoryl_ladder(mol, pa):
     if any(n.GetSymbol() == "N" for n in pa.GetNeighbors()):
         return P_N_LADDER
     bridges = [n for n in pa.GetNeighbors() if n.GetSymbol() == "O" and n.GetDegree() >= 2]
+    if _anhydride_pka_enabled() and len(bridges) == 1 and any(
+            other.GetSymbol() == "P" and other.GetIdx() != pa.GetIdx()
+            for oxygen in bridges for other in oxygen.GetNeighbors()):
+        return ANHYDRIDE_P_LADDER
     for o in bridges:
         for c in o.GetNeighbors():
             if c.GetSymbol() == "C" and any(
@@ -292,6 +352,10 @@ def _classify_species(smi, amine_neutralized=False):
             resolved.append((o, carboxyl_pka(mol, o, amine_neutralized))); continue
         if cls == "sulfonate":
             resolved.append((o, SULFONATE_PKA)); continue
+        if cls == "thiolate":
+            resolved.append((o, THIOL_PKA)); continue
+        if cls == "phenolate":
+            resolved.append((o, PHENOL_PKA)); continue
         if cls == "sulfate":                         # group per S, ladder assigned below
             oa = mol.GetAtomWithIdx(o)
             s = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "S"), None)
@@ -299,7 +363,8 @@ def _classify_species(smi, amine_neutralized=False):
         oa = mol.GetAtomWithIdx(o)                   # phosphate: group per P
         p = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "P"), None)
         p_groups.setdefault(p, []).append(o)
-    if _pka_env_enabled() and _is_free_ppi(mol) and p_groups:   # free PPi ladder (PKA_ENV; see above)
+    if (_pka_env_enabled() or _free_ppi_pka_enabled()) and _is_free_ppi(mol) and p_groups:
+        # Free PPi is one coupled tetraprotic acid, not two independent terminal phosphate monoesters.
         all_o = sorted(o for os in p_groups.values() for o in os)
         for o, pka in zip(all_o, PPI_LADDER + [PPI_LADDER[-1]] * max(0, len(all_o) - 4)):
             resolved.append((o, pka))
@@ -481,6 +546,15 @@ def _neutralize_v2(smi):
 # Excludes (correctly) amides (!$(NC=O)), the NAD(P)H dihydropyridine ring N (an enamine on sp2 C -> not
 # [CX4], not basic), aromatic/pyridinium N, and imines (N=*).
 _AMINE_ON_C = Chem.MolFromSmarts("[CX4]-[NX3;H1,H2;!$(NC=O);!$(N=*)]")
+# An N bonded to an AROMATIC atom (aniline pKa 4.6; adenine N6 / N6-alkyl-adenine not protonated at pH 7)
+# is not a basic cation-forming amine. Counting it made an amine that BECOMES an aryl amine look conserved
+# (adenylosuccinate synthase: Asp NH3+ -> N6-succinyl-adenine), so the base path did not fire and the
+# destroyed ammonium cation was scored charged against an absolute free proton (ARYLAMINE_NONBASIC).
+_AMINE_ON_C_ALIPHATIC = Chem.MolFromSmarts("[CX4]-[NX3;H1,H2;!$(NC=O);!$(N=*);!$(N-a)]")
+
+
+def _arylamine_nonbasic_enabled():
+    return _env_on("ARYLAMINE_NONBASIC", default=True)
 _AMMONIUM_ON_C = Chem.MolFromSmarts("[CX4]-[NX4+;H1,H2,H3]")
 def _amine_cn_change(species):
     """Net change in the count of chargeable amine-on-carbon C-N bonds across the reaction
@@ -494,7 +568,8 @@ def _amine_cn_change(species):
         m = Chem.MolFromSmiles(smi)
         if m is None:
             return 0
-        cnt = len(m.GetSubstructMatches(_AMINE_ON_C)) + len(m.GetSubstructMatches(_AMMONIUM_ON_C))
+        amine = _AMINE_ON_C_ALIPHATIC if _arylamine_nonbasic_enabled() else _AMINE_ON_C
+        cnt = len(m.GetSubstructMatches(amine)) + len(m.GetSubstructMatches(_AMMONIUM_ON_C))
         net += coeff * cnt
     return net
 

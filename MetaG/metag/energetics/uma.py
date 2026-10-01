@@ -107,7 +107,7 @@ def batched_energies(pu, atoms_list, chunk=None):
 def batched_fire(pu, atoms_list, fmax=0.05, steps=300, maxstep=0.2, stop_frac=1.0,
                  straggler_fmax=None, return_converged=False, dt0=0.1, dtmax=1.0,
                  Nmin=5, finc=1.1, fdec=0.5, astart=0.1, fa=0.99,
-                 verbose=False, log_every=25, label="", fix_mask=None):
+                 verbose=False, log_every=25, label="", fix_mask=None, extra_forces=None):
     """Relax all atoms_list simultaneously. Returns (relaxed_atoms, energies_eV np).
     Straggler-robust: stops early once `stop_frac` of structures are below `fmax`
     AND every remaining structure is below `straggler_fmax` (default 2*fmax) — so a
@@ -119,7 +119,11 @@ def batched_fire(pu, atoms_list, fmax=0.05, steps=300, maxstep=0.2, stop_frac=1.
     never move and convergence is judged on the FREE atoms only. Used by matched /
     frozen-scaffold relaxation: the conserved spectator is pinned at a shared geometry
     (identical across the reactant/product pair) so it cancels exactly in ΔE, and only
-    the transformation region relaxes."""
+    the transformation region relaxes.
+
+    extra_forces: optional callable(atoms_list, done_bool_array) -> (total,3) eV/Å added to the UMA forces
+    every step (e.g. the continuum-solvation gradient, metag.energetics.solv_relax). Structures already
+    below fmax are passed as done and may return zeros."""
     straggler_fmax = straggler_fmax if straggler_fmax is not None else 2.0 * fmax
     import time as _time
     _t0 = _time.time()
@@ -153,6 +157,9 @@ def batched_fire(pu, atoms_list, fmax=0.05, steps=300, maxstep=0.2, stop_frac=1.
             n = int(nat[i]); a.set_positions(pos[off:off + n].detach().cpu().numpy()); off += n
         E, F, bi = _predict_chunked(pu, atoms_list, _FIRE_CHUNK)
         E_last = E
+        if extra_forces is not None:
+            Fx = extra_forces(atoms_list, done.detach().cpu().numpy())
+            F = F + torch.as_tensor(np.asarray(Fx), dtype=F.dtype, device=F.device)
         if freemask is not None:
             F = F * freemask                                 # frozen atoms: zero force -> never move / never gate convergence
         # per-structure max force

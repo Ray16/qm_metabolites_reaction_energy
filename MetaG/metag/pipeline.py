@@ -138,7 +138,10 @@ _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
 _KEEP_SCALE = float(os.environ.get("KEEP_SCALE", "1"))   # A/B: scale `keep` (conformers relaxed+solvated)
 # SOLV_MODEL: implicit solvation for species G (cosmo | alpb | cpcmx). SOLV_ALSO: extra models computed on
 # the SAME conformers and cached alongside (for A/B without re-sampling), e.g. SOLV_ALSO=alpb,cpcmx.
-SOLV_MODEL = os.environ.get("SOLV_MODEL", "cosmo").strip().lower()
+# Default ALPB (2026-10-01): xtb --cosmo carries no hydrogen-bond term (Ghb = Gshift = 0) and under-solvates
+# every polar group (FreeSolv per-group error: alcohol OH +17.8, COOH +18.8 kJ/mol vs ALPB +4.3/-4.9; carbonyl
+# hydration log K MAE 3.6 vs 1.1). SOLV_MODEL=cosmo reproduces the earlier pipeline.
+SOLV_MODEL = os.environ.get("SOLV_MODEL", "alpb").strip().lower()
 SOLV_ALSO = list(dict.fromkeys(
     m.strip().lower() for m in os.environ.get("SOLV_ALSO", "").split(",")
     if m.strip() and m.strip().lower() != SOLV_MODEL
@@ -159,6 +162,26 @@ _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiere
 _DEDUP = os.environ.get("CONF_DEDUP", "1").strip().lower() not in ("", "0", "off", "false", "no")
 if _DEDUP:
     _IMPLICIT_SETTINGS["dedup"] = f"rmsd-v2-etol{DEDUP_E_TOL}"
+# SOLV_RELAX (A/B, default off): after sampling, the lowest unique minima (within SOLV_RELAX_WIN kJ, at most
+# SOLV_RELAX_N) are re-relaxed on the aqueous surface E_UMA + ΔG_solv(SOLV_MODEL) (metag/energetics/solv_relax.py)
+# and the ensemble energy is the Boltzmann sum over those solution-phase minima. Thermal stays at the gas minimum.
+_SOLV_RELAX = os.environ.get("SOLV_RELAX", "0").strip().lower() not in ("", "0", "off", "false", "no")
+SOLV_RELAX_N = int(os.environ.get("SOLV_RELAX_N", "8"))
+SOLV_RELAX_WIN = float(os.environ.get("SOLV_RELAX_WIN", "25"))
+SOLV_RELAX_STEPS = int(os.environ.get("SOLV_RELAX_STEPS", "200"))
+if _SOLV_RELAX:
+    _IMPLICIT_SETTINGS["solv_relax"] = f"v1-n{SOLV_RELAX_N}-w{SOLV_RELAX_WIN:g}-s{SOLV_RELAX_STEPS}"
+# ACID_HB_FILTER (default on): for a NEUTRAL species with >= 2 acid groups (each P, each carboxyl
+# C) -- i.e. the protonated pH-0 reference of a polyanion -- conformers in which an acidic O-H of one
+# group H-bonds an O of ANOTHER acid group are excluded from the ensemble. Those H-bonds cannot exist at
+# pH 7 (both groups ionised and mutually repulsive), and the pKa table that maps the neutral reference to
+# pH 7 is for non-interacting groups; keeping them over-stabilises the neutral reference (FBP + fructose
+# -> F6P + F1P = +18.6 kJ in UMA/ALPB vs ~0 implied by FBP's near-additive pKa's).
+# ADOPTED 2026-10-01 (v2: a P-O-P chain is one acid group): TECRDB 10.12 -> 10.03, bisphosphate class fixed
+# (FBP aldolase +36 -> +16, PEP mutase +24 -> +10, GAPDH -12 -> -2); ACID_HB_FILTER=0 reproduces v1 numbers.
+_ACID_HB_FILTER = os.environ.get("ACID_HB_FILTER", "1").strip().lower() not in ("", "0", "off", "false", "no")
+ACID_HB_DIST = float(os.environ.get("ACID_HB_DIST", "2.2"))           # H...O (Å)
+_ACID_HB_KEY = f"v2-{ACID_HB_DIST:g}"   # v2: a P-O-P chain is one acid group                    # cache-key tag, added only where the filter can act
 _EXPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
                       "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP, "dedup": "erot-v1",   # clusters: moments fallback
                       "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
@@ -227,6 +250,12 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     _settings = dict(_IMPLICIT_SETTINGS, model=_model_name(pu))
     if mult != 1:
         _settings["spin"] = mult
+    template = Chem.AddHs(Chem.MolFromSmiles(smi))
+    hb_groups = _acid_groups(template) if (_ACID_HB_FILTER and q == 0) else None
+    if hb_groups is not None and len(set(hb_groups[0].values())) < 2:
+        hb_groups = None                                  # fewer than two acid groups: nothing to filter
+    if hb_groups is not None:
+        _settings["acid_hb_filter"] = _ACID_HB_KEY
     _cached = _sc.get(smi, q, "implicit", _settings, with_meta=True)
     if _cached is not None:
         G_c, s_c, meta_c = _cached
@@ -236,7 +265,6 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     if mult != 1:
         log(f"    {name:9s} q{q:+d} [open-shell: spin multiplicity {mult}]")
     _, keep, pool = sampling_budget(smi)                  # per-batch pool/keep sizing only
-    template = Chem.AddHs(Chem.MolFromSmiles(smi))
     ref_graph = bond_graph(template)
     uniq = (UniqueMinima(template=template) if _DEDUP
             else UniqueMinima(e_tol=-1.0))                 # e_tol<0: never merge (legacy A/B)
@@ -246,6 +274,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
     # scored. Such conformers are set aside; if EVERY conformer rearranged the species is not a gas-phase
     # minimum and SpeciesRearranged is raised (never scored or cached under this SMILES).
     rearranged = []                                       # (atoms, e, solv-dict) set aside
+    hb_set_aside = []                                     # (atoms, e, sd) with an inter-acid H-bond
     n_relaxed = n_xtb_fail = 0
     failed_E = []                                         # gas energies of conformers whose solvation failed
     # secondary solvation models on the same unique minima: {model: [G per unique minimum]}
@@ -284,6 +313,9 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
             if not same_connectivity(a, ref_graph):
                 rearranged.append((a, float(e), sd))
                 continue
+            if hb_groups is not None and _has_interacid_hbond(a, hb_groups):
+                hb_set_aside.append((a, float(e), sd))
+                continue
             _add_minimum(uniq, also, a, float(e), sd)
             if e < best[0]:
                 best = (float(e), a.get_chemical_symbols(), a.get_positions())
@@ -300,6 +332,14 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                 hits = 0
         prev_Gens, prev_best = Gens, best[0]
     sp_warn = []
+    if hb_set_aside:
+        if not all_G:                                     # every conformer H-bonds across groups: keep them
+            for a, e, sd in hb_set_aside:                 # (no filtered ensemble exists) and say so
+                _add_minimum(uniq, also, a, e, sd)
+                if e < best[0]:
+                    best = (e, a.get_chemical_symbols(), a.get_positions())
+            sp_warn.append(f"{name} ({smi}): every conformer has an inter-acid H-bond; filter not applied")
+        log(f"    {name}: {len(hb_set_aside)} conformer(s) with an inter-acid-group H-bond excluded")
     if not all_G:
         if rearranged:
             raise SpeciesRearranged(name, smi, len(rearranged))
@@ -314,6 +354,15 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         warnings.extend(sp_warn)
         return None, None
     Gens = boltz(all_G)
+    relax_info = None
+    if _SOLV_RELAX and uniq.template is not None and uniq.ref:
+        relaxed = _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
+        if relaxed is not None:
+            G_aq, also_aq, relax_info = relaxed
+            log(f"    {name}: solution-phase relaxation Gens {Gens:.1f} -> {boltz(G_aq):.1f} "
+                f"({relax_info['n_relaxed']} minima)")
+            Gens = boltz(G_aq)
+            also = also_aq
     therm, t_info = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
     if therm is None:
         sp_warn.append(f"{name} ({smi}): no true minimum among the lowest {N_THERMAL_CANDIDATES} "
@@ -343,7 +392,8 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         log(f"    !! {sp_warn[-1]}")
     else:
         meta = {"warnings": sp_warn, "n_minima": len(uniq), "n_seen": uniq.n_seen,
-                "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed, "thermal": t_info}
+                "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed, "thermal": t_info,
+                **({"solv_relax": relax_info} if relax_info else {})}
         _sc.put(smi, q, "implicit", _settings, Gens + therm, sigma, meta=meta)
         for m in SOLV_ALSO:                               # other models on the same conformers + thermal; a
             vals = _complete_auxiliary_values(also[m])    # separate key ("via") -- NOT the value a primary
@@ -352,6 +402,141 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                         boltz(vals) + therm, sigma, meta=meta)
     warnings.extend(sp_warn)
     return Gens + therm, sigma
+
+
+def _acid_transform(smi_neutral):
+    """-RT ln Π(1+10^(pH-pKa)) over the acid sites of a NEUTRAL pH-0 species (its max-anion form
+    classified with the pKa table), i.e. G'(pH) - G(neutral) for the acid groups."""
+    from metag.routing import pka_transform as _pk
+    _, pkas, _ = _pk._neutralize(_pk._canonicalize_maxanion(smi_neutral))
+    return -sum(RT_LN10 * math.log10(1.0 + 10.0 ** (PH - p)) for p in (pkas or []))
+
+
+def _hydrate_all_sites(pu, rx, name, q, smi, G, sig, std, seeds, keep, pool, log, routes):
+    """CARBONYL_HYDRATION_ALL: fold every aldehyde/ketone carbonyl <-> gem-diol equilibrium of species
+    `name` into G[name]. On the pH-0 route the forms are mixed AFTER each form's own acid transform (the
+    gem-diol of an alpha-keto acid is a weaker acid, pKa ~3.6 vs 2.5), then the carbonyl form's transform --
+    which the reaction-level pKa sites already apply -- is removed again."""
+    from metag.routing import aldehyde_hydration as _ah
+    sites = _ah.hydration_sites(smi)
+    if not sites:
+        return
+    on_ph0 = bool(rx.get("pka_sites")) and q == 0
+    t_c = _acid_transform(smi) if on_ph0 else 0.0
+    g_w = water_ref_G(pu) + std
+    g_diols, sds = [], []
+    for _, diol in sites:
+        try:
+            Gd, sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)", routes["warnings"])
+        except SpeciesRearranged as e:
+            routes["warnings"].append(f"hydration skipped: {e}")
+            continue
+        if Gd is None:
+            continue
+        t_d = _acid_transform(diol) if on_ph0 else 0.0
+        dg = Gd + std - g_w - G[name]                     # neutral-form hydration free energy
+        if _flag("HYDRATION_CAL"):
+            dg = _ah.calibrated_dg_hyd(dg)
+        g_diols.append(G[name] + g_w + dg + t_d - t_c)
+        sds.append(sd or 0.0)
+    if not g_diols:
+        return
+    Geff = _ah.mixture_G_sites(G[name], g_diols, g_w)
+    log(f"    [hydration: {name} {len(g_diols)} site(s), ΔG_hyd "
+        f"{', '.join(f'{gd - g_w - G[name]:+.1f}' for gd in g_diols)} -> shift {Geff - G[name]:+.1f}]")
+    G[name] = Geff
+    sig[name] = float(np.sqrt(sig.get(name, 0.0) ** 2 + sum(x * x for x in sds)))
+
+
+def _acid_groups(template):
+    """{atom idx: group id} for the acidic O-H hydrogens' oxygens and all oxygens of every acid group
+    (each P atom and each carboxyl C is its own group) of an H-explicit RDKit molecule."""
+    group_of_o, donors = {}, []
+    # a P-O-P chain (pyro/triphosphate) is ONE acid group: the P-OH...O=P contacts between neighbouring
+    # phosphoryls of a chain are intrinsic to it; only contacts between DISTINCT acid units are excluded.
+    chain = {}
+    for a in template.GetAtoms():
+        if a.GetSymbol() == "P" and a.GetIdx() not in chain:
+            stack, comp = [a.GetIdx()], []
+            while stack:
+                x = stack.pop()
+                if x in chain:
+                    continue
+                chain[x] = a.GetIdx(); comp.append(x)
+                for o in template.GetAtomWithIdx(x).GetNeighbors():
+                    for y in o.GetNeighbors():
+                        if y.GetSymbol() == "P" and y.GetIdx() not in chain:
+                            stack.append(y.GetIdx())
+    for a in template.GetAtoms():
+        if a.GetSymbol() == "P" or (a.GetSymbol() == "C" and _is_carboxyl(a)):
+            gid = chain.get(a.GetIdx(), a.GetIdx())
+            for o in a.GetNeighbors():
+                if o.GetSymbol() != "O":
+                    continue
+                if a.GetSymbol() == "P" and any(n.GetSymbol() == "P" and n.GetIdx() != a.GetIdx()
+                                                 for n in o.GetNeighbors()):
+                    continue                                 # bridging P-O-P oxygen: shared, skip
+                group_of_o[o.GetIdx()] = gid
+                for h in o.GetNeighbors():
+                    if h.GetSymbol() == "H":
+                        donors.append((h.GetIdx(), gid))
+    return group_of_o, donors
+
+
+def _is_carboxyl(c):
+    """Carboxylic acid carbon: one C=O and one O-H oxygen (not a hemiacetal/ester carbon)."""
+    os_ = [n for n in c.GetNeighbors() if n.GetSymbol() == "O"]
+    if len(os_) != 2:
+        return False
+    mol = c.GetOwningMol()
+    dbl = [o for o in os_ if mol.GetBondBetweenAtoms(c.GetIdx(), o.GetIdx()).GetBondTypeAsDouble() == 2]
+    oh = [o for o in os_ if any(h.GetSymbol() == "H" for h in o.GetNeighbors())]
+    return len(dbl) == 1 and len(oh) == 1
+
+
+def _has_interacid_hbond(atoms, groups):
+    group_of_o, donors = groups
+    pos = atoms.get_positions()
+    for h, g in donors:
+        for o, go in group_of_o.items():
+            if go != g and np.linalg.norm(pos[h] - pos[o]) < ACID_HB_DIST:
+                return True
+    return False
+
+
+def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log):
+    """Re-relax the lowest unique minima on E_UMA + ΔG_solv(SOLV_MODEL); returns (G_aq list of unique
+    solution-phase minima, {aux model: values}, info) or None if no relaxed structure survives (the caller
+    then keeps the vertical ensemble). Relaxed structures that change bonding are dropped; two starting
+    minima that fall into the same solution-phase basin are merged (UniqueMinima on the relaxed set)."""
+    from metag.energetics.solv_relax import make_extra_forces
+    order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
+    pick = [j for j in order if uniq.G[j] - uniq.G[order[0]] < SOLV_RELAX_WIN][:SOLV_RELAX_N]
+    syms = [a.GetSymbol() for a in template.GetAtoms()]
+    ats = [Atoms(symbols=syms, positions=uniq.ref[j].GetConformer().GetPositions(),
+                 info={"charge": int(q), "spin": int(mult)}) for j in pick]
+    extra = make_extra_forces(q, mult, SOLV_MODEL)
+    rel, E, conv = batched_fire(pu, ats, fmax=0.05, steps=SOLV_RELAX_STEPS, stop_frac=1.0,
+                                return_converged=True, extra_forces=extra, label=f"{name}-aq")
+    models = [SOLV_MODEL] + SOLV_ALSO
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        solv = list(ex.map(lambda am: dgsolv(am[0].get_chemical_symbols(), am[0].get_positions(), q,
+                                             am[1], mult), [(a, m) for a in rel for m in models]))
+    solv = [dict(zip(models, solv[i * len(models):(i + 1) * len(models)])) for i in range(len(rel))]
+    uq = UniqueMinima(template=template)
+    also = {m: [] for m in SOLV_ALSO}
+    n_bond = n_fail = 0
+    for i, (a, e, sd) in enumerate(zip(rel, E, solv)):
+        if i in extra.failed or sd[SOLV_MODEL] is None or not np.isfinite(e):
+            n_fail += 1; continue
+        if not same_connectivity(a, ref_graph):
+            n_bond += 1; continue
+        _add_minimum(uq, also, a, float(e) * EV2KJ, sd)
+    if not uq.G:
+        return None
+    info = {"n_start": len(pick), "n_relaxed": len(uq.G), "n_unconverged": int((~np.asarray(conv)).sum()),
+            "n_rearranged": n_bond, "n_failed": n_fail}
+    return list(uq.G), also, info
 
 
 def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log):
@@ -397,9 +582,10 @@ def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
                 at = Atoms(symbols=syms, positions=pos, info={"charge": int(q), "spin": int(mult)})
                 (at,), _, conv = batched_fire(pu, [at], fmax=0.01, steps=400, return_converged=True,
                                               label=f"{name}-tight")
-                if not conv[0] or not same_connectivity(at, ref_graph):
+                if not same_connectivity(at, ref_graph):
                     break
-                pos = at.get_positions()
+                if conv[0]:                               # an unconverged tight re-opt (flat torsions) still
+                    pos = at.get_positions()              # gets the mode-following test from the original pos
         log(f"    {name}: minimum candidate has an imaginary mode ({tried[-1]} cm-1) -> next candidate")
     return None, tried
 
@@ -558,11 +744,22 @@ def explicit_G(pu, q, smi, seeds, log, name):
 # ONE table of pipeline switches and their production defaults (the calibrated configuration). Every
 # switch is read through _flag(), so the default lives here only and effective_config() can report it.
 FLAG_DEFAULTS = {
-    "COFACTOR_RING": True, "COA_CORE": False, "NTP_CORE": False,
+    "COFACTOR_RING": True, "COA_CORE": False,
+    # NTP_CORE ADOPTED 2026-10-01: the nucleoside of a spectator NTP/NDP/NMP is capped to a methyl
+    # polyphosphate (isodesmic, like COFACTOR_RING). TECRDB 10.35 -> 10.18 (adenylate kinase -26 -> +4,
+    # nucleoside-diphosphate kinase exactly isodesmic).
+    "NTP_CORE": True,
     "AUTO_TRUNCATE": True, "ROUTE_FULL": True, "TRUNC_V2": False, "TRUNC_VALIDATE": False,
-    "PH0_AUTO": True, "PH0_BASES": True, "ZWITTERION_PH0": False, "NEUTRAL_QM": False,
-    "STD_STATE_1M": True, "ALDEHYDE_HYDRATION": True, "ANCHOR_CORRECT": True, "SMD_SOLV": False,
-    "WATER_REF_HYDROLYASE": True, "WATER_REF_EXP": False,
+    "PH0_AUTO": True, "PH0_BASES": True, "ZWITTERION_PH0": True, "NEUTRAL_QM": False,
+    "CARBONYL_HYDRATION_ALL": True,    # every aldehyde/ketone except alpha-keto acids (validated vs K_hyd, ALPB)
+    "HYDRATION_CAL": True,             # K_hyd-calibrated ΔG_hyd (independent data; only with CARBONYL_HYDRATION_ALL)
+    # 2026-10-01 physics revision (analysis/sweep_20261001/NOTES.md): ALPB solvation + the experimental
+    # liquid-water reference replace the COSMO-era compensations. The class anchors and the hydro-lyase
+    # water patch were absorbing COSMO's missing H-bond term; with ALPB + exact water they are not used
+    # (TECRDB 364: COSMO+anchors MAE 12.01 -> ALPB, no anchors 10.73 -> + hydration 10.35).
+    # ZWITTERION_PH0: zwitterions are not gas-phase minima (proton transfer on relaxation) -> neutral route.
+    "STD_STATE_1M": True, "ALDEHYDE_HYDRATION": True, "ANCHOR_CORRECT": False, "SMD_SOLV": False,
+    "WATER_REF_HYDROLYASE": False, "WATER_REF_EXP": True,
     # UNDER A/B (default = the validated old behaviour; flip only after the subset A/B shows an improvement):
     "TRUNC_SPECTATOR_CATIONS": False,   # a cation removed WITH the spectator is not a "mangled" cation
     "TRUNC_MAXANION_RETRY": False,      # retry truncation on max-anion forms (protonation-consistent spectators)
@@ -571,6 +768,12 @@ FLAG_DEFAULTS = {
     # an sp3 kept carbon. A/B on its affected set: dG_raw MAE 13.1->12.5, RMS 17.1->15.3; where it looks worse
     # it exposes a real error the broken core had cancelled by luck. Set 0 only to reproduce the old cores.
     "TRUNC_FG_CUTS": True,
+    # ADOPTED 2026-09-30: radius 2 is not a converged local model for reactions at an anomeric
+    # sugar carbon: it can amputate ribose substituents (including a conserved 5'-phosphate)
+    # that remain electrostatically coupled to the reactive center. Radius 3 was identical to
+    # radius 4/full on the completed validation panel; severe MAE 47.11->29.64 (n=6; 5 improved,
+    # 0 worsened), while four controls were unchanged. Set 0 only to reproduce radius-2 results.
+    "TRUNC_ANOMERIC_RADIUS": True,
 }
 
 
@@ -602,7 +805,9 @@ def effective_config():
            "smd_threshold": float(os.environ.get("SMD_THRESHOLD", "5")),
            "water_ref_delta": float(os.environ.get("WATER_REF_DELTA", "-23.2")),
            "water_dgsolv_kj": float(os.environ.get("WATER_DGSOLV_KJ", "-26.4")),
-           "pka_env": _pk._pka_env_enabled(), "pka_model": os.environ.get("PKA_MODEL", "table").strip().lower(),
+           "pka_env": _pk._pka_env_enabled(), "free_ppi_pka": _pk._free_ppi_pka_enabled(),
+           "anhydride_pka": _pk._anhydride_pka_enabled(),
+           "pka_model": os.environ.get("PKA_MODEL", "table").strip().lower(),
            "pka_table": _pk.PKA_TABLE_VERSION, "ph0_redox_proton": _pk._redox_proton_enabled(),
            "anchors": hashlib.sha256(anchors.encode()).hexdigest()[:12]}
     cfg.update({k.lower(): _flag(k) for k in sorted(FLAG_DEFAULTS)})
@@ -783,8 +988,15 @@ def route_reaction(reaction, allow_truncate=True, trunc_radius=None, log=print, 
     _pre = rx
     if allow_truncate and _flag("AUTO_TRUNCATE") and not _prefer_full:
         try:
-            from metag.routing.truncate import build_truncated_reaction
+            from metag.routing.truncate import build_truncated_reaction, truncation_radius
+            _radius_override = trunc_radius is not None or "TRUNC_RADIUS" in os.environ
             _rad = int(trunc_radius if trunc_radius is not None else os.environ.get("TRUNC_RADIUS", "2"))
+            if _flag("TRUNC_ANOMERIC_RADIUS") and not _radius_override:
+                _adaptive_rad = truncation_radius(rx["species"], default=_rad)
+                if _adaptive_rad != _rad:
+                    _rad = _adaptive_rad
+                    routes["trunc_radius_reason"] = "anomeric_ring_reaction_center"
+                    log("  [truncation radius 3: preserve the complete reacting sugar environment]")
             tr = build_truncated_reaction(rx["species"], radius=_rad, fg_cuts=_flag("TRUNC_FG_CUTS"))
             if tr is None and _flag("TRUNC_V2"):   # v2: global-map truncation for the
                 from metag.routing.truncate_global import build_truncated_reaction_v2   # multi-coeff/unequal-side cases
@@ -1085,8 +1297,12 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     if _flag("ALDEHYDE_HYDRATION"):
         from metag.routing import aldehyde_hydration as _ah
         _gw = None
+        _all_carbonyls = _flag("CARBONYL_HYDRATION_ALL")
         for name, (coeff, q, smi) in list(rx["species"].items()):
             if G.get(name) is None:
+                continue
+            if _all_carbonyls:
+                _hydrate_all_sites(pu, rx, name, q, smi, G, sig, std, seeds, keep, pool, log, routes)
                 continue
             diol = _ah.gem_diol(smi)
             if diol is None:
