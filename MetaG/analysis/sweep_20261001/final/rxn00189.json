@@ -2,21 +2,23 @@
  "reaction": "rxn00189",
  "note": "TECRDB rxn00189 glutaminase | flags=anion-count-change",
  "ec": "3.5.1.2",
- "dG": -7.8,
- "dG_raw": -7.8,
+ "dG": -8.5,
+ "dG_raw": -8.5,
  "exp": -15.13,
  "dG_raw_unreliable": null,
- "err": 7.33,
+ "err": 6.63,
  "class": "amide/amidine-hydrolysis",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.1,
- "sigma_pred": 18.6,
+ "sigma_pred": 18.7,
  "ci95": [
   -50.6,
-  34.9
+  33.6
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1165.75,
+  "species_sum": -1166.41,
   "proton": 1170.76,
   "pka_transform": -12.86,
-  "unanchored": -7.84,
-  "reported": -7.84
+  "unanchored": -8.51,
+  "reported": -8.51
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

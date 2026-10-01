@@ -2,20 +2,22 @@
  "reaction": "rxn01451",
  "note": "TECRDB rxn01451 3-hydroxyacyl-CoA dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.35",
- "dG": 18.9,
- "dG_raw": 18.9,
+ "dG": 16.3,
+ "dG_raw": 16.3,
  "exp": 21.9,
  "dG_raw_unreliable": null,
- "err": -3.0,
+ "err": -5.6,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 14.1,
+ "U_samp": 0.4,
+ "sigma_pred": 12.6,
  "ci95": [
-  -13.6,
-  51.4
+  -12.1,
+  44.7
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1189.62,
+  "species_sum": 1187.06,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 18.86,
-  "reported": 18.86
+  "unanchored": 16.29,
+  "reported": 16.29
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

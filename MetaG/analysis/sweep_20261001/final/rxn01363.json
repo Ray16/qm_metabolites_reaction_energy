@@ -2,20 +2,22 @@
  "reaction": "rxn01363",
  "note": "TECRDB rxn01363 quinate dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.24",
- "dG": 15.8,
- "dG_raw": 15.8,
+ "dG": 15.1,
+ "dG_raw": 15.1,
  "exp": 18.44,
  "dG_raw_unreliable": null,
- "err": -2.64,
+ "err": -3.34,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.6,
- "sigma_pred": 13.9,
+ "U_samp": 1.4,
+ "sigma_pred": 13.3,
  "ci95": [
-  -16.1,
-  47.8
+  -14.8,
+  44.9
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1186.6,
+  "species_sum": 1185.84,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 15.83,
-  "reported": 15.83
+  "unanchored": 15.08,
+  "reported": 15.08
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

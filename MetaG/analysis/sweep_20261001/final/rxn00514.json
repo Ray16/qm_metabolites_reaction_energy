@@ -2,21 +2,23 @@
  "reaction": "rxn00514",
  "note": "TECRDB rxn00514 inosine triphosphate pyrophosphohydrolas | flags=anion-count-change,huge/floppy",
  "ec": "3.6.1.a",
- "dG": -37.9,
- "dG_raw": -37.9,
+ "dG": -41.4,
+ "dG_raw": -41.4,
  "exp": -9.29,
  "dG_raw_unreliable": null,
- "err": -28.61,
+ "err": -32.11,
  "class": "kinase/phosphotransfer",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.8,
- "sigma_pred": 14.0,
+ "sigma_pred": 13.2,
  "ci95": [
-  -70.2,
-  -5.7
+  -71.2,
+  -11.7
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -35.24,
+  "species_sum": -38.77,
   "proton": -0.0,
   "pka_transform": -2.67,
-  "unanchored": -37.91,
-  "reported": -37.91
+  "unanchored": -41.44,
+  "reported": -41.44
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

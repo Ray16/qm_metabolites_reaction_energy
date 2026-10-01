@@ -1,0 +1,148 @@
+{
+ "n": 16,
+ "missing": [],
+ "MAE_logK": {
+  "cosmo": 3.02,
+  "alpb_raw": 1.7,
+  "alpb_cal_LOO": 0.64
+ },
+ "MAE_logK_alpha_oxo_acids": {
+  "alpb_raw": 2.72,
+  "alpb_cal_LOO": 0.76
+ },
+ "bias_logK": {
+  "cosmo": -2.8,
+  "alpb_raw": 1.63
+ },
+ "r_alpb": 0.884,
+ "calibration": {
+  "a": 0.509,
+  "b_logK": -0.436,
+  "b_kJ": 2.488
+ },
+ "rows": [
+  {
+   "name": "formaldehyde",
+   "logK_exp": 3.301,
+   "ref": "Doussin and Monod (2013); Bell (1966)",
+   "alpb": 4.871,
+   "cosmo": -0.791
+  },
+  {
+   "name": "acetaldehyde",
+   "logK_exp": 0.076,
+   "ref": "Tur'yan (2000); Doussin and Monod (2013) 1.2",
+   "alpb": 0.45,
+   "cosmo": -4.248
+  },
+  {
+   "name": "propanal",
+   "logK_exp": -0.071,
+   "ref": "Doussin and Monod (2013)",
+   "alpb": 0.538,
+   "cosmo": -4.191
+  },
+  {
+   "name": "butanal",
+   "logK_exp": -0.222,
+   "ref": "Doussin and Monod (2013)",
+   "alpb": 0.439,
+   "cosmo": -4.358
+  },
+  {
+   "name": "pivaldehyde",
+   "logK_exp": -0.638,
+   "ref": "Doussin and Monod (2013)",
+   "alpb": 0.191,
+   "cosmo": -3.91
+  },
+  {
+   "name": "glyoxal_1",
+   "logK_exp": 2.316,
+   "ref": "Doussin and Monod (2013), 1st hydration",
+   "alpb": 5.775,
+   "cosmo": 0.971
+  },
+  {
+   "name": "methylglyoxal_1",
+   "logK_exp": 3.18,
+   "ref": "acp-2021-58 average of Wasa and Musha (1970), Montoya and Mellado (1994), Doussin and Monod (2013)",
+   "alpb": 4.437,
+   "cosmo": 0.047
+  },
+  {
+   "name": "glycolaldehyde",
+   "logK_exp": 1.196,
+   "ref": "Doussin and Monod (2013)",
+   "alpb": 1.794,
+   "cosmo": -3.045
+  },
+  {
+   "name": "acetone",
+   "logK_exp": -2.699,
+   "ref": "Bell (1966); Greenzaid et al. (1967a); Doussin and Monod (2013)",
+   "alpb": -3.282,
+   "cosmo": -7.298
+  },
+  {
+   "name": "diacetyl",
+   "logK_exp": 0.301,
+   "ref": "Doussin and Monod (2013)",
+   "alpb": 1.225,
+   "cosmo": -2.661
+  },
+  {
+   "name": "glyoxylic_acid",
+   "logK_exp": 3.041,
+   "ref": "Tur'yan (1998); Doussin and Monod (2013)",
+   "alpb": 5.941,
+   "cosmo": 0.88
+  },
+  {
+   "name": "pyruvic_acid",
+   "logK_exp": 0.38,
+   "ref": "Tur'yan (1999); Lopalco et al. (2016), pH 0",
+   "alpb": 1.866,
+   "cosmo": -2.235
+  },
+  {
+   "name": "mesoxalic_acid",
+   "logK_exp": 2.0,
+   "ref": "Strehlow (1962); Doussin and Monod (2013)",
+   "alpb": 7.904,
+   "cosmo": 3.738
+  },
+  {
+   "name": "2-oxobutanoic_acid",
+   "logK_exp": 0.231,
+   "ref": "Copper and Redfield (1975), pH 0.5",
+   "alpb": 1.96,
+   "cosmo": -2.073
+  },
+  {
+   "name": "oxaloacetic_acid",
+   "logK_exp": 0.23,
+   "ref": "Kozlowski and Zuman (1992), diacid",
+   "alpb": 3.428,
+   "cosmo": -0.424
+  },
+  {
+   "name": "2-oxoglutaric_acid",
+   "logK_exp": 0.146,
+   "ref": "acp-2021-58 average (diacid, 298 K)",
+   "alpb": 1.232,
+   "cosmo": -2.496
+  }
+ ],
+ "calibration_domain_fit": {
+  "domain": "aldehydes, ketones and glyoxylic acid (the carbonyls the pipeline hydrates); alpha-keto acids excluded",
+  "n": 11,
+  "raw_MAE_logK": 1.25,
+  "raw_bias": 1.15,
+  "cal_LOO_MAE_logK": 0.46,
+  "cal_LOO_MAE_kJ": 2.63,
+  "a": 0.639,
+  "b_logK": -0.411,
+  "b_kJ_per_event": 2.346
+ }
+}

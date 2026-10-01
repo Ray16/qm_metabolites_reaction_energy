@@ -2,20 +2,22 @@
  "reaction": "rxn00634",
  "note": "TECRDB rxn00634 L-iditol dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.14",
- "dG": 6.2,
- "dG_raw": 6.2,
+ "dG": 1.7,
+ "dG_raw": 1.7,
  "exp": 15.52,
  "dG_raw_unreliable": null,
- "err": -9.32,
+ "err": -13.82,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.4,
- "sigma_pred": 13.9,
+ "U_samp": 1.2,
+ "sigma_pred": 13.3,
  "ci95": [
-  -25.7,
-  38.1
+  -28.1,
+  31.5
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1177.0,
+  "species_sum": 1172.45,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 6.23,
-  "reported": 6.23
+  "unanchored": 1.69,
+  "reported": 1.69
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

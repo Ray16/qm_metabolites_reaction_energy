@@ -9,7 +9,7 @@ Writes one JSON per reaction to $ADJ_OUT/<rxn>.json with everything the nested c
 (metag.tools.calibrate) and the cycle-closure harness (metag.tools.cycle_closure) need:
 dG, dG_raw, exp, err, class, anchor, U_samp, sigma_pred, ci95, calibration scope, routes, suspect.
 """
-import os, sys, json, time, socket, traceback
+import os, sys, json, time, socket, traceback, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 # benchmark reference Legendre-transformed per measurement to pH 7 / I = 0 / no Mg2+ (analysis/build_tecrdb_standard.py);
@@ -19,6 +19,20 @@ INP = os.environ.get("TECRDB_INPUTS", os.path.join(ROOT, "experiments", "qm_mlip
 OUT = os.environ.get("ADJ_OUT", os.path.join(HERE, "tecrdb_rescore_results"))
 CLAIMS = os.environ.get("CLAIMS")
 MAX_FAILS = int(os.environ.get("MAX_CONSEC_FAILS", "3"))    # circuit breaker for a broken node
+
+
+def source_fingerprint():
+    """Hash scoring source at startup so an output directory can be audited for mixed code."""
+    digest = hashlib.sha256()
+    paths = [os.path.abspath(__file__)]
+    package = os.path.join(ROOT, "MetaG", "metag")
+    for directory, _, files in os.walk(package):
+        paths.extend(os.path.join(directory, name) for name in files if name.endswith(".py"))
+    for path in sorted(paths):
+        digest.update(os.path.relpath(path, ROOT).encode())
+        with open(path, "rb") as handle:
+            digest.update(handle.read())
+    return digest.hexdigest()
 
 
 def preflight():
@@ -76,8 +90,9 @@ def main():
     preflight()
     from metag.energetics.uma import load_uma
     from metag.pipeline import score_reaction, _MODEL
+    source_hash = source_fingerprint()
     pu = load_uma(_MODEL)                                     # the model the species cache is keyed on (UMA_MODEL)
-    print(f"[preflight] OK host={socket.gethostname()} model={_MODEL}", flush=True)
+    print(f"[preflight] OK host={socket.gethostname()} model={_MODEL} source={source_hash[:12]}", flush=True)
     host = socket.gethostname(); fails = 0
     for rid in wanted:
         outp = os.path.join(OUT, f"{rid}.json")
@@ -99,15 +114,19 @@ def main():
                    "err": (round(r["dG"] - exp, 2) if exp is not None and r["dG"] is not None else None),
                    "class": r["sigma_breakdown"].get("class"), "anchor": r["anchor"],
                    "water_ref": r["water_ref"], "U_samp": r["U_samp"], "sigma_pred": r["sigma_pred"],
-                   "ci95": r["ci95"], "externally_calibrated": r["ci_info"].get("externally_calibrated"),
+                   "ci95": r["ci95"], "coverage_calibrated": r["ci_info"].get("coverage_calibrated", r["ci_info"].get("externally_calibrated")),
+                   "calibration_basis": r["ci_info"].get("calibration_basis"),
+                   "externally_calibrated": r["ci_info"].get("externally_calibrated"),
                    "routes": r["routes"], "suspect": r["suspect"], "std_state_kJ": r["std_state_kJ"],
                    "stages": r.get("stages"), "conditions": r.get("conditions"),
                    "config": r["config"], "species_scored": r.get("species_scored"),
                    "benchmark_input": os.path.abspath(INP),
+                   "source_hash": source_hash,
                    "host": host, "secs": round(time.time() - t0, 1)}
             fails = 0
         except Exception as e:
             rec = {"reaction": rid, "error": str(e), "traceback": traceback.format_exc(),
+                   "benchmark_input": os.path.abspath(INP), "source_hash": source_hash,
                    "host": host, "secs": round(time.time() - t0, 1)}
             fails += 1
         tmp = outp + f".tmp.{os.getpid()}"

@@ -2,20 +2,22 @@
  "reaction": "rxn00256",
  "note": "TECRDB rxn00256 citrate (si)-synthase | flags=anion-count-change,huge/floppy",
  "ec": "4.1.3.7",
- "dG": 60.6,
- "dG_raw": 60.6,
+ "dG": 51.0,
+ "dG_raw": 51.0,
  "exp": 29.55,
  "dG_raw_unreliable": null,
- "err": 31.05,
+ "err": 21.45,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.4,
- "sigma_pred": 14.2,
+ "sigma_pred": 12.7,
  "ci95": [
-  28.0,
-  93.2
+  22.5,
+  79.6
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 55.18,
+  "species_sum": 54.66,
   "proton": -0.0,
-  "pka_transform": 5.44,
-  "unanchored": 60.62,
-  "reported": 60.62
+  "pka_transform": -3.64,
+  "unanchored": 51.02,
+  "reported": 51.02
  },
  "conditions": {
   "T_K": 298.15,
@@ -134,7 +136,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

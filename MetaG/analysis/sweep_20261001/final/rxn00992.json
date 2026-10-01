@@ -2,20 +2,22 @@
  "reaction": "rxn00992",
  "note": "TECRDB rxn00992 3-hydroxybutyrate dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.30",
- "dG": 13.9,
- "dG_raw": 13.9,
+ "dG": 13.7,
+ "dG_raw": 13.7,
  "exp": 14.24,
  "dG_raw_unreliable": null,
- "err": -0.34,
+ "err": -0.54,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.2,
- "sigma_pred": 13.9,
+ "U_samp": 0.9,
+ "sigma_pred": 13.2,
  "ci95": [
-  -18.0,
-  45.7
+  -16.0,
+  43.5
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1184.64,
+  "species_sum": 1184.49,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 13.88,
-  "reported": 13.88
+  "unanchored": 13.73,
+  "reported": 13.73
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

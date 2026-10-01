@@ -2,21 +2,23 @@
  "reaction": "rxn36656",
  "note": "TECRDB rxn36656 aminoacylase | flags=anion-count-change",
  "ec": "3.5.1.14",
- "dG": -6.2,
- "dG_raw": -6.2,
+ "dG": -6.1,
+ "dG_raw": -6.1,
  "exp": -2.84,
  "dG_raw_unreliable": null,
- "err": -3.36,
+ "err": -3.26,
  "class": "amide/amidine-hydrolysis",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.4,
- "sigma_pred": 18.6,
+ "sigma_pred": 18.7,
  "ci95": [
-  -49.0,
-  36.6
+  -48.2,
+  36.0
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1150.14,
+  "species_sum": -1150.04,
   "proton": 1170.76,
   "pka_transform": -26.83,
-  "unanchored": -6.21,
-  "reported": -6.21
+  "unanchored": -6.11,
+  "reported": -6.11
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

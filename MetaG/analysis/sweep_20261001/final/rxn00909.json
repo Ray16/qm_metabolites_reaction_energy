@@ -2,20 +2,22 @@
  "reaction": "rxn00909",
  "note": "TECRDB rxn00909 5,10-methylenetetrahydrofolate reductase | flags=huge/floppy,open-shell/cofactor",
  "ec": "1.7.99.5",
- "dG": -7.5,
- "dG_raw": -7.5,
+ "dG": -7.3,
+ "dG_raw": -7.3,
  "exp": -19.04,
  "dG_raw_unreliable": null,
- "err": 11.54,
+ "err": 11.74,
  "class": "flavin/FAD-redox",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.1,
- "sigma_pred": 12.0,
+ "sigma_pred": 11.7,
  "ci95": [
-  -35.1,
-  20.1
+  -33.6,
+  19.0
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -7.48,
+  "species_sum": -7.28,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -7.48,
-  "reported": -7.48
+  "unanchored": -7.28,
+  "reported": -7.28
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
- "secs": 22.8
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
+ "secs": 14.5
 }

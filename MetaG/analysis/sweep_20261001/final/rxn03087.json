@@ -2,21 +2,23 @@
  "reaction": "rxn03087",
  "note": "TECRDB rxn03087 succinyldiaminopimelate transaminase | flags=huge/floppy",
  "ec": "2.6.1.17",
- "dG": 15.5,
- "dG_raw": 15.5,
+ "dG": 19.0,
+ "dG_raw": 19.0,
  "exp": 1.74,
  "dG_raw_unreliable": null,
- "err": 13.76,
+ "err": 17.26,
  "class": "transaminase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.8,
- "sigma_pred": 10.3,
+ "U_samp": 0.9,
+ "sigma_pred": 10.7,
  "ci95": [
-  -8.3,
-  39.2
+  -5.2,
+  43.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 15.47,
+  "species_sum": 18.98,
   "proton": -0.0,
-  "pka_transform": 0.0,
-  "unanchored": 15.47,
-  "reported": 15.47
+  "pka_transform": -0.0,
+  "unanchored": 18.98,
+  "reported": 18.98
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

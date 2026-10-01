@@ -2,20 +2,22 @@
  "reaction": "rxn04943",
  "note": "TECRDB rxn04943 D-xylulose reductase | flags=huge/floppy",
  "ec": "1.1.1.9",
- "dG": -7.7,
- "dG_raw": -7.7,
+ "dG": -2.8,
+ "dG_raw": -2.8,
  "exp": 17.03,
  "dG_raw_unreliable": null,
- "err": -24.73,
+ "err": -19.83,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 13.8,
+ "U_samp": 0.4,
+ "sigma_pred": 13.2,
  "ci95": [
-  -39.5,
-  24.1
+  -32.5,
+  27.0
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1163.07,
+  "species_sum": 1168.0,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": -7.7,
-  "reported": -7.7
+  "unanchored": -2.76,
+  "reported": -2.76
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

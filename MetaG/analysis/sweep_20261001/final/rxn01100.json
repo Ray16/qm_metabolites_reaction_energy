@@ -2,21 +2,23 @@
  "reaction": "rxn01100",
  "note": "TECRDB rxn01100 phosphoglycerate kinase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "2.7.2.3",
- "dG": 16.6,
- "dG_raw": 16.6,
+ "dG": 16.5,
+ "dG_raw": 16.5,
  "exp": 28.47,
  "dG_raw_unreliable": null,
- "err": -11.87,
+ "err": -11.97,
  "class": "kinase/phosphotransfer",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.2,
- "sigma_pred": 14.0,
+ "sigma_pred": 13.3,
  "ci95": [
-  -15.7,
-  48.9
+  -13.3,
+  46.3
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 10.03,
+  "species_sum": 9.93,
   "proton": -0.0,
   "pka_transform": 6.54,
-  "unanchored": 16.58,
-  "reported": 16.58
+  "unanchored": 16.47,
+  "reported": 16.47
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

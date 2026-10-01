@@ -2,20 +2,22 @@
  "reaction": "rxn01043",
  "note": "TECRDB rxn01043 aldehyde reductase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "1.1.1.21",
- "dG": 5.4,
- "dG_raw": 5.4,
+ "dG": 8.8,
+ "dG_raw": 8.8,
  "exp": 22.61,
  "dG_raw_unreliable": null,
- "err": -17.21,
+ "err": -13.81,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.0,
- "sigma_pred": 13.8,
+ "U_samp": 0.7,
+ "sigma_pred": 13.2,
  "ci95": [
-  -26.4,
-  37.3
+  -20.9,
+  38.6
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1176.21,
+  "species_sum": 1179.59,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 5.44,
-  "reported": 5.44
+  "unanchored": 8.83,
+  "reported": 8.83
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

@@ -2,20 +2,22 @@
  "reaction": "rxn00765",
  "note": "TECRDB rxn00765 glycerol dehydrogenase (NADP+) | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "1.1.1.72",
- "dG": 34.1,
- "dG_raw": 34.1,
+ "dG": 30.7,
+ "dG_raw": 30.7,
  "exp": 41.46,
  "dG_raw_unreliable": null,
- "err": -7.36,
+ "err": -10.76,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 13.8,
+ "U_samp": 0.7,
+ "sigma_pred": 13.2,
  "ci95": [
-  2.3,
-  65.9
+  1.0,
+  60.5
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1204.85,
+  "species_sum": 1201.51,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 34.09,
-  "reported": 34.09
+  "unanchored": 30.75,
+  "reported": 30.75
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

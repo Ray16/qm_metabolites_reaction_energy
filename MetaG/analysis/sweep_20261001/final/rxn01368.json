@@ -2,21 +2,23 @@
  "reaction": "rxn01368",
  "note": "TECRDB rxn01368 cytidine deaminase | flags=CLEAN(tractable)",
  "ec": "3.5.4.5",
- "dG": -13.1,
- "dG_raw": -13.1,
+ "dG": -13.3,
+ "dG_raw": -13.3,
  "exp": -14.7,
  "dG_raw_unreliable": null,
- "err": 1.6,
+ "err": 1.4,
  "class": "amide/amidine-hydrolysis",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.0,
- "sigma_pred": 18.6,
+ "sigma_pred": 18.7,
  "ci95": [
-  -55.9,
-  29.7
+  -55.4,
+  28.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1183.86,
+  "species_sum": -1184.07,
   "proton": 1170.76,
   "pka_transform": 0.0,
-  "unanchored": -13.1,
-  "reported": -13.1
+  "unanchored": -13.31,
+  "reported": -13.31
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

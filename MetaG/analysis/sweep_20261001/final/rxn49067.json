@@ -2,20 +2,22 @@
  "reaction": "rxn49067",
  "note": "TECRDB rxn49067 15-hydroxyprostaglandin dehydrogenase (N | flags=huge/floppy",
  "ec": "1.1.1.141",
- "dG": 3.4,
- "dG_raw": 3.4,
+ "dG": 0.9,
+ "dG_raw": 0.9,
  "exp": 4.55,
  "dG_raw_unreliable": null,
- "err": -1.15,
+ "err": -3.65,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 13.8,
+ "U_samp": 0.9,
+ "sigma_pred": 13.2,
  "ci95": [
-  -28.5,
-  35.2
+  -28.9,
+  30.6
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1174.15,
+  "species_sum": 1171.63,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 3.39,
-  "reported": 3.39
+  "unanchored": 0.86,
+  "reported": 0.86
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

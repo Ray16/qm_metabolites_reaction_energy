@@ -2,20 +2,22 @@
  "reaction": "rxn01847",
  "note": "TECRDB rxn01847 malate dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.37",
- "dG": 60.5,
- "dG_raw": 60.5,
+ "dG": 53.4,
+ "dG_raw": 53.4,
  "exp": 43.16,
  "dG_raw_unreliable": null,
- "err": 17.34,
+ "err": 10.24,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 13.8,
+ "U_samp": 0.4,
+ "sigma_pred": 13.2,
  "ci95": [
-  28.7,
-  92.4
+  23.7,
+  83.1
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1238.73,
+  "species_sum": 1234.46,
   "proton": -1170.76,
-  "pka_transform": -7.42,
-  "unanchored": 60.55,
-  "reported": 60.55
+  "pka_transform": -10.28,
+  "unanchored": 53.41,
+  "reported": 53.41
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

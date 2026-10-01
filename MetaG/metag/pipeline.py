@@ -36,6 +36,7 @@ from metag.energetics.uma import load_uma, batched_energies, batched_fire
 from metag.energetics.conformers import (pool_confs, boltz, spin_multiplicity, UniqueMinima,
                                          bond_graph, same_connectivity)
 from metag.energetics.explicit_solvation import bare_geom
+import metag.energetics.thermal as thermal_mod
 from metag.energetics.thermal import uma_gibbs_corr, xtb_dgsolv, xtb_dgsolv_relaxed, corr_fast, dgsolv
 from metag.water_count import water_count, needs_explicit
 
@@ -171,23 +172,41 @@ SOLV_RELAX_WIN = float(os.environ.get("SOLV_RELAX_WIN", "25"))
 SOLV_RELAX_STEPS = int(os.environ.get("SOLV_RELAX_STEPS", "200"))
 if _SOLV_RELAX:
     _IMPLICIT_SETTINGS["solv_relax"] = f"v1-n{SOLV_RELAX_N}-w{SOLV_RELAX_WIN:g}-s{SOLV_RELAX_STEPS}"
-# ACID_HB_FILTER (default on): for a NEUTRAL species with >= 2 acid groups (each P, each carboxyl
+# ACID_HB_FILTER (diagnostic, default off): for a NEUTRAL species with >= 2 acid groups (each P, each carboxyl
 # C) -- i.e. the protonated pH-0 reference of a polyanion -- conformers in which an acidic O-H of one
 # group H-bonds an O of ANOTHER acid group are excluded from the ensemble. Those H-bonds cannot exist at
 # pH 7 (both groups ionised and mutually repulsive), and the pKa table that maps the neutral reference to
 # pH 7 is for non-interacting groups; keeping them over-stabilises the neutral reference (FBP + fructose
 # -> F6P + F1P = +18.6 kJ in UMA/ALPB vs ~0 implied by FBP's near-additive pKa's).
-# ADOPTED 2026-10-01 (v2: a P-O-P chain is one acid group): TECRDB 10.12 -> 10.03, bisphosphate class fixed
-# (FBP aldolase +36 -> +16, PEP mutase +24 -> +10, GAPDH -12 -> -2); ACID_HB_FILTER=0 reproduces v1 numbers.
-_ACID_HB_FILTER = os.environ.get("ACID_HB_FILTER", "1").strip().lower() not in ("", "0", "off", "false", "no")
+# DIAGNOSTIC, DEFAULT OFF (review 2026-10-01): a hard conformer filter removes physically accessible
+# conformers of the neutral reference state and is discontinuous (all conformers restored when every one
+# has the contact); its TECRDB gain was ~0.1 kJ and its only independent support is one isodesmic cycle
+# (FBP + fructose -> F6P + F1P, +18.6 kJ). The FBP artefact is reported as a known limitation instead.
+_ACID_HB_FILTER = os.environ.get("ACID_HB_FILTER", "0").strip().lower() not in ("", "0", "off", "false", "no")
 ACID_HB_DIST = float(os.environ.get("ACID_HB_DIST", "2.2"))           # H...O (Å)
+# THERMAL_ENSEMBLE (DEFAULT ON since review 2026-10-01): RRHO correction for EVERY thermally relevant unique
+# minimum (within THERMAL_ENS_WIN kJ of the lowest E+ΔGsolv, at most THERMAL_ENS_N), Boltzmann over
+# G_i = E_i + ΔGsolv_i + Gcorr_i. THERMAL_ENSEMBLE=0 = the earlier estimator: Boltzmann over E_i + ΔGsolv_i,
+# then ONE RRHO correction from the lowest-G true minimum. Measured on TECRDB: per-reaction shift -0.9 ± 2.2 kJ
+# (up to 8 kJ for floppy polyols / PRT; GcorR spread across minima median 3.2 kJ, up to 13), aggregate MAE
+# unchanged -> adopted because it is the correct estimator, not for accuracy.
+_THERMAL_ENSEMBLE = os.environ.get("THERMAL_ENSEMBLE", "1").strip().lower() not in ("", "0", "off", "false", "no")
+THERMAL_ENS_WIN = float(os.environ.get("THERMAL_ENS_WIN", "15"))
+THERMAL_ENS_N = int(os.environ.get("THERMAL_ENS_N", "10"))
+if _THERMAL_ENSEMBLE:
+    _IMPLICIT_SETTINGS["thermal_ensemble"] = f"v1-w{THERMAL_ENS_WIN:g}-n{THERMAL_ENS_N}"
 _ACID_HB_KEY = f"v2-{ACID_HB_DIST:g}"   # v2: a P-O-P chain is one acid group                    # cache-key tag, added only where the filter can act
-_EXPLICIT_SETTINGS = {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
-                      "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP, "dedup": "erot-v1",   # clusters: moments fallback
-                      "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
-                      # the cached cluster G already contains n*water_ref_G, which depends on these:
-                      "water_solv": SOLV_MODEL, "water_ref_exp": os.environ.get("WATER_REF_EXP", "0"),
-                      "water_dgsolv_kj": os.environ.get("WATER_DGSOLV_KJ", "-26.4")}
+def _explicit_settings():
+    """Cache key of an explicit cluster. Built at CALL time from the EFFECTIVE values: the cached cluster G
+    contains n*water_ref_G, which depends on the solvation model, the WATER_REF_EXP flag (read through
+    _flag, i.e. including its FLAG_DEFAULTS default) and the experimental ΔG_hyd(H2O). Reading the raw
+    environment variable here (as before 2026-10-01) gave the default run and the WATER_REF_EXP=0
+    ablation the same key."""
+    return {"model": _MODEL, "solv": "cosmo", "water": "count-v1",
+            "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP, "dedup": "erot-v1",   # clusters: moments fallback
+            "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
+            "water_solv": SOLV_MODEL, "water_ref_exp": bool(_flag("WATER_REF_EXP")),
+            "water_dgsolv_kj": float(os.environ.get("WATER_DGSOLV_KJ", "-26.4"))}
 # Fraction of a species' relaxed conformers whose xtb solvation may fail (timeout / non-zero exit) before
 # its G is considered degraded: a degraded G is still used for this reaction but NOT cached, so a
 # transient overload during a sweep cannot poison every later reaction that reuses the species.
@@ -232,7 +251,9 @@ def _last_match(uniq, atoms, E_kJ):
 
 
 def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
-    """Boltzmann(E_elec[UMA] + ΔGsolv[cosmo]) over conformers + UMA thermal(min-E).
+    """Boltzmann over unique minima of G_i = E_elec[UMA]_i + ΔGsolv[SOLV_MODEL]_i + Gcorr[UMA RRHO]_i
+    (THERMAL_ENSEMBLE, default; Gcorr per minimum within THERMAL_ENS_WIN). With THERMAL_ENSEMBLE=0 only
+    E + ΔGsolv is averaged and one RRHO correction (lowest-G true minimum) is added.
 
     HEURISTIC (general, self-calibrating -- no fixed per-flexibility tiers, no per-reaction
     tuning): keep adding conformer seed-batches until BOTH the Boltzmann Gens AND the minimum
@@ -364,6 +385,12 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
             Gens = boltz(G_aq)
             also = also_aq
     therm, t_info = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
+    if therm is not None and _THERMAL_ENSEMBLE and uniq.template is not None and uniq.ref:
+        Gens_th, also_th, ens_info = _thermal_ensemble(pu, uniq, also, therm, q, mult, template, name, log)
+        log(f"    {name}: thermal ensemble (Gens+thermal) {Gens + therm:.1f} -> {Gens_th:.1f} "
+            f"({ens_info['n_hessians']} minima)")
+        t_info = dict(t_info, ensemble=ens_info, single_minimum_G=round(Gens + therm, 3))
+        Gens, also, therm = Gens_th, also_th, 0.0         # thermal now inside every ensemble member
     if therm is None:
         sp_warn.append(f"{name} ({smi}): no true minimum among the lowest {N_THERMAL_CANDIDATES} "
                        f"(imaginary modes {t_info}) -> species failed")
@@ -413,37 +440,41 @@ def _acid_transform(smi_neutral):
 
 
 def _hydrate_all_sites(pu, rx, name, q, smi, G, sig, std, seeds, keep, pool, log, routes):
-    """CARBONYL_HYDRATION_ALL: fold every aldehyde/ketone carbonyl <-> gem-diol equilibrium of species
-    `name` into G[name]. On the pH-0 route the forms are mixed AFTER each form's own acid transform (the
-    gem-diol of an alpha-keto acid is a weaker acid, pKa ~3.6 vs 2.5), then the carbonyl form's transform --
-    which the reaction-level pKa sites already apply -- is removed again."""
+    """CARBONYL_HYDRATION_ALL: fold the carbonyl <-> gem-diol equilibria of species `name` into G[name] by
+    EXACT enumeration of its hydration microstates (every subset of its hydratable sites, each computed).
+    On the pH-0 route each state carries its own acid transform (a gem-diol of an alpha-oxo acid is a weaker
+    acid) before mixing; the carbonyl form's transform, which the reaction-level pKa sites already apply,
+    is removed again. HYDRATION_CAL maps each hydration event with the K_hyd calibration."""
     from metag.routing import aldehyde_hydration as _ah
-    sites = _ah.hydration_sites(smi)
-    if not sites:
+    states = _ah.hydration_states(smi)
+    if not states:
         return
+    if _ah.n_hydration_sites(smi) > _ah.MAX_HYDRATION_SITES:
+        routes["warnings"].append(f"{name}: >{_ah.MAX_HYDRATION_SITES} hydratable sites, first "
+                                  f"{_ah.MAX_HYDRATION_SITES} (canonical order) enumerated")
     on_ph0 = bool(rx.get("pka_sites")) and q == 0
     t_c = _acid_transform(smi) if on_ph0 else 0.0
     g_w = water_ref_G(pu) + std
-    g_diols, sds = [], []
-    for _, diol in sites:
+    folded, sds = [], []
+    for n, hyd in states:
         try:
-            Gd, sd = implicit_G(pu, q, diol, seeds, keep, pool, log, name + "(gem-diol)", routes["warnings"])
+            Gd, sd = implicit_G(pu, q, hyd, seeds, keep, pool, log, f"{name}(hydrate{n})", routes["warnings"])
         except SpeciesRearranged as e:
-            routes["warnings"].append(f"hydration skipped: {e}")
+            routes["warnings"].append(f"hydration state skipped: {e}")
             continue
         if Gd is None:
             continue
-        t_d = _acid_transform(diol) if on_ph0 else 0.0
-        dg = Gd + std - g_w - G[name]                     # neutral-form hydration free energy
+        dg = Gd + std - n * g_w - G[name]                 # hydration free energy of this state (neutral form)
         if _flag("HYDRATION_CAL"):
-            dg = _ah.calibrated_dg_hyd(dg)
-        g_diols.append(G[name] + g_w + dg + t_d - t_c)
+            a, b = _ah.HYDRATION_CAL
+            dg = a * dg + n * b                           # calibration is per hydration event
+        t_d = _acid_transform(hyd) if on_ph0 else 0.0
+        folded.append((n, G[name] + n * g_w + dg + t_d - t_c))
         sds.append(sd or 0.0)
-    if not g_diols:
+    if not folded:
         return
-    Geff = _ah.mixture_G_sites(G[name], g_diols, g_w)
-    log(f"    [hydration: {name} {len(g_diols)} site(s), ΔG_hyd "
-        f"{', '.join(f'{gd - g_w - G[name]:+.1f}' for gd in g_diols)} -> shift {Geff - G[name]:+.1f}]")
+    Geff = _ah.mixture_G_states(G[name], folded, g_w)
+    log(f"    [hydration: {name} {len(folded)} state(s) -> shift {Geff - G[name]:+.1f}]")
     G[name] = Geff
     sig[name] = float(np.sqrt(sig.get(name, 0.0) ** 2 + sum(x * x for x in sds)))
 
@@ -537,6 +568,29 @@ def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
     info = {"n_start": len(pick), "n_relaxed": len(uq.G), "n_unconverged": int((~np.asarray(conv)).sum()),
             "n_rearranged": n_bond, "n_failed": n_fail}
     return list(uq.G), also, info
+
+
+def _thermal_ensemble(pu, uniq, also, therm_ref, q, mult, template, name, log):
+    """Per-minimum RRHO: Gcorr_i for the unique minima within THERMAL_ENS_WIN of the lowest G (at most
+    THERMAL_ENS_N); minima outside the window keep the reference correction therm_ref (negligible weight).
+    Imaginary modes above the tolerance are floored as soft modes here (a per-minimum saddle search would
+    exceed the purpose of this test); their number is recorded."""
+    syms = [a.GetSymbol() for a in template.GetAtoms()]
+    order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
+    win = [j for j in order if uniq.G[j] - uniq.G[order[0]] < THERMAL_ENS_WIN][:THERMAL_ENS_N]
+    corr = {j: therm_ref for j in range(len(uniq.G))}
+    n_imag = 0
+    for j in win:
+        pos = uniq.ref[j].GetConformer().GetPositions()
+        g, info = uma_gibbs_corr(pu, syms, pos, q, spin=mult, return_info=True, imag_as_soft=True)
+        corr[j] = g
+        n_imag += int(info.get("max_imag_cm", 0.0) > thermal_mod.IMAG_TOL_CM)
+    G_tot = [uniq.G[j] + corr[j] for j in range(len(uniq.G))]
+    also_tot = {m: [None if v is None else v + corr[j] for j, v in enumerate(vals)] for m, vals in also.items()}
+    spread = [corr[j] - corr[order[0]] for j in win]
+    info = {"n_hessians": len(win), "n_imag_floored": n_imag,
+            "gcorr_spread_kj": round(float(max(spread) - min(spread)), 2) if spread else 0.0}
+    return boltz(G_tot), also_tot, info
 
 
 def _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log):
@@ -692,7 +746,7 @@ def explicit_G(pu, q, smi, seeds, log, name):
            + ΔGsolv(cluster, xtb --sp) # cluster-continuum bulk solvation
            + thermal(BARE solute, UMA) # NO floppy water modes; cancels across reaction
     This also UNIFIES thermal with the implicit path (always bare-solute UMA Hessian)."""
-    _settings = dict(_EXPLICIT_SETTINGS, model=_model_name(pu))
+    _settings = dict(_explicit_settings(), model=_model_name(pu))
     _cached = _sc.get(smi, q, "explicit", _settings)
     if _cached is not None:
         log(f"    {name:9s} q{q:+d} [explicit CACHED]: {_cached[0]:.1f}")

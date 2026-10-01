@@ -2,20 +2,22 @@
  "reaction": "rxn00257",
  "note": "TECRDB rxn00257 ATP citrate(pro-3S)-lyase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "4.1.3.8",
- "dG": 24.1,
- "dG_raw": 24.1,
+ "dG": 12.8,
+ "dG_raw": 12.8,
  "exp": -8.29,
  "dG_raw_unreliable": null,
- "err": 32.39,
+ "err": 21.09,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.5,
- "sigma_pred": 14.2,
+ "sigma_pred": 12.7,
  "ci95": [
-  -8.5,
-  56.7
+  -15.7,
+  41.4
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 16.19,
+  "species_sum": 13.97,
   "proton": -0.0,
-  "pka_transform": 7.94,
-  "unanchored": 24.13,
-  "reported": 24.13
+  "pka_transform": -1.15,
+  "unanchored": 12.82,
+  "reported": 12.82
  },
  "conditions": {
   "T_K": 298.15,
@@ -144,7 +146,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

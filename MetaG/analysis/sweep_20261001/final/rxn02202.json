@@ -2,21 +2,23 @@
  "reaction": "rxn02202",
  "note": "TECRDB rxn02202 dimethylmaleate hydratase | flags=CLEAN(tractable)",
  "ec": "4.2.1.85",
- "dG": 9.1,
- "dG_raw": 9.1,
+ "dG": 10.9,
+ "dG_raw": 10.9,
  "exp": 3.99,
  "dG_raw_unreliable": null,
- "err": 5.11,
+ "err": 6.91,
  "class": "hydratase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.2,
- "sigma_pred": 11.9,
+ "sigma_pred": 11.6,
  "ci95": [
-  -18.2,
-  36.4
+  -15.1,
+  36.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 15.09,
+  "species_sum": 16.9,
   "proton": -0.0,
   "pka_transform": -5.98,
-  "unanchored": 9.11,
-  "reported": 9.11
+  "unanchored": 10.92,
+  "reported": 10.92
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

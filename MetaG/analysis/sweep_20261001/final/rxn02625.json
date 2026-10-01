@@ -2,21 +2,23 @@
  "reaction": "rxn02625",
  "note": "TECRDB rxn02625 methylaspartate ammonia-lyase | flags=CLEAN(tractable)",
  "ec": "4.3.1.2",
- "dG": -0.4,
- "dG_raw": -0.4,
+ "dG": -0.3,
+ "dG_raw": -0.3,
  "exp": 7.15,
  "dG_raw_unreliable": null,
- "err": -7.55,
+ "err": -7.45,
  "class": "ammonia-lyase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.2,
- "sigma_pred": 10.5,
+ "sigma_pred": 10.3,
  "ci95": [
-  -24.4,
-  23.7
+  -23.4,
+  22.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 7.05,
+  "species_sum": 7.09,
   "proton": -0.0,
   "pka_transform": -7.41,
-  "unanchored": -0.36,
-  "reported": -0.36
+  "unanchored": -0.32,
+  "reported": -0.32
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn39443",
  "note": "TECRDB rxn39443 penicillin amidase | flags=anion-count-change",
  "ec": "3.5.1.11",
- "dG": 25.2,
- "dG_raw": 25.2,
+ "dG": 26.1,
+ "dG_raw": 26.1,
  "exp": 1.06,
  "dG_raw_unreliable": null,
- "err": 24.14,
+ "err": 25.04,
  "class": "amide/amidine-hydrolysis",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.0,
- "sigma_pred": 18.6,
+ "sigma_pred": 18.7,
  "ci95": [
-  -17.6,
-  68.0
+  -16.0,
+  68.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1132.72,
+  "species_sum": -1131.85,
   "proton": 1170.76,
   "pka_transform": -12.86,
-  "unanchored": 25.18,
-  "reported": 25.18
+  "unanchored": 26.06,
+  "reported": 26.06
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

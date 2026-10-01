@@ -2,21 +2,23 @@
  "reaction": "rxn01361",
  "note": "TECRDB rxn01361 dihydroorotate dehydrogenase | flags=huge/floppy",
  "ec": "1.3.99.11",
- "dG": 26.1,
- "dG_raw": 26.1,
+ "dG": 23.5,
+ "dG_raw": 23.5,
  "exp": 16.05,
  "dG_raw_unreliable": null,
- "err": 10.05,
+ "err": 7.45,
  "class": "flavin/FAD-redox",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 12.0,
+ "U_samp": 0.4,
+ "sigma_pred": 11.7,
  "ci95": [
-  -1.6,
-  53.7
+  -2.8,
+  49.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": true,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1199.96,
+  "species_sum": 1197.4,
   "proton": -1170.76,
   "pka_transform": -3.13,
-  "unanchored": 26.07,
-  "reported": 26.07
+  "unanchored": 23.5,
+  "reported": 23.5
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

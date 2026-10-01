@@ -2,21 +2,23 @@
  "reaction": "rxn00001",
  "note": "TECRDB rxn00001 inorganic pyrophosphatase | flags=anion-count-change",
  "ec": "3.6.1.1",
- "dG": -33.1,
- "dG_raw": -33.1,
+ "dG": -31.2,
+ "dG_raw": -31.2,
  "exp": -27.41,
  "dG_raw_unreliable": null,
- "err": -5.69,
+ "err": -3.79,
  "class": "phosphatase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.0,
- "sigma_pred": 8.6,
+ "sigma_pred": 8.0,
  "ci95": [
-  -52.8,
-  -13.4
+  -49.1,
+  -13.3
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -40.76,
+  "species_sum": -38.86,
   "proton": -0.0,
   "pka_transform": 7.67,
-  "unanchored": -33.09,
-  "reported": -33.09
+  "unanchored": -31.19,
+  "reported": -31.19
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

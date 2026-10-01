@@ -2,21 +2,23 @@
  "reaction": "rxn01548",
  "note": "TECRDB rxn01548 guanosine phosphorylase | flags=CLEAN(tractable)",
  "ec": "2.4.2.15",
- "dG": 22.3,
- "dG_raw": 22.3,
+ "dG": 23.3,
+ "dG_raw": 23.3,
  "exp": 11.27,
  "dG_raw_unreliable": null,
- "err": 11.03,
+ "err": 12.03,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.7,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -16.1,
-  60.7
+  -11.9,
+  58.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 28.3,
+  "species_sum": 29.29,
   "proton": -0.0,
   "pka_transform": -6.03,
-  "unanchored": 22.27,
-  "reported": 22.27
+  "unanchored": 23.26,
+  "reported": 23.26
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

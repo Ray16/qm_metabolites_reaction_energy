@@ -2,20 +2,22 @@
  "reaction": "rxn00602",
  "note": "TECRDB rxn00602 methylmalonyl-CoA mutase | flags=huge/floppy,isomerase",
  "ec": "5.4.99.2",
- "dG": -15.8,
- "dG_raw": -15.8,
+ "dG": -15.7,
+ "dG_raw": -15.7,
  "exp": -7.58,
  "dG_raw_unreliable": null,
- "err": -8.22,
+ "err": -8.12,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.1,
- "sigma_pred": 14.1,
+ "sigma_pred": 12.6,
  "ci95": [
-  -48.3,
-  16.6
+  -44.1,
+  12.6
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -15.85,
+  "species_sum": -15.71,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -15.85,
-  "reported": -15.85
+  "unanchored": -15.71,
+  "reported": -15.71
  },
  "conditions": {
   "T_K": 298.15,
@@ -119,7 +121,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

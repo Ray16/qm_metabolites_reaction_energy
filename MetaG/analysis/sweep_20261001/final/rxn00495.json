@@ -2,21 +2,23 @@
  "reaction": "rxn00495",
  "note": "TECRDB rxn00495 phenylalanine ammonia-lyase | flags=CLEAN(tractable)",
  "ec": "4.3.1.5",
- "dG": -3.1,
- "dG_raw": -3.1,
+ "dG": -2.9,
+ "dG_raw": -2.9,
  "exp": -2.22,
  "dG_raw_unreliable": null,
- "err": -0.88,
+ "err": -0.68,
  "class": "ammonia-lyase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.8,
- "sigma_pred": 10.4,
+ "sigma_pred": 10.2,
  "ci95": [
-  -27.1,
-  20.9
+  -25.9,
+  20.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -4.83,
+  "species_sum": -4.63,
   "proton": -0.0,
   "pka_transform": 1.71,
-  "unanchored": -3.13,
-  "reported": -3.13
+  "unanchored": -2.92,
+  "reported": -2.92
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

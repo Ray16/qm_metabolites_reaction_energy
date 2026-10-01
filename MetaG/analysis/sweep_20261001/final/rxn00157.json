@@ -2,20 +2,22 @@
  "reaction": "rxn00157",
  "note": "TECRDB rxn00157 formate C-acetyltransferase | flags=huge/floppy",
  "ec": "2.3.1.54",
- "dG": 20.7,
- "dG_raw": 20.7,
+ "dG": 16.3,
+ "dG_raw": 16.3,
  "exp": 16.63,
  "dG_raw_unreliable": null,
- "err": 4.07,
+ "err": -0.33,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.9,
- "sigma_pred": 14.1,
+ "sigma_pred": 12.6,
  "ci95": [
-  -11.8,
-  53.2
+  -12.1,
+  44.8
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 27.81,
+  "species_sum": 27.46,
   "proton": -0.0,
-  "pka_transform": -7.13,
-  "unanchored": 20.68,
-  "reported": 20.68
+  "pka_transform": -11.13,
+  "unanchored": 16.33,
+  "reported": 16.33
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn03281",
  "note": "TECRDB rxn03281 cholestenol  -isomerase | flags=huge/floppy,isomerase",
  "ec": "5.3.3.5",
- "dG": -5.3,
- "dG_raw": -5.3,
+ "dG": -5.4,
+ "dG_raw": -5.4,
  "exp": 6.81,
  "dG_raw_unreliable": null,
- "err": -12.11,
+ "err": -12.21,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.3,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -33.8,
-  23.2
+  -25.2,
+  14.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -5.28,
+  "species_sum": -5.41,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -5.28,
-  "reported": -5.28
+  "unanchored": -5.41,
+  "reported": -5.41
  },
  "conditions": {
   "T_K": 298.15,
@@ -120,7 +122,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
- "secs": 9.1
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
+ "secs": 6.0
 }

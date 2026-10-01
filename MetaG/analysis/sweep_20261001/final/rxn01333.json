@@ -2,21 +2,23 @@
  "reaction": "rxn01333",
  "note": "TECRDB rxn01333 transaldolase | flags=huge/floppy",
  "ec": "2.2.1.2",
- "dG": -12.7,
- "dG_raw": -12.7,
+ "dG": -13.3,
+ "dG_raw": -13.3,
  "exp": 0.37,
  "dG_raw_unreliable": null,
- "err": -13.07,
+ "err": -13.67,
  "class": "aldolase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.5,
- "sigma_pred": 11.6,
+ "sigma_pred": 14.7,
  "ci95": [
-  -39.4,
-  14.0
+  -46.3,
+  19.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -12.67,
+  "species_sum": -13.26,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": -12.67,
-  "reported": -12.67
+  "unanchored": -13.26,
+  "reported": -13.26
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

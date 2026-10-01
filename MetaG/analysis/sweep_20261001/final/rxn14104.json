@@ -2,21 +2,23 @@
  "reaction": "rxn14104",
  "note": "TECRDB rxn14104 sucrose synthase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "2.4.1.13",
- "dG": 14.9,
- "dG_raw": 14.9,
+ "dG": 15.0,
+ "dG_raw": 15.0,
  "exp": -4.3,
  "dG_raw_unreliable": null,
- "err": 19.2,
+ "err": 19.3,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.9,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -23.5,
-  53.3
+  -20.1,
+  50.2
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 11.38,
+  "species_sum": 11.49,
   "proton": -0.0,
   "pka_transform": 3.54,
-  "unanchored": 14.92,
-  "reported": 14.92
+  "unanchored": 15.03,
+  "reported": 15.03
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

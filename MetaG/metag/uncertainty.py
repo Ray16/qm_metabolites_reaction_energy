@@ -259,19 +259,25 @@ def _ood(species):
     return ood_assessment(species)
 
 
+# What "calibrated" means here (review 2026-10-01): coverage measured by nested, near-duplicate-grouped
+# cross-validation INSIDE TECRDB -- not on an external dataset. `externally_calibrated` is kept only as a
+# deprecated alias of `coverage_calibrated` for downstream readers.
+CALIBRATION_BASIS = "TECRDB internal nested grouped CV (not an external dataset)"
+
+
 def _scope(calibrated, ood_info, mismatch=()):
-    """Is the interval externally calibrated (validated coverage) or nominal?"""
+    """Is the interval coverage-calibrated (TECRDB nested-CV coverage applies) or nominal?"""
     flags = (ood_info or {}).get("flags") or []
     ext = bool(calibrated and not flags and not mismatch)
     if ext:
         note = "in-distribution: nested-CV coverage on TECRDB applies"
     elif mismatch:
-        note = ("interval not externally calibrated: runtime configuration differs from the calibrated one ("
+        note = ("interval not coverage-calibrated: runtime configuration differs from the calibrated one ("
                 + "; ".join(mismatch) + ")")
     elif not calibrated:
-        note = "interval not externally calibrated: class absent from calibration set (nominal width)"
+        note = "interval not coverage-calibrated: class absent from calibration set (nominal width)"
     else:
-        note = "interval not externally calibrated: OOD features " + "; ".join(flags)
+        note = "interval not coverage-calibrated: OOD features " + "; ".join(flags)
     return ext, note
 
 
@@ -306,7 +312,10 @@ def prediction_interval(note, species_smiles, dG, level=95, species=None, U_samp
             "level_calibrated": level == 95,
             "sigma": round(s, 1), "sigma_class": s_cls, "U_samp": float(U_samp or 0.0),
             "sigma_mult": round(m, 3), "half_width": round(hw, 1), "q95abs": round(q, 1),
-            "class_calibrated": calibrated, "externally_calibrated": ext, "calibration_scope": scope,
+            "class_calibrated": calibrated, "coverage_calibrated": ext,
+            "calibration_basis": CALIBRATION_BASIS,
+            "externally_calibrated": ext,                    # DEPRECATED alias of coverage_calibrated (see below)
+            "calibration_scope": scope,
             "config_mismatch": mismatch,
             "ood": bool(ood_info and ood_info["ood"]),
             "ood_reasons": (ood_info["reasons"] if ood_info else []),

@@ -2,20 +2,22 @@
  "reaction": "rxn02168",
  "note": "TECRDB rxn02168 enoyl-CoA hydratase | flags=huge/floppy",
  "ec": "4.2.1.17",
- "dG": -0.0,
- "dG_raw": -0.0,
+ "dG": 3.0,
+ "dG_raw": 3.0,
  "exp": 4.24,
  "dG_raw_unreliable": null,
- "err": -4.24,
+ "err": -1.24,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.3,
- "sigma_pred": 14.1,
+ "sigma_pred": 12.6,
  "ci95": [
-  -32.5,
-  32.4
+  -25.4,
+  31.3
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -0.02,
+  "species_sum": 2.99,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": -0.02,
-  "reported": -0.02
+  "unanchored": 2.99,
+  "reported": 2.99
  },
  "conditions": {
   "T_K": 298.15,
@@ -125,7 +127,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

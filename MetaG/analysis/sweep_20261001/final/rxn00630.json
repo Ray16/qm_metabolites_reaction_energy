@@ -2,20 +2,22 @@
  "reaction": "rxn00630",
  "note": "TECRDB rxn00630 mannitol dehydrogenase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "1.1.1.67",
- "dG": 9.9,
- "dG_raw": 9.9,
+ "dG": 4.1,
+ "dG_raw": 4.1,
  "exp": 16.32,
  "dG_raw_unreliable": null,
- "err": -6.42,
+ "err": -12.22,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 13.8,
+ "U_samp": 0.8,
+ "sigma_pred": 13.2,
  "ci95": [
-  -21.9,
-  41.8
+  -25.6,
+  33.9
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1180.68,
+  "species_sum": 1174.89,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 9.92,
-  "reported": 9.92
+  "unanchored": 4.13,
+  "reported": 4.13
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

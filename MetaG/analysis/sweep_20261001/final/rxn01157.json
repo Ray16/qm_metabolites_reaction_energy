@@ -2,21 +2,23 @@
  "reaction": "rxn01157",
  "note": "TECRDB rxn01157 D-glutamate cyclase | flags=anion-count-change",
  "ec": "4.2.1.48",
- "dG": -9.7,
- "dG_raw": -9.7,
+ "dG": -9.8,
+ "dG_raw": -9.8,
  "exp": -8.63,
  "dG_raw_unreliable": null,
- "err": -1.07,
+ "err": -1.17,
  "class": "ammonia-lyase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.0,
- "sigma_pred": 10.4,
+ "sigma_pred": 10.2,
  "ci95": [
-  -33.6,
-  14.2
+  -32.8,
+  13.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1134.26,
+  "species_sum": 1134.11,
   "proton": -1170.76,
   "pka_transform": 26.83,
-  "unanchored": -9.67,
-  "reported": -9.67
+  "unanchored": -9.82,
+  "reported": -9.82
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

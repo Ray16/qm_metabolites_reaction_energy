@@ -215,6 +215,9 @@ def calibrate(records, n_folds=N_FOLDS, groups=None):
             "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
             "cv_coverage_note": "unconditional over every record with an estimate; no outcome-based exclusion",
             "cv_heldout_MAE": round(float(np.mean(ho_abs)), 2) if ho_abs else None,
+            "cv_heldout_MAE_note": ("held-out only with respect to the parameters refit per fold (TECRDB-referenced "
+                                    "anchors, sigma). With no anchors this equals the development MAE: it is NOT a "
+                                    "generalization estimate; routing/policy choices were made on the same TECRDB."),
             "cv_coverage_interval95": round(float(np.mean(ho_cover)), 3) if ho_cover else None,
             "cv_coverage_1sigma": round(ho_c1 / max(len(ho_abs), 1), 3),
             "cv_coverage_2sigma": round(ho_c2 / max(len(ho_abs), 1), 3)}

@@ -2,20 +2,22 @@
  "reaction": "rxn01725",
  "note": "TECRDB rxn01725 carnitine dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.108",
- "dG": 34.6,
- "dG_raw": 34.6,
+ "dG": 32.0,
+ "dG_raw": 32.0,
  "exp": 26.29,
  "dG_raw_unreliable": null,
- "err": 8.31,
+ "err": 5.71,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 13.8,
+ "U_samp": 0.4,
+ "sigma_pred": 13.2,
  "ci95": [
-  2.8,
-  66.4
+  2.3,
+  61.7
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1205.33,
+  "species_sum": 1202.78,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 34.56,
-  "reported": 34.56
+  "unanchored": 32.02,
+  "reported": 32.02
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

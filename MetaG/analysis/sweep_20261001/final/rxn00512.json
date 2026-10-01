@@ -2,20 +2,22 @@
  "reaction": "rxn00512",
  "note": "TECRDB rxn00512 glyoxylate reductase | flags=huge/floppy",
  "ec": "1.1.1.26",
- "dG": 48.0,
- "dG_raw": 48.0,
+ "dG": 46.5,
+ "dG_raw": 46.5,
  "exp": 47.89,
  "dG_raw_unreliable": null,
- "err": 0.11,
+ "err": -1.39,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.4,
- "sigma_pred": 13.9,
+ "U_samp": 1.2,
+ "sigma_pred": 13.3,
  "ci95": [
-  16.1,
-  79.9
+  16.7,
+  76.3
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1226.15,
+  "species_sum": 1228.7,
   "proton": -1170.76,
-  "pka_transform": -7.42,
-  "unanchored": 47.97,
-  "reported": 47.97
+  "pka_transform": -11.42,
+  "unanchored": 46.52,
+  "reported": 46.52
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

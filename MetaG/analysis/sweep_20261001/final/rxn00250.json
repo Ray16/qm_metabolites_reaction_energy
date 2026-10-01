@@ -2,21 +2,23 @@
  "reaction": "rxn00250",
  "note": "TECRDB rxn00250 pyruvate carboxylase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
  "ec": "6.4.1.1",
- "dG": 1.9,
- "dG_raw": 1.9,
+ "dG": 0.1,
+ "dG_raw": 0.1,
  "exp": -3.6,
  "dG_raw_unreliable": null,
- "err": 5.5,
+ "err": 3.7,
  "class": "carboxyP",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.4,
- "sigma_pred": 13.0,
+ "sigma_pred": 12.8,
  "ci95": [
-  -28.0,
-  31.8
+  -28.7,
+  28.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -7.16,
+  "species_sum": -8.92,
   "proton": -0.0,
   "pka_transform": 9.05,
-  "unanchored": 1.89,
-  "reported": 1.89
+  "unanchored": 0.13,
+  "reported": 0.13
  },
  "conditions": {
   "T_K": 298.15,
@@ -139,7 +141,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

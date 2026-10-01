@@ -2,20 +2,22 @@
  "reaction": "rxn00499",
  "note": "TECRDB rxn00499 L-lactate dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.27",
- "dG": 36.6,
- "dG_raw": 36.6,
+ "dG": 29.8,
+ "dG_raw": 29.8,
  "exp": 29.34,
  "dG_raw_unreliable": null,
- "err": 7.26,
+ "err": 0.46,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 13.8,
+ "U_samp": 0.5,
+ "sigma_pred": 13.2,
  "ci95": [
-  4.8,
-  68.4
+  0.1,
+  59.5
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1214.81,
+  "species_sum": 1212.01,
   "proton": -1170.76,
-  "pka_transform": -7.42,
-  "unanchored": 36.63,
-  "reported": 36.63
+  "pka_transform": -11.42,
+  "unanchored": 29.83,
+  "reported": 29.83
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

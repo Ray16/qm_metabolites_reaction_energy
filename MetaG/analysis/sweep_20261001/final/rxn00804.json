@@ -2,20 +2,22 @@
  "reaction": "rxn00804",
  "note": "TECRDB rxn00804 leucine dehydrogenase | flags=huge/floppy",
  "ec": "1.4.1.9",
- "dG": 35.2,
- "dG_raw": 35.2,
+ "dG": 27.9,
+ "dG_raw": 27.9,
  "exp": 42.45,
  "dG_raw_unreliable": null,
- "err": -7.25,
+ "err": -14.55,
  "class": "reductive-amination-DH",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.0,
- "sigma_pred": 14.9,
+ "U_samp": 0.5,
+ "sigma_pred": 16.6,
  "ci95": [
-  0.8,
-  69.5
+  -9.5,
+  65.2
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1214.79,
+  "species_sum": 1211.46,
   "proton": -1170.76,
-  "pka_transform": -8.85,
-  "unanchored": 35.18,
-  "reported": 35.18
+  "pka_transform": -12.85,
+  "unanchored": 27.86,
+  "reported": 27.86
  },
  "conditions": {
   "T_K": 298.15,
@@ -139,7 +141,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

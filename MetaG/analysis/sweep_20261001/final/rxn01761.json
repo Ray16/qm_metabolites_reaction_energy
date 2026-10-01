@@ -2,21 +2,23 @@
  "reaction": "rxn01761",
  "note": "TECRDB rxn01761 L-rhamnose isomerase | flags=isomerase",
  "ec": "5.3.1.14",
- "dG": 16.5,
- "dG_raw": 16.5,
+ "dG": 16.1,
+ "dG_raw": 16.1,
  "exp": 0.72,
  "dG_raw_unreliable": null,
- "err": 15.78,
+ "err": 15.38,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.7,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -12.1,
-  45.1
+  -3.8,
+  35.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 16.51,
+  "species_sum": 16.06,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": 16.51,
-  "reported": 16.51
+  "unanchored": 16.06,
+  "reported": 16.06
  },
  "conditions": {
   "T_K": 298.15,
@@ -121,7 +123,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

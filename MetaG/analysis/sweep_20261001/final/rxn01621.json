@@ -2,21 +2,23 @@
  "reaction": "rxn01621",
  "note": "TECRDB rxn01621 rhamnulose-1-phosphate aldolase | flags=CLEAN(tractable)",
  "ec": "4.1.2.19",
- "dG": 13.0,
- "dG_raw": 13.0,
+ "dG": 16.5,
+ "dG_raw": 16.5,
  "exp": 6.41,
  "dG_raw_unreliable": null,
- "err": 6.59,
+ "err": 10.09,
  "class": "aldolase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.0,
- "sigma_pred": 11.5,
+ "sigma_pred": 14.6,
  "ci95": [
-  -13.6,
-  39.5
+  -16.4,
+  49.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 12.96,
+  "species_sum": 16.52,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": 12.96,
-  "reported": 12.96
+  "unanchored": 16.52,
+  "reported": 16.52
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

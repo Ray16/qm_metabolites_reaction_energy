@@ -1,5 +1,13 @@
 # MetaG physics review and revision — session summary (2026-10-01)
 
+> **Superseded in part by `REVIEW_RESPONSE_20261001.md`** (post-review changes): the reported MAE is a TECRDB
+> *development* MAE (final 9.59; selection-adjusted 9.80 ± 0.06), not a held-out estimate; conformers are now
+> Boltzmann-averaged over E + ΔG_solv + per-minimum RRHO (THERMAL_ENSEMBLE); ACID_HB_FILTER is OFF; the hydration
+> fold enumerates computed states exactly; K_hyd and pKa constants are now cited (khyd_verified.json,
+> POLYACID_PKA, Lopalco 2016); explicit-cache key bug fixed. Where this summary disagrees, the response document
+> is authoritative.
+
+
 Written for an external critic. It covers what was done, why, the evidence for each change, what was
 tested and rejected, and the weak points. The working notes are in `NOTES.md` in the same directory.
 Commits are on `thermodynamic_calc` master: `9fd178c`, `b96dd6b`, `3572ef9`.
@@ -12,7 +20,8 @@ Commits are on `thermodynamic_calc` master: `9fd178c`, `b96dd6b`, `3572ef9`.
   metabolic reactions from structure.
   - Each species gets G = E_elec(UMA `uma-s-1p2p1`, gas) + RRHO thermal (UMA Hessian) + ΔG_solv (xtb GFN2
     implicit solvent, single point) + the 1 atm → 1 M standard-state term. The total is Boltzmann-averaged
-    over deduplicated conformers.
+    over deduplicated conformers. [Correction: as reviewed, only E + ΔG_solv was averaged and one RRHO
+    correction added; see the review response, item 2.]
   - Reactions are routed before QM:
     - NAD(P) is replaced by a nicotinamide core;
     - spectator groups are truncated by MCS with C–C-only cuts;

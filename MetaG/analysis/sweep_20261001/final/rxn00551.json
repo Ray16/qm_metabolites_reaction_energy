@@ -2,21 +2,23 @@
  "reaction": "rxn00551",
  "note": "TECRDB rxn00551 pyrophosphate-fructose-6-phosphate 1-pho | flags=anion-count-change",
  "ec": "2.7.1.90",
- "dG": -23.5,
- "dG_raw": -23.5,
+ "dG": -18.1,
+ "dG_raw": -18.1,
  "exp": 19.19,
  "dG_raw_unreliable": null,
- "err": -42.69,
+ "err": -37.29,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.1,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -61.9,
-  14.9
+  -53.3,
+  17.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -25.14,
+  "species_sum": -19.77,
   "proton": -0.0,
   "pka_transform": 1.64,
-  "unanchored": -23.51,
-  "reported": -23.51
+  "unanchored": -18.13,
+  "reported": -18.13
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

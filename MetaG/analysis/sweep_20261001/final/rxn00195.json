@@ -2,21 +2,23 @@
  "reaction": "rxn00195",
  "note": "TECRDB rxn00195 methylaspartate mutase | flags=isomerase",
  "ec": "5.4.99.1",
- "dG": -8.2,
- "dG_raw": -8.2,
+ "dG": -8.9,
+ "dG_raw": -8.9,
  "exp": -5.81,
  "dG_raw_unreliable": null,
- "err": -2.39,
+ "err": -3.09,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.1,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -36.8,
-  20.3
+  -28.7,
+  10.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -8.23,
+  "species_sum": -8.94,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": -8.23,
-  "reported": -8.23
+  "unanchored": -8.94,
+  "reported": -8.94
  },
  "conditions": {
   "T_K": 298.15,
@@ -119,7 +121,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

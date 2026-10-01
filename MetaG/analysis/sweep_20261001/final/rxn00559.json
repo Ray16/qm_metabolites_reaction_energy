@@ -2,21 +2,23 @@
  "reaction": "rxn00559",
  "note": "TECRDB rxn00559 mannose-6-phosphate isomerase | flags=isomerase",
  "ec": "5.3.1.8",
- "dG": 3.2,
- "dG_raw": 3.2,
+ "dG": -0.2,
+ "dG_raw": -0.2,
  "exp": -0.09,
  "dG_raw_unreliable": null,
- "err": 3.29,
+ "err": -0.11,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.7,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -25.4,
-  31.8
+  -20.0,
+  19.7
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 3.21,
+  "species_sum": -0.16,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": 3.21,
-  "reported": 3.21
+  "unanchored": -0.16,
+  "reported": -0.16
  },
  "conditions": {
   "T_K": 298.15,
@@ -120,7 +122,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

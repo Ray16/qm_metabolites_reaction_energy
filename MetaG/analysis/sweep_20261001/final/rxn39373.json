@@ -2,20 +2,22 @@
  "reaction": "rxn39373",
  "note": "TECRDB rxn39373 (R,R)-butanediol dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.4",
- "dG": 11.7,
- "dG_raw": 11.7,
+ "dG": 8.6,
+ "dG_raw": 8.6,
  "exp": 18.4,
  "dG_raw_unreliable": null,
- "err": -6.7,
+ "err": -9.8,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 13.8,
+ "U_samp": 0.8,
+ "sigma_pred": 13.2,
  "ci95": [
-  -20.1,
-  43.5
+  -21.1,
+  38.4
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1182.46,
+  "species_sum": 1179.38,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 11.69,
-  "reported": 11.69
+  "unanchored": 8.62,
+  "reported": 8.62
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

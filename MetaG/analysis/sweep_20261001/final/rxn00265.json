@@ -2,21 +2,23 @@
  "reaction": "rxn00265",
  "note": "TECRDB rxn00265 citrate (pro-3S)-lyase | flags=CLEAN(tractable)",
  "ec": "4.1.3.6",
- "dG": 15.0,
- "dG_raw": 15.0,
+ "dG": 5.0,
+ "dG_raw": 5.0,
  "exp": 0.8,
  "dG_raw_unreliable": null,
- "err": 14.2,
+ "err": 4.2,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.1,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -23.4,
-  53.4
+  -30.2,
+  40.2
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 22.38,
+  "species_sum": 21.5,
   "proton": -0.0,
-  "pka_transform": -7.42,
-  "unanchored": 14.96,
-  "reported": 14.96
+  "pka_transform": -16.5,
+  "unanchored": 5.0,
+  "reported": 5.0
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

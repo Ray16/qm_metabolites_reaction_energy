@@ -105,13 +105,65 @@ CARBOXYL_PKA = 4.75
 #   alpha-oxygen (hydroxy / ester / phosphate on an sp3 alpha C: lactate 3.86, glycolate 3.83,
 #       glycerate 3.52, malate pKa1 3.40): 3.8
 #   formate (carboxyl C bears no carbon): 3.75;  aromatic alpha C (benzoate 4.20): 4.2
-CARBOXYL_PKA_ALPHA = {"ammonium": 2.3, "amine_neutralized": 4.4, "oxo": 2.5, "oxygen": 3.8,
+# "oxo" (alpha-keto acid) = MICROSCOPIC pKa of the KETO form, because the pH-0 QM species is the keto
+# microstate (alpha-keto acid hydrates are not folded, see aldehyde_hydration._KETO_ACID): Lopalco et al.,
+# J. Pharm. Sci. 2016 (NMR, 25 °C, I = 0.15): pyruvic 1.79, 3-methyl-2-oxobutanoic 1.60, 4-methyl-2-oxopentanoic
+# 1.68 -> 1.69 mean, +0.1 to I = 0 -> 1.8. The macroscopic 2.4-2.5 used before mixes in the hydrate (pKa 3.2).
+CARBOXYL_PKA_ALPHA_OXO_MACRO = 2.5
+CARBOXYL_PKA_ALPHA = {"ammonium": 2.3, "amine_neutralized": 4.4, "oxo": 1.8, "oxygen": 3.8,
                       "formate": 3.75, "aromatic": 4.2,
                       # alpha,beta-unsaturated (alpha C double-bonded to C): conjugated to a second carboxyl
                       # (fumaric 3.03/4.44, mesaconic 3.09/4.75, cis-aconitic 2.8/4.46 -> mean per site 3.75)
                       # vs isolated (acrylic 4.25, crotonic 4.69, cinnamic 4.44 -> 4.35). Missing this class
                       # made the fumarate transform 11.6 kJ too small while malate's alpha-OH rule was right.
                       "unsat_dicarboxyl": 3.75, "unsat": 4.35}
+# RECOGNIZED POLYPROTIC CARBOXYLIC ACIDS: compound-specific macroscopic pKa's (Martell & Smith, Critical
+# Stability Constants, 25 °C, I = 0; as tabulated in LibreTexts Reference Table E5). Used instead of the
+# environment rules when the whole (neutral) species is one of these acids. At pH 7 the independent-site
+# sum with these macroscopic constants equals the coupled binding polynomial to <= 0.01 kJ/mol; the rule
+# constants were off by -22.7 (oxalate), -5.6 (malonate), +3.8 (maleate), +1.9 (succinate/adipate).
+# The transform is a pH-7 quantity: MetaG's estimand is ΔrG'° at pH 7 (not a general titration model).
+POLYACID_PKA = {
+    "O=C(O)/C=C/C(=O)O": [3.053, 4.494],                  # fumaric
+    "O=C(O)/C=C\\C(=O)O": [1.910, 6.332],                # maleic
+    "O=C(O)CC(O)C(=O)O": [3.459, 5.097],                  # malic (any stereo)
+    "O=C(O)CCC(=O)O": [4.207, 5.636],                     # succinic
+    "O=C(O)CC(O)(CC(=O)O)C(=O)O": [3.128, 4.761, 6.396],  # citric
+    "O=C(O)C(O)C(O)C(=O)O": [3.036, 4.366],               # tartaric (any stereo)
+    "O=C(O)CC(=O)O": [2.847, 5.696],                      # malonic
+    "O=C(O)C(=O)O": [1.252, 4.266],                       # oxalic
+    "O=C(O)CCCCC(=O)O": [4.42, 5.42],                     # adipic
+}
+
+
+def _polyacid_key(mol):
+    """Canonical, stereo-free SMILES of the fully protonated (neutral) form, for POLYACID_PKA lookup;
+    fumarate/maleate keep their double-bond geometry."""
+    rw = Chem.RWMol(mol)
+    for a in rw.GetAtoms():
+        if a.GetSymbol() == "O" and a.GetFormalCharge() == -1:
+            a.SetFormalCharge(0); a.SetNumExplicitHs(a.GetNumExplicitHs() + 1)
+    m = rw.GetMol()
+    try:
+        Chem.SanitizeMol(m)
+    except Exception:
+        return None
+    for a in m.GetAtoms():
+        a.SetChiralTag(Chem.ChiralType.CHI_UNSPECIFIED)
+    return Chem.MolToSmiles(m)
+
+
+_POLYACID_CANON = {}
+
+
+def _polyacid_ladder(mol):
+    if not _POLYACID_CANON:
+        for k, v in POLYACID_PKA.items():
+            _POLYACID_CANON[Chem.MolToSmiles(Chem.MolFromSmiles(k))] = v
+    key = _polyacid_key(mol)
+    return _POLYACID_CANON.get(key) if key else None
+
+
 _BASIC_N = Chem.MolFromSmarts("[NX4+;H1,H2,H3,H0;!$(N~[#6]=[#7,#8])]")   # ammonium (not amidinium)
 _AMINE_N = Chem.MolFromSmarts("[NX3;H1,H2;!$(N[#6]=[#7,#8,#16]);!$(N-a)]")  # basic sp3 amine (not amide/aniline)
 
@@ -174,6 +226,11 @@ def _pka_env_enabled():
     be applied as a COMPLETE, uniformly-validated set (per-compound macroscopic pKa's validated against an
     independent pKa reference), not piecemeal. Kept for that work; not deployed."""
     return _env_on("PKA_ENV", default=True)
+
+
+def _polyacid_pka_enabled():
+    """POLYACID_PKA (default on): compound-specific macroscopic ladders for recognized polyprotic acids."""
+    return _env_on("POLYACID_PKA", default=True)
 
 
 def _free_ppi_pka_enabled():
@@ -363,6 +420,10 @@ def _classify_species(smi, amine_neutralized=False):
         oa = mol.GetAtomWithIdx(o)                   # phosphate: group per P
         p = next((n.GetIdx() for n in oa.GetNeighbors() if n.GetSymbol() == "P"), None)
         p_groups.setdefault(p, []).append(o)
+    ladder = _polyacid_ladder(mol) if _polyacid_pka_enabled() else None
+    carboxyl_sites = [i for i, (o, _) in enumerate(resolved)]
+    if ladder is not None and not p_groups and not s_groups and not c_groups and len(resolved) == len(ladder):
+        resolved = [(o, pka) for (o, _), pka in zip(sorted(resolved), sorted(ladder))]
     if (_pka_env_enabled() or _free_ppi_pka_enabled()) and _is_free_ppi(mol) and p_groups:
         # Free PPi is one coupled tetraprotic acid, not two independent terminal phosphate monoesters.
         all_o = sorted(o for os in p_groups.values() for o in os)

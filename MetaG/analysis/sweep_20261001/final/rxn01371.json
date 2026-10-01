@@ -2,21 +2,23 @@
  "reaction": "rxn01371",
  "note": "TECRDB rxn01371 creatine kinase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
  "ec": "2.7.3.2",
- "dG": 28.0,
- "dG_raw": 28.0,
+ "dG": 28.5,
+ "dG_raw": 28.5,
  "exp": 8.89,
  "dG_raw_unreliable": null,
- "err": 19.11,
+ "err": 19.61,
  "class": "phosphagen(P-N/Mg)",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.7,
- "sigma_pred": 39.9,
+ "sigma_pred": 37.5,
  "ci95": [
-  -63.8,
-  119.8
+  -55.9,
+  112.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 35.0,
+  "species_sum": 35.44,
   "proton": -0.0,
   "pka_transform": -6.97,
-  "unanchored": 28.02,
-  "reported": 28.02
+  "unanchored": 28.47,
+  "reported": 28.47
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn00187",
  "note": "TECRDB rxn00187 glutamate-ammonia ligase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "6.3.1.2",
- "dG": -28.6,
- "dG_raw": -28.6,
+ "dG": -29.7,
+ "dG_raw": -29.7,
  "exp": -20.53,
  "dG_raw_unreliable": null,
- "err": -8.07,
+ "err": -9.17,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.4,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -67.0,
-  9.8
+  -64.8,
+  5.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1126.76,
+  "species_sum": 1125.72,
   "proton": -1170.76,
   "pka_transform": 15.36,
-  "unanchored": -28.65,
-  "reported": -28.65
+  "unanchored": -29.68,
+  "reported": -29.68
  },
  "conditions": {
   "T_K": 298.15,
@@ -141,7 +143,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

@@ -2,20 +2,22 @@
  "reaction": "rxn01383",
  "note": "TECRDB rxn01383 ribitol dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.56",
- "dG": 18.9,
- "dG_raw": 18.9,
+ "dG": 12.0,
+ "dG_raw": 12.0,
  "exp": 21.77,
  "dG_raw_unreliable": null,
- "err": -2.87,
+ "err": -9.77,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.5,
- "sigma_pred": 13.9,
+ "U_samp": 1.2,
+ "sigma_pred": 13.3,
  "ci95": [
-  -13.0,
-  50.8
+  -17.8,
+  41.8
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -37,11 +39,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1189.64,
+  "species_sum": 1182.77,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 18.88,
-  "reported": 18.88
+  "unanchored": 12.01,
+  "reported": 12.01
  },
  "conditions": {
   "T_K": 298.15,
@@ -131,7 +133,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

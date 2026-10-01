@@ -2,21 +2,23 @@
  "reaction": "rxn00473",
  "note": "TECRDB rxn00473 tryptophanase | flags=CLEAN(tractable)",
  "ec": "4.1.99.1",
- "dG": 14.9,
- "dG_raw": 14.9,
+ "dG": 11.0,
+ "dG_raw": 11.0,
  "exp": 22.37,
  "dG_raw_unreliable": null,
- "err": -7.47,
+ "err": -11.37,
  "class": "ammonia-lyase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.1,
- "sigma_pred": 10.4,
+ "sigma_pred": 10.2,
  "ci95": [
-  -9.0,
-  38.8
+  -12.0,
+  33.9
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 23.75,
+  "species_sum": 23.81,
   "proton": -0.0,
-  "pka_transform": -8.85,
-  "unanchored": 14.9,
-  "reported": 14.9
+  "pka_transform": -12.85,
+  "unanchored": 10.96,
+  "reported": 10.96
  },
  "conditions": {
   "T_K": 298.15,
@@ -134,7 +136,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

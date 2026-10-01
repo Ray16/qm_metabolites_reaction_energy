@@ -90,19 +90,22 @@ def mixture_G(g_carbonyl, g_diol, g_water):
 # 0.03, acetone -3.3 vs -2.9, glyceraldehyde 1.8 vs 1.3, dihydroxyacetone -0.6 vs -1.0). With ALPB every
 # aldehyde and ketone is hydrated through the same self-gating mixture; weakly hydrated ones contribute ~0.
 _HYDRATABLE = Chem.MolFromSmarts("[CX3;$([CH2]=O),$([CH1](=O)[#6]),$(C(=O)([#6])[#6])]=[OX1]")
-# alpha-KETO ACIDS (ketone carbon bonded to a carboxyl carbon) are excluded: as pH-7 anions they are only
-# weakly hydrated (pyruvate ~6%, oxaloacetate 7.8% at pH 7.4, 2-oxoglutarate <10% -> <= 0.3 kJ), while
-# UMA/ALPB over-hydrates them even after the K_hyd calibration (pyruvate 29%, oxaloacetate 82%) -- the
+# alpha-KETO ACIDS (ketone carbon bonded to a carboxyl carbon) are excluded: as pH-6/7 anions they are only
+# weakly hydrated (K_hyd pyruvate 0.08, oxaloacetate dianion 0.06, 2-oxoglutarate dianion 0.12; acp-2021-58
+# Table S4 -> <= 0.3 kJ), while UMA/ALPB over-hydrates them even after calibration (raw neutral-acid log K error
+# +2.7 on 5 cited alpha-keto acids; pH-7 pyruvate 29%, oxaloacetate 82% predicted) -- the
 # gem-diol's O-H...O=C(OH) contact is over-stabilised by the continuum, as for the inter-acid H-bonds.
 # Leaving them unhydrated is the more accurate choice. alpha-oxo ALDEHYDES (glyoxylate, 99% hydrated,
 # reproduced) stay in.
 _KETO_ACID = Chem.MolFromSmarts("[CX3;!H1;!H2](=[OX1])[CX3](=O)[OX2H1,OX1-]")
-MAX_HYDRATION_SITES = 2
-# Calibration of the computed hydration free energy against the SAME independent K_hyd set (16 carbonyls):
-# log K_exp = 0.67 log K_calc - 0.34  <=>  ΔG_hyd = 0.67 ΔG_hyd,calc + 1.94 kJ/mol. Leave-one-out MAE
-# 0.61 log units (3.5 kJ) vs 1.10 (6.3 kJ) raw; UMA/ALPB exaggerates both strong (glyoxylic acid,
-# hexafluoroacetone, pyruvic acid) and weak hydration. HYDRATION_CAL=0 uses the raw value.
-HYDRATION_CAL = (0.67, 1.94)
+MAX_HYDRATION_SITES = 3          # exact enumeration of all 2^n hydration states up to n = 3 sites
+# Calibration of the computed hydration free energy against CITED experimental K_hyd (analysis/sweep_20261001/
+# khyd_verified.json: recommended 298 K values from the acp-2021-58 review supplement, Tables S3/S4, with their
+# primary references; fit and LOO in khyd_validation.py / khyd_validation.json). Fitted on the APPLICATION
+# domain (11 aldehydes, ketones and glyoxylic acid; alpha-keto acids are not hydrated by the pipeline):
+# log K_exp = 0.639 log K_calc - 0.411  <=>  ΔG_hyd = 0.639 ΔG_hyd,calc + 2.35 kJ/mol per hydration event.
+# LOO MAE 0.46 log units (2.6 kJ) vs 1.25 raw (raw ALPB over-hydrates, bias +1.15). HYDRATION_CAL=0: raw.
+HYDRATION_CAL = (0.639, 2.35)
 
 
 def calibrated_dg_hyd(dg):
@@ -110,31 +113,65 @@ def calibrated_dg_hyd(dg):
     return a * dg + b
 
 
-def hydration_sites(smi):
-    """[(carbon_idx, gem-diol SMILES)] for each aldehyde/ketone carbonyl (at most MAX_HYDRATION_SITES)."""
+def _site_carbons(m):
+    """Hydratable carbonyl carbons (alpha-keto acids excluded) in CANONICAL-rank order, so the selected sites
+    do not depend on the input atom ordering."""
+    keto_acid_c = {match[0] for match in m.GetSubstructMatches(_KETO_ACID)}
+    sites = {c: o for c, o in m.GetSubstructMatches(_HYDRATABLE) if c not in keto_acid_c}
+    rank = list(Chem.CanonicalRankAtoms(m, breakTies=True))
+    return sorted(sites.items(), key=lambda co: rank[co[0]])
+
+
+def _hydrate(m, pairs):
+    rw = Chem.RWMol(m)
+    for c, o in pairs:
+        rw.GetBondBetweenAtoms(c, o).SetBondType(Chem.BondType.SINGLE)
+        rw.AddBond(c, rw.AddAtom(Chem.Atom(8)), Chem.BondType.SINGLE)
+    p = rw.GetMol()
+    try:
+        Chem.SanitizeMol(p)
+    except Exception:
+        return None
+    return Chem.MolToSmiles(p)
+
+
+def hydration_states(smi):
+    """Every hydrated microspecies of `smi`: [(n_hydrated_sites, SMILES)] for all non-empty subsets of the
+    hydratable sites (exact enumeration; at most MAX_HYDRATION_SITES sites, chosen in canonical order --
+    a molecule with more sites is truncated to the first MAX_HYDRATION_SITES and reported by the caller)."""
+    from itertools import combinations
     m = Chem.MolFromSmiles(smi)
     if m is None:
         return []
+    sites = _site_carbons(m)[:MAX_HYDRATION_SITES]
     out = []
-    keto_acid_c = {match[0] for match in m.GetSubstructMatches(_KETO_ACID)}
-    for c, o in [x for x in m.GetSubstructMatches(_HYDRATABLE) if x[0] not in keto_acid_c][:MAX_HYDRATION_SITES]:
-        rw = Chem.RWMol(m)
-        rw.GetBondBetweenAtoms(c, o).SetBondType(Chem.BondType.SINGLE)
-        rw.AddBond(c, rw.AddAtom(Chem.Atom(8)), Chem.BondType.SINGLE)
-        p = rw.GetMol()
-        try:
-            Chem.SanitizeMol(p)
-        except Exception:
-            continue
-        out.append((c, Chem.MolToSmiles(p)))
+    for k in range(1, len(sites) + 1):
+        for subset in combinations(sites, k):
+            h = _hydrate(m, subset)
+            if h is not None:
+                out.append((k, h))
     return out
 
 
-def mixture_G_sites(g_carbonyl, g_diols, g_water):
-    """Effective G for independent hydration sites: G_c - RT Σ_i ln(1 + exp(-ΔG_hyd,i/RT)), ΔG_hyd,i =
-    g_diol_i - g_water - g_carbonyl. (Same as mixture_G for one site.)"""
-    g = g_carbonyl
-    for gd in g_diols:
-        x = -(gd - g_water - g_carbonyl) / RT
-        g -= RT * (x + math.log1p(math.exp(-x)) if x > 0 else math.log1p(math.exp(x)))
-    return g
+def n_hydration_sites(smi):
+    m = Chem.MolFromSmiles(smi)
+    return 0 if m is None else len(_site_carbons(m))
+
+
+def hydration_sites(smi):
+    """[(carbon_idx, mono-hydrate SMILES)] for each hydratable site (canonical order)."""
+    m = Chem.MolFromSmiles(smi)
+    if m is None:
+        return []
+    return [(c, _hydrate(m, [(c, o)])) for c, o in _site_carbons(m)[:MAX_HYDRATION_SITES]
+            if _hydrate(m, [(c, o)]) is not None]
+
+
+def mixture_G_states(g_carbonyl, states, g_water):
+    """Exact microspecies fold over the COMPUTED states only:
+    G_eff = -RT ln[ exp(-G_c/RT) + Σ_S exp(-(G_S - n_S·G_water)/RT) ],  states = [(n_S, G_S)].
+    No state enters whose energy was not computed (the earlier independent-site product implicitly
+    included doubly hydrated states)."""
+    terms = [-g_carbonyl / RT] + [-(g - n * g_water) / RT for n, g in states]
+    lo = max(terms)
+    return -RT * (lo + math.log(sum(math.exp(t - lo) for t in terms)))

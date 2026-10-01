@@ -2,21 +2,23 @@
  "reaction": "rxn00690",
  "note": "TECRDB rxn00690 formate-tetrahydrofolate ligase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "6.3.4.3",
- "dG": -22.3,
- "dG_raw": -22.3,
+ "dG": -23.5,
+ "dG_raw": -23.5,
  "exp": -13.91,
  "dG_raw_unreliable": null,
- "err": -8.39,
+ "err": -9.59,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.6,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -60.7,
-  16.1
+  -58.6,
+  11.6
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -43.32,
+  "species_sum": -44.53,
   "proton": -0.0,
   "pka_transform": 21.05,
-  "unanchored": -22.27,
-  "reported": -22.27
+  "unanchored": -23.48,
+  "reported": -23.48
  },
  "conditions": {
   "T_K": 298.15,
@@ -139,7 +141,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
- "secs": 0.0
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
+ "secs": 0.1
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn01491",
  "note": "TECRDB rxn01491 acid phosphatase | flags=CLEAN(tractable)",
  "ec": "3.1.3.2",
- "dG": -6.0,
- "dG_raw": -6.0,
+ "dG": -9.1,
+ "dG_raw": -9.1,
  "exp": -12.92,
  "dG_raw_unreliable": null,
- "err": 6.92,
+ "err": 3.82,
  "class": "phosphatase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.2,
- "sigma_pred": 8.6,
+ "sigma_pred": 8.0,
  "ci95": [
-  -25.8,
-  13.7
+  -27.1,
+  8.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -12.07,
+  "species_sum": -15.16,
   "proton": -0.0,
   "pka_transform": 6.03,
-  "unanchored": -6.03,
-  "reported": -6.03
+  "unanchored": -9.13,
+  "reported": -9.13
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

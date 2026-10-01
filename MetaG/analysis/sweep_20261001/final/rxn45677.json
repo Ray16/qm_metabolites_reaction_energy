@@ -2,21 +2,23 @@
  "reaction": "rxn45677",
  "note": "TECRDB rxn45677 urease | flags=CLEAN(tractable)",
  "ec": "3.5.1.5",
- "dG": 12.4,
- "dG_raw": 12.4,
+ "dG": 12.8,
+ "dG_raw": 12.8,
  "exp": -15.04,
  "dG_raw_unreliable": null,
- "err": 27.44,
+ "err": 27.84,
  "class": "amide/amidine-hydrolysis",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.0,
- "sigma_pred": 18.6,
+ "sigma_pred": 18.7,
  "ci95": [
-  -30.4,
-  55.1
+  -29.3,
+  54.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1157.55,
+  "species_sum": -1157.14,
   "proton": 1170.76,
   "pka_transform": -0.86,
-  "unanchored": 12.35,
-  "reported": 12.35
+  "unanchored": 12.76,
+  "reported": 12.76
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

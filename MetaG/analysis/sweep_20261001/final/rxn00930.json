@@ -2,20 +2,22 @@
  "reaction": "rxn00930",
  "note": "TECRDB rxn00930 pyrroline-2-carboxylate reductase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "1.5.1.1",
- "dG": 44.9,
- "dG_raw": 44.9,
+ "dG": 42.3,
+ "dG_raw": 42.3,
  "exp": 30.96,
  "dG_raw_unreliable": null,
- "err": 13.94,
+ "err": 11.34,
  "class": "reductive-amination-DH",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.2,
- "sigma_pred": 14.9,
+ "U_samp": 0.8,
+ "sigma_pred": 16.6,
  "ci95": [
-  10.5,
-  79.3
+  5.0,
+  79.7
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 2372.47,
+  "species_sum": 2369.9,
   "proton": -2341.52,
   "pka_transform": 13.97,
-  "unanchored": 44.93,
-  "reported": 44.93
+  "unanchored": 42.35,
+  "reported": 42.35
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn04082",
  "note": "TECRDB rxn04082 L-ribulose-phosphate 4-epimerase | flags=isomerase",
  "ec": "5.1.3.4",
- "dG": -1.3,
- "dG_raw": -1.3,
+ "dG": 1.3,
+ "dG_raw": 1.3,
  "exp": -0.47,
  "dG_raw_unreliable": null,
- "err": -0.83,
+ "err": 1.77,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.8,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -29.8,
-  27.3
+  -18.6,
+  21.2
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -1.25,
+  "species_sum": 1.29,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": -1.25,
-  "reported": -1.25
+  "unanchored": 1.29,
+  "reported": 1.29
  },
  "conditions": {
   "T_K": 298.15,
@@ -119,7 +121,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

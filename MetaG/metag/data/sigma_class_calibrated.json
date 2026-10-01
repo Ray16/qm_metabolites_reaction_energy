@@ -1,195 +1,196 @@
 {
   "overall": {
-    "MAE": 9.65,
-    "RMS": 13.67,
-    "bias": 0.65,
-    "medAE": 7.16
+    "MAE": 9.59,
+    "RMS": 13.41,
+    "bias": -0.41,
+    "medAE": 7.1
   },
   "n_reactions": 364,
   "n_abs_err_gt_200": 0,
   "cv_grouping": "near-duplicate clusters (difference-fingerprint Tanimoto >= 0.7), 245 groups",
-  "default_sigma": 13.7,
-  "global_q95abs": 30.6,
+  "default_sigma": 13.4,
+  "global_q95abs": 29.1,
   "classes": {
     "phosphatase": {
       "n": 12,
-      "sigma": 8.3,
-      "rms": 5.5,
-      "mae": 4.7,
-      "bias": 2.4,
-      "medAE": 3.7,
-      "center": 2.1,
-      "q95abs": 17.9
+      "sigma": 7.9,
+      "rms": 4.9,
+      "mae": 3.9,
+      "bias": 1.5,
+      "medAE": 3.8,
+      "center": 1.6,
+      "q95abs": 16.8
     },
     "other/clean": {
       "n": 69,
-      "sigma": 16.0,
-      "rms": 16.0,
-      "mae": 11.1,
-      "bias": -1.6,
-      "medAE": 8.1,
-      "center": -0.9,
-      "q95abs": 38.3
+      "sigma": 15.6,
+      "rms": 15.6,
+      "mae": 10.8,
+      "bias": -2.7,
+      "medAE": 8.3,
+      "center": -2.1,
+      "q95abs": 34.0
     },
     "NAD(P)-redox(other)": {
       "n": 74,
-      "sigma": 13.7,
-      "rms": 13.7,
+      "sigma": 13.2,
+      "rms": 13.1,
       "mae": 10.1,
-      "bias": -0.3,
-      "medAE": 8.1,
-      "center": -2.2,
-      "q95abs": 27.3
+      "bias": -3.1,
+      "medAE": 8.5,
+      "center": -4.9,
+      "q95abs": 23.8
     },
     "kinase/phosphotransfer": {
       "n": 28,
-      "sigma": 14.0,
-      "rms": 14.0,
-      "mae": 8.9,
-      "bias": 1.0,
-      "medAE": 3.5,
-      "center": 1.7,
-      "q95abs": 27.7
+      "sigma": 13.2,
+      "rms": 13.2,
+      "mae": 7.7,
+      "bias": -0.4,
+      "medAE": 2.0,
+      "center": -0.1,
+      "q95abs": 28.6
     },
     "CoA-thioester": {
       "n": 29,
-      "sigma": 14.2,
-      "rms": 14.2,
-      "mae": 10.7,
-      "bias": -0.8,
-      "medAE": 7.2,
-      "center": -0.9,
-      "q95abs": 30.9
+      "sigma": 12.6,
+      "rms": 12.5,
+      "mae": 9.3,
+      "bias": -1.9,
+      "medAE": 7.0,
+      "center": -1.2,
+      "q95abs": 26.0
     },
     "glycosyl/PRT/nucleoside": {
       "n": 14,
-      "sigma": 14.9,
-      "rms": 14.9,
-      "mae": 11.7,
-      "bias": 2.9,
-      "medAE": 9.2,
-      "center": 6.5,
-      "q95abs": 28.5
+      "sigma": 14.0,
+      "rms": 14.0,
+      "mae": 12.0,
+      "bias": 5.5,
+      "medAE": 10.2,
+      "center": 9.5,
+      "q95abs": 25.1
     },
     "reductive-amination-DH": {
       "n": 11,
-      "sigma": 14.9,
-      "rms": 14.9,
-      "mae": 11.5,
-      "bias": -3.0,
-      "medAE": 7.2,
-      "center": -4.0,
-      "q95abs": 29.1
+      "sigma": 16.6,
+      "rms": 16.6,
+      "mae": 14.1,
+      "bias": -8.5,
+      "medAE": 13.4,
+      "center": -11.7,
+      "q95abs": 28.7
     },
     "amide/amidine-hydrolysis": {
       "n": 10,
-      "sigma": 18.6,
-      "rms": 18.6,
-      "mae": 14.6,
-      "bias": 4.2,
-      "medAE": 11.6,
-      "center": -0.1,
-      "q95abs": 30.8
+      "sigma": 18.7,
+      "rms": 18.7,
+      "mae": 14.8,
+      "bias": 4.0,
+      "medAE": 11.5,
+      "center": -0.3,
+      "q95abs": 29.9
     },
     "transaminase": {
       "n": 16,
-      "sigma": 9.8,
-      "rms": 8.6,
-      "mae": 7.4,
-      "bias": 4.2,
-      "medAE": 6.2,
-      "center": 5.0,
-      "q95abs": 20.1
+      "sigma": 10.7,
+      "rms": 10.0,
+      "mae": 8.4,
+      "bias": 5.5,
+      "medAE": 7.6,
+      "center": 6.2,
+      "q95abs": 20.0
     },
     "isomerase/mutase": {
       "n": 57,
-      "sigma": 8.7,
-      "rms": 8.3,
+      "sigma": 8.8,
+      "rms": 8.4,
       "mae": 5.6,
       "bias": 0.2,
-      "medAE": 3.7,
-      "center": 0.2,
-      "q95abs": 15.0
+      "medAE": 3.8,
+      "center": 0.4,
+      "q95abs": 16.3
     },
     "carboxyP": {
       "n": 2,
-      "sigma": 12.7,
-      "rms": 10.3,
-      "mae": 9.5,
-      "bias": -4.0,
-      "medAE": 9.5,
-      "center": -4.0,
-      "q95abs": 27.1
+      "sigma": 12.8,
+      "rms": 11.6,
+      "mae": 9.8,
+      "bias": -6.1,
+      "medAE": 9.8,
+      "center": -6.1,
+      "q95abs": 26.4
     },
     "aldolase": {
       "n": 11,
-      "sigma": 11.4,
-      "rms": 10.4,
-      "mae": 9.2,
-      "bias": -0.9,
-      "medAE": 8.9,
-      "center": 0.9,
-      "q95abs": 22.1
+      "sigma": 14.6,
+      "rms": 14.6,
+      "mae": 11.5,
+      "bias": 1.8,
+      "medAE": 10.8,
+      "center": -0.3,
+      "q95abs": 26.8
     },
     "ammonia-lyase": {
       "n": 8,
       "sigma": 10.2,
-      "rms": 7.8,
-      "mae": 5.4,
-      "bias": -4.8,
-      "medAE": 3.5,
-      "center": -2.8,
-      "q95abs": 22.7
+      "rms": 8.1,
+      "mae": 5.8,
+      "bias": -5.4,
+      "medAE": 3.3,
+      "center": -3.3,
+      "q95abs": 22.3
     },
     "phosphagen(P-N/Mg)": {
       "n": 4,
-      "sigma": 39.9,
-      "rms": 39.9,
-      "mae": 38.2,
-      "bias": 38.2,
-      "medAE": 42.1,
-      "center": 42.1,
-      "q95abs": 36.7
+      "sigma": 37.5,
+      "rms": 37.5,
+      "mae": 36.1,
+      "bias": 36.1,
+      "medAE": 39.1,
+      "center": 39.1,
+      "q95abs": 34.7
     },
     "hydratase": {
       "n": 12,
-      "sigma": 11.6,
-      "rms": 10.9,
-      "mae": 9.9,
-      "bias": 9.8,
-      "medAE": 10.4,
-      "center": 10.4,
-      "q95abs": 21.8
+      "sigma": 11.5,
+      "rms": 10.8,
+      "mae": 10.4,
+      "bias": 9.3,
+      "medAE": 10.2,
+      "center": 10.2,
+      "q95abs": 21.2
     },
     "flavin/FAD-redox": {
       "n": 5,
-      "sigma": 11.8,
-      "rms": 10.0,
-      "mae": 9.5,
-      "bias": 2.2,
-      "medAE": 10.1,
-      "center": 7.7,
-      "q95abs": 23.8
+      "sigma": 11.7,
+      "rms": 10.2,
+      "mae": 9.6,
+      "bias": 0.8,
+      "medAE": 7.4,
+      "center": 6.9,
+      "q95abs": 23.4
     },
     "carbamoyltransfer": {
       "n": 2,
-      "sigma": 15.7,
-      "rms": 15.7,
-      "mae": 12.7,
-      "bias": -12.7,
-      "medAE": 12.7,
-      "center": -12.7,
-      "q95abs": 28.7
+      "sigma": 18.3,
+      "rms": 18.3,
+      "mae": 15.8,
+      "bias": -15.8,
+      "medAE": 15.8,
+      "center": -15.8,
+      "q95abs": 28.1
     }
   },
-  "interval_sigma_mult": 2.2,
+  "interval_sigma_mult": 2.25,
   "interval_form": "half_width = max(m * sqrt(sigma_class^2 + U_samp^2), q95abs)",
   "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
   "cv_coverage_note": "unconditional over every record with an estimate; no outcome-based exclusion",
-  "cv_heldout_MAE": 9.65,
-  "cv_coverage_interval95": 0.959,
-  "cv_coverage_1sigma": 0.775,
-  "cv_coverage_2sigma": 0.94,
+  "cv_heldout_MAE": 9.59,
+  "cv_heldout_MAE_note": "held-out only with respect to the parameters refit per fold (TECRDB-referenced anchors, sigma). With no anchors this equals the development MAE: it is NOT a generalization estimate; routing/policy choices were made on the same TECRDB.",
+  "cv_coverage_interval95": 0.956,
+  "cv_coverage_1sigma": 0.745,
+  "cv_coverage_2sigma": 0.951,
   "config": {
     "aldehyde_hydration": true,
     "anchor_correct": false,
@@ -251,8 +252,8 @@
     "sweep_dir": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/final",
     "n_records": 364,
     "excluded": {},
-    "git_sha": "9fd178c6f293425614c9af97ed3fe5ac240822ad",
-    "built": "2026-10-01T07:02:12"
+    "git_sha": "98c6dc47d2a2d5d44c47135d89dfe2e9a4862dc7",
+    "built": "2026-10-01T16:40:23"
   },
   "anchors": {
     "phosphagen": {
@@ -300,8 +301,8 @@
     {
       "rid": "rxn00001",
       "class": "phosphatase",
-      "dG": -33.1,
-      "dG_raw": -33.1,
+      "dG": -31.2,
+      "dG_raw": -31.2,
       "exp": -27.41,
       "U_samp": 1.0,
       "anchor": null
@@ -309,8 +310,8 @@
     {
       "rid": "rxn00007",
       "class": "other/clean",
-      "dG": -31.0,
-      "dG_raw": -31.0,
+      "dG": -33.4,
+      "dG_raw": -33.4,
       "exp": -11.85,
       "U_samp": 1.6,
       "anchor": null
@@ -318,8 +319,8 @@
     {
       "rid": "rxn00022",
       "class": "other/clean",
-      "dG": -23.8,
-      "dG_raw": -23.8,
+      "dG": -22.4,
+      "dG_raw": -22.4,
       "exp": -13.79,
       "U_samp": 1.4,
       "anchor": null
@@ -327,8 +328,8 @@
     {
       "rid": "rxn00062",
       "class": "other/clean",
-      "dG": -36.5,
-      "dG_raw": -36.5,
+      "dG": -38.2,
+      "dG_raw": -38.2,
       "exp": -28.35,
       "U_samp": 0.4,
       "anchor": null
@@ -336,8 +337,8 @@
     {
       "rid": "rxn00065",
       "class": "other/clean",
-      "dG": 1.1,
-      "dG_raw": 1.1,
+      "dG": -3.5,
+      "dG_raw": -3.5,
       "exp": 4.8,
       "U_samp": 1.0,
       "anchor": null
@@ -345,10 +346,10 @@
     {
       "rid": "rxn00070",
       "class": "NAD(P)-redox(other)",
-      "dG": 10.8,
-      "dG_raw": 10.8,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": 23.2,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
@@ -366,23 +367,23 @@
       "dG": 0.0,
       "dG_raw": 0.0,
       "exp": -3.5,
-      "U_samp": 1.3,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn00086",
       "class": "NAD(P)-redox(other)",
-      "dG": 10.8,
-      "dG_raw": 10.8,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": 20.98,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn00097",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -5.8,
       "U_samp": 0.4,
       "anchor": null
@@ -390,8 +391,8 @@
     {
       "rid": "rxn00100",
       "class": "CoA-thioester",
-      "dG": -24.9,
-      "dG_raw": -24.9,
+      "dG": -23.5,
+      "dG_raw": -23.5,
       "exp": 5.86,
       "U_samp": 0.3,
       "anchor": null
@@ -399,8 +400,8 @@
     {
       "rid": "rxn00105",
       "class": "other/clean",
-      "dG": 9.1,
-      "dG_raw": 9.1,
+      "dG": 7.2,
+      "dG_raw": 7.2,
       "exp": -1.17,
       "U_samp": 1.7,
       "anchor": null
@@ -417,8 +418,8 @@
     {
       "rid": "rxn00131",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -2.3,
-      "dG_raw": -2.3,
+      "dG": -5.3,
+      "dG_raw": -5.3,
       "exp": -12.82,
       "U_samp": 0.4,
       "anchor": null
@@ -426,8 +427,8 @@
     {
       "rid": "rxn00132",
       "class": "phosphatase",
-      "dG": -10.9,
-      "dG_raw": -10.9,
+      "dG": -11.0,
+      "dG_raw": -11.0,
       "exp": -13.87,
       "U_samp": 0.4,
       "anchor": null
@@ -435,8 +436,8 @@
     {
       "rid": "rxn00139",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 26.5,
-      "dG_raw": 26.5,
+      "dG": 33.5,
+      "dG_raw": 33.5,
       "exp": 19.4,
       "U_samp": 0.8,
       "anchor": null
@@ -444,8 +445,8 @@
     {
       "rid": "rxn00141",
       "class": "other/clean",
-      "dG": 37.1,
-      "dG_raw": 37.1,
+      "dG": 36.3,
+      "dG_raw": 36.3,
       "exp": 34.76,
       "U_samp": 0.5,
       "anchor": null
@@ -453,35 +454,35 @@
     {
       "rid": "rxn00147",
       "class": "kinase/phosphotransfer",
-      "dG": -6.0,
-      "dG_raw": -6.0,
+      "dG": -9.3,
+      "dG_raw": -9.3,
       "exp": -14.09,
-      "U_samp": 1.4,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn00148",
       "class": "kinase/phosphotransfer",
-      "dG": 28.6,
-      "dG_raw": 28.6,
+      "dG": 25.1,
+      "dG_raw": 25.1,
       "exp": 25.32,
-      "U_samp": 1.3,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn00151",
       "class": "kinase/phosphotransfer",
-      "dG": 27.1,
-      "dG_raw": 27.1,
+      "dG": 21.9,
+      "dG_raw": 21.9,
       "exp": 21.87,
-      "U_samp": 1.6,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00157",
       "class": "CoA-thioester",
-      "dG": 20.7,
-      "dG_raw": 20.7,
+      "dG": 16.3,
+      "dG_raw": 16.3,
       "exp": 16.63,
       "U_samp": 0.9,
       "anchor": null
@@ -489,17 +490,17 @@
     {
       "rid": "rxn00171",
       "class": "CoA-thioester",
-      "dG": -12.2,
-      "dG_raw": -12.2,
+      "dG": -14.9,
+      "dG_raw": -14.9,
       "exp": -13.7,
-      "U_samp": 1.5,
+      "U_samp": 1.3,
       "anchor": null
     },
     {
       "rid": "rxn00172",
       "class": "CoA-thioester",
-      "dG": 9.2,
-      "dG_raw": 9.2,
+      "dG": 7.8,
+      "dG_raw": 7.8,
       "exp": -2.29,
       "U_samp": 1.0,
       "anchor": null
@@ -507,8 +508,8 @@
     {
       "rid": "rxn00173",
       "class": "CoA-thioester",
-      "dG": 4.8,
-      "dG_raw": 4.8,
+      "dG": 6.1,
+      "dG_raw": 6.1,
       "exp": 13.11,
       "U_samp": 1.1,
       "anchor": null
@@ -516,8 +517,8 @@
     {
       "rid": "rxn00175",
       "class": "CoA-thioester",
-      "dG": 7.8,
-      "dG_raw": 7.8,
+      "dG": 4.6,
+      "dG_raw": 4.6,
       "exp": -0.51,
       "U_samp": 1.2,
       "anchor": null
@@ -525,8 +526,8 @@
     {
       "rid": "rxn00178",
       "class": "CoA-thioester",
-      "dG": 25.9,
-      "dG_raw": 25.9,
+      "dG": 25.4,
+      "dG_raw": 25.4,
       "exp": 23.8,
       "U_samp": 1.2,
       "anchor": null
@@ -534,26 +535,26 @@
     {
       "rid": "rxn00182",
       "class": "reductive-amination-DH",
-      "dG": 36.5,
-      "dG_raw": 36.5,
+      "dG": 28.8,
+      "dG_raw": 28.8,
       "exp": 40.49,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00184",
       "class": "reductive-amination-DH",
-      "dG": 36.5,
-      "dG_raw": 36.5,
+      "dG": 28.8,
+      "dG_raw": 28.8,
       "exp": 44.73,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00187",
       "class": "other/clean",
-      "dG": -28.6,
-      "dG_raw": -28.6,
+      "dG": -29.7,
+      "dG_raw": -29.7,
       "exp": -20.53,
       "U_samp": 0.4,
       "anchor": null
@@ -561,8 +562,8 @@
     {
       "rid": "rxn00189",
       "class": "amide/amidine-hydrolysis",
-      "dG": -7.8,
-      "dG_raw": -7.8,
+      "dG": -8.5,
+      "dG_raw": -8.5,
       "exp": -15.13,
       "U_samp": 0.1,
       "anchor": null
@@ -570,8 +571,8 @@
     {
       "rid": "rxn00191",
       "class": "transaminase",
-      "dG": 0.2,
-      "dG_raw": 0.2,
+      "dG": 0.1,
+      "dG_raw": 0.1,
       "exp": -0.72,
       "U_samp": 0.7,
       "anchor": null
@@ -579,8 +580,8 @@
     {
       "rid": "rxn00193",
       "class": "isomerase/mutase",
-      "dG": 0.0,
-      "dG_raw": 0.0,
+      "dG": 0.1,
+      "dG_raw": 0.1,
       "exp": -0.0,
       "U_samp": 0.1,
       "anchor": null
@@ -588,8 +589,8 @@
     {
       "rid": "rxn00195",
       "class": "isomerase/mutase",
-      "dG": -8.2,
-      "dG_raw": -8.2,
+      "dG": -8.9,
+      "dG_raw": -8.9,
       "exp": -5.81,
       "U_samp": 0.1,
       "anchor": null
@@ -597,8 +598,8 @@
     {
       "rid": "rxn00213",
       "class": "other/clean",
-      "dG": 16.1,
-      "dG_raw": 16.1,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": 2.35,
       "U_samp": 1.0,
       "anchor": null
@@ -606,8 +607,8 @@
     {
       "rid": "rxn00214",
       "class": "isomerase/mutase",
-      "dG": 7.3,
-      "dG_raw": 7.3,
+      "dG": 6.6,
+      "dG_raw": 6.6,
       "exp": 2.98,
       "U_samp": 0.2,
       "anchor": null
@@ -615,8 +616,8 @@
     {
       "rid": "rxn00216",
       "class": "kinase/phosphotransfer",
-      "dG": -24.1,
-      "dG_raw": -24.1,
+      "dG": -28.2,
+      "dG_raw": -28.2,
       "exp": -23.27,
       "U_samp": 0.6,
       "anchor": null
@@ -624,17 +625,17 @@
     {
       "rid": "rxn00217",
       "class": "NAD(P)-redox(other)",
-      "dG": -4.1,
-      "dG_raw": -4.1,
+      "dG": -7.3,
+      "dG_raw": -7.3,
       "exp": -2.29,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00220",
       "class": "phosphatase",
-      "dG": -12.4,
-      "dG_raw": -12.4,
+      "dG": -10.0,
+      "dG_raw": -10.0,
       "exp": -11.34,
       "U_samp": 0.7,
       "anchor": null
@@ -642,8 +643,8 @@
     {
       "rid": "rxn00223",
       "class": "isomerase/mutase",
-      "dG": 4.6,
-      "dG_raw": 4.6,
+      "dG": 3.8,
+      "dG_raw": 3.8,
       "exp": -0.23,
       "U_samp": 0.8,
       "anchor": null
@@ -651,8 +652,8 @@
     {
       "rid": "rxn00225",
       "class": "kinase/phosphotransfer",
-      "dG": 14.0,
-      "dG_raw": 14.0,
+      "dG": 13.9,
+      "dG_raw": 13.9,
       "exp": 6.05,
       "U_samp": 0.5,
       "anchor": null
@@ -660,8 +661,8 @@
     {
       "rid": "rxn00234",
       "class": "other/clean",
-      "dG": 10.6,
-      "dG_raw": 10.6,
+      "dG": 7.0,
+      "dG_raw": 7.0,
       "exp": 2.29,
       "U_samp": 0.1,
       "anchor": null
@@ -678,8 +679,8 @@
     {
       "rid": "rxn00239",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -5.69,
       "U_samp": 0.3,
       "anchor": null
@@ -687,17 +688,17 @@
     {
       "rid": "rxn00248",
       "class": "NAD(P)-redox(other)",
-      "dG": 47.9,
-      "dG_raw": 47.9,
+      "dG": 41.7,
+      "dG_raw": 41.7,
       "exp": 32.23,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn00250",
       "class": "carboxyP",
-      "dG": 1.9,
-      "dG_raw": 1.9,
+      "dG": 0.1,
+      "dG_raw": 0.1,
       "exp": -3.6,
       "U_samp": 0.4,
       "anchor": null
@@ -705,8 +706,8 @@
     {
       "rid": "rxn00256",
       "class": "CoA-thioester",
-      "dG": 60.6,
-      "dG_raw": 60.6,
+      "dG": 51.0,
+      "dG_raw": 51.0,
       "exp": 29.55,
       "U_samp": 1.4,
       "anchor": null
@@ -714,8 +715,8 @@
     {
       "rid": "rxn00257",
       "class": "CoA-thioester",
-      "dG": 24.1,
-      "dG_raw": 24.1,
+      "dG": 12.8,
+      "dG_raw": 12.8,
       "exp": -8.29,
       "U_samp": 1.5,
       "anchor": null
@@ -723,8 +724,8 @@
     {
       "rid": "rxn00260",
       "class": "transaminase",
-      "dG": 9.3,
-      "dG_raw": 9.3,
+      "dG": 9.6,
+      "dG_raw": 9.6,
       "exp": 4.77,
       "U_samp": 1.1,
       "anchor": null
@@ -732,8 +733,8 @@
     {
       "rid": "rxn00265",
       "class": "other/clean",
-      "dG": 15.0,
-      "dG_raw": 15.0,
+      "dG": 5.0,
+      "dG_raw": 5.0,
       "exp": 0.8,
       "U_samp": 1.1,
       "anchor": null
@@ -741,8 +742,8 @@
     {
       "rid": "rxn00266",
       "class": "isomerase/mutase",
-      "dG": 0.0,
-      "dG_raw": 0.0,
+      "dG": -0.0,
+      "dG_raw": -0.0,
       "exp": 5.71,
       "U_samp": 0.1,
       "anchor": null
@@ -750,8 +751,8 @@
     {
       "rid": "rxn00276",
       "class": "transaminase",
-      "dG": 11.1,
-      "dG_raw": 11.1,
+      "dG": 16.1,
+      "dG_raw": 16.1,
       "exp": 8.62,
       "U_samp": 1.2,
       "anchor": null
@@ -759,26 +760,26 @@
     {
       "rid": "rxn00278",
       "class": "reductive-amination-DH",
-      "dG": 34.3,
-      "dG_raw": 34.3,
+      "dG": 27.5,
+      "dG_raw": 27.5,
       "exp": 40.86,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00280",
       "class": "reductive-amination-DH",
-      "dG": 44.1,
-      "dG_raw": 44.1,
+      "dG": 36.7,
+      "dG_raw": 36.7,
       "exp": 37.73,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00283",
       "class": "isomerase/mutase",
-      "dG": 5.9,
-      "dG_raw": 5.9,
+      "dG": 5.8,
+      "dG_raw": 5.8,
       "exp": 0.0,
       "U_samp": 0.0,
       "anchor": null
@@ -786,8 +787,8 @@
     {
       "rid": "rxn00285",
       "class": "CoA-thioester",
-      "dG": 7.8,
-      "dG_raw": 7.8,
+      "dG": 6.8,
+      "dG_raw": 6.8,
       "exp": 3.65,
       "U_samp": 1.1,
       "anchor": null
@@ -795,8 +796,8 @@
     {
       "rid": "rxn00290",
       "class": "CoA-thioester",
-      "dG": 1.4,
-      "dG_raw": 1.4,
+      "dG": 2.9,
+      "dG_raw": 2.9,
       "exp": 6.61,
       "U_samp": 0.8,
       "anchor": null
@@ -804,8 +805,8 @@
     {
       "rid": "rxn00293",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -5.2,
+      "dG_raw": -5.2,
       "exp": -5.01,
       "U_samp": 1.3,
       "anchor": null
@@ -822,8 +823,8 @@
     {
       "rid": "rxn00306",
       "class": "CoA-thioester",
-      "dG": 7.8,
-      "dG_raw": 7.8,
+      "dG": 6.8,
+      "dG_raw": 6.8,
       "exp": 2.73,
       "U_samp": 1.1,
       "anchor": null
@@ -831,8 +832,8 @@
     {
       "rid": "rxn00320",
       "class": "isomerase/mutase",
-      "dG": 2.4,
-      "dG_raw": 2.4,
+      "dG": 1.0,
+      "dG_raw": 1.0,
       "exp": 0.0,
       "U_samp": 0.6,
       "anchor": null
@@ -840,8 +841,8 @@
     {
       "rid": "rxn00321",
       "class": "isomerase/mutase",
-      "dG": -7.8,
-      "dG_raw": -7.8,
+      "dG": -7.4,
+      "dG_raw": -7.4,
       "exp": -4.62,
       "U_samp": 0.3,
       "anchor": null
@@ -849,17 +850,17 @@
     {
       "rid": "rxn00326",
       "class": "NAD(P)-redox(other)",
-      "dG": -1.7,
-      "dG_raw": -1.7,
+      "dG": -9.4,
+      "dG_raw": -9.4,
       "exp": 2.83,
-      "U_samp": 1.5,
+      "U_samp": 1.3,
       "anchor": null
     },
     {
       "rid": "rxn00328",
       "class": "aldolase",
-      "dG": 21.6,
-      "dG_raw": 21.6,
+      "dG": 25.4,
+      "dG_raw": 25.4,
       "exp": 10.16,
       "U_samp": 0.9,
       "anchor": null
@@ -867,8 +868,8 @@
     {
       "rid": "rxn00331",
       "class": "CoA-thioester",
-      "dG": 24.7,
-      "dG_raw": 24.7,
+      "dG": 25.2,
+      "dG_raw": 25.2,
       "exp": 8.04,
       "U_samp": 0.8,
       "anchor": null
@@ -876,8 +877,8 @@
     {
       "rid": "rxn00336",
       "class": "other/clean",
-      "dG": 27.1,
-      "dG_raw": 27.1,
+      "dG": 30.1,
+      "dG_raw": 30.1,
       "exp": 8.73,
       "U_samp": 0.9,
       "anchor": null
@@ -885,8 +886,8 @@
     {
       "rid": "rxn00337",
       "class": "kinase/phosphotransfer",
-      "dG": 27.3,
-      "dG_raw": 27.3,
+      "dG": 26.4,
+      "dG_raw": 26.4,
       "exp": 16.12,
       "U_samp": 0.9,
       "anchor": null
@@ -894,8 +895,8 @@
     {
       "rid": "rxn00347",
       "class": "ammonia-lyase",
-      "dG": 18.9,
-      "dG_raw": 18.9,
+      "dG": 18.1,
+      "dG_raw": 18.1,
       "exp": 16.28,
       "U_samp": 1.4,
       "anchor": null
@@ -903,8 +904,8 @@
     {
       "rid": "rxn00364",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -3.49,
       "U_samp": 0.3,
       "anchor": null
@@ -912,8 +913,8 @@
     {
       "rid": "rxn00379",
       "class": "kinase/phosphotransfer",
-      "dG": 58.3,
-      "dG_raw": 58.3,
+      "dG": 54.5,
+      "dG_raw": 54.5,
       "exp": 43.11,
       "U_samp": 1.3,
       "anchor": null
@@ -921,8 +922,8 @@
     {
       "rid": "rxn00396",
       "class": "phosphagen(P-N/Mg)",
-      "dG": 40.7,
-      "dG_raw": 40.7,
+      "dG": 37.7,
+      "dG_raw": 37.7,
       "exp": 1.1,
       "U_samp": 0.2,
       "anchor": null
@@ -930,17 +931,17 @@
     {
       "rid": "rxn00402",
       "class": "reductive-amination-DH",
-      "dG": 40.0,
-      "dG_raw": 40.0,
+      "dG": 33.3,
+      "dG_raw": 33.3,
       "exp": 36.62,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00404",
       "class": "other/clean",
-      "dG": 2.4,
-      "dG_raw": 2.4,
+      "dG": 2.6,
+      "dG_raw": 2.6,
       "exp": -0.47,
       "U_samp": 0.0,
       "anchor": null
@@ -948,8 +949,8 @@
     {
       "rid": "rxn00415",
       "class": "transaminase",
-      "dG": -0.2,
-      "dG_raw": -0.2,
+      "dG": -0.1,
+      "dG_raw": -0.1,
       "exp": -14.96,
       "U_samp": 0.7,
       "anchor": null
@@ -957,8 +958,8 @@
     {
       "rid": "rxn00420",
       "class": "phosphatase",
-      "dG": -13.4,
-      "dG_raw": -13.4,
+      "dG": -15.5,
+      "dG_raw": -15.5,
       "exp": -10.81,
       "U_samp": 1.0,
       "anchor": null
@@ -966,8 +967,8 @@
     {
       "rid": "rxn00421",
       "class": "other/clean",
-      "dG": -19.7,
-      "dG_raw": -19.7,
+      "dG": -15.7,
+      "dG_raw": -15.7,
       "exp": -18.94,
       "U_samp": 1.3,
       "anchor": null
@@ -975,8 +976,8 @@
     {
       "rid": "rxn00422",
       "class": "transaminase",
-      "dG": 11.0,
-      "dG_raw": 11.0,
+      "dG": 11.8,
+      "dG_raw": 11.8,
       "exp": 4.02,
       "U_samp": 0.0,
       "anchor": null
@@ -984,8 +985,8 @@
     {
       "rid": "rxn00423",
       "class": "CoA-thioester",
-      "dG": -22.2,
-      "dG_raw": -22.2,
+      "dG": -22.4,
+      "dG_raw": -22.4,
       "exp": -6.76,
       "U_samp": 0.9,
       "anchor": null
@@ -993,26 +994,26 @@
     {
       "rid": "rxn00459",
       "class": "hydratase",
-      "dG": 5.3,
-      "dG_raw": 5.3,
+      "dG": 4.7,
+      "dG_raw": 4.7,
       "exp": -3.17,
-      "U_samp": 1.5,
+      "U_samp": 0.3,
       "anchor": null
     },
     {
       "rid": "rxn00462",
       "class": "isomerase/mutase",
-      "dG": 21.9,
-      "dG_raw": 21.9,
+      "dG": 26.0,
+      "dG_raw": 26.0,
       "exp": 11.79,
-      "U_samp": 1.3,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00473",
       "class": "ammonia-lyase",
-      "dG": 14.9,
-      "dG_raw": 14.9,
+      "dG": 11.0,
+      "dG_raw": 11.0,
       "exp": 22.37,
       "U_samp": 0.1,
       "anchor": null
@@ -1020,8 +1021,8 @@
     {
       "rid": "rxn00493",
       "class": "transaminase",
-      "dG": 13.1,
-      "dG_raw": 13.1,
+      "dG": 12.3,
+      "dG_raw": 12.3,
       "exp": -1.7,
       "U_samp": 0.7,
       "anchor": null
@@ -1029,8 +1030,8 @@
     {
       "rid": "rxn00495",
       "class": "ammonia-lyase",
-      "dG": -3.1,
-      "dG_raw": -3.1,
+      "dG": -2.9,
+      "dG_raw": -2.9,
       "exp": -2.22,
       "U_samp": 0.8,
       "anchor": null
@@ -1038,44 +1039,44 @@
     {
       "rid": "rxn00499",
       "class": "NAD(P)-redox(other)",
-      "dG": 36.6,
-      "dG_raw": 36.6,
+      "dG": 29.8,
+      "dG_raw": 29.8,
       "exp": 29.34,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00500",
       "class": "NAD(P)-redox(other)",
-      "dG": 35.9,
-      "dG_raw": 35.9,
+      "dG": 29.1,
+      "dG_raw": 29.1,
       "exp": 27.26,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn00510",
       "class": "reductive-amination-DH",
-      "dG": 42.5,
-      "dG_raw": 42.5,
+      "dG": 35.2,
+      "dG_raw": 35.2,
       "exp": 43.28,
-      "U_samp": 1.5,
+      "U_samp": 1.3,
       "anchor": null
     },
     {
       "rid": "rxn00512",
       "class": "NAD(P)-redox(other)",
-      "dG": 48.0,
-      "dG_raw": 48.0,
+      "dG": 46.5,
+      "dG_raw": 46.5,
       "exp": 47.89,
-      "U_samp": 1.4,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn00514",
       "class": "kinase/phosphotransfer",
-      "dG": -37.9,
-      "dG_raw": -37.9,
+      "dG": -41.4,
+      "dG_raw": -41.4,
       "exp": -9.29,
       "U_samp": 0.8,
       "anchor": null
@@ -1092,8 +1093,8 @@
     {
       "rid": "rxn00527",
       "class": "transaminase",
-      "dG": 10.1,
-      "dG_raw": 10.1,
+      "dG": 11.4,
+      "dG_raw": 11.4,
       "exp": -1.2,
       "U_samp": 0.8,
       "anchor": null
@@ -1101,8 +1102,8 @@
     {
       "rid": "rxn00541",
       "class": "other/clean",
-      "dG": 11.1,
-      "dG_raw": 11.1,
+      "dG": 11.7,
+      "dG_raw": 11.7,
       "exp": 10.24,
       "U_samp": 0.9,
       "anchor": null
@@ -1110,17 +1111,17 @@
     {
       "rid": "rxn00543",
       "class": "NAD(P)-redox(other)",
-      "dG": 22.6,
-      "dG_raw": 22.6,
+      "dG": 20.0,
+      "dG_raw": 20.0,
       "exp": 25.93,
-      "U_samp": 1.5,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn00545",
       "class": "kinase/phosphotransfer",
-      "dG": -26.9,
-      "dG_raw": -26.9,
+      "dG": -25.1,
+      "dG_raw": -25.1,
       "exp": -9.23,
       "U_samp": 0.7,
       "anchor": null
@@ -1128,17 +1129,17 @@
     {
       "rid": "rxn00546",
       "class": "NAD(P)-redox(other)",
-      "dG": 3.5,
-      "dG_raw": 3.5,
+      "dG": -0.9,
+      "dG_raw": -0.9,
       "exp": 16.79,
-      "U_samp": 1.7,
+      "U_samp": 1.5,
       "anchor": null
     },
     {
       "rid": "rxn00549",
       "class": "phosphatase",
-      "dG": -9.6,
-      "dG_raw": -9.6,
+      "dG": -13.1,
+      "dG_raw": -13.1,
       "exp": -18.94,
       "U_samp": 0.8,
       "anchor": null
@@ -1146,8 +1147,8 @@
     {
       "rid": "rxn00551",
       "class": "other/clean",
-      "dG": -23.5,
-      "dG_raw": -23.5,
+      "dG": -18.1,
+      "dG_raw": -18.1,
       "exp": 19.19,
       "U_samp": 1.1,
       "anchor": null
@@ -1155,8 +1156,8 @@
     {
       "rid": "rxn00552",
       "class": "isomerase/mutase",
-      "dG": 12.4,
-      "dG_raw": 12.4,
+      "dG": 16.3,
+      "dG_raw": 16.3,
       "exp": 3.9,
       "U_samp": 0.8,
       "anchor": null
@@ -1164,8 +1165,8 @@
     {
       "rid": "rxn00558",
       "class": "isomerase/mutase",
-      "dG": 1.2,
-      "dG_raw": 1.2,
+      "dG": 3.3,
+      "dG_raw": 3.3,
       "exp": 3.38,
       "U_samp": 0.7,
       "anchor": null
@@ -1173,8 +1174,8 @@
     {
       "rid": "rxn00559",
       "class": "isomerase/mutase",
-      "dG": 3.2,
-      "dG_raw": 3.2,
+      "dG": -0.2,
+      "dG_raw": -0.2,
       "exp": -0.09,
       "U_samp": 0.7,
       "anchor": null
@@ -1182,8 +1183,8 @@
     {
       "rid": "rxn00562",
       "class": "other/clean",
-      "dG": 5.4,
-      "dG_raw": 5.4,
+      "dG": 6.8,
+      "dG_raw": 6.8,
       "exp": 5.18,
       "U_samp": 0.8,
       "anchor": null
@@ -1191,8 +1192,8 @@
     {
       "rid": "rxn00577",
       "class": "other/clean",
-      "dG": -4.6,
-      "dG_raw": -4.6,
+      "dG": -4.8,
+      "dG_raw": -4.8,
       "exp": -7.29,
       "U_samp": 0.7,
       "anchor": null
@@ -1200,8 +1201,8 @@
     {
       "rid": "rxn00579",
       "class": "other/clean",
-      "dG": -14.4,
-      "dG_raw": -14.4,
+      "dG": -15.8,
+      "dG_raw": -15.8,
       "exp": 3.73,
       "U_samp": 0.4,
       "anchor": null
@@ -1209,8 +1210,8 @@
     {
       "rid": "rxn00602",
       "class": "CoA-thioester",
-      "dG": -15.8,
-      "dG_raw": -15.8,
+      "dG": -15.7,
+      "dG_raw": -15.7,
       "exp": -7.58,
       "U_samp": 0.1,
       "anchor": null
@@ -1218,26 +1219,26 @@
     {
       "rid": "rxn00603",
       "class": "NAD(P)-redox(other)",
-      "dG": 2.1,
-      "dG_raw": 2.1,
+      "dG": -3.3,
+      "dG_raw": -3.3,
       "exp": 20.71,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00604",
       "class": "NAD(P)-redox(other)",
-      "dG": -2.6,
-      "dG_raw": -2.6,
+      "dG": -1.9,
+      "dG_raw": -1.9,
       "exp": 2.42,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00605",
       "class": "other/clean",
-      "dG": -24.8,
-      "dG_raw": -24.8,
+      "dG": -28.0,
+      "dG_raw": -28.0,
       "exp": -9.29,
       "U_samp": 0.3,
       "anchor": null
@@ -1245,53 +1246,53 @@
     {
       "rid": "rxn00611",
       "class": "NAD(P)-redox(other)",
-      "dG": 18.2,
-      "dG_raw": 18.2,
+      "dG": 22.4,
+      "dG_raw": 22.4,
       "exp": 28.3,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00629",
       "class": "NAD(P)-redox(other)",
-      "dG": 9.9,
-      "dG_raw": 9.9,
+      "dG": 4.1,
+      "dG_raw": 4.1,
       "exp": 11.57,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00630",
       "class": "NAD(P)-redox(other)",
-      "dG": 9.9,
-      "dG_raw": 9.9,
+      "dG": 4.1,
+      "dG_raw": 4.1,
       "exp": 16.32,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00631",
       "class": "NAD(P)-redox(other)",
-      "dG": 31.2,
-      "dG_raw": 31.2,
+      "dG": 31.8,
+      "dG_raw": 31.8,
       "exp": 26.07,
-      "U_samp": 1.1,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn00634",
       "class": "NAD(P)-redox(other)",
-      "dG": 6.2,
-      "dG_raw": 6.2,
+      "dG": 1.7,
+      "dG_raw": 1.7,
       "exp": 15.52,
-      "U_samp": 1.4,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn00636",
       "class": "isomerase/mutase",
-      "dG": 2.3,
-      "dG_raw": 2.3,
+      "dG": 0.6,
+      "dG_raw": 0.6,
       "exp": -2.61,
       "U_samp": 0.7,
       "anchor": null
@@ -1299,8 +1300,8 @@
     {
       "rid": "rxn00641",
       "class": "other/clean",
-      "dG": 12.5,
-      "dG_raw": 12.5,
+      "dG": 6.9,
+      "dG_raw": 6.9,
       "exp": -6.3,
       "U_samp": 0.9,
       "anchor": null
@@ -1308,8 +1309,8 @@
     {
       "rid": "rxn00643",
       "class": "isomerase/mutase",
-      "dG": -5.3,
-      "dG_raw": -5.3,
+      "dG": -5.6,
+      "dG_raw": -5.6,
       "exp": 1.69,
       "U_samp": 1.1,
       "anchor": null
@@ -1317,8 +1318,8 @@
     {
       "rid": "rxn00656",
       "class": "transaminase",
-      "dG": -4.8,
-      "dG_raw": -4.8,
+      "dG": -8.8,
+      "dG_raw": -8.8,
       "exp": 3.87,
       "U_samp": 0.6,
       "anchor": null
@@ -1326,8 +1327,8 @@
     {
       "rid": "rxn00674",
       "class": "CoA-thioester",
-      "dG": 6.3,
-      "dG_raw": 6.3,
+      "dG": 3.6,
+      "dG_raw": 3.6,
       "exp": 4.88,
       "U_samp": 1.3,
       "anchor": null
@@ -1335,17 +1336,17 @@
     {
       "rid": "rxn00686",
       "class": "NAD(P)-redox(other)",
-      "dG": -9.0,
-      "dG_raw": -9.0,
+      "dG": -11.8,
+      "dG_raw": -11.8,
       "exp": 33.08,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00690",
       "class": "other/clean",
-      "dG": -22.3,
-      "dG_raw": -22.3,
+      "dG": -23.5,
+      "dG_raw": -23.5,
       "exp": -13.91,
       "U_samp": 0.6,
       "anchor": null
@@ -1353,8 +1354,8 @@
     {
       "rid": "rxn00692",
       "class": "other/clean",
-      "dG": 4.5,
-      "dG_raw": 4.5,
+      "dG": 3.1,
+      "dG_raw": 3.1,
       "exp": 6.1,
       "U_samp": 0.9,
       "anchor": null
@@ -1362,8 +1363,8 @@
     {
       "rid": "rxn00695",
       "class": "kinase/phosphotransfer",
-      "dG": 16.1,
-      "dG_raw": 16.1,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": -4.05,
       "U_samp": 1.0,
       "anchor": null
@@ -1371,8 +1372,8 @@
     {
       "rid": "rxn00697",
       "class": "other/clean",
-      "dG": -54.0,
-      "dG_raw": -54.0,
+      "dG": -54.3,
+      "dG_raw": -54.3,
       "exp": -7.35,
       "U_samp": 0.7,
       "anchor": null
@@ -1380,8 +1381,8 @@
     {
       "rid": "rxn00698",
       "class": "other/clean",
-      "dG": -3.4,
-      "dG_raw": -3.4,
+      "dG": -2.2,
+      "dG_raw": -2.2,
       "exp": 4.32,
       "U_samp": 0.7,
       "anchor": null
@@ -1389,8 +1390,8 @@
     {
       "rid": "rxn00699",
       "class": "other/clean",
-      "dG": 2.4,
-      "dG_raw": 2.4,
+      "dG": 1.0,
+      "dG_raw": 1.0,
       "exp": 3.21,
       "U_samp": 0.7,
       "anchor": null
@@ -1398,8 +1399,8 @@
     {
       "rid": "rxn00700",
       "class": "other/clean",
-      "dG": 16.1,
-      "dG_raw": 16.1,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": -0.75,
       "U_samp": 1.0,
       "anchor": null
@@ -1407,8 +1408,8 @@
     {
       "rid": "rxn00702",
       "class": "other/clean",
-      "dG": 16.1,
-      "dG_raw": 16.1,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": -3.16,
       "U_samp": 1.0,
       "anchor": null
@@ -1416,8 +1417,8 @@
     {
       "rid": "rxn00704",
       "class": "isomerase/mutase",
-      "dG": -6.0,
-      "dG_raw": -6.0,
+      "dG": -11.4,
+      "dG_raw": -11.4,
       "exp": -7.19,
       "U_samp": 0.3,
       "anchor": null
@@ -1425,17 +1426,17 @@
     {
       "rid": "rxn00741",
       "class": "NAD(P)-redox(other)",
-      "dG": 37.1,
-      "dG_raw": 37.1,
+      "dG": 30.4,
+      "dG_raw": 30.4,
       "exp": 23.89,
-      "U_samp": 1.2,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
       "rid": "rxn00746",
       "class": "aldolase",
-      "dG": 28.3,
-      "dG_raw": 28.3,
+      "dG": 30.2,
+      "dG_raw": 30.2,
       "exp": 19.4,
       "U_samp": 1.3,
       "anchor": null
@@ -1443,8 +1444,8 @@
     {
       "rid": "rxn00747",
       "class": "isomerase/mutase",
-      "dG": -9.5,
-      "dG_raw": -9.5,
+      "dG": -9.7,
+      "dG_raw": -9.7,
       "exp": -7.82,
       "U_samp": 1.0,
       "anchor": null
@@ -1452,8 +1453,8 @@
     {
       "rid": "rxn00753",
       "class": "CoA-thioester",
-      "dG": -24.1,
-      "dG_raw": -24.1,
+      "dG": -23.5,
+      "dG_raw": -23.5,
       "exp": -11.25,
       "U_samp": 1.4,
       "anchor": null
@@ -1461,8 +1462,8 @@
     {
       "rid": "rxn00754",
       "class": "other/clean",
-      "dG": -21.6,
-      "dG_raw": -21.6,
+      "dG": -22.5,
+      "dG_raw": -22.5,
       "exp": -24.17,
       "U_samp": 1.0,
       "anchor": null
@@ -1470,26 +1471,26 @@
     {
       "rid": "rxn00762",
       "class": "NAD(P)-redox(other)",
-      "dG": 22.0,
-      "dG_raw": 22.0,
+      "dG": 19.3,
+      "dG_raw": 19.3,
       "exp": 26.91,
-      "U_samp": 1.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00765",
       "class": "NAD(P)-redox(other)",
-      "dG": 34.1,
-      "dG_raw": 34.1,
+      "dG": 30.7,
+      "dG_raw": 30.7,
       "exp": 41.46,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00770",
       "class": "kinase/phosphotransfer",
-      "dG": -23.3,
-      "dG_raw": -23.3,
+      "dG": -18.8,
+      "dG_raw": -18.8,
       "exp": 0.38,
       "U_samp": 0.9,
       "anchor": null
@@ -1497,8 +1498,8 @@
     {
       "rid": "rxn00777",
       "class": "isomerase/mutase",
-      "dG": 8.5,
-      "dG_raw": 8.5,
+      "dG": 7.8,
+      "dG_raw": 7.8,
       "exp": 2.86,
       "U_samp": 0.7,
       "anchor": null
@@ -1506,8 +1507,8 @@
     {
       "rid": "rxn00778",
       "class": "isomerase/mutase",
-      "dG": -16.5,
-      "dG_raw": -16.5,
+      "dG": -20.5,
+      "dG_raw": -20.5,
       "exp": -8.39,
       "U_samp": 0.3,
       "anchor": null
@@ -1515,17 +1516,17 @@
     {
       "rid": "rxn00781",
       "class": "NAD(P)-redox(other)",
-      "dG": 11.3,
-      "dG_raw": 11.3,
+      "dG": -2.8,
+      "dG_raw": -2.8,
       "exp": 12.9,
-      "U_samp": 1.5,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00783",
       "class": "other/clean",
-      "dG": -0.9,
-      "dG_raw": -0.9,
+      "dG": 2.7,
+      "dG_raw": 2.7,
       "exp": 10.97,
       "U_samp": 1.0,
       "anchor": null
@@ -1533,8 +1534,8 @@
     {
       "rid": "rxn00784",
       "class": "aldolase",
-      "dG": 21.5,
-      "dG_raw": 21.5,
+      "dG": 22.6,
+      "dG_raw": 22.6,
       "exp": 20.55,
       "U_samp": 1.0,
       "anchor": null
@@ -1542,8 +1543,8 @@
     {
       "rid": "rxn00785",
       "class": "other/clean",
-      "dG": 16.5,
-      "dG_raw": 16.5,
+      "dG": 15.3,
+      "dG_raw": 15.3,
       "exp": 6.89,
       "U_samp": 1.3,
       "anchor": null
@@ -1551,8 +1552,8 @@
     {
       "rid": "rxn00786",
       "class": "aldolase",
-      "dG": 32.1,
-      "dG_raw": 32.1,
+      "dG": 50.9,
+      "dG_raw": 50.9,
       "exp": 15.84,
       "U_samp": 1.0,
       "anchor": null
@@ -1560,8 +1561,8 @@
     {
       "rid": "rxn00798",
       "class": "isomerase/mutase",
-      "dG": -1.5,
-      "dG_raw": -1.5,
+      "dG": -4.6,
+      "dG_raw": -4.6,
       "exp": 1.95,
       "U_samp": 1.1,
       "anchor": null
@@ -1578,17 +1579,17 @@
     {
       "rid": "rxn00800",
       "class": "ammonia-lyase",
-      "dG": 1.5,
-      "dG_raw": 1.5,
+      "dG": 2.4,
+      "dG_raw": 2.4,
       "exp": 5.95,
-      "U_samp": 0.9,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00802",
       "class": "ammonia-lyase",
-      "dG": 14.1,
-      "dG_raw": 14.1,
+      "dG": 11.6,
+      "dG_raw": 11.6,
       "exp": 14.68,
       "U_samp": 1.1,
       "anchor": null
@@ -1596,17 +1597,17 @@
     {
       "rid": "rxn00804",
       "class": "reductive-amination-DH",
-      "dG": 35.2,
-      "dG_raw": 35.2,
+      "dG": 27.9,
+      "dG_raw": 27.9,
       "exp": 42.45,
-      "U_samp": 1.0,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00806",
       "class": "other/clean",
-      "dG": 4.7,
-      "dG_raw": 4.7,
+      "dG": 3.2,
+      "dG_raw": 3.2,
       "exp": -3.31,
       "U_samp": 1.1,
       "anchor": null
@@ -1614,17 +1615,17 @@
     {
       "rid": "rxn00810",
       "class": "NAD(P)-redox(other)",
-      "dG": -12.4,
-      "dG_raw": -12.4,
+      "dG": -13.2,
+      "dG_raw": -13.2,
       "exp": -12.75,
-      "U_samp": 1.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn00816",
       "class": "other/clean",
-      "dG": -24.5,
-      "dG_raw": -24.5,
+      "dG": -27.2,
+      "dG_raw": -27.2,
       "exp": -8.8,
       "U_samp": 0.8,
       "anchor": null
@@ -1632,8 +1633,8 @@
     {
       "rid": "rxn00817",
       "class": "other/clean",
-      "dG": -17.5,
-      "dG_raw": -17.5,
+      "dG": -15.8,
+      "dG_raw": -15.8,
       "exp": -10.5,
       "U_samp": 0.8,
       "anchor": null
@@ -1641,8 +1642,8 @@
     {
       "rid": "rxn00824",
       "class": "CoA-thioester",
-      "dG": -7.4,
-      "dG_raw": -7.4,
+      "dG": -6.3,
+      "dG_raw": -6.3,
       "exp": 4.6,
       "U_samp": 0.7,
       "anchor": null
@@ -1650,8 +1651,8 @@
     {
       "rid": "rxn00830",
       "class": "isomerase/mutase",
-      "dG": 3.0,
-      "dG_raw": 3.0,
+      "dG": 0.1,
+      "dG_raw": 0.1,
       "exp": -4.91,
       "U_samp": 1.2,
       "anchor": null
@@ -1668,8 +1669,8 @@
     {
       "rid": "rxn00836",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 20.2,
-      "dG_raw": 20.2,
+      "dG": 26.3,
+      "dG_raw": 26.3,
       "exp": 33.38,
       "U_samp": 1.1,
       "anchor": null
@@ -1677,8 +1678,8 @@
     {
       "rid": "rxn00838",
       "class": "other/clean",
-      "dG": -25.5,
-      "dG_raw": -25.5,
+      "dG": -25.1,
+      "dG_raw": -25.1,
       "exp": 16.24,
       "U_samp": 1.3,
       "anchor": null
@@ -1695,8 +1696,8 @@
     {
       "rid": "rxn00867",
       "class": "ammonia-lyase",
-      "dG": -10.0,
-      "dG_raw": -10.0,
+      "dG": -9.0,
+      "dG_raw": -9.0,
       "exp": 8.65,
       "U_samp": 0.4,
       "anchor": null
@@ -1704,8 +1705,8 @@
     {
       "rid": "rxn00897",
       "class": "isomerase/mutase",
-      "dG": 6.5,
-      "dG_raw": 6.5,
+      "dG": 6.6,
+      "dG_raw": 6.6,
       "exp": 3.72,
       "U_samp": 1.0,
       "anchor": null
@@ -1713,26 +1714,26 @@
     {
       "rid": "rxn00906",
       "class": "flavin/FAD-redox",
-      "dG": 4.4,
-      "dG_raw": 4.4,
+      "dG": 2.6,
+      "dG_raw": 2.6,
       "exp": 17.59,
-      "U_samp": 1.0,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00907",
       "class": "flavin/FAD-redox",
-      "dG": 4.4,
-      "dG_raw": 4.4,
+      "dG": 2.6,
+      "dG_raw": 2.6,
       "exp": 9.61,
-      "U_samp": 1.0,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn00909",
       "class": "flavin/FAD-redox",
-      "dG": -7.5,
-      "dG_raw": -7.5,
+      "dG": -7.3,
+      "dG_raw": -7.3,
       "exp": -19.04,
       "U_samp": 0.1,
       "anchor": null
@@ -1740,8 +1741,8 @@
     {
       "rid": "rxn00911",
       "class": "other/clean",
-      "dG": -3.6,
-      "dG_raw": -3.6,
+      "dG": -4.8,
+      "dG_raw": -4.8,
       "exp": 2.89,
       "U_samp": 0.9,
       "anchor": null
@@ -1749,8 +1750,8 @@
     {
       "rid": "rxn00915",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 32.8,
-      "dG_raw": 32.8,
+      "dG": 38.0,
+      "dG_raw": 38.0,
       "exp": 27.36,
       "U_samp": 0.8,
       "anchor": null
@@ -1758,8 +1759,8 @@
     {
       "rid": "rxn00927",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -0.6,
-      "dG_raw": -0.6,
+      "dG": -0.1,
+      "dG_raw": -0.1,
       "exp": -9.84,
       "U_samp": 0.2,
       "anchor": null
@@ -1767,26 +1768,26 @@
     {
       "rid": "rxn00930",
       "class": "reductive-amination-DH",
-      "dG": 44.9,
-      "dG_raw": 44.9,
+      "dG": 42.3,
+      "dG_raw": 42.3,
       "exp": 30.96,
-      "U_samp": 1.2,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn00931",
       "class": "reductive-amination-DH",
-      "dG": 38.5,
-      "dG_raw": 38.5,
+      "dG": 36.0,
+      "dG_raw": 36.0,
       "exp": 58.77,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn00973",
       "class": "hydratase",
-      "dG": 5.2,
-      "dG_raw": 5.2,
+      "dG": -0.7,
+      "dG_raw": -0.7,
       "exp": 5.87,
       "U_samp": 1.1,
       "anchor": null
@@ -1794,8 +1795,8 @@
     {
       "rid": "rxn00974",
       "class": "hydratase",
-      "dG": 22.3,
-      "dG_raw": 22.3,
+      "dG": 16.4,
+      "dG_raw": 16.4,
       "exp": 7.64,
       "U_samp": 1.1,
       "anchor": null
@@ -1803,8 +1804,8 @@
     {
       "rid": "rxn00987",
       "class": "other/clean",
-      "dG": 6.4,
-      "dG_raw": 6.4,
+      "dG": 3.8,
+      "dG_raw": 3.8,
       "exp": 0.15,
       "U_samp": 1.1,
       "anchor": null
@@ -1812,8 +1813,8 @@
     {
       "rid": "rxn00990",
       "class": "CoA-thioester",
-      "dG": 0.4,
-      "dG_raw": 0.4,
+      "dG": 0.2,
+      "dG_raw": 0.2,
       "exp": -5.07,
       "U_samp": 0.8,
       "anchor": null
@@ -1821,10 +1822,10 @@
     {
       "rid": "rxn00992",
       "class": "NAD(P)-redox(other)",
-      "dG": 13.9,
-      "dG_raw": 13.9,
+      "dG": 13.7,
+      "dG_raw": 13.7,
       "exp": 14.24,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
@@ -1839,8 +1840,8 @@
     {
       "rid": "rxn01005",
       "class": "other/clean",
-      "dG": 16.1,
-      "dG_raw": 16.1,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": -3.23,
       "U_samp": 1.0,
       "anchor": null
@@ -1848,8 +1849,8 @@
     {
       "rid": "rxn01008",
       "class": "isomerase/mutase",
-      "dG": 4.5,
-      "dG_raw": 4.5,
+      "dG": 4.2,
+      "dG_raw": 4.2,
       "exp": -0.68,
       "U_samp": 0.4,
       "anchor": null
@@ -1857,17 +1858,17 @@
     {
       "rid": "rxn01011",
       "class": "NAD(P)-redox(other)",
-      "dG": 47.2,
-      "dG_raw": 47.2,
+      "dG": 41.0,
+      "dG_raw": 41.0,
       "exp": 34.31,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01016",
       "class": "kinase/phosphotransfer",
-      "dG": 13.1,
-      "dG_raw": 13.1,
+      "dG": 14.5,
+      "dG_raw": 14.5,
       "exp": 15.15,
       "U_samp": 0.6,
       "anchor": null
@@ -1875,8 +1876,8 @@
     {
       "rid": "rxn01018",
       "class": "carbamoyltransfer",
-      "dG": -25.5,
-      "dG_raw": -25.5,
+      "dG": -28.7,
+      "dG_raw": -28.7,
       "exp": -22.06,
       "U_samp": 0.7,
       "anchor": null
@@ -1884,8 +1885,8 @@
     {
       "rid": "rxn01019",
       "class": "carbamoyltransfer",
-      "dG": -55.2,
-      "dG_raw": -55.2,
+      "dG": -58.3,
+      "dG_raw": -58.3,
       "exp": -33.31,
       "U_samp": 0.7,
       "anchor": null
@@ -1893,8 +1894,8 @@
     {
       "rid": "rxn01022",
       "class": "other/clean",
-      "dG": 23.2,
-      "dG_raw": 23.2,
+      "dG": 20.5,
+      "dG_raw": 20.5,
       "exp": 11.74,
       "U_samp": 0.9,
       "anchor": null
@@ -1902,17 +1903,17 @@
     {
       "rid": "rxn01043",
       "class": "NAD(P)-redox(other)",
-      "dG": 5.4,
-      "dG_raw": 5.4,
+      "dG": 8.8,
+      "dG_raw": 8.8,
       "exp": 22.61,
-      "U_samp": 1.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01044",
       "class": "isomerase/mutase",
-      "dG": 3.5,
-      "dG_raw": 3.5,
+      "dG": 2.6,
+      "dG_raw": 2.6,
       "exp": 3.79,
       "U_samp": 0.4,
       "anchor": null
@@ -1920,8 +1921,8 @@
     {
       "rid": "rxn01054",
       "class": "other/clean",
-      "dG": -11.3,
-      "dG_raw": -11.3,
+      "dG": -11.9,
+      "dG_raw": -11.9,
       "exp": -2.57,
       "U_samp": 0.3,
       "anchor": null
@@ -1929,8 +1930,8 @@
     {
       "rid": "rxn01075",
       "class": "isomerase/mutase",
-      "dG": -1.8,
-      "dG_raw": -1.8,
+      "dG": -1.3,
+      "dG_raw": -1.3,
       "exp": -0.0,
       "U_samp": 0.9,
       "anchor": null
@@ -1938,8 +1939,8 @@
     {
       "rid": "rxn01080",
       "class": "isomerase/mutase",
-      "dG": -4.5,
-      "dG_raw": -4.5,
+      "dG": -2.1,
+      "dG_raw": -2.1,
       "exp": 0.63,
       "U_samp": 0.3,
       "anchor": null
@@ -1947,8 +1948,8 @@
     {
       "rid": "rxn01099",
       "class": "phosphatase",
-      "dG": -8.7,
-      "dG_raw": -8.7,
+      "dG": -6.2,
+      "dG_raw": -6.2,
       "exp": -18.1,
       "U_samp": 0.8,
       "anchor": null
@@ -1956,8 +1957,8 @@
     {
       "rid": "rxn01100",
       "class": "kinase/phosphotransfer",
-      "dG": 16.6,
-      "dG_raw": 16.6,
+      "dG": 16.5,
+      "dG_raw": 16.5,
       "exp": 28.47,
       "U_samp": 1.2,
       "anchor": null
@@ -1965,26 +1966,26 @@
     {
       "rid": "rxn01101",
       "class": "NAD(P)-redox(other)",
-      "dG": 49.5,
-      "dG_raw": 49.5,
+      "dG": 46.2,
+      "dG_raw": 46.2,
       "exp": 36.69,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn01106",
       "class": "isomerase/mutase",
-      "dG": -7.9,
-      "dG_raw": -7.9,
+      "dG": -5.3,
+      "dG_raw": -5.3,
       "exp": -6.4,
-      "U_samp": 0.7,
+      "U_samp": 0.1,
       "anchor": null
     },
     {
       "rid": "rxn01116",
       "class": "isomerase/mutase",
-      "dG": -0.1,
-      "dG_raw": -0.1,
+      "dG": 0.2,
+      "dG_raw": 0.2,
       "exp": -1.01,
       "U_samp": 1.0,
       "anchor": null
@@ -1992,8 +1993,8 @@
     {
       "rid": "rxn01117",
       "class": "isomerase/mutase",
-      "dG": -8.3,
-      "dG_raw": -8.3,
+      "dG": -10.3,
+      "dG_raw": -10.3,
       "exp": 2.48,
       "U_samp": 0.9,
       "anchor": null
@@ -2001,17 +2002,17 @@
     {
       "rid": "rxn01130",
       "class": "NAD(P)-redox(other)",
-      "dG": -1.9,
-      "dG_raw": -1.9,
+      "dG": 0.9,
+      "dG_raw": 0.9,
       "exp": -13.97,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01137",
       "class": "amide/amidine-hydrolysis",
-      "dG": 10.6,
-      "dG_raw": 10.6,
+      "dG": 9.6,
+      "dG_raw": 9.6,
       "exp": -23.23,
       "U_samp": 0.5,
       "anchor": null
@@ -2019,8 +2020,8 @@
     {
       "rid": "rxn01138",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 25.2,
-      "dG_raw": 25.2,
+      "dG": 26.2,
+      "dG_raw": 26.2,
       "exp": 7.67,
       "U_samp": 0.4,
       "anchor": null
@@ -2028,8 +2029,8 @@
     {
       "rid": "rxn01152",
       "class": "isomerase/mutase",
-      "dG": 6.3,
-      "dG_raw": 6.3,
+      "dG": 4.5,
+      "dG_raw": 4.5,
       "exp": 4.98,
       "U_samp": 1.1,
       "anchor": null
@@ -2037,8 +2038,8 @@
     {
       "rid": "rxn01157",
       "class": "ammonia-lyase",
-      "dG": -9.7,
-      "dG_raw": -9.7,
+      "dG": -9.8,
+      "dG_raw": -9.8,
       "exp": -8.63,
       "U_samp": 0.0,
       "anchor": null
@@ -2046,17 +2047,17 @@
     {
       "rid": "rxn01174",
       "class": "NAD(P)-redox(other)",
-      "dG": 32.2,
-      "dG_raw": 32.2,
+      "dG": 30.4,
+      "dG_raw": 30.4,
       "exp": 26.87,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01200",
       "class": "other/clean",
-      "dG": -8.5,
-      "dG_raw": -8.5,
+      "dG": -16.9,
+      "dG_raw": -16.9,
       "exp": 1.25,
       "U_samp": 1.5,
       "anchor": null
@@ -2064,17 +2065,17 @@
     {
       "rid": "rxn01201",
       "class": "NAD(P)-redox(other)",
-      "dG": 22.3,
-      "dG_raw": 22.3,
+      "dG": 19.2,
+      "dG_raw": 19.2,
       "exp": 1.23,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01204",
       "class": "transaminase",
-      "dG": 0.2,
-      "dG_raw": 0.2,
+      "dG": 4.1,
+      "dG_raw": 4.1,
       "exp": 5.41,
       "U_samp": 0.9,
       "anchor": null
@@ -2082,8 +2083,8 @@
     {
       "rid": "rxn01211",
       "class": "other/clean",
-      "dG": -3.0,
-      "dG_raw": -3.0,
+      "dG": -5.6,
+      "dG_raw": -5.6,
       "exp": -2.0,
       "U_samp": 0.5,
       "anchor": null
@@ -2091,8 +2092,8 @@
     {
       "rid": "rxn01219",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -4.79,
       "U_samp": 0.3,
       "anchor": null
@@ -2100,26 +2101,26 @@
     {
       "rid": "rxn01241",
       "class": "flavin/FAD-redox",
-      "dG": 16.8,
-      "dG_raw": 16.8,
+      "dG": 16.0,
+      "dG_raw": 16.0,
       "exp": 9.06,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn01249",
       "class": "NAD(P)-redox(other)",
-      "dG": 19.5,
-      "dG_raw": 19.5,
+      "dG": 16.4,
+      "dG_raw": 16.4,
       "exp": 33.61,
-      "U_samp": 1.4,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn01253",
       "class": "transaminase",
-      "dG": -5.2,
-      "dG_raw": -5.2,
+      "dG": -1.7,
+      "dG_raw": -1.7,
       "exp": -1.08,
       "U_samp": 0.7,
       "anchor": null
@@ -2127,8 +2128,8 @@
     {
       "rid": "rxn01258",
       "class": "isomerase/mutase",
-      "dG": -7.4,
-      "dG_raw": -7.4,
+      "dG": -6.6,
+      "dG_raw": -6.6,
       "exp": 1.03,
       "U_samp": 1.0,
       "anchor": null
@@ -2136,8 +2137,8 @@
     {
       "rid": "rxn01259",
       "class": "other/clean",
-      "dG": -21.2,
-      "dG_raw": -21.2,
+      "dG": -22.1,
+      "dG_raw": -22.1,
       "exp": -7.65,
       "U_samp": 1.1,
       "anchor": null
@@ -2145,8 +2146,8 @@
     {
       "rid": "rxn01265",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -30.1,
-      "dG_raw": -30.1,
+      "dG": -22.1,
+      "dG_raw": -22.1,
       "exp": 8.54,
       "U_samp": 1.2,
       "anchor": null
@@ -2154,26 +2155,26 @@
     {
       "rid": "rxn01277",
       "class": "NAD(P)-redox(other)",
-      "dG": 50.2,
-      "dG_raw": 50.2,
+      "dG": 42.9,
+      "dG_raw": 42.9,
       "exp": 25.48,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01280",
       "class": "NAD(P)-redox(other)",
-      "dG": 36.2,
-      "dG_raw": 36.2,
+      "dG": 35.5,
+      "dG_raw": 35.5,
       "exp": 38.9,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01292",
       "class": "isomerase/mutase",
-      "dG": 4.4,
-      "dG_raw": 4.4,
+      "dG": 3.7,
+      "dG_raw": 3.7,
       "exp": 4.73,
       "U_samp": 0.1,
       "anchor": null
@@ -2181,17 +2182,17 @@
     {
       "rid": "rxn01293",
       "class": "NAD(P)-redox(other)",
-      "dG": 12.7,
-      "dG_raw": 12.7,
+      "dG": 10.3,
+      "dG_raw": 10.3,
       "exp": 23.8,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01299",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -5.9,
-      "dG_raw": -5.9,
+      "dG": -6.5,
+      "dG_raw": -6.5,
       "exp": -11.82,
       "U_samp": 0.2,
       "anchor": null
@@ -2199,26 +2200,26 @@
     {
       "rid": "rxn01301",
       "class": "NAD(P)-redox(other)",
-      "dG": 33.4,
-      "dG_raw": 33.4,
+      "dG": 30.7,
+      "dG_raw": 30.7,
       "exp": 20.72,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01302",
       "class": "NAD(P)-redox(other)",
-      "dG": 33.4,
-      "dG_raw": 33.4,
+      "dG": 30.7,
+      "dG_raw": 30.7,
       "exp": 31.2,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01306",
       "class": "aldolase",
-      "dG": 4.4,
-      "dG_raw": 4.4,
+      "dG": 5.3,
+      "dG_raw": 5.3,
       "exp": 19.79,
       "U_samp": 0.7,
       "anchor": null
@@ -2226,8 +2227,8 @@
     {
       "rid": "rxn01322",
       "class": "other/clean",
-      "dG": 3.9,
-      "dG_raw": 3.9,
+      "dG": -0.6,
+      "dG_raw": -0.6,
       "exp": 7.11,
       "U_samp": 0.8,
       "anchor": null
@@ -2244,8 +2245,8 @@
     {
       "rid": "rxn01333",
       "class": "aldolase",
-      "dG": -12.7,
-      "dG_raw": -12.7,
+      "dG": -13.3,
+      "dG_raw": -13.3,
       "exp": 0.37,
       "U_samp": 1.5,
       "anchor": null
@@ -2253,10 +2254,10 @@
     {
       "rid": "rxn01336",
       "class": "NAD(P)-redox(other)",
-      "dG": 3.2,
-      "dG_raw": 3.2,
+      "dG": 0.5,
+      "dG_raw": 0.5,
       "exp": 6.05,
-      "U_samp": 1.0,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
@@ -2271,35 +2272,35 @@
     {
       "rid": "rxn01361",
       "class": "flavin/FAD-redox",
-      "dG": 26.1,
-      "dG_raw": 26.1,
+      "dG": 23.5,
+      "dG_raw": 23.5,
       "exp": 16.05,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01362",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -14.5,
-      "dG_raw": -14.5,
+      "dG": -0.4,
+      "dG_raw": -0.4,
       "exp": -12.85,
-      "U_samp": 0.9,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01363",
       "class": "NAD(P)-redox(other)",
-      "dG": 15.8,
-      "dG_raw": 15.8,
+      "dG": 15.1,
+      "dG_raw": 15.1,
       "exp": 18.44,
-      "U_samp": 1.6,
+      "U_samp": 1.4,
       "anchor": null
     },
     {
       "rid": "rxn01366",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 16.4,
-      "dG_raw": 16.4,
+      "dG": 16.9,
+      "dG_raw": 16.9,
       "exp": 0.79,
       "U_samp": 0.4,
       "anchor": null
@@ -2307,8 +2308,8 @@
     {
       "rid": "rxn01368",
       "class": "amide/amidine-hydrolysis",
-      "dG": -13.1,
-      "dG_raw": -13.1,
+      "dG": -13.3,
+      "dG_raw": -13.3,
       "exp": -14.7,
       "U_samp": 0.0,
       "anchor": null
@@ -2316,8 +2317,8 @@
     {
       "rid": "rxn01371",
       "class": "phosphagen(P-N/Mg)",
-      "dG": 28.0,
-      "dG_raw": 28.0,
+      "dG": 28.5,
+      "dG_raw": 28.5,
       "exp": 8.89,
       "U_samp": 0.7,
       "anchor": null
@@ -2325,8 +2326,8 @@
     {
       "rid": "rxn01380",
       "class": "other/clean",
-      "dG": 6.3,
-      "dG_raw": 6.3,
+      "dG": 5.2,
+      "dG_raw": 5.2,
       "exp": 6.73,
       "U_samp": 1.0,
       "anchor": null
@@ -2334,26 +2335,26 @@
     {
       "rid": "rxn01383",
       "class": "NAD(P)-redox(other)",
-      "dG": 18.9,
-      "dG_raw": 18.9,
+      "dG": 12.0,
+      "dG_raw": 12.0,
       "exp": 21.77,
-      "U_samp": 1.5,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn01385",
       "class": "NAD(P)-redox(other)",
-      "dG": 9.0,
-      "dG_raw": 9.0,
+      "dG": 11.5,
+      "dG_raw": 11.5,
       "exp": 22.76,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01386",
       "class": "isomerase/mutase",
-      "dG": -2.5,
-      "dG_raw": -2.5,
+      "dG": -2.6,
+      "dG_raw": -2.6,
       "exp": -3.01,
       "U_samp": 1.1,
       "anchor": null
@@ -2361,8 +2362,8 @@
     {
       "rid": "rxn01388",
       "class": "hydratase",
-      "dG": 17.1,
-      "dG_raw": 17.1,
+      "dG": 17.0,
+      "dG_raw": 17.0,
       "exp": 1.49,
       "U_samp": 0.4,
       "anchor": null
@@ -2370,26 +2371,26 @@
     {
       "rid": "rxn01392",
       "class": "NAD(P)-redox(other)",
-      "dG": 8.6,
-      "dG_raw": 8.6,
+      "dG": 11.4,
+      "dG_raw": 11.4,
       "exp": 27.06,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01407",
       "class": "NAD(P)-redox(other)",
-      "dG": 34.7,
-      "dG_raw": 34.7,
+      "dG": 32.1,
+      "dG_raw": 32.1,
       "exp": 30.1,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01409",
       "class": "CoA-thioester",
-      "dG": -24.4,
-      "dG_raw": -24.4,
+      "dG": -24.6,
+      "dG_raw": -24.6,
       "exp": 1.74,
       "U_samp": 1.0,
       "anchor": null
@@ -2397,8 +2398,8 @@
     {
       "rid": "rxn01410",
       "class": "hydratase",
-      "dG": 5.6,
-      "dG_raw": 5.6,
+      "dG": 5.8,
+      "dG_raw": 5.8,
       "exp": -1.05,
       "U_samp": 0.0,
       "anchor": null
@@ -2406,8 +2407,8 @@
     {
       "rid": "rxn01423",
       "class": "transaminase",
-      "dG": 4.7,
-      "dG_raw": 4.7,
+      "dG": 4.1,
+      "dG_raw": 4.1,
       "exp": -0.72,
       "U_samp": 0.7,
       "anchor": null
@@ -2415,8 +2416,8 @@
     {
       "rid": "rxn01434",
       "class": "other/clean",
-      "dG": 40.9,
-      "dG_raw": 40.9,
+      "dG": 35.8,
+      "dG_raw": 35.8,
       "exp": 5.46,
       "U_samp": 1.2,
       "anchor": null
@@ -2424,26 +2425,26 @@
     {
       "rid": "rxn01447",
       "class": "NAD(P)-redox(other)",
-      "dG": 37.8,
-      "dG_raw": 37.8,
+      "dG": 31.9,
+      "dG_raw": 31.9,
       "exp": -13.03,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01451",
       "class": "CoA-thioester",
-      "dG": 18.9,
-      "dG_raw": 18.9,
+      "dG": 16.3,
+      "dG_raw": 16.3,
       "exp": 21.9,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01457",
       "class": "isomerase/mutase",
-      "dG": 5.0,
-      "dG_raw": 5.0,
+      "dG": 6.1,
+      "dG_raw": 6.1,
       "exp": 1.34,
       "U_samp": 0.9,
       "anchor": null
@@ -2460,8 +2461,8 @@
     {
       "rid": "rxn01479",
       "class": "other/clean",
-      "dG": 2.1,
-      "dG_raw": 2.1,
+      "dG": -0.9,
+      "dG_raw": -0.9,
       "exp": -1.56,
       "U_samp": 1.4,
       "anchor": null
@@ -2469,17 +2470,17 @@
     {
       "rid": "rxn01480",
       "class": "NAD(P)-redox(other)",
-      "dG": 32.5,
-      "dG_raw": 32.5,
+      "dG": 31.8,
+      "dG_raw": 31.8,
       "exp": 23.78,
-      "U_samp": 1.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01485",
       "class": "isomerase/mutase",
-      "dG": -31.1,
-      "dG_raw": -31.1,
+      "dG": -29.8,
+      "dG_raw": -29.8,
       "exp": -2.72,
       "U_samp": 0.6,
       "anchor": null
@@ -2487,8 +2488,8 @@
     {
       "rid": "rxn01491",
       "class": "phosphatase",
-      "dG": -6.0,
-      "dG_raw": -6.0,
+      "dG": -9.1,
+      "dG_raw": -9.1,
       "exp": -12.92,
       "U_samp": 1.2,
       "anchor": null
@@ -2496,8 +2497,8 @@
     {
       "rid": "rxn01505",
       "class": "isomerase/mutase",
-      "dG": 10.8,
-      "dG_raw": 10.8,
+      "dG": 11.5,
+      "dG_raw": 11.5,
       "exp": 4.72,
       "U_samp": 1.0,
       "anchor": null
@@ -2505,8 +2506,8 @@
     {
       "rid": "rxn01506",
       "class": "isomerase/mutase",
-      "dG": 5.7,
-      "dG_raw": 5.7,
+      "dG": 4.3,
+      "dG_raw": 4.3,
       "exp": 1.96,
       "U_samp": 0.4,
       "anchor": null
@@ -2514,8 +2515,8 @@
     {
       "rid": "rxn01509",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -0.2,
       "U_samp": 0.3,
       "anchor": null
@@ -2523,8 +2524,8 @@
     {
       "rid": "rxn01513",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -2.76,
       "U_samp": 0.3,
       "anchor": null
@@ -2532,17 +2533,17 @@
     {
       "rid": "rxn01530",
       "class": "NAD(P)-redox(other)",
-      "dG": 8.3,
-      "dG_raw": 8.3,
+      "dG": 5.6,
+      "dG_raw": 5.6,
       "exp": 12.55,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn01532",
       "class": "isomerase/mutase",
-      "dG": 15.0,
-      "dG_raw": 15.0,
+      "dG": 15.4,
+      "dG_raw": 15.4,
       "exp": 7.7,
       "U_samp": 1.3,
       "anchor": null
@@ -2550,8 +2551,8 @@
     {
       "rid": "rxn01548",
       "class": "other/clean",
-      "dG": 22.3,
-      "dG_raw": 22.3,
+      "dG": 23.3,
+      "dG_raw": 23.3,
       "exp": 11.27,
       "U_samp": 0.7,
       "anchor": null
@@ -2559,35 +2560,35 @@
     {
       "rid": "rxn01579",
       "class": "reductive-amination-DH",
-      "dG": 53.2,
-      "dG_raw": 53.2,
+      "dG": 49.7,
+      "dG_raw": 49.7,
       "exp": 30.22,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn01597",
       "class": "NAD(P)-redox(other)",
-      "dG": -13.2,
-      "dG_raw": -13.2,
+      "dG": -10.3,
+      "dG_raw": -10.3,
       "exp": -10.93,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01617",
       "class": "NAD(P)-redox(other)",
-      "dG": 31.7,
-      "dG_raw": 31.7,
+      "dG": 29.4,
+      "dG_raw": 29.4,
       "exp": 39.18,
-      "U_samp": 1.0,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn01620",
       "class": "aldolase",
-      "dG": 13.5,
-      "dG_raw": 13.5,
+      "dG": 14.2,
+      "dG_raw": 14.2,
       "exp": 19.81,
       "U_samp": 1.0,
       "anchor": null
@@ -2595,8 +2596,8 @@
     {
       "rid": "rxn01621",
       "class": "aldolase",
-      "dG": 13.0,
-      "dG_raw": 13.0,
+      "dG": 16.5,
+      "dG_raw": 16.5,
       "exp": 6.41,
       "U_samp": 1.0,
       "anchor": null
@@ -2604,8 +2605,8 @@
     {
       "rid": "rxn01626",
       "class": "other/clean",
-      "dG": -12.1,
-      "dG_raw": -12.1,
+      "dG": -12.7,
+      "dG_raw": -12.7,
       "exp": -6.43,
       "U_samp": 0.1,
       "anchor": null
@@ -2613,8 +2614,8 @@
     {
       "rid": "rxn01636",
       "class": "CoA-thioester",
-      "dG": 21.3,
-      "dG_raw": 21.3,
+      "dG": 20.9,
+      "dG_raw": 20.9,
       "exp": 5.3,
       "U_samp": 0.2,
       "anchor": null
@@ -2622,8 +2623,8 @@
     {
       "rid": "rxn01638",
       "class": "other/clean",
-      "dG": -5.5,
-      "dG_raw": -5.5,
+      "dG": -5.2,
+      "dG_raw": -5.2,
       "exp": -0.27,
       "U_samp": 0.4,
       "anchor": null
@@ -2631,17 +2632,17 @@
     {
       "rid": "rxn01643",
       "class": "NAD(P)-redox(other)",
-      "dG": 16.2,
-      "dG_raw": 16.2,
+      "dG": 12.9,
+      "dG_raw": 12.9,
       "exp": -16.47,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn01646",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": -22.4,
-      "dG_raw": -22.4,
+      "dG": -21.9,
+      "dG_raw": -21.9,
       "exp": -14.34,
       "U_samp": 0.6,
       "anchor": null
@@ -2649,8 +2650,8 @@
     {
       "rid": "rxn01682",
       "class": "other/clean",
-      "dG": 19.7,
-      "dG_raw": 19.7,
+      "dG": 19.4,
+      "dG_raw": 19.4,
       "exp": 19.3,
       "U_samp": 0.6,
       "anchor": null
@@ -2658,17 +2659,17 @@
     {
       "rid": "rxn01692",
       "class": "NAD(P)-redox(other)",
-      "dG": 4.6,
-      "dG_raw": 4.6,
+      "dG": 2.0,
+      "dG_raw": 2.0,
       "exp": 8.01,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01702",
       "class": "other/clean",
-      "dG": -39.1,
-      "dG_raw": -39.1,
+      "dG": -40.4,
+      "dG_raw": -40.4,
       "exp": 19.83,
       "U_samp": 0.8,
       "anchor": null
@@ -2676,8 +2677,8 @@
     {
       "rid": "rxn01713",
       "class": "other/clean",
-      "dG": 8.9,
-      "dG_raw": 8.9,
+      "dG": 5.8,
+      "dG_raw": 5.8,
       "exp": 7.94,
       "U_samp": 1.1,
       "anchor": null
@@ -2685,35 +2686,35 @@
     {
       "rid": "rxn01725",
       "class": "NAD(P)-redox(other)",
-      "dG": 34.6,
-      "dG_raw": 34.6,
+      "dG": 32.0,
+      "dG_raw": 32.0,
       "exp": 26.29,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01726",
       "class": "CoA-thioester",
-      "dG": -24.0,
-      "dG_raw": -24.0,
+      "dG": -24.7,
+      "dG_raw": -24.7,
       "exp": -1.24,
-      "U_samp": 1.1,
+      "U_samp": 1.2,
       "anchor": null
     },
     {
       "rid": "rxn01740",
       "class": "NAD(P)-redox(other)",
-      "dG": 13.9,
-      "dG_raw": 13.9,
+      "dG": 11.3,
+      "dG_raw": 11.3,
       "exp": 16.04,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01745",
       "class": "hydratase",
-      "dG": 26.5,
-      "dG_raw": 26.5,
+      "dG": 31.3,
+      "dG_raw": 31.3,
       "exp": 18.84,
       "U_samp": 1.3,
       "anchor": null
@@ -2721,8 +2722,8 @@
     {
       "rid": "rxn01746",
       "class": "amide/amidine-hydrolysis",
-      "dG": -5.8,
-      "dG_raw": -5.8,
+      "dG": -6.3,
+      "dG_raw": -6.3,
       "exp": 0.29,
       "U_samp": 0.1,
       "anchor": null
@@ -2730,8 +2731,8 @@
     {
       "rid": "rxn01761",
       "class": "isomerase/mutase",
-      "dG": 16.5,
-      "dG_raw": 16.5,
+      "dG": 16.1,
+      "dG_raw": 16.1,
       "exp": 0.72,
       "U_samp": 0.7,
       "anchor": null
@@ -2739,8 +2740,8 @@
     {
       "rid": "rxn01780",
       "class": "isomerase/mutase",
-      "dG": -0.8,
-      "dG_raw": -0.8,
+      "dG": -0.2,
+      "dG_raw": -0.2,
       "exp": 6.63,
       "U_samp": 0.0,
       "anchor": null
@@ -2748,17 +2749,17 @@
     {
       "rid": "rxn01790",
       "class": "NAD(P)-redox(other)",
-      "dG": 36.3,
-      "dG_raw": 36.3,
+      "dG": 30.6,
+      "dG_raw": 30.6,
       "exp": 25.99,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn01792",
       "class": "amide/amidine-hydrolysis",
-      "dG": 4.8,
-      "dG_raw": 4.8,
+      "dG": 4.7,
+      "dG_raw": 4.7,
       "exp": 6.69,
       "U_samp": 0.1,
       "anchor": null
@@ -2766,8 +2767,8 @@
     {
       "rid": "rxn01834",
       "class": "other/clean",
-      "dG": 21.8,
-      "dG_raw": 21.8,
+      "dG": 27.5,
+      "dG_raw": 27.5,
       "exp": 23.47,
       "U_samp": 0.8,
       "anchor": null
@@ -2775,26 +2776,26 @@
     {
       "rid": "rxn01846",
       "class": "NAD(P)-redox(other)",
-      "dG": 60.5,
-      "dG_raw": 60.5,
+      "dG": 53.4,
+      "dG_raw": 53.4,
       "exp": 30.65,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01847",
       "class": "NAD(P)-redox(other)",
-      "dG": 60.5,
-      "dG_raw": 60.5,
+      "dG": 53.4,
+      "dG_raw": 53.4,
       "exp": 43.16,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn01870",
       "class": "aldolase",
-      "dG": 32.0,
-      "dG_raw": 32.0,
+      "dG": 30.2,
+      "dG_raw": 30.2,
       "exp": 30.5,
       "U_samp": 0.9,
       "anchor": null
@@ -2802,17 +2803,17 @@
     {
       "rid": "rxn01887",
       "class": "NAD(P)-redox(other)",
-      "dG": 13.8,
-      "dG_raw": 13.8,
+      "dG": 11.0,
+      "dG_raw": 11.0,
       "exp": 16.21,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn01974",
       "class": "isomerase/mutase",
-      "dG": -0.0,
-      "dG_raw": -0.0,
+      "dG": -0.4,
+      "dG_raw": -0.4,
       "exp": -1.66,
       "U_samp": 0.8,
       "anchor": null
@@ -2829,8 +2830,8 @@
     {
       "rid": "rxn01996",
       "class": "CoA-thioester",
-      "dG": 3.9,
-      "dG_raw": 3.9,
+      "dG": 2.2,
+      "dG_raw": 2.2,
       "exp": -0.0,
       "U_samp": 0.5,
       "anchor": null
@@ -2838,8 +2839,8 @@
     {
       "rid": "rxn01999",
       "class": "other/clean",
-      "dG": 6.2,
-      "dG_raw": 6.2,
+      "dG": 8.0,
+      "dG_raw": 8.0,
       "exp": -0.88,
       "U_samp": 1.1,
       "anchor": null
@@ -2847,17 +2848,17 @@
     {
       "rid": "rxn02066",
       "class": "NAD(P)-redox(other)",
-      "dG": 22.3,
-      "dG_raw": 22.3,
+      "dG": 19.2,
+      "dG_raw": 19.2,
       "exp": 28.07,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn02085",
       "class": "hydratase",
-      "dG": 20.2,
-      "dG_raw": 20.2,
+      "dG": 20.0,
+      "dG_raw": 20.0,
       "exp": 8.7,
       "U_samp": 0.3,
       "anchor": null
@@ -2865,26 +2866,26 @@
     {
       "rid": "rxn02095",
       "class": "NAD(P)-redox(other)",
-      "dG": 4.2,
-      "dG_raw": 4.2,
+      "dG": -0.6,
+      "dG_raw": -0.6,
       "exp": 14.24,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn02132",
       "class": "NAD(P)-redox(other)",
-      "dG": 13.1,
-      "dG_raw": 13.1,
+      "dG": 9.5,
+      "dG_raw": 9.5,
       "exp": 20.47,
-      "U_samp": 1.3,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
       "rid": "rxn02167",
       "class": "CoA-thioester",
-      "dG": 0.9,
-      "dG_raw": 0.9,
+      "dG": 3.2,
+      "dG_raw": 3.2,
       "exp": 3.25,
       "U_samp": 0.0,
       "anchor": null
@@ -2892,8 +2893,8 @@
     {
       "rid": "rxn02168",
       "class": "CoA-thioester",
-      "dG": -0.0,
-      "dG_raw": -0.0,
+      "dG": 3.0,
+      "dG_raw": 3.0,
       "exp": 4.24,
       "U_samp": 0.3,
       "anchor": null
@@ -2901,8 +2902,8 @@
     {
       "rid": "rxn02202",
       "class": "hydratase",
-      "dG": 9.1,
-      "dG_raw": 9.1,
+      "dG": 10.9,
+      "dG_raw": 10.9,
       "exp": 3.99,
       "U_samp": 1.2,
       "anchor": null
@@ -2910,8 +2911,8 @@
     {
       "rid": "rxn02204",
       "class": "isomerase/mutase",
-      "dG": -4.9,
-      "dG_raw": -4.9,
+      "dG": -4.4,
+      "dG_raw": -4.4,
       "exp": -3.28,
       "U_samp": 0.9,
       "anchor": null
@@ -2919,8 +2920,8 @@
     {
       "rid": "rxn02213",
       "class": "hydratase",
-      "dG": 6.3,
-      "dG_raw": 6.3,
+      "dG": 6.4,
+      "dG_raw": 6.4,
       "exp": -5.29,
       "U_samp": 0.0,
       "anchor": null
@@ -2928,8 +2929,8 @@
     {
       "rid": "rxn02263",
       "class": "isomerase/mutase",
-      "dG": 14.1,
-      "dG_raw": 14.1,
+      "dG": 15.7,
+      "dG_raw": 15.7,
       "exp": 5.46,
       "U_samp": 1.0,
       "anchor": null
@@ -2937,8 +2938,8 @@
     {
       "rid": "rxn02305",
       "class": "kinase/phosphotransfer",
-      "dG": 26.6,
-      "dG_raw": 26.6,
+      "dG": 24.1,
+      "dG_raw": 24.1,
       "exp": -20.09,
       "U_samp": 1.2,
       "anchor": null
@@ -2946,8 +2947,8 @@
     {
       "rid": "rxn02320",
       "class": "transaminase",
-      "dG": 0.9,
-      "dG_raw": 0.9,
+      "dG": 4.6,
+      "dG_raw": 4.6,
       "exp": -7.81,
       "U_samp": 1.5,
       "anchor": null
@@ -2955,8 +2956,8 @@
     {
       "rid": "rxn02322",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -2.61,
       "U_samp": 0.3,
       "anchor": null
@@ -2964,8 +2965,8 @@
     {
       "rid": "rxn02360",
       "class": "isomerase/mutase",
-      "dG": 1.7,
-      "dG_raw": 1.7,
+      "dG": 1.6,
+      "dG_raw": 1.6,
       "exp": 0.02,
       "U_samp": 0.0,
       "anchor": null
@@ -2973,17 +2974,17 @@
     {
       "rid": "rxn02403",
       "class": "other/clean",
-      "dG": 23.8,
-      "dG_raw": 23.8,
+      "dG": 20.5,
+      "dG_raw": 20.5,
       "exp": 18.4,
-      "U_samp": 1.5,
+      "U_samp": 1.3,
       "anchor": null
     },
     {
       "rid": "rxn02451",
       "class": "other/clean",
-      "dG": -4.5,
-      "dG_raw": -4.5,
+      "dG": -7.6,
+      "dG_raw": -7.6,
       "exp": -3.48,
       "U_samp": 0.9,
       "anchor": null
@@ -2991,26 +2992,26 @@
     {
       "rid": "rxn02459",
       "class": "NAD(P)-redox(other)",
-      "dG": 45.6,
-      "dG_raw": 45.6,
+      "dG": 38.9,
+      "dG_raw": 38.9,
       "exp": 34.8,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn02527",
       "class": "NAD(P)-redox(other)",
-      "dG": -22.3,
-      "dG_raw": -22.3,
+      "dG": -19.2,
+      "dG_raw": -19.2,
       "exp": -26.85,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn02591",
       "class": "isomerase/mutase",
-      "dG": -22.1,
-      "dG_raw": -22.1,
+      "dG": -21.1,
+      "dG_raw": -21.1,
       "exp": -10.53,
       "U_samp": 0.7,
       "anchor": null
@@ -3018,8 +3019,8 @@
     {
       "rid": "rxn02622",
       "class": "hydratase",
-      "dG": 15.5,
-      "dG_raw": 15.5,
+      "dG": 15.0,
+      "dG_raw": 15.0,
       "exp": 4.43,
       "U_samp": 0.8,
       "anchor": null
@@ -3027,8 +3028,8 @@
     {
       "rid": "rxn02625",
       "class": "ammonia-lyase",
-      "dG": -0.4,
-      "dG_raw": -0.4,
+      "dG": -0.3,
+      "dG_raw": -0.3,
       "exp": 7.15,
       "U_samp": 1.2,
       "anchor": null
@@ -3036,17 +3037,17 @@
     {
       "rid": "rxn02651",
       "class": "NAD(P)-redox(other)",
-      "dG": 32.9,
-      "dG_raw": 32.9,
+      "dG": 29.4,
+      "dG_raw": 29.4,
       "exp": 23.26,
-      "U_samp": 1.2,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn02685",
       "class": "phosphagen(P-N/Mg)",
-      "dG": 40.7,
-      "dG_raw": 40.7,
+      "dG": 37.7,
+      "dG_raw": 37.7,
       "exp": -3.99,
       "U_samp": 0.2,
       "anchor": null
@@ -3054,8 +3055,8 @@
     {
       "rid": "rxn02749",
       "class": "hydratase",
-      "dG": 27.9,
-      "dG_raw": 27.9,
+      "dG": 27.8,
+      "dG_raw": 27.8,
       "exp": 11.48,
       "U_samp": 1.2,
       "anchor": null
@@ -3063,8 +3064,8 @@
     {
       "rid": "rxn02756",
       "class": "isomerase/mutase",
-      "dG": 4.0,
-      "dG_raw": 4.0,
+      "dG": 4.4,
+      "dG_raw": 4.4,
       "exp": 3.75,
       "U_samp": 0.9,
       "anchor": null
@@ -3072,8 +3073,8 @@
     {
       "rid": "rxn02782",
       "class": "isomerase/mutase",
-      "dG": 18.0,
-      "dG_raw": 18.0,
+      "dG": 18.1,
+      "dG_raw": 18.1,
       "exp": 14.26,
       "U_samp": 0.0,
       "anchor": null
@@ -3081,28 +3082,28 @@
     {
       "rid": "rxn02842",
       "class": "NAD(P)-redox(other)",
-      "dG": 27.9,
-      "dG_raw": 27.9,
+      "dG": 24.9,
+      "dG_raw": 24.9,
       "exp": 30.13,
-      "U_samp": 1.0,
+      "U_samp": 0.6,
       "anchor": null
     },
     {
       "rid": "rxn02887",
       "class": "NAD(P)-redox(other)",
-      "dG": 18.2,
-      "dG_raw": 18.2,
+      "dG": 14.8,
+      "dG_raw": 14.8,
       "exp": 15.02,
-      "U_samp": 1.3,
+      "U_samp": 1.1,
       "anchor": null
     },
     {
       "rid": "rxn02900",
       "class": "other/clean",
-      "dG": 1.9,
-      "dG_raw": 1.9,
+      "dG": 3.4,
+      "dG_raw": 3.4,
       "exp": 2.93,
-      "U_samp": 0.6,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
@@ -3117,8 +3118,8 @@
     {
       "rid": "rxn02914",
       "class": "transaminase",
-      "dG": 10.3,
-      "dG_raw": 10.3,
+      "dG": 9.7,
+      "dG_raw": 9.7,
       "exp": 13.39,
       "U_samp": 1.4,
       "anchor": null
@@ -3126,17 +3127,17 @@
     {
       "rid": "rxn02930",
       "class": "reductive-amination-DH",
-      "dG": -0.2,
-      "dG_raw": -0.2,
+      "dG": -1.2,
+      "dG_raw": -1.2,
       "exp": 32.66,
-      "U_samp": 1.3,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
       "rid": "rxn02975",
       "class": "isomerase/mutase",
-      "dG": -3.3,
-      "dG_raw": -3.3,
+      "dG": 1.8,
+      "dG_raw": 1.8,
       "exp": -0.68,
       "U_samp": 1.4,
       "anchor": null
@@ -3144,17 +3145,17 @@
     {
       "rid": "rxn03087",
       "class": "transaminase",
-      "dG": 15.5,
-      "dG_raw": 15.5,
+      "dG": 19.0,
+      "dG_raw": 19.0,
       "exp": 1.74,
-      "U_samp": 0.8,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn03137",
       "class": "glycosyl/PRT/nucleoside",
-      "dG": 25.9,
-      "dG_raw": 25.9,
+      "dG": 23.4,
+      "dG_raw": 23.4,
       "exp": 4.82,
       "U_samp": 0.4,
       "anchor": null
@@ -3162,17 +3163,17 @@
     {
       "rid": "rxn03249",
       "class": "CoA-thioester",
-      "dG": 18.3,
-      "dG_raw": 18.3,
+      "dG": 15.5,
+      "dG_raw": 15.5,
       "exp": 24.33,
-      "U_samp": 0.9,
+      "U_samp": 0.5,
       "anchor": null
     },
     {
       "rid": "rxn03250",
       "class": "CoA-thioester",
-      "dG": 0.1,
-      "dG_raw": 0.1,
+      "dG": 1.8,
+      "dG_raw": 1.8,
       "exp": 1.02,
       "U_samp": 1.1,
       "anchor": null
@@ -3180,8 +3181,8 @@
     {
       "rid": "rxn03281",
       "class": "isomerase/mutase",
-      "dG": -5.3,
-      "dG_raw": -5.3,
+      "dG": -5.4,
+      "dG_raw": -5.4,
       "exp": 6.81,
       "U_samp": 0.3,
       "anchor": null
@@ -3189,8 +3190,8 @@
     {
       "rid": "rxn03643",
       "class": "other/clean",
-      "dG": -26.4,
-      "dG_raw": -26.4,
+      "dG": -28.5,
+      "dG_raw": -28.5,
       "exp": -25.52,
       "U_samp": 1.2,
       "anchor": null
@@ -3198,8 +3199,8 @@
     {
       "rid": "rxn03644",
       "class": "isomerase/mutase",
-      "dG": -24.3,
-      "dG_raw": -24.3,
+      "dG": -21.0,
+      "dG_raw": -21.0,
       "exp": -13.03,
       "U_samp": 0.9,
       "anchor": null
@@ -3207,8 +3208,8 @@
     {
       "rid": "rxn03840",
       "class": "other/clean",
-      "dG": -11.3,
-      "dG_raw": -11.3,
+      "dG": -10.3,
+      "dG_raw": -10.3,
       "exp": -6.82,
       "U_samp": 0.4,
       "anchor": null
@@ -3216,8 +3217,8 @@
     {
       "rid": "rxn03876",
       "class": "CoA-thioester",
-      "dG": -7.2,
-      "dG_raw": -7.2,
+      "dG": -7.1,
+      "dG_raw": -7.1,
       "exp": 0.01,
       "U_samp": 0.2,
       "anchor": null
@@ -3225,8 +3226,8 @@
     {
       "rid": "rxn03884",
       "class": "aldolase",
-      "dG": 5.7,
-      "dG_raw": 5.7,
+      "dG": 7.8,
+      "dG_raw": 7.8,
       "exp": 13.39,
       "U_samp": 0.5,
       "anchor": null
@@ -3234,17 +3235,17 @@
     {
       "rid": "rxn03886",
       "class": "NAD(P)-redox(other)",
-      "dG": 3.4,
-      "dG_raw": 3.4,
+      "dG": -0.0,
+      "dG_raw": -0.0,
       "exp": 16.7,
-      "U_samp": 1.2,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn04082",
       "class": "isomerase/mutase",
-      "dG": -1.3,
-      "dG_raw": -1.3,
+      "dG": 1.3,
+      "dG_raw": 1.3,
       "exp": -0.47,
       "U_samp": 0.8,
       "anchor": null
@@ -3252,8 +3253,8 @@
     {
       "rid": "rxn04684",
       "class": "phosphatase",
-      "dG": -9.9,
-      "dG_raw": -9.9,
+      "dG": -10.6,
+      "dG_raw": -10.6,
       "exp": -5.47,
       "U_samp": 0.5,
       "anchor": null
@@ -3261,8 +3262,8 @@
     {
       "rid": "rxn04785",
       "class": "phosphagen(P-N/Mg)",
-      "dG": 40.7,
-      "dG_raw": 40.7,
+      "dG": 37.7,
+      "dG_raw": 37.7,
       "exp": -8.77,
       "U_samp": 0.2,
       "anchor": null
@@ -3270,35 +3271,35 @@
     {
       "rid": "rxn04932",
       "class": "NAD(P)-redox(other)",
-      "dG": 11.0,
-      "dG_raw": 11.0,
+      "dG": 7.5,
+      "dG_raw": 7.5,
       "exp": 21.15,
-      "U_samp": 1.5,
+      "U_samp": 1.3,
       "anchor": null
     },
     {
       "rid": "rxn04943",
       "class": "NAD(P)-redox(other)",
-      "dG": -7.7,
-      "dG_raw": -7.7,
+      "dG": -2.8,
+      "dG_raw": -2.8,
       "exp": 17.03,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn04945",
       "class": "NAD(P)-redox(other)",
-      "dG": -4.1,
-      "dG_raw": -4.1,
+      "dG": -7.3,
+      "dG_raw": -7.3,
       "exp": 3.69,
-      "U_samp": 1.1,
+      "U_samp": 0.7,
       "anchor": null
     },
     {
       "rid": "rxn05026",
       "class": "other/clean",
-      "dG": 1.3,
-      "dG_raw": 1.3,
+      "dG": 3.1,
+      "dG_raw": 3.1,
       "exp": 5.66,
       "U_samp": 0.7,
       "anchor": null
@@ -3306,8 +3307,8 @@
     {
       "rid": "rxn08066",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -3.9,
       "U_samp": 0.3,
       "anchor": null
@@ -3315,8 +3316,8 @@
     {
       "rid": "rxn08430",
       "class": "phosphatase",
-      "dG": -6.0,
-      "dG_raw": -6.0,
+      "dG": -9.1,
+      "dG_raw": -9.1,
       "exp": -13.93,
       "U_samp": 1.2,
       "anchor": null
@@ -3324,8 +3325,8 @@
     {
       "rid": "rxn08948",
       "class": "phosphatase",
-      "dG": -8.2,
-      "dG_raw": -8.2,
+      "dG": -10.2,
+      "dG_raw": -10.2,
       "exp": -10.01,
       "U_samp": 0.5,
       "anchor": null
@@ -3333,8 +3334,8 @@
     {
       "rid": "rxn10427",
       "class": "kinase/phosphotransfer",
-      "dG": -2.0,
-      "dG_raw": -2.0,
+      "dG": -3.7,
+      "dG_raw": -3.7,
       "exp": -4.89,
       "U_samp": 0.4,
       "anchor": null
@@ -3342,8 +3343,8 @@
     {
       "rid": "rxn11139",
       "class": "other/clean",
-      "dG": -6.2,
-      "dG_raw": -6.2,
+      "dG": -5.0,
+      "dG_raw": -5.0,
       "exp": 4.32,
       "U_samp": 1.0,
       "anchor": null
@@ -3351,8 +3352,8 @@
     {
       "rid": "rxn12158",
       "class": "other/clean",
-      "dG": 19.5,
-      "dG_raw": 19.5,
+      "dG": 19.9,
+      "dG_raw": 19.9,
       "exp": 3.3,
       "U_samp": 0.8,
       "anchor": null
@@ -3360,8 +3361,8 @@
     {
       "rid": "rxn12188",
       "class": "phosphatase",
-      "dG": -9.6,
-      "dG_raw": -9.6,
+      "dG": -13.1,
+      "dG_raw": -13.1,
       "exp": -11.9,
       "U_samp": 0.8,
       "anchor": null
@@ -3369,8 +3370,8 @@
     {
       "rid": "rxn12217",
       "class": "other/clean",
-      "dG": -32.1,
-      "dG_raw": -32.1,
+      "dG": -33.6,
+      "dG_raw": -33.6,
       "exp": -25.65,
       "U_samp": 0.9,
       "anchor": null
@@ -3378,17 +3379,17 @@
     {
       "rid": "rxn14063",
       "class": "NAD(P)-redox(other)",
-      "dG": 11.8,
-      "dG_raw": 11.8,
+      "dG": 16.2,
+      "dG_raw": 16.2,
       "exp": 37.14,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn14104",
       "class": "other/clean",
-      "dG": 14.9,
-      "dG_raw": 14.9,
+      "dG": 15.0,
+      "dG_raw": 15.0,
       "exp": -4.3,
       "U_samp": 0.9,
       "anchor": null
@@ -3396,8 +3397,8 @@
     {
       "rid": "rxn15055",
       "class": "transaminase",
-      "dG": -3.1,
-      "dG_raw": -3.1,
+      "dG": 1.7,
+      "dG_raw": 1.7,
       "exp": -12.16,
       "U_samp": 0.9,
       "anchor": null
@@ -3405,17 +3406,17 @@
     {
       "rid": "rxn15726",
       "class": "NAD(P)-redox(other)",
-      "dG": 37.0,
-      "dG_raw": 37.0,
+      "dG": 30.1,
+      "dG_raw": 30.1,
       "exp": 30.79,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn15750",
       "class": "aldolase",
-      "dG": 5.7,
-      "dG_raw": 5.7,
+      "dG": 4.3,
+      "dG_raw": 4.3,
       "exp": 18.32,
       "U_samp": 1.2,
       "anchor": null
@@ -3423,8 +3424,8 @@
     {
       "rid": "rxn15964",
       "class": "other/clean",
-      "dG": -1.0,
-      "dG_raw": -1.0,
+      "dG": -10.5,
+      "dG_raw": -10.5,
       "exp": -15.45,
       "U_samp": 0.1,
       "anchor": null
@@ -3432,17 +3433,17 @@
     {
       "rid": "rxn16141",
       "class": "NAD(P)-redox(other)",
-      "dG": 22.3,
-      "dG_raw": 22.3,
+      "dG": 19.2,
+      "dG_raw": 19.2,
       "exp": 10.17,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn16378",
       "class": "amide/amidine-hydrolysis",
-      "dG": -1.4,
-      "dG_raw": -1.4,
+      "dG": -2.0,
+      "dG_raw": -2.0,
       "exp": 14.38,
       "U_samp": 0.4,
       "anchor": null
@@ -3450,17 +3451,17 @@
     {
       "rid": "rxn19090",
       "class": "NAD(P)-redox(other)",
-      "dG": 28.4,
-      "dG_raw": 28.4,
+      "dG": 24.9,
+      "dG_raw": 24.9,
       "exp": 29.12,
-      "U_samp": 1.3,
+      "U_samp": 1.0,
       "anchor": null
     },
     {
       "rid": "rxn31240",
       "class": "isomerase/mutase",
-      "dG": 1.5,
-      "dG_raw": 1.5,
+      "dG": -0.4,
+      "dG_raw": -0.4,
       "exp": -1.32,
       "U_samp": 0.3,
       "anchor": null
@@ -3468,8 +3469,8 @@
     {
       "rid": "rxn36656",
       "class": "amide/amidine-hydrolysis",
-      "dG": -6.2,
-      "dG_raw": -6.2,
+      "dG": -6.1,
+      "dG_raw": -6.1,
       "exp": -2.84,
       "U_samp": 0.4,
       "anchor": null
@@ -3477,17 +3478,17 @@
     {
       "rid": "rxn39373",
       "class": "NAD(P)-redox(other)",
-      "dG": 11.7,
-      "dG_raw": 11.7,
+      "dG": 8.6,
+      "dG_raw": 8.6,
       "exp": 18.4,
-      "U_samp": 1.1,
+      "U_samp": 0.8,
       "anchor": null
     },
     {
       "rid": "rxn39443",
       "class": "amide/amidine-hydrolysis",
-      "dG": 25.2,
-      "dG_raw": 25.2,
+      "dG": 26.1,
+      "dG_raw": 26.1,
       "exp": 1.06,
       "U_samp": 0.0,
       "anchor": null
@@ -3495,17 +3496,17 @@
     {
       "rid": "rxn40442",
       "class": "NAD(P)-redox(other)",
-      "dG": 1.9,
-      "dG_raw": 1.9,
+      "dG": -0.9,
+      "dG_raw": -0.9,
       "exp": 10.24,
-      "U_samp": 0.9,
+      "U_samp": 0.4,
       "anchor": null
     },
     {
       "rid": "rxn44278",
       "class": "isomerase/mutase",
-      "dG": -3.7,
-      "dG_raw": -3.7,
+      "dG": -4.9,
+      "dG_raw": -4.9,
       "exp": -3.33,
       "U_samp": 0.9,
       "anchor": null
@@ -3513,8 +3514,8 @@
     {
       "rid": "rxn45677",
       "class": "amide/amidine-hydrolysis",
-      "dG": 12.4,
-      "dG_raw": 12.4,
+      "dG": 12.8,
+      "dG_raw": 12.8,
       "exp": -15.04,
       "U_samp": 0.0,
       "anchor": null
@@ -3522,17 +3523,17 @@
     {
       "rid": "rxn49067",
       "class": "NAD(P)-redox(other)",
-      "dG": 3.4,
-      "dG_raw": 3.4,
+      "dG": 0.9,
+      "dG_raw": 0.9,
       "exp": 4.55,
-      "U_samp": 1.1,
+      "U_samp": 0.9,
       "anchor": null
     },
     {
       "rid": "rxn51768",
       "class": "carboxyP",
-      "dG": 0.9,
-      "dG_raw": 0.9,
+      "dG": -1.5,
+      "dG_raw": -1.5,
       "exp": 14.43,
       "U_samp": 0.4,
       "anchor": null
@@ -3540,8 +3541,8 @@
     {
       "rid": "rxn52014",
       "class": "amide/amidine-hydrolysis",
-      "dG": -1.4,
-      "dG_raw": -1.4,
+      "dG": -2.0,
+      "dG_raw": -2.0,
       "exp": 23.56,
       "U_samp": 0.4,
       "anchor": null
@@ -3549,8 +3550,8 @@
     {
       "rid": "rxn53440",
       "class": "isomerase/mutase",
-      "dG": -11.5,
-      "dG_raw": -11.5,
+      "dG": -11.7,
+      "dG_raw": -11.7,
       "exp": -2.43,
       "U_samp": 1.5,
       "anchor": null
@@ -3558,8 +3559,8 @@
     {
       "rid": "rxn53944",
       "class": "other/clean",
-      "dG": -21.0,
-      "dG_raw": -21.0,
+      "dG": -20.0,
+      "dG_raw": -20.0,
       "exp": -7.95,
       "U_samp": 0.4,
       "anchor": null
@@ -3567,8 +3568,8 @@
     {
       "rid": "rxn54659",
       "class": "isomerase/mutase",
-      "dG": -0.1,
-      "dG_raw": -0.1,
+      "dG": -0.3,
+      "dG_raw": -0.3,
       "exp": 0.0,
       "U_samp": 0.7,
       "anchor": null

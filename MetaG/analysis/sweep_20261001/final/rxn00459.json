@@ -2,21 +2,23 @@
  "reaction": "rxn00459",
  "note": "TECRDB rxn00459 phosphopyruvate hydratase | flags=CLEAN(tractable)",
  "ec": "4.2.1.11",
- "dG": 5.3,
- "dG_raw": 5.3,
+ "dG": 4.7,
+ "dG_raw": 4.7,
  "exp": -3.17,
  "dG_raw_unreliable": null,
- "err": 8.47,
+ "err": 7.87,
  "class": "hydratase",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.5,
- "sigma_pred": 11.9,
+ "U_samp": 0.3,
+ "sigma_pred": 11.5,
  "ci95": [
-  -22.1,
-  32.6
+  -21.2,
+  30.5
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 2.14,
+  "species_sum": 1.52,
   "proton": -0.0,
   "pka_transform": 3.14,
-  "unanchored": 5.28,
-  "reported": 5.28
+  "unanchored": 4.65,
+  "reported": 4.65
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

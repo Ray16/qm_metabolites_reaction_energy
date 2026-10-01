@@ -1,0 +1,61 @@
+{
+ "species_n": 537,
+ "species_shift_mean": -0.75,
+ "species_shift_sd": 1.55,
+ "species_shift_minmax": [
+  -9.16,
+  2.16
+ ],
+ "gcorr_spread_median": 3.61,
+ "gcorr_spread_max": 15.95,
+ "reaction_n": 364,
+ "reaction_shift_mean": -0.89,
+ "reaction_shift_sd": 2.27,
+ "reaction_shift_max_abs": 8.0,
+ "n_reactions_shift_gt2": 152,
+ "n_reactions_shift_gt5": 17,
+ "MAE_single_minimum": 9.67,
+ "MAE_per_minimum_ensemble": 9.59,
+ "worst": [
+  [
+   "rxn01265",
+   8.0,
+   "5 nicotinate phosphoribosyltransferase | "
+  ],
+  [
+   "rxn01200",
+   -7.7,
+   "0 transketolase | flags=huge/floppy"
+  ],
+  [
+   "rxn03087",
+   -7.4,
+   "7 succinyldiaminopimelate transaminase | "
+  ],
+  [
+   "rxn00139",
+   7.0,
+   "9 adenine phosphoribosyltransferase | fla"
+  ],
+  [
+   "rxn01383",
+   -6.9,
+   "3 ribitol dehydrogenase | flags=huge/flop"
+  ],
+  [
+   "rxn01362",
+   6.8,
+   "2 orotate phosphoribosyltransferase | fla"
+  ],
+  [
+   "rxn00836",
+   6.1,
+   "6 hypoxanthine phosphoribosyltransferase "
+  ],
+  [
+   "rxn00630",
+   -5.8,
+   "0 mannitol dehydrogenase | flags=Mg-prone"
+  ]
+ ]
+}

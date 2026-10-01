@@ -2,21 +2,23 @@
  "reaction": "rxn00987",
  "note": "TECRDB rxn00987 2,3-dimethylmalate lyase | flags=CLEAN(tractable)",
  "ec": "4.1.3.32",
- "dG": 6.4,
- "dG_raw": 6.4,
+ "dG": 3.8,
+ "dG_raw": 3.8,
  "exp": 0.15,
  "dG_raw_unreliable": null,
- "err": 6.25,
+ "err": 3.65,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.1,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -32.0,
-  44.8
+  -31.4,
+  39.0
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 13.8,
+  "species_sum": 15.21,
   "proton": -0.0,
-  "pka_transform": -7.42,
-  "unanchored": 6.38,
-  "reported": 6.38
+  "pka_transform": -11.42,
+  "unanchored": 3.79,
+  "reported": 3.79
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

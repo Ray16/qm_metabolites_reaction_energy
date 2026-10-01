@@ -2,20 +2,22 @@
  "reaction": "rxn16141",
  "note": "TECRDB rxn16141 succinate-semialdehyde reductase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "1.2.1.a",
- "dG": 22.3,
- "dG_raw": 22.3,
+ "dG": 19.2,
+ "dG_raw": 19.2,
  "exp": 10.17,
  "dG_raw_unreliable": null,
- "err": 12.13,
+ "err": 9.03,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.1,
- "sigma_pred": 13.8,
+ "U_samp": 0.8,
+ "sigma_pred": 13.2,
  "ci95": [
-  -9.5,
-  54.2
+  -10.6,
+  48.9
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1193.08,
+  "species_sum": 1189.94,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 22.32,
-  "reported": 22.32
+  "unanchored": 19.18,
+  "reported": 19.18
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

@@ -2,20 +2,22 @@
  "reaction": "rxn00543",
  "note": "TECRDB rxn00543 alcohol dehydrogenase | flags=huge/floppy",
  "ec": "1.1.1.1",
- "dG": 22.6,
- "dG_raw": 22.6,
+ "dG": 20.0,
+ "dG_raw": 20.0,
  "exp": 25.93,
  "dG_raw_unreliable": null,
- "err": -3.33,
+ "err": -5.93,
  "class": "NAD(P)-redox(other)",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.5,
- "sigma_pred": 13.9,
+ "U_samp": 1.2,
+ "sigma_pred": 13.3,
  "ci95": [
-  -9.3,
-  54.6
+  -9.8,
+  49.9
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1193.41,
+  "species_sum": 1190.79,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 22.64,
-  "reported": 22.64
+  "unanchored": 20.03,
+  "reported": 20.03
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

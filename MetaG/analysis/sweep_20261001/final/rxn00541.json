@@ -2,21 +2,23 @@
  "reaction": "rxn00541",
  "note": "TECRDB rxn00541 glycine hydroxymethyltransferase | flags=CLEAN(tractable)",
  "ec": "2.1.2.1",
- "dG": 11.1,
- "dG_raw": 11.1,
+ "dG": 11.7,
+ "dG_raw": 11.7,
  "exp": 10.24,
  "dG_raw_unreliable": null,
- "err": 0.86,
+ "err": 1.46,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.9,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -27.3,
-  49.5
+  -23.5,
+  46.8
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 11.05,
+  "species_sum": 11.68,
   "proton": -0.0,
   "pka_transform": 0.0,
-  "unanchored": 11.05,
-  "reported": 11.05
+  "unanchored": 11.68,
+  "reported": 11.68
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

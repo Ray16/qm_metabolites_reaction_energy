@@ -2,21 +2,23 @@
  "reaction": "rxn12158",
  "note": "TECRDB rxn12158 ADP-glucose phosphorylase | flags=Mg-prone(NTP/PPi),huge/floppy",
  "ec": "2.7.7",
- "dG": 19.5,
- "dG_raw": 19.5,
+ "dG": 19.9,
+ "dG_raw": 19.9,
  "exp": 3.3,
  "dG_raw_unreliable": null,
- "err": 16.2,
+ "err": 16.6,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.8,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -18.9,
-  57.9
+  -15.3,
+  55.0
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 9.94,
+  "species_sum": 10.29,
   "proton": -0.0,
   "pka_transform": 9.57,
-  "unanchored": 19.51,
-  "reported": 19.51
+  "unanchored": 19.86,
+  "reported": 19.86
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

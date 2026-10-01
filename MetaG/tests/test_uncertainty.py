@@ -79,14 +79,14 @@ def test_uncalibrated_class_not_narrower_than_calibrated(monkeypatch):
     monkeypatch.setattr(u, "mech_class", lambda *a, **k: "brand-new-class")
     _, hi, _, info = u.prediction_interval("x", ["CCO"], 0.0)
     assert info["class_calibrated"] is False and info["externally_calibrated"] is False
-    assert "not externally calibrated" in info["calibration_scope"]
+    assert "not coverage-calibrated" in info["calibration_scope"]
     monkeypatch.undo()
     _, hi_clean, _, _ = u.prediction_interval("some novel enzyme", ["CCO"], 0.0)
     assert hi >= hi_clean - 1e-6
 
 
 def test_ood_flagged_interval_labelled_not_calibrated():
-    # a rare element is an informational OOD flag -> interval explicitly not externally calibrated
+    # a rare element is an informational OOD flag -> interval explicitly not coverage-calibrated
     sp = {"a": [-1, 0, "CCO"], "m": [-1, 0, "[Se]"], "b": [1, 0, "CC=O"]}
     _, _, _, info = u.prediction_interval("x", [v[2] for v in sp.values()], 0.0, species=sp)
     assert info["ood_flags"] and info["externally_calibrated"] is False

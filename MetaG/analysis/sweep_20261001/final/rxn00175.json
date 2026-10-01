@@ -2,20 +2,22 @@
  "reaction": "rxn00175",
  "note": "TECRDB rxn00175 acetate-CoA ligase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
  "ec": "6.2.1.1",
- "dG": 7.8,
- "dG_raw": 7.8,
+ "dG": 4.6,
+ "dG_raw": 4.6,
  "exp": -0.51,
  "dG_raw_unreliable": null,
- "err": 8.31,
+ "err": 5.11,
  "class": "CoA-thioester",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.2,
- "sigma_pred": 14.2,
+ "sigma_pred": 12.7,
  "ci95": [
-  -24.8,
-  40.3
+  -23.9,
+  33.1
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -2.43,
+  "species_sum": -5.61,
   "proton": -0.0,
   "pka_transform": 10.18,
-  "unanchored": 7.75,
-  "reported": 7.75
+  "unanchored": 4.57,
+  "reported": 4.57
  },
  "conditions": {
   "T_K": 298.15,
@@ -139,7 +141,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

@@ -2,21 +2,23 @@
  "reaction": "rxn00062",
  "note": "TECRDB rxn00062 Ca2+-transporting ATPase | flags=Mg-prone(NTP/PPi),anion-count-change,huge/floppy",
  "ec": "3.6.1.38",
- "dG": -36.5,
- "dG_raw": -36.5,
+ "dG": -38.2,
+ "dG_raw": -38.2,
  "exp": -28.35,
  "dG_raw_unreliable": null,
- "err": -8.15,
+ "err": -9.85,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.4,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -74.9,
-  1.9
+  -73.3,
+  -3.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -38.99,
+  "species_sum": -40.69,
   "proton": -0.0,
   "pka_transform": 2.5,
-  "unanchored": -36.49,
-  "reported": -36.49
+  "unanchored": -38.19,
+  "reported": -38.19
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

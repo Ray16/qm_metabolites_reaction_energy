@@ -2,21 +2,23 @@
  "reaction": "rxn01366",
  "note": "TECRDB rxn01366 uridine phosphorylase | flags=CLEAN(tractable)",
  "ec": "2.4.2.3",
- "dG": 16.4,
- "dG_raw": 16.4,
+ "dG": 16.9,
+ "dG_raw": 16.9,
  "exp": 0.79,
  "dG_raw_unreliable": null,
- "err": 15.61,
+ "err": 16.11,
  "class": "glycosyl/PRT/nucleoside",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.4,
- "sigma_pred": 14.9,
+ "sigma_pred": 14.0,
  "ci95": [
-  -17.9,
-  50.7
+  -14.7,
+  48.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 22.41,
+  "species_sum": 22.89,
   "proton": -0.0,
   "pka_transform": -6.03,
-  "unanchored": 16.37,
-  "reported": 16.37
+  "unanchored": 16.85,
+  "reported": 16.85
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

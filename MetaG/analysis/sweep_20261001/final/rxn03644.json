@@ -2,21 +2,23 @@
  "reaction": "rxn03644",
  "note": "TECRDB rxn03644 phospho-3-hexuloisomerase | flags=isomerase",
  "ec": "5.3.1.-",
- "dG": -24.3,
- "dG_raw": -24.3,
+ "dG": -21.0,
+ "dG_raw": -21.0,
  "exp": -13.03,
  "dG_raw_unreliable": null,
- "err": -11.27,
+ "err": -7.97,
  "class": "isomerase/mutase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 0.9,
- "sigma_pred": 12.4,
+ "sigma_pred": 8.8,
  "ci95": [
-  -52.9,
-  4.3
+  -40.9,
+  -1.1
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": -24.29,
+  "species_sum": -21.02,
   "proton": -0.0,
   "pka_transform": -0.0,
-  "unanchored": -24.29,
-  "reported": -24.29
+  "unanchored": -21.02,
+  "reported": -21.02
  },
  "conditions": {
   "T_K": 298.15,
@@ -120,7 +122,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

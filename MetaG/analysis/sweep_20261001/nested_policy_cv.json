@@ -1,0 +1,99 @@
+{
+ "n_common": 359,
+ "n_groups": 240,
+ "flags": [
+  "PH0_ISOMERASE",
+  "NTP_CORE",
+  "CARBONYL_HYDRATION_ALL",
+  "PKA_ENV",
+  "ZWITTERION_PH0",
+  "ARYLAMINE_NONBASIC",
+  "ACID_HB_FILTER"
+ ],
+ "final_policy": "1111110",
+ "final_dev_MAE": 9.75,
+ "all_off_MAE": 11.696,
+ "best_policy_full_data": "1111011",
+ "best_full_data_MAE": 9.673,
+ "nested_selected_MAE_mean": 9.797,
+ "nested_selected_MAE_sd": 0.062,
+ "chosen_policy_frequency": {
+  "1111011": 69,
+  "1111001": 19,
+  "1111010": 10,
+  "1011011": 1,
+  "1111000": 1
+ },
+ "sensitivity_flip_one_switch_from_final": {
+  "PH0_ISOMERASE": {
+   "final_value": 1,
+   "MAE_if_flipped": 10.157,
+   "delta_MAE": 0.407,
+   "n_changed_gt1kJ": 30,
+   "bootstrap95_delta": [
+    0.062,
+    0.767
+   ]
+  },
+  "NTP_CORE": {
+   "final_value": 1,
+   "MAE_if_flipped": 9.965,
+   "delta_MAE": 0.215,
+   "n_changed_gt1kJ": 20,
+   "bootstrap95_delta": [
+    -0.015,
+    0.505
+   ]
+  },
+  "CARBONYL_HYDRATION_ALL": {
+   "final_value": 1,
+   "MAE_if_flipped": 10.115,
+   "delta_MAE": 0.365,
+   "n_changed_gt1kJ": 54,
+   "bootstrap95_delta": [
+    0.063,
+    0.678
+   ]
+  },
+  "PKA_ENV": {
+   "final_value": 1,
+   "MAE_if_flipped": 10.745,
+   "delta_MAE": 0.995,
+   "n_changed_gt1kJ": 75,
+   "bootstrap95_delta": [
+    0.533,
+    1.435
+   ]
+  },
+  "ZWITTERION_PH0": {
+   "final_value": 1,
+   "MAE_if_flipped": 9.75,
+   "delta_MAE": 0.0,
+   "n_changed_gt1kJ": 0,
+   "bootstrap95_delta": [
+    0.0,
+    0.0
+   ]
+  },
+  "ARYLAMINE_NONBASIC": {
+   "final_value": 1,
+   "MAE_if_flipped": 9.792,
+   "delta_MAE": 0.042,
+   "n_changed_gt1kJ": 4,
+   "bootstrap95_delta": [
+    -0.054,
+    0.204
+   ]
+  },
+  "ACID_HB_FILTER": {
+   "final_value": 0,
+   "MAE_if_flipped": 9.673,
+   "delta_MAE": -0.076,
+   "n_changed_gt1kJ": 11,
+   "bootstrap95_delta": [
+    -0.268,
+    0.093
+   ]
+  }
+ }
+}

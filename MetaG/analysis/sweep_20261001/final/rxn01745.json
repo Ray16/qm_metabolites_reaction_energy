@@ -2,21 +2,23 @@
  "reaction": "rxn01745",
  "note": "TECRDB rxn01745 maleate hydratase | flags=CLEAN(tractable)",
  "ec": "4.2.1.31",
- "dG": 26.5,
- "dG_raw": 26.5,
+ "dG": 31.3,
+ "dG_raw": 31.3,
  "exp": 18.84,
  "dG_raw_unreliable": null,
- "err": 7.66,
+ "err": 12.46,
  "class": "hydratase",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.3,
- "sigma_pred": 11.9,
+ "sigma_pred": 11.6,
  "ci95": [
-  -0.8,
-  53.8
+  5.3,
+  57.4
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 32.48,
+  "species_sum": 33.57,
   "proton": -0.0,
-  "pka_transform": -5.98,
-  "unanchored": 26.5,
-  "reported": 26.5
+  "pka_transform": -2.24,
+  "unanchored": 31.32,
+  "reported": 31.32
  },
  "conditions": {
   "T_K": 298.15,
@@ -124,7 +126,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

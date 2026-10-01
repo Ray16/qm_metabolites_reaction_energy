@@ -2,20 +2,22 @@
  "reaction": "rxn00182",
  "note": "TECRDB rxn00182 glutamate dehydrogenase | flags=huge/floppy",
  "ec": "1.4.1.2",
- "dG": 36.5,
- "dG_raw": 36.5,
+ "dG": 28.8,
+ "dG_raw": 28.8,
  "exp": 40.49,
  "dG_raw_unreliable": null,
- "err": -3.99,
+ "err": -11.69,
  "class": "reductive-amination-DH",
  "anchor": null,
  "water_ref": null,
- "U_samp": 1.2,
- "sigma_pred": 15.0,
+ "U_samp": 0.9,
+ "sigma_pred": 16.6,
  "ci95": [
-  2.1,
-  70.9
+  -8.6,
+  66.2
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1216.1,
+  "species_sum": 1212.39,
   "proton": -1170.76,
-  "pka_transform": -8.85,
-  "unanchored": 36.49,
-  "reported": 36.49
+  "pka_transform": -12.85,
+  "unanchored": 28.79,
+  "reported": 28.79
  },
  "conditions": {
   "T_K": 298.15,
@@ -139,7 +141,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }

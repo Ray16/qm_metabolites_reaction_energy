@@ -2,21 +2,23 @@
  "reaction": "rxn01999",
  "note": "TECRDB rxn01999 dTDP-4-amino-4,6-dideoxy-D-glucose trans | flags=huge/floppy",
  "ec": "2.6.1.33",
- "dG": 6.2,
- "dG_raw": 6.2,
+ "dG": 8.0,
+ "dG_raw": 8.0,
  "exp": -0.88,
  "dG_raw_unreliable": null,
- "err": 7.08,
+ "err": 8.88,
  "class": "other/clean",
  "anchor": null,
  "water_ref": null,
  "U_samp": 1.1,
- "sigma_pred": 16.0,
+ "sigma_pred": 15.6,
  "ci95": [
-  -32.2,
-  44.6
+  -27.2,
+  43.2
  ],
- "externally_calibrated": false,
+ "coverage_calibrated": true,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
+ "externally_calibrated": true,
  "routes": {
   "cofactor_ring": false,
   "coa_core": false,
@@ -35,11 +37,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 7.32,
+  "species_sum": 5.18,
   "proton": -0.0,
-  "pka_transform": -1.14,
-  "unanchored": 6.18,
-  "reported": 6.18
+  "pka_transform": 2.85,
+  "unanchored": 8.04,
+  "reported": 8.04
  },
  "conditions": {
   "T_K": 298.15,
@@ -129,7 +131,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda13",
  "secs": 0.0
 }

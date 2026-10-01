@@ -1,0 +1,280 @@
+{
+ "MetaG": {
+  "n_reactions": 364,
+  "n_compounds": 446,
+  "dof": 49,
+  "n_in_cycles": 112,
+  "rms_residual": 1.47,
+  "n_cycles": 49
+ },
+ "experiment": {
+  "n_reactions": 364,
+  "n_compounds": 446,
+  "dof": 49,
+  "n_in_cycles": 112,
+  "rms_residual": 3.5,
+  "n_cycles": 49
+ },
+ "rms_residual_by_route": {
+  "truncated+ph0": {
+   "n": 33,
+   "MetaG": 1.89,
+   "experiment": 3.85
+  },
+  "ntp_core+truncated+ph0": {
+   "n": 15,
+   "MetaG": 1.65,
+   "experiment": 5.57
+  },
+  "cofactor_ring+truncated": {
+   "n": 15,
+   "MetaG": 0.18,
+   "experiment": 2.81
+  },
+  "ph0": {
+   "n": 13,
+   "MetaG": 1.13,
+   "experiment": 2.8
+  },
+  "cofactor_ring+truncated+ph0": {
+   "n": 13,
+   "MetaG": 0.87,
+   "experiment": 2.78
+  },
+  "truncated": {
+   "n": 6,
+   "MetaG": 0.8,
+   "experiment": 1.51
+  },
+  "cofactor_ring+ntp_core+truncated+ph0": {
+   "n": 4,
+   "MetaG": 0.87,
+   "experiment": 1.46
+  },
+  "ntp_core+ph0": {
+   "n": 4,
+   "MetaG": 0.47,
+   "experiment": 2.58
+  },
+  "cofactor_ring+ph0": {
+   "n": 3,
+   "MetaG": 0.46,
+   "experiment": 1.49
+  },
+  "cofactor_ring": {
+   "n": 3,
+   "MetaG": 0.01,
+   "experiment": 2.34
+  },
+  "full": {
+   "n": 2,
+   "MetaG": 4.9,
+   "experiment": 0.35
+  },
+  "cofactor_ring+ntp_core+ph0": {
+   "n": 1,
+   "MetaG": 0.15,
+   "experiment": 4.77
+  }
+ },
+ "worst_cycles_MetaG": [
+  {
+   "reactions": {
+    "rxn00007": -1,
+    "rxn00062": 1,
+    "rxn00216": -1,
+    "rxn00704": 1,
+    "rxn05026": 1
+   },
+   "closure_error": 15.1,
+   "sigma": 2.24,
+   "z": 6.75
+  },
+  {
+   "reactions": {
+    "rxn00001": 1,
+    "rxn00062": -2,
+    "rxn00097": 1,
+    "rxn00131": 1,
+    "rxn00139": -1,
+    "rxn00770": 1
+   },
+   "closure_error": -16.1,
+   "sigma": 3.0,
+   "z": -5.37
+  },
+  {
+   "reactions": {
+    "rxn00182": 1,
+    "rxn00248": -1,
+    "rxn00260": 1,
+    "rxn00347": -1,
+    "rxn00799": 1
+   },
+   "closure_error": -8.0,
+   "sigma": 2.24,
+   "z": -3.58
+  },
+  {
+   "reactions": {
+    "rxn00062": -1,
+    "rxn00132": 1,
+    "rxn00237": 1,
+    "rxn00347": -1,
+    "rxn00800": 1,
+    "rxn00831": -1,
+    "rxn00838": 1,
+    "rxn01137": 1
+   },
+   "closure_error": 7.9,
+   "sigma": 2.83,
+   "z": 2.79
+  },
+  {
+   "reactions": {
+    "rxn00182": 1,
+    "rxn00804": -1,
+    "rxn00806": 1
+   },
+   "closure_error": 4.1,
+   "sigma": 1.73,
+   "z": 2.37
+  },
+  {
+   "reactions": {
+    "rxn00022": -1,
+    "rxn00062": 1,
+    "rxn00216": -1,
+    "rxn00704": 1,
+    "rxn11139": 1
+   },
+   "closure_error": -4.0,
+   "sigma": 2.24,
+   "z": -1.79
+  },
+  {
+   "reactions": {
+    "rxn00172": -1,
+    "rxn00285": 1,
+    "rxn00290": 1,
+    "rxn00990": 1
+   },
+   "closure_error": 2.1,
+   "sigma": 2.0,
+   "z": 1.05
+  },
+  {
+   "reactions": {
+    "rxn00182": -1,
+    "rxn00191": -1,
+    "rxn00278": 1
+   },
+   "closure_error": -1.4,
+   "sigma": 1.73,
+   "z": -0.81
+  },
+  {
+   "reactions": {
+    "rxn00191": -1,
+    "rxn00420": -1,
+    "rxn00422": -1,
+    "rxn01011": 1,
+    "rxn01099": 1,
+    "rxn01101": -1,
+    "rxn02914": 1
+   },
+   "closure_error": 1.9,
+   "sigma": 2.65,
+   "z": 0.72
+  },
+  {
+   "reactions": {
+    "rxn00191": -1,
+    "rxn00193": -1,
+    "rxn00283": 1,
+    "rxn00849": 1
+   },
+   "closure_error": 0.6,
+   "sigma": 2.0,
+   "z": 0.3
+  },
+  {
+   "reactions": {
+    "rxn00001": 1,
+    "rxn00062": -1,
+    "rxn00117": 1,
+    "rxn00213": 1,
+    "rxn00577": 1,
+    "rxn00579": 1
+   },
+   "closure_error": -0.7,
+   "sigma": 2.45,
+   "z": -0.29
+  },
+  {
+   "reactions": {
+    "rxn00062": -1,
+    "rxn00216": 1,
+    "rxn00223": -1,
+    "rxn00558": 1,
+    "rxn08430": 1
+   },
+   "closure_error": 0.4,
+   "sigma": 2.24,
+   "z": 0.18
+  },
+  {
+   "reactions": {
+    "rxn00062": -2,
+    "rxn00216": 1,
+    "rxn00223": -1,
+    "rxn00545": 1,
+    "rxn00558": 1,
+    "rxn01491": 1,
+    "rxn12188": 1
+   },
+   "closure_error": 0.4,
+   "sigma": 3.16,
+   "z": 0.13
+  },
+  {
+   "reactions": {
+    "rxn00973": 1,
+    "rxn00974": -1,
+    "rxn01388": 1
+   },
+   "closure_error": -0.1,
+   "sigma": 1.73,
+   "z": -0.06
+  },
+  {
+   "reactions": {
+    "rxn00062": 1,
+    "rxn00097": -1,
+    "rxn00147": -1,
+    "rxn00148": 1
+   },
+   "closure_error": -0.1,
+   "sigma": 2.0,
+   "z": -0.05
+  }
+ ],
+ "metabolites_on_excess_nonclosure": [
+  [
+   "TRHL",
+   2
+  ],
+  [
+   "D-Glucose",
+   2
+  ],
+  [
+   "Phosphate",
+   1
+  ],
+  [
+   "Glucose-1-phosphate",
+   1
+  ]
+ ]
+}

@@ -23,13 +23,34 @@ def test_thiolate_and_phenolate_are_neutralised():
 
 def test_unsaturated_carboxyl_pka(monkeypatch):
     monkeypatch.setenv("PKA_ENV", "1")
-    assert pk._neutralize("O=C([O-])/C=C/C(=O)[O-]")[1] == [3.75, 3.75]      # fumarate
-    assert pk._neutralize("C=CC(=O)[O-]")[1] == [4.35]                         # acrylate
-    assert sorted(pk._neutralize("O=C([O-])C[C@H](O)C(=O)[O-]")[1]) == [3.8, 4.75]   # malate unchanged
-    # the fumarate transform now matches its measured macroscopic pKa's (3.03, 4.44) to < 0.2 kJ
-    RT_LN10 = 2.303 * 8.314e-3 * 298.15
-    t = lambda ps: sum(RT_LN10 * math.log10(1 + 10 ** (7 - p)) for p in ps)
-    assert abs(t([3.75, 3.75]) - t([3.03, 4.44])) < 0.2
+    # class rule (compound not in POLYACID_PKA): mesaconate, acrylate; malate rule unchanged
+    assert pk._neutralize("C/C(=C\\C(=O)[O-])C(=O)[O-]")[1] == [3.75, 3.75]
+    assert pk._neutralize("C=CC(=O)[O-]")[1] == [4.35]
+    monkeypatch.setenv("POLYACID_PKA", "0")
+    assert sorted(pk._neutralize("O=C([O-])C[C@H](O)C(=O)[O-]")[1]) == [3.8, 4.75]
+
+
+def test_recognized_polyacids_use_compound_constants(monkeypatch):
+    # Martell & Smith (I = 0, 25 °C); the rule table was off by -22.7 (oxalate) and -5.6 kJ (malonate)
+    monkeypatch.setenv("POLYACID_PKA", "1")
+    assert pk._neutralize("O=C([O-])/C=C/C(=O)[O-]")[1] == [3.053, 4.494]     # fumarate
+    assert pk._neutralize("O=C([O-])/C=C\\C(=O)[O-]")[1] == [1.910, 6.332]   # maleate
+    assert pk._neutralize("O=C([O-])C(=O)[O-]")[1] == [1.252, 4.266]          # oxalate
+    assert pk._neutralize("O=C([O-])CC(=O)[O-]")[1] == [2.847, 5.696]         # malonate
+    # at pH 7 the independent-site sum equals the coupled binding polynomial (<= 0.01 kJ)
+    import math
+    RT = 8.314e-3 * 298.15
+    ladder = [3.128, 4.761, 6.396]                                              # citric
+    poly, prod = 1.0, 1.0
+    for p in ladder:
+        prod *= 10 ** (7 - p); poly += prod
+    indep = sum(RT * math.log(1 + 10 ** (7 - p)) for p in ladder)
+    assert abs(RT * math.log(poly) - indep) < 0.02
+
+
+def test_alpha_keto_carboxyl_uses_keto_microstate_pka(monkeypatch):
+    monkeypatch.setenv("PKA_ENV", "1")
+    assert pk._neutralize("CC(=O)C(=O)[O-]")[1] == [1.8]                       # Lopalco et al. 2016
 
 
 def test_arylamine_is_not_a_basic_amine(monkeypatch):
@@ -56,19 +77,26 @@ def test_hydration_sites():
     assert ah.hydration_sites("CC(=O)O") == []                                           # acid
 
 
-def test_multi_site_mixture_reduces_to_single_site():
-    for dg in (-12.0, -1.0, 0.0, 3.0, 20.0):
-        assert abs(ah.mixture_G_sites(0.0, [dg], 0.0) - ah.mixture_G(0.0, dg, 0.0)) < 1e-9
-    # two independent sites lower G by the sum of the single-site terms
-    a = ah.mixture_G_sites(0.0, [-3.0], 0.0); b = ah.mixture_G_sites(0.0, [2.0], 0.0)
-    assert abs(ah.mixture_G_sites(0.0, [-3.0, 2.0], 0.0) - (a + b)) < 1e-9
+def test_hydration_states_exact_enumeration():
+    # every subset of sites is an explicit, computed state; no uncomputed (implicitly multiplied) states
+    states = ah.hydration_states("CC(=O)C=O")                               # methylglyoxal: 2 sites
+    assert sorted(n for n, _ in states) == [1, 1, 2]
+    assert "CC(O)(O)C(O)O" in {s for _, s in states}
+    for dg in (-12.0, -1.0, 0.0, 3.0, 20.0):                               # one state = two-state formula
+        assert abs(ah.mixture_G_states(0.0, [(1, dg)], 0.0) - ah.mixture_G(0.0, dg, 0.0)) < 1e-9
+
+
+def test_hydration_sites_independent_of_atom_order():
+    a = sorted(s for _, s in ah.hydration_states("O=CC(C)CC(=O)CC=O"))       # three carbonyls
+    b = sorted(s for _, s in ah.hydration_states("O=CCC(=O)CC(C)C=O"))       # same molecule, other order
+    assert a == b and len(a) == 7                                          # 2^3 - 1 hydrated states
 
 
 def test_hydration_calibration_reproduces_khyd_fit():
-    # log K_exp = 0.67 log K_calc - 0.34  <=>  ΔG_exp = 0.67 ΔG_calc + 0.34 RT ln10
+    # log K_exp = 0.639 log K_calc - 0.411  <=>  ΔG_exp = 0.639 ΔG_calc + 2.35 kJ (per event)
     rt_ln10 = 2.303 * 8.314e-3 * 298.15
-    assert abs(ah.calibrated_dg_hyd(0.0) - 0.34 * rt_ln10) < 0.02
-    assert abs(ah.calibrated_dg_hyd(-10.0) - (-6.7 + 0.34 * rt_ln10)) < 0.02
+    assert abs(ah.calibrated_dg_hyd(0.0) - 2.35) < 1e-9
+    assert abs(ah.calibrated_dg_hyd(-10.0) - (-6.39 + 2.35)) < 1e-9
 
 
 def test_acid_groups_exclude_hemiacetal_carbon():
@@ -83,3 +111,16 @@ def test_acid_groups_exclude_hemiacetal_carbon():
 def test_solvation_force_units():
     from metag.energetics.solv_relax import HB2EVA
     assert abs(HB2EVA - 51.42208) < 1e-3                  # Hartree/Bohr -> eV/Å
+
+
+def test_explicit_cache_key_tracks_effective_water_reference(monkeypatch):
+    # review item: the key used the raw env string ("0" when unset) while the default is WATER_REF_EXP on
+    import metag.pipeline as P
+    monkeypatch.delenv("WATER_REF_EXP", raising=False)
+    default = P._explicit_settings()
+    monkeypatch.setenv("WATER_REF_EXP", "0")
+    ablation = P._explicit_settings()
+    monkeypatch.setenv("WATER_REF_EXP", "1")
+    explicit_on = P._explicit_settings()
+    assert default["water_ref_exp"] is P.FLAG_DEFAULTS["WATER_REF_EXP"]
+    assert default != ablation and default == explicit_on

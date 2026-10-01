@@ -2,20 +2,22 @@
  "reaction": "rxn01241",
  "note": "TECRDB rxn01241 dihydrolipoamide dehydrogenase | flags=huge/floppy",
  "ec": "1.8.1.4",
- "dG": 16.8,
- "dG_raw": 16.8,
+ "dG": 16.0,
+ "dG_raw": 16.0,
  "exp": 9.06,
  "dG_raw_unreliable": null,
- "err": 7.74,
+ "err": 6.94,
  "class": "flavin/FAD-redox",
  "anchor": null,
  "water_ref": null,
- "U_samp": 0.9,
- "sigma_pred": 12.0,
+ "U_samp": 0.5,
+ "sigma_pred": 11.7,
  "ci95": [
-  -10.9,
-  44.5
+  -10.3,
+  42.4
  ],
+ "coverage_calibrated": false,
+ "calibration_basis": "TECRDB internal nested grouped CV (not an external dataset)",
  "externally_calibrated": false,
  "routes": {
   "cofactor_ring": true,
@@ -36,11 +38,11 @@
  "suspect": null,
  "std_state_kJ": 7.93,
  "stages": {
-  "species_sum": 1187.54,
+  "species_sum": 1186.79,
   "proton": -1170.76,
   "pka_transform": 0.0,
-  "unanchored": 16.78,
-  "reported": 16.78
+  "unanchored": 16.03,
+  "reported": 16.03
  },
  "conditions": {
   "T_K": 298.15,
@@ -130,7 +132,7 @@
   ]
  },
  "benchmark_input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json",
- "source_hash": "f41002fc7431e7beeabbdb8b0231967f22f8c128492efc47485cf1b8c65fa174",
- "host": "lambda4",
+ "source_hash": "7ca76c65bfebd7d8e62bc45d97ffd0dc5bad156dd00648d6b2615eceb3884458",
+ "host": "lambda11",
  "secs": 0.0
 }
