@@ -205,11 +205,18 @@ def pool_confs(smiles, q, seed, pool, spin=1):
     p = AllChem.ETKDGv3(); p.randomSeed = seed; p.pruneRmsThresh = 0.3
     cids = list(AllChem.EmbedMultipleConfs(m, numConfs=pool, params=p))
     if not cids:
-        AllChem.EmbedMolecule(m, randomSeed=seed, useRandomCoords=True); cids = [0]
+        cid = AllChem.EmbedMolecule(m, randomSeed=seed, useRandomCoords=True)
+        if cid < 0:
+            raise ValueError(f"{smiles}: RDKit could not generate a 3D conformer (seed {seed})")
+        cids = [cid]
     try:
         AllChem.MMFFOptimizeMoleculeConfs(m, maxIters=200)
     except Exception:
         pass
+    valid_cids = {conf.GetId() for conf in m.GetConformers()}
+    cids = [cid for cid in cids if cid in valid_cids]
+    if not cids:
+        raise ValueError(f"{smiles}: RDKit generated no usable 3D conformers (seed {seed})")
     syms = [a.GetSymbol() for a in m.GetAtoms()]
     return [Atoms(symbols=syms, positions=m.GetConformer(c).GetPositions(),
                   info={"charge": int(q), "spin": int(spin)}) for c in cids]

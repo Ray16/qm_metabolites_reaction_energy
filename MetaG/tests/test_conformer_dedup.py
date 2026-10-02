@@ -2,10 +2,11 @@
 samples of one basin must NOT add degeneracy (the old sum lowered G by RT ln N), symmetry-equivalent copies
 (rotated, translated, atom-permuted) must merge, and genuinely different conformers must stay distinct."""
 import numpy as np
+import pytest
 from ase import Atoms
 from rdkit import Chem
 from rdkit.Chem import AllChem
-from metag.energetics.conformers import boltz, UniqueMinima, principal_moments, KT
+from metag.energetics.conformers import boltz, pool_confs, UniqueMinima, principal_moments, KT
 
 
 def _butane_confs():
@@ -22,6 +23,13 @@ def _butane_confs():
 def test_old_sum_had_sample_count_bias():
     # the defect being fixed: 16 identical copies lower the Boltzmann G by RT ln 16 = 6.87 kJ
     assert abs((boltz([0.0]) - boltz([0.0] * 16)) - KT * np.log(16)) < 1e-9
+
+
+def test_pool_confs_reports_failed_fallback(monkeypatch):
+    monkeypatch.setattr(AllChem, "EmbedMultipleConfs", lambda *args, **kwargs: [])
+    monkeypatch.setattr(AllChem, "EmbedMolecule", lambda *args, **kwargs: -1)
+    with pytest.raises(ValueError, match="could not generate a 3D conformer"):
+        pool_confs("CC", 0, seed=1, pool=4)
 
 
 def test_duplicates_do_not_add_degeneracy():

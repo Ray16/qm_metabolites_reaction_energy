@@ -1049,6 +1049,9 @@ def validate_reaction(reaction):
         m = Chem.MolFromSmiles(smi)
         if m is None:
             raise ValueError(f"species {name!r}: unparseable SMILES {smi!r}")
+        if len(Chem.GetMolFrags(m)) != 1:
+            raise ValueError(f"species {name!r}: disconnected SMILES is not a supported single chemical "
+                             f"species ({smi})")
         if int(q) != Chem.GetFormalCharge(m):
             raise ValueError(f"species {name!r}: declared charge {q} != SMILES formal charge "
                              f"{Chem.GetFormalCharge(m)} ({smi})")
@@ -1414,6 +1417,10 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
         # are reverted by the balance guard): the reaction would silently be scored by a different
         # estimator than the configured one -> fail closed, before spending any QM.
         return _no_estimate(key, reaction, routes, "routing error: " + "; ".join(routes["errors"]), log)
+    if not routes["input_balanced"]:
+        # Elemental or charge imbalance makes a reaction free energy undefined. route_reaction has already
+        # recorded the exact residual; stop before loading any species energies, including cache hits.
+        return _no_estimate(key, reaction, routes, routes["warnings"][-1], log)
     log(f"\n=== {key}: {rx['note']}  (explicit={rx['explicit']}, n_H+={rx['n_Hplus']}) ===")
     # `explicit` may be True/False (whole reaction) OR a list/set of species names
     # that need explicit first-shell waters (per-species triage: only the anion that

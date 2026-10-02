@@ -45,6 +45,11 @@ def test_validate_reaction_rejects_charge_mismatch():
     P.validate_reaction({"species": {"a": [-1, -1, "CC(=O)[O-]"]}})   # consistent -> no error
 
 
+def test_validate_reaction_rejects_disconnected_species():
+    with pytest.raises(ValueError, match="disconnected SMILES"):
+        P.validate_reaction({"species": {"a": [-1, 0, "CCO.CC"], "b": [1, 0, "CCCCO"]}})
+
+
 @pytest.mark.parametrize("record", [
     [-1, 0],
     [0, 0, "CCO"],
@@ -88,12 +93,19 @@ def _score(sp, n_h=0):
 
 
 def test_unbalanced_reaction_returns_no_estimate(mocked):
-    # proton count wrong -> charge/element imbalance -> NO number, no interval, calibration off
+    # Proton count wrong -> reject before QM, with no number, interval, or calibration.
+    def qm_must_not_run(*args, **kwargs):
+        raise AssertionError("unbalanced input reached species QM")
+
+    mocked.setattr(P, "implicit_G", qm_must_not_run)
+    mocked.setattr(P, "water_ref_G", qm_must_not_run)
     r = _score({"A": [-1, 0, "CCO"], "B": [1, 0, "CC=O"], "H2": [1, 0, "[HH]"]}, n_h=1)
     assert r["suspect"] and r["dG"] is None and r["dG_raw"] is None
     assert r["ci95"] == [None, None] and r["sigma_pred"] is None
     assert r["ci_info"]["externally_calibrated"] is False
-    assert r["dG_raw_unreliable"] is not None                 # kept for diagnosis only
+    assert r["dG_raw_unreliable"] is None
+    assert r["routes"]["input_balanced"] is False
+    assert "residual" in r["suspect"]
 
 
 def test_water_spelling_does_not_change_dG(mocked):
