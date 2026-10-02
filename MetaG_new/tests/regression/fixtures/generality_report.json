@@ -1,0 +1,81 @@
+{
+  "interpretation": "Applicability stress test on balanced non-TECRDB ModelSEED reactions; no experimental energies, so no accuracy metric is defined.",
+  "input": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/generality_inputs.json",
+  "results_dir": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/generality_20261001c",
+  "n_input": 300,
+  "n_records": 300,
+  "n_estimates": 297,
+  "n_failures": 3,
+  "n_missing_records": 0,
+  "missing_records": [],
+  "extra_records": [],
+  "failures": {
+    "rxn07662": "score_reaction returned None (species QM failed)",
+    "rxn20744": "CC(=O)[O][Hg][c]1ccccc1: transition-metal species -- spin state cannot be inferred from the SMILES and UMA/xtb states are not validated here; not supported",
+    "rxn25000": "C=C1CC[C@H]2[C@H]3C1[C@@]2(C)CC[C@H]3C(C)C: RDKit could not generate a 3D conformer (seed 1)"
+  },
+  "n_ood": 14,
+  "ood_reactions": {
+    "rxn46326": [],
+    "rxn40748": [],
+    "rxn01327": [],
+    "rxn01949": [],
+    "rxn02592": [],
+    "rxn02082": [],
+    "rxn03372": [],
+    "rxn03379": [],
+    "rxn05062": [],
+    "rxn02507": [],
+    "rxn20744": [],
+    "rxn40687": [],
+    "rxn16823": [],
+    "rxn42311": []
+  },
+  "ood_flag_counts": {
+    "de-novo aromatic N-heterocycle formed/destroyed (multi-bond condensation class; empirical, mechanism undiagnosed)": 11,
+    "element(s) [Se] rare in the \u03c3-calibration set (UMA is universal and should generalize; computed-\u03c3, not a floor, is the honest measure)": 2,
+    "element(s) [Hg] rare in the \u03c3-calibration set (UMA is universal and should generalize; computed-\u03c3, not a floor, is the honest measure)": 1
+  },
+  "interval_status": {
+    "coverage-calibrated": 283,
+    "nominal": 14
+  },
+  "route_combinations": {
+    "ph0": 94,
+    "truncated+ph0": 67,
+    "ntp_core+truncated+ph0": 56,
+    "truncated": 36,
+    "full": 25,
+    "ntp_core+ph0": 19
+  },
+  "route_rule_counts": {
+    "cofactor_ring": 0,
+    "ntp_core": 75,
+    "truncated": 159,
+    "ph0": 236
+  },
+  "runtime_seconds": {
+    "median": 0.0,
+    "p90": 0.0,
+    "max": 1487.0
+  },
+  "incumbent_estimates": {
+    "group_contribution_available": 271,
+    "equilibrator_available": 237,
+    "both_available": 228,
+    "absolute_disagreement_kJ_mol": {
+      "median": 15.48,
+      "p90": 94.71,
+      "max": 1212.61
+    },
+    "n_gt_10_kJ_mol": 141,
+    "n_gt_30_kJ_mol": 89
+  },
+  "audit": {
+    "n_config_fingerprints": 1,
+    "n_source_hashes": 1,
+    "source_hashes": {
+      "ab4c5caa9c25990047e07580bd0706807cec91e8fe757fa2fab7abbc4c2eb2b6": 300
+    }
+  }
+}

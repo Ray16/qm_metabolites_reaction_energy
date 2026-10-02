@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metag"
+version = "0.2.0.dev0"
+description = "First-principles reaction free energies for metabolic chemistry"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "rdkit",
+]
+
+[project.optional-dependencies]
+qm = [
+    "ase",
+    "fairchem-core",
+    "torch",
+]
+test = [
+    "ase",
+    "pytest",
+    "sympy",
+]
+
+[project.scripts]
+metag = "metag.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["metag*"]
+
+[tool.setuptools.package-data]
+metag = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit", "tests/regression"]
+markers = [
+    "gpu: requires a CUDA GPU and the UMA runtime",
+    "integration: exercises external programs or the full scoring stack",
+    "performance: measures throughput or resource use",
+]
+

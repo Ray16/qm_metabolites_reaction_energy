@@ -1,0 +1,70 @@
+{
+  "release": "2026-10-01c",
+  "source_hash": "ab4c5caa9c25990047e07580bd0706807cec91e8fe757fa2fab7abbc4c2eb2b6",
+  "species": {
+    "attempted": 1122,
+    "successful": 1115,
+    "reviewed_failures": 7
+  },
+  "tecrdb": {
+    "attempted": 364,
+    "estimated": 364,
+    "mae_kj_mol": 9.58,
+    "median_absolute_error_kj_mol": 7.24,
+    "rmse_kj_mol": 13.39,
+    "coverage": {
+      "covered": 347,
+      "total": 364,
+      "fraction": 0.953,
+      "exact_binomial_95ci": [0.926, 0.973],
+      "multiplier": 2.25,
+      "grouped_cv_clusters": 245
+    },
+    "cycle_closure": {
+      "independent_cycles": 49,
+      "metag_rms_kj_mol": 1.52,
+      "measurement_rms_kj_mol": 3.50
+    }
+  },
+  "modelseed": {
+    "attempted": 300,
+    "estimated": 297,
+    "explicit_failures": 3,
+    "ood_flagged": 14,
+    "has_experimental_labels": false
+  },
+  "artifact_hashes": {
+    "sigma_class_calibrated.json": "32b87c41a348fe5fa5941bed52f963f8a5896a975d5d6b43009ec4c520d04b87",
+    "cycle_closure_by_route.json": "6a0bc13b5cd841fb35a072dce0bcea5f1574255b4e585f8267f392f6f3ed94f4",
+    "common_reference_comparison.json": "f3ae98548e0fbfb63ada4d67375d03571b3715a404794fdadd7d5de4329893be",
+    "generality_report.json": "f5a1f74b44d7277495dd8a6324e54c09efaa291deb85ebbc74caf4163bfee35b",
+    "tecrdb_results_directory": "fb9836c0f80fcdfd5f3ce95492654efec5e26a371f60cc9e64037f5b0e961102",
+    "modelseed_results_directory": "9d6aef161e1714cb9314d47da5d40d9a3a0cd6316ed3e7797aea2cf969902aa5"
+  },
+  "representative_results": {
+    "rxn00001": {
+      "dG_kj_mol": -31.3,
+      "error_kj_mol": -3.89,
+      "class": "phosphatase",
+      "truncated": false,
+      "ph0": true,
+      "suspect": null
+    },
+    "rxn00191": {
+      "dG_kj_mol": 0.1,
+      "error_kj_mol": 0.82,
+      "class": "transaminase",
+      "truncated": true,
+      "ph0": true,
+      "suspect": null
+    },
+    "modelseed_rxn01244": {
+      "dG_kj_mol": -43.6,
+      "class": "NAD(P)-redox(other)",
+      "truncated": true,
+      "ph0": true,
+      "suspect": null
+    }
+  }
+}
+

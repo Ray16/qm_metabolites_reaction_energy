@@ -1,0 +1,8 @@
+{
+  "physics_version": "2026-10-01c",
+  "reference_fixture": "../tests/regression/fixtures/frozen_2026-10-01c.json",
+  "source_hash": "ab4c5caa9c25990047e07580bd0706807cec91e8fe757fa2fab7abbc4c2eb2b6",
+  "behavior": "frozen",
+  "scientific_changes_allowed": false
+}
+
