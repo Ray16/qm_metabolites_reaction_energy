@@ -95,6 +95,9 @@ This answers the four findings of round 3. It supersedes conflicting statements 
 
 ## Still pending (regenerated after the running recompute)
 
+The operational sequence, commands, outputs and restart checks are recorded in
+`POST_SWEEP_RUNBOOK.md`.
+
 1. TECRDB production run (development MAE), recalibration, production rerun with matching intervals.
 2. Cycle closure and common-reference comparison recomputed.
 3. Generality report: 300 unseen ModelSEED reactions (failure rate, OOD flags, rule firing).
