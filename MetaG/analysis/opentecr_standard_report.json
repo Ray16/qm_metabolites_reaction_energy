@@ -1,0 +1,2582 @@
+{
+ "mapping": {
+  "entry id": 4545,
+  "unmapped (name not in TECRDB)": 840,
+  "name": 428,
+  "unmapped (EC disagrees with reaction)": 3
+ },
+ "excluded_measurements": {
+  "no K'": 392,
+  "wrong_value (superseded by an error_correction row)": 76,
+  "chemical reference / virtual entry": 8,
+  "no pH": 32,
+  "duplicate table (non-authoritative copy)": 4
+ },
+ "measurement_stats": {
+  "I imputed": 2641,
+  "source: entry id": 3333,
+  "I reported": 1023,
+  "source: name": 331,
+  "error_correction rows used": 87
+ },
+ "summary": {
+  "n_reactions": 364,
+  "n_dropped": 0,
+  "dropped": [],
+  "mean_abs_shift": 0.1,
+  "median_abs_shift": 0.0,
+  "n_shift_gt_1": 8,
+  "n_shift_gt_5": 2,
+  "n_shift_gt_10": 2
+ },
+ "reactions": {
+  "rxn01211": {
+   "tecrdb_std": -2.0,
+   "opentecr_std": -2.0,
+   "shift": -0.0,
+   "n_open": 9,
+   "n_tecrdb": 9
+  },
+  "rxn00973": {
+   "tecrdb_std": 5.87,
+   "opentecr_std": 5.87,
+   "shift": 0.0,
+   "n_open": 77,
+   "n_tecrdb": 75
+  },
+  "rxn00216": {
+   "tecrdb_std": -23.27,
+   "opentecr_std": -23.27,
+   "shift": 0.0,
+   "n_open": 31,
+   "n_tecrdb": 31
+  },
+  "rxn00695": {
+   "tecrdb_std": -4.05,
+   "opentecr_std": -4.05,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00290": {
+   "tecrdb_std": 6.61,
+   "opentecr_std": 6.61,
+   "shift": 0.0,
+   "n_open": 19,
+   "n_tecrdb": 19
+  },
+  "rxn10427": {
+   "tecrdb_std": -4.89,
+   "opentecr_std": -4.89,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn03643": {
+   "tecrdb_std": -25.52,
+   "opentecr_std": -25.52,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00184": {
+   "tecrdb_std": 44.73,
+   "opentecr_std": 44.73,
+   "shift": -0.0,
+   "n_open": 26,
+   "n_tecrdb": 26
+  },
+  "rxn00499": {
+   "tecrdb_std": 29.34,
+   "opentecr_std": 29.34,
+   "shift": -0.0,
+   "n_open": 37,
+   "n_tecrdb": 37
+  },
+  "rxn00070": {
+   "tecrdb_std": 23.2,
+   "opentecr_std": 23.2,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01008": {
+   "tecrdb_std": -0.68,
+   "opentecr_std": -0.68,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00173": {
+   "tecrdb_std": 13.11,
+   "opentecr_std": 13.11,
+   "shift": -0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn01530": {
+   "tecrdb_std": 12.55,
+   "opentecr_std": 12.55,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00132": {
+   "tecrdb_std": -13.87,
+   "opentecr_std": -13.87,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00421": {
+   "tecrdb_std": -18.94,
+   "opentecr_std": -18.94,
+   "shift": -0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn00086": {
+   "tecrdb_std": 20.98,
+   "opentecr_std": 22.45,
+   "shift": 1.47,
+   "n_open": 37,
+   "n_tecrdb": 13
+  },
+  "rxn00545": {
+   "tecrdb_std": -9.23,
+   "opentecr_std": -9.23,
+   "shift": -0.0,
+   "n_open": 9,
+   "n_tecrdb": 9
+  },
+  "rxn04082": {
+   "tecrdb_std": -0.47,
+   "opentecr_std": -0.47,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01740": {
+   "tecrdb_std": 16.04,
+   "opentecr_std": 16.04,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn00634": {
+   "tecrdb_std": 15.52,
+   "opentecr_std": 13.98,
+   "shift": -1.54,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn02132": {
+   "tecrdb_std": 20.47,
+   "opentecr_std": 20.47,
+   "shift": -0.0,
+   "n_open": 9,
+   "n_tecrdb": 9
+  },
+  "rxn01371": {
+   "tecrdb_std": 8.89,
+   "opentecr_std": 8.89,
+   "shift": 0.0,
+   "n_open": 200,
+   "n_tecrdb": 199
+  },
+  "rxn00543": {
+   "tecrdb_std": 25.93,
+   "opentecr_std": 25.93,
+   "shift": -0.0,
+   "n_open": 80,
+   "n_tecrdb": 80
+  },
+  "rxn00558": {
+   "tecrdb_std": 3.38,
+   "opentecr_std": 3.38,
+   "shift": 0.0,
+   "n_open": 50,
+   "n_tecrdb": 50
+  },
+  "rxn00097": {
+   "tecrdb_std": -5.8,
+   "opentecr_std": -5.81,
+   "shift": -0.01,
+   "n_open": 324,
+   "n_tecrdb": 324
+  },
+  "rxn00765": {
+   "tecrdb_std": 41.46,
+   "opentecr_std": 41.46,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01746": {
+   "tecrdb_std": 0.29,
+   "opentecr_std": 0.29,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01385": {
+   "tecrdb_std": 22.76,
+   "opentecr_std": 22.76,
+   "shift": 0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn01101": {
+   "tecrdb_std": 36.69,
+   "opentecr_std": 36.69,
+   "shift": 0.0,
+   "n_open": 21,
+   "n_tecrdb": 21
+  },
+  "rxn01358": {
+   "tecrdb_std": 10.55,
+   "opentecr_std": 10.83,
+   "shift": 0.28,
+   "n_open": 12,
+   "n_tecrdb": 6
+  },
+  "rxn00602": {
+   "tecrdb_std": -7.58,
+   "opentecr_std": -7.58,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00549": {
+   "tecrdb_std": -18.94,
+   "opentecr_std": -18.94,
+   "shift": -0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn03249": {
+   "tecrdb_std": 24.33,
+   "opentecr_std": 24.33,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01451": {
+   "tecrdb_std": 21.9,
+   "opentecr_std": 21.9,
+   "shift": 0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn01100": {
+   "tecrdb_std": 28.47,
+   "opentecr_std": 28.26,
+   "shift": -0.21,
+   "n_open": 22,
+   "n_tecrdb": 21
+  },
+  "rxn01362": {
+   "tecrdb_std": -12.85,
+   "opentecr_std": -12.85,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01761": {
+   "tecrdb_std": 0.72,
+   "opentecr_std": 0.72,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00747": {
+   "tecrdb_std": -7.82,
+   "opentecr_std": -7.4,
+   "shift": 0.42,
+   "n_open": 17,
+   "n_tecrdb": 9
+  },
+  "rxn01016": {
+   "tecrdb_std": 15.15,
+   "opentecr_std": 15.15,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00151": {
+   "tecrdb_std": 21.87,
+   "opentecr_std": 21.87,
+   "shift": 0.0,
+   "n_open": 13,
+   "n_tecrdb": 13
+  },
+  "rxn01106": {
+   "tecrdb_std": -6.4,
+   "opentecr_std": -6.39,
+   "shift": 0.01,
+   "n_open": 83,
+   "n_tecrdb": 61
+  },
+  "rxn01044": {
+   "tecrdb_std": 3.79,
+   "opentecr_std": 3.79,
+   "shift": 0.0,
+   "n_open": 23,
+   "n_tecrdb": 23
+  },
+  "rxn01201": {
+   "tecrdb_std": 1.23,
+   "opentecr_std": 1.23,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00187": {
+   "tecrdb_std": -20.53,
+   "opentecr_std": -20.53,
+   "shift": 0.0,
+   "n_open": 10,
+   "n_tecrdb": 10
+  },
+  "rxn00559": {
+   "tecrdb_std": -0.09,
+   "opentecr_std": -0.09,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn02451": {
+   "tecrdb_std": -3.48,
+   "opentecr_std": -3.48,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00065": {
+   "tecrdb_std": 4.8,
+   "opentecr_std": 4.8,
+   "shift": 0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00293": {
+   "tecrdb_std": -5.01,
+   "opentecr_std": -5.01,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00577": {
+   "tecrdb_std": -7.29,
+   "opentecr_std": -7.29,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn51768": {
+   "tecrdb_std": 14.43,
+   "opentecr_std": 14.43,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00191": {
+   "tecrdb_std": -0.72,
+   "opentecr_std": -0.72,
+   "shift": -0.0,
+   "n_open": 12,
+   "n_tecrdb": 12
+  },
+  "rxn00636": {
+   "tecrdb_std": -2.61,
+   "opentecr_std": -2.61,
+   "shift": -0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00396": {
+   "tecrdb_std": 1.1,
+   "opentecr_std": 1.1,
+   "shift": 0.0,
+   "n_open": 30,
+   "n_tecrdb": 30
+  },
+  "rxn01548": {
+   "tecrdb_std": 11.27,
+   "opentecr_std": 11.27,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00992": {
+   "tecrdb_std": 14.24,
+   "opentecr_std": 14.24,
+   "shift": -0.0,
+   "n_open": 16,
+   "n_tecrdb": 16
+  },
+  "rxn00280": {
+   "tecrdb_std": 37.73,
+   "opentecr_std": 37.73,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00629": {
+   "tecrdb_std": 11.57,
+   "opentecr_std": 11.57,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00402": {
+   "tecrdb_std": 36.62,
+   "opentecr_std": 36.62,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00283": {
+   "tecrdb_std": 0.0,
+   "opentecr_std": 0.0,
+   "shift": 0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00077": {
+   "tecrdb_std": -12.11,
+   "opentecr_std": -12.11,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01620": {
+   "tecrdb_std": 19.81,
+   "opentecr_std": 19.81,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00336": {
+   "tecrdb_std": 8.73,
+   "opentecr_std": 8.73,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00799": {
+   "tecrdb_std": 3.62,
+   "opentecr_std": 3.62,
+   "shift": -0.0,
+   "n_open": 102,
+   "n_tecrdb": 102
+  },
+  "rxn01646": {
+   "tecrdb_std": -14.34,
+   "opentecr_std": -14.34,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00141": {
+   "tecrdb_std": 34.76,
+   "opentecr_std": 34.76,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00223": {
+   "tecrdb_std": -0.23,
+   "opentecr_std": -0.23,
+   "shift": -0.0,
+   "n_open": 89,
+   "n_tecrdb": 89
+  },
+  "rxn01204": {
+   "tecrdb_std": 5.41,
+   "opentecr_std": 5.41,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn31240": {
+   "tecrdb_std": -1.32,
+   "opentecr_std": -1.32,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00182": {
+   "tecrdb_std": 40.49,
+   "opentecr_std": 40.49,
+   "shift": 0.0,
+   "n_open": 74,
+   "n_tecrdb": 75
+  },
+  "rxn01407": {
+   "tecrdb_std": 30.1,
+   "opentecr_std": 30.1,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02320": {
+   "tecrdb_std": -7.81,
+   "opentecr_std": -7.81,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00552": {
+   "tecrdb_std": 3.9,
+   "opentecr_std": 3.9,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00800": {
+   "tecrdb_std": 5.95,
+   "opentecr_std": 5.95,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00117": {
+   "tecrdb_std": 1.51,
+   "opentecr_std": 1.51,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01157": {
+   "tecrdb_std": -8.63,
+   "opentecr_std": -8.63,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn08430": {
+   "tecrdb_std": -13.93,
+   "opentecr_std": -13.93,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn04945": {
+   "tecrdb_std": 3.69,
+   "opentecr_std": 3.69,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00686": {
+   "tecrdb_std": 33.08,
+   "opentecr_std": 31.99,
+   "shift": -1.09,
+   "n_open": 8,
+   "n_tecrdb": 7
+  },
+  "rxn00415": {
+   "tecrdb_std": -14.96,
+   "opentecr_std": -14.96,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02914": {
+   "tecrdb_std": 13.39,
+   "opentecr_std": 13.39,
+   "shift": 0.0,
+   "n_open": 56,
+   "n_tecrdb": 56
+  },
+  "rxn00278": {
+   "tecrdb_std": 40.86,
+   "opentecr_std": 40.86,
+   "shift": 0.0,
+   "n_open": 15,
+   "n_tecrdb": 15
+  },
+  "rxn00927": {
+   "tecrdb_std": -9.84,
+   "opentecr_std": -9.84,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00213": {
+   "tecrdb_std": 2.35,
+   "opentecr_std": 2.35,
+   "shift": 0.0,
+   "n_open": 27,
+   "n_tecrdb": 27
+  },
+  "rxn01249": {
+   "tecrdb_std": 33.61,
+   "opentecr_std": 33.61,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01322": {
+   "tecrdb_std": 7.11,
+   "opentecr_std": 7.11,
+   "shift": 0.0,
+   "n_open": 11,
+   "n_tecrdb": 11
+  },
+  "rxn02459": {
+   "tecrdb_std": 34.8,
+   "opentecr_std": 34.8,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00260": {
+   "tecrdb_std": 4.77,
+   "opentecr_std": 4.77,
+   "shift": 0.0,
+   "n_open": 12,
+   "n_tecrdb": 12
+  },
+  "rxn02756": {
+   "tecrdb_std": 3.75,
+   "opentecr_std": 3.75,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01423": {
+   "tecrdb_std": -0.72,
+   "opentecr_std": -0.72,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00704": {
+   "tecrdb_std": -7.19,
+   "opentecr_std": -7.19,
+   "shift": 0.0,
+   "n_open": 11,
+   "n_tecrdb": 11
+  },
+  "rxn39443": {
+   "tecrdb_std": 1.06,
+   "opentecr_std": 1.06,
+   "shift": -0.0,
+   "n_open": 31,
+   "n_tecrdb": 31
+  },
+  "rxn01043": {
+   "tecrdb_std": 22.61,
+   "opentecr_std": 22.61,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00171": {
+   "tecrdb_std": -13.7,
+   "opentecr_std": -13.7,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00770": {
+   "tecrdb_std": 0.38,
+   "opentecr_std": 0.38,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00248": {
+   "tecrdb_std": 32.23,
+   "opentecr_std": 32.23,
+   "shift": 0.0,
+   "n_open": 71,
+   "n_tecrdb": 71
+  },
+  "rxn00546": {
+   "tecrdb_std": 16.79,
+   "opentecr_std": 16.79,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn00347": {
+   "tecrdb_std": 16.28,
+   "opentecr_std": 16.28,
+   "shift": -0.0,
+   "n_open": 26,
+   "n_tecrdb": 26
+  },
+  "rxn00802": {
+   "tecrdb_std": 14.68,
+   "opentecr_std": 14.68,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00131": {
+   "tecrdb_std": -12.82,
+   "opentecr_std": -12.82,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00604": {
+   "tecrdb_std": 2.42,
+   "opentecr_std": 2.42,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01368": {
+   "tecrdb_std": -14.7,
+   "opentecr_std": -14.7,
+   "shift": -0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn02975": {
+   "tecrdb_std": -0.68,
+   "opentecr_std": -0.68,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00692": {
+   "tecrdb_std": 6.1,
+   "opentecr_std": 6.1,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01333": {
+   "tecrdb_std": 0.37,
+   "opentecr_std": 0.37,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00810": {
+   "tecrdb_std": -12.75,
+   "opentecr_std": -12.75,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00579": {
+   "tecrdb_std": 3.73,
+   "opentecr_std": 3.73,
+   "shift": 0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn00806": {
+   "tecrdb_std": -3.31,
+   "opentecr_std": -3.79,
+   "shift": -0.48,
+   "n_open": 3,
+   "n_tecrdb": 2
+  },
+  "rxn02749": {
+   "tecrdb_std": 11.48,
+   "opentecr_std": 11.5,
+   "shift": 0.02,
+   "n_open": 14,
+   "n_tecrdb": 1
+  },
+  "rxn01277": {
+   "tecrdb_std": 25.48,
+   "opentecr_std": 25.48,
+   "shift": -0.0,
+   "n_open": 11,
+   "n_tecrdb": 11
+  },
+  "rxn00083": {
+   "tecrdb_std": -3.5,
+   "opentecr_std": -3.5,
+   "shift": -0.0,
+   "n_open": 13,
+   "n_tecrdb": 13
+  },
+  "rxn01479": {
+   "tecrdb_std": -1.56,
+   "opentecr_std": -1.56,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02842": {
+   "tecrdb_std": 30.13,
+   "opentecr_std": 30.13,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00786": {
+   "tecrdb_std": 15.84,
+   "opentecr_std": 15.84,
+   "shift": 0.0,
+   "n_open": 16,
+   "n_tecrdb": 16
+  },
+  "rxn01506": {
+   "tecrdb_std": 1.96,
+   "opentecr_std": 1.96,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00328": {
+   "tecrdb_std": 10.16,
+   "opentecr_std": 10.16,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn02202": {
+   "tecrdb_std": 3.99,
+   "opentecr_std": 3.99,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01465": {
+   "tecrdb_std": -3.63,
+   "opentecr_std": -3.63,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00364": {
+   "tecrdb_std": -3.49,
+   "opentecr_std": -3.49,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02930": {
+   "tecrdb_std": 32.66,
+   "opentecr_std": 32.66,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00816": {
+   "tecrdb_std": -8.8,
+   "opentecr_std": -8.8,
+   "shift": 0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn00824": {
+   "tecrdb_std": 4.6,
+   "opentecr_std": 4.6,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01366": {
+   "tecrdb_std": 0.79,
+   "opentecr_std": 0.79,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn00990": {
+   "tecrdb_std": -5.07,
+   "opentecr_std": -5.07,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00778": {
+   "tecrdb_std": -8.39,
+   "opentecr_std": -8.39,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01491": {
+   "tecrdb_std": -12.92,
+   "opentecr_std": -12.92,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00906": {
+   "tecrdb_std": 17.59,
+   "opentecr_std": 17.59,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00974": {
+   "tecrdb_std": 7.64,
+   "opentecr_std": 7.75,
+   "shift": 0.11,
+   "n_open": 4,
+   "n_tecrdb": 3
+  },
+  "rxn00836": {
+   "tecrdb_std": 33.38,
+   "opentecr_std": 33.38,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02263": {
+   "tecrdb_std": 5.46,
+   "opentecr_std": 5.46,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00753": {
+   "tecrdb_std": -11.25,
+   "opentecr_std": -11.25,
+   "shift": 0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn00331": {
+   "tecrdb_std": 8.04,
+   "opentecr_std": 8.04,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00777": {
+   "tecrdb_std": 2.86,
+   "opentecr_std": 2.86,
+   "shift": -0.0,
+   "n_open": 13,
+   "n_tecrdb": 13
+  },
+  "rxn01790": {
+   "tecrdb_std": 25.99,
+   "opentecr_std": 25.99,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00214": {
+   "tecrdb_std": 2.98,
+   "opentecr_std": 2.98,
+   "shift": 0.0,
+   "n_open": 11,
+   "n_tecrdb": 11
+  },
+  "rxn00831": {
+   "tecrdb_std": -13.7,
+   "opentecr_std": -13.7,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00220": {
+   "tecrdb_std": -11.34,
+   "opentecr_std": -11.34,
+   "shift": -0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00459": {
+   "tecrdb_std": -3.17,
+   "opentecr_std": -3.17,
+   "shift": -0.0,
+   "n_open": 88,
+   "n_tecrdb": 88
+  },
+  "rxn00907": {
+   "tecrdb_std": 9.61,
+   "opentecr_std": 9.61,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn15964": {
+   "tecrdb_std": -15.45,
+   "opentecr_std": -15.45,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00746": {
+   "tecrdb_std": 19.4,
+   "opentecr_std": 19.4,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01116": {
+   "tecrdb_std": -1.01,
+   "opentecr_std": -1.01,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn00175": {
+   "tecrdb_std": -0.51,
+   "opentecr_std": -0.51,
+   "shift": -0.0,
+   "n_open": 39,
+   "n_tecrdb": 39
+  },
+  "rxn02625": {
+   "tecrdb_std": 7.15,
+   "opentecr_std": 7.15,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01626": {
+   "tecrdb_std": -6.43,
+   "opentecr_std": -6.48,
+   "shift": -0.05,
+   "n_open": 6,
+   "n_tecrdb": 3
+  },
+  "rxn00265": {
+   "tecrdb_std": 0.8,
+   "opentecr_std": 0.8,
+   "shift": 0.0,
+   "n_open": 25,
+   "n_tecrdb": 25
+  },
+  "rxn01745": {
+   "tecrdb_std": 18.84,
+   "opentecr_std": 18.52,
+   "shift": -0.32,
+   "n_open": 12,
+   "n_tecrdb": 1
+  },
+  "rxn01383": {
+   "tecrdb_std": 21.77,
+   "opentecr_std": 21.77,
+   "shift": -0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00007": {
+   "tecrdb_std": -11.85,
+   "opentecr_std": -11.85,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01870": {
+   "tecrdb_std": 30.5,
+   "opentecr_std": 30.5,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn15750": {
+   "tecrdb_std": 18.32,
+   "opentecr_std": 18.32,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01617": {
+   "tecrdb_std": 39.18,
+   "opentecr_std": 39.18,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01075": {
+   "tecrdb_std": -0.0,
+   "opentecr_std": -0.0,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01388": {
+   "tecrdb_std": 1.49,
+   "opentecr_std": 1.68,
+   "shift": 0.19,
+   "n_open": 4,
+   "n_tecrdb": 3
+  },
+  "rxn01011": {
+   "tecrdb_std": 34.31,
+   "opentecr_std": 34.31,
+   "shift": -0.0,
+   "n_open": 52,
+   "n_tecrdb": 52
+  },
+  "rxn00250": {
+   "tecrdb_std": -3.6,
+   "opentecr_std": -3.6,
+   "shift": -0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn00909": {
+   "tecrdb_std": -19.04,
+   "opentecr_std": -19.04,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01280": {
+   "tecrdb_std": 38.9,
+   "opentecr_std": 38.9,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01265": {
+   "tecrdb_std": 8.54,
+   "opentecr_std": 8.54,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00838": {
+   "tecrdb_std": 16.24,
+   "opentecr_std": 16.24,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00754": {
+   "tecrdb_std": -24.17,
+   "opentecr_std": -24.17,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00379": {
+   "tecrdb_std": 43.11,
+   "opentecr_std": 43.02,
+   "shift": -0.09,
+   "n_open": 5,
+   "n_tecrdb": 4
+  },
+  "rxn01638": {
+   "tecrdb_std": -0.27,
+   "opentecr_std": -0.27,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00915": {
+   "tecrdb_std": 27.36,
+   "opentecr_std": 27.36,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00139": {
+   "tecrdb_std": 19.4,
+   "opentecr_std": 19.4,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00321": {
+   "tecrdb_std": -4.62,
+   "opentecr_std": -4.62,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00178": {
+   "tecrdb_std": 23.8,
+   "opentecr_std": 23.8,
+   "shift": 0.0,
+   "n_open": 11,
+   "n_tecrdb": 11
+  },
+  "rxn53944": {
+   "tecrdb_std": -7.95,
+   "opentecr_std": -7.95,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01259": {
+   "tecrdb_std": -7.65,
+   "opentecr_std": -7.52,
+   "shift": 0.13,
+   "n_open": 9,
+   "n_tecrdb": 11
+  },
+  "rxn03876": {
+   "tecrdb_std": 0.01,
+   "opentecr_std": 0.01,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01847": {
+   "tecrdb_std": 43.16,
+   "opentecr_std": 43.16,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01005": {
+   "tecrdb_std": -3.23,
+   "opentecr_std": -3.23,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00784": {
+   "tecrdb_std": 20.55,
+   "opentecr_std": 20.55,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00189": {
+   "tecrdb_std": -15.13,
+   "opentecr_std": -15.13,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn45677": {
+   "tecrdb_std": -15.04,
+   "opentecr_std": -15.04,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn02591": {
+   "tecrdb_std": -10.53,
+   "opentecr_std": -10.53,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01532": {
+   "tecrdb_std": 7.7,
+   "opentecr_std": 7.7,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00422": {
+   "tecrdb_std": 4.02,
+   "opentecr_std": 4.02,
+   "shift": 0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn00148": {
+   "tecrdb_std": 25.32,
+   "opentecr_std": 25.32,
+   "shift": -0.0,
+   "n_open": 29,
+   "n_tecrdb": 29
+  },
+  "rxn02782": {
+   "tecrdb_std": 14.26,
+   "opentecr_std": 14.26,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01138": {
+   "tecrdb_std": 7.67,
+   "opentecr_std": 7.67,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn03250": {
+   "tecrdb_std": 1.02,
+   "opentecr_std": 1.02,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02168": {
+   "tecrdb_std": 4.24,
+   "opentecr_std": 4.24,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn40442": {
+   "tecrdb_std": 10.24,
+   "opentecr_std": 10.2,
+   "shift": -0.04,
+   "n_open": 43,
+   "n_tecrdb": 42
+  },
+  "rxn02167": {
+   "tecrdb_std": 3.25,
+   "opentecr_std": 3.25,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00849": {
+   "tecrdb_std": 0.03,
+   "opentecr_std": 0.03,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn04943": {
+   "tecrdb_std": 17.03,
+   "opentecr_std": 17.03,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01447": {
+   "tecrdb_std": -13.03,
+   "opentecr_std": -13.03,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01505": {
+   "tecrdb_std": 4.72,
+   "opentecr_std": 4.72,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01258": {
+   "tecrdb_std": 1.03,
+   "opentecr_std": 1.03,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01117": {
+   "tecrdb_std": 2.48,
+   "opentecr_std": 2.48,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00867": {
+   "tecrdb_std": 8.65,
+   "opentecr_std": 8.65,
+   "shift": 0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn02066": {
+   "tecrdb_std": 28.07,
+   "opentecr_std": 28.07,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn19090": {
+   "tecrdb_std": 29.12,
+   "opentecr_std": 29.12,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01726": {
+   "tecrdb_std": -1.24,
+   "opentecr_std": -1.24,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01253": {
+   "tecrdb_std": -1.08,
+   "opentecr_std": -1.08,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01386": {
+   "tecrdb_std": -3.01,
+   "opentecr_std": -3.01,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00781": {
+   "tecrdb_std": 12.9,
+   "opentecr_std": 12.9,
+   "shift": 0.0,
+   "n_open": 36,
+   "n_tecrdb": 36
+  },
+  "rxn00500": {
+   "tecrdb_std": 27.26,
+   "opentecr_std": 27.26,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00741": {
+   "tecrdb_std": 23.89,
+   "opentecr_std": 23.89,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn44278": {
+   "tecrdb_std": -3.33,
+   "opentecr_std": -3.33,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02204": {
+   "tecrdb_std": -3.28,
+   "opentecr_std": -3.28,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01130": {
+   "tecrdb_std": -13.97,
+   "opentecr_std": -13.97,
+   "shift": -0.0,
+   "n_open": 63,
+   "n_tecrdb": 63
+  },
+  "rxn01392": {
+   "tecrdb_std": 27.06,
+   "opentecr_std": 27.06,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn01302": {
+   "tecrdb_std": 31.2,
+   "opentecr_std": 31.2,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00022": {
+   "tecrdb_std": -13.79,
+   "opentecr_std": -13.79,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00510": {
+   "tecrdb_std": 43.28,
+   "opentecr_std": 43.28,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00512": {
+   "tecrdb_std": 47.89,
+   "opentecr_std": 48.24,
+   "shift": 0.35,
+   "n_open": 16,
+   "n_tecrdb": 11
+  },
+  "rxn00473": {
+   "tecrdb_std": 22.37,
+   "opentecr_std": 22.37,
+   "shift": 0.0,
+   "n_open": 20,
+   "n_tecrdb": 20
+  },
+  "rxn01306": {
+   "tecrdb_std": 19.79,
+   "opentecr_std": 19.79,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00817": {
+   "tecrdb_std": -10.5,
+   "opentecr_std": -10.5,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn03886": {
+   "tecrdb_std": 16.7,
+   "opentecr_std": 16.7,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00762": {
+   "tecrdb_std": 26.91,
+   "opentecr_std": 29.54,
+   "shift": 2.63,
+   "n_open": 9,
+   "n_tecrdb": 2
+  },
+  "rxn01682": {
+   "tecrdb_std": 19.3,
+   "opentecr_std": 21.34,
+   "shift": 2.04,
+   "n_open": 2,
+   "n_tecrdb": 1
+  },
+  "rxn00562": {
+   "tecrdb_std": 5.18,
+   "opentecr_std": 5.18,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01054": {
+   "tecrdb_std": -2.57,
+   "opentecr_std": -2.57,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn08948": {
+   "tecrdb_std": -10.01,
+   "opentecr_std": -10.01,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01329": {
+   "tecrdb_std": 5.58,
+   "opentecr_std": 5.58,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00172": {
+   "tecrdb_std": -2.29,
+   "opentecr_std": -1.77,
+   "shift": 0.52,
+   "n_open": 12,
+   "n_tecrdb": 6
+  },
+  "rxn00930": {
+   "tecrdb_std": 30.96,
+   "opentecr_std": 30.96,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00699": {
+   "tecrdb_std": 3.21,
+   "opentecr_std": 3.21,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn39373": {
+   "tecrdb_std": 18.4,
+   "opentecr_std": 18.4,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00462": {
+   "tecrdb_std": 11.79,
+   "opentecr_std": 11.79,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01485": {
+   "tecrdb_std": -2.72,
+   "opentecr_std": -2.72,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00225": {
+   "tecrdb_std": 6.05,
+   "opentecr_std": 6.05,
+   "shift": -0.0,
+   "n_open": 21,
+   "n_tecrdb": 21
+  },
+  "rxn00495": {
+   "tecrdb_std": -2.22,
+   "opentecr_std": -2.36,
+   "shift": -0.14,
+   "n_open": 30,
+   "n_tecrdb": 28
+  },
+  "rxn01241": {
+   "tecrdb_std": 9.06,
+   "opentecr_std": 9.06,
+   "shift": 0.0,
+   "n_open": 10,
+   "n_tecrdb": 10
+  },
+  "rxn01099": {
+   "tecrdb_std": -18.1,
+   "opentecr_std": -18.1,
+   "shift": 0.0,
+   "n_open": 23,
+   "n_tecrdb": 23
+  },
+  "rxn05026": {
+   "tecrdb_std": 5.66,
+   "opentecr_std": 5.66,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn03840": {
+   "tecrdb_std": -6.82,
+   "opentecr_std": -6.82,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00302": {
+   "tecrdb_std": 9.43,
+   "opentecr_std": 9.43,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00239": {
+   "tecrdb_std": -5.69,
+   "opentecr_std": -5.69,
+   "shift": 0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn00611": {
+   "tecrdb_std": 28.3,
+   "opentecr_std": 28.3,
+   "shift": -0.0,
+   "n_open": 15,
+   "n_tecrdb": 15
+  },
+  "rxn12158": {
+   "tecrdb_std": 3.3,
+   "opentecr_std": 3.3,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00702": {
+   "tecrdb_std": -3.16,
+   "opentecr_std": -3.16,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn14063": {
+   "tecrdb_std": 37.14,
+   "opentecr_std": 37.06,
+   "shift": -0.08,
+   "n_open": 1,
+   "n_tecrdb": 2
+  },
+  "rxn02651": {
+   "tecrdb_std": 23.26,
+   "opentecr_std": 23.26,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01597": {
+   "tecrdb_std": -10.93,
+   "opentecr_std": -10.93,
+   "shift": 0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn01293": {
+   "tecrdb_std": 23.8,
+   "opentecr_std": 23.8,
+   "shift": -0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn01513": {
+   "tecrdb_std": -2.76,
+   "opentecr_std": -2.76,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01410": {
+   "tecrdb_std": -1.05,
+   "opentecr_std": -1.05,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01996": {
+   "tecrdb_std": -0.0,
+   "opentecr_std": -0.0,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00285": {
+   "tecrdb_std": 3.65,
+   "opentecr_std": 3.65,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00423": {
+   "tecrdb_std": -6.76,
+   "opentecr_std": -6.76,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn15726": {
+   "tecrdb_std": 30.79,
+   "opentecr_std": 30.79,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00697": {
+   "tecrdb_std": -7.35,
+   "opentecr_std": -7.35,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01361": {
+   "tecrdb_std": 16.05,
+   "opentecr_std": 16.05,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00234": {
+   "tecrdb_std": 2.29,
+   "opentecr_std": 2.29,
+   "shift": -0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn03884": {
+   "tecrdb_std": 13.39,
+   "opentecr_std": 13.39,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00798": {
+   "tecrdb_std": 1.95,
+   "opentecr_std": 1.95,
+   "shift": 0.0,
+   "n_open": 8,
+   "n_tecrdb": 8
+  },
+  "rxn01702": {
+   "tecrdb_std": 19.83,
+   "opentecr_std": 19.83,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01137": {
+   "tecrdb_std": -23.23,
+   "opentecr_std": -23.23,
+   "shift": 0.0,
+   "n_open": 15,
+   "n_tecrdb": 15
+  },
+  "rxn00237": {
+   "tecrdb_std": -0.1,
+   "opentecr_std": -0.1,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00001": {
+   "tecrdb_std": -27.41,
+   "opentecr_std": -25.08,
+   "shift": 2.33,
+   "n_open": 362,
+   "n_tecrdb": 214
+  },
+  "rxn01380": {
+   "tecrdb_std": 6.73,
+   "opentecr_std": 6.73,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00217": {
+   "tecrdb_std": -2.29,
+   "opentecr_std": -2.29,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02322": {
+   "tecrdb_std": -2.61,
+   "opentecr_std": -2.61,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00062": {
+   "tecrdb_std": -28.35,
+   "opentecr_std": -28.35,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00193": {
+   "tecrdb_std": -0.0,
+   "opentecr_std": -0.0,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn36656": {
+   "tecrdb_std": -2.84,
+   "opentecr_std": -2.84,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01846": {
+   "tecrdb_std": 30.65,
+   "opentecr_std": 30.65,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00515": {
+   "tecrdb_std": 0.01,
+   "opentecr_std": 0.01,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01292": {
+   "tecrdb_std": 4.73,
+   "opentecr_std": 4.73,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00147": {
+   "tecrdb_std": -14.09,
+   "opentecr_std": -14.09,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00337": {
+   "tecrdb_std": 16.12,
+   "opentecr_std": 16.12,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn15055": {
+   "tecrdb_std": -12.16,
+   "opentecr_std": -12.16,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00690": {
+   "tecrdb_std": -13.91,
+   "opentecr_std": -13.91,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00987": {
+   "tecrdb_std": 0.15,
+   "opentecr_std": 0.15,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01336": {
+   "tecrdb_std": 6.05,
+   "opentecr_std": 6.05,
+   "shift": -0.0,
+   "n_open": 12,
+   "n_tecrdb": 12
+  },
+  "rxn02360": {
+   "tecrdb_std": 0.02,
+   "opentecr_std": 0.02,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn11139": {
+   "tecrdb_std": 4.32,
+   "opentecr_std": 4.32,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02685": {
+   "tecrdb_std": -3.99,
+   "opentecr_std": -3.99,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn04785": {
+   "tecrdb_std": -8.77,
+   "opentecr_std": -8.77,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn16378": {
+   "tecrdb_std": 14.38,
+   "opentecr_std": 4.23,
+   "shift": -10.15,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn52014": {
+   "tecrdb_std": 23.56,
+   "opentecr_std": 13.23,
+   "shift": -10.33,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00698": {
+   "tecrdb_std": 4.32,
+   "opentecr_std": 4.32,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00306": {
+   "tecrdb_std": 2.73,
+   "opentecr_std": 2.7,
+   "shift": -0.03,
+   "n_open": 39,
+   "n_tecrdb": 38
+  },
+  "rxn00105": {
+   "tecrdb_std": -1.17,
+   "opentecr_std": -1.17,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn14104": {
+   "tecrdb_std": -4.3,
+   "opentecr_std": -4.3,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00551": {
+   "tecrdb_std": 19.19,
+   "opentecr_std": 19.19,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn03087": {
+   "tecrdb_std": 1.74,
+   "opentecr_std": 1.74,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01004": {
+   "tecrdb_std": 5.71,
+   "opentecr_std": 5.71,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00195": {
+   "tecrdb_std": -5.81,
+   "opentecr_std": -5.81,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01409": {
+   "tecrdb_std": 1.74,
+   "opentecr_std": 1.74,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02527": {
+   "tecrdb_std": -26.85,
+   "opentecr_std": -26.85,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00631": {
+   "tecrdb_std": 26.07,
+   "opentecr_std": 26.07,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00785": {
+   "tecrdb_std": 6.89,
+   "opentecr_std": 6.89,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01985": {
+   "tecrdb_std": 10.71,
+   "opentecr_std": 10.12,
+   "shift": -0.59,
+   "n_open": 2,
+   "n_tecrdb": 3
+  },
+  "rxn01200": {
+   "tecrdb_std": 1.25,
+   "opentecr_std": 1.25,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00656": {
+   "tecrdb_std": 3.87,
+   "opentecr_std": 3.87,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn04684": {
+   "tecrdb_std": -5.47,
+   "opentecr_std": -5.48,
+   "shift": -0.01,
+   "n_open": 52,
+   "n_tecrdb": 51
+  },
+  "rxn01834": {
+   "tecrdb_std": 23.47,
+   "opentecr_std": 23.47,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01174": {
+   "tecrdb_std": 26.87,
+   "opentecr_std": 26.87,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn12188": {
+   "tecrdb_std": -11.9,
+   "opentecr_std": -11.9,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01974": {
+   "tecrdb_std": -1.66,
+   "opentecr_std": -1.66,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00100": {
+   "tecrdb_std": 5.86,
+   "opentecr_std": 5.86,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00326": {
+   "tecrdb_std": 2.83,
+   "opentecr_std": 2.83,
+   "shift": -0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn00420": {
+   "tecrdb_std": -10.81,
+   "opentecr_std": -10.82,
+   "shift": -0.01,
+   "n_open": 104,
+   "n_tecrdb": 101
+  },
+  "rxn01434": {
+   "tecrdb_std": 5.46,
+   "opentecr_std": 5.46,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00783": {
+   "tecrdb_std": 10.97,
+   "opentecr_std": 10.97,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn03644": {
+   "tecrdb_std": -13.03,
+   "opentecr_std": -13.03,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02085": {
+   "tecrdb_std": 8.7,
+   "opentecr_std": 8.7,
+   "shift": 0.0,
+   "n_open": 5,
+   "n_tecrdb": 5
+  },
+  "rxn53440": {
+   "tecrdb_std": -2.43,
+   "opentecr_std": -2.43,
+   "shift": -0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn01713": {
+   "tecrdb_std": 7.94,
+   "opentecr_std": 7.94,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00257": {
+   "tecrdb_std": -8.29,
+   "opentecr_std": -8.29,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01152": {
+   "tecrdb_std": 4.98,
+   "opentecr_std": 4.98,
+   "shift": 0.0,
+   "n_open": 12,
+   "n_tecrdb": 12
+  },
+  "rxn01999": {
+   "tecrdb_std": -0.88,
+   "opentecr_std": -0.88,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01018": {
+   "tecrdb_std": -22.06,
+   "opentecr_std": -22.06,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01219": {
+   "tecrdb_std": -4.79,
+   "opentecr_std": -4.79,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01636": {
+   "tecrdb_std": 5.3,
+   "opentecr_std": 5.3,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01725": {
+   "tecrdb_std": 26.29,
+   "opentecr_std": 26.29,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01457": {
+   "tecrdb_std": 1.34,
+   "opentecr_std": 1.34,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01080": {
+   "tecrdb_std": 0.63,
+   "opentecr_std": 0.63,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01643": {
+   "tecrdb_std": -16.47,
+   "opentecr_std": -16.47,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00541": {
+   "tecrdb_std": 10.24,
+   "opentecr_std": 10.24,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02902": {
+   "tecrdb_std": -9.81,
+   "opentecr_std": -9.81,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02305": {
+   "tecrdb_std": -20.09,
+   "opentecr_std": -20.09,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01780": {
+   "tecrdb_std": 6.63,
+   "opentecr_std": 6.63,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02213": {
+   "tecrdb_std": -5.29,
+   "opentecr_std": -5.29,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00527": {
+   "tecrdb_std": -1.2,
+   "opentecr_std": -1.2,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn00493": {
+   "tecrdb_std": -1.7,
+   "opentecr_std": -1.7,
+   "shift": -0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn02900": {
+   "tecrdb_std": 2.93,
+   "opentecr_std": 2.93,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn08066": {
+   "tecrdb_std": -3.9,
+   "opentecr_std": -3.9,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00320": {
+   "tecrdb_std": 0.0,
+   "opentecr_std": 0.0,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00514": {
+   "tecrdb_std": -9.29,
+   "opentecr_std": -9.29,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00643": {
+   "tecrdb_std": 1.69,
+   "opentecr_std": 1.69,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02622": {
+   "tecrdb_std": 4.43,
+   "opentecr_std": 4.43,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn49067": {
+   "tecrdb_std": 4.55,
+   "opentecr_std": 4.55,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn01363": {
+   "tecrdb_std": 18.44,
+   "opentecr_std": 18.44,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02095": {
+   "tecrdb_std": 14.24,
+   "opentecr_std": 14.24,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01299": {
+   "tecrdb_std": -11.82,
+   "opentecr_std": -11.82,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00256": {
+   "tecrdb_std": 29.55,
+   "opentecr_std": 29.55,
+   "shift": -0.0,
+   "n_open": 24,
+   "n_tecrdb": 24
+  },
+  "rxn00897": {
+   "tecrdb_std": 3.72,
+   "opentecr_std": 3.72,
+   "shift": 0.0,
+   "n_open": 2,
+   "n_tecrdb": 2
+  },
+  "rxn01621": {
+   "tecrdb_std": 6.41,
+   "opentecr_std": 6.41,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00830": {
+   "tecrdb_std": -4.91,
+   "opentecr_std": -4.91,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01792": {
+   "tecrdb_std": 6.69,
+   "opentecr_std": 6.69,
+   "shift": 0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn01509": {
+   "tecrdb_std": -0.2,
+   "opentecr_std": -0.2,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00266": {
+   "tecrdb_std": 5.71,
+   "opentecr_std": 5.71,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00404": {
+   "tecrdb_std": -0.47,
+   "opentecr_std": -0.47,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00931": {
+   "tecrdb_std": 58.77,
+   "opentecr_std": 58.77,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01887": {
+   "tecrdb_std": 16.21,
+   "opentecr_std": 16.21,
+   "shift": 0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn02887": {
+   "tecrdb_std": 15.02,
+   "opentecr_std": 15.02,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00603": {
+   "tecrdb_std": 20.71,
+   "opentecr_std": 20.71,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01480": {
+   "tecrdb_std": 23.78,
+   "opentecr_std": 23.78,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn00804": {
+   "tecrdb_std": 42.45,
+   "opentecr_std": 42.45,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00157": {
+   "tecrdb_std": 16.63,
+   "opentecr_std": 16.63,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01301": {
+   "tecrdb_std": 20.72,
+   "opentecr_std": 20.72,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01692": {
+   "tecrdb_std": 8.01,
+   "opentecr_std": 8.01,
+   "shift": -0.0,
+   "n_open": 4,
+   "n_tecrdb": 4
+  },
+  "rxn00911": {
+   "tecrdb_std": 2.89,
+   "opentecr_std": 2.89,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00700": {
+   "tecrdb_std": -0.75,
+   "opentecr_std": -0.75,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00641": {
+   "tecrdb_std": -6.3,
+   "opentecr_std": -6.3,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn16141": {
+   "tecrdb_std": 10.17,
+   "opentecr_std": 10.17,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn54659": {
+   "tecrdb_std": 0.0,
+   "opentecr_std": 0.0,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01022": {
+   "tecrdb_std": 11.74,
+   "opentecr_std": 11.74,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00630": {
+   "tecrdb_std": 16.32,
+   "opentecr_std": 16.32,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00674": {
+   "tecrdb_std": 4.88,
+   "opentecr_std": 4.88,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01019": {
+   "tecrdb_std": -33.31,
+   "opentecr_std": -33.31,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn01579": {
+   "tecrdb_std": 30.22,
+   "opentecr_std": 30.22,
+   "shift": 0.0,
+   "n_open": 6,
+   "n_tecrdb": 6
+  },
+  "rxn03281": {
+   "tecrdb_std": 6.81,
+   "opentecr_std": 6.81,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00276": {
+   "tecrdb_std": 8.62,
+   "opentecr_std": 8.62,
+   "shift": -0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn00605": {
+   "tecrdb_std": -9.29,
+   "opentecr_std": -9.29,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn04932": {
+   "tecrdb_std": 21.15,
+   "opentecr_std": 21.15,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  },
+  "rxn02403": {
+   "tecrdb_std": 18.4,
+   "opentecr_std": 18.4,
+   "shift": -0.0,
+   "n_open": 7,
+   "n_tecrdb": 7
+  },
+  "rxn12217": {
+   "tecrdb_std": -25.65,
+   "opentecr_std": -25.65,
+   "shift": -0.0,
+   "n_open": 3,
+   "n_tecrdb": 3
+  },
+  "rxn03137": {
+   "tecrdb_std": 4.82,
+   "opentecr_std": 4.82,
+   "shift": 0.0,
+   "n_open": 1,
+   "n_tecrdb": 1
+  }
+ }
+}
