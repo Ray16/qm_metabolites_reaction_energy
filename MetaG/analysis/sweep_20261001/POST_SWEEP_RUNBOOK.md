@@ -1,11 +1,16 @@
 # Post-sweep runbook
 
-This is the restart-safe checklist for finishing the `2026-10-01c` production analysis after the
-current species sweep. Run commands from the MetaG repository root. Do not substitute values from an
-older calibration artifact: `metag/data/sigma_class_calibrated.json` currently describes an earlier
-physics/configuration fingerprint and is intentionally rejected by `manuscript/tools/sync_numbers.py`.
+> **Benchmark reference = openTECR (since 2026-10-02).** Every reported metric is scored against
+> `experiments/qm_mlip_solvation/scripts/reactions_opentecr_std.json` (built by `analysis/build_opentecr_standard.py`
+> from the pinned snapshot `analysis/opentecr_source/`). The current production directories are
+> `final_20261002_opentecr` (pre-calibration) and `final_20261002_opentecr_calibrated`; the TECRDB-scored
+> `final_20261001c*` directories are kept for the SI comparison only. See section 8.
 
-## 0. Confirm that species computation is complete
+This is the restart-safe record and rerun checklist for the completed `2026-10-01c` production analysis.
+Run commands from the MetaG repository root. The frozen calibration artifact and production records
+share source hash `ab4c5caa9c25990047e07580bd0706807cec91e8fe757fa2fab7abbc4c2eb2b6`.
+
+## 0. Confirm that species computation is complete [complete]
 
 The production list is the exact union of:
 
@@ -34,7 +39,7 @@ worker owns it, then remove only that stale claim and relaunch a species worker.
 `cache/`: species records are content-addressed by canonical SMILES, charge and effective numerical
 settings, and are written atomically.
 
-## 1. Assemble and score the TECRDB production run
+## 1. Assemble and score the TECRDB production run [complete]
 
 Use a new output and claim directory; do not overwrite the pre-review runs.
 
@@ -56,7 +61,7 @@ Completion gate:
 
 Archive this first pass as the pre-calibration result set.
 
-## 2. Recalibrate uncertainty
+## 2. Recalibrate uncertainty [complete]
 
 ```bash
 python -m metag.tools.calibrate \
@@ -71,10 +76,10 @@ This rewrites `metag/data/sigma_class_calibrated.json`. Confirm that:
 - grouped near-duplicate folds were used;
 - `cv_coverage_interval95`, `interval_sigma_mult`, `cv_heldout_MAE`, and source provenance exist.
 
-The previous values (95.6% coverage and `m = 2.25`) are historical only and must not be copied into the
-paper unless reproduced by this calibration.
+Frozen result: 347/364 coverage (95.3%; exact binomial 95% CI 92.6–97.3%), `m = 2.25`, using
+245 grouped-CV clusters.
 
-## 3. Run the interval-matched production pass
+## 3. Run the interval-matched production pass [complete]
 
 Run the same 364 reactions into a second new directory after calibration:
 
@@ -90,7 +95,7 @@ bash analysis/sweep_20261001/launch_final.sh \
 Require the same completion checks as step 1. Point estimates must match the pre-calibration pass;
 interval fields, `coverage_calibrated`, and `calibration_basis` must match the new artifact.
 
-## 4. Recompute cycle consistency
+## 4. Recompute cycle consistency [complete]
 
 ```bash
 python analysis/sweep_20261001/cycle_closure_by_route.py \
@@ -102,7 +107,7 @@ Output: `analysis/sweep_20261001/cycle_closure_by_route.json`.
 Report the global projection residual and route attribution as internal state-function consistency, not
 as predictive validation.
 
-## 5. Recompute common-reference comparisons
+## 5. Recompute common-reference comparisons [complete]
 
 Regenerate the standardized-condition baselines if their inputs or environments changed:
 
@@ -118,7 +123,7 @@ Output: `analysis/sweep_20261001/common_reference_comparison.json`.
 Require one common reaction set and preserve the regime labels: MetaG is a development result;
 dGPredictor is held out; eQuilibrator and group contribution are in-sample.
 
-## 6. Score and summarize the ModelSEED generality panel
+## 6. Score and summarize the ModelSEED generality panel [complete]
 
 The fixed input is `analysis/sweep_20261001/generality_inputs.json` (300 balanced reactions absent from
 TECRDB, 50 per top-level EC class). Score it with the same source and effective configuration as the
@@ -128,11 +133,8 @@ TECRDB calibrated pass, setting:
 TECRDB_INPUTS="$PWD/analysis/sweep_20261001/generality_inputs.json"
 ```
 
-`analysis/tecrdb_rescore.py` can score this input, but `launch_final.sh` does not currently forward
-`TECRDB_INPUTS`; either extend that launcher or pass the variable explicitly to each worker. Use fresh
-output and claim directories.
-
-A dedicated summary script is still required. It must report:
+`launch_final.sh` forwards `TECRDB_INPUTS` to workers. Summarize with
+`python analysis/sweep_20261001/summarize_generality.py`. The report includes:
 
 - successful estimates and explicit failures;
 - OOD and interval-calibration status;
@@ -142,17 +144,24 @@ A dedicated summary script is still required. It must report:
 
 Do not report MAE or call this external validation: the panel has no experimental reaction energies.
 
-## 7. Regenerate figures and synchronize the manuscript
+## 7. Regenerate figures and synchronize the manuscript [complete]
 
-Regenerate all result figures from the calibrated production directory, including the three-way
-comparison and any class/error/coverage panels retained for the paper. Figure labels must preserve each
-method's validation regime.
+Regenerate the paper-facing result figures from the calibrated production directory. Figure labels
+preserve each method's validation regime:
+
+```bash
+conda run -n base python analysis/sweep_20261001/common_reference_scatter.py
+conda run -n base python analysis/sweep_20261001/make_results_figure.py
+```
+
+Canonical analysis copies are written to `analysis/sweep_20261001/figures/`; synchronized manuscript
+copies are written to `manuscript/figures/`.
 
 Then update generated manuscript numbers:
 
 ```bash
 cd manuscript
-make numbers SWEEP=../analysis/sweep_20261001/final_20261001c_calibrated
+make numbers SWEEP=../../MetaG/analysis/sweep_20261001/final_20261002_opentecr_calibrated
 make clean
 make
 git diff --check
@@ -179,3 +188,39 @@ git push overleaf HEAD:main
 - ModelSEED is described as an applicability stress test;
 - manuscript builds without undefined references or stale result placeholders;
 - final commit hashes and artifact hashes are added to `provenance/MANIFEST.md`.
+
+## 8. Benchmark reference switched to openTECR (2026-10-02) [complete]
+
+The point estimates do not depend on the reference; only `exp`/`err`, the calibration and the intervals do.
+Same source hash (`ab4c5caa…`) and configuration as the 2026-10-01c production records.
+
+```bash
+# reference (eqapi env; CPU)
+~/miniforge3/envs/eqapi/bin/python analysis/build_opentecr_standard.py
+# re-assemble from the warm cache (launch_final.sh now defaults to the openTECR reference)
+bash analysis/sweep_20261001/launch_final.sh $PWD/analysis/sweep_20261001/final_20261002_opentecr \
+  $PWD/analysis/sweep_20261001/final_20261002_opentecr_claims HOST:GPU [HOST:GPU ...]
+PYTHONPATH=$PWD python -m metag.tools.calibrate analysis/sweep_20261001/final_20261002_opentecr \
+  --reactions ../experiments/qm_mlip_solvation/scripts/reactions_opentecr_std.json
+cp metag/data/sigma_class_calibrated.json ../MetaG_new/src/metag/data/sigma_class_calibrated.json
+bash analysis/sweep_20261001/launch_final.sh $PWD/analysis/sweep_20261001/final_20261002_opentecr_calibrated \
+  $PWD/analysis/sweep_20261001/final_20261002_opentecr_calibrated_claims HOST:GPU [HOST:GPU ...]
+python analysis/sweep_20261001/cycle_closure_by_route.py analysis/sweep_20261001/final_20261002_opentecr_calibrated
+python analysis/sweep_20261001/common_reference_comparison.py analysis/sweep_20261001/final_20261002_opentecr_calibrated
+python analysis/sweep_20261001/nested_policy_cv.py          # rescored from stored dG vs BENCH_REF (default openTECR)
+python analysis/sweep_20261001/common_reference_scatter.py; python analysis/sweep_20261001/make_results_figure.py
+```
+
+Checks done: 364/364 records in both passes, 0 errors; dG, dG_raw, U_samp, class and routes identical to
+`final_20261001c_calibrated` for all 364; every `exp` equals the openTECR reference; 44 intervals changed after
+recalibration. `BENCH_REF=…/reactions_tecrdb_std.json` reproduces the old nested-CV and cycle numbers exactly.
+The old TECRDB-calibrated artifact is kept as `sigma_class_calibrated.tecrdb_20261001c.json`.
+
+| metric | TECRDB (SI) | openTECR (reported) |
+|---|---:|---:|
+| MAE / median / RMSE, all 364 | 9.58 / 7.24 / 13.39 | 9.54 / 7.15 / 13.32 |
+| 95% interval coverage (nested CV) | 347/364 = 95.3% | 346/364 = 95.1% (CI 92.3–97.0%) |
+| multiplier m / held-out MAE | 2.25 / 9.58 | 2.25 / 9.54 |
+| common set (319): MetaG / dGP held-out / eQ / GC | 9.42 / 9.97 / 1.26 / 5.88 | 9.38 / 9.91 / 1.34 / 5.82 |
+| nested-selected / final-policy MAE (359) | 9.80 / 9.75 | 9.75 / 9.70 |
+| cycle RMS, experimental values | 3.50 | 3.47 |

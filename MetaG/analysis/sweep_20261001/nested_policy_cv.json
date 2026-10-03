@@ -1,4 +1,5 @@
 {
+ "reference": "reactions_opentecr_std.json",
  "n_common": 359,
  "n_groups": 240,
  "flags": [
@@ -11,11 +12,11 @@
   "ACID_HB_FILTER"
  ],
  "final_policy": "1111110",
- "final_dev_MAE": 9.75,
- "all_off_MAE": 11.696,
+ "final_dev_MAE": 9.701,
+ "all_off_MAE": 11.646,
  "best_policy_full_data": "1111011",
- "best_full_data_MAE": 9.673,
- "nested_selected_MAE_mean": 9.797,
+ "best_full_data_MAE": 9.625,
+ "nested_selected_MAE_mean": 9.749,
  "nested_selected_MAE_sd": 0.062,
  "chosen_policy_frequency": {
   "1111011": 69,
@@ -27,7 +28,7 @@
  "sensitivity_flip_one_switch_from_final": {
   "PH0_ISOMERASE": {
    "final_value": 1,
-   "MAE_if_flipped": 10.157,
+   "MAE_if_flipped": 10.108,
    "delta_MAE": 0.407,
    "n_changed_gt1kJ": 30,
    "bootstrap95_delta": [
@@ -37,7 +38,7 @@
   },
   "NTP_CORE": {
    "final_value": 1,
-   "MAE_if_flipped": 9.965,
+   "MAE_if_flipped": 9.917,
    "delta_MAE": 0.215,
    "n_changed_gt1kJ": 20,
    "bootstrap95_delta": [
@@ -47,17 +48,17 @@
   },
   "CARBONYL_HYDRATION_ALL": {
    "final_value": 1,
-   "MAE_if_flipped": 10.115,
-   "delta_MAE": 0.365,
+   "MAE_if_flipped": 10.064,
+   "delta_MAE": 0.363,
    "n_changed_gt1kJ": 54,
    "bootstrap95_delta": [
-    0.063,
+    0.062,
     0.678
    ]
   },
   "PKA_ENV": {
    "final_value": 1,
-   "MAE_if_flipped": 10.745,
+   "MAE_if_flipped": 10.696,
    "delta_MAE": 0.995,
    "n_changed_gt1kJ": 75,
    "bootstrap95_delta": [
@@ -67,7 +68,7 @@
   },
   "ZWITTERION_PH0": {
    "final_value": 1,
-   "MAE_if_flipped": 9.75,
+   "MAE_if_flipped": 9.701,
    "delta_MAE": 0.0,
    "n_changed_gt1kJ": 0,
    "bootstrap95_delta": [
@@ -77,7 +78,7 @@
   },
   "ARYLAMINE_NONBASIC": {
    "final_value": 1,
-   "MAE_if_flipped": 9.792,
+   "MAE_if_flipped": 9.744,
    "delta_MAE": 0.042,
    "n_changed_gt1kJ": 4,
    "bootstrap95_delta": [
@@ -87,7 +88,7 @@
   },
   "ACID_HB_FILTER": {
    "final_value": 0,
-   "MAE_if_flipped": 9.673,
+   "MAE_if_flipped": 9.625,
    "delta_MAE": -0.076,
    "n_changed_gt1kJ": 11,
    "bootstrap95_delta": [

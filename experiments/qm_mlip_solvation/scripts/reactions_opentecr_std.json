@@ -25,14 +25,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
    ]
   },
+  "exp_n": 9,
   "exp_native": [
    -1.51
   ],
-  "exp_n": 9,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00973": {
   "exp": [
@@ -55,14 +55,14 @@
     "O=C([O-])CC(C(=O)[O-])C(O)C(=O)[O-]"
    ]
   },
+  "exp_n": 77,
   "exp_native": [
    7.61
   ],
-  "exp_n": 77,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.87
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00216": {
   "exp": [
@@ -95,14 +95,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 31,
   "exp_native": [
    -13.87
   ],
-  "exp_n": 31,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -23.27
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00695": {
   "exp": [
@@ -135,14 +135,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.05
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00290": {
   "exp": [
@@ -175,14 +175,14 @@
     "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 19,
   "exp_native": [
    13.41
   ],
-  "exp_n": 19,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn10427": {
   "exp": [
@@ -210,14 +210,14 @@
     "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](COP(=O)(O)OP(=O)([O-])[O-])O1"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -2.22
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03643": {
   "exp": [
@@ -245,14 +245,14 @@
     "O=C([C@H](O)CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -25.52
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -25.52
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00184": {
   "exp": [
@@ -295,14 +295,14 @@
     "O=C([O-])CCC(=O)C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   35.22
-  ],
   "exp_n": 26,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   34.87
+  ],
   "exp_tecrdb_std": [
    44.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00499": {
   "exp": [
@@ -335,14 +335,14 @@
     "CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 37,
   "exp_native": [
    20.19
   ],
-  "exp_n": 37,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    29.34
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00070": {
   "exp": [
@@ -375,14 +375,14 @@
     "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    17.99
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.2
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01008": {
   "exp": [
@@ -405,14 +405,14 @@
     "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -0.68
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.68
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00173": {
   "exp": [
@@ -445,14 +445,14 @@
     "CC(=O)OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    12.21
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    13.11
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01530": {
   "exp": [
@@ -485,14 +485,14 @@
     "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C=O)C(C)(C)CCC1"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    2.86
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    12.55
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00132": {
   "exp": [
@@ -525,14 +525,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
-  "exp_native": [
-   -12.99
-  ],
   "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -13.19
+  ],
   "exp_tecrdb_std": [
    -13.87
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00421": {
   "exp": [
@@ -565,14 +565,14 @@
     "[NH3+][C@@H](COP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    -15.92
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -18.94
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00086": {
   "exp": [
@@ -605,14 +605,14 @@
     "[NH3+][C@@H](CCC(=O)N[C@@H](CSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-])C(=O)NCC(=O)[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   11.88
-  ],
   "exp_n": 37,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   7.79
+  ],
   "exp_tecrdb_std": [
    20.98
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00545": {
   "exp": [
@@ -645,14 +645,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 9,
   "exp_native": [
    -19.68
   ],
-  "exp_n": 9,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -9.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04082": {
   "exp": [
@@ -675,14 +675,14 @@
     "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -0.47
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01740": {
   "exp": [
@@ -715,14 +715,14 @@
     "O=C([O-])C1=CC(=O)[C@@H](O)[C@H](O)C1"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    5.78
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.04
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00634": {
   "exp": [
@@ -755,14 +755,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    8.2
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    15.52
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02132": {
   "exp": [
@@ -795,14 +795,14 @@
     "C[C@H](O)C(=O)C1=Nc2c(nc(N)[nH]c2=O)NC1"
    ]
   },
+  "exp_n": 9,
   "exp_native": [
    7.8
   ],
-  "exp_n": 9,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    20.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01371": {
   "exp": [
@@ -835,14 +835,14 @@
     "CN(CC(=O)[O-])C(N)=[NH+]P(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 200,
   "exp_native": [
    8.67
   ],
-  "exp_n": 200,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00543": {
   "exp": [
@@ -875,14 +875,14 @@
     "CC=O"
    ]
   },
+  "exp_n": 80,
   "exp_native": [
    19.06
   ],
-  "exp_n": 80,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    25.93
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00558": {
   "exp": [
@@ -905,14 +905,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 50,
   "exp_native": [
    2.97
   ],
-  "exp_n": 50,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.38
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00097": {
   "exp": [
@@ -940,14 +940,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 324,
   "exp_native": [
    -1.52
   ],
-  "exp_n": 324,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00765": {
   "exp": [
@@ -980,14 +980,14 @@
     "O=C[C@H](O)CO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    34.3
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    41.46
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01746": {
   "exp": [
@@ -1020,14 +1020,14 @@
     "NC(=O)N[C@@H](O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.93
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01385": {
   "exp": [
@@ -1060,14 +1060,14 @@
     "OCC1(O)OC[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    16.63
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    22.76
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01101": {
   "exp": [
@@ -1100,14 +1100,14 @@
     "O=C([O-])C(=O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 21,
   "exp_native": [
    32.03
   ],
-  "exp_n": 21,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    36.69
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01358": {
   "exp": [
@@ -1140,14 +1140,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
-  "exp_native": [
-   9.75
-  ],
   "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   9.54
+  ],
   "exp_tecrdb_std": [
    10.55
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00602": {
   "exp": [
@@ -1170,14 +1170,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -7.58
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.58
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00549": {
   "exp": [
@@ -1210,14 +1210,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -11.26
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -18.94
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03249": {
   "exp": [
@@ -1250,14 +1250,14 @@
     "CCCC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    12.0
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    24.33
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01451": {
   "exp": [
@@ -1290,14 +1290,14 @@
     "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    8.91
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    21.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01100": {
   "exp": [
@@ -1330,14 +1330,14 @@
     "O=C(OP(=O)([O-])[O-])[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
-  "exp_native": [
-   20.59
-  ],
   "exp_n": 22,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   20.71
+  ],
   "exp_tecrdb_std": [
    28.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01362": {
   "exp": [
@@ -1370,14 +1370,14 @@
     "O=c1cc(C(=O)[O-])[nH]c(=O)[nH]1"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -5.33
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.85
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01761": {
   "exp": [
@@ -1400,14 +1400,14 @@
     "C[C@H](O)[C@H](O)[C@@H](O)C(=O)CO"
    ]
   },
-  "exp_native": [
-   -0.13
-  ],
   "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   0.74
+  ],
   "exp_tecrdb_std": [
    0.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00747": {
   "exp": [
@@ -1430,14 +1430,14 @@
     "O=C(CO)COP(=O)([O-])[O-]"
    ]
   },
-  "exp_native": [
-   -7.9
-  ],
   "exp_n": 17,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -7.55
+  ],
   "exp_tecrdb_std": [
    -7.82
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01016": {
   "exp": [
@@ -1470,14 +1470,14 @@
     "NC(=O)OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    8.21
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    15.15
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00151": {
   "exp": [
@@ -1520,14 +1520,14 @@
     "C=C(OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 13,
   "exp_native": [
    16.2
   ],
-  "exp_n": 13,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    21.87
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01106": {
   "exp": [
@@ -1550,14 +1550,14 @@
     "O=C([O-])[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
-  "exp_native": [
-   -5.91
-  ],
   "exp_n": 83,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -6.03
+  ],
   "exp_tecrdb_std": [
    -6.4
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01044": {
   "exp": [
@@ -1580,14 +1580,14 @@
     "OCC1(O)OC[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 23,
   "exp_native": [
    3.79
   ],
-  "exp_n": 23,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01201": {
   "exp": [
@@ -1620,14 +1620,14 @@
     "O=CCCC(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -5.68
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00187": {
   "exp": [
@@ -1670,14 +1670,14 @@
     "NC(=O)CC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 10,
   "exp_native": [
    -17.05
   ],
-  "exp_n": 10,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -20.53
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00559": {
   "exp": [
@@ -1700,14 +1700,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -0.55
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.09
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02451": {
   "exp": [
@@ -1740,14 +1740,14 @@
     "OC[C@H]1O[C@H](OC[C@H]2O[C@H](OC[C@H]3O[C@H](O[C@]4(CO)O[C@H](CO)[C@@H](O)[C@@H]4O)[C@H](O)[C@@H](O)[C@@H]3O)[C@H](O)[C@@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -3.48
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.48
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00065": {
   "exp": [
@@ -1775,14 +1775,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@@H]2COP(=O)([O-])O[C@H]2[C@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    6.78
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00293": {
   "exp": [
@@ -1815,14 +1815,14 @@
     "CC(=O)N[C@H]1[C@@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)O[C@H](CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.79
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00577": {
   "exp": [
@@ -1855,14 +1855,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -7.55
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn51768": {
   "exp": [
@@ -1905,14 +1905,14 @@
     "CC(C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    4.03
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    14.43
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00191": {
   "exp": [
@@ -1945,14 +1945,14 @@
     "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 12,
   "exp_native": [
    0.96
   ],
-  "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00636": {
   "exp": [
@@ -1975,14 +1975,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    -2.61
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00396": {
   "exp": [
@@ -2015,14 +2015,14 @@
     "NC(NCCC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 30,
   "exp_native": [
    7.33
   ],
-  "exp_n": 30,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.1
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01548": {
   "exp": [
@@ -2055,14 +2055,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    11.17
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    11.27
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00992": {
   "exp": [
@@ -2095,14 +2095,14 @@
     "CC(=O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 16,
   "exp_native": [
    7.39
   ],
-  "exp_n": 16,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    14.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00280": {
   "exp": [
@@ -2145,14 +2145,14 @@
     "C[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    34.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    37.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00629": {
   "exp": [
@@ -2185,14 +2185,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    6.79
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    11.57
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00402": {
   "exp": [
@@ -2235,14 +2235,14 @@
     "NC(=[NH2+])NCCC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    31.52
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    36.62
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00283": {
   "exp": [
@@ -2265,14 +2265,14 @@
     "C[C@@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00077": {
   "exp": [
@@ -2305,14 +2305,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -8.51
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.11
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01620": {
   "exp": [
@@ -2340,14 +2340,14 @@
     "C[C@H](O)C=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    19.82
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00336": {
   "exp": [
@@ -2375,14 +2375,14 @@
     "O=CC(=O)[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    12.07
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00799": {
   "exp": [
@@ -2410,14 +2410,14 @@
     "O=C([O-])/C=C/C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   3.7
-  ],
   "exp_n": 102,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   3.69
+  ],
   "exp_tecrdb_std": [
    3.62
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01646": {
   "exp": [
@@ -2450,14 +2450,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -19.66
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -14.34
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00141": {
   "exp": [
@@ -2490,14 +2490,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    34.76
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    34.76
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00223": {
   "exp": [
@@ -2520,14 +2520,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 89,
   "exp_native": [
    -0.21
   ],
-  "exp_n": 89,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01204": {
   "exp": [
@@ -2560,14 +2560,14 @@
     "O=CCCC(=O)[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    6.49
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.41
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn31240": {
   "exp": [
@@ -2590,14 +2590,14 @@
     "O=P([O-])([O-])OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.32
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00182": {
   "exp": [
@@ -2640,14 +2640,14 @@
     "O=C([O-])CCC(=O)C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   34.51
-  ],
   "exp_n": 74,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   34.59
+  ],
   "exp_tecrdb_std": [
    40.49
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01407": {
   "exp": [
@@ -2680,14 +2680,14 @@
     "C[N+](C)(C)CC(=O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    17.84
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.1
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02320": {
   "exp": [
@@ -2720,14 +2720,14 @@
     "O=C(COP(=O)([O-])[O-])Cc1c[nH]cn1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -8.3
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00552": {
   "exp": [
@@ -2760,14 +2760,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    4.89
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00800": {
   "exp": [
@@ -2795,14 +2795,14 @@
     "O=C([O-])/C=C/C(=O)[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    12.68
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.95
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00117": {
   "exp": [
@@ -2835,14 +2835,14 @@
     "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -0.19
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.51
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01157": {
   "exp": [
@@ -2870,14 +2870,14 @@
     "O=C1CC[C@H](C(=O)[O-])N1"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -8.28
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -8.63
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn08430": {
   "exp": [
@@ -2910,14 +2910,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -13.8
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.93
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04945": {
   "exp": [
@@ -2950,14 +2950,14 @@
     "O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -1.67
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.69
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00686": {
   "exp": [
@@ -2990,14 +2990,14 @@
     "Nc1nc2c(c(=O)[nH]1)N=C(CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)CN2"
    ]
   },
-  "exp_native": [
-   18.84
-  ],
   "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   18.7
+  ],
   "exp_tecrdb_std": [
    33.08
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00415": {
   "exp": [
@@ -3030,14 +3030,14 @@
     "NC(=O)CCC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -15.03
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -14.96
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02914": {
   "exp": [
@@ -3070,14 +3070,14 @@
     "O=C([O-])C(=O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 56,
   "exp_native": [
    11.55
   ],
-  "exp_n": 56,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    13.39
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00278": {
   "exp": [
@@ -3120,14 +3120,14 @@
     "CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 15,
   "exp_native": [
    24.4
   ],
-  "exp_n": 15,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    40.86
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00927": {
   "exp": [
@@ -3160,14 +3160,14 @@
     "Nc1ncnc2[nH]cnc12"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -9.84
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -9.84
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00213": {
   "exp": [
@@ -3200,14 +3200,14 @@
     "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 27,
   "exp_native": [
    2.94
   ],
-  "exp_n": 27,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.35
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01249": {
   "exp": [
@@ -3240,14 +3240,14 @@
     "Cc1ncc(CO)c(C=O)c1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    21.57
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    33.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01322": {
   "exp": [
@@ -3275,14 +3275,14 @@
     "CC(=O)N[C@@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 11,
   "exp_native": [
    7.09
   ],
-  "exp_n": 11,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    7.11
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02459": {
   "exp": [
@@ -3315,14 +3315,14 @@
     "O=C([O-])C(=O)Cc1cc(I)c(O)c(I)c1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    34.74
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    34.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00260": {
   "exp": [
@@ -3355,14 +3355,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 12,
   "exp_native": [
    4.74
   ],
-  "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.77
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02756": {
   "exp": [
@@ -3385,14 +3385,14 @@
     "C=C(C(=O)[O-])C(C)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.75
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.75
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01423": {
   "exp": [
@@ -3425,14 +3425,14 @@
     "O=C([O-])CCCC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.72
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00704": {
   "exp": [
@@ -3455,14 +3455,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 11,
   "exp_native": [
    -7.17
   ],
-  "exp_n": 11,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.19
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn39443": {
   "exp": [
@@ -3495,14 +3495,14 @@
     "O=C([O-])Cc1ccccc1"
    ]
   },
-  "exp_native": [
-   1.54
-  ],
   "exp_n": 31,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   1.47
+  ],
   "exp_tecrdb_std": [
    1.06
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01043": {
   "exp": [
@@ -3535,14 +3535,14 @@
     "OC1OC[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    11.91
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    22.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00171": {
   "exp": [
@@ -3580,14 +3580,14 @@
     "CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -20.43
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00770": {
   "exp": [
@@ -3620,14 +3620,14 @@
     "O=P([O-])([O-])OC[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -9.72
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.38
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00248": {
   "exp": [
@@ -3660,14 +3660,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 71,
   "exp_native": [
    23.5
   ],
-  "exp_n": 71,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    32.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00546": {
   "exp": [
@@ -3700,14 +3700,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    0.58
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00347": {
   "exp": [
@@ -3735,14 +3735,14 @@
     "O=C([O-])/C=C/C(=O)[O-]"
    ]
   },
+  "exp_n": 26,
   "exp_native": [
    12.87
   ],
-  "exp_n": 26,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.28
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00802": {
   "exp": [
@@ -3770,14 +3770,14 @@
     "O=C([O-])/C=C/C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    11.57
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    14.68
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00131": {
   "exp": [
@@ -3810,14 +3810,14 @@
     "Nc1ncnc2[nH]cnc12"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -12.94
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.82
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00604": {
   "exp": [
@@ -3850,14 +3850,14 @@
     "O=C1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -4.22
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.42
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01368": {
   "exp": [
@@ -3890,14 +3890,14 @@
     "O=c1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    -15.95
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -14.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02975": {
   "exp": [
@@ -3920,14 +3920,14 @@
     "C[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(N)nc3=O)[C@H](O)[C@@H]2O)[C@@H](O)C[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.68
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.68
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00692": {
   "exp": [
@@ -3965,14 +3965,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@H](CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    6.07
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.1
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01333": {
   "exp": [
@@ -4005,14 +4005,14 @@
     "O=C[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    0.18
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.37
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00810": {
   "exp": [
@@ -4045,14 +4045,14 @@
     "O=C1O[C@@H]([C@H](O)CO)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -15.55
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.75
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00579": {
   "exp": [
@@ -4085,14 +4085,14 @@
     "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    -4.15
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00806": {
   "exp": [
@@ -4125,14 +4125,14 @@
     "CC(C)CC(=O)C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   -1.82
-  ],
   "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -2.19
+  ],
   "exp_tecrdb_std": [
    -3.31
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02749": {
   "exp": [
@@ -4160,14 +4160,14 @@
     "C/C(=C/C(=O)[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   11.51
-  ],
   "exp_n": 14,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   11.54
+  ],
   "exp_tecrdb_std": [
    11.48
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01277": {
   "exp": [
@@ -4200,14 +4200,14 @@
     "O=C([O-])C(=O)[C@@H](O)[C@H](O)[C@H](O)CO"
    ]
   },
+  "exp_n": 11,
   "exp_native": [
    14.17
   ],
-  "exp_n": 11,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    25.48
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00083": {
   "exp": [
@@ -4240,14 +4240,14 @@
     "NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](OP(=O)([O-])[O-])[C@@H]3O)[C@@H](O)[C@H]2O)c1"
    ]
   },
+  "exp_n": 13,
   "exp_native": [
    -2.04
   ],
-  "exp_n": 13,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.5
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01479": {
   "exp": [
@@ -4280,14 +4280,14 @@
     "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OCC[NH3+])[C@@H](O)[C@H]2O)c(=O)n1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    2.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.56
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02842": {
   "exp": [
@@ -4320,14 +4320,14 @@
     "O=C([O-])CC(=O)[C@H](O)[C@H](O)CO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    14.56
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.13
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00786": {
   "exp": [
@@ -4355,14 +4355,14 @@
     "O=C[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
-  "exp_native": [
-   23.31
-  ],
   "exp_n": 16,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   23.32
+  ],
   "exp_tecrdb_std": [
    15.84
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01506": {
   "exp": [
@@ -4385,14 +4385,14 @@
     "CC(=O)N[C@@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    2.18
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.96
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00328": {
   "exp": [
@@ -4420,14 +4420,14 @@
     "O=CC(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    11.88
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    10.16
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02202": {
   "exp": [
@@ -4455,14 +4455,14 @@
     "C/C(C(=O)[O-])=C(\\C)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    4.08
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.99
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01465": {
   "exp": [
@@ -4490,14 +4490,14 @@
     "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -4.58
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.63
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00364": {
   "exp": [
@@ -4530,14 +4530,14 @@
     "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)n1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.49
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02930": {
   "exp": [
@@ -4580,14 +4580,14 @@
     "CC(=O)C[C@@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    20.12
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    32.66
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00816": {
   "exp": [
@@ -4620,14 +4620,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    -8.8
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -8.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00824": {
   "exp": [
@@ -4660,14 +4660,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSSC[C@H](NC(=O)CC[C@H]([NH3+])C(=O)[O-])C(=O)NCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.55
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.6
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01366": {
   "exp": [
@@ -4700,14 +4700,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    2.12
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00990": {
   "exp": [
@@ -4740,14 +4740,14 @@
     "CC(=O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -5.06
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.07
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00778": {
   "exp": [
@@ -4770,14 +4770,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -8.43
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -8.39
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01491": {
   "exp": [
@@ -4810,14 +4810,14 @@
     "O=P([O-])([O-])OCC1(O)O[C@H](CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -6.1
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.92
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00906": {
   "exp": [
@@ -4850,14 +4850,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    11.41
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    17.59
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00974": {
   "exp": [
@@ -4885,14 +4885,14 @@
     "O=C([O-])/C=C(/CC(=O)[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   7.63
-  ],
   "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   7.75
+  ],
   "exp_tecrdb_std": [
    7.64
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00836": {
   "exp": [
@@ -4925,14 +4925,14 @@
     "O=c1[nH]cnc2[nH]cnc12"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    30.8
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    33.38
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02263": {
   "exp": [
@@ -4955,14 +4955,14 @@
     "C[C@H](O)[C@@H](O)[C@@H](O)C(=O)CO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    5.47
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.46
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00753": {
   "exp": [
@@ -4995,14 +4995,14 @@
     "CC(=O)OCC[N+](C)(C)C"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -11.2
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -11.25
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00331": {
   "exp": [
@@ -5030,14 +5030,14 @@
     "O=CC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    14.73
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.04
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00777": {
   "exp": [
@@ -5060,14 +5060,14 @@
     "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 13,
   "exp_native": [
    3.01
   ],
-  "exp_n": 13,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.86
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01790": {
   "exp": [
@@ -5100,14 +5100,14 @@
     "CC(C)(CO)C(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    16.15
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    25.99
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00214": {
   "exp": [
@@ -5130,14 +5130,14 @@
     "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OC3O[C@H](CO)[C@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
-  "exp_native": [
-   2.97
-  ],
   "exp_n": 11,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   2.98
+  ],
   "exp_tecrdb_std": [
    2.98
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00831": {
   "exp": [
@@ -5170,14 +5170,14 @@
     "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -12.55
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00220": {
   "exp": [
@@ -5210,14 +5210,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    -11.39
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -11.34
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00459": {
   "exp": [
@@ -5245,14 +5245,14 @@
     "C=C(OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   -3.35
-  ],
   "exp_n": 88,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -3.46
+  ],
   "exp_tecrdb_std": [
    -3.17
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00907": {
   "exp": [
@@ -5285,14 +5285,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@@H]1C[N+](c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)=CN21"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.87
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    9.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn15964": {
   "exp": [
@@ -5330,14 +5330,14 @@
     "C[C@@H]1Nc2[nH]c(N)nc(=O)c2N2CN(c3ccc(C[C@H](O)[C@H](O)[C@H](O)CO[C@H]4O[C@H](COP(=O)([O-])O[C@@H](CCC(=O)[O-])C(=O)[O-])[C@@H](O)[C@H]4O)cc3)[C@H](C)[C@@H]12"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -7.13
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -15.45
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00746": {
   "exp": [
@@ -5365,14 +5365,14 @@
     "O=C(CO)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    19.41
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.4
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01116": {
   "exp": [
@@ -5395,14 +5395,14 @@
     "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -1.01
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00175": {
   "exp": [
@@ -5445,14 +5445,14 @@
     "CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 39,
   "exp_native": [
    -5.88
   ],
-  "exp_n": 39,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.51
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02625": {
   "exp": [
@@ -5480,14 +5480,14 @@
     "C/C(=C\\C(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    3.25
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    7.15
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01626": {
   "exp": [
@@ -5515,14 +5515,14 @@
     "NC(=O)NCCC(=O)[O-]"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -10.34
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -6.43
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00265": {
   "exp": [
@@ -5550,14 +5550,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 25,
   "exp_native": [
    6.81
   ],
-  "exp_n": 25,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01745": {
   "exp": [
@@ -5585,14 +5585,14 @@
     "O=C([O-])/C=C\\C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   18.9
-  ],
   "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   18.57
+  ],
   "exp_tecrdb_std": [
    18.84
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01383": {
   "exp": [
@@ -5625,14 +5625,14 @@
     "OCC1(O)OC[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    13.26
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    21.77
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00007": {
   "exp": [
@@ -5660,14 +5660,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -11.85
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -11.85
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01870": {
   "exp": [
@@ -5695,14 +5695,14 @@
     "O=C[C@H](O)CO"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    30.67
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.5
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn15750": {
   "exp": [
@@ -5730,14 +5730,14 @@
     "O=C[C@H](O)CO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    18.32
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    18.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01617": {
   "exp": [
@@ -5770,14 +5770,14 @@
     "C[C@H](O)C=O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    19.23
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    39.18
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01075": {
   "exp": [
@@ -5800,14 +5800,14 @@
     "O=c1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3OC[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01388": {
   "exp": [
@@ -5835,14 +5835,14 @@
     "O=C([O-])/C=C(/CC(=O)[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   1.48
-  ],
   "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   1.68
+  ],
   "exp_tecrdb_std": [
    1.49
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01011": {
   "exp": [
@@ -5875,14 +5875,14 @@
     "O=C([O-])C(=O)CO"
    ]
   },
+  "exp_n": 52,
   "exp_native": [
    30.03
   ],
-  "exp_n": 52,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    34.31
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00250": {
   "exp": [
@@ -5925,14 +5925,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -3.19
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.6
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00909": {
   "exp": [
@@ -5965,14 +5965,14 @@
     "CN1c2c([nH]c(N)nc2=O)NC[C@@H]1CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -20.05
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -19.04
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01280": {
   "exp": [
@@ -6005,14 +6005,14 @@
     "O=CC(O)C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    27.19
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    38.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01265": {
   "exp": [
@@ -6045,14 +6045,14 @@
     "O=C([O-])c1cccnc1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.02
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.54
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00838": {
   "exp": [
@@ -6095,14 +6095,14 @@
     "O=C([O-])C[C@H](Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -2.75
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00754": {
   "exp": [
@@ -6135,14 +6135,14 @@
     "C[N+](C)(C)CCO"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -15.48
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -24.17
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00379": {
   "exp": [
@@ -6175,14 +6175,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OS(=O)(=O)[O-])[C@@H](O)[C@H]1O"
    ]
   },
-  "exp_native": [
-   47.45
-  ],
   "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   47.26
+  ],
   "exp_tecrdb_std": [
    43.11
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01638": {
   "exp": [
@@ -6210,14 +6210,14 @@
     "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.62
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.27
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00915": {
   "exp": [
@@ -6250,14 +6250,14 @@
     "Nc1nc2[nH]cnc2c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    29.78
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    27.36
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00139": {
   "exp": [
@@ -6290,14 +6290,14 @@
     "Nc1ncnc2[nH]cnc12"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    14.29
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.4
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00321": {
   "exp": [
@@ -6320,14 +6320,14 @@
     "[NH3+]CCC[C@H]([NH3+])CC(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -4.55
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.62
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00178": {
   "exp": [
@@ -6355,14 +6355,14 @@
     "CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 11,
   "exp_native": [
    24.03
   ],
-  "exp_n": 11,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn53944": {
   "exp": [
@@ -6395,14 +6395,14 @@
     "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1[NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -5.29
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.95
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01259": {
   "exp": [
@@ -6430,14 +6430,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
-  "exp_native": [
-   -7.74
-  ],
   "exp_n": 9,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -7.52
+  ],
   "exp_tecrdb_std": [
    -7.65
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03876": {
   "exp": [
@@ -6465,14 +6465,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C1=CCCCC1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01847": {
   "exp": [
@@ -6505,14 +6505,14 @@
     "O=C([O-])C(=O)C(O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    33.69
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    43.16
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01005": {
   "exp": [
@@ -6545,14 +6545,14 @@
     "O=C([O-])[C@H]1O[C@H](OP(=O)([O-])OP(=O)([O-])OC[C@H]2O[C@@H](n3ccc(=O)[nH]c3=O)[C@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    2.72
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00784": {
   "exp": [
@@ -6580,14 +6580,14 @@
     "O=C[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    20.66
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    20.55
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00189": {
   "exp": [
@@ -6620,14 +6620,14 @@
     "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -16.79
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -15.13
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn45677": {
   "exp": [
@@ -6660,14 +6660,14 @@
     "O=C([O-])O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -17.89
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -15.04
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02591": {
   "exp": [
@@ -6690,14 +6690,14 @@
     "CCCCCC/C=C/C=C\\CCCCCCCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -10.53
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -10.53
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01532": {
   "exp": [
@@ -6720,14 +6720,14 @@
     "CC1=C(/C=C/C(C)=C/C=C\\C(C)=C\\C=O)C(C)(C)CCC1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    7.7
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    7.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00422": {
   "exp": [
@@ -6760,14 +6760,14 @@
     "O=C([O-])C(=O)CO"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    4.4
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.02
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00148": {
   "exp": [
@@ -6800,14 +6800,14 @@
     "C=C(OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
-  "exp_native": [
-   19.68
-  ],
   "exp_n": 29,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   19.81
+  ],
   "exp_tecrdb_std": [
    25.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02782": {
   "exp": [
@@ -6830,14 +6830,14 @@
     "O=C([O-])/C=C\\C=C/C(=O)[O-]"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    8.05
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    14.26
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01138": {
   "exp": [
@@ -6870,14 +6870,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    7.13
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    7.67
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03250": {
   "exp": [
@@ -6905,14 +6905,14 @@
     "CCC/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.03
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.02
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02168": {
   "exp": [
@@ -6940,14 +6940,14 @@
     "C/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn40442": {
   "exp": [
@@ -6980,14 +6980,14 @@
     "CC(C)=O"
    ]
   },
-  "exp_native": [
-   3.19
-  ],
   "exp_n": 43,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   3.25
+  ],
   "exp_tecrdb_std": [
    10.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02167": {
   "exp": [
@@ -7015,14 +7015,14 @@
     "C/C=C/C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    3.26
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.25
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00849": {
   "exp": [
@@ -7055,14 +7055,14 @@
     "[NH3+][C@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.36
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.03
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04943": {
   "exp": [
@@ -7095,14 +7095,14 @@
     "OCC1(O)OC[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    7.84
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    17.03
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01447": {
   "exp": [
@@ -7135,14 +7135,14 @@
     "O=C([O-])C(=O)Cc1c[nH]c2ccccc12"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -16.62
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.03
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01505": {
   "exp": [
@@ -7165,14 +7165,14 @@
     "CC(=O)N[C@@H]1C(OP(=O)([O-])[O-])O[C@H](CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.62
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01258": {
   "exp": [
@@ -7195,14 +7195,14 @@
     "C=C(O[C@H]1C=CC=C(C(=O)[O-])[C@@H]1O)C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    1.03
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.03
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01117": {
   "exp": [
@@ -7225,14 +7225,14 @@
     "O=C(CO)[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    2.47
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.48
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00867": {
   "exp": [
@@ -7260,14 +7260,14 @@
     "O=C([O-])/C=C/c1c[nH]cn1"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    7.19
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.65
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02066": {
   "exp": [
@@ -7300,14 +7300,14 @@
     "CCCCCCCC=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    16.89
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    28.07
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn19090": {
   "exp": [
@@ -7340,14 +7340,14 @@
     "CC/C=C\\CC=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    17.94
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    29.12
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01726": {
   "exp": [
@@ -7380,14 +7380,14 @@
     "CC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -1.18
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01253": {
   "exp": [
@@ -7420,14 +7420,14 @@
     "Cc1ncc(CO)c(C=O)c1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.47
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.08
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01386": {
   "exp": [
@@ -7450,14 +7450,14 @@
     "OC1OC[C@@H](O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -3.01
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00781": {
   "exp": [
@@ -7495,14 +7495,14 @@
     "O=C(OP(=O)([O-])[O-])[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 36,
   "exp_native": [
    2.14
   ],
-  "exp_n": 36,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    12.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00500": {
   "exp": [
@@ -7535,14 +7535,14 @@
     "CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    20.79
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    27.26
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00741": {
   "exp": [
@@ -7575,14 +7575,14 @@
     "CCC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    14.42
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn44278": {
   "exp": [
@@ -7605,14 +7605,14 @@
     "OCC1(O)OC[C@@H](O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -3.33
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.33
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02204": {
   "exp": [
@@ -7635,14 +7635,14 @@
     "C/C(C(=O)[O-])=C(\\C)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -3.13
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.28
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01130": {
   "exp": [
@@ -7675,14 +7675,14 @@
     "CC(C)O"
    ]
   },
+  "exp_n": 63,
   "exp_native": [
    -7.55
   ],
-  "exp_n": 63,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.97
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01392": {
   "exp": [
@@ -7715,14 +7715,14 @@
     "OCC1(O)OC[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    14.43
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    27.06
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01302": {
   "exp": [
@@ -7755,14 +7755,14 @@
     "[NH3+][C@@H](CC=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    15.07
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    31.2
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00022": {
   "exp": [
@@ -7790,14 +7790,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
-  "exp_native": [
-   -14.41
-  ],
   "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -13.79
+  ],
   "exp_tecrdb_std": [
    -13.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00510": {
   "exp": [
@@ -7840,14 +7840,14 @@
     "[NH3+]CCCC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    36.58
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    43.28
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00512": {
   "exp": [
@@ -7880,14 +7880,14 @@
     "O=CC(=O)[O-]"
    ]
   },
-  "exp_native": [
-   37.3
-  ],
   "exp_n": 16,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   38.68
+  ],
   "exp_tecrdb_std": [
    47.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00473": {
   "exp": [
@@ -7925,14 +7925,14 @@
     "c1ccc2[nH]ccc2c1"
    ]
   },
+  "exp_n": 20,
   "exp_native": [
    20.57
   ],
-  "exp_n": 20,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    22.37
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01306": {
   "exp": [
@@ -7960,14 +7960,14 @@
     "O=CCO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    19.79
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00817": {
   "exp": [
@@ -8000,14 +8000,14 @@
     "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -10.5
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -10.5
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03886": {
   "exp": [
@@ -8040,14 +8040,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.95
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00762": {
   "exp": [
@@ -8080,14 +8080,14 @@
     "O=C(CO)CO"
    ]
   },
-  "exp_native": [
-   17.26
-  ],
   "exp_n": 9,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   23.94
+  ],
   "exp_tecrdb_std": [
    26.91
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01682": {
   "exp": [
@@ -8115,14 +8115,14 @@
     "c1ccc2[nH]ccc2c1"
    ]
   },
-  "exp_native": [
-   19.19
-  ],
   "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   21.24
+  ],
   "exp_tecrdb_std": [
    19.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00562": {
   "exp": [
@@ -8150,14 +8150,14 @@
     "NC(N)=O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    4.96
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.18
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01054": {
   "exp": [
@@ -8190,14 +8190,14 @@
     "O=C([O-])C[C@H](O)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -2.54
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.57
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn08948": {
   "exp": [
@@ -8230,14 +8230,14 @@
     "OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -9.48
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -10.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01329": {
   "exp": [
@@ -8260,14 +8260,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    5.39
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.58
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00172": {
   "exp": [
@@ -8310,14 +8310,14 @@
     "CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 12,
   "exp_native": [
    2.98
   ],
-  "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00930": {
   "exp": [
@@ -8350,14 +8350,14 @@
     "O=C([O-])C1=NCCC1"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    13.95
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.96
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00699": {
   "exp": [
@@ -8390,14 +8390,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.1
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.21
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn39373": {
   "exp": [
@@ -8430,14 +8430,14 @@
     "CC(=O)[C@@H](C)O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    9.53
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    18.4
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00462": {
   "exp": [
@@ -8460,14 +8460,14 @@
     "O=C([O-])C(=O)CP(=O)([O-])O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    17.68
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    11.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01485": {
   "exp": [
@@ -8490,14 +8490,14 @@
     "[NH3+][C@H]1C(O)O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -3.21
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00225": {
   "exp": [
@@ -8530,14 +8530,14 @@
     "CC(=O)OP(=O)([O-])[O-]"
    ]
   },
-  "exp_native": [
-   13.5
-  ],
   "exp_n": 21,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   13.64
+  ],
   "exp_tecrdb_std": [
    6.05
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00495": {
   "exp": [
@@ -8565,14 +8565,14 @@
     "O=C([O-])/C=C/c1ccccc1"
    ]
   },
-  "exp_native": [
-   -4.25
-  ],
   "exp_n": 30,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -4.27
+  ],
   "exp_tecrdb_std": [
    -2.22
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01241": {
   "exp": [
@@ -8605,14 +8605,14 @@
     "NC(=O)CCCC[C@@H]1CCSS1"
    ]
   },
+  "exp_n": 10,
   "exp_native": [
    0.53
   ],
-  "exp_n": 10,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    9.06
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01099": {
   "exp": [
@@ -8645,14 +8645,14 @@
     "O=C([O-])[C@H](O)CO"
    ]
   },
+  "exp_n": 23,
   "exp_native": [
    -14.74
   ],
-  "exp_n": 23,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -18.1
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn05026": {
   "exp": [
@@ -8685,14 +8685,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    5.49
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.66
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03840": {
   "exp": [
@@ -8725,14 +8725,14 @@
     "C=C(O[C@@H]1C=C(C(=O)[O-])C=C[C@H]1[NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -4.66
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -6.82
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00302": {
   "exp": [
@@ -8760,14 +8760,14 @@
     "Nc1nc(=O)c(NC=O)c(N[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    5.8
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    9.43
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00239": {
   "exp": [
@@ -8800,14 +8800,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -2.32
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.69
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00611": {
   "exp": [
@@ -8840,14 +8840,14 @@
     "O=C(CO)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 15,
   "exp_native": [
    23.38
   ],
-  "exp_n": 15,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    28.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn12158": {
   "exp": [
@@ -8880,14 +8880,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    6.57
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00702": {
   "exp": [
@@ -8920,14 +8920,14 @@
     "Nc1ccn([C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)n1"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    0.72
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.16
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn14063": {
   "exp": [
@@ -8960,14 +8960,14 @@
     "O=C([O-])C(=O)[C@@H](O)[C@H](O)C(=O)CO"
    ]
   },
-  "exp_native": [
-   16.29
-  ],
   "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   17.41
+  ],
   "exp_tecrdb_std": [
    37.14
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02651": {
   "exp": [
@@ -9000,14 +9000,14 @@
     "O=C([O-])[C@H](O)C(=O)CO"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    16.57
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.26
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01597": {
   "exp": [
@@ -9040,14 +9040,14 @@
     "OC1CCCCC1"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -4.28
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -10.93
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01293": {
   "exp": [
@@ -9080,14 +9080,14 @@
     "O=Cc1ccccc1"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    10.04
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.8
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01513": {
   "exp": [
@@ -9120,14 +9120,14 @@
     "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]c1=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.87
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.76
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01410": {
   "exp": [
@@ -9155,14 +9155,14 @@
     "C[N+](C)(C)C/C=C/C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.05
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.05
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01996": {
   "exp": [
@@ -9185,14 +9185,14 @@
     "C[C@@H](C(=O)[O-])C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00285": {
   "exp": [
@@ -9235,14 +9235,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.19
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.65
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00423": {
   "exp": [
@@ -9275,14 +9275,14 @@
     "CC(=O)OC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -6.71
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -6.76
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn15726": {
   "exp": [
@@ -9315,14 +9315,14 @@
     "O=C([O-])CCC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    27.31
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00697": {
   "exp": [
@@ -9355,14 +9355,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -11.65
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -7.35
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01361": {
   "exp": [
@@ -9395,14 +9395,14 @@
     "O=c1cc(C(=O)[O-])[nH]c(=O)[nH]1"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    15.78
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.05
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00234": {
   "exp": [
@@ -9430,14 +9430,14 @@
     "CC(=O)[O-]"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    3.88
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03884": {
   "exp": [
@@ -9465,14 +9465,14 @@
     "O=C[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    16.32
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    13.39
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00798": {
   "exp": [
@@ -9495,14 +9495,14 @@
     "OCC1(O)OC[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 8,
   "exp_native": [
    1.96
   ],
-  "exp_n": 8,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.95
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01702": {
   "exp": [
@@ -9535,14 +9535,14 @@
     "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    15.16
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.83
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01137": {
   "exp": [
@@ -9575,14 +9575,14 @@
     "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 15,
   "exp_native": [
    -14.49
   ],
-  "exp_n": 15,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -23.23
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00237": {
   "exp": [
@@ -9615,14 +9615,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.1
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.1
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00001": {
   "exp": [
@@ -9650,14 +9650,14 @@
     "O=P([O-])([O-])O"
    ]
   },
-  "exp_native": [
-   -14.78
-  ],
   "exp_n": 362,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   -12.47
+  ],
   "exp_tecrdb_std": [
    -27.41
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01380": {
   "exp": [
@@ -9690,14 +9690,14 @@
     "C[N+](C)(C)CCOP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2ccc(N)nc2=O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.15
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00217": {
   "exp": [
@@ -9730,14 +9730,14 @@
     "O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -4.8
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02322": {
   "exp": [
@@ -9770,14 +9770,14 @@
     "C[C@@](O)(CCOP(=O)([O-])OP(=O)([O-])O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -0.67
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.61
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00062": {
   "exp": [
@@ -9810,14 +9810,14 @@
     "O=P([O-])([O-])O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -26.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -28.35
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00193": {
   "exp": [
@@ -9840,14 +9840,14 @@
     "[NH3+][C@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn36656": {
   "exp": [
@@ -9880,14 +9880,14 @@
     "CSCC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -3.18
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.84
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01846": {
   "exp": [
@@ -9920,14 +9920,14 @@
     "O=C([O-])C(=O)C(O)C(=O)[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    22.1
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.65
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00515": {
   "exp": [
@@ -9960,14 +9960,14 @@
     "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)(O)OP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01292": {
   "exp": [
@@ -9990,14 +9990,14 @@
     "OCC1(O)OC[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    4.73
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00147": {
   "exp": [
@@ -10040,14 +10040,14 @@
     "C=C(OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -10.62
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -14.09
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00337": {
   "exp": [
@@ -10080,14 +10080,14 @@
     "[NH3+][C@@H](CC(=O)OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    19.06
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.12
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn15055": {
   "exp": [
@@ -10125,14 +10125,14 @@
     "O=C([O-])[C@@H]1CCC=N1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -10.99
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -12.16
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00690": {
   "exp": [
@@ -10175,14 +10175,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@H](CN(C=O)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -9.58
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.91
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00987": {
   "exp": [
@@ -10210,14 +10210,14 @@
     "CCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.72
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.15
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01336": {
   "exp": [
@@ -10250,14 +10250,14 @@
     "C[C@]12CCC(=O)C=C1CC[C@@H]1[C@@H]2CC[C@]2(C)C(=O)CC[C@@H]12"
    ]
   },
+  "exp_n": 12,
   "exp_native": [
    -1.6
   ],
-  "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.05
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02360": {
   "exp": [
@@ -10280,14 +10280,14 @@
     "O=C([O-])[C@H]1C[C@@H](O)C[NH2+]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    0.02
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.02
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn11139": {
   "exp": [
@@ -10320,14 +10320,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    3.79
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02685": {
   "exp": [
@@ -10360,14 +10360,14 @@
     "NC(NCCS(=O)(=O)[O-])=[NH+]P(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -3.51
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.99
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04785": {
   "exp": [
@@ -10400,14 +10400,14 @@
     "NC(NCCOP(=O)([O-])OC[C@H]([NH3+])C(=O)[O-])=[NH+]P(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -8.88
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -8.77
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn16378": {
   "exp": [
@@ -10440,14 +10440,14 @@
     "CCCCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCC(=O)[O-]"
    ]
   },
-  "exp_native": [
-   12.45
-  ],
   "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   2.3
+  ],
   "exp_tecrdb_std": [
    14.38
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn52014": {
   "exp": [
@@ -10480,14 +10480,14 @@
     "CCCCCCCCCCCCCCCC(=O)[O-]"
    ]
   },
-  "exp_native": [
-   20.18
-  ],
   "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   9.84
+  ],
   "exp_tecrdb_std": [
    23.56
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00698": {
   "exp": [
@@ -10520,14 +10520,14 @@
     "O=P([O-])([O-])O[C@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    3.79
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00306": {
   "exp": [
@@ -10570,14 +10570,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)CCC(=O)[O-]"
    ]
   },
-  "exp_native": [
-   0.71
-  ],
   "exp_n": 39,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   0.68
+  ],
   "exp_tecrdb_std": [
    2.73
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00105": {
   "exp": [
@@ -10610,14 +10610,14 @@
     "O=P([O-])([O-])OP(=O)([O-])O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    2.37
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.17
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn14104": {
   "exp": [
@@ -10650,14 +10650,14 @@
     "Nc1ncnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.21
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00551": {
   "exp": [
@@ -10690,14 +10690,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(COP(=O)([O-])[O-])[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    12.68
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    19.19
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03087": {
   "exp": [
@@ -10730,14 +10730,14 @@
     "O=C([O-])CCC(=O)N[C@@H](CCCC(=O)C(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    0.47
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.74
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01004": {
   "exp": [
@@ -10760,14 +10760,14 @@
     "O=C([O-])C(=O)Cc1ccccc1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    5.71
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.71
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00195": {
   "exp": [
@@ -10790,14 +10790,14 @@
     "[NH3+][C@@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -5.97
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01409": {
   "exp": [
@@ -10830,14 +10830,14 @@
     "CCCCCCCCCCCCCCCC(=O)O[C@H](CC(=O)[O-])C[N+](C)(C)C"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.79
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.74
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02527": {
   "exp": [
@@ -10870,14 +10870,14 @@
     "CCCCO"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -15.67
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -26.85
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00631": {
   "exp": [
@@ -10910,14 +10910,14 @@
     "O=C(CO)[C@@H](O)[C@H](O)C(=O)CO"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    21.1
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    26.07
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00785": {
   "exp": [
@@ -10950,14 +10950,14 @@
     "O=C[C@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    7.32
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01985": {
   "exp": [
@@ -10990,14 +10990,14 @@
     "O=P([O-])([O-])O[C@@H]1C[C@H](O)[C@@H](CO)O1"
    ]
   },
-  "exp_native": [
-   9.79
-  ],
   "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
+  "exp_native": [
+   9.42
+  ],
   "exp_tecrdb_std": [
    10.71
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01200": {
   "exp": [
@@ -11030,14 +11030,14 @@
     "O=C(CO)[C@@H](O)[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    1.08
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.25
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00656": {
   "exp": [
@@ -11070,14 +11070,14 @@
     "[NH3+]CCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.12
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.87
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04684": {
   "exp": [
@@ -11110,14 +11110,14 @@
     "C[N+](C)(C)CCO"
    ]
   },
+  "exp_n": 52,
   "exp_native": [
    -9.33
   ],
-  "exp_n": 52,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01834": {
   "exp": [
@@ -11145,14 +11145,14 @@
     "CC(=O)C=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    23.48
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01174": {
   "exp": [
@@ -11185,14 +11185,14 @@
     "O=CCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    11.68
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    26.87
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn12188": {
   "exp": [
@@ -11225,14 +11225,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -11.76
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -11.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01974": {
   "exp": [
@@ -11255,14 +11255,14 @@
     "[NH3+][C@H](CCC[C@H]([NH3+])C(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.66
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.66
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00100": {
   "exp": [
@@ -11295,14 +11295,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCS"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.21
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.86
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00326": {
   "exp": [
@@ -11340,14 +11340,14 @@
     "CC(C)(COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-])[C@@H](O)C(=O)NCCC(=O)NCCSC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    -9.42
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.83
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00420": {
   "exp": [
@@ -11380,14 +11380,14 @@
     "[NH3+][C@@H](CO)C(=O)[O-]"
    ]
   },
+  "exp_n": 104,
   "exp_native": [
    -10.4
   ],
-  "exp_n": 104,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -10.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01434": {
   "exp": [
@@ -11430,14 +11430,14 @@
     "[NH2+]=C(NCCC[C@H]([NH3+])C(=O)[O-])NC(CC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -5.7
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.46
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00783": {
   "exp": [
@@ -11465,14 +11465,14 @@
     "O=C[C@H](O)COP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    13.88
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    10.97
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03644": {
   "exp": [
@@ -11495,14 +11495,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -13.2
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -13.03
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02085": {
   "exp": [
@@ -11530,14 +11530,14 @@
     "O=C([O-])/C=C/c1c[nH]cn1"
    ]
   },
+  "exp_n": 5,
   "exp_native": [
    9.91
   ],
-  "exp_n": 5,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn53440": {
   "exp": [
@@ -11560,14 +11560,14 @@
     "O=C(CO)[C@H](O)CO"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    -2.43
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -2.43
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01713": {
   "exp": [
@@ -11600,14 +11600,14 @@
     "COc1cc(/C=C/C(=O)O[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc(OC)c1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.93
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    7.94
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00257": {
   "exp": [
@@ -11655,14 +11655,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.45
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -8.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01152": {
   "exp": [
@@ -11685,14 +11685,14 @@
     "OCC1(O)OC[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 12,
   "exp_native": [
    4.99
   ],
-  "exp_n": 12,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.98
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01999": {
   "exp": [
@@ -11725,14 +11725,14 @@
     "Cc1cn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](C)C(=O)[C@H](O)[C@H]3O)O2)c(=O)[nH]c1=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.79
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.88
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01018": {
   "exp": [
@@ -11765,14 +11765,14 @@
     "NC(=O)N[C@@H](CC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -21.89
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -22.06
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01219": {
   "exp": [
@@ -11805,14 +11805,14 @@
     "Nc1ccn([C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)n1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -1.01
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.79
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01636": {
   "exp": [
@@ -11845,14 +11845,14 @@
     "CC(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.95
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01725": {
   "exp": [
@@ -11885,14 +11885,14 @@
     "C[N+](C)(C)CC(=O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    16.75
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    26.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01457": {
   "exp": [
@@ -11915,14 +11915,14 @@
     "O=C([O-])[C@@H](O)[C@H](O)[C@H](O)C(=O)CO"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    1.35
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.34
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01080": {
   "exp": [
@@ -11945,14 +11945,14 @@
     "O=C([O-])[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    0.51
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.63
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01643": {
   "exp": [
@@ -11990,14 +11990,14 @@
     "[NH3+][C@@H](CC(=O)OP(=O)([O-])[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -8.67
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -16.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00541": {
   "exp": [
@@ -12025,14 +12025,14 @@
     "CC=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    10.38
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    10.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02902": {
   "exp": [
@@ -12055,14 +12055,14 @@
     "O=C([O-])c1nc2[nH]c(O)nc(O)c-2n1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -15.83
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -9.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02305": {
   "exp": [
@@ -12095,14 +12095,14 @@
     "Cc1ncc(C[n+]2csc(CCOP(=O)([O-])[O-])c2C)c(N)n1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -4.62
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -20.09
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01780": {
   "exp": [
@@ -12125,14 +12125,14 @@
     "C[C@H]([NH3+])C[C@@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    0.27
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.63
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02213": {
   "exp": [
@@ -12160,14 +12160,14 @@
     "O=C([O-])C1=CC(=O)[C@@H](O)[C@H](O)C1"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -5.29
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -5.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00527": {
   "exp": [
@@ -12200,14 +12200,14 @@
     "O=C([O-])C(=O)Cc1ccc(O)cc1"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    0.32
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.2
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00493": {
   "exp": [
@@ -12240,14 +12240,14 @@
     "O=C([O-])C(=O)Cc1ccccc1"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    -0.11
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -1.7
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02900": {
   "exp": [
@@ -12280,14 +12280,14 @@
     "O=CCP(=O)([O-])O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.72
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.93
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn08066": {
   "exp": [
@@ -12320,14 +12320,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    0.49
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -3.9
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00320": {
   "exp": [
@@ -12350,14 +12350,14 @@
     "[NH3+]CCCC[C@@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00514": {
   "exp": [
@@ -12390,14 +12390,14 @@
     "O=c1[nH]cnc2c1ncn2[C@@H]1O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -26.58
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -9.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00643": {
   "exp": [
@@ -12420,14 +12420,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@@H](CO)[C@@H](O)[C@@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    1.69
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    1.69
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02622": {
   "exp": [
@@ -12455,14 +12455,14 @@
     "C/C(=C\\C(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.39
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.43
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn49067": {
   "exp": [
@@ -12495,14 +12495,14 @@
     "CCCCCC(=O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    1.07
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.55
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01363": {
   "exp": [
@@ -12535,14 +12535,14 @@
     "O=C1C[C@@](O)(C(=O)[O-])C[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    13.65
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    18.44
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02095": {
   "exp": [
@@ -12575,14 +12575,14 @@
     "OCC1(O)OC[C@@H](O)[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    10.77
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    14.24
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01299": {
   "exp": [
@@ -12615,14 +12615,14 @@
     "O=c1[nH]cnc2[nH]cnc12"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -12.03
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -11.82
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00256": {
   "exp": [
@@ -12660,14 +12660,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 24,
   "exp_native": [
    36.18
   ],
-  "exp_n": 24,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    29.55
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00897": {
   "exp": [
@@ -12690,14 +12690,14 @@
     "CC(=O)N[C@@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 2,
   "exp_native": [
    3.73
   ],
-  "exp_n": 2,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    3.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01621": {
   "exp": [
@@ -12725,14 +12725,14 @@
     "C[C@H](O)C=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    6.42
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.41
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00830": {
   "exp": [
@@ -12755,14 +12755,14 @@
     "CC(C)=CCOP(=O)([O-])OP(=O)([O-])O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -4.91
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -4.91
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01792": {
   "exp": [
@@ -12795,14 +12795,14 @@
     "CC(C)(CO)[C@@H](O)C(=O)[O-]"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    6.65
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.69
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01509": {
   "exp": [
@@ -12835,14 +12835,14 @@
     "Nc1nc2c(ncn2[C@H]2C[C@H](O)[C@@H](COP(=O)([O-])OP(=O)([O-])O)O2)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.28
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.2
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00266": {
   "exp": [
@@ -12865,14 +12865,14 @@
     "O=C([O-])CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    5.71
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    5.71
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00404": {
   "exp": [
@@ -12905,14 +12905,14 @@
     "NC(=[NH2+])NCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.47
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00931": {
   "exp": [
@@ -12945,14 +12945,14 @@
     "O=C([O-])[C@@H]1CCC=N1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    24.92
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    58.77
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01887": {
   "exp": [
@@ -12985,14 +12985,14 @@
     "COc1cc(/C=C/C=O)ccc1O"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    3.21
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.21
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02887": {
   "exp": [
@@ -13025,14 +13025,14 @@
     "O=Cc1cccc(O)c1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    4.32
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    15.02
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00603": {
   "exp": [
@@ -13065,14 +13065,14 @@
     "O=P([O-])([O-])OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.66
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    20.71
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01480": {
   "exp": [
@@ -13105,14 +13105,14 @@
     "CC(C=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    8.24
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    23.78
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00804": {
   "exp": [
@@ -13155,14 +13155,14 @@
     "CC(C)CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    11.16
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    42.45
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00157": {
   "exp": [
@@ -13195,14 +13195,14 @@
     "CC(=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    16.69
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.63
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01301": {
   "exp": [
@@ -13235,14 +13235,14 @@
     "[NH3+][C@@H](CC=O)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    11.73
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    20.72
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01692": {
   "exp": [
@@ -13275,14 +13275,14 @@
     "C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CCC2=O"
    ]
   },
+  "exp_n": 4,
   "exp_native": [
    -4.31
   ],
-  "exp_n": 4,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.01
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00911": {
   "exp": [
@@ -13320,14 +13320,14 @@
     "CC([NH3+])(CO)C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    2.84
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    2.89
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00700": {
   "exp": [
@@ -13360,14 +13360,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.49
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -0.75
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00641": {
   "exp": [
@@ -13400,14 +13400,14 @@
     "Nc1nc2c(ncn2[C@@H]2O[C@H](COP(=O)([O-])OP(=O)([O-])O[C@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c(=O)[nH]1"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -2.36
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -6.3
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn16141": {
   "exp": [
@@ -13440,14 +13440,14 @@
     "O=CCCC(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    3.24
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    10.17
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn54659": {
   "exp": [
@@ -13470,14 +13470,14 @@
     "CC(C)C[C@@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.0
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    0.0
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01022": {
   "exp": [
@@ -13510,14 +13510,14 @@
     "CSC[C@H]1O[C@H](OP(=O)([O-])[O-])[C@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    11.03
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    11.74
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00630": {
   "exp": [
@@ -13550,14 +13550,14 @@
     "OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    6.16
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    16.32
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00674": {
   "exp": [
@@ -13600,14 +13600,14 @@
     "CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -0.36
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.88
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01019": {
   "exp": [
@@ -13640,14 +13640,14 @@
     "NC(=O)NCCC[C@H]([NH3+])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -29.69
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -33.31
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn01579": {
   "exp": [
@@ -13680,14 +13680,14 @@
     "O=C([O-])C1=NCCCC1"
    ]
   },
+  "exp_n": 6,
   "exp_native": [
    11.73
   ],
-  "exp_n": 6,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    30.22
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03281": {
   "exp": [
@@ -13710,14 +13710,14 @@
     "CC(C)=CCC[C@@H](C)[C@H]1CC[C@H]2C3=CC[C@H]4C[C@@H](O)CC[C@]4(C)[C@H]3CC[C@]12C"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    6.81
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    6.81
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00276": {
   "exp": [
@@ -13750,14 +13750,14 @@
     "[NH3+][C@@H](CC(=O)[O-])C(=O)[O-]"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    10.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    8.62
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn00605": {
   "exp": [
@@ -13790,14 +13790,14 @@
     "O=P([O-])([O-])OC[C@H]1O[C@H](O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@@H](O)[C@@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    -9.51
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -9.29
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn04932": {
   "exp": [
@@ -13830,14 +13830,14 @@
     "OCC1(O)OC[C@@H](O)[C@H]1O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    17.68
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    21.15
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn02403": {
   "exp": [
@@ -13880,14 +13880,14 @@
     "C[C@H]([NH3+])CC(=O)CC(=O)[O-]"
    ]
   },
+  "exp_n": 7,
   "exp_native": [
    13.73
   ],
-  "exp_n": 7,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    18.4
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn12217": {
   "exp": [
@@ -13920,14 +13920,14 @@
     "Nc1nc(=O)c2c([nH]1)NC[C@@H]1CN(c3ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc3)CN21"
    ]
   },
+  "exp_n": 3,
   "exp_native": [
    -25.72
   ],
-  "exp_n": 3,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    -25.65
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  },
  "rxn03137": {
   "exp": [
@@ -13960,13 +13960,13 @@
     "NC(=O)c1ncn([C@@H]2O[C@H](COP(=O)([O-])[O-])[C@@H](O)[C@H]2O)c1NC=O"
    ]
   },
+  "exp_n": 1,
   "exp_native": [
    9.25
   ],
-  "exp_n": 1,
-  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)",
   "exp_tecrdb_std": [
    4.82
-  ]
+  ],
+  "exp_conditions": "openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)"
  }
 }

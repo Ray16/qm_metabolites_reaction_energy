@@ -9,22 +9,26 @@
   "tecrdb": {
     "attempted": 364,
     "estimated": 364,
-    "mae_kj_mol": 9.58,
-    "median_absolute_error_kj_mol": 7.24,
-    "rmse_kj_mol": 13.39,
+    "mae_kj_mol": 9.54,
+    "median_absolute_error_kj_mol": 7.15,
+    "rmse_kj_mol": 13.32,
     "coverage": {
-      "covered": 347,
+      "covered": 346,
       "total": 364,
-      "fraction": 0.953,
-      "exact_binomial_95ci": [0.926, 0.973],
+      "fraction": 0.951,
+      "exact_binomial_95ci": [
+        0.923,
+        0.97
+      ],
       "multiplier": 2.25,
       "grouped_cv_clusters": 245
     },
     "cycle_closure": {
       "independent_cycles": 49,
       "metag_rms_kj_mol": 1.52,
-      "measurement_rms_kj_mol": 3.50
-    }
+      "measurement_rms_kj_mol": 3.47
+    },
+    "results_directory": "MetaG/analysis/sweep_20261001/final_20261002_opentecr_calibrated"
   },
   "modelseed": {
     "attempted": 300,
@@ -34,17 +38,18 @@
     "has_experimental_labels": false
   },
   "artifact_hashes": {
-    "sigma_class_calibrated.json": "32b87c41a348fe5fa5941bed52f963f8a5896a975d5d6b43009ec4c520d04b87",
-    "cycle_closure_by_route.json": "6a0bc13b5cd841fb35a072dce0bcea5f1574255b4e585f8267f392f6f3ed94f4",
-    "common_reference_comparison.json": "f3ae98548e0fbfb63ada4d67375d03571b3715a404794fdadd7d5de4329893be",
+    "sigma_class_calibrated.json": "dc86878f2d2a741a75a44f3668dee87a4080714f6af04ba4e9dd97505c6bfb41",
+    "cycle_closure_by_route.json": "27313d65e362544a4c81ff1d14b13c86a268b371e51842ee1c7fab5822bed512",
+    "common_reference_comparison.json": "5c0ef77f0f2d02f09a298aeffa1eb3f3979d4545bc903ffa2690a2e362019e8a",
     "generality_report.json": "f5a1f74b44d7277495dd8a6324e54c09efaa291deb85ebbc74caf4163bfee35b",
-    "tecrdb_results_directory": "fb9836c0f80fcdfd5f3ce95492654efec5e26a371f60cc9e64037f5b0e961102",
-    "modelseed_results_directory": "9d6aef161e1714cb9314d47da5d40d9a3a0cd6316ed3e7797aea2cf969902aa5"
+    "tecrdb_results_directory": "ce6289fd156bdcecd9bb36a48eee0b0fb7ba66b712b7d917389a417852b1d222",
+    "modelseed_results_directory": "9d6aef161e1714cb9314d47da5d40d9a3a0cd6316ed3e7797aea2cf969902aa5",
+    "tecrdb_results_directory_format": "sha256 of `sha256sum *.json` run inside final_20261002_opentecr_calibrated/"
   },
   "representative_results": {
     "rxn00001": {
       "dG_kj_mol": -31.3,
-      "error_kj_mol": -3.89,
+      "error_kj_mol": -6.22,
       "class": "phosphatase",
       "truncated": false,
       "ph0": true,
@@ -65,6 +70,52 @@
       "ph0": true,
       "suspect": null
     }
+  },
+  "benchmark_reference": {
+    "name": "openTECR standardized (pH 7, I = 0, no Mg2+; Legendre-transformed per measurement)",
+    "adopted": "2026-10-02",
+    "file": "experiments/qm_mlip_solvation/scripts/reactions_opentecr_std.json",
+    "file_sha256": "f9f286579f4da9f0d0558f00416dd43ddb75a250d19e90a40e84288dcba49ecb",
+    "builder": "MetaG/analysis/build_opentecr_standard.py",
+    "openTECR_snapshot": "MetaG/analysis/opentecr_source/ (downloaded 2026-10-02)",
+    "openTECR_ods_sha256": "099ce524a95fa4da655175ffc2fd0eaf463b4d8a707aa231a32a3d39bfc2cce8",
+    "note": "point estimates are identical to the TECRDB-scored production pass; only exp/err and the recalibrated intervals differ"
+  },
+  "tecrdb_uncorrected_reference": {
+    "note": "same release scored against the TECRDB-built standardized reference (reactions_tecrdb_std.json); SI comparison only",
+    "results_directory": "MetaG/analysis/sweep_20261001/final_20261001c_calibrated",
+    "tecrdb": {
+      "attempted": 364,
+      "estimated": 364,
+      "mae_kj_mol": 9.58,
+      "median_absolute_error_kj_mol": 7.24,
+      "rmse_kj_mol": 13.39,
+      "coverage": {
+        "covered": 347,
+        "total": 364,
+        "fraction": 0.953,
+        "exact_binomial_95ci": [
+          0.926,
+          0.973
+        ],
+        "multiplier": 2.25,
+        "grouped_cv_clusters": 245
+      },
+      "cycle_closure": {
+        "independent_cycles": 49,
+        "metag_rms_kj_mol": 1.52,
+        "measurement_rms_kj_mol": 3.5
+      }
+    },
+    "artifact_hashes": {
+      "sigma_class_calibrated.json": "32b87c41a348fe5fa5941bed52f963f8a5896a975d5d6b43009ec4c520d04b87",
+      "cycle_closure_by_route.json": "6a0bc13b5cd841fb35a072dce0bcea5f1574255b4e585f8267f392f6f3ed94f4",
+      "common_reference_comparison.json": "f3ae98548e0fbfb63ada4d67375d03571b3715a404794fdadd7d5de4329893be",
+      "tecrdb_results_directory": "fb9836c0f80fcdfd5f3ce95492654efec5e26a371f60cc9e64037f5b0e961102"
+    },
+    "representative_errors_kj_mol": {
+      "rxn00001": -3.89,
+      "rxn00191": 0.82
+    }
   }
 }
-

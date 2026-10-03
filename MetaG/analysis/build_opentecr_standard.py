@@ -1,6 +1,7 @@
 """Rebuild the benchmark experimental reference from openTECR (the community re-curation of TECRDB).
 
-Same reactions, same matching rule and same Legendre transform as build_tecrdb_standard.py (pH 7, I = 0, no Mg2+,
+Same matched reactions (reactions_tecrdb_all.json, 367), same matching rule and same Legendre transform as
+build_tecrdb_standard.py (pH 7, I = 0, no Mg2+,
 per-measurement T); only the measurement source changes.
 
 Source: openTECR "actual data" sheet (opentecr_source/sheet_actual_data.csv, exported from the openTECR Google
@@ -31,7 +32,8 @@ HERE = B.HERE
 SRC = os.path.join(HERE, "opentecr_source")
 DATA = os.path.join(SRC, "sheet_actual_data.csv")
 META = os.path.join(SRC, "sheet_table_metadata.csv")
-STD_INP = B.OUT                                                       # reactions_tecrdb_std.json (current reference)
+ALL_INP = B.INP          # reactions_tecrdb_all.json: the 367 TECRDB-matched reactions (same start as the TECRDB builder)
+STD_INP = B.OUT          # reactions_tecrdb_std.json: the TECRDB-built reference, for the comparison fields only
 OUT = os.path.join(B.ROOT, "experiments", "qm_mlip_solvation", "scripts", "reactions_opentecr_std.json")
 REPORT = os.path.join(HERE, "opentecr_standard_report.json")
 TABLE_KEY = ("part", "page", "col l/r", "table from top")
@@ -110,7 +112,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--impute-I", type=float, default=0.25)
     a = ap.parse_args()
-    R = json.load(open(STD_INP))
+    R = json.load(open(ALL_INP))
+    TSTD = json.load(open(STD_INP))
     kegg = B.kegg_to_modelseed(B.MSDB)
     ms = B.load_modelseed_reactions(B.MSDB)
     index = defaultdict(list)
@@ -120,7 +123,11 @@ def main():
 
     rows, how = opentecr_rows()
     tr = B.Transformer(ms)
-    per, excluded, stats = defaultdict(list), Counter(), Counter()
+    per, per_I0, native, excluded, stats, breakdown = (defaultdict(list), defaultdict(list), defaultdict(list),
+                                                       Counter(), Counter(), Counter())
+    for k in ("no K' (species K only, or none)", "no pH", "reaction not transformable in eQuilibrator"):
+        excluded[k] = 0                                               # always reported (also when zero)
+    cond = defaultdict(list)                                          # per used measurement, for the condition medians
     for r, keq, src in rows:
         eq, ok = B.parse_equation(keq)
         if not ok or any(k not in kegg for k in eq):
@@ -133,42 +140,79 @@ def main():
             continue
         why = usable(r)
         if why:
-            excluded[why] += 1; continue
+            breakdown[why] += 1
+            # same key as build_tecrdb_standard.py so downstream tools read both reports alike
+            excluded["no K' (species K only, or none)" if why in ("no K'", "species-level K (not K')") else why] += 1
+            continue
         if tr.reaction(rid) is None:
             excluded["reaction not transformable in eQuilibrator"] += 1; continue
         Kp, ph = B._f(r["K_prime"]), B._f(r["p_h"])
         T = B._f(r["temperature"]) or 298.15
         I, pmg = B._f(r["ionic_strength"]), B._f(r["p_mg"])
         stats["I imputed" if I is None else "I reported"] += 1
+        stats["no Mg (pMg missing)" if pmg is None else "pMg reported"] += 1
         stats[f"source: {src}"] += 1
         if r["error_correction"]:
             stats["error_correction rows used"] += 1
+        elif src == "name":
+            stats["added rows used (no TECRDB id)"] += 1
+        cond[("pH", rid)].append(ph); cond[("T", rid)].append(T)
+        if I is not None:
+            cond["I"].append(I); cond["rid_I"].append(rid)
+        if pmg is not None:
+            cond["rid_Mg"].append(rid)
         pmg = 14.0 if pmg is None else pmg
-        dg = orient * -B.R_KJ * T * math.log(Kp) + tr.correction(rid, ph, a.impute_I if I is None else I, pmg, T)
-        per[rid].append(dg)
+        dg_obs = orient * -B.R_KJ * T * math.log(Kp)
+        native[rid].append(dg_obs)
+        per[rid].append(dg_obs + tr.correction(rid, ph, a.impute_I if I is None else I, pmg, T))
+        per_I0[rid].append(dg_obs + tr.correction(rid, ph, 0.0 if I is None else I, pmg, T))
 
     out, rep_rx, dropped = {}, {}, []
     for rid, rx in R.items():
         vals = per.get(rid)
         if not vals:
             dropped.append(rid); continue
-        e = statistics.median(vals)
+        e, nat = statistics.median(vals), statistics.median(native[rid])
         out[rid] = dict(rx, exp=[round(e, 2)], exp_sd=round(statistics.stdev(vals), 2) if len(vals) > 1 else 0.0,
-                        exp_n=len(vals), exp_tecrdb_std=rx["exp"],
+                        exp_n=len(vals), exp_native=[round(nat, 2)], exp_tecrdb_std=TSTD.get(rid, {}).get("exp"),
                         exp_conditions="openTECR; pH 7, I 0, no Mg2+ (Legendre-transformed per measurement; T as measured)")
-        rep_rx[rid] = {"tecrdb_std": rx["exp"][0], "opentecr_std": round(e, 2),
-                       "shift": round(e - rx["exp"][0], 2), "n_open": len(vals), "n_tecrdb": rx.get("exp_n")}
+        t = TSTD.get(rid)
+        rep_rx[rid] = {"native": round(nat, 2), "standard": round(e, 2), "shift": round(e - nat, 2), "n": len(vals),
+                       "standard_if_I_imputed_0": round(statistics.median(per_I0[rid]), 2),
+                       "tecrdb_std": t["exp"][0] if t else None,
+                       "shift_vs_tecrdb_std": round(e - t["exp"][0], 2) if t else None,
+                       "n_tecrdb": t.get("exp_n") if t else None}
     sh = [abs(v["shift"]) for v in rep_rx.values()]
-    rep = {"mapping": dict(how), "excluded_measurements": dict(excluded), "measurement_stats": dict(stats),
+    s0 = [abs(v["standard"] - v["standard_if_I_imputed_0"]) for v in rep_rx.values()]
+    st = [abs(v["shift_vs_tecrdb_std"]) for v in rep_rx.values() if v["shift_vs_tecrdb_std"] is not None]
+    pct = lambda xs, q: sorted(xs)[min(len(xs) - 1, int(round(q * (len(xs) - 1))))]
+    # per-reaction medians, then the median / 5-95 % range over reactions (the manuscript's convention)
+    rx_ph = [statistics.median(cond[("pH", rid)]) for rid in out]
+    rx_T = [statistics.median(cond[("T", rid)]) for rid in out]
+    rep = {"source": "openTECR snapshot 2026-10-02 (opentecr_source/README.md)",
+           "conditions": B.STD, "impute_I_M": a.impute_I, "temperature": "per measurement (not transformed)",
+           "mapping": dict(how), "excluded_measurements": dict(excluded), "excluded_breakdown": dict(breakdown),
+           "measurement_stats": dict(stats),
+           "measurement_conditions": {"basis": "per-reaction median, then median / 5-95% over reactions",
+                                      "median_pH": round(statistics.median(rx_ph), 2),
+                                      "pH_5_95": [round(pct(rx_ph, 0.05), 2), round(pct(rx_ph, 0.95), 2)],
+                                      "median_T": round(statistics.median(rx_T), 2),
+                                      "median_reported_I": round(statistics.median(cond["I"]), 3),
+                                      "n_reactions_I_reported": len(set(cond["rid_I"])),
+                                      "n_reactions_Mg_reported": len(set(cond["rid_Mg"]))},
            "summary": {"n_reactions": len(out), "n_dropped": len(dropped), "dropped": dropped,
                        "mean_abs_shift": round(statistics.mean(sh), 2), "median_abs_shift": round(statistics.median(sh), 2),
-                       "n_shift_gt_1": sum(x > 1 for x in sh), "n_shift_gt_5": sum(x > 5 for x in sh),
-                       "n_shift_gt_10": sum(x > 10 for x in sh)},
+                       "n_shift_gt_5": sum(x > 5 for x in sh), "n_shift_gt_10": sum(x > 10 for x in sh),
+                       "I_imputation_sensitivity_mean_abs": round(statistics.mean(s0), 2),
+                       "I_imputation_sensitivity_max": round(max(s0), 2)},
+           "vs_tecrdb_std": {"mean_abs_shift": round(statistics.mean(st), 2), "median_abs_shift": round(statistics.median(st), 2),
+                             "n_changed": sum(x >= 0.005 for x in st), "n_shift_gt_1": sum(x > 1 for x in st),
+                             "n_shift_gt_5": sum(x > 5 for x in st), "n_shift_gt_10": sum(x > 10 for x in st)},
            "reactions": rep_rx}
     json.dump(out, open(OUT, "w"), indent=1)
     json.dump(rep, open(REPORT, "w"), indent=1)
-    print(json.dumps({k: rep[k] for k in ("mapping", "excluded_measurements", "measurement_stats")}, indent=1))
-    print(json.dumps(rep["summary"], indent=1))
+    print(json.dumps({k: rep[k] for k in ("mapping", "excluded_measurements", "excluded_breakdown", "measurement_stats",
+                                          "measurement_conditions", "summary", "vs_tecrdb_std")}, indent=1))
     print(f"wrote {OUT}\nwrote {REPORT}")
 
 

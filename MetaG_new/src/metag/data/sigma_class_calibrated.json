@@ -1,25 +1,25 @@
 {
   "overall": {
-    "MAE": 9.58,
-    "RMS": 13.39,
-    "bias": -0.4,
-    "medAE": 7.24
+    "MAE": 9.54,
+    "RMS": 13.32,
+    "bias": -0.36,
+    "medAE": 7.15
   },
   "n_reactions": 364,
   "n_abs_err_gt_200": 0,
   "cv_grouping": "near-duplicate clusters (difference-fingerprint Tanimoto >= 0.7), 245 groups",
-  "default_sigma": 13.4,
+  "default_sigma": 13.3,
   "global_q95abs": 29.0,
   "classes": {
     "phosphatase": {
       "n": 12,
-      "sigma": 7.9,
-      "rms": 4.9,
-      "mae": 3.9,
-      "bias": 1.3,
-      "medAE": 3.9,
+      "sigma": 8.0,
+      "rms": 5.1,
+      "mae": 4.1,
+      "bias": 1.1,
+      "medAE": 4.2,
       "center": 1.6,
-      "q95abs": 16.5
+      "q95abs": 16.9
     },
     "other/clean": {
       "n": 69,
@@ -35,9 +35,9 @@
       "n": 74,
       "sigma": 13.1,
       "rms": 13.1,
-      "mae": 10.0,
+      "mae": 10.1,
       "bias": -3.1,
-      "medAE": 8.7,
+      "medAE": 9.0,
       "center": -4.9,
       "q95abs": 23.1
     },
@@ -47,7 +47,7 @@
       "rms": 13.3,
       "mae": 7.8,
       "bias": -0.4,
-      "medAE": 1.9,
+      "medAE": 2.0,
       "center": -0.0,
       "q95abs": 28.5
     },
@@ -63,12 +63,12 @@
     },
     "glycosyl/PRT/nucleoside": {
       "n": 14,
-      "sigma": 14.0,
-      "rms": 14.0,
+      "sigma": 13.9,
+      "rms": 13.9,
       "mae": 12.0,
       "bias": 5.5,
       "medAE": 10.2,
-      "center": 9.5,
+      "center": 9.4,
       "q95abs": 25.0
     },
     "reductive-amination-DH": {
@@ -83,11 +83,11 @@
     },
     "amide/amidine-hydrolysis": {
       "n": 10,
-      "sigma": 18.6,
-      "rms": 18.6,
-      "mae": 14.7,
-      "bias": 3.9,
-      "medAE": 11.5,
+      "sigma": 16.8,
+      "rms": 16.8,
+      "mae": 12.6,
+      "bias": 6.0,
+      "medAE": 6.6,
       "center": -0.3,
       "q95abs": 29.7
     },
@@ -133,7 +133,7 @@
     },
     "ammonia-lyase": {
       "n": 8,
-      "sigma": 10.2,
+      "sigma": 10.1,
       "rms": 8.1,
       "mae": 5.8,
       "bias": -5.4,
@@ -159,7 +159,7 @@
       "bias": 9.9,
       "medAE": 10.0,
       "center": 10.0,
-      "q95abs": 21.1
+      "q95abs": 21.0
     },
     "flavin/FAD-redox": {
       "n": 5,
@@ -186,11 +186,11 @@
   "interval_form": "half_width = max(m * sqrt(sigma_class^2 + U_samp^2), q95abs)",
   "cv": "fully nested: TECRDB-referenced anchor offsets, sigma, q95abs, m refit per training fold",
   "cv_coverage_note": "unconditional over every record with an estimate; no outcome-based exclusion",
-  "cv_heldout_MAE": 9.58,
+  "cv_heldout_MAE": 9.54,
   "cv_heldout_MAE_note": "held-out only with respect to the parameters refit per fold (TECRDB-referenced anchors, sigma). With no anchors this equals the development MAE: it is NOT a generalization estimate; routing/policy choices were made on the same TECRDB.",
-  "cv_coverage_interval95": 0.953,
-  "cv_coverage_1sigma": 0.742,
-  "cv_coverage_2sigma": 0.948,
+  "cv_coverage_interval95": 0.951,
+  "cv_coverage_1sigma": 0.747,
+  "cv_coverage_2sigma": 0.945,
   "config": {
     "acid_hb_filter": [
       false,
@@ -270,11 +270,11 @@
     "zwitterion_ph0": true
   },
   "source": {
-    "sweep_dir": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/final_20261001c",
+    "sweep_dir": "/nfs/lambda_stor_01/homes/rzhu/ModelSEED_FAISS/thermodynamic_calc/MetaG/analysis/sweep_20261001/final_20261002_opentecr",
     "n_records": 364,
     "excluded": {},
-    "git_sha": "19335994c55840147d552ce42a0c84eaa6bd730e",
-    "built": "2026-10-01T20:32:13"
+    "git_sha": "1df4ee2e890af190ca3f6211e7223fe4ebf4c9a3",
+    "built": "2026-10-02T19:57:02"
   },
   "anchors": {
     "phosphagen": {
@@ -324,7 +324,7 @@
       "class": "phosphatase",
       "dG": -31.3,
       "dG_raw": -31.3,
-      "exp": -27.41,
+      "exp": -25.08,
       "U_samp": 0.3,
       "anchor": null
     },
@@ -396,7 +396,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": 12.5,
       "dG_raw": 12.5,
-      "exp": 20.98,
+      "exp": 22.45,
       "U_samp": 1.1,
       "anchor": null
     },
@@ -405,7 +405,7 @@
       "class": "kinase/phosphotransfer",
       "dG": -3.8,
       "dG_raw": -3.8,
-      "exp": -5.8,
+      "exp": -5.81,
       "U_samp": 1.0,
       "anchor": null
     },
@@ -522,7 +522,7 @@
       "class": "CoA-thioester",
       "dG": 7.6,
       "dG_raw": 7.6,
-      "exp": -2.29,
+      "exp": -1.77,
       "U_samp": 1.3,
       "anchor": null
     },
@@ -846,7 +846,7 @@
       "class": "CoA-thioester",
       "dG": 6.8,
       "dG_raw": 6.8,
-      "exp": 2.73,
+      "exp": 2.7,
       "U_samp": 1.4,
       "anchor": null
     },
@@ -936,7 +936,7 @@
       "class": "kinase/phosphotransfer",
       "dG": 54.6,
       "dG_raw": 54.6,
-      "exp": 43.11,
+      "exp": 43.02,
       "U_samp": 1.6,
       "anchor": null
     },
@@ -981,7 +981,7 @@
       "class": "phosphatase",
       "dG": -15.5,
       "dG_raw": -15.5,
-      "exp": -10.81,
+      "exp": -10.82,
       "U_samp": 1.0,
       "anchor": null
     },
@@ -1053,7 +1053,7 @@
       "class": "ammonia-lyase",
       "dG": -2.9,
       "dG_raw": -2.9,
-      "exp": -2.22,
+      "exp": -2.36,
       "U_samp": 0.8,
       "anchor": null
     },
@@ -1089,7 +1089,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": 46.5,
       "dG_raw": 46.5,
-      "exp": 47.89,
+      "exp": 48.24,
       "U_samp": 1.4,
       "anchor": null
     },
@@ -1305,7 +1305,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": 1.6,
       "dG_raw": 1.6,
-      "exp": 15.52,
+      "exp": 13.98,
       "U_samp": 1.9,
       "anchor": null
     },
@@ -1359,7 +1359,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": -11.9,
       "dG_raw": -11.9,
-      "exp": 33.08,
+      "exp": 31.99,
       "U_samp": 1.2,
       "anchor": null
     },
@@ -1467,7 +1467,7 @@
       "class": "isomerase/mutase",
       "dG": -9.2,
       "dG_raw": -9.2,
-      "exp": -7.82,
+      "exp": -7.4,
       "U_samp": 1.1,
       "anchor": null
     },
@@ -1494,7 +1494,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": 19.3,
       "dG_raw": 19.3,
-      "exp": 26.91,
+      "exp": 29.54,
       "U_samp": 1.4,
       "anchor": null
     },
@@ -1629,7 +1629,7 @@
       "class": "other/clean",
       "dG": 3.2,
       "dG_raw": 3.2,
-      "exp": -3.31,
+      "exp": -3.79,
       "U_samp": 1.0,
       "anchor": null
     },
@@ -1818,7 +1818,7 @@
       "class": "hydratase",
       "dG": 21.9,
       "dG_raw": 21.9,
-      "exp": 7.64,
+      "exp": 7.75,
       "U_samp": 0.4,
       "anchor": null
     },
@@ -1980,7 +1980,7 @@
       "class": "kinase/phosphotransfer",
       "dG": 16.5,
       "dG_raw": 16.5,
-      "exp": 28.47,
+      "exp": 28.26,
       "U_samp": 1.6,
       "anchor": null
     },
@@ -1998,7 +1998,7 @@
       "class": "isomerase/mutase",
       "dG": -5.7,
       "dG_raw": -5.7,
-      "exp": -6.4,
+      "exp": -6.39,
       "U_samp": 0.4,
       "anchor": null
     },
@@ -2160,7 +2160,7 @@
       "class": "other/clean",
       "dG": -22.1,
       "dG_raw": -22.1,
-      "exp": -7.65,
+      "exp": -7.52,
       "U_samp": 0.8,
       "anchor": null
     },
@@ -2286,7 +2286,7 @@
       "class": "glycosyl/PRT/nucleoside",
       "dG": 19.8,
       "dG_raw": 19.8,
-      "exp": 10.55,
+      "exp": 10.83,
       "U_samp": 0.3,
       "anchor": null
     },
@@ -2385,7 +2385,7 @@
       "class": "hydratase",
       "dG": 17.0,
       "dG_raw": 17.0,
-      "exp": 1.49,
+      "exp": 1.68,
       "U_samp": 0.5,
       "anchor": null
     },
@@ -2628,7 +2628,7 @@
       "class": "other/clean",
       "dG": -12.5,
       "dG_raw": -12.5,
-      "exp": -6.43,
+      "exp": -6.48,
       "U_samp": 0.1,
       "anchor": null
     },
@@ -2673,7 +2673,7 @@
       "class": "other/clean",
       "dG": 19.4,
       "dG_raw": 19.4,
-      "exp": 19.3,
+      "exp": 21.34,
       "U_samp": 0.7,
       "anchor": null
     },
@@ -2736,7 +2736,7 @@
       "class": "hydratase",
       "dG": 27.6,
       "dG_raw": 27.6,
-      "exp": 18.84,
+      "exp": 18.52,
       "U_samp": 1.1,
       "anchor": null
     },
@@ -2844,7 +2844,7 @@
       "class": "glycosyl/PRT/nucleoside",
       "dG": 11.3,
       "dG_raw": 11.3,
-      "exp": 10.71,
+      "exp": 10.12,
       "U_samp": 0.3,
       "anchor": null
     },
@@ -3078,7 +3078,7 @@
       "class": "hydratase",
       "dG": 27.8,
       "dG_raw": 27.8,
-      "exp": 11.48,
+      "exp": 11.5,
       "U_samp": 1.2,
       "anchor": null
     },
@@ -3276,7 +3276,7 @@
       "class": "phosphatase",
       "dG": -10.6,
       "dG_raw": -10.6,
-      "exp": -5.47,
+      "exp": -5.48,
       "U_samp": 0.2,
       "anchor": null
     },
@@ -3402,7 +3402,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": 16.2,
       "dG_raw": 16.2,
-      "exp": 37.14,
+      "exp": 37.06,
       "U_samp": 1.0,
       "anchor": null
     },
@@ -3465,7 +3465,7 @@
       "class": "amide/amidine-hydrolysis",
       "dG": -2.0,
       "dG_raw": -2.0,
-      "exp": 14.38,
+      "exp": 4.23,
       "U_samp": 0.5,
       "anchor": null
     },
@@ -3519,7 +3519,7 @@
       "class": "NAD(P)-redox(other)",
       "dG": -0.9,
       "dG_raw": -0.9,
-      "exp": 10.24,
+      "exp": 10.2,
       "U_samp": 0.9,
       "anchor": null
     },
@@ -3564,7 +3564,7 @@
       "class": "amide/amidine-hydrolysis",
       "dG": -2.0,
       "dG_raw": -2.0,
-      "exp": 23.56,
+      "exp": 13.23,
       "U_samp": 0.5,
       "anchor": null
     },

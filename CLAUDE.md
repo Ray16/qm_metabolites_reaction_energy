@@ -144,6 +144,13 @@ Terse DECISIONS only (not an experiment log — results/status live in
   (dG=None). Intervals are externally_calibrated only if effective_config() == artifact["config"].
   Headline/network numbers use dG_raw (anchors break cycle closure). Final sweep: FRESH METAG_CACHE.
 
+- **Benchmark reference = openTECR (2026-10-02, user decision):** ALL reported metrics (MAE, median, per-class,
+  baselines, calibration, nested CV, cycle baseline) are scored against `reactions_opentecr_std.json` (openTECR
+  re-curation of TECRDB, pinned snapshot `MetaG/analysis/opentecr_source/`, same Legendre transform; builder
+  `MetaG/analysis/build_opentecr_standard.py`). TECRDB-referenced numbers = SI comparison only. Justify by data
+  quality, never by the effect on MetaG. Production: `final_20261002_opentecr_calibrated` (dG identical to
+  2026-10-01c): MAE 9.54, median 7.15, coverage 95.1%, m 2.25 (TECRDB: 9.58 / 7.24 / 95.3%).
+
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
 branch `master`, SSH). Commit + push after each meaningful step; the daily cron

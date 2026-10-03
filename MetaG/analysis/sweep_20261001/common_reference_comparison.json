@@ -1,45 +1,60 @@
 {
  "n_common": 319,
+ "primary_reference": "openTECR standardized (reactions_opentecr_std.json)",
  "methods": {
   "MetaG (never fit; policy selected on TECRDB -> development)": {
-   "MAE_vs_standardized": 9.43,
-   "median_vs_standardized": 7.45,
-   "MAE_vs_native": 8.73,
-   "median_vs_native": 6.29
+   "MAE_vs_openTECR": 9.38,
+   "median_vs_openTECR": 7.45,
+   "MAE_vs_TECRDB_standardized": 9.42,
+   "median_vs_TECRDB_standardized": 7.47,
+   "MAE_vs_native": 8.71,
+   "median_vs_native": 6.02
   },
   "eQuilibrator CC (in-sample, I=0, pMg 14)": {
-   "MAE_vs_standardized": 1.26,
-   "median_vs_standardized": 0.56,
+   "MAE_vs_openTECR": 1.34,
+   "median_vs_openTECR": 0.61,
+   "MAE_vs_TECRDB_standardized": 1.26,
+   "median_vs_TECRDB_standardized": 0.56,
    "MAE_vs_native": 4.48,
    "median_vs_native": 2.92
   },
   "eQuilibrator CC (in-sample, I=0.25, pMg 3)": {
-   "MAE_vs_standardized": 3.02,
-   "median_vs_standardized": 2.12,
+   "MAE_vs_openTECR": 3.07,
+   "median_vs_openTECR": 2.14,
+   "MAE_vs_TECRDB_standardized": 3.02,
+   "median_vs_TECRDB_standardized": 2.12,
    "MAE_vs_native": 2.94,
    "median_vs_native": 1.44
   },
   "Group contribution (in-sample, I=0, pMg 14)": {
-   "MAE_vs_standardized": 5.88,
-   "median_vs_standardized": 3.77,
+   "MAE_vs_openTECR": 5.82,
+   "median_vs_openTECR": 3.77,
+   "MAE_vs_TECRDB_standardized": 5.88,
+   "median_vs_TECRDB_standardized": 3.77,
    "MAE_vs_native": 7.15,
    "median_vs_native": 4.72
   },
   "dGPredictor original (in-sample, published weights)": {
-   "MAE_vs_standardized": 3.6,
-   "median_vs_standardized": 2.35,
+   "MAE_vs_openTECR": 3.6,
+   "median_vs_openTECR": 2.35,
+   "MAE_vs_TECRDB_standardized": 3.6,
+   "median_vs_TECRDB_standardized": 2.35,
    "MAE_vs_native": 3.01,
    "median_vs_native": 1.38
   },
   "dGPredictor retrained (held-out, family-grouped CV)": {
-   "MAE_vs_standardized": 9.97,
-   "median_vs_standardized": 7.73,
+   "MAE_vs_openTECR": 9.91,
+   "median_vs_openTECR": 7.73,
+   "MAE_vs_TECRDB_standardized": 9.97,
+   "median_vs_TECRDB_standardized": 7.73,
    "MAE_vs_native": 8.16,
    "median_vs_native": 5.89
   },
   "dGPredictor original vocab (held-out, family-grouped CV)": {
-   "MAE_vs_standardized": 9.94,
-   "median_vs_standardized": 7.61,
+   "MAE_vs_openTECR": 9.88,
+   "median_vs_openTECR": 7.65,
+   "MAE_vs_TECRDB_standardized": 9.94,
+   "median_vs_TECRDB_standardized": 7.61,
    "MAE_vs_native": 8.26,
    "median_vs_native": 6.47
   }

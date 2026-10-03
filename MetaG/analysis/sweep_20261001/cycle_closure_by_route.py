@@ -7,7 +7,8 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(os.path.dirname(HERE)))
 from metag.tools.cycle_closure import closure_report, compound_key, stoich_matrix
 TC = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-rx = json.load(open(os.path.join(TC, "experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json")))
+# experimental baseline = the openTECR standardized reference (the benchmark reference; BENCH_REF overrides)
+rx = json.load(open(os.environ.get("BENCH_REF", os.path.join(TC, "experiments/qm_mlip_solvation/scripts/reactions_opentecr_std.json"))))
 R = {}
 for f in glob.glob(os.path.join(sys.argv[1], "*.json")):
     r = json.load(open(f))

@@ -4,7 +4,7 @@
   "n_compounds": 446,
   "dof": 49,
   "n_in_cycles": 112,
-  "rms_residual": 1.47,
+  "rms_residual": 1.52,
   "n_cycles": 49
  },
  "experiment": {
@@ -12,69 +12,69 @@
   "n_compounds": 446,
   "dof": 49,
   "n_in_cycles": 112,
-  "rms_residual": 3.5,
+  "rms_residual": 3.47,
   "n_cycles": 49
  },
  "rms_residual_by_route": {
   "truncated+ph0": {
    "n": 33,
-   "MetaG": 1.89,
-   "experiment": 3.85
+   "MetaG": 1.96,
+   "experiment": 3.79
   },
   "ntp_core+truncated+ph0": {
    "n": 15,
-   "MetaG": 1.65,
-   "experiment": 5.57
+   "MetaG": 1.55,
+   "experiment": 5.62
   },
   "cofactor_ring+truncated": {
    "n": 15,
-   "MetaG": 0.18,
+   "MetaG": 0.16,
    "experiment": 2.81
   },
   "ph0": {
    "n": 13,
-   "MetaG": 1.13,
-   "experiment": 2.8
+   "MetaG": 1.14,
+   "experiment": 2.67
   },
   "cofactor_ring+truncated+ph0": {
    "n": 13,
-   "MetaG": 0.87,
-   "experiment": 2.78
+   "MetaG": 0.85,
+   "experiment": 2.79
   },
   "truncated": {
    "n": 6,
-   "MetaG": 0.8,
-   "experiment": 1.51
+   "MetaG": 0.82,
+   "experiment": 1.53
   },
   "cofactor_ring+ntp_core+truncated+ph0": {
    "n": 4,
-   "MetaG": 0.87,
-   "experiment": 1.46
+   "MetaG": 0.82,
+   "experiment": 1.44
   },
   "ntp_core+ph0": {
    "n": 4,
-   "MetaG": 0.47,
-   "experiment": 2.58
+   "MetaG": 0.46,
+   "experiment": 2.65
   },
   "cofactor_ring+ph0": {
    "n": 3,
-   "MetaG": 0.46,
-   "experiment": 1.49
+   "MetaG": 0.41,
+   "experiment": 1.56
   },
   "cofactor_ring": {
    "n": 3,
-   "MetaG": 0.01,
-   "experiment": 2.34
+   "MetaG": 0.02,
+   "experiment": 1.79
   },
   "full": {
    "n": 2,
-   "MetaG": 4.9,
-   "experiment": 0.35
+   "MetaG": 5.48,
+   "experiment": 0.37
   },
   "cofactor_ring+ntp_core+ph0": {
    "n": 1,
-   "MetaG": 0.15,
-   "experiment": 4.77
+   "MetaG": 0.2,
+   "experiment": 4.93
   }
  },
  "worst_cycles_MetaG": [
@@ -86,9 +86,9 @@
     "rxn00704": 1,
     "rxn05026": 1
    },
-   "closure_error": 15.1,
+   "closure_error": 16.8,
    "sigma": 2.24,
-   "z": 6.75
+   "z": 7.51
   },
   {
    "reactions": {
@@ -99,9 +99,9 @@
     "rxn00139": -1,
     "rxn00770": 1
    },
-   "closure_error": -16.1,
+   "closure_error": -15.3,
    "sigma": 3.0,
-   "z": -5.37
+   "z": -5.1
   },
   {
    "reactions": {
@@ -111,9 +111,9 @@
     "rxn00347": -1,
     "rxn00799": 1
    },
-   "closure_error": -8.0,
+   "closure_error": -8.2,
    "sigma": 2.24,
-   "z": -3.58
+   "z": -3.67
   },
   {
    "reactions": {
@@ -126,9 +126,9 @@
     "rxn00838": 1,
     "rxn01137": 1
    },
-   "closure_error": 7.9,
+   "closure_error": 7.8,
    "sigma": 2.83,
-   "z": 2.79
+   "z": 2.76
   },
   {
    "reactions": {
@@ -148,20 +148,9 @@
     "rxn00704": 1,
     "rxn11139": 1
    },
-   "closure_error": -4.0,
+   "closure_error": -4.6,
    "sigma": 2.24,
-   "z": -1.79
-  },
-  {
-   "reactions": {
-    "rxn00172": -1,
-    "rxn00285": 1,
-    "rxn00290": 1,
-    "rxn00990": 1
-   },
-   "closure_error": 2.1,
-   "sigma": 2.0,
-   "z": 1.05
+   "z": -2.06
   },
   {
    "reactions": {
@@ -169,9 +158,9 @@
     "rxn00191": -1,
     "rxn00278": 1
    },
-   "closure_error": -1.4,
+   "closure_error": -1.3,
    "sigma": 1.73,
-   "z": -0.81
+   "z": -0.75
   },
   {
    "reactions": {
@@ -183,9 +172,20 @@
     "rxn01101": -1,
     "rxn02914": 1
    },
-   "closure_error": 1.9,
+   "closure_error": 1.6,
    "sigma": 2.65,
-   "z": 0.72
+   "z": 0.6
+  },
+  {
+   "reactions": {
+    "rxn00172": -1,
+    "rxn00285": 1,
+    "rxn00290": 1,
+    "rxn00990": 1
+   },
+   "closure_error": 0.6,
+   "sigma": 2.0,
+   "z": 0.3
   },
   {
    "reactions": {
@@ -194,22 +194,9 @@
     "rxn00283": 1,
     "rxn00849": 1
    },
-   "closure_error": 0.6,
+   "closure_error": 0.5,
    "sigma": 2.0,
-   "z": 0.3
-  },
-  {
-   "reactions": {
-    "rxn00001": 1,
-    "rxn00062": -1,
-    "rxn00117": 1,
-    "rxn00213": 1,
-    "rxn00577": 1,
-    "rxn00579": 1
-   },
-   "closure_error": -0.7,
-   "sigma": 2.45,
-   "z": -0.29
+   "z": 0.25
   },
   {
    "reactions": {
@@ -239,9 +226,9 @@
   },
   {
    "reactions": {
-    "rxn00973": 1,
-    "rxn00974": -1,
-    "rxn01388": 1
+    "rxn00001": 1,
+    "rxn00147": -1,
+    "rxn00151": 1
    },
    "closure_error": -0.1,
    "sigma": 1.73,
@@ -249,14 +236,24 @@
   },
   {
    "reactions": {
-    "rxn00062": 1,
-    "rxn00097": -1,
-    "rxn00147": -1,
-    "rxn00148": 1
+    "rxn00248": 1,
+    "rxn00499": -1,
+    "rxn01054": 1
    },
-   "closure_error": -0.1,
+   "closure_error": 0.1,
+   "sigma": 1.73,
+   "z": 0.06
+  },
+  {
+   "reactions": {
+    "rxn00001": -1,
+    "rxn00062": 1,
+    "rxn00695": -1,
+    "rxn12158": 1
+   },
+   "closure_error": 0.1,
    "sigma": 2.0,
-   "z": -0.05
+   "z": 0.05
   }
  ],
  "metabolites_on_excess_nonclosure": [

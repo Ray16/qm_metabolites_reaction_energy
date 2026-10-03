@@ -33,7 +33,9 @@ measure the missing solvation or speciation free energy.
 
 The table below evaluates the old numerical corrections on the current ALPB,
 experimental-water, no-anchor production results. `Current mean` and `SD` are
-signed per-transformation residuals in kJ/mol. `Old-anchor effect` is the
+signed per-transformation residuals in kJ/mol, scored against the openTECR standardized reference
+(benchmark reference since 2026-10-02; against the uncorrected TECRDB only `thioester_pi` (+10.9, effect +9.1)
+and `amide_hydrolysis` (+1.7 ± 19.7, effect +1.3) differ). `Old-anchor effect` is the
 change in class MAE that would result from applying the stored COSMO-era
 offset; positive values are worse.
 
@@ -42,9 +44,9 @@ offset; positive values are worse.
 | `phosphagen` | 4 | +33.7 ± 10.2 | +56.1 | -11.3 | Keep as a diagnosed limitation; do not apply the old offset |
 | `phosphatase_monoester` | 9 | +3.2 ± 4.0 | +23.3 | +16.3 | Retire numerical correction |
 | `thioester_ppi` | 2 | +1.9 ± 4.5 | +44.6 | +39.6 | Retire numerical correction |
-| `thioester_pi` | 4 | +10.9 ± 10.8 | +30.9 | +9.1 | Reject one-offset model; investigate heterogeneous members |
+| `thioester_pi` | 4 | +10.8 ± 10.8 | +30.9 | +9.3 | Reject one-offset model; investigate heterogeneous members |
 | `carboxyP` | 2 | -6.1 ± 13.9 | +25.2 | +21.5 | Retire numerical correction |
-| `amide_hydrolysis` | 7 | +1.7 ± 19.7 | -6.6 | +1.3 | Reject one-offset model; retain only a broad limitation label |
+| `amide_hydrolysis` | 7 | +4.6 ± 16.1 | -6.6 | +1.4 | Reject one-offset model; retain only a broad limitation label |
 | `adenylylate_aliphatic` | 2 reference models | not represented in current TECRDB class | +15.6 | not testable here | Provisional research hypothesis only |
 | `adenylylate_aminoacid` | 3 reference models | not represented in current TECRDB class | +25.6 | not testable here | Provisional research hypothesis only |
 
@@ -143,7 +145,8 @@ connects that intermediate to the computed error.
 **Intended purpose:** correct a shared solvation error in amide hydrolysis after
 the electronic bond change was found to agree with PBE0.
 
-**Current evidence:** seven residuals span -25.6 to +27.3 kJ/mol. The class
+**Current evidence:** seven residuals span -15.2 to +27.3 kJ/mol against the openTECR reference
+(-25.6 to +27.3 against the uncorrected TECRDB; openTECR's corrected anandamide K' values move the low end). The class
 mixes ordinary amides, carbamides, beta-lactam-like substrates, and long-chain
 lipid measurements. Its mean is near zero and its SD is large.
 
