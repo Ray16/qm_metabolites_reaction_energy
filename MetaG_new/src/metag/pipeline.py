@@ -1678,6 +1678,19 @@ def score_reaction(pu, reaction, seeds=(1, 2), keep=10, pool=48, log=print, allo
     # reactions AND whenever the runtime configuration differs from the one the artifact was calibrated on.
     ci_lo, ci_hi, ci_center, ci_info = prediction_interval(_note, _smis, dG, level=95, species=orig_species,
                                                            U_samp=U_samp, config=cfg)
+    # UQ_MODEL=features: per-reaction, annotation-free width (structure + route; metag.uq_features). The
+    # class-model numbers are kept under sigma_breakdown["class_model"] for comparison. Not part of
+    # effective_config(): it does not change dG, and the class artifact's fingerprint must stay valid.
+    from metag.uncertainty import uq_model, feature_interval
+    if uq_model() == "features":
+        from metag.uq_features import reaction_features
+        _raw = reaction_features(orig_species, rx["species"], routes, stages, U_samp)
+        _cls_sigma = sigma_pred
+        sigma_pred, ci_lo, ci_hi, ci_info = feature_interval(_raw, dG, level=95, species=orig_species,
+                                                             config=cfg)
+        ci_center = round(dG, 1)
+        sigma_breakdown = {"uq_model": "features", "features": _raw,
+                           "class_model": dict(sigma_breakdown, sigma=_cls_sigma)}
     exp_out = sorted(exp_flag) if isinstance(exp_flag, (set, list, tuple)) else exp_flag
     stages.update(reported=dG)
     stages = {k: round(v, 2) for k, v in stages.items()}

@@ -37,3 +37,6 @@ results/
 
 # manuscript is its own git repo, synced with Overleaf (see MetaG/manuscript/README.md)
 MetaG/manuscript/
+
+# manuscript moved into the maintained package; still its own git repo synced with Overleaf
+MetaG_new/manuscript/

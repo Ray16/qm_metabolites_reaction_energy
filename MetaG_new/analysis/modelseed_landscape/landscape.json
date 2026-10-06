@@ -1,0 +1,14 @@
+{
+  "n_reactions_total": 56012,
+  "n_live": 43669,
+  "n_imbalanced_MI_CI": 13347,
+  "n_formula_error": 6689,
+  "frac_unscoreable": 0.4588151778149259,
+  "n_balanced": 23633,
+  "n_balanced_no_estimate": 10863,
+  "n_both_estimates": 13777,
+  "frac_gc_eq_gt10_kJ": 0.6419394643245989,
+  "frac_gc_eq_gt30_kJ": 0.44697684546708283,
+  "frac_gc_eq_gt10_kcal_as_kJ_BUG": 0.3742469332946215,
+  "frac_gc_eq_gt30_kcal_as_kJ_BUG": 0.13827393481890107
+}

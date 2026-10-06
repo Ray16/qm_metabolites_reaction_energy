@@ -1,0 +1,818 @@
+{
+ "PCr-type (CNC(N)=)": {
+  "implicit_dG": -72.7,
+  "reference": -43.0,
+  "pKa": 9.5,
+  "bare_same_protocol_dG": -68.70888554616249,
+  "rules": {
+   "R1pkg": {
+    "n_water": {
+     "PCrM": 1,
+     "CrM": 2,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -135.84818867579452,
+     "per_rep": [
+      -146.7299972845649,
+      -131.20986320622615,
+      -146.69600877384073
+     ],
+     "rep_std": 8.950758083069665,
+     "rep_range": 15.520134078338742,
+     "water_effect_vs_bare": -67.13930312963203,
+     "implicit_plus_water_effect": -139.83930312963201,
+     "probe_dG_x2": -175.69203836176894,
+     "probe_delta": -39.84384968597442,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -101.80486629516236,
+     "per_rep": [
+      -105.99672801033012,
+      -97.09736868771142,
+      -108.27947928089998
+     ],
+     "rep_std": 5.908315425943736,
+     "rep_range": 11.182110593188554,
+     "water_effect_vs_bare": -33.09589920286089,
+     "implicit_plus_water_effect": -105.7958992028609,
+     "probe_dG_x2": -107.85044787017978,
+     "probe_delta": -6.045581575017422,
+     "converged_enough": false
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 10
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 22,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R1pkgx2": {
+    "n_water": {
+     "PCrM": 2,
+     "CrM": 4,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -175.69203836176894,
+     "per_rep": [
+      -178.5885894804669,
+      -169.87127949189744,
+      -172.54439113973058
+     ],
+     "rep_std": 4.46597046005968,
+     "rep_range": 8.717309988569468,
+     "water_effect_vs_bare": -106.98315281560645,
+     "implicit_plus_water_effect": -179.68315281560643
+    },
+    "B_full_cycle": {
+     "pooled": -107.85044787017978,
+     "per_rep": [
+      -109.62060674032546,
+      -105.31540185990161,
+      -104.4317018071597
+     ],
+     "rep_std": 2.7761018608555323,
+     "rep_range": 5.188904933165759,
+     "water_effect_vs_bare": -39.141480777878314,
+     "implicit_plus_water_effect": -111.84148077787832
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 5,
+      "unique": 23
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 23,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R1dir": {
+    "n_water": {
+     "PCrM": 1,
+     "CrM": 2,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -127.98649805490277,
+     "per_rep": [
+      -127.11309732621885,
+      -127.46524288956425,
+      -126.72458588829613
+     ],
+     "rep_std": 0.37047726621843463,
+     "rep_range": 0.7406570012681186,
+     "water_effect_vs_bare": -59.277612508740276,
+     "implicit_plus_water_effect": -131.97761250874026
+    },
+    "B_full_cycle": {
+     "pooled": -87.17762760058395,
+     "per_rep": [
+      -86.57199293220765,
+      -87.16317549333326,
+      -87.30068133617169
+     ],
+     "rep_std": 0.3871673771263543,
+     "rep_range": 0.7286884039640427,
+     "water_effect_vs_bare": -18.468660508282483,
+     "implicit_plus_water_effect": -91.16866050828249
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 4
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 11,
+      "unique": 9
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R2": {
+    "n_water": {
+     "PCrM": 4,
+     "CrM": 5,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -119.93587116556591,
+     "per_rep": [
+      -119.06173820779077,
+      -121.38027411079383,
+      -121.4103732680378
+     ],
+     "rep_std": 1.3473802568319155,
+     "rep_range": 2.348635060247034,
+     "water_effect_vs_bare": -51.22698561940342,
+     "implicit_plus_water_effect": -123.92698561940342,
+     "probe_dG_x2": -147.69341308515868,
+     "probe_delta": -27.757541919592768,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -79.81482850512839,
+     "per_rep": [
+      -78.08816533195204,
+      -79.7851620450092,
+      -81.5010897925531
+     ],
+     "rep_std": 1.7064709809373133,
+     "rep_range": 3.4129244606010616,
+     "water_effect_vs_bare": -11.105861412826926,
+     "implicit_plus_water_effect": -83.80586141282693,
+     "probe_dG_x2": -55.42699185651145,
+     "probe_delta": 24.38783664861694,
+     "converged_enough": false
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 20,
+      "unique": 18
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 21,
+      "unique": 16
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R2x2": {
+    "n_water": {
+     "PCrM": 8,
+     "CrM": 10,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -147.69341308515868,
+     "per_rep": [
+      -152.72812252104632,
+      -140.8030374328082,
+      -145.92786314510158
+     ],
+     "rep_std": 5.98212644081276,
+     "rep_range": 11.92508508823812,
+     "water_effect_vs_bare": -78.98452753899619,
+     "implicit_plus_water_effect": -151.68452753899618
+    },
+    "B_full_cycle": {
+     "pooled": -55.42699185651145,
+     "per_rep": [
+      -60.183664961572504,
+      -54.083116905618226,
+      -60.39983033048338
+     ],
+     "rep_std": 3.586183731619533,
+     "rep_range": 6.316713424865156,
+     "water_effect_vs_bare": 13.281975235790014,
+     "implicit_plus_water_effect": -59.41802476420999
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 23,
+      "unique": 24
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R3": {
+    "n_water": {
+     "PCrM": 6,
+     "CrM": 5,
+     "Pi": 3
+    },
+    "A_pipeline_exact": {
+     "pooled": -176.22760853622458,
+     "per_rep": [
+      -176.96377775617293,
+      -173.2685774344427,
+      -173.51363134928397
+     ],
+     "rep_std": 2.0663198795549143,
+     "rep_range": 3.6952003217302263,
+     "water_effect_vs_bare": -107.51872299006209,
+     "implicit_plus_water_effect": -180.21872299006208,
+     "probe_dG_x2": -269.0932738998381,
+     "probe_delta": -92.86566536361352,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -96.98575144200004,
+     "per_rep": [
+      -99.15060873454786,
+      -93.1621781050635,
+      -93.3578294760955
+     ],
+     "rep_std": 3.4023490022896663,
+     "rep_range": 5.9884306294843554,
+     "water_effect_vs_bare": -28.276784349698573,
+     "implicit_plus_water_effect": -100.97678434969858,
+     "probe_dG_x2": -98.61512129180483,
+     "probe_delta": -1.6293698498047888,
+     "converged_enough": true
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 23,
+      "unique": 22
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 16,
+      "unique": 21
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 20
+     }
+    }
+   },
+   "R3x2": {
+    "n_water": {
+     "PCrM": 12,
+     "CrM": 10,
+     "Pi": 6
+    },
+    "A_pipeline_exact": {
+     "pooled": -269.0932738998381,
+     "per_rep": [
+      -276.1700992922706,
+      -257.99823522925726,
+      -253.32258458141587
+     ],
+     "rep_std": 12.06984728547424,
+     "rep_range": 22.84751471085474,
+     "water_effect_vs_bare": -200.3843883536756,
+     "implicit_plus_water_effect": -273.0843883536756
+    },
+    "B_full_cycle": {
+     "pooled": -98.61512129180483,
+     "per_rep": [
+      -113.82762394830934,
+      -75.61507811336196,
+      -72.63034874512232
+     ],
+     "rep_std": 22.972167046075253,
+     "rep_range": 41.19727520318702,
+     "water_effect_vs_bare": -29.906154199503362,
+     "implicit_plus_water_effect": -102.60615419950337
+    },
+    "diag": {
+     "PCrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 24
+     },
+     "CrM": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 23,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 15,
+      "unique": 24
+     }
+    }
+   }
+  }
+ },
+ "PCr-type (CN(C)C(N)=, creatine)": {
+  "implicit_dG": -66.7,
+  "reference": -43.0,
+  "pKa": 9.5,
+  "bare_same_protocol_dG": -63.646042744483566,
+  "rules": {
+   "R1pkg": {
+    "n_water": {
+     "PCr": 1,
+     "Cr": 2,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -117.027144809108,
+     "per_rep": [
+      -123.43966604801244,
+      -124.51309259966365,
+      -115.20661059193662
+     ],
+     "rep_std": 5.091595265152767,
+     "rep_range": 9.306482007727027,
+     "water_effect_vs_bare": -53.38110206462443,
+     "implicit_plus_water_effect": -120.08110206462443,
+     "probe_dG_x2": -154.84122937716893,
+     "probe_delta": -37.814084568060935,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -86.33607323732576,
+     "per_rep": [
+      -87.90269832903869,
+      -89.9471267478948,
+      -84.15427010165877
+     ],
+     "rep_std": 2.9379014579425577,
+     "rep_range": 5.792856646236032,
+     "water_effect_vs_bare": -22.689991214778274,
+     "implicit_plus_water_effect": -89.38999121477828,
+     "probe_dG_x2": -93.09929616688169,
+     "probe_delta": -6.763222929555923,
+     "converged_enough": false
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 3,
+      "unique": 9
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 22,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R1pkgx2": {
+    "n_water": {
+     "PCr": 2,
+     "Cr": 4,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -154.84122937716893,
+     "per_rep": [
+      -157.32364551894716,
+      -150.2621997523529,
+      -154.28853490235633
+     ],
+     "rep_std": 3.542298865370894,
+     "rep_range": 7.061445766594261,
+     "water_effect_vs_bare": -91.19518663268536,
+     "implicit_plus_water_effect": -157.89518663268535
+    },
+    "B_full_cycle": {
+     "pooled": -93.09929616688169,
+     "per_rep": [
+      -96.02908987863339,
+      -87.07377748875297,
+      -90.5317872519081
+     ],
+     "rep_std": 4.516189169573219,
+     "rep_range": 8.955312389880419,
+     "water_effect_vs_bare": -29.453214144334197,
+     "implicit_plus_water_effect": -96.1532141443342
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 7,
+      "unique": 24
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R1dir": {
+    "n_water": {
+     "PCr": 1,
+     "Cr": 2,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -122.37921407897375,
+     "per_rep": [
+      -122.69603011276922,
+      -123.1920502645371,
+      -122.17898176363087
+     ],
+     "rep_std": 0.5065706225583486,
+     "rep_range": 1.013068500906229,
+     "water_effect_vs_bare": -58.73317133449018,
+     "implicit_plus_water_effect": -125.43317133449018
+    },
+    "B_full_cycle": {
+     "pooled": -86.38372864513076,
+     "per_rep": [
+      -85.37536865877337,
+      -85.38826565849013,
+      -86.93941475669271
+     ],
+     "rep_std": 0.8993025124944627,
+     "rep_range": 1.564046097919345,
+     "water_effect_vs_bare": -22.73764662258327,
+     "implicit_plus_water_effect": -89.43764662258327
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 6
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 8,
+      "unique": 12
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R2": {
+    "n_water": {
+     "PCr": 3,
+     "Cr": 4,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -112.41080550928018,
+     "per_rep": [
+      -112.72620759470738,
+      -112.14426785413525,
+      -112.98053739251918
+     ],
+     "rep_std": 0.4286965221344463,
+     "rep_range": 0.8362695383839309,
+     "water_effect_vs_bare": -48.764762764796615,
+     "implicit_plus_water_effect": -115.46476276479662,
+     "probe_dG_x2": -140.72416081637493,
+     "probe_delta": -28.313355307094753,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -76.08565432470641,
+     "per_rep": [
+      -76.84918822426698,
+      -75.22237201253301,
+      -79.25785711951903
+     ],
+     "rep_std": 2.030326610934848,
+     "rep_range": 4.035485106986016,
+     "water_effect_vs_bare": -12.439572302158922,
+     "implicit_plus_water_effect": -79.13957230215892,
+     "probe_dG_x2": -59.78162604323006,
+     "probe_delta": 16.30402828147635,
+     "converged_enough": false
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 23,
+      "unique": 16
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 18,
+      "unique": 15
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R2x2": {
+    "n_water": {
+     "PCr": 6,
+     "Cr": 8,
+     "Pi": 0
+    },
+    "A_pipeline_exact": {
+     "pooled": -140.72416081637493,
+     "per_rep": [
+      -146.35581628265209,
+      -134.68797082066885,
+      -142.71143894534907
+     ],
+     "rep_std": 5.969312420610519,
+     "rep_range": 11.667845461983234,
+     "water_effect_vs_bare": -77.07811807189137,
+     "implicit_plus_water_effect": -143.77811807189136
+    },
+    "B_full_cycle": {
+     "pooled": -59.78162604323006,
+     "per_rep": [
+      -59.915356990270084,
+      -54.28487460347242,
+      -61.18302731247968
+     ],
+     "rep_std": 3.6718258571323426,
+     "rep_range": 6.898152709007263,
+     "water_effect_vs_bare": 3.8644559793174267,
+     "implicit_plus_water_effect": -62.835544020682576
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 18,
+      "unique": 24
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 22,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 1,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 0,
+      "unique": 1
+     }
+    }
+   },
+   "R3": {
+    "n_water": {
+     "PCr": 5,
+     "Cr": 4,
+     "Pi": 3
+    },
+    "A_pipeline_exact": {
+     "pooled": -167.42660237741075,
+     "per_rep": [
+      -164.99745924244053,
+      -165.71337718129507,
+      -165.13782240249566
+     ],
+     "rep_std": 0.37936429617480827,
+     "rep_range": 0.7159179388545454,
+     "water_effect_vs_bare": -103.78055963292718,
+     "implicit_plus_water_effect": -170.48055963292717,
+     "probe_dG_x2": -254.3393780857732,
+     "probe_delta": -86.91277570836246,
+     "converged_enough": false
+    },
+    "B_full_cycle": {
+     "pooled": -92.02936219362891,
+     "per_rep": [
+      -90.0447076781129,
+      -91.23872345531709,
+      -88.43426330233342
+     ],
+     "rep_std": 1.407373529745239,
+     "rep_range": 2.8044601529836655,
+     "water_effect_vs_bare": -28.383280171081424,
+     "implicit_plus_water_effect": -95.08328017108143,
+     "probe_dG_x2": -72.5444989244861,
+     "probe_delta": 19.484863269142807,
+     "converged_enough": false
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 20
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 22,
+      "unique": 16
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 20
+     }
+    }
+   },
+   "R3x2": {
+    "n_water": {
+     "PCr": 10,
+     "Cr": 8,
+     "Pi": 6
+    },
+    "A_pipeline_exact": {
+     "pooled": -254.3393780857732,
+     "per_rep": [
+      -250.42188356709084,
+      -258.4668441264366,
+      -249.9551157251408
+     ],
+     "rep_std": 4.78519910761531,
+     "rep_range": 8.51172840129584,
+     "water_effect_vs_bare": -190.69333534128964,
+     "implicit_plus_water_effect": -257.3933353412896
+    },
+    "B_full_cycle": {
+     "pooled": -72.5444989244861,
+     "per_rep": [
+      -67.17810768386698,
+      -75.93107702708221,
+      -81.13556767100818
+     ],
+     "rep_std": 7.053508399827539,
+     "rep_range": 13.957459987141192,
+     "water_effect_vs_bare": -8.898416901938617,
+     "implicit_plus_water_effect": -75.59841690193862
+    },
+    "diag": {
+     "PCr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 20,
+      "unique": 24
+     },
+     "Cr": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 19,
+      "unique": 24
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 15,
+      "unique": 24
+     }
+    }
+   }
+  }
+ },
+ "ATP-type control": {
+  "implicit_dG": -38.2,
+  "reference": -36.0,
+  "pKa": 2.5,
+  "bare_same_protocol_dG": -27.97807025568909,
+  "rules": {
+   "R3": {
+    "n_water": {
+     "MePPP": null,
+     "MePP": 3,
+     "Pi": 3
+    },
+    "diag": {
+     "MePP": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 10,
+      "unique": 23
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 24,
+      "unique": 20
+     }
+    }
+   },
+   "R3x2": {
+    "n_water": {
+     "MePPP": null,
+     "MePP": 6,
+     "Pi": 6
+    },
+    "diag": {
+     "MePP": {
+      "kept": 9,
+      "xtb_proton_transfer_dropped": 15,
+      "clusters_with_imag": 9,
+      "unique": 9
+     },
+     "Pi": {
+      "kept": 24,
+      "xtb_proton_transfer_dropped": 0,
+      "clusters_with_imag": 15,
+      "unique": 24
+     }
+    }
+   }
+  }
+ }
+}

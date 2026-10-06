@@ -1,0 +1,92 @@
+{
+  "class_frozen": {
+    "coverage68": 0.6802197802197802,
+    "coverage95": 0.9532967032967031,
+    "mean_halfwidth95": 29.657860115102068,
+    "spearman_s_abs_err": 0.11793233674305803,
+    "auroc_err_gt20": 0.5365392965696916,
+    "gaussian_nll": 4.059455137827335,
+    "coverage95_top_quartile_s": 0.9759085962578948,
+    "coverage95_rest": 0.94524697801965,
+    "worst_class_coverage95": [
+      0.325,
+      "phosphagen(P-N/Mg)"
+    ],
+    "n": 364,
+    "groups": 245,
+    "repeats": 10,
+    "folds": 5
+  },
+  "constant": {
+    "coverage68": 0.6807692307692308,
+    "coverage95": 0.9532967032967031,
+    "mean_halfwidth95": 29.997859779786644,
+    "spearman_s_abs_err": -0.1130589859970508,
+    "auroc_err_gt20": 0.42069040382110295,
+    "gaussian_nll": 4.05380634348847,
+    "coverage95_top_quartile_s": 0.9803524651002377,
+    "coverage95_rest": 0.9343789939254054,
+    "worst_class_coverage95": [
+      0.25,
+      "phosphagen(P-N/Mg)"
+    ],
+    "n": 364,
+    "groups": 245,
+    "repeats": 10,
+    "folds": 5
+  },
+  "feat_linear": {
+    "coverage68": 0.6755494505494506,
+    "coverage95": 0.9543956043956042,
+    "mean_halfwidth95": 28.241471838710538,
+    "spearman_s_abs_err": 0.25800048408337933,
+    "auroc_err_gt20": 0.6870864090316978,
+    "gaussian_nll": 3.9685341529819196,
+    "coverage95_top_quartile_s": 0.9714285714285715,
+    "coverage95_rest": 0.9487179487179487,
+    "worst_class_coverage95": [
+      0.8,
+      "amide/amidine-hydrolysis"
+    ],
+    "n": 364,
+    "groups": 245,
+    "repeats": 10,
+    "folds": 5
+  },
+  "feat_gbm": {
+    "coverage68": 0.6755494505494506,
+    "coverage95": 0.9502747252747252,
+    "mean_halfwidth95": 29.449998142846816,
+    "spearman_s_abs_err": 0.22756040293843452,
+    "auroc_err_gt20": 0.6496048632218845,
+    "gaussian_nll": 3.9971783327857913,
+    "coverage95_top_quartile_s": 0.9791208791208792,
+    "coverage95_rest": 0.9406593406593406,
+    "worst_class_coverage95": [
+      0.25,
+      "phosphagen(P-N/Mg)"
+    ],
+    "n": 364,
+    "groups": 245,
+    "repeats": 10,
+    "folds": 5
+  },
+  "feat+class": {
+    "coverage68": 0.679945054945055,
+    "coverage95": 0.9519230769230769,
+    "mean_halfwidth95": 28.426344320807225,
+    "spearman_s_abs_err": 0.25993654554695744,
+    "auroc_err_gt20": 0.6748067737733391,
+    "gaussian_nll": 3.9727995282897233,
+    "coverage95_top_quartile_s": 0.9637362637362636,
+    "coverage95_rest": 0.947985347985348,
+    "worst_class_coverage95": [
+      0.8099999999999999,
+      "amide/amidine-hydrolysis"
+    ],
+    "n": 364,
+    "groups": 245,
+    "repeats": 10,
+    "folds": 5
+  }
+}

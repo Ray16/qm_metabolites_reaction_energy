@@ -1,0 +1,34 @@
+{
+  "physics": "2026-10-01c",
+  "solv": "alpb",
+  "half_reactions": {
+    "ATP hydrolysis": {
+      "species_sum": -40.71819284823141,
+      "pka_transform": 2.4978545793951943,
+      "dG": -38.220338268836215,
+      "reference": -36.0,
+      "error": -2.2203382688362154
+    },
+    "PCr hydrolysis (arginine-type core)": {
+      "species_sum": -82.17922499621636,
+      "pka_transform": 9.472017898984804,
+      "dG": -72.70720709723156,
+      "reference": -43.0,
+      "error": -29.70720709723156
+    },
+    "PCr hydrolysis (creatine core)": {
+      "species_sum": -76.15485847028322,
+      "pka_transform": 9.472017898984804,
+      "dG": -66.68284057129841,
+      "reference": -43.0,
+      "error": -23.682840571298414
+    }
+  },
+  "P_N_pKa1_sensitivity_kJ": {
+    "2.7": 0.0,
+    "1.5": 6.850348050353137,
+    "1.0": 9.70470288315332,
+    "0.5": 12.55906138155135
+  },
+  "note": "PCr-hydrolysis error localizes the phosphagen bias to the phosphoguanidinium species; the P-N pKa1 shift is bounded (<=~13 kJ for pKa1>=0.5) and its source is unconfirmed."
+}

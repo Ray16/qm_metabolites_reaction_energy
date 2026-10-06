@@ -96,6 +96,6 @@ prediction. It separately tracks benchmark-selected structural policies,
 physical and literature chemistry, numerical convergence, and
 dataset-calibrated uncertainty.
 
-The manuscript remains in `../MetaG/manuscript` until steps 1-6 pass. Scientific
+The manuscript now lives in `manuscript/` (moved 2026-10-02; still its own git repo synced with Overleaf and ignored by the parent repo). `tools/sync_numbers.py` reads `src/metag` and the frozen `../MetaG/analysis` artifacts; the two figure scripts in `../MetaG/analysis/sweep_20261001` write here. Scientific
 policy changes begin only after this parity milestone and require a new physics
 version.

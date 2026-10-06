@@ -364,3 +364,79 @@ if __name__ == "__main__":
         ("some novel hydratase | EC=4.2.1.-", ["OCC(O)C"], 2.0),
     ]:
         print(f"  {note[:40]:40s} -> {reaction_sigma(note, smis, u)}")
+
+
+# ---------------------------------------------------------------------------------------------------
+# UQ_MODEL=features: per-reaction scale from structure + route (metag.uq_features), split-conformal
+# widths (metag.tools.fit_uq -> data/uq_feature_model.json). Default stays "class" so the frozen
+# 2026-10-01c records are reproduced exactly; "features" is the annotation-free replacement (nested
+# grouped CV vs the openTECR reference: same 95% coverage, mean width 29.7 -> 28.2, AUROC for |err|>20
+# 0.54 -> 0.69, worst-class 95% coverage 0.33 -> 0.80; analysis/uq/evaluation.json).
+_UQ_PATH = os.path.join(_HERE, "data", "uq_feature_model.json")
+_UQ_ART = None
+
+
+def uq_model():
+    v = os.environ.get("UQ_MODEL", "class").strip().lower()
+    if v not in ("class", "features"):
+        raise ValueError(f"UQ_MODEL must be 'class' or 'features', got {v!r}")
+    return v
+
+
+def _uq_artifact():
+    global _UQ_ART
+    if _UQ_ART is None:
+        with open(_UQ_PATH) as fh:
+            _UQ_ART = json.load(fh)
+    return _UQ_ART
+
+
+def feature_interval(raw_features, dG, level=95, species=None, config=None):
+    """(sigma, lo, hi, info) from the feature model. sigma = the conformal 68% half-width (a 1-sigma
+    analogue); the interval is dG +- q_level * s(x). Only levels 68 and 95 are conformal-calibrated.
+    coverage_calibrated requires: matching configuration, no feature outside the training range, no OOD
+    flag -- otherwise the width is reported as nominal (it is still the model's best estimate)."""
+    from metag.uq_features import FEATURE_VERSION, transform
+    art = _uq_artifact()
+    if art.get("feature_version") != FEATURE_VERSION:
+        raise RuntimeError(f"uq_feature_model.json was fitted for features {art.get('feature_version')}, "
+                           f"code has {FEATURE_VERSION}: refit with metag.tools.fit_uq")
+    x = transform(raw_features)
+    x = [art["median"][i] if v is None else v for i, v in enumerate(x)]
+    z = sum(((v - m) / s) * c for v, m, s, c in zip(x, art["mean"], art["scale"], art["coef"]))
+    scale = math.exp(z + art["intercept"])
+    q = art["conformal_q"]
+    if level in (68, 95):
+        qq, lv_cal = float(q[f"0.{level}"]), True
+    else:
+        zr = NormalDist().inv_cdf(0.5 + level / 200.0) / NormalDist().inv_cdf(0.975)
+        qq, lv_cal = float(q["0.95"]) * zr, False
+    hw = qq * scale
+    sigma = float(q["0.68"]) * scale
+    extrap = [k for k, v, lo, hi in zip(art["features"], x, art["train_min"], art["train_max"])
+              if v < lo - 1e-9 or v > hi + 1e-9]
+    ood_info = _ood(species)
+    flags = (ood_info or {}).get("flags") or []
+    if config is None:
+        mismatch = ["runtime configuration not supplied"]
+    else:
+        ac = art.get("config") or {}
+        mismatch = [f"{k}: runtime {config.get(k)!r} != calibrated {ac.get(k)!r}"
+                    for k in sorted(set(config) | set(ac)) if config.get(k) != ac.get(k)]
+    calibrated = not (extrap or flags or mismatch)
+    if calibrated:
+        scope = "in-distribution: nested grouped-CV conformal coverage on TECRDB applies"
+    elif mismatch:
+        scope = "nominal: runtime configuration differs from the calibrated one"
+    elif extrap:
+        scope = "nominal: features outside the calibration range (" + ", ".join(extrap) + ")"
+    else:
+        scope = "nominal: OOD features " + "; ".join(flags)
+    info = {"uq_model": "features", "level": level, "level_calibrated": lv_cal, "scale": round(scale, 2),
+            "conformal_q": round(qq, 3), "sigma": round(sigma, 1), "half_width": round(hw, 1),
+            "coverage_calibrated": calibrated, "externally_calibrated": calibrated,
+            "calibration_basis": art.get("calibration_basis", CALIBRATION_BASIS),
+            "calibration_scope": scope, "extrapolated_features": extrap, "config_mismatch": mismatch,
+            "ood": bool(ood_info and ood_info.get("ood")), "ood_flags": flags,
+            "ood_reasons": (ood_info or {}).get("reasons", [])}
+    return round(sigma, 1), round(dG - hw, 1), round(dG + hw, 1), info
