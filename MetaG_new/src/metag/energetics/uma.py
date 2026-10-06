@@ -49,17 +49,20 @@ def load_uma(model="uma-s-1p2p1"):
 
 def _predict(pu, atoms_list):
     """One batched forward pass -> (energy_eV (N,), forces_eV_A (total,3), batch_idx)."""
-    datas = []
-    for a in atoms_list:
-        d = AtomicData.from_ase(a, task_name="omol", r_edges=False,
-                                r_data_keys=["spin", "charge"],   # <-- carry per-structure charge/spin
-                                r_energy=False, r_forces=False, r_stress=False)
-        for k in ("energy", "forces", "stress"):
-            if k in d:
-                del d[k]
-        datas.append(d)
-    batch = atomicdata_list_to_batch(datas).to(DEV)
-    pred = pu.predict(batch)
+    from metag.profile import timed
+    with timed("uma.build"):           # item-A: from_ase rebuild + batch assembly + H2D copy
+        datas = []
+        for a in atoms_list:
+            d = AtomicData.from_ase(a, task_name="omol", r_edges=False,
+                                    r_data_keys=["spin", "charge"],   # <-- carry per-structure charge/spin
+                                    r_energy=False, r_forces=False, r_stress=False)
+            for k in ("energy", "forces", "stress"):
+                if k in d:
+                    del d[k]
+            datas.append(d)
+        batch = atomicdata_list_to_batch(datas).to(DEV)
+    with timed("uma.gpu", sync=True):  # real GPU forward (CUDA-synced under profiling)
+        pred = pu.predict(batch)
     # float64 from here on: UMA's total energy is float32 (the ~1e5 eV element references are added in the
     # model's precision), so it resolves only ~0.4-1.5 kJ for ATP/NAD/CoA-size species. Keeping it float32
     # through eV->kJ and the E+ΔGsolv sums would round again; conformers.UniqueMinima widens its energy
@@ -152,9 +155,11 @@ def batched_fire(pu, atoms_list, fmax=0.05, steps=300, maxstep=0.2, stop_frac=1.
 
     for _step in range(steps):
         # write current positions back into the Atoms, predict forces (batched)
-        off = 0
-        for i, a in enumerate(atoms_list):
-            n = int(nat[i]); a.set_positions(pos[off:off + n].detach().cpu().numpy()); off += n
+        from metag.profile import timed
+        with timed("uma.writeback"):   # item-A: positions GPU->CPU->ASE set_positions, every step
+            off = 0
+            for i, a in enumerate(atoms_list):
+                n = int(nat[i]); a.set_positions(pos[off:off + n].detach().cpu().numpy()); off += n
         E, F, bi = _predict_chunked(pu, atoms_list, _FIRE_CHUNK)
         E_last = E
         if extra_forces is not None:

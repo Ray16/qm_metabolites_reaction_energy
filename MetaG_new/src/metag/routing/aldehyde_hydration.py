@@ -77,7 +77,7 @@ def mixture_G(g_carbonyl, g_diol, g_water):
     """Effective species free energy folding the carbonyl<->gem-diol hydration equilibrium (unit water
     activity). g_diol already contains one water; subtract g_water to reference it to the free carbonyl."""
     terms = [-g_carbonyl / RT, -(g_diol - g_water) / RT]
-    lo = min(terms)
+    lo = max(terms)
     return -RT * (lo + math.log(sum(math.exp(t - lo) for t in terms)))
 
 

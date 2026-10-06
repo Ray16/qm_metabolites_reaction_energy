@@ -96,6 +96,6 @@ prediction. It separately tracks benchmark-selected structural policies,
 physical and literature chemistry, numerical convergence, and
 dataset-calibrated uncertainty.
 
-The manuscript now lives in `manuscript/` (moved 2026-10-02; still its own git repo synced with Overleaf and ignored by the parent repo). `tools/sync_numbers.py` reads `src/metag` and the frozen `../MetaG/analysis` artifacts; the two figure scripts in `../MetaG/analysis/sweep_20261001` write here. Scientific
+The manuscript now lives in `manuscript/` (moved 2026-10-02; still its own git repo synced with Overleaf and ignored by the parent repo). As of 2026-10-06 the package is SELF-CONTAINED: `manuscript/tools/sync_numbers.py` reads `src/metag` and the pinned in-package `artifacts/` (no longer `../MetaG/analysis`), and the two figure scripts now live in `analysis/figures/` and read `artifacts/` (provenance of every pinned file: `artifacts/README.md`). Nothing under `MetaG_new/` reaches into `../MetaG`, `../experiments`, or `../results` at runtime, except the optional ~36 MB per-species QM cache used only to regenerate UQ/generality features (override `METAG_SPECIES_CACHE`; absence is non-fatal). Scientific
 policy changes begin only after this parity milestone and require a new physics
 version.

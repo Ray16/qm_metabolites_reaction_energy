@@ -138,7 +138,9 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
                 p = pos0.copy(); p[i, c] += sgn * delta
                 structs.append(Atoms(symbols=symbols, positions=p,
                                      info={"charge": int(q), "spin": int(spin)}))
-    F = _forces_batched(pu, structs, chunk=chunk)          # eV/Å, list of (nat,3)
+    from metag.profile import timed
+    with timed("hessian"):                                 # 6N displaced-forces phase (forwards also in uma.gpu)
+        F = _forces_batched(pu, structs, chunk=chunk)      # eV/Å, list of (nat,3)
     H = np.zeros((ndof, ndof))
     for d in range(ndof):
         Fp = F[2 * d].reshape(-1); Fm = F[2 * d + 1].reshape(-1)
@@ -216,8 +218,10 @@ def _write_xyz(path, symbols, coords):
 def _run_xtb(cmd, d, timeout):
     """Run xtb; a timeout or non-zero exit returns None (the caller drops that conformer) instead of
     raising through ThreadPoolExecutor.map and aborting the whole species/reaction."""
+    from metag.profile import timed
     try:
-        r = subprocess.run(cmd, cwd=d, env=ENV, capture_output=True, text=True, timeout=timeout)
+        with timed("xtb.solv"):        # summed CPU-seconds across the solvation pool (divide by workers for wall)
+            r = subprocess.run(cmd, cwd=d, env=ENV, capture_output=True, text=True, timeout=timeout)
     except subprocess.TimeoutExpired:
         return None
     if r.returncode != 0:

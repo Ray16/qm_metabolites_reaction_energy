@@ -18,6 +18,13 @@ runtime, except for packaging-only additions.
 The canonical machine-readable values and artifact hashes are in
 `tests/regression/fixtures/frozen_2026-10-01c.json`.
 
+The original calibration artifact is retained at
+`tests/regression/fixtures/sigma_class_calibrated.json`; its bytes still match
+the frozen hash. The live calibration's configuration metadata was revalidated
+after the October 6 bookkeeping fixes, with all numerical calibration statistics
+unchanged. See [accuracy review](accuracy-review.md) for the paired comparison
+and the distinction between historical output parity and current correctness.
+
 ## Required Gates
 
 Before `MetaG_new` replaces the frozen implementation:
@@ -45,6 +52,11 @@ python scripts/verify_frozen_parity.py \
   --old-package ../MetaG \
   --inputs ../experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json
 ```
+
+> Note: `verify_frozen_parity.py` is a TRANSITIONAL refactor-validation tool. It deliberately
+> compares the package against the old `../MetaG` tree (and its cache / water-reference), so the
+> old-tree paths below are expected and are NOT part of the self-contained runtime. The package
+> itself (CLI, numbers, figures) no longer reaches outside `MetaG_new/` — see `artifacts/README.md`.
 
 Compare full assembly while forbidding all fresh QM work:
 

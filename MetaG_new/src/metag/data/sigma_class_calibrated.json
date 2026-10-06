@@ -231,10 +231,10 @@
     "ph0_isomerase": true,
     "ph0_redox_proton": true,
     "physics": "2026-10-01c",
-    "pka_constants": "a51a2e4e82aa",
+    "pka_constants": "194851026710",
     "pka_env": true,
     "pka_model": "table",
-    "pka_table": "2026-10-01c",
+    "pka_table": "2026-10-06a",
     "polyacid_pka": false,
     "qrrho": false,
     "route_full": true,
@@ -274,7 +274,14 @@
     "n_records": 364,
     "excluded": {},
     "git_sha": "1df4ee2e890af190ca3f6211e7223fe4ebf4c9a3",
-    "built": "2026-10-02T19:57:02"
+    "built": "2026-10-02T19:57:02",
+    "configuration_revalidation": {
+      "report": "analysis/accuracy_review/report.json",
+      "inputs_sha256": "f9f286579f4da9f0d0558f00416dd43ddb75a250d19e90a40e84288dcba49ecb",
+      "n_replayed": 364,
+      "point_changes_due_to_fix": 0,
+      "note": "Fingerprint expanded to include existing base constants and corrected neutral-base bookkeeping. No pKa values, calibration residuals, widths, or multipliers changed. Compared pre-fix and fixed default estimators using the same cache; ModelSEED routing also unchanged on 300 inputs."
+    }
   },
   "anchors": {
     "phosphagen": {

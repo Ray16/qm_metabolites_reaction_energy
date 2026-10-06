@@ -45,6 +45,11 @@ from metag.water_count import water_count, needs_explicit
 
 N_EXPLICIT_SEEDS = int(os.environ.get("N_EXPLICIT_SEEDS", "16"))  # cluster seeds (cheap: batched relax)
 EXPLICIT_KEEP = int(os.environ.get("EXPLICIT_KEEP", "8"))         # lowest-E clusters kept for Boltzmann
+# xtb (1-threaded) solvation pool width. Hardcoding 8 oversubscribed the shared node: NG reaction
+# shards x 8 threads could exceed the core count (e.g. 20x8=160 on 80 cores -> thrash). The sweep
+# driver sets METAG_XTB_WORKERS = cores/NG so N shards never collectively exceed the cores; result is
+# byte-identical (ex.map returns in index order regardless of width).
+from metag.energetics.conformers import XTB_WORKERS
 
 OUT = os.environ.get("METAG_OUT", os.path.join(os.getcwd(), "metag_out"))  # CLI output dir (configurable)
 EV2KJ = 96.485
@@ -78,7 +83,7 @@ STD_STATE_KJ = 8.314e-3 * T * math.log(0.082057 * T)     # RT ln(24.46 L/mol) = 
 # (stoichiometry {species: [coeff(+prod/-react), charge, SMILES]}, exp ΔG, n_Hplus,
 # explicit-water flag/list, optional pH-0 pka_sites). This file stays generic: sampling
 # heuristics, solvation triage, thermal/electronic backends. Add reactions to the JSON.
-_RXN_JSON = os.environ.get("RXN_FILE", os.path.join(os.path.dirname(__file__), "reactions.json"))
+_RXN_JSON = os.environ.get("RXN_FILE", os.path.join(os.path.dirname(__file__), "data", "reactions_opentecr_std.json"))
 def _load_reactions(path=_RXN_JSON):
     """Load a reactions JSON for the CLI harness. Optional: the score_reaction() API takes a reaction dict
     directly and needs no file, so a missing file is not an error (returns {})."""
@@ -174,7 +179,7 @@ SOLV_RELAX_N = int(os.environ.get("SOLV_RELAX_N", "8"))
 SOLV_RELAX_WIN = float(os.environ.get("SOLV_RELAX_WIN", "25"))
 SOLV_RELAX_STEPS = int(os.environ.get("SOLV_RELAX_STEPS", "200"))
 if _SOLV_RELAX:
-    _IMPLICIT_SETTINGS["solv_relax"] = f"v1-n{SOLV_RELAX_N}-w{SOLV_RELAX_WIN:g}-s{SOLV_RELAX_STEPS}"
+    _IMPLICIT_SETTINGS["solv_relax"] = f"gas-basin-rrho-n{SOLV_RELAX_N}-w{SOLV_RELAX_WIN:g}-s{SOLV_RELAX_STEPS}"
 # ACID_HB_FILTER (diagnostic, default off): for a NEUTRAL species with >= 2 acid groups (each P, each carboxyl
 # C) -- i.e. the protonated pH-0 reference of a polyanion -- conformers in which an acidic O-H of one
 # group H-bonds an O of ANOTHER acid group are excluded from the ensemble. Those H-bonds cannot exist at
@@ -320,7 +325,7 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
                                     return_converged=True, label=f"{name}s{seed}")
         sel = [a for a, c in zip(rel, conv) if c]; Eg = E[conv] * EV2KJ
         models = [SOLV_MODEL] + SOLV_ALSO
-        with ThreadPoolExecutor(max_workers=8) as ex:
+        with ThreadPoolExecutor(max_workers=XTB_WORKERS) as ex:
             solv = list(ex.map(lambda am: dgsolv(am[0].get_chemical_symbols(), am[0].get_positions(), q,
                                                  am[1], mult), [(a, m) for a in sel for m in models]))
         solv = [dict(zip(models, solv[i * len(models):(i + 1) * len(models)])) for i in range(len(sel))]
@@ -384,21 +389,17 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         return None, None
     Gens = boltz(all_G)
     relax_info = None
-    if _SOLV_RELAX and uniq.template is not None and uniq.ref:
-        relaxed = _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
-        if relaxed is not None:
-            G_aq, also_aq, relax_info = relaxed
-            log(f"    {name}: solution-phase relaxation Gens {Gens:.1f} -> {boltz(G_aq):.1f} "
-                f"({relax_info['n_relaxed']} minima)")
-            Gens = boltz(G_aq)
-            also = also_aq
     therm, t_info, t_res = _thermal_at_minimum(pu, uniq, best, template, ref_graph, q, mult, name, log)
     ref_j = None
     if therm is not None and uniq.template is not None and uniq.ref:
         ref_j = _apply_thermal_resolution(pu, uniq, also, t_res, template, q, mult, name, log)
         Gens = boltz(uniq.G)                              # ensemble after removing non-minima / updating geometry
         t_info = dict(t_info, resolution=t_res["kind"], n_removed=len(t_res["rejected"]))
+    gas_thermal = [therm] * len(uniq.G)
     if therm is not None and thermal_track is not None and ref_j is not None:
+        if _SOLV_RELAX:
+            totals, _, _, _ = thermal_track._totals(uniq, override=(ref_j, therm))
+            gas_thermal = [g - vertical for g, vertical in zip(totals, uniq.G)]
         Gens_th, also_th, ens_info = thermal_track.final(uniq, also, therm, ref_j)
         log(f"    {name}: thermal ensemble (Gens+thermal) {Gens + therm:.1f} -> {Gens_th:.1f} "
             f"({ens_info['n_hessians']} minima)")
@@ -410,6 +411,25 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         log(f"    !! {sp_warn[-1]}")
         warnings.extend(sp_warn)
         return None, None
+    if _SOLV_RELAX:
+        # Gas-minimum validation may replace/drop geometries. Only after it is complete
+        # can the aqueous ensemble be constructed without subsequently overwriting it.
+        # Carry each starting basin's gas RRHO as an explicit approximation; a gas
+        # Hessian at an aqueous stationary point is not a validated gas minimum.
+        if uniq.template is None or not uniq.ref:
+            warnings.append(f"{name}: SOLV_RELAX requires conformer deduplication")
+            return None, None
+        relaxed = _solvent_relaxed_ensemble(
+            pu, uniq, q, mult, ref_graph, template, name, log, gas_thermal)
+        if relaxed is None:
+            warnings.append(f"{name}: no converged solution-phase minimum; species failed")
+            return None, None
+        G_aq, also, relax_info = relaxed
+        log(f"    {name}: solution-phase ensemble {Gens + therm:.1f} -> {boltz(G_aq):.1f} "
+            f"({relax_info['n_relaxed']} minima, gas-basin RRHO approximation)")
+        Gens, therm = boltz(G_aq), 0.0
+        if any(relax_info[k] for k in ("n_unconverged", "n_rearranged", "n_failed")):
+            sp_warn.append(f"{name}: incomplete solution-phase ensemble -> G not cached")
     # sampling uncertainty: spread of Gens over the last few batches (0 if never moved / capped-tight)
     tail = gens_traj[-3:]
     sigma = float(np.std(tail)) if len(tail) > 1 else (last_dG if np.isfinite(last_dG) else 3.0)
@@ -426,11 +446,13 @@ def implicit_G(pu, q, smi, seeds, keep, pool, log, name, warnings=None):
         sp_warn.append(f"{name} ({smi}): auxiliary {m} solvation failed on "
                        f"{n_failed}/{len(also[m])} accepted minima -> auxiliary G not cached")
         log(f"    !! {sp_warn[-1]}")
+    incomplete_relax = relax_info is not None and any(
+        relax_info[k] for k in ("n_unconverged", "n_rearranged", "n_failed"))
     if fail_frac > MAX_XTB_FAIL_FRAC:                     # degraded ensemble: use it, but never cache it
         sp_warn.append(f"{name} ({smi}): xtb solvation failed on {n_xtb_fail}/{n_relaxed} conformers "
                        f"-> G not cached")
         log(f"    !! {sp_warn[-1]}")
-    else:
+    elif not incomplete_relax:
         meta = {"warnings": sp_warn, "n_minima": len(uniq), "n_seen": uniq.n_seen,
                 "n_xtb_fail": n_xtb_fail, "n_rearranged": len(rearranged), "seeds": seed, "thermal": t_info,
                 **({"solv_relax": relax_info} if relax_info else {})}
@@ -552,22 +574,25 @@ def _has_interacid_hbond(atoms, groups):
     return False
 
 
-def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log):
+def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log, gas_thermal):
     """Re-relax the lowest unique minima on E_UMA + ΔG_solv(SOLV_MODEL); returns (G_aq list of unique
     solution-phase minima, {aux model: values}, info) or None if no relaxed structure survives (the caller
-    then keeps the vertical ensemble). Relaxed structures that change bonding are dropped; two starting
-    minima that fall into the same solution-phase basin are merged (UniqueMinima on the relaxed set)."""
+    fails the species). Only converged structures with unchanged bonding are accepted. Each energy
+    includes the starting basin's gas RRHO approximation; duplicate aqueous basins are merged AFTER
+    that term is included. This is not a solution-phase Hessian or a solvent conformer search."""
     from metag.energetics.solv_relax import make_extra_forces
+    if len(gas_thermal) != len(uniq.G) or not all(np.isfinite(g) for g in gas_thermal):
+        raise ValueError("one finite gas RRHO correction is required per starting minimum")
     order = sorted(range(len(uniq.G)), key=lambda j: uniq.G[j])
     pick = [j for j in order if uniq.G[j] - uniq.G[order[0]] < SOLV_RELAX_WIN][:SOLV_RELAX_N]
     syms = [a.GetSymbol() for a in template.GetAtoms()]
     ats = [Atoms(symbols=syms, positions=uniq.ref[j].GetConformer().GetPositions(),
                  info={"charge": int(q), "spin": int(mult)}) for j in pick]
-    extra = make_extra_forces(q, mult, SOLV_MODEL)
+    extra = make_extra_forces(q, mult, SOLV_MODEL, workers=XTB_WORKERS)
     rel, E, conv = batched_fire(pu, ats, fmax=0.05, steps=SOLV_RELAX_STEPS, stop_frac=1.0,
                                 return_converged=True, extra_forces=extra, label=f"{name}-aq")
     models = [SOLV_MODEL] + SOLV_ALSO
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=XTB_WORKERS) as ex:
         solv = list(ex.map(lambda am: dgsolv(am[0].get_chemical_symbols(), am[0].get_positions(), q,
                                              am[1], mult), [(a, m) for a in rel for m in models]))
     solv = [dict(zip(models, solv[i * len(models):(i + 1) * len(models)])) for i in range(len(rel))]
@@ -575,15 +600,24 @@ def _solvent_relaxed_ensemble(pu, uniq, q, mult, ref_graph, template, name, log)
     also = {m: [] for m in SOLV_ALSO}
     n_bond = n_fail = 0
     for i, (a, e, sd) in enumerate(zip(rel, E, solv)):
-        if i in extra.failed or sd[SOLV_MODEL] is None or not np.isfinite(e):
+        if not conv[i]:
+            continue
+        if i in extra.failed or sd[SOLV_MODEL] is None or not np.isfinite(e) \
+                or not np.isfinite(sd[SOLV_MODEL]):
             n_fail += 1; continue
         if not same_connectivity(a, ref_graph):
             n_bond += 1; continue
-        _add_minimum(uq, also, a, float(e) * EV2KJ, sd)
+        # Keep electronic energies for the geometric dedup criterion; add RRHO to
+        # each model's correction so its population weight follows the same basin.
+        corrected = {m: None if value is None else value + gas_thermal[pick[i]]
+                     for m, value in sd.items()}
+        _add_minimum(uq, also, a, float(e) * EV2KJ, corrected)
     if not uq.G:
         return None
     info = {"n_start": len(pick), "n_relaxed": len(uq.G), "n_unconverged": int((~np.asarray(conv)).sum()),
-            "n_rearranged": n_bond, "n_failed": n_fail}
+            "n_rearranged": n_bond, "n_failed": n_fail,
+            "thermal_model": "starting-gas-basin RRHO; no aqueous Hessian",
+            "sampling_sigma_scope": "gas-ensemble convergence only"}
     return list(uq.G), also, info
 
 
@@ -874,7 +908,7 @@ def explicit_G(pu, q, smi, seeds, log, name):
     # relaxed-in-solvent solvation (xtb --opt --cosmo) on each, Boltzmann of E_UMA+ΔGsolv.
     order = np.argsort(E)[:EXPLICIT_KEEP]
     sel = [rel[i] for i in order]; Eu = [float(E[i]) for i in order]
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=XTB_WORKERS) as ex:
         solv = list(ex.map(lambda a: xtb_dgsolv_relaxed(a.get_chemical_symbols(),
                                                         a.get_positions(), q, "cosmo"), sel))
     _uq = UniqueMinima()                                  # merge seeds that relaxed to the same cluster
@@ -987,7 +1021,9 @@ def effective_config():
            "pka_constants": _constants_hash(_pk, ("P_LADDER", "ANHYDRIDE_P_LADDER", "P_N_LADDER", "ACYL_P_LADDER",
                                                   "CARBONATE_LADDER", "PPI_LADDER", "SULFATE_LADDER",
                                                   "CARBOXYL_PKA", "CARBOXYL_PKA_ALPHA", "SULFONATE_PKA",
-                                                  "THIOL_PKA", "PHENOL_PKA", "POLYACID_PKA", "CARBOXYL_PAIR_LADDER")),
+                                                  "THIOL_PKA", "PHENOL_PKA", "POLYACID_PKA", "CARBOXYL_PAIR_LADDER",
+                                                  "AMMONIA_PKA", "AAA_AMINE_PKA", "PRIMARY_AMINE_PKA",
+                                                  "IMIDAZOLE_PKA", "GUANIDINIUM_PKA")),
            "hydration_constants": _constants_hash(_ah_mod(), ("HYDRATION_CAL", "MAX_HYDRATION_SITES")),
            # species-level estimator (thermal ensemble, solvent relaxation, dedup, sampling, model ...)
            "implicit_settings": json.dumps(_IMPLICIT_SETTINGS, sort_keys=True),
@@ -1752,7 +1788,11 @@ def _score_trunc_validated(pu, reaction, seeds, keep, pool, log, key, trunc_radi
 
 def run_reaction(pu, key, seeds, keep, pool, log, allow_truncate=True):
     """Harness wrapper: look a reaction up by key in the loaded REACTIONS file and score it."""
-    return score_reaction(pu, REACTIONS[key], seeds, keep, pool, log, allow_truncate, key=key)
+    from metag import profile
+    profile.reset()
+    r = score_reaction(pu, REACTIONS[key], seeds, keep, pool, log, allow_truncate, key=key)
+    profile.report(log=log, header=f"reaction {key}")   # Step-0 GPU-vs-CPU split (METAG_PROFILE=1)
+    return r
 
 
 def main():

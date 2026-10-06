@@ -59,8 +59,12 @@ def combine(states: Iterable[Mapping[str, float]], temperature: float = DEFAULT_
     if not math.isfinite(temperature) or temperature <= 0:
         raise ValueError("temperature must be positive and finite")
     rows = []
+    names = set()
     for raw in states:
         name = str(raw["name"])
+        if name in names:
+            raise ValueError(f"duplicate microstate name {name!r}")
+        names.add(name)
         energy = float(raw["G"])
         offset = float(raw.get("offset", 0.0))
         degeneracy = float(raw.get("degeneracy", 1.0))

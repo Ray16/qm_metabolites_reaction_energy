@@ -158,8 +158,8 @@ def main():
     a = ap.parse_args()
     rows = json.load(open(os.path.join(HERE, "features_tecrdb.json")))
     from metag.tools.calibrate import reaction_groups
-    inputs = json.load(open(os.path.join(HERE, "..", "..", "..", "experiments", "qm_mlip_solvation",
-                                         "scripts", "reactions_opentecr_std.json")))
+    inputs = json.load(open(os.path.join(HERE, "..", "..", "src", "metag", "data",
+                                         "reactions_opentecr_std.json")))
     groups = reaction_groups({r: inputs[r] for r in rows})
     rids = sorted(rows)
     ae = np.abs([rows[r]["err"] for r in rids])

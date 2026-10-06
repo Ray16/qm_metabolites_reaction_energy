@@ -54,7 +54,9 @@ def is_isomerization(species):
         net[f] += c
     return all(abs(v) < 1e-9 for v in net.values())
 
-# ---- textbook functional-group pKa's (experimental; NOT fitted to any dG) ---------------------
+# ---- compound constants and functional-group approximations (not fitted to reaction dG) -----
+# Provenance and applicability: docs/pka-provenance.md. Measured parent-compound
+# constants do not validate their transfer to every matching group or microstate.
 # Each entry: the pKa of REMOVING one proton from the neutral acid at that site.
 # For a phosphate P centre we distinguish the near-neutral TERMINAL deprotonation (~6.5, the one
 # that actually straddles pH 7 and drives pH-dependence) from the strongly-acidic earlier ones
@@ -87,7 +89,7 @@ ACYL_P_LADDER = [1.50, 4.95]
 # omitted: at pH 7 it holds ~18% of the pool, a ~0.5 kJ term.
 CARBONATE_LADDER = [3.60, 10.33]
 # Bump when any pKa value/ladder assignment changes: part of pipeline.effective_config() (calibration key).
-PKA_TABLE_VERSION = "2026-10-01c"   # 10-01: unsaturated class, POLYACID_PKA, alpha-oxo keto-form 1.8
+PKA_TABLE_VERSION = "2026-10-06a"   # neutral ammonia/aliphatic amines retain their base terms
 # FREE pyrophosphate H4P2O7 (all heavy atoms P/O, 2 P): its own macroscopic ladder (I->0), NOT two
 # terminal-phosphate ladders ({1.5,1.5,6.5,6.5} over-counts the transform by ~4.4 kJ per free PPi).
 PPI_LADDER = [0.91, 2.10, 6.70, 9.32]
@@ -232,7 +234,7 @@ def _polyacid_ladder(mol):
 
 
 _BASIC_N = Chem.MolFromSmarts("[NX4+;H1,H2,H3,H0;!$(N~[#6]=[#7,#8])]")   # ammonium (not amidinium)
-_AMINE_N = Chem.MolFromSmarts("[NX3;H1,H2;!$(N[#6]=[#7,#8,#16]);!$(N-a)]")  # basic sp3 amine (not amide/aniline)
+_AMINE_N = Chem.MolFromSmarts("[NX3;H0,H1,H2;!$(N[#6]=[#7,#8,#16]);!$(N-a)]")  # basic sp3 amine (not amide/aniline)
 
 
 def _carboxyl_env(mol, o_idx):
@@ -614,12 +616,12 @@ def _neutralize(smi):
 # mass-balance guard refuses (net-proton reaction). v2 also DEPROTONATES the bases to neutral and
 # emits a base pKa term using the EXACT Alberty form for a base: -RT ln(1+10^(pKa-pH)) (protonated
 # form favoured below pKa), the mirror of the acid form -RT ln(1+10^(pH-pKa)).
-AMMONIA_PKA = 9.25          # NH4+/NH3
-AAA_AMINE_PKA = 9.60        # alpha-amino-acid -NH3+ (electron-withdrawing COOH lowers it, ~9.1-9.9)
-PRIMARY_AMINE_PKA = 10.6    # plain primary aliphatic amine
+AMMONIA_PKA = 9.25          # NH4+/NH3; rounded NIST evaluated 9.245, 298.15 K, I=0 (Goldberg et al. 2002)
+AAA_AMINE_PKA = 9.60        # alpha-amino-acid class approximation, not a universal microconstant
+PRIMARY_AMINE_PKA = 10.6    # methylamine-like fallback (NIST 10.645); transfer to other amines unvalidated
 IMIDAZOLE_PKA = 6.5         # histidine imidazolium (straddles pH 7)
 GUANIDINIUM_PKA = 12.5      # arginine/creatine guanidinium
-_ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+;H1,H2,H3][CX4][CX3](=O)[OX1,OX2]")  # N-C-COOH
+_ALPHA_AMINO_ACID = Chem.MolFromSmarts("[NX3,NX4+;H0,H1,H2,H3][CX4][CX3](=O)[OX1,OX2]")  # N-C-COOH
 _GUAN_C = Chem.MolFromSmarts("[#7][CX3](=[#7,#7+])")                                  # amidinium/guanidinium C
 
 def _amine_pka(mol, n_idx):
@@ -666,7 +668,7 @@ def _neutralize_v2(smi):
         return None, [], [], None
     cation_sites = _classify_cations(mol)
     acid_pkas = [pka for _, pka in anion_sites]
-    base_pkas = [pka for _, pka, _ in cation_sites]
+    base_pkas = [pka for _, pka, _ in cation_sites] + _neutral_base_pkas(mol)
     rw = Chem.RWMol(mol)
     for o, _ in anion_sites:                                   # protonate anion O-
         a = rw.GetAtomWithIdx(o); a.SetFormalCharge(0); a.SetNumExplicitHs(a.GetNumExplicitHs() + 1)
@@ -682,6 +684,29 @@ def _neutralize_v2(smi):
     except Exception:
         return None, [], [], None
     return Chem.MolToSmiles(m2), acid_pkas, base_pkas, Chem.GetFormalCharge(m2)
+
+
+def _neutral_base_pkas(mol):
+    """Existing base constants for NH3 and saturated aliphatic amines drawn neutral.
+
+    The neutral-microspecies route must include the protonated
+    state regardless of the input drawing. Count each N once, not once per C-N
+    bond. Restrict this extension to closed-shell trivalent N bonded only to
+    saturated carbon/H; arylamines, amides, imines, guanidines, aromatic N and
+    heteroatom-substituted N need their own speciation models.
+    """
+    pkas = []
+    for atom in mol.GetAtoms():
+        if atom.GetSymbol() != "N" or atom.GetFormalCharge() != 0 or atom.GetIsAromatic() \
+                or atom.GetNumRadicalElectrons() or atom.GetTotalValence() != 3:
+            continue
+        heavy = [n for n in atom.GetNeighbors() if n.GetAtomicNum() != 1]
+        if not heavy:
+            pkas.append(AMMONIA_PKA)
+        elif all(n.GetAtomicNum() == 6 and n.GetHybridization() == Chem.HybridizationType.SP3
+                 for n in heavy):
+            pkas.append(_amine_pka(mol, atom.GetIdx()))
+    return pkas
 
 
 # BASIC aliphatic amine/ammonium on an sp3 carbon ONLY: this is what protonates to a real cation at

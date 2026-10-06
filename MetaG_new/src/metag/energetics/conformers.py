@@ -231,6 +231,10 @@ XTBCPX_BIN = os.environ.get("XTBCPX_BIN", f"{os.environ['HOME']}/miniforge3/envs
 XTB_ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
            "OPENBLAS_NUM_THREADS": "1", "OMP_STACKSIZE": "4G"}
 SOLV_MODEL = os.environ.get("SOLV_MODEL", "cpcmx")   # cpcmx | cosmo | alpb | gbsa
+# Width of the xtb (1-threaded) solvation thread pools. Default 8 for interactive single runs;
+# the production sweep exports METAG_XTB_WORKERS = cores/NG so NG shards x this never oversubscribe
+# the shared node. Result is byte-identical (ex.map collects by index, order-independent).
+XTB_WORKERS = max(1, int(os.environ.get("METAG_XTB_WORKERS", "8")))
 
 
 def _cpcmx_dgsolv(atoms, q, d):
@@ -287,7 +291,7 @@ def species_conformers(pu, name, q, smi, seed, pool, keep, log):
     sel = [a for a, c in zip(sel, conv) if c]
     Eg = (E_ev[conv] * EV2KJ)
     ndrop = int((~conv).sum())
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=XTB_WORKERS) as ex:
         ds = list(ex.map(lambda a: xtb_dgsolv(a, q), sel))
     Egv, Gt = [], []
     for e, d in zip(Eg, ds):

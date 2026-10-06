@@ -15,13 +15,17 @@ from rdkit import Chem
 from rdkit.Chem import Descriptors, rdMolDescriptors
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TC = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-SWEEP = os.path.join(TC, "MetaG", "analysis", "sweep_20261001")
-TECRDB_RESULTS = os.path.join(SWEEP, "final_20261002_opentecr_calibrated")     # exp = openTECR standardized
-MODELSEED_RESULTS = os.path.join(SWEEP, "generality_20261001c")
-TECRDB_INPUT = os.path.join(TC, "experiments", "qm_mlip_solvation", "scripts", "reactions_opentecr_std.json")
-MODELSEED_INPUT = os.path.join(SWEEP, "generality_inputs.json")
-CACHE = os.path.join(SWEEP, "cache")
+PKG = os.path.abspath(os.path.join(HERE, "..", ".."))                          # MetaG_new/ (self-contained)
+ART = os.path.join(PKG, "artifacts")
+TECRDB_RESULTS = os.path.join(ART, "results", "metag_opentecr_calibrated")     # exp = openTECR standardized
+MODELSEED_RESULTS = os.path.join(ART, "results", "generality")
+TECRDB_INPUT = os.path.join(PKG, "src", "metag", "data", "reactions_opentecr_std.json")
+MODELSEED_INPUT = os.path.join(ART, "results", "generality_inputs.json")
+# The per-species QM cache is a recompute input (~36 MB, GPU-bound), NOT a pinned paper artifact -- it is the
+# one thing still in the old tree. Only regenerating the solvation-sensitivity features needs it; override
+# with METAG_SPECIES_CACHE if you have it. Absence is non-fatal (those features fall back to empty).
+CACHE = os.environ.get("METAG_SPECIES_CACHE",
+                       os.path.join(os.path.dirname(PKG), "MetaG", "analysis", "sweep_20261001", "cache"))
 PHYSICS = "2026-10-01c"
 
 P = Chem.MolFromSmarts("[PX4]")
@@ -43,6 +47,8 @@ CATION_N = Chem.MolFromSmarts("[#7+;!H0]")
 
 def species_cache():
     idx = defaultdict(dict)
+    if not os.path.isdir(CACHE):                       # recompute input, not pinned; absence is non-fatal
+        return idx
     for path in glob.glob(os.path.join(CACHE, "*.json")):
         d = json.load(open(path))
         st = d.get("settings", {})
