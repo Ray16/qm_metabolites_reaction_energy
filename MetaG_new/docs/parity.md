@@ -53,7 +53,7 @@ python scripts/verify_frozen_parity.py \
   --inputs ../experiments/qm_mlip_solvation/scripts/reactions_tecrdb_std.json
 ```
 
-> Note: `verify_frozen_parity.py` is a TRANSITIONAL refactor-validation tool. It deliberately
+> Note: `verify_frozen_parity.py` is a TRANSITIONAL refactor-validation tool, archived 2026-10-06 to `../backup/MetaG_new_20261006/scripts/` after parity was established (run it from there). It deliberately
 > compares the package against the old `../MetaG` tree (and its cache / water-reference), so the
 > old-tree paths below are expected and are NOT part of the self-contained runtime. The package
 > itself (CLI, numbers, figures) no longer reaches outside `MetaG_new/` — see `artifacts/README.md`.

@@ -1,0 +1,729 @@
+{
+ "independent_panel": {
+  "ethylene hydration": {
+   "gas_exp": -7.66,
+   "gas_pred": -13.27,
+   "gas_err": -5.61,
+   "gas_err_qrrho": -5.62,
+   "aq_exp": -25.39,
+   "aq_pred": -23.33,
+   "aq_err": 2.06,
+   "solv_err_alpb": 9.51
+  },
+  "propene hydration": {
+   "gas_exp": -6.95,
+   "gas_pred": -13.17,
+   "gas_err": -6.22,
+   "gas_err_qrrho": -6.24,
+   "aq_exp": -23.75,
+   "aq_pred": -20.9,
+   "aq_err": 2.86,
+   "solv_err_alpb": 9.29
+  },
+  "isobutene hydration": {
+   "gas_exp": -6.48,
+   "gas_pred": -14.8,
+   "gas_err": -8.32,
+   "gas_err_qrrho": -8.38,
+   "aq_exp": -21.48,
+   "aq_pred": -20.11,
+   "aq_err": 1.37,
+   "solv_err_alpb": 9.55
+  },
+  "ethylamine hydrolysis (deamination)": {
+   "gas_exp": 8.04,
+   "gas_pred": 8.58,
+   "gas_err": 0.54,
+   "gas_err_qrrho": 0.54,
+   "aq_exp": 4.48,
+   "aq_pred": 0.11,
+   "aq_err": -4.37,
+   "solv_err_alpb": -4.24
+  },
+  "methylamine hydrolysis (deamination)": {
+   "gas_exp": 17.1,
+   "gas_pred": 13.54,
+   "gas_err": -3.56,
+   "gas_err_qrrho": -3.56,
+   "aq_exp": 13.32,
+   "aq_pred": 4.48,
+   "aq_err": -8.85,
+   "solv_err_alpb": -5.35
+  },
+  "ethyl acetate hydrolysis": {
+   "gas_exp": 16.11,
+   "gas_pred": 12.1,
+   "gas_err": -4.01,
+   "gas_err_qrrho": -4.7,
+   "aq_exp": -4.02,
+   "aq_pred": -2.53,
+   "aq_err": 1.49,
+   "solv_err_alpb": 7.59
+  }
+ },
+ "freesolv_alpb_group_error": {
+  "prim_amine": {
+   "n": 9,
+   "mean": 7.34,
+   "sd": 1.76
+  },
+  "sec_amine": {
+   "n": 8,
+   "mean": 11.78,
+   "sd": 3.44
+  },
+  "tert_amine": {
+   "n": 4,
+   "mean": 13.22,
+   "sd": 4.74
+  },
+  "alcohol": {
+   "n": 34,
+   "mean": 1.63,
+   "sd": 3.88
+  },
+  "carboxylic": {
+   "n": 7,
+   "mean": -3.15,
+   "sd": 0.63
+  },
+  "amide": {
+   "n": 9,
+   "mean": 9.51,
+   "sd": 3.78
+  },
+  "NH3": {
+   "n": 1,
+   "mean": 0.96,
+   "sd": null
+  }
+ },
+ "amine_solvation_correction_TECRDB": {
+  "overall": {
+   "n_touched": 19,
+   "MAE_before": 9.542,
+   "MAE_after": 9.492
+  },
+  "other/clean": {
+   "n": 69,
+   "n_touched": 4,
+   "bias_before": -2.7,
+   "bias_after": -2.7,
+   "MAE_before": 10.93,
+   "MAE_after": 11.1
+  },
+  "isomerase/mutase": {
+   "n": 57,
+   "n_touched": 1,
+   "bias_before": 0.2,
+   "bias_after": 0.3,
+   "MAE_before": 5.51,
+   "MAE_after": 5.62
+  },
+  "reductive-amination-DH": {
+   "n": 11,
+   "n_touched": 8,
+   "bias_before": -8.6,
+   "bias_after": -4.5,
+   "MAE_before": 14.16,
+   "MAE_after": 10.88
+  },
+  "ammonia-lyase": {
+   "n": 8,
+   "n_touched": 5,
+   "bias_before": -5.4,
+   "bias_after": -1.4,
+   "MAE_before": 5.83,
+   "MAE_after": 4.9
+  },
+  "transaminase": {
+   "n": 16,
+   "n_touched": 1,
+   "bias_before": 5.3,
+   "bias_after": 5.8,
+   "MAE_before": 8.27,
+   "MAE_after": 8.72
+  },
+  "per_reaction": [
+   {
+    "rid": "rxn00838",
+    "cls": "other/clean",
+    "err": -41.2,
+    "err_new": -33.9,
+    "delta": 7.3
+   },
+   {
+    "rid": "rxn15055",
+    "cls": "transaminase",
+    "err": 13.9,
+    "err_new": 21.2,
+    "delta": 7.3
+   },
+   {
+    "rid": "rxn02930",
+    "cls": "reductive-amination-DH",
+    "err": -34.0,
+    "err_new": -27.6,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00867",
+    "cls": "ammonia-lyase",
+    "err": -17.6,
+    "err_new": -11.3,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00184",
+    "cls": "reductive-amination-DH",
+    "err": -16.0,
+    "err_new": -9.6,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00804",
+    "cls": "reductive-amination-DH",
+    "err": -14.7,
+    "err_new": -8.3,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00278",
+    "cls": "reductive-amination-DH",
+    "err": -13.4,
+    "err_new": -7.0,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00552",
+    "cls": "isomerase/mutase",
+    "err": 12.4,
+    "err_new": 18.8,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn53944",
+    "cls": "other/clean",
+    "err": -12.1,
+    "err_new": -18.4,
+    "delta": -6.4
+   },
+   {
+    "rid": "rxn00182",
+    "cls": "reductive-amination-DH",
+    "err": -11.8,
+    "err_new": -5.4,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn00473",
+    "cls": "ammonia-lyase",
+    "err": -11.4,
+    "err_new": -5.0,
+    "delta": 6.4
+   },
+   {
+    "rid": "rxn02625",
+    "cls": "ammonia-lyase",
+    "err": -7.5,
+    "err_new": -1.1,
+    "delta": 6.4
+   }
+  ]
+ },
+ "amine_correction_ModelSEED": {
+  "n_reactions": 300,
+  "n_touched": 16,
+  "abs_delta_mean": 7.25,
+  "deltas": {
+   "rxn00262": 6.4,
+   "rxn01550": 6.4,
+   "rxn01644": 7.3,
+   "rxn01785": 7.3,
+   "rxn02779": 7.3,
+   "rxn03379": 6.4,
+   "rxn04007": -4.4,
+   "rxn14339": 6.4,
+   "rxn15112": -6.4,
+   "rxn15946": 4.4,
+   "rxn21218": 7.3,
+   "rxn22470": 7.3,
+   "rxn34059": 7.3,
+   "rxn39432": 4.4,
+   "rxn40734": 6.4,
+   "rxn43621": -20.6
+  }
+ },
+ "ester_thioester_vs_Jencks": {
+  "ethyl acetate": {
+   "pred": -2.5,
+   "exp_Jencks": -7.9,
+   "err": 5.4
+  },
+  "S-ethyl thioacetate": {
+   "pred": -29.4,
+   "exp_Jencks": -18.4,
+   "err": -11.0
+  },
+  "S-methyl thioacetate": {
+   "pred": -29.0,
+   "exp_Jencks": -18.4,
+   "err": -10.6
+  },
+  "thio->O acyl transfer": {
+   "pred": -26.8,
+   "exp_Jencks": -10.5,
+   "err": -16.4
+  }
+ },
+ "qm_ammonium_pka": {
+  "[NH4+]": {
+   "qm_pka": 8.55,
+   "exp": 9.245
+  },
+  "CC[NH3+]": {
+   "qm_pka": 8.53,
+   "exp": 10.65
+  },
+  "C[C@H]([NH3+])C(=O)O": {
+   "qm_pka": 5.0,
+   "exp": null
+  }
+ },
+ "species": {
+  "water": {
+   "G_prod": -200704.459,
+   "E": -200676.207,
+   "gcorr": 9.657,
+   "gcorr_qrrho": 9.657,
+   "solv_alpb": -38.061,
+   "smi": "O"
+  },
+  "ethylene": {
+   "G_prod": -206197.596,
+   "E": -206276.49,
+   "gcorr": 79.624,
+   "gcorr_qrrho": 79.624,
+   "solv_alpb": -0.544,
+   "smi": "C=C"
+  },
+  "ethanol": {
+   "G_prod": -406895.866,
+   "E": -407019.95,
+   "gcorr": 143.267,
+   "gcorr_qrrho": 143.251,
+   "solv_alpb": -17.312,
+   "smi": "CCO"
+  },
+  "propene": {
+   "G_prod": -309338.744,
+   "E": -309481.524,
+   "gcorr": 143.82,
+   "gcorr_qrrho": 143.814,
+   "solv_alpb": -1.098,
+   "smi": "CC=C"
+  },
+  "2-propanol": {
+   "G_prod": -510034.58,
+   "E": -510228.735,
+   "gcorr": 211.314,
+   "gcorr_qrrho": 211.289,
+   "solv_alpb": -17.165,
+   "smi": "CC(C)O"
+  },
+  "isobutene": {
+   "G_prod": -412477.899,
+   "E": -412689.021,
+   "gcorr": 213.173,
+   "gcorr_qrrho": 213.19,
+   "solv_alpb": -1.712,
+   "smi": "CC(=C)C"
+  },
+  "tBuOH": {
+   "G_prod": -613172.947,
+   "E": -613436.718,
+   "gcorr": 279.52,
+   "gcorr_qrrho": 279.484,
+   "solv_alpb": -15.714,
+   "smi": "CC(C)(C)O"
+  },
+  "ammonia": {
+   "G_prod": -148447.039,
+   "E": -148472.929,
+   "gcorr": 42.626,
+   "gcorr_qrrho": 42.626,
+   "solv_alpb": -16.819,
+   "smi": "N"
+  },
+  "methanol": {
+   "G_prod": -303758.713,
+   "E": -303814.632,
+   "gcorr": 74.92,
+   "gcorr_qrrho": 74.914,
+   "solv_alpb": -19.102,
+   "smi": "CO"
+  },
+  "methylamine": {
+   "G_prod": -251527.364,
+   "E": -251624.968,
+   "gcorr": 107.969,
+   "gcorr_qrrho": 107.963,
+   "solv_alpb": -10.319,
+   "smi": "CN"
+  },
+  "ethylamine": {
+   "G_prod": -354660.149,
+   "E": -354825.249,
+   "gcorr": 176.233,
+   "gcorr_qrrho": 176.217,
+   "solv_alpb": -9.853,
+   "smi": "CCN"
+  },
+  "acetic_acid": {
+   "G_prod": -601457.049,
+   "E": -601518.191,
+   "gcorr": 91.08,
+   "gcorr_qrrho": 92.035,
+   "solv_alpb": -29.408,
+   "smi": "CC(=O)O"
+  },
+  "methyl_acetate": {
+   "G_prod": -704529.227,
+   "E": -704670.776,
+   "gcorr": 157.723,
+   "gcorr_qrrho": 159.024,
+   "solv_alpb": -16.475,
+   "smi": "CC(=O)OC"
+  },
+  "ethyl_acetate": {
+   "G_prod": -807667.522,
+   "E": -807875.51,
+   "gcorr": 226.165,
+   "gcorr_qrrho": 227.794,
+   "solv_alpb": -17.7,
+   "smi": "CCOC(C)=O"
+  },
+  "acetone": {
+   "G_prod": -506964.551,
+   "E": -507097.093,
+   "gcorr": 146.921,
+   "gcorr_qrrho": 146.984,
+   "solv_alpb": -14.401,
+   "smi": "CC(C)=O"
+  },
+  "2-butanol": {
+   "G_prod": -613160.595,
+   "E": -613420.2,
+   "gcorr": 280.709,
+   "gcorr_qrrho": 280.987,
+   "solv_alpb": -17.072,
+   "smi": "CC[C@H](C)O"
+  },
+  "but-1-ene": {
+   "G_prod": -412463.68,
+   "E": -412673.293,
+   "gcorr": 214.213,
+   "gcorr_qrrho": 214.221,
+   "solv_alpb": -1.251,
+   "smi": "CCC=C"
+  },
+  "malic": {
+   "G_prod": -1397332.768,
+   "E": -1397462.446,
+   "gcorr": 200.916,
+   "gcorr_qrrho": 203.007,
+   "solv_alpb": -70.133,
+   "smi": "O=C(O)C[C@H](O)C(=O)O"
+  },
+  "fumaric": {
+   "G_prod": -1196638.738,
+   "E": -1196716.415,
+   "gcorr": 132.897,
+   "gcorr_qrrho": 134.559,
+   "solv_alpb": -52.643,
+   "smi": "O=C(O)/C=C/C(=O)O"
+  },
+  "maleic": {
+   "G_prod": -1196621.675,
+   "E": -1196693.663,
+   "gcorr": 131.268,
+   "gcorr_qrrho": 132.369,
+   "solv_alpb": -58.108,
+   "smi": "O=C(O)/C=C\\C(=O)O"
+  },
+  "acrylic": {
+   "G_prod": -701427.764,
+   "E": -701499.237,
+   "gcorr": 103.854,
+   "gcorr_qrrho": 104.167,
+   "solv_alpb": -30.56,
+   "smi": "C=CC(=O)O"
+  },
+  "3-hydroxypropanoic": {
+   "G_prod": -902116.669,
+   "E": -902245.518,
+   "gcorr": 173.212,
+   "gcorr_qrrho": 174.607,
+   "solv_alpb": -40.219,
+   "smi": "OCCC(=O)O"
+  },
+  "lactic": {
+   "G_prod": -902117.044,
+   "E": -902238.295,
+   "gcorr": 169.617,
+   "gcorr_qrrho": 170.823,
+   "solv_alpb": -41.118,
+   "smi": "C[C@H](O)C(=O)O"
+  },
+  "crotonic": {
+   "G_prod": -804572.988,
+   "E": -804711.437,
+   "gcorr": 171.457,
+   "gcorr_qrrho": 171.888,
+   "solv_alpb": -31.956,
+   "smi": "C/C=C/C(=O)O"
+  },
+  "3-hydroxybutanoic": {
+   "G_prod": -1005252.158,
+   "E": -1005443.696,
+   "gcorr": 238.713,
+   "gcorr_qrrho": 240.517,
+   "solv_alpb": -44.12,
+   "smi": "C[C@@H](O)CC(=O)O"
+  },
+  "alanine_neutral": {
+   "G_prod": -849880.99,
+   "E": -850045.218,
+   "gcorr": 203.254,
+   "gcorr_qrrho": 204.529,
+   "solv_alpb": -37.541,
+   "smi": "C[C@H](N)C(=O)O"
+  },
+  "pyruvic": {
+   "G_prod": -899005.564,
+   "E": -899079.012,
+   "gcorr": 107.023,
+   "gcorr_qrrho": 108.522,
+   "solv_alpb": -33.864,
+   "smi": "CC(=O)C(=O)O"
+  },
+  "2-aminobutanoic_neutral": {
+   "G_prod": -953006.429,
+   "E": -953242.677,
+   "gcorr": 271.748,
+   "gcorr_qrrho": 273.27,
+   "solv_alpb": -35.292,
+   "smi": "CC[C@H](N)C(=O)O"
+  },
+  "2-oxobutanoic": {
+   "G_prod": -1002130.648,
+   "E": -1002273.779,
+   "gcorr": 177.216,
+   "gcorr_qrrho": 179.07,
+   "solv_alpb": -33.215,
+   "smi": "CCC(=O)C(=O)O"
+  },
+  "_water_ref": -200682.865,
+  "allyl_alcohol": {
+   "G_prod": -506871.403,
+   "E": -507003.526,
+   "gcorr": 153.322,
+   "gcorr_qrrho": 153.312,
+   "solv_alpb": -16.494,
+   "smi": "C=CCO"
+  },
+  "allyl_acetate": {
+   "G_prod": -907639.577,
+   "E": -907853.826,
+   "gcorr": 235.627,
+   "gcorr_qrrho": 238.378,
+   "solv_alpb": -17.852,
+   "smi": "C=CCOC(C)=O"
+  },
+  "prenol": {
+   "G_prod": -713142.53,
+   "E": -713408.608,
+   "gcorr": 288.04,
+   "gcorr_qrrho": 289.421,
+   "solv_alpb": -19.359,
+   "smi": "CC(C)=CCO"
+  },
+  "prenyl_acetate": {
+   "G_prod": -1113912.531,
+   "E": -1114263.955,
+   "gcorr": 373.086,
+   "gcorr_qrrho": 377.668,
+   "solv_alpb": -18.379,
+   "smi": "CC(C)=CCOC(C)=O"
+  },
+  "retinol_t": {
+   "G_prod": -2038218.799,
+   "E": -2039100.436,
+   "gcorr": 911.984,
+   "gcorr_qrrho": 918.884,
+   "solv_alpb": -26.053,
+   "smi": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)CCCC1"
+  },
+  "retinyl_acetate_t": {
+   "G_prod": -2438985.947,
+   "E": -2439954.971,
+   "gcorr": 1000.277,
+   "gcorr_qrrho": 1008.902,
+   "solv_alpb": -24.934,
+   "smi": "CC(=O)OC/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1"
+  },
+  "isopropylamine": {
+   "G_prod": -457795.132,
+   "E": -458028.982,
+   "gcorr": 244.576,
+   "gcorr_qrrho": 244.549,
+   "solv_alpb": -9.066,
+   "smi": "CC(C)N"
+  },
+  "cyclohexylamine": {
+   "G_prod": -764095.192,
+   "E": -764495.847,
+   "gcorr": 412.221,
+   "gcorr_qrrho": 412.22,
+   "solv_alpb": -9.149,
+   "smi": "NC1CCCCC1"
+  },
+  "dimethylamine": {
+   "G_prod": -354622.624,
+   "E": -354792.507,
+   "gcorr": 175.945,
+   "gcorr_qrrho": 175.929,
+   "solv_alpb": -6.173,
+   "smi": "CNC"
+  },
+  "acetamide": {
+   "G_prod": -549228.418,
+   "E": -549312.841,
+   "gcorr": 119.609,
+   "gcorr_qrrho": 120.847,
+   "solv_alpb": -34.911,
+   "smi": "CC(N)=O"
+  },
+  "propane": {
+   "G_prod": -312480.865,
+   "E": -312687.117,
+   "gcorr": 205.887,
+   "gcorr_qrrho": 205.871,
+   "solv_alpb": 0.194,
+   "smi": "CCC"
+  },
+  "propanoic": {
+   "G_prod": -704579.692,
+   "E": -704712.292,
+   "gcorr": 161.199,
+   "gcorr_qrrho": 162.599,
+   "solv_alpb": -28.692,
+   "smi": "CCC(=O)O"
+  },
+  "succinic": {
+   "G_prod": -1199799.809,
+   "E": -1199930.452,
+   "gcorr": 192.301,
+   "gcorr_qrrho": 195.299,
+   "solv_alpb": -59.488,
+   "smi": "O=C(O)CCC(=O)O"
+  },
+  "butane": {
+   "G_prod": -415607.107,
+   "E": -415880.366,
+   "gcorr": 274.485,
+   "gcorr_qrrho": 274.685,
+   "solv_alpb": -0.199,
+   "smi": "CCCC"
+  },
+  "trans-2-butene": {
+   "G_prod": -412472.503,
+   "E": -412684.522,
+   "gcorr": 213.435,
+   "gcorr_qrrho": 213.423,
+   "solv_alpb": -1.411,
+   "smi": "C/C=C/C"
+  },
+  "ethanethiol": {
+   "G_prod": -1254806.185,
+   "E": -1254929.349,
+   "gcorr": 126.887,
+   "gcorr_qrrho": 126.871,
+   "solv_alpb": -2.268,
+   "smi": "CCS"
+  },
+  "S-ethyl_thioacetate": {
+   "G_prod": -1655551.005,
+   "E": -1655753.013,
+   "gcorr": 217.55,
+   "gcorr_qrrho": 218.275,
+   "solv_alpb": -10.279,
+   "smi": "CCSC(C)=O"
+  },
+  "methanethiol": {
+   "G_prod": -1151678.107,
+   "E": -1151733.183,
+   "gcorr": 57.658,
+   "gcorr_qrrho": 57.651,
+   "solv_alpb": -2.724,
+   "smi": "CS"
+  },
+  "S-methyl_thioacetate": {
+   "G_prod": -1552423.295,
+   "E": -1552557.014,
+   "gcorr": 146.117,
+   "gcorr_qrrho": 146.426,
+   "solv_alpb": -9.979,
+   "smi": "CSC(C)=O"
+  }
+ },
+ "hydratase_notes": {
+  "neutral_dehydration_pred_kJ": {
+   "malic->fumaric": 19.1,
+   "2-propanol->propene": 20.9,
+   "ethanol->ethylene": 23.3
+  },
+  "pka_transform_pipeline_vs_lit_dehydration_dir": {
+   "malate->fumarate": [
+    -5.98,
+    -5.8
+   ],
+   "D-malate->maleate": [
+    -5.98,
+    -2.5
+   ],
+   "citramalate->mesaconate": [
+    -5.98,
+    -3.75
+   ],
+   "citramalate->citraconate": [
+    -5.98,
+    -2.3
+   ]
+  },
+  "gas_isodesmic_acrylic+propane->propanoic+propene": {
+   "UMA_dG": -12.2,
+   "exp_dH_TRC": -7.9
+  }
+ },
+ "thioester_offset_test": {
+  "thioester_-14.6_only": {
+   "MAE": [
+    9.542,
+    9.595
+   ],
+   "CoA_class_MAE": [
+    9.7,
+    9.4
+   ],
+   "acyl-CoA_ligases_worsen": "rxn00175 +5.0->-9.6, rxn00306 +4.1->-10.5, rxn00171 -1.4->-16.0"
+  },
+  "O-ester_+5.4_only": {
+   "MAE": [
+    9.542,
+    9.471
+   ],
+   "ModelSEED_touched": 14
+  }
+ }
+}

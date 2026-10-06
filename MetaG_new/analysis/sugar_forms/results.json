@@ -1,0 +1,128 @@
+{
+ "preregistered_criteria": "Written 2026-10-06 BEFORE running validate or any reaction with alternative states.\nPopulation validation passes (method may be applied to reactions) iff for ALL of glucose, fructose, ribose:\n (a) the experimentally dominant form is predicted dominant (or within 2 kJ of it);\n (b) pyranose-vs-furanose total free-energy gap error <= 4 kJ;\n (c) acyclic (open carbonyl + hydrate) free energy relative to the ensemble error <= 5 kJ;\n (d) reported, not gating: per-form alpha/beta errors.\nIf (c) fails in a systematic direction, the open-chain-input reactions must NOT be corrected (the\ncorrection's magnitude is exactly that ring-chain gap).\n",
+ "population_validation": {
+  "D-glucose": {
+   "acyclic": {
+    "pred_pct": 0.001,
+    "exp_pct": 0.0064,
+    "G_rel_pred": 28.61,
+    "G_rel_exp": 23.95,
+    "error_kJ": 4.67
+   },
+   "b-f": {
+    "pred_pct": 0.0522,
+    "exp_pct": 0.15,
+    "G_rel_pred": 18.73,
+    "G_rel_exp": 16.13,
+    "error_kJ": 2.61
+   },
+   "a-f": {
+    "pred_pct": 0.1406,
+    "exp_pct": 0.14,
+    "G_rel_pred": 16.28,
+    "G_rel_exp": 16.3,
+    "error_kJ": -0.02
+   },
+   "b-p": {
+    "pred_pct": 68.8031,
+    "exp_pct": 62.0,
+    "G_rel_pred": 0.93,
+    "G_rel_exp": 1.19,
+    "error_kJ": -0.27
+   },
+   "a-p": {
+    "pred_pct": 31.0031,
+    "exp_pct": 38.0,
+    "G_rel_pred": 2.9,
+    "G_rel_exp": 2.41,
+    "error_kJ": 0.5
+   }
+  },
+  "D-fructose": {
+   "acyclic": {
+    "pred_pct": 0.0466,
+    "exp_pct": 0.5,
+    "G_rel_pred": 19.01,
+    "G_rel_exp": 13.13,
+    "error_kJ": 5.88
+   },
+   "a-f": {
+    "pred_pct": 4.1628,
+    "exp_pct": 6.2,
+    "G_rel_pred": 7.88,
+    "G_rel_exp": 6.89,
+    "error_kJ": 0.99
+   },
+   "b-f": {
+    "pred_pct": 7.8708,
+    "exp_pct": 22.4,
+    "G_rel_pred": 6.3,
+    "G_rel_exp": 3.71,
+    "error_kJ": 2.59
+   },
+   "a-p": {
+    "pred_pct": 0.9841,
+    "exp_pct": 2.7,
+    "G_rel_pred": 11.46,
+    "G_rel_exp": 8.95,
+    "error_kJ": 2.5
+   },
+   "b-p": {
+    "pred_pct": 86.9357,
+    "exp_pct": 68.2,
+    "G_rel_pred": 0.35,
+    "G_rel_exp": 0.95,
+    "error_kJ": -0.6
+   }
+  },
+  "D-ribose": {
+   "acyclic": {
+    "pred_pct": 0.0248,
+    "exp_pct": 0.1,
+    "G_rel_pred": 20.58,
+    "G_rel_exp": 17.13,
+    "error_kJ": 3.46
+   },
+   "b-f": {
+    "pred_pct": 10.3137,
+    "exp_pct": 13.5,
+    "G_rel_pred": 5.63,
+    "G_rel_exp": 4.97,
+    "error_kJ": 0.66
+   },
+   "a-f": {
+    "pred_pct": 5.3198,
+    "exp_pct": 6.5,
+    "G_rel_pred": 7.27,
+    "G_rel_exp": 6.78,
+    "error_kJ": 0.49
+   },
+   "b-p": {
+    "pred_pct": 77.0024,
+    "exp_pct": 58.5,
+    "G_rel_pred": 0.65,
+    "G_rel_exp": 1.33,
+    "error_kJ": -0.68
+   },
+   "a-p": {
+    "pred_pct": 7.3393,
+    "exp_pct": 21.5,
+    "G_rel_pred": 6.47,
+    "G_rel_exp": 3.81,
+    "error_kJ": 2.66
+   }
+  }
+ },
+ "verdict": "FAIL on criterion (c) for fructose (acyclic +5.9 kJ > 5); acyclic error systematic positive for all three (+4.7/+5.9/+3.5). (a),(b) pass. Per preregistration + coordinator: no reaction correction applied; tautomer pilot not run.",
+ "diagnostic_only_not_adopted": {
+  "rxn00927": {
+   "production_dG": -0.1,
+   "with_ring_forms": -7.4
+  },
+  "rxn01299": {
+   "production_dG": -6.5,
+   "with_ring_forms": -13.8
+  }
+ },
+ "baseline_replay": "26/26 reactions reproduce archived dG_raw from cache"
+}

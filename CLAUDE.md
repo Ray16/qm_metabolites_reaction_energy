@@ -151,6 +151,24 @@ Terse DECISIONS only (not an experiment log — results/status live in
   quality, never by the effect on MetaG. Production: `final_20261002_opentecr_calibrated` (dG identical to
   2026-10-01c): MAE 9.54, median 7.15, coverage 95.1%, m 2.25 (TECRDB: 9.58 / 7.24 / 95.3%).
 
+- **Exact autograd Hessian is the default (2026-10-06, user decision):** `UMA_HESSIAN=autograd` (thermal.py)
+  replaces the central finite-difference Hessian. FD's error scales as delta^2 toward it on all 10 validation
+  species (it is FD's converged limit); Gcorr within 0.18 kJ/species (qRRHO off), larger only on soft modes
+  where FD is wrong; Hessian step 2-6x faster, ~half the peak GPU memory (85-atom species 6 vs 13 GB). The
+  Hessian is 22-53% of per-reaction wall time (METAG_PROFILE, 5 rxns). `hessian` is in the cache keys and
+  effective_config, so fd-era caches/calibrations are never reused -> requires the FRESH-cache final sweep +
+  recalibration. `UMA_HESSIAN=fd` reproduces pre-10-06 results. Caveat: it swaps two fairchem escn_md force
+  functions during one predict call (version-dependent, not thread-safe; fails loudly -> use fd).
+  Smoke test (2 rxns, full pipeline): dG unchanged (5.7->5.9, 3.3->3.3); rxn00558 wall 336->187 s.
+  Also on: exact Hessian memo (HESS_MEMO_N, reuses an identical-geometry Hessian; result-preserving).
+  REJECTED speedup: disabling fairchem activation checkpointing (bit-identical, FIRE 20-48% faster) --
+  OOMs (>30 GB) on batched pool energies for NAD-size species at default chunks; with it on: 11.7 GB.
+- **Tested and NOT adopted (2026-10-06, MetaG_new/analysis/{mg_speciation,class_bias,sugar_forms}):**
+  Mg2+ (benchmark already removes it; not the cause); hydratase +9.9 (C=C conjugated to COOH, ~1/3 UMA gas
+  error -> electronic, ruled out); thioester/O-ester (confirmed vs Jencks 1960 but ALPB group solvation, net
+  MAE gain <=0.07 or worse); amine FreeSolv correction (9.54->9.49, breaks imines); sugar ring/anomer
+  ensemble (FAILED preregistered population gate: open chain +3.5..+5.9 kJ too high).
+
 ## Repo
 `thermodynamic_calc/` is its own git repo (remote `qm_metabolites_reaction_energy`,
 branch `master`, SSH). Commit + push after each meaningful step; the daily cron

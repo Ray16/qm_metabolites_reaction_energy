@@ -1,0 +1,211 @@
+[
+ {
+  "rxn": "rxn00216",
+  "wall": 635.9,
+  "dG_raw": -28.2,
+  "uma_gpu": 565.3,
+  "itemA_pct": 3.1,
+  "fire_wall": 363.6,
+  "fire_steps": 1877,
+  "xtb_cpu": 120.8,
+  "xtb_wall": 16.8,
+  "hess_wall": 203.8,
+  "hess_pct": 32.0,
+  "n_hess": 59,
+  "n_hess_redundant": 2,
+  "hess_redundant_wall": 10.2,
+  "rdkit_pool": 16.2,
+  "dedup": 0.04,
+  "n_species": 4,
+  "seeds": [
+   3,
+   3,
+   4,
+   4
+  ],
+  "nat": [
+   24,
+   29,
+   21,
+   16
+  ],
+  "hess_per_species": [
+   16,
+   13,
+   12,
+   18
+  ],
+  "dup_solvated": "67/145",
+  "dup_replaced_rep": 27,
+  "xtb_conformers": 145,
+  "host": "lambda2",
+  "gpu": "Tesla V100-SXM2-32GB",
+  "other_wall": 35.5
+ },
+ {
+  "rxn": "rxn00283",
+  "wall": 43.8,
+  "dG_raw": 5.7,
+  "uma_gpu": 39.8,
+  "itemA_pct": 2.4,
+  "fire_wall": 30.6,
+  "fire_steps": 325,
+  "xtb_cpu": 0.5,
+  "xtb_wall": 0.4,
+  "hess_wall": 9.8,
+  "hess_pct": 22.3,
+  "n_hess": 8,
+  "n_hess_redundant": 3,
+  "hess_redundant_wall": 3.6,
+  "rdkit_pool": 0.7,
+  "dedup": 0.0,
+  "n_species": 2,
+  "seeds": [
+   3,
+   3
+  ],
+  "nat": [
+   14,
+   14
+  ],
+  "hess_per_species": [
+   5,
+   3
+  ],
+  "dup_solvated": "4/6",
+  "dup_replaced_rep": 2,
+  "xtb_conformers": 7,
+  "host": "lambda2",
+  "gpu": "Tesla V100-SXM2-32GB",
+  "other_wall": 2.3
+ },
+ {
+  "rxn": "rxn00499",
+  "wall": 165.5,
+  "dG_raw": 33.6,
+  "uma_gpu": 101.7,
+  "itemA_pct": 2.3,
+  "fire_wall": 68.6,
+  "fire_steps": 749,
+  "xtb_cpu": 70.7,
+  "xtb_wall": 22.5,
+  "hess_wall": 36.5,
+  "hess_pct": 22.1,
+  "n_hess": 20,
+  "n_hess_redundant": 4,
+  "hess_redundant_wall": 6.5,
+  "rdkit_pool": 2.1,
+  "dedup": 0.01,
+  "n_species": 4,
+  "seeds": [
+   5,
+   3,
+   3,
+   3
+  ],
+  "nat": [
+   12,
+   10,
+   19,
+   20
+  ],
+  "hess_per_species": [
+   5,
+   3,
+   6,
+   6
+  ],
+  "dup_solvated": "10/20",
+  "dup_replaced_rep": 5,
+  "xtb_conformers": 22,
+  "host": "lambda2",
+  "gpu": "Tesla V100-SXM2-32GB",
+  "other_wall": 35.8
+ },
+ {
+  "rxn": "rxn00558",
+  "wall": 336.0,
+  "dG_raw": 3.3,
+  "uma_gpu": 291.4,
+  "itemA_pct": 2.5,
+  "fire_wall": 108.7,
+  "fire_steps": 509,
+  "xtb_cpu": 39.7,
+  "xtb_wall": 5.5,
+  "hess_wall": 177.5,
+  "hess_pct": 52.8,
+  "n_hess": 30,
+  "n_hess_redundant": 0,
+  "hess_redundant_wall": 0,
+  "rdkit_pool": 17.6,
+  "dedup": 0.02,
+  "n_species": 2,
+  "seeds": [
+   3,
+   3
+  ],
+  "nat": [
+   29,
+   29
+  ],
+  "hess_per_species": [
+   13,
+   17
+  ],
+  "dup_solvated": "24/66",
+  "dup_replaced_rep": 16,
+  "xtb_conformers": 66,
+  "host": "lambda2",
+  "gpu": "Tesla V100-SXM2-32GB",
+  "other_wall": 26.7
+ },
+ {
+  "rxn": "rxn00990",
+  "wall": 206.0,
+  "dG_raw": 0.3,
+  "uma_gpu": 180.9,
+  "itemA_pct": 3.4,
+  "fire_wall": 120.8,
+  "fire_steps": 765,
+  "xtb_cpu": 17.7,
+  "xtb_wall": 4.7,
+  "hess_wall": 68.3,
+  "hess_pct": 33.2,
+  "n_hess": 44,
+  "n_hess_redundant": 6,
+  "hess_redundant_wall": 8.8,
+  "rdkit_pool": 2.7,
+  "dedup": 0.05,
+  "n_species": 6,
+  "seeds": [
+   3,
+   3,
+   3,
+   3,
+   3,
+   3
+  ],
+  "nat": [
+   16,
+   11,
+   8,
+   13,
+   19,
+   16
+  ],
+  "hess_per_species": [
+   4,
+   5,
+   3,
+   7,
+   11,
+   13
+  ],
+  "dup_solvated": "99/125",
+  "dup_replaced_rep": 20,
+  "xtb_conformers": 126,
+  "host": "lambda2",
+  "gpu": "Tesla V100-SXM2-32GB",
+  "other_wall": 9.5
+ }
+]

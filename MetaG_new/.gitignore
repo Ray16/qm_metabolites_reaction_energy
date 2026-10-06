@@ -10,3 +10,8 @@ dist/
 metag_out/
 tests/.tmp/
 
+
+# regenerable analysis outputs (archived 2026-10-06 to ../backup/MetaG_new_20261006)
+analysis/accuracy_review/replayed/
+analysis/phosphagen_microsolv/logs/
+analysis/phosphagen_microsolv/cache/

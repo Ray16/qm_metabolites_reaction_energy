@@ -140,7 +140,7 @@ CONV_MAX   = int(os.environ.get("CONV_MAX", "8"))        # cap on seed-batches (
 
 # per-species QM cache: key must carry everything that changes the number (see species_cache.py).
 from metag.energetics import species_cache as _sc
-from metag.energetics.thermal import qrrho_enabled
+from metag.energetics.thermal import qrrho_enabled, hessian_method
 from metag.energetics.conformers import DEDUP_E_TOL
 _MODEL = os.environ.get("UMA_MODEL", "uma-s-1p2p1")   # patch model (batched_relax._ensure_registered); in the cache key. UMA_MODEL overrides for A/B (e.g. uma-s-1p2)
 _SAMPLE_SCALE = float(os.environ.get("SAMPLE_SCALE", "1"))
@@ -165,7 +165,9 @@ PHYSICS_VERSION = "2026-10-01c"   # 10-01c: dedup representative = geometry of i
 _IMPLICIT_SETTINGS = {"model": _MODEL, "solv": SOLV_MODEL, "budget": "nrot-tiered-v1",
                       "conv_tol": CONV_TOL, "conv_hits": CONV_HITS, "conv_max": CONV_MAX,
                       "sample_scale": _SAMPLE_SCALE, "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
-                      **({"keep_scale": _KEEP_SCALE} if _KEEP_SCALE != 1 else {})}
+                      **({"keep_scale": _KEEP_SCALE} if _KEEP_SCALE != 1 else {}),
+                      # UMA_HESSIAN=autograd (exact Hessian) keys separately; default 'fd' keeps old keys valid
+                      **({"hessian": hessian_method()} if hessian_method() != "fd" else {})}
 # CONF_DEDUP (default-on): Boltzmann over unique minima. CONF_DEDUP=0 reproduces the legacy cumulative sum
 # (every relaxed copy counted as a state) for A/B against old caches; the cache key tracks the choice.
 _DEDUP = os.environ.get("CONF_DEDUP", "1").strip().lower() not in ("", "0", "off", "false", "no")
@@ -214,7 +216,8 @@ def _explicit_settings():
             "n_seeds": N_EXPLICIT_SEEDS, "keep": EXPLICIT_KEEP, "dedup": "erot-v1",   # clusters: moments fallback
             "physics": PHYSICS_VERSION, "qrrho": qrrho_enabled(),
             "water_solv": SOLV_MODEL, "water_ref_exp": bool(_flag("WATER_REF_EXP")),
-            "water_dgsolv_kj": float(os.environ.get("WATER_DGSOLV_KJ", "-26.4"))}
+            "water_dgsolv_kj": float(os.environ.get("WATER_DGSOLV_KJ", "-26.4")),
+            **({"hessian": hessian_method()} if hessian_method() != "fd" else {})}
 # Fraction of a species' relaxed conformers whose xtb solvation may fail (timeout / non-zero exit) before
 # its G is considered degraded: a degraded G is still used for this reaction but NOT cached, so a
 # transient overload during a sweep cannot poison every later reaction that reuses the species.
@@ -842,7 +845,7 @@ def water_ref_G(pu, log=None):
     (1 M -> 55.34 M pure liquid) term below is then correct."""
     _WSOLV_EXP = float(os.environ.get("WATER_DGSOLV_KJ", "-26.4"))    # exp ΔGhyd(H2O), -6.3 kcal/mol
     use_exp = _flag("WATER_REF_EXP")
-    memo_key = (_model_name(pu), SOLV_MODEL, use_exp, _WSOLV_EXP, qrrho_enabled())
+    memo_key = (_model_name(pu), SOLV_MODEL, use_exp, _WSOLV_EXP, qrrho_enabled(), hessian_method())
     if memo_key in _WATER_REF:
         return _WATER_REF[memo_key]
     sym, coord = bare_geom(pu, 0, "O")
@@ -1003,6 +1006,7 @@ def effective_config():
                          sort_keys=True)
     cfg = {"model": _MODEL, "physics": PHYSICS_VERSION, "solv_model": SOLV_MODEL, "dedup": _DEDUP,
            "conv": [CONV_TOL, CONV_HITS, CONV_MAX], "sample_scale": _SAMPLE_SCALE, "qrrho": qrrho_enabled(),
+           **({"hessian": hessian_method()} if hessian_method() != "fd" else {}),
            "keep_scale": _KEEP_SCALE,
            "explicit_sampling": [N_EXPLICIT_SEEDS, EXPLICIT_KEEP],
            "trunc_radius": int(os.environ.get("TRUNC_RADIUS", "2")),

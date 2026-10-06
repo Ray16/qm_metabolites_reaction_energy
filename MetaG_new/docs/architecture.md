@@ -15,7 +15,6 @@ The import package is `metag`; the repository is named `MetaG_new`.
 | `src/metag/execution/` | Atomic records and exclusive distributed task claims |
 | `src/metag/tools/` | Maintained calibration and cycle-closure utilities |
 | `src/metag/pipeline.py` | Frozen orchestration facade and compatibility CLI |
-| `configs/` | Versioned scientific-policy records |
 | `tests/unit/` | Fast pure-logic and mocked-backend tests |
 | `tests/integration/` | Full-stack tests requiring CUDA, UMA, or xtb |
 | `tests/regression/` | Frozen release fixtures and numerical parity tests |

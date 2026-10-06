@@ -65,6 +65,165 @@ def _forces_batched(pu, structs, chunk=None):
     return out
 
 
+# ------------------------------------------------------------------ exact (autograd) Hessian
+# UMA_HESSIAN selects how the Cartesian Hessian is obtained:
+#   autograd (DEFAULT since 2026-10-06) the EXACT second derivative of the UMA energy (UMA is conservative, F = -dE/dx): one forward
+#            pass with a differentiable force graph, then 3N vector-Jacobian products, UMA_HESS_ROWS rows
+#            per batched double-backward (memory lever for big molecules; result-preserving).
+#            Validated vs fd on 10 species: FD error scales as delta^2 toward it (it is FD's converged limit);
+#            Gcorr within 0.18 kJ/mol (qRRHO off); 2-6x faster and ~half the peak GPU memory on big species.
+#   fd       legacy central finite differences of UMA forces, 6N displaced structures, batched. Reproduces
+#            caches/results made before 2026-10-06 (its cache keys omit the 'hessian' field).
+# The projection, frequency floor, qRRHO and symmetry handling downstream are identical for both.
+_HESS_ROWS = int(os.environ.get("UMA_HESS_ROWS", "0"))      # 0 = auto (by atom count)
+
+
+def hessian_method():
+    """UMA_HESSIAN env flag: 'autograd' (default) or 'fd' (legacy). Part of the species-cache key when not 'fd'."""
+    v = os.environ.get("UMA_HESSIAN", "autograd").strip().lower()
+    if v in ("fd", "finite", "finite-difference"):
+        return "fd"
+    if v in ("", "autograd", "ad", "exact"):
+        return "autograd"
+    raise ValueError(f"UMA_HESSIAN={v!r}: expected 'fd' or 'autograd'")
+
+
+_HESS_MEMO_N = int(os.environ.get("HESS_MEMO_N", "16"))     # per-model LRU of (E_elec, H); 0 = off
+
+
+def _hess_memo(pu):
+    """The predict unit's Hessian memo (an LRU dict), or None if disabled / pu can't carry attributes."""
+    if _HESS_MEMO_N <= 0:
+        return None
+    memo = getattr(pu, "_metag_hess_memo", None)
+    if memo is None:
+        from collections import OrderedDict
+        try:
+            pu._metag_hess_memo = memo = OrderedDict()
+        except AttributeError:                                 # e.g. pu=None in mocked tests
+            return None
+    return memo
+
+
+def _auto_rows(nat):
+    """VJP rows per batched double-backward. Wall time is nearly flat in rows (measured 8 vs 24 rows: <10%),
+    peak memory is ~linear in rows x graph size (measured: 85-atom CoA-like 5.0 GB @8 rows, 12.3 GB @24;
+    70-atom NAD 3.8 / 9.4 GB), so small chunks cost nothing and keep big species far below the ~14.6 GB
+    effective card. An OOM still halves the chunk and retries (_hessian_from_forces)."""
+    if _HESS_ROWS > 0:
+        return _HESS_ROWS
+    return min(3 * nat, 16) if nat <= 40 else (8 if nat <= 120 else 4)
+
+
+class _ForceGraph:
+    """Context manager: make the UMA head build its forces with create_graph=True (needed for a second
+    derivative) and capture the position leaf they are differentiated against. fairchem's MLP_EFS_Head
+    calls compute_forces(..., training=self.training) or, when the checkpoint regresses stress (uma-s-1p2
+    does), compute_forces_and_stress(..., training=self.training or regress_config.hessian) -- False at
+    inference, i.e. no graph. We rebind both module-level names for the duration of one predict call only
+    (not thread-safe; the pipeline drives the GPU from one thread)."""
+
+    def __enter__(self):
+        import fairchem.core.models.uma.escn_md as m
+        self._m, self.pos = m, None
+        self._orig = (m.compute_forces, m.compute_forces_and_stress)
+        of, ofs = self._orig
+
+        def cf(energy_part, pos, training=False):
+            self.pos = pos
+            return of(energy_part, pos, training=True)
+
+        def cfs(energy_part, pos, cell, batch, training=False):
+            self.pos = pos
+            return ofs(energy_part, pos, cell, batch=batch, training=True)
+        m.compute_forces, m.compute_forces_and_stress = cf, cfs
+        return self
+
+    def __exit__(self, *exc):
+        self._m.compute_forces, self._m.compute_forces_and_stress = self._orig
+        return False
+
+
+def _hessian_from_forces(F_flat, pos, rows):
+    """H = -dF/dx (3N x 3N, float64 numpy) by batched VJPs against identity rows. F_flat: (3N,) with graph.
+    A CUDA OOM halves the row chunk and retries (result-preserving: rows are independent); if the batched
+    (vmap) backward is unsupported for some op, falls back to one VJP per row."""
+    import torch
+    n = F_flat.numel()
+    H = np.empty((n, n))
+    eye = torch.eye(n, device=F_flat.device, dtype=F_flat.dtype)
+    batched, s = True, 0
+    while s < n:
+        e = min(n, s + rows)
+        if batched:
+            try:
+                g, = torch.autograd.grad(F_flat, pos, grad_outputs=eye[s:e], is_grads_batched=True,
+                                         retain_graph=True)
+                H[s:e] = -g.reshape(e - s, n).double().cpu().numpy()
+                s = e
+                continue
+            except torch.cuda.OutOfMemoryError:
+                if rows == 1:
+                    raise
+                torch.cuda.empty_cache(); rows = max(1, rows // 2)
+                continue
+            except RuntimeError:
+                batched = False
+        for r in range(s, e):
+            g, = torch.autograd.grad(F_flat, pos, grad_outputs=eye[r], retain_graph=True)
+            H[r] = -g.reshape(n).double().cpu().numpy()
+        s = e
+    return H
+
+
+def uma_hessian_autograd(pu, atoms, rows=None):
+    """Exact UMA Cartesian Hessian (eV/Å², 3N x 3N numpy, symmetrised) of ONE structure. atoms.info must
+    carry int charge/spin (they are passed through r_data_keys, else the structure is computed neutral)."""
+    import torch
+    from fairchem.core.datasets.atomic_data import AtomicData, atomicdata_list_to_batch
+    from metag.energetics.uma import DEV
+    nat = len(atoms)
+    if nat == 1:
+        return np.zeros((3, 3))
+    d = AtomicData.from_ase(atoms, task_name="omol", r_edges=False, r_data_keys=["spin", "charge"],
+                            r_energy=False, r_forces=False, r_stress=False)
+    for k in ("energy", "forces", "stress"):
+        if k in d:
+            del d[k]
+    batch = atomicdata_list_to_batch([d]).to(DEV)
+    with torch.enable_grad():
+        with _ForceGraph() as fg:
+            pred = pu.predict(batch)
+        F = pred["forces"]
+        if fg.pos is None or not F.requires_grad:
+            raise RuntimeError("UMA forces carry no autograd graph (direct-force model?) -- use UMA_HESSIAN=fd")
+        H = _hessian_from_forces(F.reshape(-1), fg.pos, rows or _auto_rows(nat))
+    del pred, F, fg, batch
+    return 0.5 * (H + H.T)
+
+
+def fd_hessian(pu, base, delta=0.01, chunk=None):
+    """Central-difference Hessian (eV/Å², symmetrised) from UMA forces at +/- delta on every Cartesian DOF;
+    the 6N displaced structures go through batched UMA passes (chunk = UMA_HESS_CHUNK)."""
+    symbols = base.get_chemical_symbols(); pos0 = base.get_positions()
+    q, spin = int(base.info["charge"]), int(base.info["spin"])
+    nat = len(base); ndof = 3 * nat
+    structs = []
+    for i in range(nat):
+        for c in range(3):
+            for sgn in (+1.0, -1.0):
+                p = pos0.copy(); p[i, c] += sgn * delta
+                structs.append(Atoms(symbols=symbols, positions=p, info={"charge": q, "spin": spin}))
+    from metag.profile import timed
+    with timed("hessian"):                                 # 6N displaced-forces phase (forwards also in uma.gpu)
+        F = _forces_batched(pu, structs, chunk=chunk)      # eV/Å, list of (nat,3)
+    H = np.zeros((ndof, ndof))
+    for d in range(ndof):
+        Fp = F[2 * d].reshape(-1); Fm = F[2 * d + 1].reshape(-1)
+        H[d] = -(Fp - Fm) / (2.0 * delta)                  # eV/Å²
+    return 0.5 * (H + H.T)
+
+
 # |imaginary| frequencies up to this are finite-difference / loose-optimisation noise on soft modes and are
 # floored like any other soft mode; above it the structure is not a minimum (reported, caller retries).
 IMAG_TOL_CM = 50.0
@@ -105,11 +264,14 @@ def internal_vib_energies(atoms, H, geometry, return_modes=False):
 
 
 def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
-                   geometry=None, symmetrynumber=None, spin=1, return_info=False, imag_as_soft=False):
+                   geometry=None, symmetrynumber=None, spin=1, return_info=False, imag_as_soft=False,
+                   hessian=None):
     """Gibbs correction Gcorr = G_gas(RRHO,ideal-gas) - E_elec (kJ/mol), UMA Hessian.
 
-    Central-difference Hessian from UMA forces; all 6N displacements batched. Uses the same
-    low-frequency floor (50 cm^-1) as step6.
+    Hessian: hessian='autograd' (default, UMA_HESSIAN env) = the exact UMA Hessian by double backward
+    (uma_hessian_autograd; `delta`/`chunk` unused); hessian='fd' (legacy) = central-difference Hessian
+    from UMA forces, all 6N displacements batched (step `delta` Å). Uses the same low-frequency floor (50 cm^-1)
+    as step6.
 
     The molecular geometry (linear vs nonlinear -> drop 5 vs 6 external modes) and the rotational
     symmetry number sigma are DETECTED from the geometry (mol_symmetry.geometry_and_sigma), not
@@ -126,26 +288,43 @@ def uma_gibbs_corr(pu, symbols, coords, q, delta=0.01, chunk=None,
         symmetrynumber = sigma_auto
     base = Atoms(symbols=symbols, positions=np.asarray(coords, float),
                  info={"charge": int(q), "spin": int(spin)})
-    nat = len(base); ndof = 3 * nat
-    pos0 = base.get_positions()
-    # electronic energy at the (already UMA-relaxed) geometry
-    E_eV, _, _ = _predict(pu, [base]); E_elec = float(E_eV.detach().cpu().numpy()[0])
-    # build 2*ndof displaced structures (+/- for each Cartesian DOF)
-    structs = []
-    for i in range(nat):
-        for c in range(3):
-            for sgn in (+1.0, -1.0):
-                p = pos0.copy(); p[i, c] += sgn * delta
-                structs.append(Atoms(symbols=symbols, positions=p,
-                                     info={"charge": int(q), "spin": int(spin)}))
-    from metag.profile import timed
-    with timed("hessian"):                                 # 6N displaced-forces phase (forwards also in uma.gpu)
-        F = _forces_batched(pu, structs, chunk=chunk)      # eV/Å, list of (nat,3)
-    H = np.zeros((ndof, ndof))
-    for d in range(ndof):
-        Fp = F[2 * d].reshape(-1); Fm = F[2 * d + 1].reshape(-1)
-        H[d] = -(Fp - Fm) / (2.0 * delta)                  # eV/Å²
-    H = 0.5 * (H + H.T)
+    method = hessian or hessian_method()
+    if method not in ("autograd", "fd"):
+        raise ValueError(f"hessian={method!r}: expected 'fd' or 'autograd'")
+    # HESSIAN MEMO (result-preserving): the pipeline evaluates the SAME geometry more than once -- the
+    # thermal-ensemble track (imag_as_soft) and _thermal_at_minimum's strict validation both hit the lowest
+    # minimum, and an "artefact" verdict recomputes it with imag_as_soft. Everything those calls vary acts
+    # AFTER H, so (E_elec, H) is reused for an identical geometry/charge/spin/method. Stored on the predict
+    # unit (scoped to that model); HESS_MEMO_N=0 disables. Not part of any cache key.
+    memo = _hess_memo(pu)
+    mkey = (tuple(symbols), base.get_positions().tobytes(), int(q), int(spin), method,
+            float(delta) if method == "fd" else None)
+    hit = memo.get(mkey) if memo is not None else None
+    if hit is not None:
+        memo.move_to_end(mkey)
+        E_elec, H = hit
+    else:
+        # electronic energy at the (already UMA-relaxed) geometry
+        E_eV, _, _ = _predict(pu, [base]); E_elec = float(E_eV.detach().cpu().numpy()[0])
+        from metag.profile import timed
+        if method == "autograd":
+            with timed("hessian"):
+                H = uma_hessian_autograd(pu, base)         # exact d2E/dx2, eV/Å², symmetrised
+        else:
+            H = fd_hessian(pu, base, delta=delta, chunk=chunk)
+        if memo is not None:
+            memo[mkey] = (E_elec, H)
+            while len(memo) > _HESS_MEMO_N:
+                memo.popitem(last=False)
+    return gibbs_corr_from_hessian(base, H, E_elec, geometry, symmetrynumber, spin=spin,
+                                   return_info=return_info, imag_as_soft=imag_as_soft)
+
+
+def gibbs_corr_from_hessian(base, H, E_elec, geometry, symmetrynumber, spin=1, return_info=False,
+                            imag_as_soft=False):
+    """Gcorr (kJ/mol) from a Cartesian Hessian H (eV/Å²) at geometry `base` (E_elec in eV): Eckart
+    projection, imaginary-mode handling, 50 cm^-1 floor, ideal-gas RRHO (+ qRRHO if enabled). Pure CPU;
+    shared by both Hessian back-ends so they differ ONLY in H."""
     vib, imag_cm, imag_vecs = internal_vib_energies(base, H, geometry, return_modes=True)
     # soft imaginary modes (<= IMAG_TOL_CM) are numerical noise on floppy torsions: floored like soft modes.
     # imag_as_soft: the caller has shown by mode following that the larger ones are artefacts too.
