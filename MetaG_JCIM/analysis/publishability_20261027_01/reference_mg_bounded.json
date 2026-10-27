@@ -1,0 +1,10201 @@
+{
+ "2.0": {
+  "n_labels": 274,
+  "n_measurements": 2267,
+  "excluded": {
+   "missing_or_invalid_Kprime": 184,
+   "ambiguous_reaction_mapping": 388,
+   "todo_check_in_primary_literature": 19,
+   "Mg_sensitive_beyond_threshold": 464,
+   "missing_pH": 28,
+   "wrong_value": 50,
+   "chemical_reference_reaction": 6,
+   "duplicate_table": 2,
+   "virtual_entry": 3,
+   "missing_value_to_be_added": 1,
+   "misannotated_value_type": 8
+  },
+  "labels": {
+   "rxn01293": {
+    "exp": 23.79,
+    "n": 6,
+    "sd": 0.08,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02527": {
+    "exp": -26.84,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01597": {
+    "exp": -10.92,
+    "n": 4,
+    "sd": 1.31,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00543": {
+    "exp": 25.92,
+    "n": 80,
+    "sd": 5.19,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     283.75,
+     288.15,
+     290.5,
+     293.15,
+     293.4,
+     298.15,
+     303.15,
+     307.75,
+     308.15,
+     310.15,
+     311.15,
+     315.95
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn19090": {
+    "exp": 29.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02066": {
+    "exp": 28.06,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn40442": {
+    "exp": 10.19,
+    "n": 43,
+    "sd": 1.01,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     282.45,
+     282.55,
+     282.65,
+     285.55,
+     285.65,
+     285.85,
+     286.1,
+     298.15,
+     298.75,
+     309.95,
+     310.15,
+     310.35,
+     311.35,
+     313.75,
+     314.85
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn01530": {
+    "exp": 12.54,
+    "n": 3,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01301": {
+    "exp": 20.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01302": {
+    "exp": 31.22,
+    "n": 2,
+    "sd": 0.97,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn39373": {
+    "exp": 18.4,
+    "n": 2,
+    "sd": 0.21,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     300.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00762": {
+    "exp": 29.53,
+    "n": 9,
+    "sd": 2.16,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00611": {
+    "exp": 28.29,
+    "n": 15,
+    "sd": 1.23,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     282.95,
+     294.58,
+     295.15,
+     295.26,
+     297.65,
+     298.15,
+     298.28,
+     301.06,
+     309.7
+    ],
+    "n_298": 7,
+    "I_imputed": true
+   },
+   "rxn04943": {
+    "exp": 16.69,
+    "n": 3,
+    "sd": 3.25,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01383": {
+    "exp": 21.76,
+    "n": 8,
+    "sd": 2.42,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15,
+     301.15,
+     310.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01385": {
+    "exp": 22.43,
+    "n": 7,
+    "sd": 1.17,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn01392": {
+    "exp": 27.54,
+    "n": 5,
+    "sd": 1.45,
+    "max_mg_spread": 0.981,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02095": {
+    "exp": 14.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01043": {
+    "exp": 22.62,
+    "n": 2,
+    "sd": 2.08,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01363": {
+    "exp": 18.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     305.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01740": {
+    "exp": 16.04,
+    "n": 5,
+    "sd": 0.56,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01011": {
+    "exp": 34.3,
+    "n": 52,
+    "sd": 1.12,
+    "max_mg_spread": 0.693,
+    "temperatures": [
+     296.15,
+     298.15,
+     303.15,
+     311.15
+    ],
+    "n_298": 38,
+    "I_imputed": true
+   },
+   "rxn00512": {
+    "exp": 48.23,
+    "n": 16,
+    "sd": 6.95,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn00741": {
+    "exp": 23.95,
+    "n": 2,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00499": {
+    "exp": 29.35,
+    "n": 37,
+    "sd": 2.51,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     289.15,
+     295.15,
+     298.15,
+     298.65,
+     303.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 27,
+    "I_imputed": true
+   },
+   "rxn00500": {
+    "exp": 27.26,
+    "n": 2,
+    "sd": 5.55,
+    "max_mg_spread": 0.01,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00992": {
+    "exp": 14.22,
+    "n": 16,
+    "sd": 2.12,
+    "max_mg_spread": 0.827,
+    "temperatures": [
+     298.15,
+     305.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn01451": {
+    "exp": 21.94,
+    "n": 6,
+    "sd": 1.47,
+    "max_mg_spread": 0.079,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn03249": {
+    "exp": 24.4,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.128,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00248": {
+    "exp": 32.23,
+    "n": 71,
+    "sd": 1.35,
+    "max_mg_spread": 0.292,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 46,
+    "I_imputed": true
+   },
+   "rxn01846": {
+    "exp": 30.65,
+    "n": 2,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01847": {
+    "exp": 43.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00217": {
+    "exp": -2.3,
+    "n": 2,
+    "sd": 4.21,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     294.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00810": {
+    "exp": -12.88,
+    "n": 3,
+    "sd": 0.99,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01336": {
+    "exp": 6.05,
+    "n": 12,
+    "sd": 1.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn01617": {
+    "exp": 39.2,
+    "n": 4,
+    "sd": 0.19,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01174": {
+    "exp": 26.86,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01280": {
+    "exp": 38.89,
+    "n": 3,
+    "sd": 4.75,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01201": {
+    "exp": 1.23,
+    "n": 2,
+    "sd": 0.35,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01692": {
+    "exp": 8.0,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01101": {
+    "exp": 37.48,
+    "n": 18,
+    "sd": 5.05,
+    "max_mg_spread": 1.922,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn02459": {
+    "exp": 34.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02887": {
+    "exp": 15.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.017,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01725": {
+    "exp": 26.28,
+    "n": 3,
+    "sd": 0.13,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04945": {
+    "exp": 3.69,
+    "n": 4,
+    "sd": 1.95,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02842": {
+    "exp": 30.13,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02651": {
+    "exp": 23.26,
+    "n": 3,
+    "sd": 4.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn49067": {
+    "exp": 4.54,
+    "n": 3,
+    "sd": 1.18,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn02132": {
+    "exp": 20.48,
+    "n": 9,
+    "sd": 1.8,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01887": {
+    "exp": 16.22,
+    "n": 3,
+    "sd": 0.33,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15726": {
+    "exp": 30.79,
+    "n": 2,
+    "sd": 0.38,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01277": {
+    "exp": 25.49,
+    "n": 11,
+    "sd": 0.54,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01054": {
+    "exp": -2.56,
+    "n": 2,
+    "sd": 1.51,
+    "max_mg_spread": 0.014,
+    "temperatures": [
+     297.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00171": {
+    "exp": -13.68,
+    "n": 4,
+    "sd": 0.43,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01643": {
+    "exp": -16.46,
+    "n": 3,
+    "sd": 17.93,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00781": {
+    "exp": 13.82,
+    "n": 26,
+    "sd": 4.58,
+    "max_mg_spread": 1.986,
+    "temperatures": [
+     296.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn00326": {
+    "exp": 3.17,
+    "n": 5,
+    "sd": 0.19,
+    "max_mg_spread": 0.681,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01361": {
+    "exp": 16.19,
+    "n": 4,
+    "sd": 0.76,
+    "max_mg_spread": 0.275,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00931": {
+    "exp": 58.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00686": {
+    "exp": 32.01,
+    "n": 8,
+    "sd": 2.61,
+    "max_mg_spread": 0.055,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn00907": {
+    "exp": 9.67,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.103,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00402": {
+    "exp": 36.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00906": {
+    "exp": 17.65,
+    "n": 3,
+    "sd": 11.2,
+    "max_mg_spread": 0.121,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00280": {
+    "exp": 37.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01579": {
+    "exp": 30.24,
+    "n": 6,
+    "sd": 1.43,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     277.8,
+     281.2,
+     285.3,
+     291.1,
+     297.6,
+     305.0
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00083": {
+    "exp": -3.92,
+    "n": 13,
+    "sd": 0.5,
+    "max_mg_spread": 1.75,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn00086": {
+    "exp": 22.46,
+    "n": 37,
+    "sd": 4.34,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     283.15,
+     293.15,
+     298.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 30,
+    "I_imputed": true
+   },
+   "rxn00909": {
+    "exp": -19.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01241": {
+    "exp": 9.06,
+    "n": 10,
+    "sd": 1.94,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00824": {
+    "exp": 4.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.349,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00541": {
+    "exp": 10.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00692": {
+    "exp": 6.1,
+    "n": 4,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15,
+     303.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00911": {
+    "exp": 2.89,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01019": {
+    "exp": -33.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.042,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00404": {
+    "exp": -0.48,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00785": {
+    "exp": 8.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn01200": {
+    "exp": 1.38,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.551,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01333": {
+    "exp": 0.38,
+    "n": 4,
+    "sd": 1.38,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00753": {
+    "exp": -11.27,
+    "n": 6,
+    "sd": 6.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01726": {
+    "exp": -1.26,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00173": {
+    "exp": 13.06,
+    "n": 7,
+    "sd": 1.05,
+    "max_mg_spread": 0.092,
+    "temperatures": [
+     298.15,
+     300.15,
+     301.15,
+     303.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00172": {
+    "exp": -2.17,
+    "n": 12,
+    "sd": 1.49,
+    "max_mg_spread": 1.613,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00178": {
+    "exp": 23.24,
+    "n": 11,
+    "sd": 3.33,
+    "max_mg_spread": 1.314,
+    "temperatures": [
+     289.15,
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01409": {
+    "exp": 1.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01636": {
+    "exp": 5.3,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00157": {
+    "exp": 16.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00698": {
+    "exp": 4.3,
+    "n": 2,
+    "sd": 0.0,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00699": {
+    "exp": 3.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn05026": {
+    "exp": 5.65,
+    "n": 2,
+    "sd": 2.06,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02451": {
+    "exp": -3.48,
+    "n": 2,
+    "sd": 0.06,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     305.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01713": {
+    "exp": 7.98,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.065,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01138": {
+    "exp": 7.71,
+    "n": 3,
+    "sd": 3.51,
+    "max_mg_spread": 0.098,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01985": {
+    "exp": 10.18,
+    "n": 2,
+    "sd": 0.85,
+    "max_mg_spread": 0.148,
+    "temperatures": [
+     297.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01548": {
+    "exp": 11.25,
+    "n": 2,
+    "sd": 0.77,
+    "max_mg_spread": 0.09,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01358": {
+    "exp": 10.67,
+    "n": 11,
+    "sd": 1.09,
+    "max_mg_spread": 1.014,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01646": {
+    "exp": -14.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.047,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01366": {
+    "exp": 0.76,
+    "n": 5,
+    "sd": 6.41,
+    "max_mg_spread": 0.053,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00139": {
+    "exp": 18.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00915": {
+    "exp": 27.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00836": {
+    "exp": 29.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00260": {
+    "exp": 4.77,
+    "n": 12,
+    "sd": 0.61,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     283.15,
+     288.15,
+     292.65,
+     298.15,
+     303.15,
+     310.15,
+     310.65,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00191": {
+    "exp": -0.72,
+    "n": 12,
+    "sd": 0.99,
+    "max_mg_spread": 0.016,
+    "temperatures": [
+     298.15,
+     308.15,
+     310.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02320": {
+    "exp": -7.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.154,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15055": {
+    "exp": -12.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00415": {
+    "exp": -14.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03087": {
+    "exp": 1.79,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00656": {
+    "exp": 3.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01204": {
+    "exp": 5.41,
+    "n": 4,
+    "sd": 2.32,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00849": {
+    "exp": 0.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01253": {
+    "exp": -1.09,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01999": {
+    "exp": -0.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00276": {
+    "exp": 8.61,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01423": {
+    "exp": -0.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00422": {
+    "exp": 3.58,
+    "n": 8,
+    "sd": 0.53,
+    "max_mg_spread": 1.978,
+    "temperatures": [
+     298.15,
+     303.15,
+     311.15,
+     323.15
+    ],
+    "n_298": 1,
+    "I_imputed": false
+   },
+   "rxn02914": {
+    "exp": 14.04,
+    "n": 52,
+    "sd": 2.46,
+    "max_mg_spread": 1.633,
+    "temperatures": [
+     298.15,
+     305.0,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00545": {
+    "exp": -9.07,
+    "n": 5,
+    "sd": 0.46,
+    "max_mg_spread": 1.503,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00225": {
+    "exp": 6.31,
+    "n": 10,
+    "sd": 1.27,
+    "max_mg_spread": 0.482,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01100": {
+    "exp": 30.06,
+    "n": 19,
+    "sd": 4.53,
+    "max_mg_spread": 0.506,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01371": {
+    "exp": 8.65,
+    "n": 124,
+    "sd": 2.45,
+    "max_mg_spread": 1.529,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn00396": {
+    "exp": 1.14,
+    "n": 21,
+    "sd": 2.85,
+    "max_mg_spread": 0.955,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     306.15,
+     313.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn02685": {
+    "exp": 0.41,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.679,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02322": {
+    "exp": -3.18,
+    "n": 2,
+    "sd": 1.28,
+    "max_mg_spread": 1.42,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00097": {
+    "exp": -5.84,
+    "n": 296,
+    "sd": 1.54,
+    "max_mg_spread": 1.982,
+    "temperatures": [
+     280.3,
+     286.05,
+     288.15,
+     292.15,
+     293.15,
+     297.15,
+     298.15,
+     300.15,
+     300.4,
+     303.15,
+     304.15,
+     310.15,
+     310.25,
+     311.15,
+     322.6
+    ],
+    "n_298": 136,
+    "I_imputed": true
+   },
+   "rxn10427": {
+    "exp": -4.89,
+    "n": 4,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00117": {
+    "exp": 0.68,
+    "n": 2,
+    "sd": 0.61,
+    "max_mg_spread": 1.668,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00515": {
+    "exp": -0.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.248,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00239": {
+    "exp": -5.69,
+    "n": 6,
+    "sd": 2.59,
+    "max_mg_spread": 1.723,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01509": {
+    "exp": -0.95,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.495,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00364": {
+    "exp": -4.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.497,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00770": {
+    "exp": -1.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00213": {
+    "exp": 4.76,
+    "n": 7,
+    "sd": 2.66,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01380": {
+    "exp": 6.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00290": {
+    "exp": 7.14,
+    "n": 10,
+    "sd": 2.0,
+    "max_mg_spread": 1.893,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00990": {
+    "exp": -5.65,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.161,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00754": {
+    "exp": -24.17,
+    "n": 3,
+    "sd": 0.43,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     296.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01702": {
+    "exp": 19.83,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00132": {
+    "exp": -13.87,
+    "n": 2,
+    "sd": 0.37,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01491": {
+    "exp": -13.16,
+    "n": 2,
+    "sd": 4.44,
+    "max_mg_spread": 0.922,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00549": {
+    "exp": -19.03,
+    "n": 6,
+    "sd": 5.03,
+    "max_mg_spread": 0.899,
+    "temperatures": [
+     288.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00831": {
+    "exp": -13.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn08948": {
+    "exp": -9.99,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01099": {
+    "exp": -18.14,
+    "n": 15,
+    "sd": 0.74,
+    "max_mg_spread": 1.874,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn04684": {
+    "exp": -5.99,
+    "n": 45,
+    "sd": 0.47,
+    "max_mg_spread": 1.737,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00420": {
+    "exp": -10.29,
+    "n": 88,
+    "sd": 1.77,
+    "max_mg_spread": 1.951,
+    "temperatures": [
+     298.2,
+     303.5,
+     308.15,
+     308.2,
+     311.0,
+     311.15,
+     313.4
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00007": {
+    "exp": -11.85,
+    "n": 5,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.45,
+     292.25,
+     298.15,
+     304.55,
+     310.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01259": {
+    "exp": -7.52,
+    "n": 9,
+    "sd": 1.85,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.35,
+     292.45,
+     298.15,
+     304.15,
+     310.25,
+     313.0,
+     316.35,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00817": {
+    "exp": -10.5,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00816": {
+    "exp": -8.8,
+    "n": 7,
+    "sd": 1.71,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.15,
+     292.15,
+     298.15,
+     304.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00927": {
+    "exp": -9.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.124,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00141": {
+    "exp": 34.76,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn39443": {
+    "exp": 1.06,
+    "n": 31,
+    "sd": 3.49,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     292.15,
+     298.15,
+     304.15,
+     310.15,
+     316.15,
+     322.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn36656": {
+    "exp": -2.84,
+    "n": 3,
+    "sd": 0.25,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01792": {
+    "exp": 6.69,
+    "n": 6,
+    "sd": 0.63,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     284.95,
+     287.75,
+     292.35,
+     295.65,
+     298.15,
+     299.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01465": {
+    "exp": -3.63,
+    "n": 3,
+    "sd": 2.42,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01638": {
+    "exp": -0.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01746": {
+    "exp": 0.29,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01211": {
+    "exp": -2.01,
+    "n": 9,
+    "sd": 3.23,
+    "max_mg_spread": 0.095,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn00746": {
+    "exp": 19.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.432,
+    "temperatures": [
+     301.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00784": {
+    "exp": 20.55,
+    "n": 3,
+    "sd": 0.72,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     295.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00786": {
+    "exp": 15.7,
+    "n": 13,
+    "sd": 3.06,
+    "max_mg_spread": 1.308,
+    "temperatures": [
+     282.15,
+     296.15,
+     301.15,
+     303.15,
+     310.15,
+     311.15,
+     313.15,
+     321.15,
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01870": {
+    "exp": 30.5,
+    "n": 5,
+    "sd": 1.41,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     282.15,
+     296.15,
+     303.15,
+     310.15,
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03884": {
+    "exp": 13.39,
+    "n": 2,
+    "sd": 0.47,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01620": {
+    "exp": 19.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01621": {
+    "exp": 6.42,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00783": {
+    "exp": 10.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03643": {
+    "exp": -25.53,
+    "n": 2,
+    "sd": 0.01,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00336": {
+    "exp": 8.78,
+    "n": 4,
+    "sd": 4.17,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     295.65,
+     300.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00265": {
+    "exp": 0.88,
+    "n": 21,
+    "sd": 1.63,
+    "max_mg_spread": 1.352,
+    "temperatures": [
+     298.15,
+     300.15,
+     311.15
+    ],
+    "n_298": 18,
+    "I_imputed": true
+   },
+   "rxn00328": {
+    "exp": 10.22,
+    "n": 3,
+    "sd": 1.46,
+    "max_mg_spread": 1.069,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00234": {
+    "exp": 2.91,
+    "n": 6,
+    "sd": 3.69,
+    "max_mg_spread": 1.401,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn00331": {
+    "exp": 7.93,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.216,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00987": {
+    "exp": 0.84,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.394,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00799": {
+    "exp": 3.62,
+    "n": 102,
+    "sd": 0.52,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     275.8,
+     276.9,
+     277.0,
+     277.2,
+     277.8,
+     277.9,
+     278.15,
+     282.3,
+     283.5,
+     284.0,
+     286.1,
+     288.15,
+     288.2,
+     288.3,
+     290.6,
+     290.8,
+     291.2,
+     291.9,
+     292.6,
+     292.8,
+     293.15,
+     293.3,
+     293.4,
+     294.1,
+     295.2,
+     296.7,
+     298.1,
+     298.15,
+     298.5,
+     298.7,
+     299.2,
+     302.5,
+     303.0,
+     303.15,
+     303.6,
+     304.1,
+     307.3,
+     307.5,
+     307.6,
+     307.7,
+     307.8,
+     308.1,
+     308.3,
+     309.41,
+     309.9,
+     310.7,
+     311.15,
+     311.7,
+     313.0,
+     313.15,
+     313.4,
+     318.3,
+     320.05,
+     323.15,
+     323.3,
+     327.15
+    ],
+    "n_298": 24,
+    "I_imputed": true
+   },
+   "rxn00974": {
+    "exp": 7.93,
+    "n": 2,
+    "sd": 0.71,
+    "max_mg_spread": 0.211,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01388": {
+    "exp": 2.32,
+    "n": 3,
+    "sd": 0.49,
+    "max_mg_spread": 1.661,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00973": {
+    "exp": 6.37,
+    "n": 22,
+    "sd": 0.57,
+    "max_mg_spread": 1.958,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn02213": {
+    "exp": -6.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     302.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00459": {
+    "exp": -3.27,
+    "n": 88,
+    "sd": 0.68,
+    "max_mg_spread": 0.467,
+    "temperatures": [
+     288.0,
+     293.15,
+     298.15,
+     299.5,
+     307.5,
+     311.15
+    ],
+    "n_298": 83,
+    "I_imputed": true
+   },
+   "rxn02168": {
+    "exp": 4.27,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02167": {
+    "exp": 3.27,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.06,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn03250": {
+    "exp": 1.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.038,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01682": {
+    "exp": 21.34,
+    "n": 2,
+    "sd": 2.89,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01745": {
+    "exp": 18.52,
+    "n": 12,
+    "sd": 0.37,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     288.3,
+     292.9,
+     297.8,
+     298.15,
+     302.9,
+     307.9,
+     313.2
+    ],
+    "n_298": 6,
+    "I_imputed": false
+   },
+   "rxn02622": {
+    "exp": 4.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02749": {
+    "exp": 11.5,
+    "n": 14,
+    "sd": 0.41,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     283.5,
+     288.1,
+     292.5,
+     298.15,
+     298.2,
+     302.8,
+     307.9,
+     313.2
+    ],
+    "n_298": 7,
+    "I_imputed": false
+   },
+   "rxn01157": {
+    "exp": -9.01,
+    "n": 5,
+    "sd": 0.51,
+    "max_mg_spread": 1.0,
+    "temperatures": [
+     293.4,
+     302.3,
+     303.2,
+     310.15,
+     310.9
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02085": {
+    "exp": 8.7,
+    "n": 5,
+    "sd": 1.75,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     277.15,
+     288.15,
+     293.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02202": {
+    "exp": 3.99,
+    "n": 2,
+    "sd": 2.7,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00802": {
+    "exp": 14.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00800": {
+    "exp": 5.96,
+    "n": 4,
+    "sd": 0.87,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00562": {
+    "exp": 5.18,
+    "n": 3,
+    "sd": 0.09,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01834": {
+    "exp": 23.47,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00283": {
+    "exp": -0.0,
+    "n": 7,
+    "sd": 0.22,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00193": {
+    "exp": 0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00320": {
+    "exp": -0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01974": {
+    "exp": -1.66,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02360": {
+    "exp": 0.02,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn54659": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01116": {
+    "exp": -0.99,
+    "n": 5,
+    "sd": 1.2,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00214": {
+    "exp": 2.99,
+    "n": 11,
+    "sd": 0.17,
+    "max_mg_spread": 0.113,
+    "temperatures": [
+     298.15,
+     300.15,
+     303.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn04082": {
+    "exp": -0.46,
+    "n": 5,
+    "sd": 0.63,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     297.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01075": {
+    "exp": 0.0,
+    "n": 3,
+    "sd": 0.38,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01008": {
+    "exp": -0.67,
+    "n": 3,
+    "sd": 1.12,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01506": {
+    "exp": 1.96,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02975": {
+    "exp": -0.68,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn31240": {
+    "exp": -1.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.026,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00643": {
+    "exp": 1.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01996": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01532": {
+    "exp": 7.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     309.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02591": {
+    "exp": -10.53,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00747": {
+    "exp": -7.4,
+    "n": 17,
+    "sd": 0.78,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     303.15,
+     311.15,
+     312.15,
+     333.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn53440": {
+    "exp": -2.43,
+    "n": 6,
+    "sd": 0.5,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15,
+     313.15,
+     323.15,
+     333.15,
+     343.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01152": {
+    "exp": 4.98,
+    "n": 12,
+    "sd": 1.27,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     313.15,
+     320.25,
+     323.15,
+     325.25,
+     328.15,
+     331.95,
+     333.15,
+     338.15,
+     343.15,
+     343.75
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01292": {
+    "exp": 4.73,
+    "n": 3,
+    "sd": 0.51,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     326.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn44278": {
+    "exp": -3.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01044": {
+    "exp": 3.79,
+    "n": 23,
+    "sd": 0.75,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.35,
+     300.15,
+     303.15,
+     306.15,
+     310.15,
+     311.15,
+     313.15,
+     313.25,
+     314.05,
+     318.15,
+     320.15,
+     323.15,
+     325.15,
+     328.15,
+     331.15,
+     334.15,
+     335.05,
+     341.15,
+     342.15,
+     343.15,
+     345.15,
+     348.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00777": {
+    "exp": 2.86,
+    "n": 13,
+    "sd": 1.13,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     273.15,
+     298.15,
+     298.65,
+     304.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01386": {
+    "exp": -3.01,
+    "n": 2,
+    "sd": 0.9,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00559": {
+    "exp": -0.1,
+    "n": 2,
+    "sd": 2.4,
+    "max_mg_spread": 1.973,
+    "temperatures": [
+     304.75,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01457": {
+    "exp": 1.34,
+    "n": 2,
+    "sd": 3.14,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01080": {
+    "exp": 0.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01117": {
+    "exp": 2.48,
+    "n": 2,
+    "sd": 0.96,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00798": {
+    "exp": 1.95,
+    "n": 8,
+    "sd": 0.35,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15,
+     313.15,
+     320.25,
+     325.25,
+     328.15,
+     331.95,
+     338.15,
+     343.75
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01004": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00266": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00830": {
+    "exp": -5.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.297,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02204": {
+    "exp": -3.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01106": {
+    "exp": -6.41,
+    "n": 33,
+    "sd": 3.84,
+    "max_mg_spread": 1.977,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 7,
+    "I_imputed": true
+   },
+   "rxn01485": {
+    "exp": -2.73,
+    "n": 3,
+    "sd": 0.49,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01505": {
+    "exp": 4.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00778": {
+    "exp": -8.39,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn01329": {
+    "exp": 5.62,
+    "n": 3,
+    "sd": 3.68,
+    "max_mg_spread": 0.083,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00321": {
+    "exp": -4.62,
+    "n": 2,
+    "sd": 0.53,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01780": {
+    "exp": 6.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00195": {
+    "exp": -5.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00602": {
+    "exp": -7.51,
+    "n": 2,
+    "sd": 0.29,
+    "max_mg_spread": 0.14,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02756": {
+    "exp": 3.75,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02782": {
+    "exp": 14.26,
+    "n": 5,
+    "sd": 3.29,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00175": {
+    "exp": -4.73,
+    "n": 5,
+    "sd": 3.36,
+    "max_mg_spread": 1.364,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00306": {
+    "exp": 2.28,
+    "n": 37,
+    "sd": 2.43,
+    "max_mg_spread": 1.033,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 9,
+    "I_imputed": false
+   },
+   "rxn00690": {
+    "exp": -14.83,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.832,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00838": {
+    "exp": 15.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.942,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04932": {
+    "exp": 21.15,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01407": {
+    "exp": 30.09,
+    "n": 2,
+    "sd": 0.02,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00070": {
+    "exp": 23.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15964": {
+    "exp": -15.45,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00423": {
+    "exp": -6.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.045,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00493": {
+    "exp": -1.7,
+    "n": 2,
+    "sd": 0.07,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00527": {
+    "exp": -1.2,
+    "n": 2,
+    "sd": 0.05,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00806": {
+    "exp": -3.14,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03876": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01258": {
+    "exp": 1.09,
+    "n": 3,
+    "sd": 0.5,
+    "max_mg_spread": 0.11,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01130": {
+    "exp": -13.99,
+    "n": 63,
+    "sd": 1.59,
+    "max_mg_spread": 0.043,
+    "temperatures": [
+     278.15,
+     288.15,
+     298.15,
+     308.15,
+     313.15
+    ],
+    "n_298": 13,
+    "I_imputed": false
+   },
+   "rxn01249": {
+    "exp": 34.17,
+    "n": 2,
+    "sd": 4.5,
+    "max_mg_spread": 1.133,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01790": {
+    "exp": 26.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn14063": {
+    "exp": 37.07,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn16141": {
+    "exp": 10.18,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01018": {
+    "exp": -22.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01022": {
+    "exp": 11.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.08,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02900": {
+    "exp": 2.06,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.743,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00148": {
+    "exp": 25.1,
+    "n": 12,
+    "sd": 3.28,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     278.43,
+     280.13,
+     298.15,
+     307.93,
+     318.14
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn12158": {
+    "exp": 5.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.09,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00147": {
+    "exp": -14.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.375,
+    "temperatures": [
+     323.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00697": {
+    "exp": -6.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.234,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01299": {
+    "exp": -11.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.373,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01626": {
+    "exp": -6.53,
+    "n": 3,
+    "sd": 0.77,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00302": {
+    "exp": 9.08,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.709,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15750": {
+    "exp": 18.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01410": {
+    "exp": -1.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03281": {
+    "exp": 6.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00462": {
+    "exp": 11.21,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.164,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn12217": {
+    "exp": -25.65,
+    "n": 3,
+    "sd": 2.59,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     293.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03137": {
+    "exp": 4.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.013,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03644": {
+    "exp": -13.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.033,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   }
+  }
+ },
+ "1.0": {
+  "n_labels": 262,
+  "n_measurements": 2004,
+  "excluded": {
+   "missing_or_invalid_Kprime": 184,
+   "ambiguous_reaction_mapping": 388,
+   "todo_check_in_primary_literature": 19,
+   "Mg_sensitive_beyond_threshold": 727,
+   "missing_pH": 28,
+   "wrong_value": 50,
+   "chemical_reference_reaction": 6,
+   "duplicate_table": 2,
+   "virtual_entry": 3,
+   "missing_value_to_be_added": 1,
+   "misannotated_value_type": 8
+  },
+  "labels": {
+   "rxn01293": {
+    "exp": 23.79,
+    "n": 6,
+    "sd": 0.08,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02527": {
+    "exp": -26.84,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01597": {
+    "exp": -10.92,
+    "n": 4,
+    "sd": 1.31,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00543": {
+    "exp": 25.92,
+    "n": 80,
+    "sd": 5.19,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     283.75,
+     288.15,
+     290.5,
+     293.15,
+     293.4,
+     298.15,
+     303.15,
+     307.75,
+     308.15,
+     310.15,
+     311.15,
+     315.95
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn19090": {
+    "exp": 29.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02066": {
+    "exp": 28.06,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn40442": {
+    "exp": 10.19,
+    "n": 43,
+    "sd": 1.01,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     282.45,
+     282.55,
+     282.65,
+     285.55,
+     285.65,
+     285.85,
+     286.1,
+     298.15,
+     298.75,
+     309.95,
+     310.15,
+     310.35,
+     311.35,
+     313.75,
+     314.85
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn01530": {
+    "exp": 12.54,
+    "n": 3,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01301": {
+    "exp": 20.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01302": {
+    "exp": 31.22,
+    "n": 2,
+    "sd": 0.97,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn39373": {
+    "exp": 18.4,
+    "n": 2,
+    "sd": 0.21,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     300.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00762": {
+    "exp": 29.53,
+    "n": 9,
+    "sd": 2.16,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00611": {
+    "exp": 28.29,
+    "n": 15,
+    "sd": 1.23,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     282.95,
+     294.58,
+     295.15,
+     295.26,
+     297.65,
+     298.15,
+     298.28,
+     301.06,
+     309.7
+    ],
+    "n_298": 7,
+    "I_imputed": true
+   },
+   "rxn04943": {
+    "exp": 16.69,
+    "n": 3,
+    "sd": 3.25,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01383": {
+    "exp": 21.76,
+    "n": 8,
+    "sd": 2.42,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15,
+     301.15,
+     310.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01385": {
+    "exp": 22.43,
+    "n": 7,
+    "sd": 1.17,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn01392": {
+    "exp": 27.54,
+    "n": 5,
+    "sd": 1.45,
+    "max_mg_spread": 0.981,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02095": {
+    "exp": 14.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01043": {
+    "exp": 22.62,
+    "n": 2,
+    "sd": 2.08,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01363": {
+    "exp": 18.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     305.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01740": {
+    "exp": 16.04,
+    "n": 5,
+    "sd": 0.56,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01011": {
+    "exp": 34.3,
+    "n": 52,
+    "sd": 1.12,
+    "max_mg_spread": 0.693,
+    "temperatures": [
+     296.15,
+     298.15,
+     303.15,
+     311.15
+    ],
+    "n_298": 38,
+    "I_imputed": true
+   },
+   "rxn00512": {
+    "exp": 48.23,
+    "n": 16,
+    "sd": 6.95,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn00741": {
+    "exp": 23.95,
+    "n": 2,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00499": {
+    "exp": 29.35,
+    "n": 37,
+    "sd": 2.51,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     289.15,
+     295.15,
+     298.15,
+     298.65,
+     303.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 27,
+    "I_imputed": true
+   },
+   "rxn00500": {
+    "exp": 27.26,
+    "n": 2,
+    "sd": 5.55,
+    "max_mg_spread": 0.01,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00992": {
+    "exp": 14.22,
+    "n": 16,
+    "sd": 2.12,
+    "max_mg_spread": 0.827,
+    "temperatures": [
+     298.15,
+     305.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn01451": {
+    "exp": 21.94,
+    "n": 6,
+    "sd": 1.47,
+    "max_mg_spread": 0.079,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn03249": {
+    "exp": 24.4,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.128,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00248": {
+    "exp": 32.23,
+    "n": 71,
+    "sd": 1.35,
+    "max_mg_spread": 0.292,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 46,
+    "I_imputed": true
+   },
+   "rxn01846": {
+    "exp": 30.65,
+    "n": 2,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01847": {
+    "exp": 43.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00217": {
+    "exp": -2.3,
+    "n": 2,
+    "sd": 4.21,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     294.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00810": {
+    "exp": -12.88,
+    "n": 3,
+    "sd": 0.99,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01336": {
+    "exp": 6.05,
+    "n": 12,
+    "sd": 1.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn01617": {
+    "exp": 39.2,
+    "n": 4,
+    "sd": 0.19,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01174": {
+    "exp": 26.86,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01280": {
+    "exp": 38.89,
+    "n": 3,
+    "sd": 4.75,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01201": {
+    "exp": 1.23,
+    "n": 2,
+    "sd": 0.35,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01692": {
+    "exp": 8.0,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01101": {
+    "exp": 35.02,
+    "n": 6,
+    "sd": 8.08,
+    "max_mg_spread": 0.569,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn02459": {
+    "exp": 34.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02887": {
+    "exp": 15.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.017,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01725": {
+    "exp": 26.28,
+    "n": 3,
+    "sd": 0.13,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04945": {
+    "exp": 3.69,
+    "n": 4,
+    "sd": 1.95,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02842": {
+    "exp": 30.13,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02651": {
+    "exp": 23.26,
+    "n": 3,
+    "sd": 4.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn49067": {
+    "exp": 4.54,
+    "n": 3,
+    "sd": 1.18,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn02132": {
+    "exp": 20.48,
+    "n": 9,
+    "sd": 1.8,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01887": {
+    "exp": 16.22,
+    "n": 3,
+    "sd": 0.33,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15726": {
+    "exp": 30.79,
+    "n": 2,
+    "sd": 0.38,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01277": {
+    "exp": 25.49,
+    "n": 11,
+    "sd": 0.54,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01054": {
+    "exp": -2.56,
+    "n": 2,
+    "sd": 1.51,
+    "max_mg_spread": 0.014,
+    "temperatures": [
+     297.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00171": {
+    "exp": -13.68,
+    "n": 4,
+    "sd": 0.43,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01643": {
+    "exp": -16.46,
+    "n": 3,
+    "sd": 17.93,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00781": {
+    "exp": 13.46,
+    "n": 20,
+    "sd": 5.25,
+    "max_mg_spread": 0.47,
+    "temperatures": [
+     296.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn00326": {
+    "exp": 3.17,
+    "n": 5,
+    "sd": 0.19,
+    "max_mg_spread": 0.681,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01361": {
+    "exp": 16.19,
+    "n": 4,
+    "sd": 0.76,
+    "max_mg_spread": 0.275,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00931": {
+    "exp": 58.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00686": {
+    "exp": 32.01,
+    "n": 8,
+    "sd": 2.61,
+    "max_mg_spread": 0.055,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn00907": {
+    "exp": 9.67,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.103,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00402": {
+    "exp": 36.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00906": {
+    "exp": 17.65,
+    "n": 3,
+    "sd": 11.2,
+    "max_mg_spread": 0.121,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00280": {
+    "exp": 37.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01579": {
+    "exp": 30.24,
+    "n": 6,
+    "sd": 1.43,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     277.8,
+     281.2,
+     285.3,
+     291.1,
+     297.6,
+     305.0
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00083": {
+    "exp": -3.91,
+    "n": 11,
+    "sd": 0.55,
+    "max_mg_spread": 0.877,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn00086": {
+    "exp": 22.46,
+    "n": 37,
+    "sd": 4.34,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     283.15,
+     293.15,
+     298.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 30,
+    "I_imputed": true
+   },
+   "rxn00909": {
+    "exp": -19.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01241": {
+    "exp": 9.06,
+    "n": 10,
+    "sd": 1.94,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00824": {
+    "exp": 4.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.349,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00541": {
+    "exp": 10.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00692": {
+    "exp": 6.1,
+    "n": 4,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15,
+     303.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00911": {
+    "exp": 2.89,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01019": {
+    "exp": -33.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.042,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00404": {
+    "exp": -0.48,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00785": {
+    "exp": 8.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn01200": {
+    "exp": 1.38,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.551,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01333": {
+    "exp": 0.38,
+    "n": 4,
+    "sd": 1.38,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00753": {
+    "exp": -11.27,
+    "n": 6,
+    "sd": 6.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01726": {
+    "exp": -1.26,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00173": {
+    "exp": 13.06,
+    "n": 7,
+    "sd": 1.05,
+    "max_mg_spread": 0.092,
+    "temperatures": [
+     298.15,
+     300.15,
+     301.15,
+     303.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00172": {
+    "exp": -2.29,
+    "n": 6,
+    "sd": 1.06,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00178": {
+    "exp": 22.78,
+    "n": 5,
+    "sd": 4.34,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01409": {
+    "exp": 1.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01636": {
+    "exp": 5.3,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00157": {
+    "exp": 16.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00698": {
+    "exp": 4.3,
+    "n": 2,
+    "sd": 0.0,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00699": {
+    "exp": 3.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn05026": {
+    "exp": 5.65,
+    "n": 2,
+    "sd": 2.06,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02451": {
+    "exp": -3.48,
+    "n": 2,
+    "sd": 0.06,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     305.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01713": {
+    "exp": 7.98,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.065,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01138": {
+    "exp": 7.71,
+    "n": 3,
+    "sd": 3.51,
+    "max_mg_spread": 0.098,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01985": {
+    "exp": 10.18,
+    "n": 2,
+    "sd": 0.85,
+    "max_mg_spread": 0.148,
+    "temperatures": [
+     297.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01548": {
+    "exp": 11.25,
+    "n": 2,
+    "sd": 0.77,
+    "max_mg_spread": 0.09,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01358": {
+    "exp": 10.56,
+    "n": 9,
+    "sd": 1.01,
+    "max_mg_spread": 0.33,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01646": {
+    "exp": -14.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.047,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01366": {
+    "exp": 0.76,
+    "n": 5,
+    "sd": 6.41,
+    "max_mg_spread": 0.053,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00139": {
+    "exp": 18.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00915": {
+    "exp": 27.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00836": {
+    "exp": 29.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00260": {
+    "exp": 4.77,
+    "n": 12,
+    "sd": 0.61,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     283.15,
+     288.15,
+     292.65,
+     298.15,
+     303.15,
+     310.15,
+     310.65,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00191": {
+    "exp": -0.72,
+    "n": 12,
+    "sd": 0.99,
+    "max_mg_spread": 0.016,
+    "temperatures": [
+     298.15,
+     308.15,
+     310.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02320": {
+    "exp": -7.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.154,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15055": {
+    "exp": -12.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00415": {
+    "exp": -14.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03087": {
+    "exp": 1.79,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00656": {
+    "exp": 3.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01204": {
+    "exp": 5.41,
+    "n": 4,
+    "sd": 2.32,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00849": {
+    "exp": 0.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01253": {
+    "exp": -1.09,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01999": {
+    "exp": -0.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00276": {
+    "exp": 8.61,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01423": {
+    "exp": -0.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00422": {
+    "exp": 3.87,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.915,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn02914": {
+    "exp": 13.93,
+    "n": 26,
+    "sd": 3.43,
+    "max_mg_spread": 0.905,
+    "temperatures": [
+     298.15,
+     305.0,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00225": {
+    "exp": 6.31,
+    "n": 10,
+    "sd": 1.27,
+    "max_mg_spread": 0.482,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01100": {
+    "exp": 30.06,
+    "n": 19,
+    "sd": 4.53,
+    "max_mg_spread": 0.506,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01371": {
+    "exp": 8.66,
+    "n": 123,
+    "sd": 2.46,
+    "max_mg_spread": 0.979,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn00396": {
+    "exp": 1.14,
+    "n": 21,
+    "sd": 2.85,
+    "max_mg_spread": 0.955,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     306.15,
+     313.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn02685": {
+    "exp": 0.41,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.679,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00097": {
+    "exp": -5.77,
+    "n": 249,
+    "sd": 1.58,
+    "max_mg_spread": 0.817,
+    "temperatures": [
+     280.3,
+     286.05,
+     288.15,
+     292.15,
+     293.15,
+     297.15,
+     298.15,
+     300.4,
+     303.15,
+     304.15,
+     310.15,
+     310.25,
+     311.15,
+     322.6
+    ],
+    "n_298": 99,
+    "I_imputed": true
+   },
+   "rxn10427": {
+    "exp": -4.89,
+    "n": 4,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00515": {
+    "exp": -0.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.248,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00770": {
+    "exp": -1.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00213": {
+    "exp": 4.76,
+    "n": 7,
+    "sd": 2.66,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01380": {
+    "exp": 6.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00290": {
+    "exp": 3.97,
+    "n": 2,
+    "sd": 3.33,
+    "max_mg_spread": 0.196,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00754": {
+    "exp": -24.17,
+    "n": 3,
+    "sd": 0.43,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     296.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01702": {
+    "exp": 19.83,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00132": {
+    "exp": -13.87,
+    "n": 2,
+    "sd": 0.37,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01491": {
+    "exp": -13.16,
+    "n": 2,
+    "sd": 4.44,
+    "max_mg_spread": 0.922,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00549": {
+    "exp": -19.03,
+    "n": 6,
+    "sd": 5.03,
+    "max_mg_spread": 0.899,
+    "temperatures": [
+     288.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00831": {
+    "exp": -13.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn08948": {
+    "exp": -9.99,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01099": {
+    "exp": -18.53,
+    "n": 9,
+    "sd": 0.82,
+    "max_mg_spread": 0.371,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn04684": {
+    "exp": -6.2,
+    "n": 28,
+    "sd": 0.52,
+    "max_mg_spread": 0.923,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00420": {
+    "exp": -10.76,
+    "n": 28,
+    "sd": 1.62,
+    "max_mg_spread": 0.939,
+    "temperatures": [
+     308.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00007": {
+    "exp": -11.85,
+    "n": 5,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.45,
+     292.25,
+     298.15,
+     304.55,
+     310.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01259": {
+    "exp": -7.52,
+    "n": 9,
+    "sd": 1.85,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.35,
+     292.45,
+     298.15,
+     304.15,
+     310.25,
+     313.0,
+     316.35,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00817": {
+    "exp": -10.5,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00816": {
+    "exp": -8.8,
+    "n": 7,
+    "sd": 1.71,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.15,
+     292.15,
+     298.15,
+     304.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00927": {
+    "exp": -9.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.124,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00141": {
+    "exp": 34.76,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn39443": {
+    "exp": 1.06,
+    "n": 31,
+    "sd": 3.49,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     292.15,
+     298.15,
+     304.15,
+     310.15,
+     316.15,
+     322.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn36656": {
+    "exp": -2.84,
+    "n": 3,
+    "sd": 0.25,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01792": {
+    "exp": 6.69,
+    "n": 6,
+    "sd": 0.63,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     284.95,
+     287.75,
+     292.35,
+     295.65,
+     298.15,
+     299.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01465": {
+    "exp": -3.63,
+    "n": 3,
+    "sd": 2.42,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01638": {
+    "exp": -0.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01746": {
+    "exp": 0.29,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01211": {
+    "exp": -2.01,
+    "n": 9,
+    "sd": 3.23,
+    "max_mg_spread": 0.095,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn00746": {
+    "exp": 19.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.432,
+    "temperatures": [
+     301.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00784": {
+    "exp": 20.55,
+    "n": 3,
+    "sd": 0.72,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     295.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00786": {
+    "exp": 16.17,
+    "n": 9,
+    "sd": 1.35,
+    "max_mg_spread": 0.205,
+    "temperatures": [
+     301.15,
+     303.15,
+     310.15,
+     311.15,
+     313.15,
+     321.15,
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01870": {
+    "exp": 30.5,
+    "n": 5,
+    "sd": 1.41,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     282.15,
+     296.15,
+     303.15,
+     310.15,
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03884": {
+    "exp": 13.39,
+    "n": 2,
+    "sd": 0.47,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01620": {
+    "exp": 19.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01621": {
+    "exp": 6.42,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00783": {
+    "exp": 10.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03643": {
+    "exp": -25.53,
+    "n": 2,
+    "sd": 0.01,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00336": {
+    "exp": 8.78,
+    "n": 4,
+    "sd": 4.17,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     295.65,
+     300.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00265": {
+    "exp": 0.94,
+    "n": 20,
+    "sd": 1.34,
+    "max_mg_spread": 0.222,
+    "temperatures": [
+     298.15,
+     300.15,
+     311.15
+    ],
+    "n_298": 18,
+    "I_imputed": true
+   },
+   "rxn00328": {
+    "exp": 11.44,
+    "n": 2,
+    "sd": 1.81,
+    "max_mg_spread": 0.015,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00234": {
+    "exp": 3.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.987,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": false
+   },
+   "rxn00331": {
+    "exp": 7.93,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.216,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00799": {
+    "exp": 3.62,
+    "n": 102,
+    "sd": 0.52,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     275.8,
+     276.9,
+     277.0,
+     277.2,
+     277.8,
+     277.9,
+     278.15,
+     282.3,
+     283.5,
+     284.0,
+     286.1,
+     288.15,
+     288.2,
+     288.3,
+     290.6,
+     290.8,
+     291.2,
+     291.9,
+     292.6,
+     292.8,
+     293.15,
+     293.3,
+     293.4,
+     294.1,
+     295.2,
+     296.7,
+     298.1,
+     298.15,
+     298.5,
+     298.7,
+     299.2,
+     302.5,
+     303.0,
+     303.15,
+     303.6,
+     304.1,
+     307.3,
+     307.5,
+     307.6,
+     307.7,
+     307.8,
+     308.1,
+     308.3,
+     309.41,
+     309.9,
+     310.7,
+     311.15,
+     311.7,
+     313.0,
+     313.15,
+     313.4,
+     318.3,
+     320.05,
+     323.15,
+     323.3,
+     327.15
+    ],
+    "n_298": 24,
+    "I_imputed": true
+   },
+   "rxn00974": {
+    "exp": 7.93,
+    "n": 2,
+    "sd": 0.71,
+    "max_mg_spread": 0.211,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01388": {
+    "exp": 1.89,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.026,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00973": {
+    "exp": 6.12,
+    "n": 15,
+    "sd": 0.55,
+    "max_mg_spread": 0.988,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn02213": {
+    "exp": -6.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     302.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00459": {
+    "exp": -3.27,
+    "n": 88,
+    "sd": 0.68,
+    "max_mg_spread": 0.467,
+    "temperatures": [
+     288.0,
+     293.15,
+     298.15,
+     299.5,
+     307.5,
+     311.15
+    ],
+    "n_298": 83,
+    "I_imputed": true
+   },
+   "rxn02168": {
+    "exp": 4.27,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02167": {
+    "exp": 3.27,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.06,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn03250": {
+    "exp": 1.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.038,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01682": {
+    "exp": 21.34,
+    "n": 2,
+    "sd": 2.89,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01745": {
+    "exp": 18.52,
+    "n": 12,
+    "sd": 0.37,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     288.3,
+     292.9,
+     297.8,
+     298.15,
+     302.9,
+     307.9,
+     313.2
+    ],
+    "n_298": 6,
+    "I_imputed": false
+   },
+   "rxn02622": {
+    "exp": 4.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02749": {
+    "exp": 11.5,
+    "n": 14,
+    "sd": 0.41,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     283.5,
+     288.1,
+     292.5,
+     298.15,
+     298.2,
+     302.8,
+     307.9,
+     313.2
+    ],
+    "n_298": 7,
+    "I_imputed": false
+   },
+   "rxn01157": {
+    "exp": -9.01,
+    "n": 5,
+    "sd": 0.51,
+    "max_mg_spread": 1.0,
+    "temperatures": [
+     293.4,
+     302.3,
+     303.2,
+     310.15,
+     310.9
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02085": {
+    "exp": 8.7,
+    "n": 5,
+    "sd": 1.75,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     277.15,
+     288.15,
+     293.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02202": {
+    "exp": 3.99,
+    "n": 2,
+    "sd": 2.7,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00802": {
+    "exp": 14.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00800": {
+    "exp": 5.96,
+    "n": 4,
+    "sd": 0.87,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00562": {
+    "exp": 5.18,
+    "n": 3,
+    "sd": 0.09,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01834": {
+    "exp": 23.47,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00283": {
+    "exp": -0.0,
+    "n": 7,
+    "sd": 0.22,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00193": {
+    "exp": 0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00320": {
+    "exp": -0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01974": {
+    "exp": -1.66,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02360": {
+    "exp": 0.02,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn54659": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01116": {
+    "exp": -0.99,
+    "n": 5,
+    "sd": 1.2,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00214": {
+    "exp": 2.99,
+    "n": 11,
+    "sd": 0.17,
+    "max_mg_spread": 0.113,
+    "temperatures": [
+     298.15,
+     300.15,
+     303.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn04082": {
+    "exp": -0.46,
+    "n": 5,
+    "sd": 0.63,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     297.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01075": {
+    "exp": 0.0,
+    "n": 3,
+    "sd": 0.38,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01008": {
+    "exp": -0.67,
+    "n": 3,
+    "sd": 1.12,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01506": {
+    "exp": 1.96,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02975": {
+    "exp": -0.68,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn31240": {
+    "exp": -1.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.026,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00643": {
+    "exp": 1.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01996": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01532": {
+    "exp": 7.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     309.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02591": {
+    "exp": -10.53,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00747": {
+    "exp": -7.4,
+    "n": 17,
+    "sd": 0.78,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     303.15,
+     311.15,
+     312.15,
+     333.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn53440": {
+    "exp": -2.43,
+    "n": 6,
+    "sd": 0.5,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15,
+     313.15,
+     323.15,
+     333.15,
+     343.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01152": {
+    "exp": 4.98,
+    "n": 12,
+    "sd": 1.27,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     313.15,
+     320.25,
+     323.15,
+     325.25,
+     328.15,
+     331.95,
+     333.15,
+     338.15,
+     343.15,
+     343.75
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01292": {
+    "exp": 4.73,
+    "n": 3,
+    "sd": 0.51,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     326.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn44278": {
+    "exp": -3.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01044": {
+    "exp": 3.79,
+    "n": 23,
+    "sd": 0.75,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.35,
+     300.15,
+     303.15,
+     306.15,
+     310.15,
+     311.15,
+     313.15,
+     313.25,
+     314.05,
+     318.15,
+     320.15,
+     323.15,
+     325.15,
+     328.15,
+     331.15,
+     334.15,
+     335.05,
+     341.15,
+     342.15,
+     343.15,
+     345.15,
+     348.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00777": {
+    "exp": 2.86,
+    "n": 13,
+    "sd": 1.13,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     273.15,
+     298.15,
+     298.65,
+     304.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01386": {
+    "exp": -3.01,
+    "n": 2,
+    "sd": 0.9,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00559": {
+    "exp": -1.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01457": {
+    "exp": 1.34,
+    "n": 2,
+    "sd": 3.14,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01080": {
+    "exp": 0.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01117": {
+    "exp": 2.48,
+    "n": 2,
+    "sd": 0.96,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00798": {
+    "exp": 1.95,
+    "n": 8,
+    "sd": 0.35,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15,
+     313.15,
+     320.25,
+     325.25,
+     328.15,
+     331.95,
+     338.15,
+     343.75
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01004": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00266": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00830": {
+    "exp": -5.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.297,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02204": {
+    "exp": -3.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01106": {
+    "exp": -4.82,
+    "n": 25,
+    "sd": 4.42,
+    "max_mg_spread": 0.19,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 7,
+    "I_imputed": true
+   },
+   "rxn01485": {
+    "exp": -2.73,
+    "n": 3,
+    "sd": 0.49,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01505": {
+    "exp": 4.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00778": {
+    "exp": -8.39,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn01329": {
+    "exp": 5.62,
+    "n": 3,
+    "sd": 3.68,
+    "max_mg_spread": 0.083,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00321": {
+    "exp": -4.62,
+    "n": 2,
+    "sd": 0.53,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01780": {
+    "exp": 6.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00195": {
+    "exp": -5.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00602": {
+    "exp": -7.51,
+    "n": 2,
+    "sd": 0.29,
+    "max_mg_spread": 0.14,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02756": {
+    "exp": 3.75,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02782": {
+    "exp": 14.26,
+    "n": 5,
+    "sd": 3.29,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00175": {
+    "exp": 2.67,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00306": {
+    "exp": 2.39,
+    "n": 33,
+    "sd": 2.46,
+    "max_mg_spread": 0.996,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 5,
+    "I_imputed": false
+   },
+   "rxn00838": {
+    "exp": 15.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.942,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04932": {
+    "exp": 21.15,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01407": {
+    "exp": 30.09,
+    "n": 2,
+    "sd": 0.02,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00070": {
+    "exp": 23.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15964": {
+    "exp": -15.45,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00423": {
+    "exp": -6.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.045,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00493": {
+    "exp": -1.7,
+    "n": 2,
+    "sd": 0.07,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00527": {
+    "exp": -1.2,
+    "n": 2,
+    "sd": 0.05,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00806": {
+    "exp": -3.14,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00239": {
+    "exp": -5.7,
+    "n": 5,
+    "sd": 0.76,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn03876": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01258": {
+    "exp": 1.09,
+    "n": 3,
+    "sd": 0.5,
+    "max_mg_spread": 0.11,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01130": {
+    "exp": -13.99,
+    "n": 63,
+    "sd": 1.59,
+    "max_mg_spread": 0.043,
+    "temperatures": [
+     278.15,
+     288.15,
+     298.15,
+     308.15,
+     313.15
+    ],
+    "n_298": 13,
+    "I_imputed": false
+   },
+   "rxn01790": {
+    "exp": 26.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn14063": {
+    "exp": 37.07,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn16141": {
+    "exp": 10.18,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01018": {
+    "exp": -22.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01022": {
+    "exp": 11.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.08,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00148": {
+    "exp": 25.1,
+    "n": 12,
+    "sd": 3.28,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     278.43,
+     280.13,
+     298.15,
+     307.93,
+     318.14
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn12158": {
+    "exp": 5.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.09,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00147": {
+    "exp": -14.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.375,
+    "temperatures": [
+     323.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01299": {
+    "exp": -11.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.373,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01626": {
+    "exp": -6.53,
+    "n": 3,
+    "sd": 0.77,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00302": {
+    "exp": 9.08,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.709,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15750": {
+    "exp": 18.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01410": {
+    "exp": -1.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03281": {
+    "exp": 6.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn12217": {
+    "exp": -25.65,
+    "n": 3,
+    "sd": 2.59,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     293.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03137": {
+    "exp": 4.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.013,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03644": {
+    "exp": -13.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.033,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   }
+  }
+ },
+ "4.0": {
+  "n_labels": 284,
+  "n_measurements": 2451,
+  "excluded": {
+   "missing_or_invalid_Kprime": 184,
+   "ambiguous_reaction_mapping": 388,
+   "todo_check_in_primary_literature": 19,
+   "Mg_sensitive_beyond_threshold": 280,
+   "missing_pH": 28,
+   "wrong_value": 50,
+   "chemical_reference_reaction": 6,
+   "duplicate_table": 2,
+   "virtual_entry": 3,
+   "missing_value_to_be_added": 1,
+   "misannotated_value_type": 8
+  },
+  "labels": {
+   "rxn01293": {
+    "exp": 23.79,
+    "n": 6,
+    "sd": 0.08,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02527": {
+    "exp": -26.84,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01597": {
+    "exp": -10.92,
+    "n": 4,
+    "sd": 1.31,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00543": {
+    "exp": 25.92,
+    "n": 80,
+    "sd": 5.19,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     283.75,
+     288.15,
+     290.5,
+     293.15,
+     293.4,
+     298.15,
+     303.15,
+     307.75,
+     308.15,
+     310.15,
+     311.15,
+     315.95
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn19090": {
+    "exp": 29.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02066": {
+    "exp": 28.06,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn40442": {
+    "exp": 10.19,
+    "n": 43,
+    "sd": 1.01,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     282.45,
+     282.55,
+     282.65,
+     285.55,
+     285.65,
+     285.85,
+     286.1,
+     298.15,
+     298.75,
+     309.95,
+     310.15,
+     310.35,
+     311.35,
+     313.75,
+     314.85
+    ],
+    "n_298": 29,
+    "I_imputed": true
+   },
+   "rxn01530": {
+    "exp": 12.54,
+    "n": 3,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01301": {
+    "exp": 20.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01302": {
+    "exp": 31.22,
+    "n": 2,
+    "sd": 0.97,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn39373": {
+    "exp": 18.4,
+    "n": 2,
+    "sd": 0.21,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     300.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00762": {
+    "exp": 29.53,
+    "n": 9,
+    "sd": 2.16,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     300.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00611": {
+    "exp": 28.29,
+    "n": 15,
+    "sd": 1.23,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     282.95,
+     294.58,
+     295.15,
+     295.26,
+     297.65,
+     298.15,
+     298.28,
+     301.06,
+     309.7
+    ],
+    "n_298": 7,
+    "I_imputed": true
+   },
+   "rxn04943": {
+    "exp": 16.69,
+    "n": 3,
+    "sd": 3.25,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01383": {
+    "exp": 21.76,
+    "n": 8,
+    "sd": 2.42,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15,
+     301.15,
+     310.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01385": {
+    "exp": 22.43,
+    "n": 7,
+    "sd": 1.17,
+    "max_mg_spread": 0.746,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn01392": {
+    "exp": 27.54,
+    "n": 5,
+    "sd": 1.45,
+    "max_mg_spread": 0.981,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02095": {
+    "exp": 14.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01043": {
+    "exp": 22.62,
+    "n": 2,
+    "sd": 2.08,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01363": {
+    "exp": 18.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     305.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01740": {
+    "exp": 16.04,
+    "n": 5,
+    "sd": 0.56,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01011": {
+    "exp": 34.3,
+    "n": 52,
+    "sd": 1.12,
+    "max_mg_spread": 0.693,
+    "temperatures": [
+     296.15,
+     298.15,
+     303.15,
+     311.15
+    ],
+    "n_298": 38,
+    "I_imputed": true
+   },
+   "rxn00512": {
+    "exp": 48.23,
+    "n": 16,
+    "sd": 6.95,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn00741": {
+    "exp": 23.95,
+    "n": 2,
+    "sd": 0.1,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00499": {
+    "exp": 29.35,
+    "n": 37,
+    "sd": 2.51,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     289.15,
+     295.15,
+     298.15,
+     298.65,
+     303.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 27,
+    "I_imputed": true
+   },
+   "rxn00500": {
+    "exp": 27.26,
+    "n": 2,
+    "sd": 5.55,
+    "max_mg_spread": 0.01,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00992": {
+    "exp": 14.22,
+    "n": 16,
+    "sd": 2.12,
+    "max_mg_spread": 0.827,
+    "temperatures": [
+     298.15,
+     305.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn01451": {
+    "exp": 21.94,
+    "n": 6,
+    "sd": 1.47,
+    "max_mg_spread": 0.079,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn03249": {
+    "exp": 24.4,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.128,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn00248": {
+    "exp": 32.23,
+    "n": 71,
+    "sd": 1.35,
+    "max_mg_spread": 0.292,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 46,
+    "I_imputed": true
+   },
+   "rxn01846": {
+    "exp": 30.65,
+    "n": 2,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01847": {
+    "exp": 43.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00217": {
+    "exp": -2.3,
+    "n": 2,
+    "sd": 4.21,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     294.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00810": {
+    "exp": -12.88,
+    "n": 3,
+    "sd": 0.99,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01336": {
+    "exp": 6.05,
+    "n": 12,
+    "sd": 1.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15,
+     298.65
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn01617": {
+    "exp": 39.2,
+    "n": 4,
+    "sd": 0.19,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01174": {
+    "exp": 26.86,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01280": {
+    "exp": 38.89,
+    "n": 3,
+    "sd": 4.75,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     296.15,
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01201": {
+    "exp": 1.23,
+    "n": 2,
+    "sd": 0.35,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01692": {
+    "exp": 8.0,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01101": {
+    "exp": 37.65,
+    "n": 21,
+    "sd": 4.77,
+    "max_mg_spread": 2.79,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn02459": {
+    "exp": 34.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02887": {
+    "exp": 15.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.017,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01725": {
+    "exp": 26.28,
+    "n": 3,
+    "sd": 0.13,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04945": {
+    "exp": 3.69,
+    "n": 4,
+    "sd": 1.95,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02842": {
+    "exp": 30.13,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02651": {
+    "exp": 23.26,
+    "n": 3,
+    "sd": 4.78,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn49067": {
+    "exp": 4.54,
+    "n": 3,
+    "sd": 1.18,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn02132": {
+    "exp": 20.48,
+    "n": 9,
+    "sd": 1.8,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01887": {
+    "exp": 16.22,
+    "n": 3,
+    "sd": 0.33,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15726": {
+    "exp": 30.79,
+    "n": 2,
+    "sd": 0.38,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01277": {
+    "exp": 25.49,
+    "n": 11,
+    "sd": 0.54,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01054": {
+    "exp": -2.56,
+    "n": 2,
+    "sd": 1.51,
+    "max_mg_spread": 0.014,
+    "temperatures": [
+     297.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00171": {
+    "exp": -13.68,
+    "n": 4,
+    "sd": 0.43,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 4,
+    "I_imputed": true
+   },
+   "rxn01643": {
+    "exp": -16.46,
+    "n": 3,
+    "sd": 17.93,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00781": {
+    "exp": 13.64,
+    "n": 35,
+    "sd": 3.96,
+    "max_mg_spread": 3.69,
+    "temperatures": [
+     296.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn00326": {
+    "exp": 3.17,
+    "n": 5,
+    "sd": 0.19,
+    "max_mg_spread": 0.681,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01361": {
+    "exp": 16.19,
+    "n": 4,
+    "sd": 0.76,
+    "max_mg_spread": 0.275,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00931": {
+    "exp": 58.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00686": {
+    "exp": 32.01,
+    "n": 8,
+    "sd": 2.61,
+    "max_mg_spread": 0.055,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn00907": {
+    "exp": 9.67,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.103,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00402": {
+    "exp": 36.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00906": {
+    "exp": 17.65,
+    "n": 3,
+    "sd": 11.2,
+    "max_mg_spread": 0.121,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00280": {
+    "exp": 37.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.011,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01579": {
+    "exp": 30.24,
+    "n": 6,
+    "sd": 1.43,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     277.8,
+     281.2,
+     285.3,
+     291.1,
+     297.6,
+     305.0
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00083": {
+    "exp": -3.92,
+    "n": 13,
+    "sd": 0.5,
+    "max_mg_spread": 1.75,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 10,
+    "I_imputed": true
+   },
+   "rxn00086": {
+    "exp": 22.46,
+    "n": 37,
+    "sd": 4.34,
+    "max_mg_spread": 0.039,
+    "temperatures": [
+     283.15,
+     293.15,
+     298.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 30,
+    "I_imputed": true
+   },
+   "rxn00909": {
+    "exp": -19.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01241": {
+    "exp": 9.06,
+    "n": 10,
+    "sd": 1.94,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00824": {
+    "exp": 4.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.349,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00541": {
+    "exp": 10.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.006,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00692": {
+    "exp": 6.1,
+    "n": 4,
+    "sd": 0.79,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15,
+     303.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00911": {
+    "exp": 2.89,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01019": {
+    "exp": -33.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.042,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00404": {
+    "exp": -0.48,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00785": {
+    "exp": 6.35,
+    "n": 2,
+    "sd": 2.38,
+    "max_mg_spread": 2.147,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01200": {
+    "exp": 1.38,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.551,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01333": {
+    "exp": 0.38,
+    "n": 4,
+    "sd": 1.38,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00753": {
+    "exp": -11.27,
+    "n": 6,
+    "sd": 6.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01726": {
+    "exp": -1.26,
+    "n": 4,
+    "sd": 0.15,
+    "max_mg_spread": 0.048,
+    "temperatures": [
+     298.15,
+     308.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00173": {
+    "exp": 13.06,
+    "n": 7,
+    "sd": 1.05,
+    "max_mg_spread": 0.092,
+    "temperatures": [
+     298.15,
+     300.15,
+     301.15,
+     303.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00172": {
+    "exp": -2.17,
+    "n": 12,
+    "sd": 1.49,
+    "max_mg_spread": 1.613,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00178": {
+    "exp": 23.24,
+    "n": 11,
+    "sd": 3.33,
+    "max_mg_spread": 1.314,
+    "temperatures": [
+     289.15,
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01409": {
+    "exp": 1.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01636": {
+    "exp": 5.3,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00157": {
+    "exp": 16.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.024,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00698": {
+    "exp": 4.3,
+    "n": 3,
+    "sd": 1.08,
+    "max_mg_spread": 2.088,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00699": {
+    "exp": 3.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn05026": {
+    "exp": 5.65,
+    "n": 2,
+    "sd": 2.06,
+    "max_mg_spread": 0.036,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02451": {
+    "exp": -3.48,
+    "n": 2,
+    "sd": 0.06,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     305.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01713": {
+    "exp": 7.98,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.065,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01138": {
+    "exp": 7.71,
+    "n": 3,
+    "sd": 3.51,
+    "max_mg_spread": 0.098,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01985": {
+    "exp": 10.18,
+    "n": 2,
+    "sd": 0.85,
+    "max_mg_spread": 0.148,
+    "temperatures": [
+     297.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01548": {
+    "exp": 11.25,
+    "n": 2,
+    "sd": 0.77,
+    "max_mg_spread": 0.09,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01358": {
+    "exp": 10.9,
+    "n": 12,
+    "sd": 1.73,
+    "max_mg_spread": 2.289,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn01646": {
+    "exp": -14.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.047,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01366": {
+    "exp": 0.76,
+    "n": 5,
+    "sd": 6.41,
+    "max_mg_spread": 0.053,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00139": {
+    "exp": 18.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00915": {
+    "exp": 27.36,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00836": {
+    "exp": 29.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00260": {
+    "exp": 4.77,
+    "n": 12,
+    "sd": 0.61,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     283.15,
+     288.15,
+     292.65,
+     298.15,
+     303.15,
+     310.15,
+     310.65,
+     311.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00191": {
+    "exp": -0.72,
+    "n": 12,
+    "sd": 0.99,
+    "max_mg_spread": 0.016,
+    "temperatures": [
+     298.15,
+     308.15,
+     310.15,
+     311.15,
+     313.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn02320": {
+    "exp": -7.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.154,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15055": {
+    "exp": -12.16,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00415": {
+    "exp": -14.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03087": {
+    "exp": 1.79,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00656": {
+    "exp": 3.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01204": {
+    "exp": 5.41,
+    "n": 4,
+    "sd": 2.32,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     295.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00849": {
+    "exp": 0.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01253": {
+    "exp": -1.09,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.019,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01999": {
+    "exp": -0.88,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.002,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00276": {
+    "exp": 8.61,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01423": {
+    "exp": -0.72,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00422": {
+    "exp": 3.58,
+    "n": 8,
+    "sd": 0.53,
+    "max_mg_spread": 1.978,
+    "temperatures": [
+     298.15,
+     303.15,
+     311.15,
+     323.15
+    ],
+    "n_298": 1,
+    "I_imputed": false
+   },
+   "rxn02914": {
+    "exp": 14.09,
+    "n": 56,
+    "sd": 2.38,
+    "max_mg_spread": 3.088,
+    "temperatures": [
+     298.15,
+     305.0,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00545": {
+    "exp": -9.68,
+    "n": 9,
+    "sd": 2.7,
+    "max_mg_spread": 2.958,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00148": {
+    "exp": 24.14,
+    "n": 29,
+    "sd": 2.53,
+    "max_mg_spread": 3.758,
+    "temperatures": [
+     278.43,
+     280.13,
+     288.15,
+     298.15,
+     303.15,
+     307.93,
+     318.14
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn00225": {
+    "exp": 6.15,
+    "n": 12,
+    "sd": 1.53,
+    "max_mg_spread": 3.893,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 11,
+    "I_imputed": true
+   },
+   "rxn01100": {
+    "exp": 28.26,
+    "n": 22,
+    "sd": 5.1,
+    "max_mg_spread": 2.713,
+    "temperatures": [
+     277.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01371": {
+    "exp": 8.64,
+    "n": 127,
+    "sd": 2.46,
+    "max_mg_spread": 3.659,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn00396": {
+    "exp": 1.14,
+    "n": 21,
+    "sd": 2.85,
+    "max_mg_spread": 0.955,
+    "temperatures": [
+     278.15,
+     288.15,
+     293.15,
+     298.15,
+     306.15,
+     313.15
+    ],
+    "n_298": 16,
+    "I_imputed": true
+   },
+   "rxn02685": {
+    "exp": 0.41,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.679,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02322": {
+    "exp": -3.18,
+    "n": 2,
+    "sd": 1.28,
+    "max_mg_spread": 1.42,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00097": {
+    "exp": -5.77,
+    "n": 324,
+    "sd": 1.53,
+    "max_mg_spread": 3.762,
+    "temperatures": [
+     274.15,
+     277.15,
+     280.3,
+     285.15,
+     286.05,
+     288.15,
+     292.15,
+     293.15,
+     297.15,
+     298.15,
+     300.15,
+     300.4,
+     303.15,
+     304.15,
+     310.15,
+     310.25,
+     311.15,
+     313.15,
+     322.6
+    ],
+    "n_298": 156,
+    "I_imputed": true
+   },
+   "rxn10427": {
+    "exp": -4.89,
+    "n": 4,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00117": {
+    "exp": 0.68,
+    "n": 2,
+    "sd": 0.61,
+    "max_mg_spread": 1.668,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00515": {
+    "exp": -0.11,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.248,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00237": {
+    "exp": -1.45,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 2.708,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00239": {
+    "exp": -5.69,
+    "n": 6,
+    "sd": 2.59,
+    "max_mg_spread": 1.723,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 5,
+    "I_imputed": true
+   },
+   "rxn01509": {
+    "exp": -0.95,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.495,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn08066": {
+    "exp": -3.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 2.972,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01513": {
+    "exp": -1.49,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 2.531,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00364": {
+    "exp": -4.24,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.497,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01219": {
+    "exp": -5.99,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 2.387,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00770": {
+    "exp": -0.31,
+    "n": 2,
+    "sd": 2.22,
+    "max_mg_spread": 2.763,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00213": {
+    "exp": 4.57,
+    "n": 8,
+    "sd": 4.63,
+    "max_mg_spread": 3.437,
+    "temperatures": [
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01380": {
+    "exp": 6.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00151": {
+    "exp": 23.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 3.785,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00290": {
+    "exp": 7.4,
+    "n": 19,
+    "sd": 1.7,
+    "max_mg_spread": 2.141,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00990": {
+    "exp": -5.65,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.161,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00754": {
+    "exp": -24.17,
+    "n": 3,
+    "sd": 0.43,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     296.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01702": {
+    "exp": 19.83,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00132": {
+    "exp": -13.87,
+    "n": 2,
+    "sd": 0.37,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01491": {
+    "exp": -13.16,
+    "n": 2,
+    "sd": 4.44,
+    "max_mg_spread": 0.922,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00549": {
+    "exp": -19.03,
+    "n": 6,
+    "sd": 5.03,
+    "max_mg_spread": 0.899,
+    "temperatures": [
+     288.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00831": {
+    "exp": -13.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn08948": {
+    "exp": -9.99,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01099": {
+    "exp": -17.63,
+    "n": 23,
+    "sd": 0.71,
+    "max_mg_spread": 2.394,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn04684": {
+    "exp": -5.89,
+    "n": 52,
+    "sd": 0.52,
+    "max_mg_spread": 3.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00420": {
+    "exp": -10.23,
+    "n": 104,
+    "sd": 1.99,
+    "max_mg_spread": 3.866,
+    "temperatures": [
+     298.2,
+     303.5,
+     308.15,
+     308.2,
+     311.0,
+     311.15,
+     313.4
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00007": {
+    "exp": -11.85,
+    "n": 5,
+    "sd": 0.31,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.45,
+     292.25,
+     298.15,
+     304.55,
+     310.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01259": {
+    "exp": -7.52,
+    "n": 9,
+    "sd": 1.85,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.35,
+     292.45,
+     298.15,
+     304.15,
+     310.25,
+     313.0,
+     316.35,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00817": {
+    "exp": -10.5,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     318.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00816": {
+    "exp": -8.8,
+    "n": 7,
+    "sd": 1.71,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     286.15,
+     292.15,
+     298.15,
+     304.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00927": {
+    "exp": -9.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.124,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00141": {
+    "exp": 34.76,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn39443": {
+    "exp": 1.06,
+    "n": 31,
+    "sd": 3.49,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     292.15,
+     298.15,
+     304.15,
+     310.15,
+     316.15,
+     322.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn36656": {
+    "exp": -2.84,
+    "n": 3,
+    "sd": 0.25,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01792": {
+    "exp": 6.69,
+    "n": 6,
+    "sd": 0.63,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     284.95,
+     287.75,
+     292.35,
+     295.65,
+     298.15,
+     299.25
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01465": {
+    "exp": -3.63,
+    "n": 3,
+    "sd": 2.42,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01638": {
+    "exp": -0.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01746": {
+    "exp": 0.29,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01211": {
+    "exp": -2.01,
+    "n": 9,
+    "sd": 3.23,
+    "max_mg_spread": 0.095,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn00746": {
+    "exp": 19.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.432,
+    "temperatures": [
+     301.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00784": {
+    "exp": 20.55,
+    "n": 3,
+    "sd": 0.72,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     295.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00786": {
+    "exp": 15.69,
+    "n": 14,
+    "sd": 2.96,
+    "max_mg_spread": 2.638,
+    "temperatures": [
+     282.15,
+     296.15,
+     301.15,
+     303.15,
+     310.15,
+     311.15,
+     313.15,
+     321.15,
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01870": {
+    "exp": 30.5,
+    "n": 5,
+    "sd": 1.41,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     282.15,
+     296.15,
+     303.15,
+     310.15,
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03884": {
+    "exp": 13.39,
+    "n": 2,
+    "sd": 0.47,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01620": {
+    "exp": 19.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01621": {
+    "exp": 6.42,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00783": {
+    "exp": 10.97,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03643": {
+    "exp": -25.53,
+    "n": 2,
+    "sd": 0.01,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00336": {
+    "exp": 8.78,
+    "n": 4,
+    "sd": 4.17,
+    "max_mg_spread": 0.097,
+    "temperatures": [
+     295.65,
+     300.15,
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00265": {
+    "exp": 0.8,
+    "n": 23,
+    "sd": 1.81,
+    "max_mg_spread": 3.645,
+    "temperatures": [
+     298.15,
+     300.15,
+     311.15
+    ],
+    "n_298": 18,
+    "I_imputed": true
+   },
+   "rxn00328": {
+    "exp": 10.22,
+    "n": 3,
+    "sd": 1.46,
+    "max_mg_spread": 1.069,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00234": {
+    "exp": 2.91,
+    "n": 6,
+    "sd": 3.69,
+    "max_mg_spread": 1.401,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn00331": {
+    "exp": 7.93,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.216,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00987": {
+    "exp": 0.84,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.394,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00799": {
+    "exp": 3.62,
+    "n": 102,
+    "sd": 0.52,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     275.8,
+     276.9,
+     277.0,
+     277.2,
+     277.8,
+     277.9,
+     278.15,
+     282.3,
+     283.5,
+     284.0,
+     286.1,
+     288.15,
+     288.2,
+     288.3,
+     290.6,
+     290.8,
+     291.2,
+     291.9,
+     292.6,
+     292.8,
+     293.15,
+     293.3,
+     293.4,
+     294.1,
+     295.2,
+     296.7,
+     298.1,
+     298.15,
+     298.5,
+     298.7,
+     299.2,
+     302.5,
+     303.0,
+     303.15,
+     303.6,
+     304.1,
+     307.3,
+     307.5,
+     307.6,
+     307.7,
+     307.8,
+     308.1,
+     308.3,
+     309.41,
+     309.9,
+     310.7,
+     311.15,
+     311.7,
+     313.0,
+     313.15,
+     313.4,
+     318.3,
+     320.05,
+     323.15,
+     323.3,
+     327.15
+    ],
+    "n_298": 24,
+    "I_imputed": true
+   },
+   "rxn00974": {
+    "exp": 7.93,
+    "n": 2,
+    "sd": 0.71,
+    "max_mg_spread": 0.211,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01388": {
+    "exp": 2.32,
+    "n": 3,
+    "sd": 0.49,
+    "max_mg_spread": 1.661,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00973": {
+    "exp": 6.47,
+    "n": 34,
+    "sd": 0.71,
+    "max_mg_spread": 3.872,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 8,
+    "I_imputed": true
+   },
+   "rxn02213": {
+    "exp": -6.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     302.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00459": {
+    "exp": -3.27,
+    "n": 88,
+    "sd": 0.68,
+    "max_mg_spread": 0.467,
+    "temperatures": [
+     288.0,
+     293.15,
+     298.15,
+     299.5,
+     307.5,
+     311.15
+    ],
+    "n_298": 83,
+    "I_imputed": true
+   },
+   "rxn02168": {
+    "exp": 4.27,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.061,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02167": {
+    "exp": 3.27,
+    "n": 3,
+    "sd": 1.1,
+    "max_mg_spread": 0.06,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn03250": {
+    "exp": 1.03,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.038,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01682": {
+    "exp": 21.34,
+    "n": 2,
+    "sd": 2.89,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01745": {
+    "exp": 18.52,
+    "n": 12,
+    "sd": 0.37,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     288.3,
+     292.9,
+     297.8,
+     298.15,
+     302.9,
+     307.9,
+     313.2
+    ],
+    "n_298": 6,
+    "I_imputed": false
+   },
+   "rxn02622": {
+    "exp": 4.43,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02749": {
+    "exp": 11.5,
+    "n": 14,
+    "sd": 0.41,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     283.5,
+     288.1,
+     292.5,
+     298.15,
+     298.2,
+     302.8,
+     307.9,
+     313.2
+    ],
+    "n_298": 7,
+    "I_imputed": false
+   },
+   "rxn01157": {
+    "exp": -9.01,
+    "n": 5,
+    "sd": 0.51,
+    "max_mg_spread": 1.0,
+    "temperatures": [
+     293.4,
+     302.3,
+     303.2,
+     310.15,
+     310.9
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02085": {
+    "exp": 8.7,
+    "n": 5,
+    "sd": 1.75,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     277.15,
+     288.15,
+     293.15,
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02202": {
+    "exp": 3.99,
+    "n": 2,
+    "sd": 2.7,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00802": {
+    "exp": 14.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00800": {
+    "exp": 5.96,
+    "n": 4,
+    "sd": 0.87,
+    "max_mg_spread": 0.012,
+    "temperatures": [
+     298.15,
+     308.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00562": {
+    "exp": 5.18,
+    "n": 3,
+    "sd": 0.09,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01834": {
+    "exp": 23.47,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00065": {
+    "exp": 6.48,
+    "n": 2,
+    "sd": 0.38,
+    "max_mg_spread": 3.476,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00283": {
+    "exp": -0.0,
+    "n": 7,
+    "sd": 0.22,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00193": {
+    "exp": 0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.007,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00320": {
+    "exp": -0.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01974": {
+    "exp": -1.66,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02360": {
+    "exp": 0.02,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn54659": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.023,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01116": {
+    "exp": -0.99,
+    "n": 5,
+    "sd": 1.2,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00214": {
+    "exp": 2.99,
+    "n": 11,
+    "sd": 0.17,
+    "max_mg_spread": 0.113,
+    "temperatures": [
+     298.15,
+     300.15,
+     303.15,
+     310.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn04082": {
+    "exp": -0.46,
+    "n": 5,
+    "sd": 0.63,
+    "max_mg_spread": 0.029,
+    "temperatures": [
+     297.15,
+     308.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01075": {
+    "exp": 0.0,
+    "n": 3,
+    "sd": 0.38,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01008": {
+    "exp": -0.67,
+    "n": 3,
+    "sd": 1.12,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01506": {
+    "exp": 1.96,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02975": {
+    "exp": -0.68,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn31240": {
+    "exp": -1.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.026,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00643": {
+    "exp": 1.69,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01996": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.021,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01532": {
+    "exp": 7.7,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     309.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02591": {
+    "exp": -10.53,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     308.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00747": {
+    "exp": -7.4,
+    "n": 17,
+    "sd": 0.78,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     298.15,
+     303.15,
+     311.15,
+     312.15,
+     333.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn53440": {
+    "exp": -2.43,
+    "n": 6,
+    "sd": 0.5,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     308.15,
+     313.15,
+     323.15,
+     333.15,
+     343.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01152": {
+    "exp": 4.98,
+    "n": 12,
+    "sd": 1.27,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     313.15,
+     320.25,
+     323.15,
+     325.25,
+     328.15,
+     331.95,
+     333.15,
+     338.15,
+     343.15,
+     343.75
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01292": {
+    "exp": 4.73,
+    "n": 3,
+    "sd": 0.51,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     310.15,
+     326.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn44278": {
+    "exp": -3.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     333.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01044": {
+    "exp": 3.79,
+    "n": 23,
+    "sd": 0.75,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.35,
+     300.15,
+     303.15,
+     306.15,
+     310.15,
+     311.15,
+     313.15,
+     313.25,
+     314.05,
+     318.15,
+     320.15,
+     323.15,
+     325.15,
+     328.15,
+     331.15,
+     334.15,
+     335.05,
+     341.15,
+     342.15,
+     343.15,
+     345.15,
+     348.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00777": {
+    "exp": 2.86,
+    "n": 13,
+    "sd": 1.13,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     273.15,
+     298.15,
+     298.65,
+     304.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01386": {
+    "exp": -3.01,
+    "n": 2,
+    "sd": 0.9,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00559": {
+    "exp": 0.96,
+    "n": 4,
+    "sd": 1.62,
+    "max_mg_spread": 2.166,
+    "temperatures": [
+     298.15,
+     303.15,
+     304.75,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01457": {
+    "exp": 1.34,
+    "n": 2,
+    "sd": 3.14,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01080": {
+    "exp": 0.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01117": {
+    "exp": 2.48,
+    "n": 2,
+    "sd": 0.96,
+    "max_mg_spread": 0.001,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00798": {
+    "exp": 1.95,
+    "n": 8,
+    "sd": 0.35,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15,
+     313.15,
+     320.25,
+     325.25,
+     328.15,
+     331.95,
+     338.15,
+     343.75
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03644": {
+    "exp": -12.5,
+    "n": 2,
+    "sd": 0.73,
+    "max_mg_spread": 2.097,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01004": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00266": {
+    "exp": 5.71,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.005,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00830": {
+    "exp": -5.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.297,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02204": {
+    "exp": -3.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01106": {
+    "exp": -6.96,
+    "n": 60,
+    "sd": 2.9,
+    "max_mg_spread": 3.651,
+    "temperatures": [
+     298.15,
+     303.15,
+     310.15,
+     311.15
+    ],
+    "n_298": 9,
+    "I_imputed": true
+   },
+   "rxn01485": {
+    "exp": -2.73,
+    "n": 3,
+    "sd": 0.49,
+    "max_mg_spread": 0.028,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01505": {
+    "exp": 4.74,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.044,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00778": {
+    "exp": -8.39,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn01329": {
+    "exp": 5.62,
+    "n": 3,
+    "sd": 3.68,
+    "max_mg_spread": 0.083,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00321": {
+    "exp": -4.62,
+    "n": 2,
+    "sd": 0.53,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01780": {
+    "exp": 6.62,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00195": {
+    "exp": -5.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00602": {
+    "exp": -7.51,
+    "n": 2,
+    "sd": 0.29,
+    "max_mg_spread": 0.14,
+    "temperatures": [
+     298.15,
+     303.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn02756": {
+    "exp": 3.75,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     307.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02782": {
+    "exp": 14.26,
+    "n": 5,
+    "sd": 3.29,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00175": {
+    "exp": -4.59,
+    "n": 6,
+    "sd": 3.01,
+    "max_mg_spread": 3.684,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": false
+   },
+   "rxn00306": {
+    "exp": 2.36,
+    "n": 39,
+    "sd": 2.38,
+    "max_mg_spread": 3.86,
+    "temperatures": [
+     298.15,
+     311.15
+    ],
+    "n_298": 9,
+    "I_imputed": false
+   },
+   "rxn00285": {
+    "exp": 4.67,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 3.976,
+    "temperatures": [
+     293.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00690": {
+    "exp": -14.83,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.832,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00838": {
+    "exp": 15.77,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.942,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01434": {
+    "exp": -0.8,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 2.379,
+    "temperatures": [
+     311.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00250": {
+    "exp": -3.66,
+    "n": 6,
+    "sd": 3.03,
+    "max_mg_spread": 3.712,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 6,
+    "I_imputed": true
+   },
+   "rxn51768": {
+    "exp": 14.7,
+    "n": 2,
+    "sd": 12.49,
+    "max_mg_spread": 3.462,
+    "temperatures": [
+     301.15,
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn04932": {
+    "exp": 21.15,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.008,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01407": {
+    "exp": 30.09,
+    "n": 2,
+    "sd": 0.02,
+    "max_mg_spread": 0.009,
+    "temperatures": [
+     295.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00070": {
+    "exp": 23.2,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15964": {
+    "exp": -15.45,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00423": {
+    "exp": -6.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.045,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn00493": {
+    "exp": -1.7,
+    "n": 2,
+    "sd": 0.07,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00527": {
+    "exp": -1.2,
+    "n": 2,
+    "sd": 0.05,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00806": {
+    "exp": -3.14,
+    "n": 2,
+    "sd": 0.93,
+    "max_mg_spread": 0.003,
+    "temperatures": [
+     298.15,
+     310.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03876": {
+    "exp": 0.01,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.004,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01258": {
+    "exp": 1.09,
+    "n": 3,
+    "sd": 0.5,
+    "max_mg_spread": 0.11,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn01130": {
+    "exp": -13.99,
+    "n": 63,
+    "sd": 1.59,
+    "max_mg_spread": 0.043,
+    "temperatures": [
+     278.15,
+     288.15,
+     298.15,
+     308.15,
+     313.15
+    ],
+    "n_298": 13,
+    "I_imputed": false
+   },
+   "rxn01249": {
+    "exp": 34.17,
+    "n": 2,
+    "sd": 4.5,
+    "max_mg_spread": 1.133,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn01790": {
+    "exp": 26.0,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn14063": {
+    "exp": 37.07,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.027,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn16141": {
+    "exp": 10.18,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.02,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01018": {
+    "exp": -22.04,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.04,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01022": {
+    "exp": 11.78,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.08,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn02900": {
+    "exp": 2.06,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.743,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn12158": {
+    "exp": 2.64,
+    "n": 2,
+    "sd": 4.58,
+    "max_mg_spread": 2.746,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 2,
+    "I_imputed": true
+   },
+   "rxn00147": {
+    "exp": -14.28,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.375,
+    "temperatures": [
+     323.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00697": {
+    "exp": -6.73,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.234,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn01299": {
+    "exp": -11.63,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.373,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01626": {
+    "exp": -6.53,
+    "n": 3,
+    "sd": 0.77,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 3,
+    "I_imputed": true
+   },
+   "rxn00302": {
+    "exp": 9.08,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.709,
+    "temperatures": [
+     303.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn15750": {
+    "exp": 18.33,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.018,
+    "temperatures": [
+     313.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn01410": {
+    "exp": -1.05,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn03281": {
+    "exp": 6.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     310.15
+    ],
+    "n_298": 0,
+    "I_imputed": true
+   },
+   "rxn00462": {
+    "exp": 11.21,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 1.164,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn12217": {
+    "exp": -25.65,
+    "n": 3,
+    "sd": 2.59,
+    "max_mg_spread": 0.0,
+    "temperatures": [
+     293.15,
+     298.15,
+     311.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   },
+   "rxn03137": {
+    "exp": 4.81,
+    "n": 1,
+    "sd": null,
+    "max_mg_spread": 0.013,
+    "temperatures": [
+     298.15
+    ],
+    "n_298": 1,
+    "I_imputed": true
+   }
+  }
+ }
+}

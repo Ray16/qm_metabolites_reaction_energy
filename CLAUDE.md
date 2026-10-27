@@ -192,3 +192,9 @@ branch `master`, SSH). Commit + push after each meaningful step; the daily cron
   H-bond filter (v1). Open: phosphagen core +38 (UMA-DFT only +7.8 -> solvation/speciation), lipid-phase K'.
   Fast A/B = CPU reassembly from the species cache; the harness must pass ZWITTERION_PH0=1 explicitly
   (its 'baseline' policy forces it off) and must emulate SpeciesRearranged reroutes.
+
+- **Benchmark = Mg-bounded openTECR rebuild (2026-10-27, `MetaG_JCIM/analysis/publishability_20261027_01`):** a measurement
+  with unknown free Mg is kept iff the label varies <=2 kJ over a physically bounded pMg interval (preregistered; 1/4 kJ
+  sensitivities). 274 labels vs 39 for "reported pMg only". MetaG MAE 8.4 (239), zero 11.7, EC-mean LOO baseline 8.75.
+  Fitted comparators MUST be reported by regime: in-sample (~2), OOF, and compound-held-out CC retrain (8.0/8.9). Story =
+  training-free complement for novel chemistry + solvation diagnosis; do NOT claim MetaG beats fitted methods.

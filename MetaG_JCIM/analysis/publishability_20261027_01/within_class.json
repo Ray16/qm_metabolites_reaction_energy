@@ -1,0 +1,42 @@
+{
+ "CC_leave_reaction_out": {
+  "n": 237,
+  "r_within_comparator": 0.59,
+  "r_within_MetaG": 0.7,
+  "MAE_comparator": 8.27,
+  "MAE_MetaG": 8.41,
+  "MAE_ECmean_LOO": 8.79
+ },
+ "CC_novel_substrates": {
+  "n": 226,
+  "r_within_comparator": 0.48,
+  "r_within_MetaG": 0.68,
+  "MAE_comparator": 8.94,
+  "MAE_MetaG": 8.45,
+  "MAE_ECmean_LOO": 8.47
+ },
+ "CC_novel_all": {
+  "n": 193,
+  "r_within_comparator": 0.51,
+  "r_within_MetaG": 0.66,
+  "MAE_comparator": 8.47,
+  "MAE_MetaG": 8.09,
+  "MAE_ECmean_LOO": 7.98
+ },
+ "dGbyG_OOF": {
+  "n": 109,
+  "r_within_comparator": 0.26,
+  "r_within_MetaG": 0.51,
+  "MAE_comparator": 6.28,
+  "MAE_MetaG": 8.21,
+  "MAE_ECmean_LOO": 6.54
+ },
+ "MetaG": {
+  "n": 239,
+  "r_within_comparator": 0.7,
+  "r_within_MetaG": 0.7,
+  "MAE_comparator": 8.44,
+  "MAE_MetaG": 8.44,
+  "MAE_ECmean_LOO": 8.75
+ }
+}
