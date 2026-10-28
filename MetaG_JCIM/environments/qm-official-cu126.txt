@@ -1,7 +1,0 @@
-# Install torch from https://download.pytorch.org/whl/cu126 for V100 kernels.
-# The official SDK and model semantics are identical to the CUDA13 source pin.
-numpy==2.4.6
-rdkit==2026.3.5
-ase==3.29.0
-fairchem-core @ git+https://github.com/facebookresearch/fairchem.git@645af7d03e91138ef07e51de387316c9e2e152dc#subdirectory=packages/fairchem-core
-torch==2.13.0

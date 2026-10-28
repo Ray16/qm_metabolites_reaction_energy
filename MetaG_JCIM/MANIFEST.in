@@ -1,8 +1,0 @@
-graft tests
-graft docs
-graft examples
-graft environments
-include analysis/glycosyl_tautomers/pilot.py
-include artifacts/benchmark/build_opentecr_standard.py
-prune tests/.tmp
-global-exclude __pycache__ *.py[cod]

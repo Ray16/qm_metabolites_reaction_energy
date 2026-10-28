@@ -1,6 +1,0 @@
-method	n_input	n_predicted	n_common	MAE_archived_common_kJ	reference_scope
-MetaG_cached_FD	364	358	302	8.966854304635762	archived labels; unresolved conditions; not held-out
-dGbyG_eQ_bridge	364	364	302	5.87852205721188	archived labels; unresolved conditions; not held-out
-dGPredictor_published	364	348	302	2.1332147103548054	archived labels; unresolved conditions; not held-out
-eQuilibrator_CC	364	364	302	1.3008976161423398	archived labels; unresolved conditions; not held-out
-eQuilibrator_GC_only	364	322	302	5.441566781570025	archived labels; unresolved conditions; not held-out
