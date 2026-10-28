@@ -1,0 +1,50 @@
+% 12 ------------------------------------------------------------------------
+\begin{frame}{Benchmark design separates three questions}
+\centering
+\begin{tikzpicture}
+\node[card,text width=3.7cm,minimum height=2.6cm](a) at (0,0){\textbf{Accuracy}\\[.25cm]{\LARGE\bfseries 364}\\openTECR reactions};
+\node[card,text width=3.7cm,minimum height=2.6cm](b) at (4.75,0){\textbf{Comparison}\\[.25cm]{\LARGE\bfseries 302 / 164}\\Shared / matched targets};
+\node[card,text width=3.7cm,minimum height=2.6cm](c) at (9.5,0){\textbf{Applicability}\\[.25cm]{\LARGE\bfseries 300}\\Non-TECRDB reactions};
+\end{tikzpicture}
+\gap
+\takeaway{Prediction accuracy, relative performance, and coverage are different tests.}
+\slidenote{Accuracy uses frozen development predictions and archived references; the 300-reaction panel has no experimental energy labels.}
+\end{frame}
+
+% 13 ------------------------------------------------------------------------
+\begin{frame}{openTECR: a \AccuracyMAE{} kJ/mol mean absolute error}
+\begin{columns}[c]
+\column{.56\textwidth}\centering\includegraphics[width=\linewidth,height=4.9cm,keepaspectratio]{\AccuracyFigure}
+\column{.40\textwidth}
+{\LARGE\bfseries\color{teal}9.54}\quad kJ/mol\\\small Mean absolute error\gap
+{\Large\bfseries 7.15}\quad kJ/mol\\\small Median absolute error\gap
+{\Large\bfseries \AccuracyScored{} / \AccuracyN{}}\\\small Reactions scored
+\end{columns}
+\slidenote{\AccuracyNote{}}
+\end{frame}
+
+% 14 ------------------------------------------------------------------------
+\begin{frame}{Shared-reaction comparison: accuracy and coverage}
+\centering\includegraphics[width=\linewidth,height=4.2cm,keepaspectratio]{\ComparisonFigure}
+\takeaway{Fitted baselines have lower error on this benchmark.}
+\slidenote{\ComparisonNote{}}
+\end{frame}
+
+\begin{frame}{Shared targets: MetaG, dGbyG and dGPredictor}
+\centering\includegraphics[width=\linewidth,height=4.75cm,keepaspectratio]{\LearnedScatterFigure}
+\takeaway{The same \SharedN{} reactions and axis limits are used for every method.}
+\slidenote{Archived labels; MetaG historical FD replay and pretrained baselines. dGbyG uses an eQuilibrator bridge; \SharedTrainingOverlap{} / \SharedN{} targets match its training reactions. This comparison is not held out.}
+\end{frame}
+
+\begin{frame}{Shared targets: MetaG and eQuilibrator}
+\centering\includegraphics[width=\linewidth,height=4.75cm,keepaspectratio]{\GroupScatterFigure}
+\takeaway{Component contribution closely reproduces these archived references.}
+\slidenote{CC: component contribution; GC-only: group contribution. Diagonal: agreement. Archived labels; unresolved conditions and training overlap. This comparison is not held out.}
+\end{frame}
+
+% 15 ------------------------------------------------------------------------
+\begin{frame}{Matched targets: held-out dGbyG is more accurate}
+\centering\includegraphics[width=.96\linewidth,height=4.15cm,keepaspectratio]{\MatchedFigure}
+\takeaway{MAE: MetaG \MatchedMetaGMAE{} vs dGbyG \MatchedBaselineMAE{} kJ/mol on \MatchedN{} targets.}
+\slidenote{Structure, direction, and reaction scale matched. dGbyG is out-of-fold; MetaG is a development estimate bridged to $I=0.25$ M.}
+\end{frame}

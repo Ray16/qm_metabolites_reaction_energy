@@ -1,0 +1,69 @@
+{
+  "accuracy": {
+    "source": "artifacts/results/metag_opentecr_calibrated",
+    "note": "Frozen release 2026-10-01c; archived openTECR labels. Development score; reference conditions are not fully resolved.",
+    "snapshot": "Release 2026-10-01c"
+  },
+  "comparison": {
+    "source": "artifacts/benchmark/comparison/full_panel_metrics.tsv",
+    "strict_source": "artifacts/benchmark/comparison/summary.tsv",
+    "note": "302 shared predictions; pretrained baselines and archived labels. 148 match dGbyG training reactions. MetaG replay withholds six phosphorus cases.",
+    "snapshot": "Audited FD replay",
+    "predictions_source": "artifacts/benchmark/comparison/all_predictions.tsv",
+    "references_source": "artifacts/benchmark/curated/legacy_reactions_opentecr_std.json"
+  },
+  "matched": {
+    "source": "artifacts/benchmark/paper_reproduction/metag_vs_dgbyg_pairs.tsv",
+    "note": "Structure, direction, and reaction scale matched. dGbyG is out-of-fold; MetaG is a development estimate bridged to I=0.25 M.",
+    "snapshot": "Paper targets"
+  },
+  "applicability": {
+    "source": "artifacts/results/generality_report.json",
+    "note": "Frozen release; 50 reactions from each of six EC classes, absent from TECRDB. No experimental labels: this measures applicability, not accuracy.",
+    "snapshot": "Frozen ModelSEED panel"
+  },
+  "landscape": {
+    "source": "analysis/modelseed_landscape/landscape.json"
+  },
+  "structural_scope": {
+    "source": "analysis/modelseed_scope/scope_structures.json"
+  },
+  "domain": {
+    "source": "analysis/modelseed_scope/scope_summary.json"
+  },
+  "components": {
+    "source": "analysis/ncs_numerical_validation/evidence_20261008_final/audit.json",
+    "note": "Indolepyruvate anions; same five conformers/state and gas thermal terms. ALPB and SMD are continuum models of water. Diagnostic, not full aqueous Gibbs energy. *Solvation term from DFT."
+  },
+  "render_figures": [
+    "AccuracyFigure",
+    "ComparisonFigure",
+    "MatchedFigure",
+    "DomainFigure",
+    "ComponentFigure",
+    "LearnedScatterFigure",
+    "GroupScatterFigure"
+  ],
+  "figures": {
+    "AccuracyFigure": "presentation_accuracy.png",
+    "ComparisonFigure": "presentation_comparison.png",
+    "MatchedFigure": "presentation_matched.png",
+    "DomainFigure": "presentation_domain.png",
+    "StereoFigure": "stereo_check.png",
+    "ComponentFigure": "presentation_state_gap.png",
+    "CoreFigure": "coa_core_example.png",
+    "ReferenceFigure": "reference_coverage.png",
+    "LearnedScatterFigure": "presentation_learned_scatter.png",
+    "GroupScatterFigure": "presentation_group_scatter.png"
+  },
+  "implementation": {
+    "source": "analysis/ncs_parallel_integration_20261008/implementation_status.json",
+    "tests_source": "analysis/ncs_parallel_integration_20261008/tests_release.log"
+  },
+  "aqueous_ensemble": {
+    "source": "analysis/ncs_aqueous_ensemble_20261008/evidence_20261008_typed/application.json"
+  },
+  "network": {
+    "source": "analysis/ncs_network_validation_20261008/historical_network_audit_final.json"
+  }
+}

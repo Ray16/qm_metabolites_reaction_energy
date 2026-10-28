@@ -1,0 +1,25 @@
+MetaG_NCS.tex/pdf: current-pipeline evidence synchronization, 8 October 2026.
+27 main slides and 7 appendix slides; 34 pages total.
+Preserved completed-work presentation style and historical benchmark cohorts.
+Added active scorer vs research APIs, unchanged default pKa, production isotope
+and legacy-SMD guards, aqueous admission/population reranking, historical network
+cycle diagnostics, optional relaxation limits, and 600-test implementation scope.
+Current estimator accuracy improvement and independent transfer remain unproven.
+Sources and generated numbers are indexed in presentation_results.json.
+All scientific source modules match the integration record's hashes.
+Prior deck/source/configuration preserved with SHA256 in
+archive/before_pipeline_sync_20261008T150700Z/.
+Original MetaG.tex/pdf remain byte-identical to their recorded hashes.
+PDF built twice; layout reviewed; no overfull boxes. Existing benign hyperref
+bookmark warning remains. No new scientific computation or GPU jobs launched.
+Build: make ncs. Refresh sources/figures: make ncs-refresh.
+
+Added baseline scatter slides 16 and 17: MetaG FD replay, dGbyG with
+eQuilibrator bridge, dGPredictor, eQuilibrator CC, and GC-only. All panels
+use the same 302 reactions, shared axis limits, archived reference labels,
+and per-method MAE/RMSE. Reconstructed MAEs match existing bars to 1e-10.
+Training overlap and unresolved conditions remain explicitly noted.
+Plot inputs/metrics/hashes: presentation_scatter_metrics.json.
+Prior 32-page deck and sources preserved and hash-verified in
+archive/before_baseline_scatter_20261008T152752Z/.
+The 34-page deck builds twice with no overfull boxes.

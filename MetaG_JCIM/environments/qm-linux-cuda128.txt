@@ -1,0 +1,7 @@
+# Direct dependencies for the independently installed Linux/CUDA development environment.
+# The resolved transitive environment is recorded separately by pip --report and pip freeze.
+numpy==2.4.6
+rdkit==2026.3.5
+ase==3.29.0
+fairchem-core==2.21.0
+torch==2.8.0

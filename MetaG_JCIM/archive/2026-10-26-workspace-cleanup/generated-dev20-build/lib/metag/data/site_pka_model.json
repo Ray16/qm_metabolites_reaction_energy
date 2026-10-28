@@ -1,0 +1,64 @@
+{
+ "params": {
+  "carb_ammonium": 2.3,
+  "carb_amine": 4.4,
+  "carb_plain": 4.686,
+  "carb_oxo": 2.972,
+  "carb_oxygen": 3.741,
+  "carb_Oacid": 3.5,
+  "carb_vinyl": 4.213,
+  "carb_arom": 3.595,
+  "carb_formate": 3.943,
+  "Pi_1": 2.15,
+  "Pi_2": 7.2,
+  "Pi_3": 12.35,
+  "mono_1": 1.5,
+  "mono_2": 6.5,
+  "anh_1": 1.0,
+  "anh_2": 7.2,
+  "internal": 1.0,
+  "ppi_1": 0.9,
+  "ppi_2": 2.1,
+  "ppi_3": 6.7,
+  "ppi_4": 9.3,
+  "sulf": -1.5,
+  "sulfate_1": -3.0,
+  "sulfate_2": 2.0,
+  "beta_oxo": -0.811,
+  "beta_oxygen": -0.205,
+  "coulomb_c": 0.503
+ },
+ "n_compounds": 1415,
+ "cv_heldout": {
+  "MAE_kJ": 2.23,
+  "bias_kJ": 0.25,
+  "frac_gt5kJ": 0.086
+ },
+ "in_sample": {
+  "n": 1415,
+  "MAE_kJ": 2.21,
+  "bias_kJ": 0.25,
+  "frac_gt5kJ": 0.088
+ },
+ "all_acid_compounds": {
+  "model": {
+   "n": 1575,
+   "MAE_kJ": 3.42,
+   "bias_kJ": -0.67,
+   "frac_gt5kJ": 0.114
+  },
+  "baseline_default_params": {
+   "n": 1575,
+   "MAE_kJ": 3.82,
+   "bias_kJ": 0.25,
+   "frac_gt5kJ": 0.169
+  }
+ },
+ "reference": "ChemAxon macroscopic pKa (eQuilibrator cache), ModelSEED acid-only compounds, unambiguous ladders; fixed experimental Pi/PPi/sulfate ladders",
+ "baseline_default_params": {
+  "n": 1415,
+  "MAE_kJ": 2.65,
+  "bias_kJ": 1.22,
+  "frac_gt5kJ": 0.145
+ }
+}

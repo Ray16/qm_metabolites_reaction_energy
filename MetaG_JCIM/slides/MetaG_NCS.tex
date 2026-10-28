@@ -1,0 +1,49 @@
+% Project presentation. Scientific numbers come from explicitly identified snapshots.
+% Rebuild: make ncs. Previous progress deck retained in archive/.
+\documentclass[aspectratio=169,13pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs,graphicx,tikz,array}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\graphicspath{{figures/}}
+\definecolor{teal}{HTML}{087F8C}
+\definecolor{ink}{HTML}{173640}
+\definecolor{muted}{HTML}{617780}
+\definecolor{pale}{HTML}{EDF5F6}
+\definecolor{amber}{HTML}{B77818}
+\definecolor{sand}{HTML}{FAF3E6}
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=teal}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamercolor{block title}{fg=teal,bg=white}
+\setbeamercolor{block body}{fg=ink,bg=white}
+\setbeamercolor{alerted text}{fg=amber}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{teal}\small$\bullet$}
+\setbeamertemplate{frametitle}{\vspace{.24cm}\insertframetitle\par\vspace{.10cm}\textcolor{teal}{\rule{\linewidth}{.6pt}}}
+\setbeamertemplate{footline}{\hspace{.5cm}\color{muted}\scriptsize MetaG\hfill Molecular structure to metabolic thermodynamics\hfill\insertframenumber\hspace{.5cm}\vspace{.18cm}}
+\setbeamersize{text margin left=.7cm,text margin right=.7cm}
+\newcommand{\dg}{\Delta_r G^{\prime\circ}}
+\newcommand{\gap}{\par\vspace{.22cm}}
+\newcommand{\takeaway}[1]{\par\vspace{.2cm}\begin{beamercolorbox}[wd=\linewidth,sep=.14cm,rounded=true]{block title}\color{teal}\normalsize\bfseries #1\end{beamercolorbox}}
+\newcommand{\slidenote}[1]{\vfill{\footnotesize\color{muted}#1\par}}
+\tikzset{card/.style={draw=teal!30,fill=pale,rounded corners=4pt,align=center,inner sep=9pt},arr/.style={-{Latex[length=2.5mm]},thick,teal}}
+\title{MetaG}
+\subtitle{From molecular structure to metabolic reaction Gibbs energy}
+\author{Ray Zhu}
+\date{October 2026}
+\input{presentation_numbers.tex}
+\begin{document}
+
+\input{sections/01_motivation.tex}
+\input{sections/02_method.tex}
+\input{sections/03_benchmarks.tex}
+\input{sections/04_significance.tex}
+\input{sections/05_components.tex}
+\input{sections/06_applicability.tex}
+\input{sections/07_conclusions.tex}
+\input{sections/08_appendix.tex}
+\end{document}

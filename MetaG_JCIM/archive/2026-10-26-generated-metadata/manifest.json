@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-26T21:54:59.444731+00:00",
+  "reason": "Replace stale generated dev20 distribution metadata with metadata generated from the dev24 pyproject; package scientific source and frozen candidate are untouched.",
+  "old_original_path": "src/metag.egg-info",
+  "archived_path": "archive/2026-10-26-generated-metadata/metag-egg-info-dev20",
+  "archived_sha256": {
+    "PKG-INFO": "c807726022211735d2c7690525b49c01a0c0d81a61efdb51df8b1ddc00123954",
+    "dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "entry_points.txt": "526cefa6c306e1303f8564c3e50ad19e4a4eff1f907d2dcdd884bfe2302f9680",
+    "requires.txt": "6f0191be4efd1bf574966993e6d0cc7e0cf0cddef83b8aa37f3e8d50816245c5",
+    "top_level.txt": "e8e069ab6e7f16ab838134cd326be977f2b3d5308ec4df5591a923e3e94780c0",
+    "SOURCES.txt": "de5c4dcf401c90569c1398f57244c15ac182cb24f9f4aa93273ad7c772c8eefa"
+  },
+  "new_sha256": {
+    "dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "SOURCES.txt": "508ea467db1a7cb298c55764b79565ed5bf49fe5dc3ffb26790625e7d02a0a1a",
+    "entry_points.txt": "526cefa6c306e1303f8564c3e50ad19e4a4eff1f907d2dcdd884bfe2302f9680",
+    "top_level.txt": "e8e069ab6e7f16ab838134cd326be977f2b3d5308ec4df5591a923e3e94780c0",
+    "PKG-INFO": "8564cdca7611056abc0cead7ac3a6f2f426988c2a23156c7a6fd158fedb48216",
+    "requires.txt": "7d0103d7fa4f158e97ba29c0ceba51edf2f287715099a4cddabb13d39ddc1ecd"
+  },
+  "limitations": "A generated metadata change alters the full 117-file snapshot comparison; the published frozen source and its original metadata remain available at the candidate_03 path. Source and raw-species fingerprints are checked separately.",
+  "initial_dev24_source_only_SOURCES_sha256": "16fb56b0b7f408f914af007eb7b6d2dccbbe424a1412bbb6089ef1a8f039ade9",
+  "generation_note": "SOURCES.txt and PKG-INFO updated from validated source-archive builds after adding MANIFEST.in and the archive-scope note; previous generated files are retained separately.",
+  "initial_dev24_before_sdist_readme_PKG_INFO_sha256": "dfbd7b0f45c918ef57bdfcb46c03fd8b19478f496121020fbad9d40c0d773723"
+}

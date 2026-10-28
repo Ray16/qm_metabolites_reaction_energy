@@ -1,0 +1,81 @@
+MetaG project presentation
+=========================
+
+Deck: MetaG_NCS.pdf, built from MetaG_NCS.tex.
+27 main slides + 7 appendix slides. Prior deck versions are in archive/.
+
+Build
+-----
+From this folder: make ncs
+Regenerate all selected plots and metrics, then build: make ncs-refresh
+Override the Python environment if needed: make ncs PYTHON=/path/to/python
+The generator needs numpy and matplotlib. Rendering uses pdflatex.
+
+Swap new results
+----------------
+1. Keep new scientific outputs in their own evidence directory.
+2. Edit presentation_results.json: change the relevant source path, snapshot
+   label, and note to the new cohort, conditions, and evaluation regime.
+3. Run make ncs-refresh. Numbers in titles, results, conclusions, and the
+   appendix update together. Selected plots are generated from those inputs.
+4. Check the corresponding section's takeaway. Claims such as which method
+   performs better, failure descriptions, and validation scope are prose and
+   require review when the evidence changes. They are not inferred by the
+   generator. In particular, do not retain the old training-overlap count or
+   development/held-out qualification without checking the new experiment.
+
+Source schemas (paths relative to the project directory, not slides/)
+-------------------------------------------------------------------
+accuracy: directory of per-reaction JSON records with dG and exp; failed dG
+  records remain in the input denominator but do not enter the error average.
+comparison: TSV using the current full_panel_metrics.tsv schema, including
+  method, n_input, n_predicted, n_common, MAE_archived_common_kJ. All methods
+  must use the same shared cohort. strict_source follows summary.tsv.
+  predictions_source is all_predictions.tsv; references_source is the frozen
+  legacy reaction JSON (median exp per reaction). Scatter figures reconstruct
+  the same common cohort, verify MAEs/counts against the bars, and use shared
+  axis limits. presentation_scatter_metrics.json records IDs, metrics and hashes.
+  A changed reference regime requires updating both sources and slide prose.
+matched: paired TSV with reference, metag, dgbyg; same target per row.
+applicability: JSON with n_input, n_estimates, n_failures; outcomes must add up.
+components: audited JSON with gaps_Z_enol_minus_keto and full_kj for the
+  UMA_ALPB, DFT_ALPB, UMA_SMD, and DFT_SMD component combinations.
+landscape, structural_scope, domain: the existing ModelSEED evidence schemas.
+implementation: integrated status JSON plus its tests_source log. The generator
+  checks the recorded passing count and hashes of the three authoritative track
+  artifacts. Software test counts are distinct from scientific accuracy.
+aqueous_ensemble: audited application JSON with common-set population fractions
+  and destination admission. No aqueous Gibbs energy or validated interval is
+  currently admitted. New results require reviewing the slide's prose.
+network: historical_network_audit_final.json, release_20261001c summary. Cycle
+  counts describe the frozen release; the audit does not repair its energies.
+
+Swap a figure without changing the slide
+---------------------------------------
+Put the replacement PNG in figures/ and change its filename under figures in
+presentation_results.json. Remove that figure's key from render_figures when
+you want to preserve a supplied plot instead of generating it. Then run
+make ncs. Keep its caption and result source consistent with the replacement.
+The generator checks that supplied plots exist and never overwrites them.
+
+Swap a whole result module
+-------------------------
+MetaG_NCS.tex imports independent files from sections/:
+  01_motivation.tex   biological question, data gap, method background
+  02_method.tex       quantity, pipeline, ensembles, cores, chemical states
+  03_benchmarks.tex   benchmark design, accuracy, baseline comparisons
+  04_significance.tex broader chemistry and value alongside dGbyG
+  05_components.tex   stereoisomers and solvent decomposition
+  06_applicability.tex ModelSEED calculation outcomes
+  07_conclusions.tex  reliability and conclusions
+  08_appendix.tex     conventions, benchmark regimes, evidence
+Replace the relevant file or change an input in MetaG_NCS.tex. Global styles
+and result macros remain shared. Do not edit presentation_numbers.tex or
+presentation_sources.mk by hand; both are generated.
+
+Presentation conventions
+------------------------
+One takeaway per slide; short labels; large plots. Technical detail goes in
+the appendix. Metric snapshots retain their cohort and reference regime.
+Broad-chemistry applicability and molecular component checks are not treated
+as experimental reaction-energy accuracy. No journal target is presented.

@@ -1,0 +1,36 @@
+% 16 ------------------------------------------------------------------------
+\begin{frame}{Geometry resolves differences between stereoisomers}
+\centering\includegraphics[width=\linewidth,height=4.1cm,keepaspectratio]{\StereoFigure}
+\takeaway{UMA reproduces the opposite E/Z orderings of these two gas-phase pairs.}
+\slidenote{2-butene and 1,2-difluoroethylene. MMFF94 gives the wrong sign for the latter. This component test measures gas-phase energetics.}
+\end{frame}
+
+% 17 ------------------------------------------------------------------------
+\begin{frame}{Energy decomposition identifies solvent sensitivity}
+\centering\includegraphics[width=.91\linewidth,height=3.65cm,keepaspectratio]{\ComponentFigure}
+\begin{columns}[T]
+\column{.48\textwidth}\centering\textbf{Electronic model change}\\\color{teal}{\large \ElectronicChange{} kJ/mol}\quad\small with ALPB
+\column{.48\textwidth}\centering\textbf{Solvent model change}\\\color{teal}{\large \SolventChange{} kJ/mol}\quad\small with DFT
+\end{columns}
+\slidenote{\ComponentNote{}}
+\end{frame}
+
+\begin{frame}{Solvent changes which conformers matter}
+\begin{columns}[T]
+\column{.48\textwidth}
+\begin{block}{Same five saved keto conformers}
+\small The two source-selected conformers carry:\gap
+{\Large\color{teal}\SourceKetoCoverage{}\%}\quad under UMA/ALPB\gap
+{\Large\color{amber}\TargetKetoCoverage{}\%}\quad under DFT/SMD\gap
+Source selection misses most target-model weight in this fixed set.
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Destination-ensemble audit}
+\small Two of three local SMD relaxations meet the force criterion; one reaches the step cap.\gap
+Destination Hessians and thermal terms are absent; starts remain missing.\gap
+No aqueous Gibbs ensemble or validated interval is admitted.
+\end{block}
+\end{columns}
+\takeaway{Force convergence alone does not validate an aqueous free energy.}
+\slidenote{Indolepyruvate keto/Z-enol anions. Fixed-set weights retain gas thermal terms; they are diagnostics, not experimental populations or complete aqueous coverage.}
+\end{frame}

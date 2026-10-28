@@ -1,0 +1,60 @@
+% 1 -------------------------------------------------------------------------
+\begin{frame}[plain]
+\vspace{.35cm}
+{\color{teal}\large Metabolic reaction thermodynamics}\par\vspace{.4cm}
+{\Huge\bfseries MetaG}\par\vspace{.25cm}
+{\LARGE From molecular structure to\\metabolic reaction Gibbs energy}\par\vspace{.6cm}
+\begin{tikzpicture}[node distance=.48cm]
+\node[card,text width=3.4cm,minimum height=1.1cm](a){Molecular\\structures};
+\node[card,text width=3.9cm,minimum height=1.1cm,right=of a](b){Learned energies\\+ thermodynamics};
+\node[card,text width=3.4cm,minimum height=1.1cm,right=of b](c){Reaction energy\\+ diagnostics};
+\draw[arr](a)--(b);\draw[arr](b)--(c);
+\end{tikzpicture}
+\vfill{\large Ray Zhu\hfill\color{muted}October 2026}
+\end{frame}
+
+% 2 -------------------------------------------------------------------------
+\begin{frame}{Why thermodynamics matters for metabolism}
+\centering
+\begin{tikzpicture}
+\node[card,minimum width=2.8cm,minimum height=1.25cm](a) at (0,0){Reactants};
+\node[card,minimum width=2.8cm,minimum height=1.25cm](b) at (6.5,0){Products};
+\draw[<->,teal,very thick](a)--node[above,font=\Large]{$\Delta_r G^\prime$}(b);
+\node[align=center,text width=4.5cm] at (0,-1.65){$\Delta_r G^\prime>0$\\Forward reaction is uphill};
+\node[align=center,text width=4.5cm] at (6.5,-1.65){$\Delta_r G^\prime<0$\\Forward reaction is downhill};
+\end{tikzpicture}
+\gap
+\begin{columns}[T]
+\column{.31\textwidth}\centering\textbf{Reaction direction}\\\small Which way can it run?
+\column{.31\textwidth}\centering\textbf{Pathway feasibility}\\\small Where is the bottleneck?
+\column{.31\textwidth}\centering\textbf{Metabolic design}\\\small Which route is favorable?
+\end{columns}
+\slidenote{Concentrations and coupling also affect feasibility; a favorable energy does not imply a fast reaction.}
+\end{frame}
+
+% 3 -------------------------------------------------------------------------
+\begin{frame}{The thermodynamic map is incomplete}
+\centering
+\begin{tikzpicture}
+\node[card,text width=3.6cm,minimum height=2.1cm](a) at (0,0){{\LARGE\bfseries \LiveReactions{}}\\[.2cm]ModelSEED reactions};
+\node[card,text width=3.6cm,minimum height=2.1cm](b) at (4.65,0){{\LARGE\bfseries \MissingEnergies{}}\\[.2cm]Balanced reactions\\without stored $\Delta G$};
+\node[card,text width=3.6cm,minimum height=2.1cm](c) at (9.3,0){{\LARGE\bfseries \UsableMissing{}}\\[.2cm]Also have usable\\molecular structures};
+\draw[arr](a)--(b);\draw[arr](b)--(c);
+\end{tikzpicture}
+\gap\gap
+\takeaway{Molecular structures provide another route to reaction energies.}
+\slidenote{Local ModelSEED snapshot; live, non-transport reactions. Structural eligibility measures input availability, not accuracy.}
+\end{frame}
+
+% 4 -------------------------------------------------------------------------
+\begin{frame}{Three routes from chemistry to reaction energy}
+\centering
+\begin{tikzpicture}
+\node[card,text width=3.7cm,minimum height=3cm](a) at (0,0){\textbf{Group methods}\\[.3cm]Chemical fragments\\$\downarrow$\\Fitted group energies};
+\node[card,text width=3.7cm,minimum height=3cm](b) at (4.75,0){\textbf{Graph models}\\[.3cm]Molecular graph\\$\downarrow$\\Learned energy estimate};
+\node[card,text width=3.7cm,minimum height=3cm](c) at (9.5,0){\textbf{MetaG}\\[.3cm]3D molecular states\\$\downarrow$\\Energy + physical terms};
+\end{tikzpicture}
+\gap
+\takeaway{MetaG makes geometry, chemical states, and energy contributions explicit.}
+\slidenote{Examples: eQuilibrator / dGPredictor; dGbyG. UMA supplies MetaG's learned electronic energies and forces.}
+\end{frame}

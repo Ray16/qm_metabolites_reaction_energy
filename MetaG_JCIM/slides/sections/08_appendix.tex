@@ -1,0 +1,105 @@
+\appendix
+% A1 ------------------------------------------------------------------------
+\begin{frame}{Appendix: which information is learned or empirical?}
+\begin{columns}[T]
+\column{.31\textwidth}\begin{block}{Electronic model}\small UMA is trained on quantum-chemical data. Inputs include geometry, charge, and spin.\end{block}
+\column{.31\textwidth}\begin{block}{Auxiliary properties}\small pKa references, experimental water hydration, and a component calibration to carbonyl hydration constants.\end{block}
+\column{.31\textwidth}\begin{block}{Reaction labels}\small openTECR informs evaluation, interval calibration, and method development.\end{block}
+\end{columns}
+\gap\takeaway{No openTECR reaction-energy offset is fitted in the point estimate.}
+\slidenote{Benchmark-informed routing makes the reported MetaG accuracy a development score. Class anchor corrections are disabled.}
+\end{frame}
+
+\begin{frame}{Appendix: implementation validation and scientific scope}
+\begin{columns}[T]
+\column{.48\textwidth}
+\begin{block}{Verified implementation}
+\small \ImplementationTests{} passing software tests; package wheel built.\gap
+\ProtectedArtifacts{} protected benchmark artifacts unchanged.\gap
+Optional solvent relaxation rejects failed gradients, incomplete starts, and unconverged results; it remains off by default.
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Boundaries of that evidence}
+\small The strict SMD component API has CPU boundary tests; its new wrapper has no fresh GPU numerical validation.\gap
+Coupled pKa scoring, complete aqueous thermodynamics, adaptive core corrections, and deployed shared-state covariance remain unresolved.
+\end{block}
+\end{columns}
+\takeaway{Software tests do not establish reaction accuracy.}
+\slidenote{Integration and track sources: \path{presentation_results.json}. Validation record dated 8 October 2026.}
+\end{frame}
+
+% A2 ------------------------------------------------------------------------
+\begin{frame}{Appendix: reference curation and strict comparison}
+\begin{columns}[c]
+\column{.52\textwidth}\includegraphics[width=\linewidth,height=3.8cm,keepaspectratio]{\ReferenceFigure}
+\column{.44\textwidth}
+\textbf{Condition checks}\gap
+\small Free Mg activity; constant definition; measured temperature; ionic strength.\gap
+\textbf{Strict shared subset}\gap
+\small Six reactions: MetaG MAE \StrictMAE{} kJ/mol. All six overlap dGbyG training.
+\end{columns}
+\slidenote{54 reactions retain curated labels; eight have a row at 298.15 K with reported ionic strength. The small shared subset is descriptive.}
+\end{frame}
+
+% A3 ------------------------------------------------------------------------
+\begin{frame}{Appendix: energy and standard-state conventions}
+\small
+\[
+\dg=\sum_i\nu_iG_i^{\rm eff}+n_{\rm H^+}G_{\rm H^+}+\sum_j s_jm_j\Delta G_j^{\rm pKa}
+\]
+\begin{align*}
+G_i&=-RT\ln\sum_k\exp[-(E_k^{\rm UMA}+G_k^{\rm RRHO}+\Delta G_k^{\rm ALPB})/RT]+RT\ln24.46\\
+G_i^{\rm eff}&=-RT\ln\left[e^{-G_i/RT}+\sum_S e^{-(G_S-n_SG_{\rm w})/RT}\right]
+\end{align*}
+\begin{columns}[T]
+\column{.48\textwidth}\small\textbf{Thermal terms}\gap Zero-point energy and ideal-gas RRHO; UMA Hessian; 50 cm$^{-1}$ frequency floor; symmetry and linearity.
+\column{.48\textwidth}\small\textbf{Reservoir conventions}\gap 1 atm $\to$ 1 M: +7.93 kJ/mol.\\Pure-water concentration: +9.96 kJ/mol.\\Proton at pH 7: $-1170.8$ kJ/mol.
+\end{columns}
+\slidenote{Hydrate terms subtract consumed water. $s_j$: reaction side; $m_j$: site multiplicity. Experimental water hydration: $-26.4$ kJ/mol.}
+\end{frame}
+
+% A4 ------------------------------------------------------------------------
+\begin{frame}{Appendix: benchmark snapshots and comparison regimes}
+\small\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{6.0cm}@{}}
+\toprule
+Result & Snapshot / set & Interpretation\\\midrule
+Full-panel MAE \AccuracyMAE{} & \AccuracySnapshot{}; \AccuracyN{} & Archived labels; development accuracy\\
+Shared-set MAE \SharedMAE{} & \ComparisonSnapshot{}; \SharedN{} & Different coverage; pretrained baselines\\
+Matched-set MAE \MatchedMetaGMAE{} & \MatchedN{} paper targets & MetaG development vs dGbyG out-of-fold\\
+\ApplicationScored{} / \ApplicationN{} estimates & \ApplicabilitySnapshot{} & Applicability without energy labels\\\bottomrule
+\end{tabular}
+\gap
+\small Later validation changes are not assigned the frozen release's numerical performance.
+\slidenote{Condition bridges use eQuilibrator dissociation data. These comparisons do not establish a matched held-out ranking for MetaG.}
+\end{frame}
+
+% A5 ------------------------------------------------------------------------
+\begin{frame}{Appendix: component checks and their scope}
+\begin{columns}[T]
+\column{.48\textwidth}\begin{block}{Stereoisomer check}\small Gas-phase 2-butene enthalpy and difluoroethylene electronic-energy differences.\gap The published dGbyG encoding also collides for tested E/Z and diastereomer inputs.\end{block}
+\column{.48\textwidth}\begin{block}{Solvent component check}\small Identical saved indolepyruvate geometries; direct $\omega$B97M-V/def2-TZVPD; ALPB vs SMD.\gap CPU/GPU, grid, and overlap changes are below 0.04 kJ/mol in the tested gaps.\end{block}
+\end{columns}
+\gap\takeaway{Component evidence explains sensitivity; it does not establish aqueous accuracy.}
+\slidenote{Gas thermal terms are retained in the solvent comparison. Numerical agreement checks implementation consistency.}
+\end{frame}
+
+% A6 ------------------------------------------------------------------------
+\begin{frame}{Appendix: evidence and reproducibility}
+\small
+\textbf{Local evidence (relative to the project directory)}\gap
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{9.7cm}@{}}
+Accuracy & \AccuracySource\\[.12cm]
+Baseline metrics & \ComparisonSource\\[.12cm]
+Matched targets & \MatchedSource\\[.12cm]
+ModelSEED applicability & \ApplicabilitySource\\[.12cm]
+\end{tabular}
+\gap\footnotesize
+Database scope and component sources are indexed in \path{presentation_results.json}.
+\gap\footnotesize
+Fan et al., Cell Systems (2025), \href{https://doi.org/10.1016/j.cels.2025.101393}{doi:10.1016/j.cels.2025.101393}.\quad
+\href{https://arxiv.org/abs/2505.08762}{OMol25}.\\
+Beber et al., eQuilibrator 3.0, \href{https://doi.org/10.1093/nar/gkab1106}{doi:10.1093/nar/gkab1106}.\\
+Stereo references: Prosen et al. (1951); Craig et al. (1971), Table II.
+\slidenote{Build: make ncs. New presentation figures: make\_presentation\_figures.py. Scientific figures derive from preserved local evidence.}
+\end{frame}

@@ -1,0 +1,51 @@
+% Generated from presentation_results.json and its local evidence.
+\newcommand{\AccuracyNote}{Frozen release 2026-10-01c; archived openTECR labels. Development score; reference conditions are not fully resolved.}
+\newcommand{\AccuracySnapshot}{Release 2026-10-01c}
+\newcommand{\AccuracySource}{\path{artifacts/results/metag_opentecr_calibrated}}
+\newcommand{\ComparisonNote}{302 shared predictions; pretrained baselines and archived labels. 148 match dGbyG training reactions. MetaG replay withholds six phosphorus cases.}
+\newcommand{\ComparisonSnapshot}{Audited FD replay}
+\newcommand{\ComparisonSource}{\path{artifacts/benchmark/comparison/full_panel_metrics.tsv}}
+\newcommand{\MatchedNote}{Structure, direction, and reaction scale matched. dGbyG is out-of-fold; MetaG is a development estimate bridged to I=0.25 M.}
+\newcommand{\MatchedSnapshot}{Paper targets}
+\newcommand{\MatchedSource}{\path{artifacts/benchmark/paper_reproduction/metag_vs_dgbyg_pairs.tsv}}
+\newcommand{\ApplicabilityNote}{Frozen release; 50 reactions from each of six EC classes, absent from TECRDB. No experimental labels: this measures applicability, not accuracy.}
+\newcommand{\ApplicabilitySnapshot}{Frozen ModelSEED panel}
+\newcommand{\ApplicabilitySource}{\path{artifacts/results/generality_report.json}}
+\newcommand{\ComponentNote}{Indolepyruvate anions; same five conformers/state and gas thermal terms. ALPB and SMD are continuum models of water. Diagnostic, not full aqueous Gibbs energy. *Solvation term from DFT.}
+\newcommand{\ComponentSource}{\path{analysis/ncs_numerical_validation/evidence_20261008_final/audit.json}}
+\newcommand{\AccuracyFigure}{presentation_accuracy.png}
+\newcommand{\ComparisonFigure}{presentation_comparison.png}
+\newcommand{\MatchedFigure}{presentation_matched.png}
+\newcommand{\DomainFigure}{presentation_domain.png}
+\newcommand{\StereoFigure}{stereo_check.png}
+\newcommand{\ComponentFigure}{presentation_state_gap.png}
+\newcommand{\CoreFigure}{coa_core_example.png}
+\newcommand{\ReferenceFigure}{reference_coverage.png}
+\newcommand{\LearnedScatterFigure}{presentation_learned_scatter.png}
+\newcommand{\GroupScatterFigure}{presentation_group_scatter.png}
+\newcommand{\ImplementationTests}{600}
+\newcommand{\ProtectedArtifacts}{20}
+\newcommand{\NetworkCycles}{49}
+\newcommand{\NetworkViolations}{11}
+\newcommand{\SourceKetoCoverage}{74.48}
+\newcommand{\TargetKetoCoverage}{6.50}
+\newcommand{\AccuracyN}{364}
+\newcommand{\AccuracyScored}{364}
+\newcommand{\AccuracyMAE}{9.54}
+\newcommand{\AccuracyMedian}{7.15}
+\newcommand{\AccuracyRMSE}{13.32}
+\newcommand{\SharedN}{302}
+\newcommand{\SharedMAE}{8.97}
+\newcommand{\StrictMAE}{4.20}
+\newcommand{\SharedTrainingOverlap}{148}
+\newcommand{\MatchedN}{164}
+\newcommand{\MatchedMetaGMAE}{8.66}
+\newcommand{\MatchedBaselineMAE}{4.84}
+\newcommand{\ElectronicChange}{0.41}
+\newcommand{\SolventChange}{23.09}
+\newcommand{\LiveReactions}{43{,}669}
+\newcommand{\MissingEnergies}{10{,}863}
+\newcommand{\UsableMissing}{4{,}307}
+\newcommand{\ApplicationN}{300}
+\newcommand{\ApplicationScored}{297}
+\newcommand{\ApplicationFailed}{3}

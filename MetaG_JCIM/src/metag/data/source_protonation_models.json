@@ -1,0 +1,101 @@
+{
+  "schema": "metag-source-protonation-registry-v1",
+  "scope": "Exact full-reference structure matches only; no core, enantiomer or compound-name lookup. Conditions and model ownership are checked at use.",
+  "models": [
+    {
+      "kind": "sequential_macroscopic_acid_pka",
+      "reference_smiles": "O=C(O)CC(O)(CC(=O)O)C(=O)O",
+      "reference_deprotonations": 0,
+      "reference_scope": "fully_protonated_carboxylic_acid_family",
+      "reference_formula": "C6H8O7",
+      "pKas": [
+        3.12927,
+        4.76227,
+        6.39727
+      ],
+      "conditions": {
+        "T_K": 298.15,
+        "ionic_strength_M": 0.0,
+        "solvent": "water",
+        "standard_state": "solute_1M_activity",
+        "magnesium_binding": "absent"
+      },
+      "source": {
+        "locator": "https://www.nist.gov/system/files/documents/srd/jpcrd615.pdf",
+        "location": "Table7.22, printed265/PDF35; standard-state conversion Eq10/PDF3",
+        "artifact_sha256": "8b10624546d35856b7e88c2c8e94e498c11d58df55c6815d8a3a82eecf9b9cf2",
+        "determination": "evaluated",
+        "parameter_scale": "molarity_activity",
+        "conversion": "pKa(c)=pKa(m)+0.00127 for water at298.15K; NIST Eq10. Original values3.128/4.761/6.396.",
+        "uncertainty": [
+          0.003,
+          0.003,
+          0.003
+        ],
+        "uncertainty_kind": "authors' approximate subjective assessment; neither standard deviation nor a declared confidence level",
+        "covariance": null,
+        "development_exposure": true
+      }
+    },
+    {
+      "kind": "sequential_macroscopic_acid_pka",
+      "reference_deprotonations": 0,
+      "reference_scope": "fully_protonated_carboxylic_acid_family",
+      "conditions": {
+        "T_K": 298.15,
+        "ionic_strength_M": 0.0,
+        "solvent": "water",
+        "standard_state": "solute_1M_activity",
+        "magnesium_binding": "absent"
+      },
+      "reference_smiles": "O=C(O)/C=C/C(=O)O",
+      "reference_formula": "C4H4O4",
+      "pKas": [
+        3.09627,
+        4.60327
+      ],
+      "source": {
+        "locator": "https://srd.nist.gov/jpcrdreprint/1.555878.pdf",
+        "location": "Table6, printed1057/PDF10; unprimed pKa column separated from theI=0.1pK-prime column; preferred H2O values and alternate reports discussed infootnote f.",
+        "artifact_sha256": "195f5928c90d356ba6135797306454249c4e6474938356a77bfc62c25a80b702",
+        "determination": "evaluated",
+        "parameter_scale": "molarity_activity",
+        "conversion": "pKa(c)=pKa(m)+0.00127 at298.15K from frozen NIST2002 Eq10/PDF3. Original molality values[3.095, 4.602]. Fumaric original molality scale documented in the separate IUPAC/Dahlgren source ledger; the same shift on both complete two-acid ladders cancels in their sum difference.",
+        "uncertainty": null,
+        "uncertainty_kind": "No complete parameter uncertainty/covariance admitted. Fumaric alternative literature ladders retained for sensitivity; malic pKa2 authors standard deviation of mean0.0012 but first overall uncertainty is unavailable. No claimed predictive coverage.",
+        "covariance": null,
+        "development_exposure": true
+      }
+    },
+    {
+      "kind": "sequential_macroscopic_acid_pka",
+      "reference_deprotonations": 0,
+      "reference_scope": "fully_protonated_carboxylic_acid_family",
+      "conditions": {
+        "T_K": 298.15,
+        "ionic_strength_M": 0.0,
+        "solvent": "water",
+        "standard_state": "solute_1M_activity",
+        "magnesium_binding": "absent"
+      },
+      "reference_smiles": "O=C(O)C[C@H](O)C(=O)O",
+      "reference_formula": "C4H6O5",
+      "pKas": [
+        3.45987,
+        5.09867
+      ],
+      "source": {
+        "locator": "https://nvlpubs.nist.gov/nistpubs/jres/62/jresv62n4p161_A1b.pdf",
+        "location": "Tables2and3, printed167/PDF7, visually checked fourth decimals; molality definition PDF1, I0 extrapolation PDF3and4. d,l acid constants transferred to a declared L enantiomer in achiral water at infinite dilution; enantiomer mixing entropy cancels within dissociation equilibria.",
+        "artifact_sha256": "cfeae5fc9fa1f7e689ab1a1bd64b01cdff35e686939b5083236f18f0f4bac8d9",
+        "determination": "measured",
+        "parameter_scale": "molarity_activity",
+        "conversion": "pKa(c)=pKa(m)+0.00127 at298.15K from frozen NIST2002 Eq10/PDF3. Original molality values[3.4586, 5.0974]. Fumaric original molality scale documented in the separate IUPAC/Dahlgren source ledger; the same shift on both complete two-acid ladders cancels in their sum difference.",
+        "uncertainty": null,
+        "uncertainty_kind": "No complete parameter uncertainty/covariance admitted. Fumaric alternative literature ladders retained for sensitivity; malic pKa2 authors standard deviation of mean0.0012 but first overall uncertainty is unavailable. No claimed predictive coverage.",
+        "covariance": null,
+        "development_exposure": true
+      }
+    }
+  ]
+}

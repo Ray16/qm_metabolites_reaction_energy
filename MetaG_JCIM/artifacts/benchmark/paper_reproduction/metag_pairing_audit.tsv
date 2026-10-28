@@ -1,0 +1,365 @@
+reaction	status	reason	paper_row
+rxn01211	excluded	No exact normalized paper reaction	
+rxn00973	matched_unique_paper_reaction		620
+rxn00216	matched_unique_paper_reaction		349
+rxn00695	matched_unique_paper_reaction		348
+rxn00290	matched_unique_paper_reaction		663
+rxn10427	matched_unique_paper_reaction		280
+rxn03643	excluded	Multiple paper rows share the normalized reaction	
+rxn00184	excluded	No exact normalized paper reaction	
+rxn00499	excluded	No exact normalized paper reaction	
+rxn00070	excluded	No exact normalized paper reaction	
+rxn01008	excluded	No exact normalized paper reaction	
+rxn00173	matched_unique_paper_reaction		559
+rxn01530	excluded	No exact normalized paper reaction	
+rxn00132	matched_unique_paper_reaction		337
+rxn00421	excluded	No exact normalized paper reaction	
+rxn00086	excluded	No exact normalized paper reaction	
+rxn00545	matched_unique_paper_reaction		346
+rxn04082	matched_unique_paper_reaction		514
+rxn01740	excluded	No exact normalized paper reaction	
+rxn00634	excluded	No exact normalized paper reaction	
+rxn02132	excluded	No exact normalized paper reaction	
+rxn01371	excluded	No exact normalized paper reaction	
+rxn00543	excluded	No exact normalized paper reaction	
+rxn00558	matched_unique_paper_reaction		429
+rxn00097	matched_unique_paper_reaction		278
+rxn00765	excluded	No exact normalized paper reaction	
+rxn01746	matched_unique_paper_reaction		567
+rxn01385	excluded	No exact normalized paper reaction	
+rxn01101	excluded	No exact normalized paper reaction	
+rxn01358	matched_unique_paper_reaction		617
+rxn00602	matched_unique_paper_reaction		241
+rxn00549	matched_unique_paper_reaction		409
+rxn03249	excluded	No exact normalized paper reaction	
+rxn01451	excluded	No exact normalized paper reaction	
+rxn01100	matched_unique_paper_reaction		343
+rxn01362	matched_unique_paper_reaction		637
+rxn01761	matched_unique_paper_reaction		512
+rxn00747	matched_unique_paper_reaction		438
+rxn01016	matched_unique_paper_reaction		363
+rxn00151	matched_unique_paper_reaction		378
+rxn01106	matched_unique_paper_reaction		302
+rxn01044	matched_unique_paper_reaction		457
+rxn01201	excluded	No exact normalized paper reaction	
+rxn00187	excluded	No exact normalized paper reaction	
+rxn00559	matched_unique_paper_reaction		445
+rxn02451	matched_unique_paper_reaction		272
+rxn00065	matched_unique_paper_reaction		387
+rxn00293	excluded	No exact normalized paper reaction	
+rxn00577	matched_unique_paper_reaction		664
+rxn51768	matched_unique_paper_reaction		375
+rxn00191	excluded	No exact normalized paper reaction	
+rxn00636	matched_unique_paper_reaction		446
+rxn00396	excluded	No exact normalized paper reaction	
+rxn01548	matched_unique_paper_reaction		613
+rxn00992	excluded	No exact normalized paper reaction	
+rxn00280	excluded	No exact normalized paper reaction	
+rxn00629	excluded	No exact normalized paper reaction	
+rxn00402	excluded	No exact normalized paper reaction	
+rxn00283	excluded	No exact normalized paper reaction	
+rxn00077	excluded	No exact normalized paper reaction	
+rxn01620	matched_unique_paper_reaction		489
+rxn00336	matched_unique_paper_reaction		621
+rxn00799	matched_unique_paper_reaction		601
+rxn01646	matched_unique_paper_reaction		636
+rxn00141	excluded	No exact normalized paper reaction	
+rxn00223	matched_unique_paper_reaction		431
+rxn01204	excluded	No exact normalized paper reaction	
+rxn31240	matched_unique_paper_reaction		568
+rxn00182	excluded	No exact normalized paper reaction	
+rxn01407	excluded	No exact normalized paper reaction	
+rxn02320	excluded	No exact normalized paper reaction	
+rxn00552	excluded	No exact normalized paper reaction	
+rxn00800	matched_unique_paper_reaction		565
+rxn00117	matched_unique_paper_reaction		359
+rxn01157	excluded	No exact normalized paper reaction	
+rxn08430	matched_unique_paper_reaction		416
+rxn04945	excluded	No exact normalized paper reaction	
+rxn00686	excluded	No exact normalized paper reaction	
+rxn00415	excluded	No exact normalized paper reaction	
+rxn02914	excluded	No exact normalized paper reaction	
+rxn00278	excluded	No exact normalized paper reaction	
+rxn00927	matched_unique_paper_reaction		562
+rxn00213	matched_unique_paper_reaction		548
+rxn01249	excluded	No exact normalized paper reaction	
+rxn01322	matched_unique_paper_reaction		529
+rxn02459	excluded	No exact normalized paper reaction	
+rxn00260	excluded	No exact normalized paper reaction	
+rxn02756	matched_unique_paper_reaction		298
+rxn01423	excluded	No exact normalized paper reaction	
+rxn00704	matched_unique_paper_reaction		266
+rxn39443	excluded	No exact normalized paper reaction	
+rxn01043	excluded	No exact normalized paper reaction	
+rxn00171	excluded	No exact normalized paper reaction	
+rxn00770	matched_unique_paper_reaction		350
+rxn00248	excluded	No exact normalized paper reaction	
+rxn00546	excluded	No exact normalized paper reaction	
+rxn00347	excluded	No exact normalized paper reaction	
+rxn00802	excluded	No exact normalized paper reaction	
+rxn00131	matched_unique_paper_reaction		336
+rxn00604	excluded	No exact normalized paper reaction	
+rxn01368	excluded	No exact normalized paper reaction	
+rxn02975	matched_unique_paper_reaction		389
+rxn00692	excluded	No exact normalized paper reaction	
+rxn01333	matched_unique_paper_reaction		659
+rxn00810	excluded	No exact normalized paper reaction	
+rxn00579	matched_unique_paper_reaction		544
+rxn00806	excluded	No exact normalized paper reaction	
+rxn02749	matched_unique_paper_reaction		232
+rxn01277	excluded	No exact normalized paper reaction	
+rxn00083	excluded	No exact normalized paper reaction	
+rxn01479	excluded	No exact normalized paper reaction	
+rxn02842	excluded	No exact normalized paper reaction	
+rxn00786	matched_unique_paper_reaction		411
+rxn01506	matched_unique_paper_reaction		525
+rxn00328	matched_unique_paper_reaction		314
+rxn02202	excluded	No exact normalized paper reaction	
+rxn01465	matched_unique_paper_reaction		250
+rxn00364	matched_unique_paper_reaction		345
+rxn02930	excluded	No exact normalized paper reaction	
+rxn00816	matched_unique_paper_reaction		626
+rxn00824	excluded	No exact normalized paper reaction	
+rxn01366	matched_unique_paper_reaction		668
+rxn00990	matched_unique_paper_reaction		555
+rxn00778	matched_unique_paper_reaction		450
+rxn01491	matched_unique_paper_reaction		408
+rxn00906	excluded	No exact normalized paper reaction	
+rxn00974	matched_unique_paper_reaction		583
+rxn00836	excluded	Multiple paper rows share the normalized reaction	
+rxn02263	matched_unique_paper_reaction		488
+rxn00753	matched_unique_paper_reaction		557
+rxn00331	matched_unique_paper_reaction		244
+rxn00777	matched_unique_paper_reaction		451
+rxn01790	excluded	No exact normalized paper reaction	
+rxn00214	excluded	No exact normalized paper reaction	
+rxn00831	matched_unique_paper_reaction		466
+rxn00220	matched_unique_paper_reaction		426
+rxn00459	matched_unique_paper_reaction		303
+rxn00907	excluded	No exact normalized paper reaction	
+rxn15964	excluded	No exact normalized paper reaction	
+rxn00746	matched_unique_paper_reaction		594
+rxn01116	matched_unique_paper_reaction		453
+rxn00175	matched_unique_paper_reaction		361
+rxn02625	excluded	No exact normalized paper reaction	
+rxn01626	matched_unique_paper_reaction		325
+rxn00265	matched_unique_paper_reaction		582
+rxn01745	matched_unique_paper_reaction		239
+rxn01383	excluded	No exact normalized paper reaction	
+rxn00007	matched_unique_paper_reaction		262
+rxn01870	matched_unique_paper_reaction		413
+rxn15750	matched_unique_paper_reaction		301
+rxn01617	excluded	No exact normalized paper reaction	
+rxn01075	excluded	No exact normalized paper reaction	
+rxn01388	matched_unique_paper_reaction		619
+rxn01011	excluded	No exact normalized paper reaction	
+rxn00250	matched_unique_paper_reaction		377
+rxn00909	excluded	No exact normalized paper reaction	
+rxn01280	excluded	No exact normalized paper reaction	
+rxn01265	excluded	No exact normalized paper reaction	
+rxn00838	excluded	No exact normalized paper reaction	
+rxn00754	matched_unique_paper_reaction		560
+rxn00379	excluded	Multiple paper rows share the normalized reaction	
+rxn01638	matched_unique_paper_reaction		472
+rxn00915	matched_unique_paper_reaction		612
+rxn00139	excluded	Multiple paper rows share the normalized reaction	
+rxn00321	excluded	No exact normalized paper reaction	
+rxn00178	matched_unique_paper_reaction		279
+rxn53944	excluded	No exact normalized paper reaction	
+rxn01259	matched_unique_paper_reaction		622
+rxn03876	matched_unique_paper_reaction		585
+rxn01847	excluded	No exact normalized paper reaction	
+rxn01005	matched_unique_paper_reaction		275
+rxn00784	matched_unique_paper_reaction		293
+rxn00189	excluded	No exact normalized paper reaction	
+rxn45677	excluded	No exact normalized paper reaction	
+rxn02591	matched_unique_paper_reaction		332
+rxn01532	matched_unique_paper_reaction		566
+rxn00422	excluded	No exact normalized paper reaction	
+rxn00148	excluded	Multiple paper rows share the normalized reaction	
+rxn02782	matched_unique_paper_reaction		288
+rxn01138	matched_unique_paper_reaction		564
+rxn03250	matched_unique_paper_reaction		230
+rxn02168	matched_unique_paper_reaction		227
+rxn40442	excluded	No exact normalized paper reaction	
+rxn02167	matched_unique_paper_reaction		229
+rxn00849	excluded	No exact normalized paper reaction	
+rxn04943	excluded	No exact normalized paper reaction	
+rxn01447	excluded	No exact normalized paper reaction	
+rxn01505	excluded	No exact normalized paper reaction	
+rxn01258	matched_unique_paper_reaction		580
+rxn01117	matched_unique_paper_reaction		401
+rxn00867	excluded	No exact normalized paper reaction	
+rxn02066	excluded	No exact normalized paper reaction	
+rxn19090	excluded	No exact normalized paper reaction	
+rxn01726	excluded	No exact normalized paper reaction	
+rxn01253	excluded	No exact normalized paper reaction	
+rxn01386	matched_unique_paper_reaction		439
+rxn00781	excluded	No exact normalized paper reaction	
+rxn00500	excluded	No exact normalized paper reaction	
+rxn00741	excluded	No exact normalized paper reaction	
+rxn44278	matched_unique_paper_reaction		448
+rxn02204	matched_unique_paper_reaction		635
+rxn01130	excluded	No exact normalized paper reaction	
+rxn01392	excluded	No exact normalized paper reaction	
+rxn01302	excluded	No exact normalized paper reaction	
+rxn00022	matched_unique_paper_reaction		630
+rxn00510	excluded	No exact normalized paper reaction	
+rxn00512	excluded	No exact normalized paper reaction	
+rxn00473	excluded	No exact normalized paper reaction	
+rxn01306	excluded	No exact normalized paper reaction	
+rxn00817	matched_unique_paper_reaction		268
+rxn03886	excluded	No exact normalized paper reaction	
+rxn00762	excluded	No exact normalized paper reaction	
+rxn01682	matched_unique_paper_reaction		436
+rxn00562	matched_unique_paper_reaction		222
+rxn01054	matched_unique_paper_reaction		254
+rxn08948	matched_unique_paper_reaction		444
+rxn01329	matched_unique_paper_reaction		443
+rxn00172	matched_unique_paper_reaction		394
+rxn00930	excluded	No exact normalized paper reaction	
+rxn00699	matched_unique_paper_reaction		628
+rxn39373	excluded	No exact normalized paper reaction	
+rxn00462	excluded	MetaG estimate withheld or absent	
+rxn01485	excluded	No exact normalized paper reaction	
+rxn00225	matched_unique_paper_reaction		362
+rxn00495	excluded	No exact normalized paper reaction	
+rxn01241	excluded	No exact normalized paper reaction	
+rxn01099	matched_unique_paper_reaction		234
+rxn05026	matched_unique_paper_reaction		263
+rxn03840	excluded	No exact normalized paper reaction	
+rxn00302	excluded	No exact normalized paper reaction	
+rxn00239	matched_unique_paper_reaction		352
+rxn00611	excluded	No exact normalized paper reaction	
+rxn12158	matched_unique_paper_reaction		333
+rxn00702	matched_unique_paper_reaction		391
+rxn14063	excluded	No exact normalized paper reaction	
+rxn02651	excluded	No exact normalized paper reaction	
+rxn01597	excluded	No exact normalized paper reaction	
+rxn01293	excluded	No exact normalized paper reaction	
+rxn01513	matched_unique_paper_reaction		368
+rxn01410	matched_unique_paper_reaction		486
+rxn01996	matched_unique_paper_reaction		240
+rxn00285	matched_unique_paper_reaction		381
+rxn00423	excluded	No exact normalized paper reaction	
+rxn15726	excluded	No exact normalized paper reaction	
+rxn00697	matched_unique_paper_reaction		335
+rxn01361	excluded	No exact normalized paper reaction	
+rxn00234	matched_unique_paper_reaction		246
+rxn03884	matched_unique_paper_reaction		329
+rxn00798	matched_unique_paper_reaction		452
+rxn01702	matched_unique_paper_reaction		657
+rxn01137	excluded	No exact normalized paper reaction	
+rxn00237	matched_unique_paper_reaction		351
+rxn00001	matched_unique_paper_reaction		652
+rxn01380	excluded	No exact normalized paper reaction	
+rxn00217	excluded	No exact normalized paper reaction	
+rxn02322	matched_unique_paper_reaction		340
+rxn00062	matched_unique_paper_reaction		353
+rxn00193	excluded	No exact normalized paper reaction	
+rxn36656	excluded	No exact normalized paper reaction	
+rxn01846	excluded	No exact normalized paper reaction	
+rxn00515	matched_unique_paper_reaction		371
+rxn01292	matched_unique_paper_reaction		480
+rxn00147	matched_unique_paper_reaction		376
+rxn00337	excluded	No exact normalized paper reaction	
+rxn15055	excluded	No exact normalized paper reaction	
+rxn00690	excluded	No exact normalized paper reaction	
+rxn00987	excluded	No exact normalized paper reaction	
+rxn01336	excluded	No exact normalized paper reaction	
+rxn02360	excluded	No exact normalized paper reaction	
+rxn11139	matched_unique_paper_reaction		631
+rxn02685	excluded	No exact normalized paper reaction	
+rxn04785	excluded	No exact normalized paper reaction	
+rxn16378	excluded	No exact normalized paper reaction	
+rxn52014	excluded	No exact normalized paper reaction	
+rxn00698	matched_unique_paper_reaction		575
+rxn00306	matched_unique_paper_reaction		465
+rxn00105	excluded	No exact normalized paper reaction	
+rxn14104	matched_unique_paper_reaction		334
+rxn00551	matched_unique_paper_reaction		651
+rxn03087	excluded	No exact normalized paper reaction	
+rxn01004	excluded	Reaction cancels under normalization	
+rxn00195	excluded	No exact normalized paper reaction	
+rxn01409	matched_unique_paper_reaction		640
+rxn02527	excluded	No exact normalized paper reaction	
+rxn00631	excluded	No exact normalized paper reaction	
+rxn00785	matched_unique_paper_reaction		415
+rxn01985	matched_unique_paper_reaction		284
+rxn01200	matched_unique_paper_reaction		660
+rxn00656	excluded	No exact normalized paper reaction	
+rxn04684	excluded	No exact normalized paper reaction	
+rxn01834	excluded	No exact normalized paper reaction	
+rxn01174	excluded	No exact normalized paper reaction	
+rxn12188	matched_unique_paper_reaction		412
+rxn01974	excluded	No exact normalized paper reaction	
+rxn00100	matched_unique_paper_reaction		342
+rxn00326	excluded	No exact normalized paper reaction	
+rxn00420	excluded	No exact normalized paper reaction	
+rxn01434	excluded	No exact normalized paper reaction	
+rxn00783	matched_unique_paper_reaction		290
+rxn03644	matched_unique_paper_reaction		399
+rxn02085	excluded	No exact normalized paper reaction	
+rxn53440	excluded	No exact normalized paper reaction	
+rxn01713	matched_unique_paper_reaction		546
+rxn00257	matched_unique_paper_reaction		364
+rxn01152	matched_unique_paper_reaction		403
+rxn01999	excluded	No exact normalized paper reaction	
+rxn01018	excluded	No exact normalized paper reaction	
+rxn01219	matched_unique_paper_reaction		366
+rxn01636	excluded	No exact normalized paper reaction	
+rxn01725	excluded	No exact normalized paper reaction	
+rxn01457	excluded	No exact normalized paper reaction	
+rxn01080	matched_unique_paper_reaction		433
+rxn01643	excluded	No exact normalized paper reaction	
+rxn00541	excluded	No exact normalized paper reaction	
+rxn02902	excluded	No exact normalized paper reaction	
+rxn02305	excluded	No exact normalized paper reaction	
+rxn01780	excluded	No exact normalized paper reaction	
+rxn02213	matched_unique_paper_reaction		306
+rxn00527	excluded	No exact normalized paper reaction	
+rxn00493	excluded	No exact normalized paper reaction	
+rxn02900	excluded	No exact normalized paper reaction	
+rxn08066	matched_unique_paper_reaction		460
+rxn00320	excluded	No exact normalized paper reaction	
+rxn00514	matched_unique_paper_reaction		468
+rxn00643	matched_unique_paper_reaction		458
+rxn02622	matched_unique_paper_reaction		245
+rxn49067	excluded	No exact normalized paper reaction	
+rxn01363	excluded	No exact normalized paper reaction	
+rxn02095	excluded	No exact normalized paper reaction	
+rxn01299	matched_unique_paper_reaction		616
+rxn00256	matched_unique_paper_reaction		638
+rxn00897	matched_unique_paper_reaction		526
+rxn01621	matched_unique_paper_reaction		513
+rxn00830	matched_unique_paper_reaction		623
+rxn01792	excluded	No exact normalized paper reaction	
+rxn01509	matched_unique_paper_reaction		367
+rxn00266	excluded	Reaction cancels under normalization	
+rxn00404	excluded	No exact normalized paper reaction	
+rxn00931	excluded	No exact normalized paper reaction	
+rxn01887	excluded	No exact normalized paper reaction	
+rxn02887	excluded	No exact normalized paper reaction	
+rxn00603	excluded	No exact normalized paper reaction	
+rxn01480	excluded	No exact normalized paper reaction	
+rxn00804	excluded	No exact normalized paper reaction	
+rxn00157	matched_unique_paper_reaction		558
+rxn01301	excluded	No exact normalized paper reaction	
+rxn01692	excluded	No exact normalized paper reaction	
+rxn00911	excluded	No exact normalized paper reaction	
+rxn00700	excluded	No exact normalized paper reaction	
+rxn00641	matched_unique_paper_reaction		462
+rxn16141	excluded	No exact normalized paper reaction	
+rxn54659	excluded	No exact normalized paper reaction	
+rxn01022	matched_unique_paper_reaction		317
+rxn00630	excluded	No exact normalized paper reaction	
+rxn00674	matched_unique_paper_reaction		374
+rxn01019	excluded	No exact normalized paper reaction	
+rxn01579	excluded	No exact normalized paper reaction	
+rxn03281	excluded	No exact normalized paper reaction	
+rxn00276	excluded	No exact normalized paper reaction	
+rxn00605	matched_unique_paper_reaction		542
+rxn04932	excluded	No exact normalized paper reaction	
+rxn02403	excluded	No exact normalized paper reaction	
+rxn12217	excluded	No exact normalized paper reaction	
+rxn03137	excluded	No exact normalized paper reaction	

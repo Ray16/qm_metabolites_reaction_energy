@@ -1,0 +1,13 @@
+method	regime	subset	n_input	n_predicted	n_strict_reference	n_scored	MAE_kJ	median_absolute_error_kJ	RMSE_kJ	scope
+MetaG_cached_FD	development; historical FD cache replay	method_coverage	364	358	8	6	4.200495441103424	3.9862629618278564	5.466445879537485	descriptive; not matched held-out evaluation
+MetaG_cached_FD	development; historical FD cache replay	common_set	364	358	8	6	4.200495441103424	3.9862629618278564	5.466445879537485	descriptive; not matched held-out evaluation
+dGbyG_published	published ensemble; not held-out	method_coverage	364	364	8	0				descriptive; not matched held-out evaluation
+dGbyG_published	published ensemble; not held-out	common_set	364	364	8	0				descriptive; not matched held-out evaluation
+dGbyG_eQ_bridge	published ensemble; not held-out	method_coverage	364	364	8	8	12.502328486705677	3.372297846450782	21.867242010558346	descriptive; not matched held-out evaluation
+dGbyG_eQ_bridge	published ensemble; not held-out	common_set	364	364	8	6	2.2571367617398175	2.317973075464201	2.7548745264936643	descriptive; not matched held-out evaluation
+eQuilibrator_CC	pretrained; potential training overlap	method_coverage	364	364	8	8	1.210159493448868	1.3014245669392377	1.3854671693801062	descriptive; not matched held-out evaluation
+eQuilibrator_CC	pretrained; potential training overlap	common_set	364	364	8	6	1.3540099533924908	1.3691580691736416	1.4951570470975817	descriptive; not matched held-out evaluation
+eQuilibrator_GC_only	pretrained; potential training overlap	method_coverage	364	322	8	8	1.8557720035978154	1.1801916226339428	3.086948517070599	descriptive; not matched held-out evaluation
+eQuilibrator_GC_only	pretrained; potential training overlap	common_set	364	322	8	6	1.1466169203560952	1.1801916226339428	1.494651615247507	descriptive; not matched held-out evaluation
+dGPredictor_published	published weights; potential training overlap	method_coverage	364	348	8	8	2.0837078205199098	1.8782249098532395	2.5121607018057714	descriptive; not matched held-out evaluation
+dGPredictor_published	published weights; potential training overlap	common_set	364	348	8	6	2.0351565121219624	1.8782249098532395	2.5117787471070536	descriptive; not matched held-out evaluation

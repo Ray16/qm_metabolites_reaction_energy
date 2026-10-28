@@ -1,0 +1,2 @@
+[console_scripts]
+metag = metag.cli:main
